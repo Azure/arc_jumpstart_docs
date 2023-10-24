@@ -72,7 +72,7 @@ HCIBox also includes a dedicated Windows Admin Center (WAC) gateway server. The 
 
   ![Screenshot showing cluster detail](./wac_cluster_added_detail.png)
 
-- If you followed the steps to [deploy a VM from Azure portal](https://azurearcjumpstart.io/azure_jumpstart_hcibox/RB/_index.md), click on the Virtual Machines.
+- If you followed the steps to [deploy a VM from Azure portal](/azure_jumpstart_hcibox/RB/_index.md), click on the Virtual Machines.
 
   ![Screenshot showing the VM we created earlier](./wac_virtual_machine.png)
 

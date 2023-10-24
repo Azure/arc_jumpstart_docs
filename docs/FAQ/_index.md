@@ -11,7 +11,7 @@ weight: 8
 
 ### Can I contribute to the Jumpstart?
 
-Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart Scenario Write-up Guidelines](https://azurearcjumpstart.io/scenario_guidelines/) and our [Code of Conduct](https://azurearcjumpstart.io/code_of_conduct/).
+Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart Scenario Write-up Guidelines](/scenario_guidelines/) and our [Code of Conduct](/code_of_conduct/).
 
 ## Jumpstart ArcBox
 
@@ -44,10 +44,10 @@ ArcBox can be deployed to the following regions:
 
 ArcBox offers three different configurations, or "flavors", that allow the user to choose their own experience.
 
-- [ArcBox "Full"](https://azurearcjumpstart.io/azure_jumpstart_arcbox/Full) - The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
-- [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro) - This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.
-- [ArcBox for DevOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DevOps) - This essential Azure Arc-enabled Kubernetes sandbox with the included capabilities such as GitOps, Open Service Mesh (OSM), secretes management, monitoring, and more.
-- [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps) - This essential Azure Arc-enabled SQL Managed Instance sandbox with the included capabilities such as AD authentication, disaster recovery, point-in-time restore, migration, and more.
+- [ArcBox "Full"](/azure_jumpstart_arcbox/Full) - The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
+- [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro) - This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.
+- [ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps) - This essential Azure Arc-enabled Kubernetes sandbox with the included capabilities such as GitOps, Open Service Mesh (OSM), secretes management, monitoring, and more.
+- [ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps) - This essential Azure Arc-enabled SQL Managed Instance sandbox with the included capabilities such as AD authentication, disaster recovery, point-in-time restore, migration, and more.
 
 ### What are the costs for using ArcBox?
 
@@ -62,10 +62,10 @@ ArcBox incurs normal Azure consumption charges for various Azure resources such 
 
 Each ArcBox flavor has a troubleshooting section of its documentation that you can review for common issues:
 
-- [Troubleshooting ArcBox Full](https://azurearcjumpstart.io/azure_jumpstart_arcbox/full/#basic-troubleshooting)
-- [Troubleshooting ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DevOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox Full](/azure_jumpstart_arcbox/full/#basic-troubleshooting)
+- [Troubleshooting ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
 
 If you're still stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on our GitHub repository and the Jumpstart team will try to assist you.
 

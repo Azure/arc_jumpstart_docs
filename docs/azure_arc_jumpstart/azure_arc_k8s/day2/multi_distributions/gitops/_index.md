@@ -16,8 +16,8 @@ The following Jumpstart scenario will guide you how to use GitOps [GitOps for Az
 
   > **NOTE: This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios:**
 
-- [Deploy EKS cluster and connect it to Azure Arc using Terraform](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
-- [Deploy GKE cluster and connect it to Azure Arc using Terraform](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
+- [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
+- [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
   > **NOTE: This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open source or Calico Cloud:**
 
@@ -135,5 +135,5 @@ Complete the following steps to clean up your environment.
 
 - You can use follow these Jumpstart scenarios below for deleting the clusters:
 
-  - [Deploy EKS cluster and connect it to Azure Arc using Terraform](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
-  - [Deploy GKE cluster and connect it to Azure Arc using Terraform](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
+  - [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
+  - [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)

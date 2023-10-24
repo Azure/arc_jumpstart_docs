@@ -46,12 +46,12 @@ weight: 6
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Monitoring Azure Arc-enabled servers with Datadog](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog/)
+- [New scenario: Monitoring Azure Arc-enabled servers with Datadog](/azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog/)
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_single_akri/)
-- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full_akri/)
+- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_single_akri/)
+- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full_akri/)
 - [Enhancement: ARO scenario should use securestring for SPN credential secret #2058](https://github.com/microsoft/azure_arc/issues/2058)
 - [Bug: update link to deployment folder in AKS Edge Essentials multi-node deployment tutorial #2030](https://github.com/microsoft/azure_arc/issues/2030)
 - [Bug: CAPI Vanilla scenario failing #2041](https://github.com/microsoft/azure_arc/issues/2041)
@@ -69,7 +69,7 @@ weight: 6
 #### Release highlights
 
 - Announcing [Jumpstart Agora](https://aka.ms/AgoraReleaseBlog)!
-- [Philosophy and design principals update](https://azurearcjumpstart.io/#our-philosophy-and-core-design-principals)
+- [Philosophy and design principals update](/#our-philosophy-and-core-design-principals)
 - Scenarios enhancements and bug fixes:
   - Azure Arc-enabled Kubernetes
 - ArcBox bug fixes
@@ -149,7 +149,7 @@ No updates this release.
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: AKS Edge Essentials multi-node deployment with Azure Arc using Azure Bicep](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full/)
+- [New scenario: AKS Edge Essentials multi-node deployment with Azure Arc using Azure Bicep](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -173,8 +173,8 @@ No updates this release.
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Create Automanage Machine Configuration custom configurations for Windows](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows/)
-- [New scenario: Create Automanage Machine Configuration custom configurations for Linux](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux/)
+- [New scenario: Create Automanage Machine Configuration custom configurations for Windows](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows/)
+- [New scenario: Create Automanage Machine Configuration custom configurations for Linux](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -208,8 +208,8 @@ No updates this release.
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Enable Azure Automanage custom profiles on an Azure Arc-enabled servers using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles/)
-- [Updated scenario: Enable Azure Automanage built-in profiles on an Azure Arc-enabled servers using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles/)
+- [New scenario: Enable Azure Automanage custom profiles on an Azure Arc-enabled servers using an ARM Template](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles/)
+- [Updated scenario: Enable Azure Automanage built-in profiles on an Azure Arc-enabled servers using an ARM Template](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -295,11 +295,11 @@ No updates this release.
 
 #### Azure Arc-enabled SQL Server
 
-- [Updated scenario: Integrate Microsoft Defender for SQL servers with Azure Arc-enabled SQL Server (on Windows) using Hyper-V nested virtualization and ARM templates](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_sqlsrv/azure/azure_arm_template_sqlsrv_winsrv_defender/)
+- [Updated scenario: Integrate Microsoft Defender for SQL servers with Azure Arc-enabled SQL Server (on Windows) using Hyper-V nested virtualization and ARM templates](/azure_arc_jumpstart/azure_arc_sqlsrv/azure/azure_arm_template_sqlsrv_winsrv_defender/)
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: Deploy an AKS Edge Essentials in Azure Windows Server VM, and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials/)
+- [New scenario: Deploy an AKS Edge Essentials in Azure Windows Server VM, and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using an ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials/)
 - [Feature: January Kubernetes-related version bump #1611](https://github.com/microsoft/azure_arc/issues/1611)
 - [Bug: Getting error while installing Azure Key Vault Secrets Provider extension on HCI Arc enabled Cluster #1587](https://github.com/microsoft/azure_arc/issues/1587)
 
@@ -310,7 +310,7 @@ No updates this release.
 
 #### Azure Arc-enabled app services
 
-- [New scenario: Deploy Azure Container Apps on AKS using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template/)
+- [New scenario: Deploy Azure Container Apps on AKS using an ARM Template](/azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template/)
 - [Feature: January Kubernetes-related version bump #1611](https://github.com/microsoft/azure_arc/issues/1611)
 
 #### Jumpstart ArcBox
