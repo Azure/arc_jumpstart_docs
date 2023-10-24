@@ -218,7 +218,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
   
-    > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
+    > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
 
 ## Deployment Option 2: ARM template with Azure CLI
 
@@ -255,7 +255,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing az deployment group create](./az_deploy.png)
   
-  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
+  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
 
 ## Deployment Option 3: Azure Bicep deployment via Azure CLI
 
@@ -292,7 +292,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
   
-  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
+  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
 
 ## Deployment Option 4: HashiCorp Terraform Deployment
 
@@ -354,7 +354,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![terraform plan](./terraform_apply.png)
   
-  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
+  > **NOTE: The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).**
 
 ## Start post-deployment automation
 
@@ -368,8 +368,8 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
-- [RDP](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps/#connect-using-just-in-time-accessjit).
-- [Azure Bastion](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](/azure_jumpstart_arcbox/DataOps/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](/azure_jumpstart_arcbox/DataOps/#connect-using-just-in-time-accessjit).
+- [Azure Bastion](/azure_jumpstart_arcbox/DataOps/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -754,7 +754,7 @@ Initiate the backup restore process
 
 ### ArcBox Azure Monitor workbook
 
-Open the [ArcBox Azure Monitor workbook documentation](https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 
@@ -884,7 +884,7 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuCAPIDepl
 
     ![Screenshot showing ArcBox-CAPI-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
 
-    > **NOTE: Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps/#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.**
+    > **NOTE: Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](/azure_jumpstart_arcbox/DataOps/#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.**
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
   - _ArcBox-CAPI-MGMT_ log path: _jumpstart_logs/installCAPI.log_
