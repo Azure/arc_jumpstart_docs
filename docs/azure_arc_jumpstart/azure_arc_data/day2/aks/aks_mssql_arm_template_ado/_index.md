@@ -14,7 +14,7 @@ By the end of this scenario, you will have an Azure DevOps Release pipeline to d
 
 > **NOTE: Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes)**.
 
-> **NOTE: The following scenario is focusing the Azure DevOps Release pipeline creation. Once the pipeline has been created and the environment deployment has finished, the automation flow and next steps are as [described on in the main bootstrap scenario](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/)**
+> **NOTE: The following scenario is focusing the Azure DevOps Release pipeline creation. Once the pipeline has been created and the environment deployment has finished, the automation flow and next steps are as [described on in the main bootstrap scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/)**
 
 ## Prerequisites
 
@@ -195,4 +195,4 @@ In this scenario, you will create a new Release pipeline to deploy the environme
 
     ![Screenshot of Azure resources](./28.jpg)
 
-- As mentioned, this scenario is focusing on the Azure DevOps Release pipeline creation. At this point, now that you have the Azure resources created, continue to the next steps as [described on in the main bootstrap scenario](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/#windows-login--post-deployment).
+- As mentioned, this scenario is focusing on the Azure DevOps Release pipeline creation. At this point, now that you have the Azure resources created, continue to the next steps as [described on in the main bootstrap scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/#windows-login--post-deployment).

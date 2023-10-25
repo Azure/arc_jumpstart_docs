@@ -20,22 +20,22 @@ ArcBox is a solution that provides an easy to deploy sandbox for all things Azur
 
 ArcBox comes in multiple "flavors", or configurations, which can be selected to best suit your needs. Currently, the available flavors are:
 
-- [ArcBox "Full"](https://azurearcjumpstart.io/azure_jumpstart_arcbox/Full)
+- [ArcBox "Full"](/azure_jumpstart_arcbox/Full)
     The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
 
     ![ArcBox architecture diagram](./arch_full.png)
 
-- [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro)
+- [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro)
     This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.
 
     ![ArcBox for IT Pros architecture diagram](./arch_itpro.png)
 
-- [ArcBox for DevOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DevOps)
+- [ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps)
     This essential Azure Arc-enabled Kubernetes sandbox with the included capabilities such as GitOps, Open Service Mesh (OSM), secrets management, monitoring, and more.
 
     ![ArcBox for DevOps architecture diagram](./arch_devops.png)
 
-- [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/DataOps)
+- [ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps)
     This essential Azure Arc-enabled SQL Managed Instance sandbox with the included capabilities such as Active Directory authentication, point-in-time restore, high availability, disaster recovery, and more.
 
     ![ArcBox for DevOps architecture diagram](./arch_dataops.png)

@@ -19,16 +19,16 @@ in this scenario, you will enable and configure Azure Sentinel on your Azure sub
 
 > **NOTE: This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion:**
 
-- **[GCP Ubuntu instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
+- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
 
 ## Prerequisites
 
@@ -128,11 +128,11 @@ There are connectors for Microsoft services, third party solutions from the Secu
 
 For servers and VMs, you can install the Microsoft Monitoring Agent (MMA) agent or the Sentinel agent which collects the logs and forwards them to Microsoft Sentinel. You can deploy the agent in multiple ways by leveraging Azure Arc:
 
-- Using **[Extension Management](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/)**
+- Using **[Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/)**
 
 This feature in Azure Arc-enabled servers allows you to deploy the MMA agent VM extensions to a non-Azure Windows and/or Linux VMs. You can use the Azure Portal, Azure CLI, an ARM template as well as PowerShell script to manage extension deployment to Azure Arc-enabled servers.
 
-- Setting up **[Azure Policies](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/)**
+- Setting up **[Azure Policies](/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/)**
 
 Using this approach, you will assign an Azure Policy to audit if the Azure Arc-enabled Server has the MMA agent installed. If the agent is not installed, you will use the Extensions feature to automatically deploy it to the VM using a Remediation task, an enrollment experience that compares to Azure VMs.
 
@@ -142,16 +142,16 @@ Complete the following steps to clean up your environment.
 
 - Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-- **[GCP Ubuntu instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
+- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
 
 - Remove the Log Analytics workspace by executing the following script in AZ CLI. Provide the workspace name you used when creating the Log Analytics Workspace.
 

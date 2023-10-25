@@ -83,7 +83,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
    ![Screenshot showing the PoS application before the checkout feature](./img/pos_before_checkout_feature.png)
 
-- Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/deployment/#connecting-to-the-agora-client-virtual-machine).
+- Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](/azure_jumpstart_ag/contoso_supermarket/deployment/#connecting-to-the-agora-client-virtual-machine).
 
 - Open VSCode from the desktop shortcut.
 
@@ -235,4 +235,4 @@ The development process will start from the local _dev_ cluster, where as a deve
 
 ## Next steps
 
-It is now time to move on to the next Contoso Supermarket scenario and learn how to experiment with [infrastructure observability for Kubernetes and Arc-enabled Kubernetes](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/k8s_infra_observability/).
+It is now time to move on to the next Contoso Supermarket scenario and learn how to experiment with [infrastructure observability for Kubernetes and Arc-enabled Kubernetes](/azure_jumpstart_ag/contoso_supermarket/k8s_infra_observability/).

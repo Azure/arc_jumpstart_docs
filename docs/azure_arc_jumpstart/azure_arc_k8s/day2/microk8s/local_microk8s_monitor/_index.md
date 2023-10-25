@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to onboard an microK8s cl
 
 in this scenario, you will hook the microK8s cluster to Azure Monitor by deploying the [Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
 
-> **NOTE: This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).**
+> **NOTE: This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).**
 
 ## Prerequisites
 

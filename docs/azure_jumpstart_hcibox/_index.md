@@ -214,7 +214,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
 
   ![Screenshot showing azd up](./azd_up.png)
 
-- Once complete, continue on in the section [Start post-deployment automation](https://azurearcjumpstart.io/azure_jumpstart_hcibox/#start-post-deployment-automation)
+- Once complete, continue on in the section [Start post-deployment automation](/azure_jumpstart_hcibox/#start-post-deployment-automation)
 
 ## Bicep deployment via Azure CLI
 
@@ -259,8 +259,8 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 Various options are available to connect to _HCIBox-Client_ VM, depending on the parameters you supplied during deployment.
 
-- [RDP](https://azurearcjumpstart.io/azure_jumpstart_hcibox/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _HCIBox-NSG_, or by enabling [Just-in-Time access (JIT)](https://azurearcjumpstart.io/azure_jumpstart_hcibox/#connect-using-just-in-time-accessjit).
-- [Azure Bastion](https://azurearcjumpstart.io/azure_jumpstart_hcibox/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](/azure_jumpstart_hcibox/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _HCIBox-NSG_, or by enabling [Just-in-Time access (JIT)](/azure_jumpstart_hcibox/#connect-using-just-in-time-accessjit).
+- [Azure Bastion](/azure_jumpstart_hcibox/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -370,13 +370,13 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 
 ### VM provisioning through Azure portal with Arc Resource Bridge
 
-Azure Stack HCI supports [VM provisioning through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](https://azurearcjumpstart.io/azure_jumpstart_hcibox/RB/) to get started.
+Azure Stack HCI supports [VM provisioning through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 
 ### Windows Admin Center
 
-HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Windows Admin Center can also be used from the Azure portal. Open the [HCIBox Windows Admin Center documentation](https://azurearcjumpstart.io/azure_jumpstart_hcibox/WAC/) to get started.
+HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Windows Admin Center can also be used from the Azure portal. Open the [HCIBox Windows Admin Center documentation](/azure_jumpstart_hcibox/WAC/) to get started.
 
 ![Screenshot showing Windows Admin Center](./wac_portal.png)
 
@@ -384,13 +384,13 @@ HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Win
 
 ### Azure Kubernetes Service
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](https://azurearcjumpstart.io/azure_jumpstart_hcibox/AKS/) to get started with AKS-HCI in HCIBox.
+HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to get started with AKS-HCI in HCIBox.
 
 ![Screenshot showing AKS on Azure Stack HCI](./aks_portal.png)
 
 ### Azure Arc-enabled SQL Managed Instance
 
-HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) on an AKS HCI cluster. Open the [HCIBox SQLMI documentation](https://azurearcjumpstart.io/azure_jumpstart_hcibox/SQLMI/) to get started with Azure Arc-enabled SQL Managed Instance in HCIBox.
+HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) on an AKS HCI cluster. Open the [HCIBox SQLMI documentation](/azure_jumpstart_hcibox/SQLMI/) to get started with Azure Arc-enabled SQL Managed Instance in HCIBox.
 
 ![Screenshot showing SQLMI on Azure Stack HCI](./sqlmi_portal.png)
 

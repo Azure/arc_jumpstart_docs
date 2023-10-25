@@ -14,7 +14,7 @@ While the use of custom configurations in Automanage Machine Configuration featu
 
 By the end of this scenario, you will have Windows Azure Arc-enabled servers with a custom Automanage Machine Configuration assigned.
 
-This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
+This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/itpro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
 
 ![Screenshot of Azure Portal showing Azure Arc-enabled servers](./01.png)
 
@@ -32,7 +32,7 @@ Operating system:
 
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring.
 
-You can [connect to the ArcBox machine as described in the documentation](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
+You can [connect to the ArcBox machine as described in the documentation](/azure_jumpstart_arcbox/itpro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
 
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.3).
   - Run ```$PSVersionTable``` to check your currently installed version.

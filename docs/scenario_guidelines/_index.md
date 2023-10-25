@@ -218,7 +218,7 @@ Examples of what a result of output should look like are very useful and contrib
 
 Rather if it's in an example code block, a command, or a screenshot, wherever it makes sense, include an example of how something should look like.
 
-[Here](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/#deployment) you can find an example of an example :-)
+[Here](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/#deployment) you can find an example of an example :-)
 
 ## File trails
 
@@ -256,6 +256,6 @@ Incorporating an explanation of how you designed the automation in your scenario
 
 - Generally speaking, it makes sense for each scenario to have an "Automation Flow" section right after the "Prerequisites" section. That way, the reader can get a sense of what is happening "behind the scenes".
 - Automation flow section should be accurate and comprehensive but also not too long. Bullet points explaining the flow are ok.
-- Automation flow sections follow specific language and format, there are multiple examples for Automation flow in several scenarios. You can either [take a look at this example](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/kubeadm/kubeadm_dc_vanilla_arm_template/#automation-flow) or search for "Automation Flow" in the Jumpstart homepage.
+- Automation flow sections follow specific language and format, there are multiple examples for Automation flow in several scenarios. You can either [take a look at this example](/azure_arc_jumpstart/azure_arc_data/kubeadm/kubeadm_dc_vanilla_arm_template/#automation-flow) or search for "Automation Flow" in the Jumpstart homepage.
 
     ![Screenshot of searching for Automation Flow](./automation_flow.png)

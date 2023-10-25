@@ -24,11 +24,11 @@ in this scenario you will use Bash commands and REST API calls to:
 
     If you haven't, this repository offers you a way to do so in an automated fashion:
 
-  - **[GCP Ubuntu instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-  - **[AWS Ubuntu EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-  - **[Azure Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-  - **[VMware vSphere Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-  - **[Vagrant Ubuntu box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+  - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+  - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+  - **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+  - **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+  - **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
 
 - Tagging
 
@@ -378,8 +378,8 @@ You will access other endpoints when using PaaS services such as Azure Key Vault
 
 - To remove the Ubuntu virtual machines from each environment by following the teardown instructions from each guide.
 
-  - **[GCP Ubuntu instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-  - **[AWS Ubuntu EC2 instance](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-  - **[Azure Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-  - **[VMware vSphere Ubuntu VM](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-  - **[Vagrant Ubuntu box](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+  - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+  - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+  - **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+  - **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+  - **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**

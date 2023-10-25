@@ -204,7 +204,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portaldeploymentcomplete.png)
 
-    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
+    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
 
 ## Deployment Option 2: ARM template with Azure CLI
 
@@ -240,7 +240,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing az deployment group create](./azdeploy.png)
 
-    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
+    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
 
 ## Deployment Option 3: Bicep deployment via Azure CLI
 
@@ -276,7 +276,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 
-    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
+    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
 
 ## Deployment Option 4: Terraform Deployment
 
@@ -337,7 +337,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![terraform plan](./terraform_apply.png)
 
-    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
+    > **NOTE: If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/itpro/#basic-troubleshooting).**
 
 ## Start post-deployment automation
 
@@ -351,8 +351,8 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
-- [RDP](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro/#connect-using-just-in-time-accessjit).
-- [Azure Bastion](https://azurearcjumpstart.io/azure_jumpstart_arcbox/ITPro/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](/azure_jumpstart_arcbox/ITPro/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](/azure_jumpstart_arcbox/ITPro/#connect-using-just-in-time-accessjit).
+- [Azure Bastion](/azure_jumpstart_arcbox/ITPro/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -499,7 +499,7 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
 
 ### ArcBox Azure Monitor workbook
 
-Open the [ArcBox Azure Monitor workbook documentation](https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/ITPro/) and explore the visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) and explore the visualizations and reports of hybrid cloud resources.
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 

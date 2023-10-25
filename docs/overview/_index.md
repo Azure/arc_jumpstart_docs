@@ -25,7 +25,7 @@ In the Jumpstart, we believe a document or a guide is not just that. It should r
 
 Ready to get going?! This website offers you detailed guides, automation, code samples, screenshots and everything you really need to get going with Azure Arc!
 
-Hop over to the [Jumpstart Scenarios](https://azurearcjumpstart.io/azure_arc_jumpstart/) section and enjoy the ride.
+Hop over to the [Jumpstart Scenarios](/azure_arc_jumpstart/) section and enjoy the ride.
 
 > **Disclaimer: The intention for the Azure Arc Jumpstart project is to focus on the core Azure Arc capabilities, deployment scenarios, use-cases, and ease of use. It does not focus on Azure best-practices or the other tech and OSS projects being leveraged in the scenarios and code. Jumpstart scenarios, ArcBox, HCIBox, and Agora are all intended for evaluation, training and demo purposes only and are not supported for production use cases.**
 
@@ -107,7 +107,7 @@ With Azure Arc, Contoso is able to project resources and register them into Azur
 
 ## Want to be an Azure Arc "Jumpstarter"?
 
-We would love to have you! We are always looking for community support so if you want to create your own Azure Arc Jumpstart scenario, hop over to the [Jumpstart Scenario Writeup Guidelines](https://azurearcjumpstart.io/scenario_guidelines/) page to learn how to create one.
+We would love to have you! We are always looking for community support so if you want to create your own Azure Arc Jumpstart scenario, hop over to the [Jumpstart Scenario Writeup Guidelines](/scenario_guidelines/) page to learn how to create one.
 
 ## Jumpstart Roadmap
 

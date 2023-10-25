@@ -12,17 +12,17 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
 
   > **NOTE: This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion**
 
-- **[Azure Kubernetes Service](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks/)**
-- **[AKS on Azure Stack HCI](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
-- **[Kubernetes Cluster API](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/cluster_api/)**
-- **[Azure Red Hat OpenShift](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aro/)**
-- **[Amazon Elastic Kubernetes Service](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/)**
-- **[Google Kubernetes Engine](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/)**
-- **[Alibaba Cloud Container Service for Kubernetes](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/alibaba/)**
-- **[Rancher K3s](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/)**
-- **[Kind](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/kind/)**
-- **[MicroK8s](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/microk8s/)**
-- **[Platform9 Managed Kubernetes](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/pf9/)**
+- **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
+- **[AKS on Azure Stack HCI](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
+- **[Kubernetes Cluster API](/azure_arc_jumpstart/azure_arc_k8s/cluster_api/)**
+- **[Azure Red Hat OpenShift](/azure_arc_jumpstart/azure_arc_k8s/aro/)**
+- **[Amazon Elastic Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/eks/)**
+- **[Google Kubernetes Engine](/azure_arc_jumpstart/azure_arc_k8s/gke/)**
+- **[Alibaba Cloud Container Service for Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/alibaba/)**
+- **[Rancher K3s](/azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/)**
+- **[Kind](/azure_arc_jumpstart/azure_arc_k8s/kind/)**
+- **[MicroK8s](/azure_arc_jumpstart/azure_arc_k8s/microk8s/)**
+- **[Platform9 Managed Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/pf9/)**
 
 ## Prerequisites
 
