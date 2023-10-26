@@ -9,7 +9,7 @@ jobs:
       runs-on: ubuntu-latest
       environment:
         name: 'Production'
-        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+        url: 'https://jumpstartpreview.azurewebsites.net/'
     
       steps:
         - name: Log into Azure CLI service principal
