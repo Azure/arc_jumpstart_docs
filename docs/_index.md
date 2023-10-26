@@ -4,4 +4,4 @@ type: docs
 
 <!-- # Documentation -->
 
-# <img src="/img/jumpstart-logo.png" alt="jumpstart-logo" width=300>
+![alt text](../img/jumpstart_logo.png "Title")
