@@ -1,21 +1,19 @@
-name: Slot-swap for app- Jumpstartapp preview
+name: Trigger Workflow in azure-arc-jumpstart-app
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch as needed
+
 jobs:
-    deploy-to-production:
-      runs-on: ubuntu-latest
-      environment:
-        name: 'Production'
-        url: 'https://jumpstartpreview.azurewebsites.net/'
-    
-      steps:
-        - name: Log into Azure CLI service principal
-          uses: azure/login@v1.1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-  
-        - name: Swap slots
-          run: az webapp deployment slot swap -n jumpstartpreview -g rg-staticwebapp --slot staging --target-slot production
+  dispatch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Production Workflow 
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.REPO2_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github.everest-preview+json" \
+            -d '{"event_type": "workflow-trigger-production", "client_payload": {"key": "value"}}' \
+            https://api.github.com/repos/Azure/arc_jumpstart_web/dispatches
