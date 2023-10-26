@@ -1,0 +1,21 @@
+name: Slot-swap for app- Jumpstartapp preview
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+    deploy-to-production:
+      runs-on: ubuntu-latest
+      environment:
+        name: 'Production'
+        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
+      steps:
+        - name: Log into Azure CLI service principal
+          uses: azure/login@v1.1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+        - name: Swap slots
+          run: az webapp deployment slot swap -n jumpstartpreview -g rg-staticwebapp --slot staging --target-slot production
