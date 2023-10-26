@@ -16,4 +16,4 @@ jobs:
             -H "Authorization: token ${{ secrets.REPO2_DISPATCH_TOKEN }}" \
             -H "Accept: application/vnd.github.everest-preview+json" \
             -d '{"event_type": "workflow-trigger", "client_payload": {"key": "value"}}' \
-            https://api.github.com/repos/Fractal-IOTFAL/azure_arc_jumpstartweb/dispatches
+            https://api.github.com/repos/Azure/arc_jumpstart_web/dispatches
