@@ -1,5 +1,6 @@
 ---
+title: Azure
+linkTitle: Azure
 type: docs
-weight: 99
-toc_hide: true
+weight: 1
 ---
