@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - test-workflow  # Adjust the branch as needed
+      - main
+      - develop
 
 jobs:
   dispatch:
