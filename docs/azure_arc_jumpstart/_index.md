@@ -2,5 +2,6 @@
 type: docs
 title: "Azure Arc Jumpstart Scenarios"
 linkTitle: "Jumpstart Scenarios"
-weight: 2
+weight: 2,
+test: '1 2 3'
 ---
