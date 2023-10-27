@@ -1,20 +1,43 @@
+# name: Trigger Workflow in azure-arc-jumpstart-app
+
+# on:
+#   push:
+#     branches:
+#       - test-workflow
+#       - main # Adjust the branch as needed
+
+# jobs:
+#   dispatch:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Trigger Production Workflow 
+#         run: |
+#           curl -X POST \
+#             -H "Authorization: token ${{ secrets.REPO2_DISPATCH_TOKEN }}" \
+#             -H "Accept: application/vnd.github.everest-preview+json" \
+#             -d '{"event_type": "workflow-trigger-production", "client_payload": {"key": "value"}}' \
+
 name: Trigger Workflow in azure-arc-jumpstart-app
 
 on:
   push:
     branches:
-      - test-workflow
-      - main # Adjust the branch as needed
+      - main
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Production Workflow 
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.REPO2_DISPATCH_TOKEN }}" \
-            -H "Accept: application/vnd.github.everest-preview+json" \
-            -d '{"event_type": "workflow-trigger-production", "client_payload": {"key": "value"}}' \
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.REPO2_DISPATCH_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'Azure',
+              repo: 'arc_jumpstart_web',
+              workflow_id: 'production.yml',
+              ref: 'newversion'
+            })
             https://api.github.com/repos/Azure/arc_jumpstart_web/dispatches
