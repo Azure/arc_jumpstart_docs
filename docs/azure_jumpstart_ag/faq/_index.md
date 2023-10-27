@@ -2,6 +2,7 @@
 type: docs
 linkTitle: "Agora FAQ"
 weight: 2
+toc_hide: true
 ---
 
 # Jumpstart Agora Frequently Asked Questions (FAQ)

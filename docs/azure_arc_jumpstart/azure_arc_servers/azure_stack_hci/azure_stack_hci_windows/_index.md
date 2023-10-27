@@ -117,7 +117,7 @@ As mentioned, this deployment will leverage this [PowerShell script](https://git
     - **DHCPEnabled:** Select _$true_ if DHCP is enabled on your environment, or _$false_ if a static IP assignment is needed.
         - If **DHCPEnabled** = _$false_, please provide the networking parameters described below to assign to the VM. If **DHCPEnabled** = _$true_, please attribute _$null_ to all the paramenters below:
             - **IPAddress:**  Provide the static IP address to assign to the VM.
-            - **Prefix Lenght:** Provide the subnet length to assign to the VM.
+            - **PrefixLength:** Provide the subnet length to assign to the VM.
             - **DefaultGateway:** Provide the default gateway to assign to the VM.
             - **DNSServer:** Provide the DNS Server to assign to the VM.
     - **ServerClusterEnabled:** Select _$true_ if you have a server cluster created, _$false_ if not.
@@ -131,7 +131,7 @@ As mentioned, this deployment will leverage this [PowerShell script](https://git
     As an example:
     - **DHCPEnabled:** _$false_
     - **IPAddress:** '192.168.0.11'
-    - **PrefixLenght:** '24'
+    - **PrefixLength:** '24'
     - **DefaultGateway:** '192.168.0.1'
     - **DNSServer:** '192.168.0.2'
     - **ServerClusterEnabled:** _$true_
