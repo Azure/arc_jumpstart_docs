@@ -3,7 +3,8 @@ name: Trigger Workflow in azure-arc-jumpstart-app
 on:
   push:
     branches:
-      - main  # Adjust the branch as needed
+      - test-workflow
+      - main # Adjust the branch as needed
 
 jobs:
   dispatch:
