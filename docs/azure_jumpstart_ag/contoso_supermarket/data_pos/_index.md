@@ -8,7 +8,7 @@ summary: |
 
   In this scenario, Contoso wants to use their data pipeline so customer orders placed in the Point of Sale (PoS) application on the various supermarket stores, flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports. By doing so, Contoso management can leverage these reports to adjust their inventory and supply chain based on the product demand from customer orders across multiple filters - stores, day, week, month, and year. This helps optimize Contoso resources, stores supplies, saves significant costs and at the same time improves customer satisfaction and trust.
 serviceOrPlatform: POINT OF SALE
-technology stack:
+technologyStack:
   - COSMOS DB
   - AZURE DATA EXPLORER
   - OSS POSTGRESQL
