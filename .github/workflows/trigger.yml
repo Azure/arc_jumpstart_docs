@@ -20,5 +20,5 @@ jobs:
               owner: 'Azure',
               repo: 'arc_jumpstart_web',
               workflow_id: 'jumpstart_preview.yml',
-              ref: 'test'
+              ref: 'newversion'
             })
