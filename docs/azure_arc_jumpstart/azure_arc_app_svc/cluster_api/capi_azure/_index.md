@@ -2,5 +2,6 @@
 type: docs
 title: "Azure"
 linkTitle: "Azure"
-weight: 99
+weight: 1
+toc_hide: false
 ---
