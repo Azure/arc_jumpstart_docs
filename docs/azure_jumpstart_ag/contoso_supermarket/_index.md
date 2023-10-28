@@ -27,7 +27,7 @@ To support their digital transformation aspirations, Contoso Supermarket stores 
 - __Checkout Queue Monitoring__ - Enhancing customer experience by monitoring and managing checkout queues in real-time to minimize waiting times and improve operational efficiency.
 - __Freezer Monitoring for Food Safety__ - Ensuring food safety by monitoring and maintaining optimal conditions in freezers to prevent spoilage and maintain product quality.
 
-![Applications and technology stack architecture diagram](./img/technology_stack.png)
+![Applications and technology stack architecture diagram](./img/architecture_diagram.png)
 
 ## Getting started
 

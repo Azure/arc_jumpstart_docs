@@ -2,6 +2,17 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Data pipeline and reporting across cloud and edge for sensor telemetry
+summary: |
+  Contoso Supermarket is obsessed with achieving the highest levels of food safety. To support this obsession Contoso has invested in technology to let it know when any food in a store's freezers is potentially unsafe due to the freezer reaching temperatures that would allow the food to thaw and pathogens to grow.
+serviceOrPlatform: FREEZER MONITORING FOR FOOD SAFETY
+technologyStack:
+  - IOT HUB
+  - AZURE DATA EXPLORER
+  - MOSQUITTO MQTT BROKER
+  - PROMETHEUS
+  - GRAFANA
+  - AKS EDGE ESSENTIALS
 ---
 
 # Data pipeline and reporting across cloud and edge for sensor telemetry
@@ -26,7 +37,7 @@ The local collection and visualization of sensor data uses the same infrastructu
 
 ### Architecture
 
-![A diagram showing the applications and technology stack architecture](./img/architecture.png)
+![A diagram showing the applications and technology stack architecture](./img/freezer_monitor_architecture.png)
 
 The environmental observability architecture for _Dev_, _Staging_, and _Prod_ environments leverage the same Kube Prometheus Stack as Infrastructure Observability, which includes Kubernetes manifests, Grafana dashboards, and Prometheus rules. Added to that are the IoT sensors (simulated in the scenario), [Mosquitto MQTT broker](https://mosquitto.org/), Azure IoT Hub, ADX, and a service that exposes IoT data to be scraped by Prometheus called [MQTT2PROM](https://github.com/hikhvar/mqtt2prometheus).
 
