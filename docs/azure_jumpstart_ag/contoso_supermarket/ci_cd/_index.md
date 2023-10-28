@@ -2,6 +2,18 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Streamlining the Software Delivery Process using CI/CD
+summary: |
+    In today's fast-paced software development industry having a robust and efficient CI/CD (Continuous Integration/Continuous Deployment) pipeline is critical for organizations to maintain a competitive edge and stay ahead of the curve. This is particularly important for organizations like Contoso Supermarket to deliver a seamless shopping experience to its customers. With the increasing adoption of cloud technologies, the need for an efficient CI/CD pipeline has become more pronounced, as it allows Contoso Supermarket to quickly and reliably deploy changes to their applications and infrastructure.
+serviceOrPlatform: POINT OF SALE (POS)
+technologyStack:
+  - AKS
+  - AZURE MONITOR
+  - AKS EDGE ESSENTIALS
+  - AZURE ARC
+  - GITOPS (FLUX)
+  - GITHUB ACTIONS
+  - AZURE CONTAINER REGISTRY
 ---
 
 # Streamlining the Software Delivery Process using CI/CD

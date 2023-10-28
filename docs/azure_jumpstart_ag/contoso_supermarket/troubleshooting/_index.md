@@ -2,6 +2,7 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Troubleshooting
 ---
 
 # Jumpstart Agora - Contoso Supermarket scenario troubleshooting

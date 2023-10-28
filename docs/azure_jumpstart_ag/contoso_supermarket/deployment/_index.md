@@ -2,6 +2,7 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Contoso Supermarket deployment guide
 ---
 
 # Jumpstart Agora - Contoso Supermarket deployment guide

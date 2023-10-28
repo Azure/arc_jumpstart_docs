@@ -2,6 +2,13 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Infrastructure security with Microsoft Defender for Servers
+summary: |
+    Contoso Supermarket are aware that as they navigate the complex landscape of edge computing, it is essential to protect their servers against threats while maintaining a comprehensive view of their security posture. Microsoft Defender for Servers emerges as a vital component, playing a pivotal role in protecting servers from threats and providing unparalleled visibility into their security landscape.
+serviceOrPlatform: INFRASTRUCTURE
+technologyStack:
+  - AZURE ARC
+  - DEFENDER FOR CLOUD
 ---
 
 # Infrastructure security with Microsoft Defender for Servers

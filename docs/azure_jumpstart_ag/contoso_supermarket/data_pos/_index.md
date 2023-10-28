@@ -3,11 +3,11 @@ type: docs
 weight: 100
 toc_hide: true
 title: Data pipeline and reporting across cloud and edge for store orders
-summary: | 
+summary: |
   One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.
 
   In this scenario, Contoso wants to use their data pipeline so customer orders placed in the Point of Sale (PoS) application on the various supermarket stores, flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports. By doing so, Contoso management can leverage these reports to adjust their inventory and supply chain based on the product demand from customer orders across multiple filters - stores, day, week, month, and year. This helps optimize Contoso resources, stores supplies, saves significant costs and at the same time improves customer satisfaction and trust.
-serviceOrPlatform: POINT OF SALE
+serviceOrPlatform: POINT OF SALE (POS)
 technologyStack:
   - COSMOS DB
   - AZURE DATA EXPLORER

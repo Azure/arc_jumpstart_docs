@@ -2,6 +2,16 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Enabling AI at the Edge & Software configurations rollout with basic GitOps flow
+summary: |
+    Contoso prides itself on being technology innovators. In the current market, Contoso's leadership recognizes that maintaining their position as leaders in the retail space requires innovation in every aspect of their operations.
+    To this end, Contoso Supermarket has developed an artificial intelligence (AI) mechanism that empowers them to enhance the customer experience in their stores. By implementing such a mechanism, their objective is to accurately detect the number of people waiting at different checkout lanes and enable proactive actions based on this data.
+serviceOrPlatform: MANAGERS CONTROL CENTER
+technologyStack:
+  - AKS EDGE ESSENTIALS
+  - GITOPS (FLUX)
+  - OSS POSTGRESQL
+  - INTEL OPENVINO
 ---
 
 # Enabling AI at the Edge & Software configurations rollout with basic GitOps flow

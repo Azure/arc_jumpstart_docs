@@ -2,6 +2,15 @@
 type: docs
 weight: 100
 toc_hide: true
+title: Infrastructure observability for Kubernetes and Arc-enabled Kubernetes
+summary: |
+    Infrastructure observability plays a crucial role in the success of Contoso Supermarket's cloud to edge strategy. By implementing infrastructure observability, Contoso gains comprehensive monitoring and visualization capabilities for their Kubernetes and Arc-enabled Kubernetes environments. This empowers them to proactively monitor the health and performance of their infrastructure, identify potential issues, and make data-driven decisions to optimize their operations. With infrastructure observability, Contoso can ensure that their cloud and edge infrastructure remain reliable, efficient, and resilient, enabling them to deliver exceptional customer experiences.
+serviceOrPlatform: INFRASTRUCTURE
+technologyStack:
+  - AKS
+  - PROMETHEUS
+  - GRAFANA
+  - AKS EDGE ESSENTIALS
 ---
 
 # Infrastructure observability for Kubernetes and Arc-enabled Kubernetes
@@ -20,7 +29,7 @@ The observability infrastructure stack architecture for Staging, Dev, and Prod e
 
 The Dev and Staging environments are configured with individual Prometheus and Grafana instances, while the Prod environment is configured with a central Grafana instance. This architecture allows for more granular monitoring and troubleshooting in the Dev and Staging environments, while still providing a centralized view of the infrastructure's health and performance in the Prod environment.
 
-![Screenshot showing Observability infrastructure stack architecture](./img/technology_stack.png)
+![Screenshot showing Observability infrastructure stack architecture](./img/observability_technology_stack.png)
 
 ## Grafana dashboards
 
