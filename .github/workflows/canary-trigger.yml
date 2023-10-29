@@ -17,7 +17,7 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: 'Azure',
               repo: 'arc_jumpstart_web',
-              workflow_id: 'production-trigger.yml',
+              workflow_id: 'jumpstart_preview.yml',
               ref: 'newversion'
             })
             
