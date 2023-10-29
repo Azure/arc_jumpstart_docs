@@ -24,7 +24,7 @@ The Jumpstart ArcBox workbook is automatically deployed for you as part of ArcBo
 
 - The Jumpstart ArcBox Workbook will be displayed.
 
-   ![Arcbox workbook overview](./workbook_overview.png)
+   ![ArcBox workbook overview](./workbook_overview.png)
 
 ## ArcBox Workbook capabilities
 
@@ -44,7 +44,7 @@ The "Inventory" tab in the ArcBox Workbook has three sections:
 
    ![Inventory Parameters](./inventory_parameters.png)
 
-- *Resource Count by Type* - this visualization shows the number of resources by type within a resource group, these grouping will be automatically refreshed if the parameters section is changed.
+- _Resource Count by Type_ - this visualization shows the number of resources by type within a resource group, these grouping will be automatically refreshed if the parameters section is changed.
 
    ![Inventory Resource by type](./inventory_count_by_type.png)
 

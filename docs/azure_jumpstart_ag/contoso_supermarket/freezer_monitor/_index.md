@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
+weight: 3
 title: Data pipeline and reporting across cloud and edge for sensor telemetry
+linkTitle: Data pipeline and reporting across cloud and edge for sensor telemetry
 summary: |
   Contoso Supermarket is obsessed with achieving the highest levels of food safety. To support this obsession Contoso has invested in technology to let it know when any food in a store's freezers is potentially unsafe due to the freezer reaching temperatures that would allow the food to thaw and pathogens to grow.
 serviceOrPlatform: FREEZER MONITORING FOR FOOD SAFETY
@@ -86,7 +87,7 @@ To view the Freezer Monitoring dashboard you will first need to import it into A
 
   ![Screenshot showing the default freezer dashboard](./img/adx_freezer_dashboard_default.png)
 
-  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
 
 ## Scenarios
 
@@ -116,19 +117,19 @@ The manager of the Chicago store has reported that food in one of the freezers h
 
 From the Client VM:
 
-- Open the Edge browser, expand Grafana in the Favorites Bar, and select __Grafana Prod__.
+- Open the Edge browser, expand Grafana in the Favorites Bar, and select **Grafana Prod**.
 
 - Login with the username _admin_ and the Windows Administrator password provided when you created the deployment.
 
-- Click the hamburger menu next to __Home__ then click __Dashboards__.
+- Click the hamburger menu next to **Home** then click **Dashboards**.
 
   ![Screenshot showing the Grafana Dashboards menu](./img/grafana_click_dashboards.png)
 
-- Click __General__ to see the list of dashboards then click __Chicago - Freezer Monitoring__ to open the dashboard for Chicago.
+- Click **General** to see the list of dashboards then click **Chicago - Freezer Monitoring** to open the dashboard for Chicago.
 
   ![Screenshot showing the list Grafana of Dashboards](./img/grafana_click_chicago.png)
 
-  - Notice that __freezer2__ is showing significant variability and frequently exceeding the safe threshold of 20°F.
+  - Notice that **freezer2** is showing significant variability and frequently exceeding the safe threshold of 20°F.
 
     ![Screenshot showing Grafana with the Chicago dashboard](./img/grafana_chicago_dashboard.png)
 
@@ -140,49 +141,49 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
  > **Note:** This won't really send you an email because the server is not configured to send Simple Mail Transfer Protocol (SMTP) messages. However, it will help you understand the potential options available to a store manager.
 
-- In the Grafana dashboard, click the hamburger menu next to __Home__ then __Alerting__.
+- In the Grafana dashboard, click the hamburger menu next to **Home** then **Alerting**.
 
   ![Screenshot showing the Grafana Alerting menu](./img/grafana_click_alerting.png)
 
 - Add a Contact point
 
-  - Click __Contact points__ in the navigation menu on the left.
+  - Click **Contact points** in the navigation menu on the left.
 
     ![Screenshot showing the Grafana Contact points menu](./img/grafana_click_contact_points.png)
 
-  - Click the __Add contact point__ button.
+  - Click the **Add contact point** button.
 
     ![Screenshot showing the Grafana Add contact point button](./img/grafana_click_add_contact_point.png)
 
-  - Enter _Chicago Store Manager_ as the __Name__ and _chicago@contoso.com_ in the __Addresses__ field then click __Save contact point__
+  - Enter _Chicago Store Manager_ as the **Name** and _chicago@contoso.com_ in the **Addresses** field then click **Save contact point**.
 
     ![Screenshot showing the Grafana Add contact point form](./img/grafana_add_contact_point.png)
 
 - Add an Alert rule
 
-  - Click __Alert rules__ in the navigation menu.
+  - Click **Alert rules** in the navigation menu.
 
     ![Screenshot showing tge Grafana Alert rules menu](./img/grafana_click_alert_rules.png)
 
-  - Click __Create alert rule__.
+  - Click **Create alert rule**.
 
     ![Screenshot showing the Grafana Create alert rule button](./img/grafana_click_create_alert_rule.png)
 
   - Section 1
 
-    - Enter _Freezer too warm - food at risk_ as the __Rule name__.
+    - Enter _Freezer too warm - food at risk_ as the **Rule name**.
 
       ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_name.png)
 
   - Section 2
 
-    - Select __chicago__ as the data source in query __A__.
+    - Select **chicago** as the data source in query **A**.
 
-    - Select __temperature__ as the Metric in query __A__.
+    - Select **temperature** as the Metric in query **A**.
 
-    - Enter _15_ as the Threshold in expression __C__.
+    - Enter _15_ as the Threshold in expression **C**.
 
-    - Click __Preview__.
+    - Click **Preview**.
 
       ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_config.png)
 
@@ -192,9 +193,9 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
     - Since it is difficult to determine which series is which, let's fix the series names.
 
-      - Click __Options__.
+      - Click **Options**.
 
-      - Under __Legend__ select __Custom__ then enter _{{sensor_type}}_.
+      - Under **Legend** select **Custom** then enter _{{sensor_type}}_.
 
       - Click away from the 'Legend' box, then back into it for the series names to update.
 
@@ -204,23 +205,23 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
   - Section 3
 
-    - Under __Folder__ type _Alerts_ and press __Enter__.
+    - Under **Folder** type _Alerts_ and press **Enter**.
 
-    - Under __Evaluation group__ type _Alert Group_ and press __Enter__.
+    - Under **Evaluation group** type _Alert Group_ and press **Enter**.
 
       ![Screenshot showing the Grafana Folder selection](./img/grafana_add_alert_rule_folder.png)
 
-  - Scroll to the top of the page and click __Save and exit__.
+  - Scroll to the top of the page and click **Save and exit**.
 
     ![Screenshot showing the Grafana Save and exit button](./img/grafana_add_alert_rule_save.png)
 
 - View your alert
 
-  - Back on the __Alert rules__ page, type _freezer_ in the __Search__ box and press __Enter__.
+  - Back on the **Alert rules** page, type _freezer_ in the **Search** box and press **Enter**.
 
-  - Expand the __Alerts > Alert Group__ folder to see your __Freezer too warm - food at risk__ alert.
+  - Expand the **Alerts > Alert Group** folder to see your **Freezer too warm - food at risk** alert.
 
-  - Expand the alert to view to __Silence__ it, __Show state history__, or quickly __edit__ or __delete__ the alert.
+  - Expand the alert to view to **Silence** it, **Show state history**, or quickly **edit** or **delete** the alert.
 
     ![Screenshot showing the Grafana new alert rule](./img/grafana_new_alert_rule.png)
 
@@ -234,23 +235,23 @@ The first component that generates the data for both dashboards is the MQTT Simu
 
 To see data being produced by the MQTT Simulator, from the Client VM:
 
-- Open __Visual Studio Code__ and click on the __Kubernetes__ icon in the Activity Bar on the left.
+- Open **Visual Studio Code** and click on the **Kubernetes** icon in the Activity Bar on the left.
 
   ![Screenshot showing the Visual Studio Code Kubernetes icon](./img/vscode_kubernetes_icon.png)
 
-- Right-click on the __Chicago__ cluster and select __Set as Current Cluster__.
+- Right-click on the **Chicago** cluster and select **Set as Current Cluster**.
 
   ![Screenshot showing the Visual Studio Code Set as Current Cluster menu](./img/vscode_set_as_current_cluster.png)
 
-- Expand __Chicago__ > __Namespaces__, right-click on __sensor-monitor__ and select __Use Namespace__.
+- Expand **Chicago** > **Namespaces**, right-click on **sensor-monitor** and select **Use Namespace**.
 
   ![Screenshot showing the Visual Studio Code Use Namespace menu](./img/vscode_use_namespace.png)
 
-- Expand __Chicago__ > __Workloads__ > __Pods__ then right-click on the 'sensor-monitor-simulator-xxx' pod and select 'Logs'.
+- Expand **Chicago** > **Workloads** > **Pods** then right-click on the 'sensor-monitor-simulator-xxx' pod and select 'Logs'.
 
   ![Screenshot showing the Visual Studio Code Logs menu](./img/vscode_simulator_logs_menu.png)
 
-- In the Logs view click __Run__ to see the logs.
+- In the Logs view click **Run** to see the logs.
 
   ![Screenshot showing the Visual Studio Code Logs window](./img/vscode_simulator_logs_run.png)
 
@@ -264,15 +265,15 @@ The MQTT Broker is a container running Mosquitto in each AKS Edge Essentials clu
 
 Assuming you have completed the steps to view the MQTT Simulator logs above:
 
-- Expand __Chicago__ > __Workloads__ > __Pods__ then right-click on the 'sensor-monitor-simulator-xxx' pod and select 'Logs'.
+- Expand **Chicago** > **Workloads** > **Pods** then right-click on the 'sensor-monitor-simulator-xxx' pod and select 'Logs'.
 
   ![Screenshot showing the Visual Studio Code Logs menu](./img/vscode_broker_logs_menu.png)
 
-- In the Logs view click __Run__ to see the logs.
+- In the Logs view click **Run** to see the logs.
 
   ![Screenshot showing the Visual Studio Code Logs window](./img/vscode_broker_logs_run.png)
 
-- This won't show you the values being received or forwarded, but it will show you the connections from the two simulated freezer devices to the MQTT broker, as well as the connections from the MQTT broker to Azure IoT Hub for each freezer device. Finally, it shows the connection from __sensor-monitor-mqtt2prom__ which subscribes to the freezer data on the MQTT broker and makes it available to Prometheus and is explained in the sections below.
+- This won't show you the values being received or forwarded, but it will show you the connections from the two simulated freezer devices to the MQTT broker, as well as the connections from the MQTT broker to Azure IoT Hub for each freezer device. Finally, it shows the connection from **sensor-monitor-mqtt2prom** which subscribes to the freezer data on the MQTT broker and makes it available to Prometheus and is explained in the sections below.
 
   ![Screenshot showing the Visual Studio Code Simulator logs](./img/vscode_broker_logs.png)
 
@@ -284,23 +285,23 @@ To see whether data is being received by Azure IoT Hub for your devices, from yo
 
 - Open Resource Groups in the [Azure portal](https://ms.portal.azure.com/#browse/resourcegroups).
 
-- Click the new resource group you created for __Jumpstart Agora__.
+- Click the new resource group you created for **Jumpstart Agora**.
 
-- Click __Ag-IotHub-xxxxx__ to open the IoT Hub.
+- Click **Ag-IotHub-xxxxx** to open the IoT Hub.
 
   ![Screenshot showing the Azure portal IoT Hub](./img/azure_portal_iot_hub.png)
 
-- Click __Queries__ in the left navigation menu.
+- Click **Queries** in the left navigation menu.
 
   ![Screenshot showing the Azure portal IoT Hub Queries](./img/azure_portal_iot_hub_queries.png)
 
-- Click __Run query__.
+- Click **Run query**.
 
   ![Screenshot showing the Azure portal IoT Hub Run query button](./img/azure_portal_iot_hub_queries_run.png)
 
-- Scroll down to where you see __"deviceId": "Freezer-1-Chicago"__.
+- Scroll down to where you see **"deviceId": "Freezer-1-Chicago"**.
 
-- Review the __"connectionState"__ and __"lastActivityTime"__ values to see if the device is connected and sending data.
+- Review the **"connectionState"** and **"lastActivityTime"** values to see if the device is connected and sending data.
 
   ![Screenshot showing the Azure portal IoT Hub Run query results](./img/azure_portal_iot_hub_queries_results.png)
 

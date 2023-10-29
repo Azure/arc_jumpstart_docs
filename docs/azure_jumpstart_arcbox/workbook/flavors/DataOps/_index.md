@@ -24,7 +24,7 @@ The Jumpstart ArcBox workbook is automatically deployed for you as part of ArcBo
 
 - The Jumpstart ArcBox Workbook will be displayed.
 
-   ![Arcbox workbook overview](./workbook_overview.png)
+   ![ArcBox workbook overview](./workbook_overview.png)
 
 ## ArcBox Workbook for DataOps capabilities
 

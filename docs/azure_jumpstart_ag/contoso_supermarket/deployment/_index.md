@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
-title: Contoso Supermarket deployment guide
+weight: 1
+title: Deployment guide
+linkTitle: Deployment guide
 ---
 
 # Jumpstart Agora - Contoso Supermarket deployment guide
@@ -37,7 +38,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
 
     ![Screenshot showing how to fork the Jumpstart Agora Apps repo](./img/fork_repo2.png)
 
-- Configure a GitHub fine-grained personal access token (PAT) with permission to modify __only__ the Jumpstart Agora Apps repo that you forked.
+- Configure a GitHub fine-grained personal access token (PAT) with permission to modify **only** the Jumpstart Agora Apps repo that you forked.
 
   > **Note:** The PAT token only needs to be created once as part of the prerequisites. Your token can be reused on subsequent deployments for as long as the token is valid. Therefore you should only need to complete these steps before your first deployment. If your token expires, simply follow the steps to create another.
 
@@ -94,7 +95,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
 
 - Ensure that you have selected the correct subscription you want to deploy Agora to by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
-- Agora must be deployed to one of the following regions. __Deploying Agora outside of these regions may result in unexpected results or deployment errors.
+- Agora must be deployed to one of the following regions. **Deploying Agora outside of these regions may result in unexpected results or deployment errors.**
 
   - East US
   - East US 2
@@ -102,7 +103,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
   - North Europe
   - West Europe
 
-- __Agora requires 40 Ds-series vCPUs__. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
+- **Agora requires 40 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -110,7 +111,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
 
   ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- __Agora requires 10 Public IP addresses__. Ensure you have sufficient Public IP addresses available in your Azure subscription and the region where you plan to deploy Agora.
+- **Agora requires 10 Public IP addresses**. Ensure you have sufficient Public IP addresses available in your Azure subscription and the region where you plan to deploy Agora.
 
 - Create Azure service principal (SP). An Azure service principal assigned with the _Owner_ Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
 
@@ -165,7 +166,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
     ![Screenshot showing creating an SPN with PowerShell](./img/create_spn_powershell.png)
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret.
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
 

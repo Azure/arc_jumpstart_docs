@@ -322,7 +322,7 @@ No updates this release.
 - [Bug: Ubuntu VMs offline due to full disks #1601](https://github.com/microsoft/azure_arc/issues/1601)
 - [Bug: DevOps Scenario K3sGitOps.ps1 script references the CAPI cluster not the K3s cluster #1607](https://github.com/microsoft/azure_arc/issues/1607)
 - [Bug: ArcBox Full - update API call to get SQLMI primary endpoint #1609](https://github.com/microsoft/azure_arc/issues/1609)
-- [Bug: BadRequest UbuntuCAPIDeployment - Azure Arcbox Full #1712](https://github.com/microsoft/azure_arc/issues/1712)
+- [Bug: BadRequest UbuntuCAPIDeployment - Azure ArcBox Full #1712](https://github.com/microsoft/azure_arc/issues/1712)
 
 #### Jumpstart HCIBox
 
