@@ -10,10 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Production Workflow 
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.REPO2_DISPATCH_TOKEN }}" \
-            -H "Accept: application/vnd.github.everest-preview+json" \
-            -d '{"event_type": "workflow-trigger", "client_payload": {"key": "value"}}' \
-            https://api.github.com/repos/Azure/arc_jumpstart_web/dispatches
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.REPO2_DISPATCH_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'Azure',
+              repo: 'arc_jumpstart_web',
+              workflow_id: 'jumpstart_preview.yml',
+              ref: 'newversion'
+            })
+            
