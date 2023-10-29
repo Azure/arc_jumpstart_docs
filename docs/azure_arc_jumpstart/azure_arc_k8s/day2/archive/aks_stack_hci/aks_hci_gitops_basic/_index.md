@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to create GitOps configur
 
 in this scenario, you will deploy & attach GitOps configuration to your cluster which will also include deploying an "Hello World" Azure Arc web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-> **NOTE: This guide assumes you already deployed an AKS cluster on Azure Stack HCI and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).**
+> **Note:** This guide assumes you already deployed an AKS cluster on Azure Stack HCI and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
   Get-InstalledModule -Name Az -AllVersions | select Name,Version
     ```
 
-  > **NOTE: This guide combines automations that uses both Azure PowerShell Az modules as well as Azure CLI, however both of them can and will be run from a PowerShell window.**
+  > **Note:** This guide combines automations that uses both Azure PowerShell Az modules as well as Azure CLI, however both of them can and will be run from a PowerShell window.
 
 * [Install or update Azure CLI to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
@@ -102,7 +102,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
     $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
     ```
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 * If you do not have the AksHci PowerShell module already, you will have to perform a clean installation. To install the AksHci PowerShell module remove any previous versions by running the below commands:
 
@@ -149,11 +149,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * Edit the environment variables in the [*az_k8sconfig_aks_hci*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/gitops/basic/az_k8sconfig_aks_hci.ps1) PowerShell script to match your parameters and run it using the ```.\az_k8sconfig_aks_hci.ps1``` command.
 
-    > **Disclaimer: For the purpose of this guide, notice how the "*git-poll-interval 3s*" is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min)**
+    > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
 
 * Once the script will complete it's run, you will have the GitOps configuration created and all the resources deployed in your Kubernetes cluster running on Azure Stack HCI.
 
-    > **NOTE: that it takes few min for the configuration change it's Operator state status from "Pending" to Install.**
+    > **Note:** that it takes few min for the configuration change it's Operator state status from "Pending" to Install.
 
     ![New GitOps configurations](./04.png)
 
@@ -163,7 +163,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## The "Hello Arc" Application & Components
 
-* Before kicking the GitOps flow, let's review the Kubernetes resources deployed by running few *kubectl* commands.
+* Before kicking the GitOps flow, let's review the Kubernetes resources deployed by running few _kubectl_ commands.
 
   * ```kubectl get pods -n prod``` - Will show the Flux operator, the Memcached pods and the "Hello Arc" application pods.
     * ```kubectl get pods -n cluster-mgmt``` - Will show the NGINX controller.

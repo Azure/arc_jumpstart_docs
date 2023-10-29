@@ -84,9 +84,9 @@ By the end of this guide, you will have two Azure Kubernetes Service (AKS) clust
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Choice (true | false) to deploy Azure Bastion or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
-    > **NOTE: This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/) scenario.
+    > **Note:** This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/) scenario.
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/DR/ARM) and run the below command:
 
@@ -133,10 +133,10 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
     --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/DR/ARM/azuredeploy.json \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **NOTE: Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file**
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file.
 
     For example:
 
@@ -149,9 +149,9 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters azuredeploy.parameters.json
     ```
 
-    > **NOTE: The deployment time for this scenario can take ~15-20min**
+    > **Note:** The deployment time for this scenario can take ~15-20min.
 
-    > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned, you will be able to see them in the Azure portal. At this point, the resource group should have **11 various Azure resources** deployed (If you chose to deploy Azure Bastion, you will have **12 Azure resources**).
 
@@ -190,7 +190,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing connecting to the VM using Bastion](./08.png)
 
-  > **NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -342,7 +342,7 @@ Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containeri
 
   ![Screenshot showing adventureworks database opened on the primary instance](./52.png)
 
-  > **NOTE: You will not be able to browse the _AdventureWorks2019_ database from the secondary instance since this instance is configured as a disaster recovery instace**.
+  > **Note:*** You will not be able to browse the _AdventureWorks2019_ database from the secondary instance since this instance is configured as a disaster recovery instace.
 
   ![Screenshot showing adventureworks database opened on the secondary instance](./53.png)
 
@@ -371,7 +371,7 @@ Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containeri
 
     ![Screenshot showing unavailable primary instance](./57.png)
 
-### Initiating a forced failover to the secondary site.
+### Initiating a forced failover to the secondary site
 
 - On the client VM, run the following commands on the secondary instance to promote to primary with a forced failover incurring potential data loss.
 
@@ -389,7 +389,7 @@ Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containeri
 - To validate that the data you updated earlier has been replicated to the secondary instance, select the _"HumanResources.Employee"_ table, click on "Edit Top 200 Rows".
 
     ![Screenshot showing Edit Top 200 Rows](./60.png)
-    
+
 ## Cleanup
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.

@@ -114,11 +114,11 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   - West US 2
   - North Europe
 
-  > __NOTE: Some HCIBox resources will be created in regions other than the one you initially specify. This is due to limited regional availability of the various services included in HCIBox.__
+  > **Note:** Some HCIBox resources will be created in regions other than the one you initially specify. This is due to limited regional availability of the various services included in HCIBox.
 
 - __HCIBox requires 32 ESv5-series vCPUs__ when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy HCIBox. You can use the below Az CLI command to check your vCPU utilization.
 
-  > __NOTE: If using Azure Developer CLI the preprovision step will check your subscription for available capacity.__
+  > **Note:** If using Azure Developer CLI the preprovision step will check your subscription for available capacity.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -192,15 +192,15 @@ The following prerequisites must be completed in order to deploy HCIBox using th
 
     ![Screenshot showing creating an SPN with PowerShell](./create_spn_powershell.png)
 
-    > __NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.__
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > __NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
 
 ## Azure Developer CLI deployment
 
 - Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
 
-  > __NOTE: PowerShell is required for using azd with HCIBox. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.__
+  > **Note:** PowerShell is required for using azd with HCIBox. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
 
 - Login with azd using ```azd auth login``` which will open a browser for interactive login.
 
@@ -253,7 +253,7 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > __NOTE: For enhanced HCIBox security posture, RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.__
+   > **Note:** For enhanced HCIBox security posture, RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the HCIBox Client virtual machine
 
@@ -266,7 +266,7 @@ Various options are available to connect to _HCIBox-Client_ VM, depending on the
 
 By design, HCIBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-  > __NOTE: If you deployed with Azure Developer CLI then this step is automatically done for you as part of the automation.__
+  > **Note:** If you deployed with Azure Developer CLI then this step is automatically done for you as part of the automation.
 
 - Open the _HCIBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -288,7 +288,7 @@ By design, HCIBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
-  > __NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _HCIBox-Client_ with Azure Bastion.__
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _HCIBox-Client_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
@@ -308,7 +308,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-  > __NOTE: The automation will take 3-4 hours to fully complete. Do not close the PowerShell window during this time. When automation is completed successfully, the desktop background will be changed to the HCIBox wallpaper.__
+  > **Note:** The automation will take 3-4 hours to fully complete. Do not close the PowerShell window during this time. When automation is completed successfully, the desktop background will be changed to the HCIBox wallpaper.
 
 - Deployment is complete! Let's begin exploring the features of HCIBox!
 
@@ -316,7 +316,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   ![Screenshot showing HCIBox resources in Azure portal](./rg_hcibox.png)
 
-  > __NOTE: The _Register-AzStackHCI_ PowerShell command registers the cluster to the East US region. This region is hardcoded into the script. If you have regional limitations in your Azure subscription that prevent resource creation in East US the registration will fail.__
+  > **Note:** The _Register-AzStackHCI_ PowerShell command registers the cluster to the East US region. This region is hardcoded into the script. If you have regional limitations in your Azure subscription that prevent resource creation in East US the registration will fail.
 
   ![Screenshot showing HCIBox resources in Azure portal](./rg_arc_servers.png)
 
@@ -344,7 +344,7 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 
 Once you are logged into the _HCIBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes or accessing Windows Admin Center. This domain account is automatically configured for you using the same username and password you supplied at deployment. The default domain name is _jumpstart.local_, so if the username supplied at deployment is "_arcdemo_", your domain account in UPN format would be __arcdemo@jumpstart.local__.
 
-  > __NOTE: The password for this account is set as the same password you supplied during deployment for the local account. Many HCIBox operations will use the domain account wherever credentials are required.__
+  > **Note:** The password for this account is set as the same password you supplied during deployment for the local account. Many HCIBox operations will use the domain account wherever credentials are required.
 
 ### Monitoring Azure Stack HCI
 
@@ -380,7 +380,7 @@ HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Win
 
 ![Screenshot showing Windows Admin Center](./wac_portal.png)
 
-  > __NOTE: [Registering Windows Admin Center with Azure](https://learn.microsoft.com/azure-stack/hci/manage/register-windows-admin-center) is not supported in HCIBox.__
+  > **Note:** [Registering Windows Admin Center with Azure](https://learn.microsoft.com/azure-stack/hci/manage/register-windows-admin-center) is not supported in HCIBox.
 
 ### Azure Kubernetes Service
 
@@ -398,7 +398,7 @@ HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn
 
 HCIBox provides a full Azure Stack HCI sandbox experience with minimal configuration required by the user. Some users may be interested in changing HCIBox's default configuration. Many advanced settings can be configured by modifying the values in the [_HCIBox-Config.psd1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_jumpstart_hcibox/artifacts/HCIBox-Config.psd1) PowerShell file. If you wish to make changes to this file, you must fork the Jumpstart repo and make the changes in your fork, then set the optional _githubAccount_ and _githubBranch_ deployment template parameters to point to your fork.
 
-  > __NOTE: Advanced configuration deployments are not supported by the Jumpstart team. Changes made to the _HCIBox-Config.psd1_ file may result in failures at any point in HCIBox deployment. Make changes to this file only if you understand the implications of the change.__
+  > **Note:** Advanced configuration deployments are not supported by the Jumpstart team. Changes made to the _HCIBox-Config.psd1_ file may result in failures at any point in HCIBox deployment. Make changes to this file only if you understand the implications of the change.
 
 ![Screenshot showing advanced configuration file](./advanced_config.png)
 

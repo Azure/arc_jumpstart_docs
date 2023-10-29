@@ -12,7 +12,7 @@ The following scenario will guide you on how to deploy a "Ready to Go" environme
 
 By the end of this scenario, you will have a GKE cluster deployed with an Azure Arc Data Controller ([in "Directly Connected" mode](https://docs.microsoft.com/azure/azure-arc/data/connectivity)), Azure SQL Managed Instance with a sample database and a Microsoft Windows Server 2022 (Datacenter) GKE compute instance VM installed and pre-configured with all the required tools needed to work with Azure Arc data services.
 
-> **NOTE: Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes)**.
+> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes).
 
 ## Deployment Process Overview
 
@@ -87,7 +87,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
     }
     ```
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Create a new GCP Project, IAM Role & Service Account. In order to deploy resources in GCP, we will create a new GCP Project as well as a service account to allow Terraform to authenticate against GCP APIs and run the plan to deploy resources.
 
@@ -153,7 +153,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
 - User deploys the Terraform plan which will deploy a GKE cluster and compute instance VM as well as an Azure resource group. The Azure resource group is required to host the Azure Arc services such as the Azure Arc-enabled Kubernetes cluster, the custom location, the Azure Arc data controller, and the SQL MI database service.
 
-  > **NOTE: Depending on the GCP region, make sure you do not have any [SSD quota limit in the region](https://cloud.google.com/compute/quotas), otherwise, the Azure Arc Data Controller kubernetes resources will fail to deploy.**
+  > **Note:** Depending on the GCP region, make sure you do not have any [SSD quota limit in the region](https://cloud.google.com/compute/quotas), otherwise, the Azure Arc Data Controller kubernetes resources will fail to deploy.
 
 - As part of the Windows Server 2022 VM deployment, there are 4 script executions:
 
@@ -242,7 +242,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
 - You also need to get the Azure Custom Location Resource Provider ([RP](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)) OID to export it as an environment variable:
 
-  > **NOTE: You need permissions to list all the service principals.**
+  > **Note:** You need permissions to list all the service principals.
 
   #### Option 1: Bash
 
@@ -258,7 +258,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
 ## Deployment
 
-> **NOTE: The GKE cluster will use 3 nodes of SKU "n1-standard-8".**
+> **Note:** The GKE cluster will use 3 nodes of SKU "n1-standard-8".
 
 As mentioned, the Terraform plan and automation scripts will deploy a GKE cluster, the Azure Arc Data Controller on that cluster, a SQL Managed Instance with sample database, and a Windows Server 2022 Client GCP compute instance.
 
@@ -290,7 +290,7 @@ As mentioned, the Terraform plan and automation scripts will deploy a GKE cluste
 
   ![GCP VM instances](./28.png)
 
-- In the Azure Portal, a new empty Azure resource group was created which will be used for Azure Arc Data Controller and the other data services you will be deploying in the future.
+- In the Azure portal, a new empty Azure resource group was created which will be used for Azure Arc Data Controller and the other data services you will be deploying in the future.
 
   ![New empty Azure resource group](./29.png)
 
@@ -344,9 +344,9 @@ Now that we have both the GKE cluster and the Windows Server Client instance cre
 
   ![PowerShell login script run](./47.png)
 
-- From Azure Portal, navigate to the resource group and confirm that the Azure Arc-enabled Kubernetes cluster, the Azure Arc data controller resource and the Custom Location resource are present.
+- From the Azure portal, navigate to the resource group and confirm that the Azure Arc-enabled Kubernetes cluster, the Azure Arc data controller resource and the Custom Location resource are present.
 
-  ![Azure Portal showing data controller resource](./48.png)
+  ![Azure portal showing data controller resource](./48.png)
 
 - Another tool automatically deployed is Azure Data Studio along with the *Azure Data CLI*, the *Azure Arc* and the *PostgreSQL* extensions. Using the Desktop shortcut created for you, open Azure Data Studio and expand the SQL MI connection to see the Adventureworks sample database.
 
@@ -370,7 +370,7 @@ Included in this scenario, is a dedicated SQL stress simulation tool named _SqlQ
 
   ![SQLMI Endpoints text file](./54.png)
 
-> **NOTE: Secondary SQL Managed Instance endpoint will be available only when using the HA deployment model ("Business Critical").**
+> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the HA deployment model ("Business Critical").
 
 - To connect, use "SQL Server Authentication" and select the deployed sample _AdventureWorks_ database (you can use the "Test" button to check the connection).
 

@@ -12,12 +12,12 @@ description: >
 
 The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
 
-  > **NOTE: This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios:**
+  > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
 - [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
 - [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
-  > **NOTE: This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open source or Calico Cloud:**
+  > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open source or Calico Cloud.
 
 - [Deploy Calico open source in your managed public cluster](https://projectcalico.docs.tigera.io/getting-started/kubernetes/managed-public-cloud/)
 - [Sign up for a Calico Cloud trial](https://www.calicocloud.io/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft)
@@ -57,8 +57,8 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 - Edit the environment variables in the [*calico_k8sconfig_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfig_gitops.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the ```. ./calico_k8sconfig_gitops.sh``` command to create the GitOps configuration.
 
-    > **NOTE: The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.**
-    > **NOTE: The default branch is `master`. Newer repositories have a root branch named main, in which case you need to set `--git-branch=main` in operator params.**
+    > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The default branch is `master`. Newer repositories have a root branch named main, in which case you need to set `--git-branch=main` in operator params.
 
     ![Upload a file to Cloud Shell](./03.png)
 
@@ -105,7 +105,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
   ![Edit network set](./12.png)
   ![Edit network set](./13.png)
   
-  > **NOTE: The sync process can take some time depending on your platform, you can restart your Flux operator to trigger the sync.**
+  > **Note:** The sync process can take some time depending on your platform, you can restart your Flux operator to trigger the sync.
 
 - Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs have been updated in your Azure Arc connected cluster by running the ```kubectl get networkset -n dev dev-deny-ip -o yaml ``` and ```kubectl get networkset -n dev dev-allow-ip -o yaml ``` commands.
   > You should see the following output.

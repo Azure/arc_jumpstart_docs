@@ -13,7 +13,7 @@ Azure VMs are leveraging the [Azure Instance Metadata Service (IMDS)](https://do
 
 However, **for demo purposes only**, the below guide will allow you to use and onboard Azure VMs to Azure Arc and by doing so, you will be able to simulate a server which is deployed outside of Azure (i.e "on-premises" or in other cloud platforms)
 
-> **NOTE: It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.**
+> **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
 By the end of the guide, you will have an Azure VM installed with Windows Server 2019 with SQL Server 2019, projected as an Azure Arc-enabled SQL Server and a running SQL assessment with data injected to Azure Log Analytics workspace.
 
@@ -66,8 +66,8 @@ By the end of the guide, you will have an Azure VM installed with Windows Server
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Enable subscription for the _Microsoft.AzureArcData_ and _Microsoft.HybridCompute_ resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -147,7 +147,7 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **NOTE: Make sure that you are using the same Azure resource group name as the one you created in the previous step.**
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you created in the previous step.
 
     For example:
 
@@ -163,7 +163,7 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
 
     ![Screenshot showing ARM deployment](./deployment_complete_cli.png)
 
-    ![Screenshot showing Azure Portal with Azure resources](./deployment_complete_portal.png)
+    ![Screenshot showing the Azure portal with Azure resources](./deployment_complete_portal.png)
 
 ## Windows Login & Post Deployment
 
@@ -196,7 +196,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing connecting to the VM using Bastion](./sql_vm_bastion.png)
 
-  > **NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Arc-SQL-Demo_ with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Arc-SQL-Demo_ with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -214,7 +214,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
     Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed.
 
-    > **NOTE: The script run time is approximately 30min long**
+    > **Note:** The script run time is approximately 30min long.
 
     ![Screenshot showing PowerShell script executing in VM](./post_deploy_script.png)
 
@@ -262,4 +262,4 @@ Now that you have both the server and SQL projected as Azure Arc resources the l
 
 To delete the entire deployment simply delete the resource group from the Azure portal.
 
-![Screenshot showing Azure Portal delete resource group function](./delete_resource_group.png)
+![Screenshot showing the Azure portal delete resource group function](./delete_resource_group.png)

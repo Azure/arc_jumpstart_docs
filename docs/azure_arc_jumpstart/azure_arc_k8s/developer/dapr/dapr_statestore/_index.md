@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to set up [Dapr](https://
 
 Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless, and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic.
 
-> **NOTE: This guide assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion for various [Kubernetes distributions](/azure_arc_jumpstart/azure_arc_k8s/).**
+> **Note:** This guide assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion for various [Kubernetes distributions](/azure_arc_jumpstart/azure_arc_k8s/).
 
 ## Prerequisites
 
@@ -63,9 +63,9 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -89,13 +89,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new Cluster extension instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Dapr Cluster extension on your Azure Arc-enabled Kubernetes cluster.
 
-> **NOTE: Before installing the Dapr extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.**
+> **Note:** Before installing the Dapr extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.
 
 ![Screenshot showing current kubectl context pointing to K8s cluster](./03.png)
 
 - In the screenshot below, notice how currently there are no extensions installed yet in your Arc-enabled Kubernetes cluster.
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource extensions](./04.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./04.png)
 
 - Edit the environment variables [in the script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/multi_distributions/dapr/dapr_k8s_statestore.sh) to match your environment parameters followed by running the _`. ./dapr_k8s_statestore.sh`_ command.
 
@@ -103,7 +103,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
     ![Screenshot parameter examples](./06.png)
 
-    > **NOTE: The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.**
+    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -140,7 +140,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
     ![Screenshot Node App pod and service](./11.png)
 
-    > **NOTE: The Dapr control plane will automatically inject the Dapr sidecar to the Pod, as the "dapr.io/enabled: true" annotation is added to the Node.js app deployment.**
+    > **Note:** The Dapr control plane will automatically inject the Dapr sidecar to the Pod, as the "dapr.io/enabled: true" annotation is added to the Node.js app deployment.
 
 - Verify the Node App service.
 
@@ -180,7 +180,7 @@ The following is a basic "hello world" [Python app](https://github.com/dapr/quic
 
     ![Screenshot deploy python app](./15.png)
 
-    > **NOTE: The Dapr control plane will automatically inject the Dapr sidecar to the Pod, as the "dapr.io/enabled: true" annotation is added to the Node App deployment.**
+    > **Note:** The Dapr control plane will automatically inject the Dapr sidecar to the Pod, as the "dapr.io/enabled: true" annotation is added to the Node App deployment.
 
 - Now that the Node.js and Python applications are deployed, review messages and API call come through.
 
@@ -217,10 +217,10 @@ Complete the following steps to clean up your environment.
     kubectl delete secret redis
     ```
 
-- Delete the Azure Cache for Redis from the Azure Portal.
+- Delete the Azure Cache for Redis from the Azure portal.
 
     ![Screenshot delete Redis](./20.png)
 
-- Uninstall the Dapr Cluster extension from the Azure Portal.
+- Uninstall the Dapr Cluster extension from the Azure portal.
 
     ![Screenshot delete extension](./21.png)

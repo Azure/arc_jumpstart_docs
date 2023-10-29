@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to deploy the [Azure Moni
 
 The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of supported infrastructure and delivers it to Azure Monitor.
 
-> **NOTE: This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**

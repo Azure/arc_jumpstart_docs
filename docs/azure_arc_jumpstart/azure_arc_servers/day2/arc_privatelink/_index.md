@@ -21,8 +21,9 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
   ![Deployment Overview](./01.png)
 
-  > **NOTE: It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.**
-  > **NOTE: The below scenario assumes the on-premises VM has outbound internet connectivity for the deployment of the Azure Arc connected machine agent. For internet disconnected environments you will need to adjust the automation to retrieve the agent's software from locally accessible storage**
+  > **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
+
+  > **Note:** The below scenario assumes the on-premises VM has outbound internet connectivity for the deployment of the Azure Arc connected machine agent. For internet disconnected environments you will need to adjust the automation to retrieve the agent's software from locally accessible storage.
 
 ## Prerequisites
 
@@ -99,9 +100,9 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
     ![Screenshot showing creating an SPN with PowerShell](./02.png)
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -130,7 +131,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
         - Azure VPN Gateway and its public IP address
         - Azure Windows Virtual Machine with a custom script extension that runs the [**Bootstrap.ps1**](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/privatelink/artifacts/Bootstrap.ps1) script
 
-        > **NOTE: The [_installArcAgent.ps1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/privatelink/artifacts/installArcAgent.ps1) script will enable the OS firewall and set up new rules for incoming and outgoing connections. By default all incoming and outgoing traffic will be allowed, except blocking Azure IMDS outbound traffic to the _169.254.169.254_ remote address.**
+        > **Note:** The [_installArcAgent.ps1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/privatelink/artifacts/installArcAgent.ps1) script will enable the OS firewall and set up new rules for incoming and outgoing connections. By default all incoming and outgoing traffic will be allowed, except blocking Azure IMDS outbound traffic to the _169.254.169.254_ remote address.
 
 3. User logs in to the on-premises VM using Azure Bastion to trigger the Azure Arc onboarding script.
 
@@ -162,7 +163,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     az deployment sub create \
     --location <Azure Region Location> \
     --template-file <The *azuredeploy.json* template file location> \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
     For example:
@@ -174,9 +175,9 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters azuredeploy.example.parameters.json
     ```
 
-     > **NOTE: The deployment may take around 45 minutes to complete.**
+     > **Note:** The deployment may take around 45 minutes to complete.
 
-- Verify the resources are created on the Azure Portal for both resource groups:
+- Verify the resources are created on the Azure portal for both resource groups:
 
     ![Resources created on Onpremises's resource group](./05.png)
 
@@ -202,7 +203,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Let the script to run its course and **do not close** the Powershell session, this will be done for you once completed.
 
-    > **NOTE: The script run time is ~1-2min long.**
+    > **Note:** The script run time is ~1-2min long.
 
     ![Screenshot script output](./10.png)
 

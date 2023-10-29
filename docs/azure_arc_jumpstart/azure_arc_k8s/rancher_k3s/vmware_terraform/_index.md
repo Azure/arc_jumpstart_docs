@@ -57,9 +57,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -81,7 +81,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 Before using the below guide to deploy an Ubuntu Server VM and connect it to Azure Arc, a VMware vSphere Template is required. [The following README](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/vmware_ubuntu_template/) will instruct you how to easily create such a template using VMware vSphere 6.5 and above.
 
-> **NOTE: If you already have an Ubuntu Server VM template it is still recommended to use the guide as a reference.**
+> **Note:** If you already have an Ubuntu Server VM template it is still recommended to use the guide as a reference.
 
 ## Deployment
 
@@ -136,7 +136,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
 ## Delete the deployment
 
-* The most straightforward way is to delete the cluster is via the Azure Portal, just select cluster and delete it.
+* The most straightforward way is to delete the cluster is via the Azure portal, just select cluster and delete it.
 
     ![Delete Azure Arc-enabled Kubernetes cluster](./07.png)
 

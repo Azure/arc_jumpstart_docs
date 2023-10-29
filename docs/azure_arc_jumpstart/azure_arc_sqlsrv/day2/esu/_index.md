@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to use Azure Arc to enrol
 
 In this scenario, you will be able to choose between working with Windows Server 2012 R2, SQL Server 2012 Standard Edition, or both.
 
-**NOTE: In this scenario, ESU licenses are not provided or created, and will require you to provision them separately. The scenario will however create Windows Server 2012 R2 and/or SQL Server 2012 (Standard) machines that are connected to Azure Arc that you will be able to enroll on Extended Security Updates via the Azure portal and get billed monthly via your Azure subscription.**
+ > **Note:** In this scenario, ESU licenses are not provided or created, and will require you to provision them separately. The scenario will however create Windows Server 2012 R2 and/or SQL Server 2012 (Standard) machines that are connected to Azure Arc that you will be able to enroll on Extended Security Updates via the Azure portal and get billed monthly via your Azure subscription.
 
 ## Prerequisites
 
@@ -47,9 +47,9 @@ In this scenario, you will be able to choose between working with Windows Server
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.**
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -84,7 +84,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
     - _`sql`_: to only deploy a SQL Server 2012 Standard Edition VM that will be registered as an Arc-enabled SQL Server.
     - _`both`_: to deploy both a Windows Server 2012 R2 VM and a SQL Server 2012 Standard Edition VM that will be Arc-enabled.
 
-    > **NOTE: Make sure to set the _esu_ parameter to _sql_ or _both_ to have an Arc-enabled SQL Server deployed.**
+    > **Note:** Make sure to set the _esu_ parameter to _sql_ or _both_ to have an Arc-enabled SQL Server deployed.
 
   ![Screenshot of Parameters file](./01.png)
 
@@ -109,7 +109,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot of automation output](./02.png)
 
-- After the script has finished its run verify the resources are created on the Azure Portal:
+- After the script has finished its run verify the resources are created on the Azure portal:
 
     ![Screenshot of resources created on resource group](./03.png)
 
@@ -137,13 +137,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - Let the script to run its course and **do not close** the Powershell session, this will be done for you once completed.
 
-    > **NOTE: The script run time is ~10-15 min long.**
+    > **Note:** The script run time is ~10-15 min long.
 
 - Upon successful run, a new Azure Arc-enabled server and/or Azure Arc-enabled SQL Server will be added to the resource group.
 
   ![Screenshot Azure Arc-enabled resources on resource group](./12.png)
 
-- Now that you have successfully onboarded the Arc-enabled resources, you will be able to manage the Extended Security Updates (ESU) from the Azure Portal:
+- Now that you have successfully onboarded the Arc-enabled resources, you will be able to manage the Extended Security Updates (ESU) from the Azure portal:
 
 ## Extended Security Updates (ESU)
 
@@ -167,7 +167,7 @@ Now that you have Windows Server 2012 R2 and/or SQL Server 2012 Arc-enabled, you
 
   ![Screenshot of Enable ESU Licenses](./17.png)
 
-**NOTE: Verify that the databases running on your Azure Arc-enabled SQL Server are being discovered. If the databases are not shown in the Azure Portal, follow these steps to fix it.**
+ > **Note:** Verify that the databases running on your Azure Arc-enabled SQL Server are being discovered. If the databases are not shown in the Azure portal, follow these steps to fix it.
 
 - Select the Azure Arc-enabled SQL Server.
 
@@ -183,7 +183,7 @@ Now that you have Windows Server 2012 R2 and/or SQL Server 2012 Arc-enabled, you
 
  ![Screenshot of software assurance](./21.png)
 
-- The databases will be discovered and shown in the Azure Portal after a few seconds.
+- The databases will be discovered and shown in the Azure portal after a few seconds.
 
  ![Screenshot of Databases in Azure portal](./22.png)
 

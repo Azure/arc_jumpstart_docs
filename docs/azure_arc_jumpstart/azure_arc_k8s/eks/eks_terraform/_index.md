@@ -72,7 +72,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   az extension add --name k8s-configuration
   ```
 
-  > **NOTE:  If you already used this guide before and/or have the extensions installed, use the bellow commands:**
+  > **Note:**  If you already used this guide before and/or have the extensions installed, use the bellow commands.
 
   ```shell
   az extension update --name connectedk8s
@@ -128,7 +128,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ![Screenshot showing terraform plan being run](./terraform_plan.png)
 
-  > **NOTE:  Screenshot has been clipped for brevity**
+  > **Note:**  Screenshot has been clipped for brevity.
 
 * Deploy EKS by running the ```terraform apply "infra.out"``` command.
   Wait for the plan to finish:
@@ -199,7 +199,7 @@ Now that you have a running EKS cluster, lets connect the EKS cluster to Azure A
    az group create --name "Arc-EKS-Demo" --location "eastus"
    ```
 
-   > **NOTE:  Before deploying, make sure to check the Azure Arc-enabled Kubernetes region availability [page](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).**
+   > **Note:**  Before deploying, make sure to check the Azure Arc-enabled Kubernetes region availability [page](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 * Deploy Arc binaries using Azure CLI:
 
@@ -211,19 +211,19 @@ Now that you have a running EKS cluster, lets connect the EKS cluster to Azure A
 
   ![Screenshot showing Azure CLI command to onboard EKS cluster](./connectedk8s_onboard.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./arc_cluster_portal.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./arc_cluster_portal.png)
 
   ![Screenshot showing Azure POrtal with Azure Arc-enabled Kubernetes resource detail](./arc_cluster_portal_connected.png)
 
 ## Delete the deployment
 
-In Azure, the most straightforward way is to delete the cluster or the resource group via the Azure Portal or through the CLI.
+In Azure, the most straightforward way is to delete the cluster or the resource group via the Azure portal or through the CLI.
 
 ```shell
 az group delete --name "Arc-EKS-Demo"
 ```
 
-![Screenshot showing delete resource group function in Azure Portal](./delete_resource_group.png)
+![Screenshot showing delete resource group function in the Azure portal](./delete_resource_group.png)
 
 To delete the EKS cluster and supporting components, use the ```terraform destroy --auto-approve``` command.
 

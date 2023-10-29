@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided [Azure ARM Template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to deploy an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) cluster and connected it as an Azure Arc cluster resource.
 
-  > **NOTE: Since AKS is a 1st-party Azure solution and natively supports capabilities such as [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) integration as well as GitOps configurations, it is not expected for an AKS cluster to be projected as an Azure Arc-enabled Kubernetes cluster. Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only required for running Arc enabled services like App Services and Data Services on the cluster.**
+  > **Note:** Since AKS is a 1st-party Azure solution and natively supports capabilities such as [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) integration as well as GitOps configurations, it is not expected for an AKS cluster to be projected as an Azure Arc-enabled Kubernetes cluster. Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only required for running Arc enabled services like App Services and Data Services on the cluster.
 
 ## Prerequisites
 
@@ -71,9 +71,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -123,7 +123,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   --resource-group <Name of the Azure resource group> \
   --name <The name of this deployment> \
   --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks/arm_template/azuredeploy.json \
-  --parameters <The *azuredeploy.parameters.json* parameters file location>
+  --parameters <The _azuredeploy.parameters.json_ parameters file location>
   ```
 
   For example:
@@ -137,7 +137,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   --parameters azuredeploy.parameters.json
   ```
 
-  > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+  > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once the ARM template deployment is completed, a new AKS cluster in a new Azure resource group is created.
 
@@ -161,7 +161,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - After editing the environment variables in the [*az_connect_aks*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/arm_template/scripts/az_connect_aks.sh) shell script to match your parameters, save the file and then upload it to the Cloud Shell environment and run it using the ```. ./az_connect_aks.sh``` command.
 
-  > **NOTE: The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the other commands.**
+  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
 
   ![Screenshot showing upload of file to Cloud Shell](./09.png)
 
@@ -171,13 +171,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot showing Azure portal with Azure Arc-enabled Kubernetes resource](./11.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./12.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./12.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./13.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./13.png)
 
 ## Delete the deployment
 
-The most straightforward way is to delete the Azure Arc cluster resource via the Azure Portal, just select the cluster and delete it.
+The most straightforward way is to delete the Azure Arc cluster resource via the Azure portal, just select the cluster and delete it.
 
 ![Screenshot showing how to delete Azure Arc-enabled Kubernetes resource](./14.png)
 

@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy](
 
 In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Policy by deploying the [Azure Policy cluster extension](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) on your Kubernetes cluster in order to start using some of the Kubernetes Azure Policies.
 
-  > **NOTE: This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion**
+  > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
 - **[AKS on Azure Stack HCI](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
@@ -26,7 +26,7 @@ In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azur
 - **[MicroK8s](/azure_arc_jumpstart/azure_arc_k8s/microk8s/)**
 - **[Platform9 Managed Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/pf9/)**
 
-Kubernetes extensions are add-ons for Kubernetes clusters. The extensions feature on Azure Arc-enabled Kubernetes clusters enables usage of Azure Resource Manager based APIs, CLI and Azure Portal for deployment of extension components (Helm charts in initial release) and will also provide lifecycle management capabilities such as auto/manual extension version upgrades for the extensions.
+Kubernetes extensions are add-ons for Kubernetes clusters. The extensions feature on Azure Arc-enabled Kubernetes clusters enables usage of Azure Resource Manager based APIs, CLI and the Azure portal for deployment of extension components (Helm charts in initial release) and will also provide lifecycle management capabilities such as auto/manual extension version upgrades for the extensions.
 
 ## Prerequisites
 
@@ -76,9 +76,9 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -98,7 +98,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Before integrating the cluster with Azure Policy, click on the "Extensions" tab for the connected Azure Arc cluster to show how the cluster is not currently being assessed by Azure Policy.
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource extensions](./01.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./01.png)
 
 - Edit the environment variables in [the script](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/azure_policy/azure_policy.sh) to match your environment parameters.
 
@@ -118,7 +118,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   sudo chmod +x azure_monitor_alerts.sh && . ./azure_policy.sh
   ```
 
-    > **NOTE: The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.**
+    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -129,7 +129,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Verify under the extensions tab of the Azure Arc-enabled Kubernetes cluster that the Azure Policy cluster extension is correctly installed.
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource extensions](./03.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./03.png)
 
 - You can also verify the pods by running the commands below:
   
@@ -151,11 +151,11 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Verify under the Azure Policy service in the Assignments tab that the Azure Policy Definition was assigned in your resource group:
 
-  ![Screenshot showing Azure Portal Azure Policy service](./06.png)
+  ![Screenshot showing the Azure portal Azure Policy service](./06.png)
 
 ## Test Azure Policy
 
-> **IMPORTANT NOTE: Please note that it may take up to 30 minutes for the Azure Policy to take effect.**
+> **Note:** Please note that it may take up to 30 minutes for the Azure Policy to take effect.
 
 - The Azure Policy we have assigned works as a [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range/), but we do not specify any namespace, so the Azure Policy will be applied on all namespaces. The limits specified in the Azure Policy are cpuLimit=200m and memoryLimit=1Gi, so to test it we need to create a pod with higher limits:
 

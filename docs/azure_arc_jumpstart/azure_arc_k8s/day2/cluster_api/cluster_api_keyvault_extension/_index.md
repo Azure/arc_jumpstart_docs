@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Key Vaul
 
 in this scenario, you will hook the Cluster API to Azure Key Vault by deploying the Azure Key Vault extension and a sample app on your Kubernetes cluster in order to integrate Azure Key Vault as a secrets store with a Kubernetes cluster via a [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) volume. This will also include deploying a Key Vault and sample secret on your Azure subscription.
 
-> **NOTE: This guide assumes you already deployed a Cluster API and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using a [Shell script](/azure_arc_jumpstart/azure_arc_k8s/cluster_api/capi_azure/).**
+> **Note:** This guide assumes you already deployed a Cluster API and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using a [Shell script](/azure_arc_jumpstart/azure_arc_k8s/cluster_api/capi_azure/).
 
 Kubernetes extensions are add-ons for Kubernetes clusters. The extensions feature on Azure Arc-enabled Kubernetes clusters enables usage of Azure Resource Manager based APIs, CLI, and portal UX for the deployment of extension components (Helm charts in initial release) and will also provide lifecycle management capabilities such as auto/manual extension version upgrades for the extensions.
 
@@ -59,9 +59,9 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -83,19 +83,19 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new extension Instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Key Vault extension on your Azure Arc-enabled Kubernetes cluster.
 
-> **NOTE: Before installing the Key Vault extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.**
+> **Note:** Before installing the Key Vault extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.
 
 ![Screenshot showing current kubectl context pointing to CAPI cluster](./01.png)
 
 - In the screenshot below, notice how currently there are no extensions installed yet in your Arc-enabled Kubernetes cluster.
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource extensions](./02.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./02.png)
 
 - Edit the environment variables [in the script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/cluster_api/capi_keyvault_extension/capi_keyvault_k8s_extension.sh) to match your environment parameters followed by running the _`. ./azure_keyvault_k8s_extension.sh`_ command.
 
     ![Screenshot parameter examples](./03.png)
 
-    > **NOTE: The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.**
+    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -152,6 +152,6 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
     az k8s-extension delete --name <extension-name> --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
     ```
 
-- You can also delete the extension from the Azure Portal under the extensions section of the Azure Arc-enabled Kubernetes cluster resource.
+- You can also delete the extension from the Azure portal under the extensions section of the Azure Arc-enabled Kubernetes cluster resource.
 
     ![Screenshot showing uninstalling of the extension](./09.png)

@@ -10,7 +10,7 @@ description: >
 
 This scenario allows us to see how Azure IoT Edge and Azure Arc services complement each other in an easy and simple way, providing mechanisms for AKS cluster operators to configure the fundamental components of an AKS cluster and apply policies by monitoring its supervision, through Azure Arc. Furthermore, from Azure IoT Edge, application operators can remotely deploy and manage workloads at scale with convenient ingest from the cloud and in a bi-directional way.
 
-  > **NOTE: Azure Kubernetes Service is now in preview on Azure IoT Edge. You can find more details about this service in the [IoT Edge's support for Kubernetes document](https://microsoft.github.io/iotedge-k8s-doc/)**
+  > **Note:** Azure Kubernetes Service is now in preview on Azure IoT Edge. You can find more details about this service in the [IoT Edge's support for Kubernetes document](https://microsoft.github.io/iotedge-k8s-doc/).
 
 The following Jumpstart scenario will guide you on how to use the provided [Terraform](https://www.terraform.io/) plan to deploy an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) cluster and connect it as an Azure Arc-enabled Kubernetes resource.
 
@@ -59,9 +59,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -116,7 +116,7 @@ In case the AKS service is not available in your region, you can change the AKS 
     export TF_VAR_client_secret=<Your Azure service principal App Password>
     ```
 
-    > **NOTE: If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below)**
+    > **Note:** If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below).
 
     ```powershell
     Set-Item -Path env:TF_VAR_client_id
@@ -132,9 +132,9 @@ In case the AKS service is not available in your region, you can change the AKS 
 
     ![Screenshot showing terraform plan completing](./02.png)
 
-    ![Screenshot showing Azure Portal with AKS resource](./03.png)
+    ![Screenshot showing the Azure portal with AKS resource](./03.png)
 
-    ![Screenshot showing Azure Portal with AKS resource](./04.png)
+    ![Screenshot showing the Azure portal with AKS resource](./04.png)
 
 * In this scenario we will use a VM to "simulate" an IoT Edge device. To do this, we must register a new Edge device in our IoT Hub that we will later configure.
 
@@ -181,7 +181,7 @@ sudo iotedge config apply
 
 * Once the file is uploaded, execute the following command:
 
-> **NOTE: You can see an example of the [deployment.json](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_iot_edge/terraform/scripts/edge/deployment.json) file that we use.**
+> **Note:** You can see an example of the [_deployment.json_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_iot_edge/terraform/scripts/edge/deployment.json) file that we use.
 
 ```shell
 az iot edge set-modules --hub-name k8sedgejumpstart --device-id "EdgeDeviceSim" --content ./deployment.json
@@ -227,9 +227,9 @@ kubectl logs -n iotedge <replace-with-iot-edge-pod-name> simulatedtemperaturesen
 
 ## Delete the deployment
 
-The most straightforward way is to delete the Azure Arc-enabled Kubernetes resource via the Azure Portal, just select the Resource Group and delete it.
+The most straightforward way is to delete the Azure Arc-enabled Kubernetes resource via the Azure portal, just select the Resource Group and delete it.
 
-![Screenshot showing delete function in Azure Portal](./14.png)
+![Screenshot showing delete function in the Azure portal](./14.png)
 
 If you want to nuke the entire environment, delete both the AKS and the AKS resources resource groups or run the ```terraform destroy -auto-approve``` command.
 

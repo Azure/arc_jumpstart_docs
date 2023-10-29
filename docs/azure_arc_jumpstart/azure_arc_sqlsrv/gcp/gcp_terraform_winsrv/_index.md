@@ -67,9 +67,9 @@ By the end of the guide, you will have a GCP VM instance installed with Windows 
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -182,13 +182,13 @@ Before executing the Terraform plan, you must set the environment variables whic
   export TF_VAR_admin_password='Guest OS Admin Password'
   ```
 
-    > **NOTE: If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below)**
+    > **Note:** If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below).
 
     ```powershell
     Set-Item -Path env:TF_VAR_gcp_project_id
     ```
 
-    > **NOTE: Do not set the TF_VAR_admin_user variable to "Administrator". GCP Windows images have the administrator account [disabled by default](https://cloud.google.com/compute/docs/images/os-details#windows_server). Therefore, you must use a different username for your TF_VAR_admin_user (e.g., "arcdemo")**
+    > **Note:** Do not set the TF_VAR_admin_user variable to "Administrator". GCP Windows images have the administrator account [disabled by default](https://cloud.google.com/compute/docs/images/os-details#windows_server). Therefore, you must use a different username for your TF_VAR_admin_user (e.g., "arcdemo").
 
   ![Screenshot showing exporting environment variables in shell](./19.png)
 
@@ -205,13 +205,13 @@ Before executing the Terraform plan, you must set the environment variables whic
 
   ![Screenshot showing GCP cloud console with server](./21.png)
 
-  ![Screenshot showing Azure Portal with empty resource group](./22.png)
+  ![Screenshot showing the Azure portal with empty resource group](./22.png)
 
 * Download the RDP file and log in to the VM (**using data from the *TF_VAR_admin_user* and *TF_VAR_admin_password* environment variables**) which will initiate the *LogonScript* run. Let the script to run it's course and which will also close the PowerShell session when completed.
 
   ![Screenshot showing link to download RDP file in GCP cloud console](./23.png)
 
-  > **NOTE: The script runtime will take ~10-15min to complete**
+  > **Note:** The script runtime will take ~10-15min to complete.
 
   ![Screenshot showing PowerShell script being run in server](./24.png)
 
@@ -237,15 +237,15 @@ Before executing the Terraform plan, you must set the environment variables whic
 
   ![Screenshot showing SQL Management Studio](./34.png)
 
-* In the Azure Portal, notice you now have an Azure Arc-enabled server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
+* In the Azure portal, notice you now have an Azure Arc-enabled server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled SQL resources](./35.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled SQL resources](./35.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled SQL resources](./36.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled SQL resources](./36.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled SQL resources](./37.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled SQL resources](./37.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled SQL resources](./38.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled SQL resources](./38.png)
 
 ## Azure SQL Assessment
 
@@ -267,9 +267,9 @@ Now that you have both the server and SQL projected as Azure Arc resources, the 
 
   Initially, the amount of data will be limited as it take a while for the assessment to complete a full cycle but after few hours you should be able to see much more data coming in.  
 
-  ![Screenshot showing SQL Assessment Results in Azure Portal](./42.png)
+  ![Screenshot showing SQL Assessment Results in the Azure portal](./42.png)
 
-  ![Screenshot showing SQL Assessment Results in Azure Portal](./43.png)
+  ![Screenshot showing SQL Assessment Results in the Azure portal](./43.png)
 
 ## Cleanup
 

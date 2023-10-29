@@ -10,9 +10,9 @@ description: >
 
 The following README will guide you on how to use the provided PowerShell script to deploy the [Azure Arc resource bridge](https://docs.microsoft.com/azure/azure-arc/resource-bridge/overview) in your vSphere environment to connect your vCenter Server to Azure Arc.
 
-> **NOTE:  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.**
+> **Note:**  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.
 
-> **NOTE: Azure Arc-enabled VMware vSphere is currently in Preview and as a result, versions captured in the scenario's various screenshots are subject to change.**
+> **Note:** Azure Arc-enabled VMware vSphere is currently in Preview and as a result, versions captured in the scenario's various screenshots are subject to change.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ The following README will guide you on how to use the provided PowerShell script
 
     Copy and save the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 - Get the ConnectedVMwarevSphere resource provider Id.
 
@@ -86,7 +86,7 @@ The following README will guide you on how to use the provided PowerShell script
 
 As mentioned, this scenario starts at the point where you already have an up and running VMware vSphere environment managed by vCenter. The automation will be run from a PowerShell window on a computer (which can be your local computer) that has network connectivity to vCenter.
 
-  > **NOTE: the script will automatically uninstall any pre-existing Azure CLI versions in the workstation and will deploy the latest 64-bit version, as it is a requirement to deploy the Azure Arc resource bridge**
+  > **Note:** the script will automatically uninstall any pre-existing Azure CLI versions in the workstation and will deploy the latest 64-bit version, as it is a requirement to deploy the Azure Arc resource bridge.
 
 ## Automation Flow
 
@@ -167,7 +167,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - From the Azure portal, in the resource group, you should see three new resources, including the VMware vCenter.
 
-  ![Screenshot showing the Azure Arc resources in the Azure Portal](./18.png)
+  ![Screenshot showing the Azure Arc resources in the Azure portal](./18.png)
 
   ![Screenshot showing the connected VMware vCenter](./19.png)
 

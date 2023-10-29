@@ -57,9 +57,9 @@ in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), sing
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -100,11 +100,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     ![Screenshot showing the script empty environment variables](02.png)
 
-    > **NOTE: Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as vi or nano.**
+    > **Note:** Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as vi or nano.
 
 - Edit **ONLY** the following environment variables:
 
-    > **NOTE: Both the _`githubAccount`_ and the _`githubBranch`_ are used for testing purposes. Unless you are developing independent tests that are based on the script, there is no need to edit these variables.**
+    > **Note:** Both the _`githubAccount`_ and the _`githubBranch`_ are used for testing purposes. Unless you are developing independent tests that are based on the script, there is no need to edit these variables.
 
     ![Screenshot showing the githubAccount and the githubBranch environment variables](03.png)
 
@@ -128,7 +128,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   sudo chmod +x installCAPI.sh && . ./installCAPI.sh
   ```
 
-  > **NOTE: The extra dot is due to the script using the _export_ command, used for exporting the environment variables in the same shell session as the other commands in the script.**
+  > **Note:** The extra dot is due to the script using the _export_ command, used for exporting the environment variables in the same shell session as the other commands in the script.
 
     ![Screenshot showing the script runtime](./05.png)
 

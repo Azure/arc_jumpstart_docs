@@ -75,7 +75,7 @@ By the end of this scenario, you will have a Microk8s Kubernetes cluster deploye
     }
     ```
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Architecture (In a nutshell)
 
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - You will also need to get the Azure Custom Location Resource Provider ([RP](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)) Object ID (OID) and export it as an environment variable:
 
-  > **NOTE: You need permissions to list all the service principals.**
+  > **Note:** You need permissions to list all the service principals.
 
   #### Option 1: Bash
 
@@ -149,7 +149,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   --parameters customLocationRPOID="$customLocationRPOID"
   ```
 
-  > **NOTE: Make sure that you are using the same Azure resource group name as the one you've just used in the `azuredeploy.parameters.json` file**
+  > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the `azuredeploy.parameters.json` file.
 
   For example:
 
@@ -164,9 +164,9 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   --parameters templateBaseUrl="https://raw.githubusercontent.com/your--github--handle/azure_arc/microk8s-data/azure_arc_data_jumpstart/microk8s/azure/arm_template/"
   ```
 
-  > **NOTE: The deployment time for this scenario can take ~15-20min**
+  > **Note:** The deployment time for this scenario can take ~15-20min.
 
-  > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+  > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
   ![Screenshot showing deployment time](./01.png)
 
@@ -207,7 +207,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing connecting to the VM using Bastion](./09.png)
 
-  > **NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -275,7 +275,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   ![Screenshot showing configured SQL Managed Instance connection](./28.png)
 
-  > **NOTE: Due to the use of Kubernetes _NodePort_ service in this scenario, the default SQL connection endpoint port number (1443) was changed to 31111.**
+  > **Note:** Due to the use of Kubernetes _NodePort_ service in this scenario, the default SQL connection endpoint port number (1443) was changed to 31111.
 
 ## Cluster extensions
 

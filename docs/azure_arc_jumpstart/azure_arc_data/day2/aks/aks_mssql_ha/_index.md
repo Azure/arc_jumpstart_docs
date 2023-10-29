@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to explore and test Azure Arc-enabled SQL Managed Instance Availability Groups, simulate failures and DB replication. In this scenario, you will be restoring a sample database, will initiate a failover to force HA event as well as validating database replication across multiple SQL nodes in an availability group.
 
-> **NOTE: This guide assumes you already deployed a Azure Arc-enabled SQL Managed Instance on Azure Kubernetes Service (AKS). If you haven't, this [following bootstrap Jumpstart scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/) offers you a way to do so in an automated fashion. All the steps and operations described in this scenario assume you used the mentioned bootstrap Jumpstart scenario and have the Client VM deployed as part of it.**
+> **Note:** This guide assumes you already deployed a Azure Arc-enabled SQL Managed Instance on Azure Kubernetes Service (AKS). If you haven't, this [following bootstrap Jumpstart scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/) offers you a way to do so in an automated fashion. All the steps and operations described in this scenario assume you used the mentioned bootstrap Jumpstart scenario and have the Client VM deployed as part of it.
 
 ## Deployed Kubernetes Resources
 
@@ -34,7 +34,7 @@ In an availability group deployment, two endpoints, primary and secondary get cr
 
     ![az sql mi-arc show command](./03.png)
 
-    > **NOTE: Initiating the command will also deploy _az sql_ Azure CLI extension automatically.**
+    > **Note:** Initiating the command will also deploy _az sql_ Azure CLI extension automatically.
 
 - Using the _`kubectl get svc -n arc`_ command, you will be able to see the _LoadBalancer_ services used by the endpoints.
 
@@ -110,7 +110,7 @@ As you already know, the availability group includes three Kubernetes replicas w
 
 - Re-open SSMS and connect back to the previous _secondary_ endpoint. You can now see that _jumpstart-sql-0_ is now acting as the secondary replica and _jumpstart-sql-2_ was promoted to primary. In addition, run the _`az sql mi-arc show -n jumpstart-sql --k8s-namespace arc --use-k8s`_ command again and check the health status of the availability group.
 
-    > **NOTE: It might take a few minutes for the availability group to return to an healthy state.**
+    > **Note:** It might take a few minutes for the availability group to return to an healthy state.
 
     ![Successful failover](./23.png)
 

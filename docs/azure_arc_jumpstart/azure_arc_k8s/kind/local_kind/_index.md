@@ -65,9 +65,9 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -92,7 +92,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
   az extension add --name k8s-configuration
   ```
 
-  > **NOTE: If you already used this guide before and/or have the extensions installed, use the below commands:**
+  > **Note:** If you already used this guide before and/or have the extensions installed, use the below commands.
 
   ```shell
   az extension update --name connectedk8s
@@ -137,7 +137,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
 
   ![kind create cluster](./01.png)
 
-  > **NOTE: By default, kind will store the kubeconfig file used to connect to your cluster in the ~/.kube directory. If you want to use a custom directory to store the kubeconfig file, use the `--kube-config` flag.**
+  > **Note:** By default, kind will store the kubeconfig file used to connect to your cluster in the ~/.kube directory. If you want to use a custom directory to store the kubeconfig file, use the `--kube-config` flag.
 
   If you chose a specific location for the cluster's *kubeconfig* file, make sure you export its location as an environment variable using the `export KUBECONFIG=/path/to/kubeconfig` location or in Windows, add this location to your PATH.
 
@@ -183,7 +183,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
 
 ## Delete the deployment
 
-* In Azure, the most straightforward way is to delete the cluster or the resource group via the Azure Portal or through the CLI.
+* In Azure, the most straightforward way is to delete the cluster or the resource group via the Azure portal or through the CLI.
 
   ```shell
   az group delete --name Arc-kind-Demo

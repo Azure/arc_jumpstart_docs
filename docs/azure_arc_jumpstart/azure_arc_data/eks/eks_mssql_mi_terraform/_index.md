@@ -72,9 +72,9 @@ By the end of this scenario, you will have an EKS cluster deployed with an Azure
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Follow the steps [here](https://docs.microsoft.com/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-cluster) or run the command below to retrieve your AAD Tenant Specific ObjectID for the "Custom Locations RP" Enterprise Application needed to onboard Custom Locations on EKS:
   
@@ -135,7 +135,7 @@ Create AWS User IAM Key. An access key grants programmatic access to your resour
 
   ![Screenshot showing creating an EC2 Key Pair](./13.png)
 
-  > **NOTE: EC2 Key Pairs are regional.**
+  > **Note:** EC2 Key Pairs are regional.
 
 ## Automation Flow
 
@@ -193,9 +193,9 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
   - _`deployPostgreSQL`_ - Boolean that sets whether or not to deploy PostgreSQL, for this data controller vanilla scenario we leave it set to _**false**_.
   - **_`customLocationObjectId`_** - The Azure AD application used by Azure Arc service retrieved in the prerequisites section.
 
-> **NOTE: Any variables in bold are required. If any optional parameters are not provided, defaults will be used.**
+> **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
 
-> **NOTE: In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["High Availability"](##-High-Availability-with-Always-On-availability-groups) section in this scenario. Also note that this capability is currently in [preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes)**.
+> **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["High Availability"](##-High-Availability-with-Always-On-availability-groups) section in this scenario. Also note that this capability is currently in [preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes).
 
 - Now you will deploy the Terraform file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_data_jumpstart/eks/terraform) and run the commands below:
 
@@ -205,7 +205,7 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
   terraform apply "infra.out"
   ```
 
-> **NOTE: The deployment time for this scenario can take ~20-35min**
+> **Note:** The deployment time for this scenario can take ~20-35min.
 
 - Example output from `terraform init`:
 
@@ -324,7 +324,7 @@ Included in this scenario, is a dedicated SQL stress simulation tool named _SqlQ
 
   ![Screenshot showing SQLMI Endpoints text file](./44.png)
 
-> **NOTE: Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](/azure_arc_jumpstart/azure_arc_data/day2/cluster_api/capi_azure/capi_mssql_ha/).**
+> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](/azure_arc_jumpstart/azure_arc_data/day2/cluster_api/capi_azure/capi_mssql_ha/).
 
 - To connect, use "SQL Server Authentication" and select the deployed sample _AdventureWorks_ database (you can use the "Test" button to check the connection).
 
@@ -388,7 +388,7 @@ When deploying Azure Arc-enabled data services, a [Grafana](https://grafana.com/
 
   ![Screenshot showing the deletion of all AWS resources](./57.png)
 
-  > **NOTE: Because the following resources were created by EKS that creates internal AWS dependencies that Terraform has no knowledge of from our plan, we need to delete the resources from AWS console as `terraform destroy` is cleaning up - this allows us to avoid dependency conflicts and ongoing billing from orphaned resources such as EKS Volumes.**
+  > **Note:** Because the following resources were created by EKS that creates internal AWS dependencies that Terraform has no knowledge of from our plan, we need to delete the resources from AWS console as `terraform destroy` is cleaning up - this allows us to avoid dependency conflicts and ongoing billing from orphaned resources such as EKS Volumes.
 
 - While the `destroy` command is running, delete any new Load Balancers created as EKS Services (`EC2 > Load Balancing > Load Balancers`) that are deployed in AWS from the Console:
 

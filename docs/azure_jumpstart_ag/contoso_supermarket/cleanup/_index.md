@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Cleanup
 ---
 
@@ -21,7 +20,7 @@ title: Cleanup
 
   ![Screenshot showing azd down](./img/azd_down.png)
 
-  > __NOTE: If you have manually configured Defender for Cloud, please refer to the [dedicated page](/azure_jumpstart_ag/contoso_supermarket/arc_defender_servers/#cleanup) to clean up Defender for Cloud resources.__
+  > **Note:** If you have manually configured Defender for Cloud, please refer to the [dedicated page](/azure_jumpstart_ag/contoso_supermarket/arc_defender_servers/#cleanup) to clean up Defender for Cloud resources.
 
 ## Next steps
 

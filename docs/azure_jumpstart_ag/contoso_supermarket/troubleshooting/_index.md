@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Troubleshooting
 ---
 
@@ -61,7 +60,7 @@ After deploying Agora, if you try to access the Kubernetes resources on the clus
   ![Screenshot showing an error message when accessing Kubernetes resources on the AKS cluster](./img/aks_resources_access.png)
 
 - To able to access the Kubernetes resources on the AKS cluster from the Azure portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/aks/kubernetes-portal?tabs=azure-cli#unauthorized-access).
-- To able to access the Kubernetes resources on the AKS Edge Essentials clusters from the Azure Portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/azure-arc/kubernetes/cluster-connect).
+- To able to access the Kubernetes resources on the AKS Edge Essentials clusters from the Azure portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/azure-arc/kubernetes/cluster-connect).
 
 ### User principal is not authorized to read database Orders
 
