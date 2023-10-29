@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Data pipeline and reporting across cloud and edge for sensor telemetry
 summary: |
   Contoso Supermarket is obsessed with achieving the highest levels of food safety. To support this obsession Contoso has invested in technology to let it know when any food in a store's freezers is potentially unsafe due to the freezer reaching temperatures that would allow the food to thaw and pathogens to grow.
@@ -53,7 +52,7 @@ Contoso has an ADX dashboard report for Freezer Monitoring analytics and monitor
 
 ### Manually import dashboard
 
-> __NOTE: If you used the [Azure Developer CLI (azd) method](/azure_jumpstart_ag/contoso_supermarket/deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as the dashboard is automatically imported for you during the automated deployment.__
+> **Note:** If you used the [Azure Developer CLI (azd) method](/azure_jumpstart_ag/contoso_supermarket/deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as the dashboard is automatically imported for you during the automated deployment.
 
 To view the Freezer Monitoring dashboard you will first need to import it into ADX.
 
@@ -63,7 +62,7 @@ To view the Freezer Monitoring dashboard you will first need to import it into A
 
 - Copy these ADX dashboard JSON files on your local machine in a temporary folder to import into ADX dashboards. Alternatively, you can log in to ADX Dashboards directly on the Client VM.
 
-  > __NOTE: Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.__
+  > **Note:** Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.
 
 - On your local machine open the browser of your choice OR on the Client VM open the Edge browser and log in to [ADX Dashboards](https://dataexplorer.azure.com/). Use the same user account that you deployed Jumpstart Agora in your subscription. Failure to use the same account will prevent access to the ADX Orders database to generate dashboards.
 
@@ -87,7 +86,7 @@ To view the Freezer Monitoring dashboard you will first need to import it into A
 
   ![Screenshot showing the default freezer dashboard](./img/adx_freezer_dashboard_default.png)
 
-  > __NOTE: Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
 
 ## Scenarios
 
@@ -99,11 +98,11 @@ The manager of the Chicago store has reported that food in one of the freezers h
 
 #### Confirm the issue in Azure Data Explorer
 
-- Open the __Freezer Monitoring__ dashboard in [ADX](https://dataexplorer.azure.com/dashboards).
+- Open the _Freezer Monitoring_ dashboard in [ADX](https://dataexplorer.azure.com/dashboards).
 
   ![Screenshot showing the dashboard with all freezers](./img/adx_freezer_dashboard_default.png)
 
-- The charts are quite busy so let's make it easier to see the problem in Chicago by filtering the dashboard to show only data for the __Chicago__ store.
+- The charts are quite busy so let's make it easier to see the problem in Chicago by filtering the dashboard to show only data for the _Chicago_ store.
 
   ![Screenshot showing filtering for Chicago](./img/adx_freezer_dashboard_select_chicago.png)
 
@@ -139,7 +138,7 @@ From the Client VM:
 
 As the manager of the Chicago store, you can use the Grafana dashboard to see the current temperature. While taking care of other store activities, you want to be notified when the temperature exceeds the safe threshold of 15°F so you can take action immediately.
 
-__NOTE: This won't really send you an email because the server is not configured to send Simple Mail Transfer Protocol (SMTP) messages. However, it will help you understand the potential options available to a store manager.__
+ > **Note:** This won't really send you an email because the server is not configured to send Simple Mail Transfer Protocol (SMTP) messages. However, it will help you understand the potential options available to a store manager.
 
 - In the Grafana dashboard, click the hamburger menu next to __Home__ then __Alerting__.
 
@@ -283,27 +282,27 @@ From the MQTT Broker, the data is sent to Azure IoT Hub, which is a managed serv
 
 To see whether data is being received by Azure IoT Hub for your devices, from your local machine:
 
-- Open Resource Groups in the [Azure Portal](https://ms.portal.azure.com/#browse/resourcegroups).
+- Open Resource Groups in the [Azure portal](https://ms.portal.azure.com/#browse/resourcegroups).
 
 - Click the new resource group you created for __Jumpstart Agora__.
 
 - Click __Ag-IotHub-xxxxx__ to open the IoT Hub.
 
-  ![Screenshot showing the Azure Portal IoT Hub](./img/azure_portal_iot_hub.png)
+  ![Screenshot showing the Azure portal IoT Hub](./img/azure_portal_iot_hub.png)
 
 - Click __Queries__ in the left navigation menu.
 
-  ![Screenshot showing the Azure Portal IoT Hub Queries](./img/azure_portal_iot_hub_queries.png)
+  ![Screenshot showing the Azure portal IoT Hub Queries](./img/azure_portal_iot_hub_queries.png)
 
 - Click __Run query__.
 
-  ![Screenshot showing the Azure Portal IoT Hub Run query button](./img/azure_portal_iot_hub_queries_run.png)
+  ![Screenshot showing the Azure portal IoT Hub Run query button](./img/azure_portal_iot_hub_queries_run.png)
 
 - Scroll down to where you see __"deviceId": "Freezer-1-Chicago"__.
 
 - Review the __"connectionState"__ and __"lastActivityTime"__ values to see if the device is connected and sending data.
 
-  ![Screenshot showing the Azure Portal IoT Hub Run query results](./img/azure_portal_iot_hub_queries_results.png)
+  ![Screenshot showing the Azure portal IoT Hub Run query results](./img/azure_portal_iot_hub_queries_results.png)
 
 #### Azure Data Explorer (ADX)
 

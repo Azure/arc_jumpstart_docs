@@ -10,9 +10,9 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided ARM template to deploy a Windows VM in your Azure Arc-enabled vSphere cluster using custom locations.
 
-> **NOTE:  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.**
+> **Note:**  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.
 
-> **NOTE: Azure Arc-enabled VMware vSphere is currently in Preview and as a result, versions captured in the scenario's various screenshots are subject to change.**
+> **Note:** Azure Arc-enabled VMware vSphere is currently in Preview and as a result, versions captured in the scenario's various screenshots are subject to change.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ The following Jumpstart scenario will guide you on how to use the provided ARM t
     }
     ```
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 ## Automation Flow
 
@@ -95,7 +95,7 @@ As mentioned, this deployment will leverage an ARM template. You will deploy a s
     --resource-group <Resource Group Name> \
     --name <Deployment Name> \
     --template-file <The *azuredeploy.json* template file location> \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
 - Once Azure resources has been provisioned, you will be able to see it in Azure portal and in your vCenter.

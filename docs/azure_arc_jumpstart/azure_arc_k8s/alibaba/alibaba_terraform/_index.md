@@ -32,7 +32,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * (Optional) [Install or update Aliyun CLI to latest version 3.0.73 and above](https://github.com/aliyun/aliyun-cli). Use the below command to check your current installed version.
 
-  > **NOTE: Ālǐyún or Aliyun is actually the chinese name for Alibaba Cloud**
+  > **Note:** Ālǐyún or Aliyun is actually the chinese name for Alibaba Cloud.
 
   ```shell
   aliyun --version
@@ -66,7 +66,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   az extension add --name k8s-configuration
   ```
 
-  > **NOTE: If you already used this guide before and/or have the extensions installed, use the bellow commands:**
+  > **Note:** If you already used this guide before and/or have the extensions installed, use the bellow commands.
 
   ```shell
   az extension update --name connectedk8s
@@ -77,7 +77,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * [Sign up to or have an Alibaba Cloud account](https://www.alibabacloud.com/) - domestic or international
 
-  > **NOTE: The screenshots and sample outputs shown here are based on a domestic account.**
+  > **Note:** The screenshots and sample outputs shown here are based on a domestic account.
 
 * Browse to <https://console.aliyun.com/> and login with your Alibaba Cloud account. Once logged in, create a new access key from your profile. After creating it, be sure to copy down the access and secret key.
 
@@ -121,7 +121,7 @@ The only thing you need to do before executing the Terraform plan is to export t
   export AZURE_CLUSTER_NAME="azure-arc-aliyun"
   ```
 
-  > **NOTE: If you are running in a PowerShell environment, to set the Terraform environment variables, use the _$env:variable-name=variable-value_ (see example below)**
+  > **Note:** If you are running in a PowerShell environment, to set the Terraform environment variables, use the _$env:variable-name=variable-value_ (see example below).
 
   ```powershell
   $env:ALICLOUD_ACCESS_KEY="aBcDeFgHiJkLmNo"
@@ -198,13 +198,13 @@ The only thing you need to do before executing the Terraform plan is to export t
 
 ## Delete the deployment
 
-In Azure, the most straightforward way is to delete the resource group via the Azure Portal or through the CLI.
+In Azure, the most straightforward way is to delete the resource group via the Azure portal or through the CLI.
 
 ```shell
 az --resource-group $AZURE_RESOURCE_GROUP -y
 ```
 
-![Delete resource group in Azure Portal](./11.png)
+![Delete resource group in the Azure portal](./11.png)
 
 To delete the environment in Alibaba Cloud, use Terraform.
 
@@ -213,7 +213,7 @@ terraform refresh
 terraform destroy --auto-approve
 ```
 
-> **NOTE: `terraform refresh` will update the local state to that `terraform destroy` also handles automatically generated resources like _Elastic IP Address_ and/or _NAT Gateway_.**
+> **Note:** `terraform refresh` will update the local state to that `terraform destroy` also handles automatically generated resources like _Elastic IP Address_ and/or _NAT Gateway_.
 
 output:
 

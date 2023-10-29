@@ -12,9 +12,9 @@ The following Jumpstart scenario will guide you on how to use [Azure DevOps (ADO
 
 By the end of this scenario, you will have an Azure DevOps Release pipeline to deploy AKS cluster with an Azure Arc Data Controller ([in "Directly Connected" mode](https://docs.microsoft.com/azure/azure-arc/data/connectivity), Azure SQL MI with a sample database and a Microsoft Windows Server 2022 (Datacenter) Azure VM, installed & pre-configured with all the required tools needed to work with Azure Arc Data Services.
 
-> **NOTE: Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes)**.
+> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes).
 
-> **NOTE: The following scenario is focusing the Azure DevOps Release pipeline creation. Once the pipeline has been created and the environment deployment has finished, the automation flow and next steps are as [described on in the main bootstrap scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/)**
+> **Note:** The following scenario is focusing the Azure DevOps Release pipeline creation. Once the pipeline has been created and the environment deployment has finished, the automation flow and next steps are as [described on in the main bootstrap scenario](/azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template/).
 
 ## Prerequisites
 
@@ -79,9 +79,9 @@ By the end of this scenario, you will have an Azure DevOps Release pipeline to d
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment
 
@@ -113,7 +113,7 @@ In this scenario, you will create a new Release pipeline to deploy the environme
 
     ![Screenshot of Azure Resource Manager connection config](./08.jpg)
 
-  > **NOTE: For new ADO project, you will be asked to click the authorization button**
+  > **Note:** For new ADO project, you will be asked to click the authorization button.
 
     ![Screenshot of Azure subscription config](./09.jpg)
 
@@ -147,7 +147,7 @@ In this scenario, you will create a new Release pipeline to deploy the environme
   - _`dnsPrefix`_ - AKS unique DNS prefix
   - _`kubernetesVersion`_ - AKS Kubernetes Version (See previous prerequisite)
   
-    > **NOTE: Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file**
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file.
 
     ![Screenshot of ARM template parameters config](./12.jpg)
 
@@ -189,7 +189,7 @@ In this scenario, you will create a new Release pipeline to deploy the environme
 
 - Once completed, all the deployment resources will be available in the Azure portal.
 
-  > **NOTE: Deployment time of the Azure resources (AKS + Windows VM) can take ~25-30 minutes.**
+  > **Note:** Deployment time of the Azure resources (AKS + Windows VM) can take ~25-30 minutes.
 
     ![Screenshot of deployment completed](./27.jpg)
 

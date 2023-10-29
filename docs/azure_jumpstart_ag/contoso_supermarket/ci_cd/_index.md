@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Streamlining the Software Delivery Process using CI/CD
 summary: |
     In today's fast-paced software development industry having a robust and efficient CI/CD (Continuous Integration/Continuous Deployment) pipeline is critical for organizations to maintain a competitive edge and stay ahead of the curve. This is particularly important for organizations like Contoso Supermarket to deliver a seamless shopping experience to its customers. With the increasing adoption of cloud technologies, the need for an efficient CI/CD pipeline has become more pronounced, as it allows Contoso Supermarket to quickly and reliably deploy changes to their applications and infrastructure.
@@ -193,7 +192,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the new checkout feature in the staging environment](./img/pos_after_checkout_feature.png)
 
-    > __NOTE: In some cases you may need to force a refresh of your browser's cache to see the updated feature. This can be done by pressing Ctrl-F5 to force the cache to clear and reload the page.__
+    > **Note:** In some cases you may need to force a refresh of your browser's cache to see the updated feature. This can be done by pressing Ctrl-F5 to force the cache to clear and reload the page.
 
 - Once the PoS application is healthy on the _Staging_ cluster, a pull request is created automatically to update the _Canary_ environment with the new PoS application image.
 

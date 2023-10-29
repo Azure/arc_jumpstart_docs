@@ -59,9 +59,9 @@ By the end of the guide, you will have a VMware vSphere VM installed with Window
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -81,9 +81,9 @@ By the end of the guide, you will have a VMware vSphere VM installed with Window
 
 Before using the below guide to deploy a Windows Server VM and connect it to Azure Arc, a VMware vSphere Template is required. [The following README](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/) will instruct you how to easily create such a template using VMware vSphere 6.5 and above.
 
-**The Terraform plan uses the *remote-exec* provisioner which uses the WinRM protocol to copy and execute the required Azure Arc script. To allow WinRM connectivity to the VM, run the [*allow_winrm*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/vmware/winsrv/terraform/scripts/allow_winrm.ps1) PowerShell script on your VM before converting it to template.**
+> **Note:** The Terraform plan uses the *remote-exec* provisioner which uses the WinRM protocol to copy and execute the required Azure Arc script. To allow WinRM connectivity to the VM, run the [*allow_winrm*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/vmware/winsrv/terraform/scripts/allow_winrm.ps1) PowerShell script on your VM before converting it to template.
 
-> **NOTE: If you already have a Windows Server VM template it is still recommended to use the guide as a reference.**
+> **Note:** If you already have a Windows Server VM template it is still recommended to use the guide as a reference.
 
 ## Automation Flow
 
@@ -147,13 +147,13 @@ Before executing the Terraform plan, you must set the environment variables whic
     export TF_VAR_admin_password='Guest OS Admin Password'
     ```
 
-    > **NOTE: If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below)**
+    > **Note:** If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below).
 
     ```powershell
     Set-Item -Path env:TF_VAR_servicePrincipalAppId
     ```
 
-    > **NOTE: Use the Terraform plan [*variables.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/vmware/winsrv/terraform/variables.tf) file for more details around VMware vSphere vars structure if needed**
+    > **Note:** Use the Terraform plan [_variables.tf_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/vmware/winsrv/terraform/variables.tf) file for more details around VMware vSphere vars structure if needed.
 
     ![Screenshot of environment variables exporting in shell](./01.jpg)
 
@@ -170,11 +170,11 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Screenshot of SQL Server in vCenter](./03.jpg)
 
-    ![Screenshot of Azure Portal showing empty resource group](./04.jpg)
+    ![Screenshot of Azure portal showing empty resource group](./04.jpg)
 
 * Log in to the VM (**using data from the *TF_VAR_admin_user* and *TF_VAR_admin_password* environment variables**) which will initiate the *LogonScript* run. Let the script to run it's course and which will also close the PowerShell session when completed.
 
-    > **NOTE: The script runtime will take ~10-15min to complete**
+    > **Note:** The script runtime will take ~10-15min to complete.
 
     ![Screenshot of PowerShell script being run](./05.jpg)
 
@@ -200,15 +200,15 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Screenshot of SQL Server Management Studio](./15.jpg)
 
-* In the Azure Portal, notice you now have an Azure Arc-enabled Server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
+* In the Azure portal, notice you now have an Azure Arc-enabled Server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled SQL server resources](./16.jpg)
+    ![Screenshot of Azure portal showing Azure Arc-enabled SQL server resources](./16.jpg)
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled SQL server resources](./17.jpg)
+    ![Screenshot of Azure portal showing Azure Arc-enabled SQL server resources](./17.jpg)
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled SQL server resources](./18.jpg)
+    ![Screenshot of Azure portal showing Azure Arc-enabled SQL server resources](./18.jpg)
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled SQL server resources](./19.jpg)
+    ![Screenshot of Azure portal showing Azure Arc-enabled SQL server resources](./19.jpg)
 
 ## Azure SQL Assessment
 

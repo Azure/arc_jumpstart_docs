@@ -58,9 +58,9 @@ By the end of the guide, you will have an AWS EC2 instance installed with Window
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -165,7 +165,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Export terraform variables](./07.png)
 
-    > **NOTE: If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below)**
+    > **Note:** If you are running in a PowerShell environment, to set the Terraform environment variables, use the _Set-Item -Path env:_ prefix (see example below).
 
     ```powershell
     Set-Item -Path env:TF_VAR_AWS_ACCESS_KEY_ID
@@ -192,7 +192,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Connect to AWS EC2 instance](./12.png)
 
-    > **NOTE: The script runtime will take ~10-15min to complete**
+    > **Note:** The script runtime will take ~10-15min to complete.
 
     ![PowerShell LogonScript run](./13.png)
 
@@ -218,7 +218,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![AdventureWorksLT2019 sample database ](./23.png)
 
-* In the Azure Portal, notice you now have an Azure Arc-enabled server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL server resource and Azure Log Analytics deployed.
+* In the Azure portal, notice you now have an Azure Arc-enabled server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL server resource and Azure Log Analytics deployed.
 
     ![An Azure resource group with deployed resources](./24.png)
 

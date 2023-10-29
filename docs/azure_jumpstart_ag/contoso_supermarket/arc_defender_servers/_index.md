@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Infrastructure security with Microsoft Defender for Servers
 summary: |
     Contoso Supermarket are aware that as they navigate the complex landscape of edge computing, it is essential to protect their servers against threats while maintaining a comprehensive view of their security posture. Microsoft Defender for Servers emerges as a vital component, playing a pivotal role in protecting servers from threats and providing unparalleled visibility into their security landscape.
@@ -39,7 +38,7 @@ To protect workloads with Microsoft Defender for Servers, you will need to enabl
 
     ![Screenshot showing how to check Microsoft Defender for Servers enabled at subscription level](./img/check_defender_for_servers.png)
 
-    > __NOTE: Proceed with the next step if the value you have got for _pricingTier_ is equal to _Free_. If the value was _Standard_, Microsoft Defender for Servers is already enabled and no additional action is required.__
+    > **Note:** Proceed with the next step if the value you have got for _pricingTier_ is equal to _Free_. If the value was _Standard_, Microsoft Defender for Servers is already enabled and no additional action is required.
 
 - Run the following command to enable Microsoft Defender for Servers in your subscription:
 
@@ -49,7 +48,7 @@ To protect workloads with Microsoft Defender for Servers, you will need to enabl
 
     ![Screenshot showing gow to enable Microsoft Defender for Servers at subscription level](./img/enable_defender_for_servers.png)
 
-    > __NOTE: Remember to follow the steps provided in the Cleanup section at the end of this guide to disable Microsoft Defender for Servers, otherwise you may incur additional charges on your subscription.__
+    > **Note:** Remember to follow the steps provided in the Cleanup section at the end of this guide to disable Microsoft Defender for Servers, otherwise you may incur additional charges on your subscription.
 
 ## Azure Arc-enabled servers and Microsoft Defender for Servers Integration
 
@@ -61,7 +60,7 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 
     ![Screenshot showing the Microsoft Defender for Cloud Inventory](./img/inventory_defender_for_servers.png)
 
-    > __NOTE: it may take up to 30 minutes for your Azure Arc-enabled server to be shown in Microsoft Defender for Cloud Dashboard__
+    > **Note:** it may take up to 30 minutes for your Azure Arc-enabled server to be shown in Microsoft Defender for Cloud Dashboard.
 
 - Select one of the Azure Arc-enabled servers. Microsoft Defender for Cloud will show the security recommendations:
 
@@ -70,15 +69,15 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 - Select one of the recommendations. Each recommendation will include:
   - A short description of what is being recommended.
   - Related recommendations.
-  - The remediation steps to carry out in order to implement the recommendation. For specific recommendations, you may also get a __Quick Fix__ that enables you to quickly remediate a recommendation on multiple resources.
+  - The remediation steps to carry out in order to implement the recommendation. For specific recommendations, you may also get a _Quick Fix_ that enables you to quickly remediate a recommendation on multiple resources.
 
     ![Screenshot showing the Defender recommendation on Azure Arc-enabled server](./img/recommendation_arc_server_defender_for_servers.png)
 
-- For this Azure Arc-enabled server the recommendation _Machines should be configured to periodically check for missing system updates_ provides a __Quick Fix__. It is using an ARM template to enable a periodic update assessment on the Azure Arc-enabled server.
+- For this Azure Arc-enabled server the recommendation _Machines should be configured to periodically check for missing system updates_ provides a _Quick Fix_. It is using an ARM template to enable a periodic update assessment on the Azure Arc-enabled server.
 
     ![Screenshot showing the Defender recommendation Quick Fix ARM template](./img/recommendation_quickfix_defender_for_servers.png)
 
-- You can trigger the remediation by clicking on the __Fix__ button:  
+- You can trigger the remediation by clicking on the _Fix_ button:  
 
     ![Screenshot showing the Defender recommendation Fix button](./img/recommendation_fixbutton_defender_for_servers.png)
 
@@ -88,7 +87,7 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 
 ## Cleanup
 
-> __NOTE: Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to _Free_.__
+> **Note:** Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to _Free_.
 
 - Login to AZ CLI using the ```az login``` command.
 

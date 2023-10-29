@@ -60,8 +60,8 @@ By the end of the guide, you will have an Azure VM **JS-Client** installed with 
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - As part of the scenario deployment following resource providers are registered in your subscription to support Azure Arc-enabled SQL Server.
 
@@ -144,10 +144,10 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
     --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.json \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **NOTE: Make sure that you are using the same Azure resource group name as the one you created in the previous step.**
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you created in the previous step.
 
     For example:
 
@@ -159,7 +159,7 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
     --parameters azuredeploy.parameters.json
     ```
 
-    > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned you will be able to see them in Azure portal.
 
@@ -167,7 +167,7 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
 
   ![Screenshot showing ARM deployment successful completion](./completed-arm-deployment.png)
 
-  ![Screenshot showing Azure Portal with Azure resources](./deployment-complete-portal.png)
+  ![Screenshot showing the Azure portal with Azure resources](./deployment-complete-portal.png)
 
 ## Windows Login & Post Deployment
 
@@ -200,7 +200,7 @@ By design, port 3389 is not allowed to access from the public internet. You must
 
   ![Screenshot showing connecting to the VM using Bastion](./vm-bastion.png)
 
-  > **NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _JS-Client_ with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _JS-Client_ with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -218,7 +218,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
     Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed.
 
-    > **NOTE: The script run time is approximately 30min long**
+    > **Note:** The script run time is approximately 30min long.
 
   ![Screenshot showing PowerShell script executing in VM](./post-deploy-script.png)
 
@@ -285,4 +285,4 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 To delete the entire deployment simply delete the resource group from the Azure portal.
 
-![Screenshot showing Azure Portal delete resource group function](./delete-resource-group.png)
+![Screenshot showing the Azure portal delete resource group function](./delete-resource-group.png)

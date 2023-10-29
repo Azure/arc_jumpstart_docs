@@ -14,7 +14,7 @@ Azure Arc-enabled servers allows you to manage your Windows and Linux machines h
 
 In this scenario, we will use [Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/overview) to demonstrate querying server inventory across multiple clouds from a single pane of glass in Azure.
 
-> **NOTE: This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
@@ -55,7 +55,7 @@ We will use Resource Graph Explorer to query our hybrid server inventory.
 
 - Enter **Resource Graph Explorer** in the top search bar in the Azure portal and select it.
 
-  ![Screenshot showing Resource Graph Explorer in Azure Portal](./4.png)
+  ![Screenshot showing Resource Graph Explorer in the Azure portal](./4.png)
 
   ![Screenshot showing Resource Graph Explorer main page](./5.png)
 

@@ -50,9 +50,9 @@ This guide assumes that you already have an installation of [Microsoft Configura
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -76,7 +76,7 @@ This guide assumes that you already have an installation of [Microsoft Configura
 
 - Create a new Azure resource group where you want your machine(s) to show up.
 
-    ![Screenshot showing Azure Portal with empty resource group](./01.png)
+    ![Screenshot showing the Azure portal with empty resource group](./01.png)
 
 - Download the [_az_connect_win_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/scripts/az_connect_win.ps1) PowerShell script.
 
@@ -88,13 +88,13 @@ This guide assumes that you already have an installation of [Microsoft Configura
 
 In order for Configuration Manager to run the PowerShell script in this scenario, we will need to set the PowerShell execution policy and allow the script authors to approve their own scripts.
 
-   > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is recommended to follow the security recommendations in your organization when it comes to PowerShell scripts execution policy and approvals**
+   > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is recommended to follow the security recommendations in your organization when it comes to PowerShell scripts execution policy and approvals.
 
 - Login to the Configuration Manager console.
 
 - After logging in, go to the “Administration” workspace. Under “Site Configuration”, select “Client Settings” and open the properties of the "Default Client Settings".
 
-   > **NOTE: You might have different client settings, choose the appropriate one that is deployed to the servers you are onboarding to Azure Arc**
+   > **Note:** You might have different client settings, choose the appropriate one that is deployed to the servers you are onboarding to Azure Arc.
 
     ![Screenshot showing client settings in the configuration manager console](./03.png)
 
@@ -148,16 +148,16 @@ In order for Configuration Manager to run the PowerShell script in this scenario
 
 - Upon completion, you will have your Windows server, connected as a new Azure Arc-enabled server resource inside your resource group.
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled server resource](./17.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled server resource](./17.png)
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled server resource detail](./18.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled server resource detail](./18.png)
 
 ## Delete the deployment
 
-The most straightforward way is to delete the server via the Azure Portal, just select server and delete it.
+The most straightforward way is to delete the server via the Azure portal, just select server and delete it.
 
-![Screenshot showing delete resource function in Azure Portal](./19.png)
+![Screenshot showing delete resource function in the Azure portal](./19.png)
 
 If you want to delete the entire environment, just delete the Azure resource group.
 
-![Screenshot showing delete resource group function in Azure Portal](./20.png)
+![Screenshot showing delete resource group function in the Azure portal](./20.png)

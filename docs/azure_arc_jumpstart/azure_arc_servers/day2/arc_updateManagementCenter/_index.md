@@ -10,11 +10,11 @@ description: >
 
 The following Jumpstart scenario will guide you on how to onboard Azure Arc-enabled servers to [Update Management Center](https://learn.microsoft.com/azure/update-center/overview).
 
-> **NOTE: Currently, Update Management Center is in public preview.**
+> **Note:** Currently, Update Management Center is in public preview.
 
 Update Management Center is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Update Management Center, you can make updates in real-time or schedule them within a defined maintenance window.
 
-> **NOTE: This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
@@ -74,7 +74,7 @@ As mentioned, this deployment will leverage ARM templates.
 
     ![Screenshot of ARM template parameters file](./03.png)
 
-  > **NOTE: For the _maintenanceTimeZone_ parameter, the list of time zones can be obtained by executing _[System.TimeZoneInfo]::GetSystemTimeZones()_ in PowerShell. Example: Pacific Standard Time, Romance Standard Time, Middle East Standard Time.**
+  > **Note:** For the _maintenanceTimeZone_ parameter, the list of time zones can be obtained by executing _[System.TimeZoneInfo]::GetSystemTimeZones()_ in PowerShell. Example: Pacific Standard Time, Romance Standard Time, Middle East Standard Time.
 
 - Deploy the [ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/updateManagementCenter/update-management-center-template.json) by running the following command, specifying the resource group where you have your Azure Arc-enabled servers:
 
@@ -114,7 +114,7 @@ Periodic Assessment is a setting on your machine that enables you to see the lat
 
     ![Screenshot of Policy for checking missing updates - remediation completed](./09.png)
 
-  > **NOTE: You will need to wait some time until the first update assessment is run.**
+  > **Note:** You will need to wait some time until the first update assessment is run.
 
 - On the update assessment task is run, go back to your **Azure Arc-enabled server** and click on **Extensions**, you will see that a new extension has been installed. Update Management Center relies on this Azure extension designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates.
 

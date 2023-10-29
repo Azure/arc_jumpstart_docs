@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to create a Windows Serve
 
 ## Prerequisites
 
-> **NOTE: This guide assumes that you have some VMware vSphere familiarity and you have knowledge on how to install Windows Server. It is also does not designed to go over either VMware and/or Windows best-practices.**
+> **Note:** This guide assumes that you have some VMware vSphere familiarity and you have knowledge on how to install Windows Server. It is also does not designed to go over either VMware and/or Windows best-practices.
 
 - [Download the latest Windows Server ISO file](https://www.microsoft.com/windows-server/trial)
 

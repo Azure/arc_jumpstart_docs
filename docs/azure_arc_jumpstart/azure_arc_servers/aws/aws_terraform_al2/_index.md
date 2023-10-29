@@ -73,9 +73,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -168,7 +168,7 @@ Before executing the Terraform plan, you must export the environment variables w
 
 - Open the Azure portal and navigate to the resource group "Arc-Servers-Demo". The virtual machine created in AWS will be visible as a resource.
 
-    ![Screenshot showing Azure Portal and Azure Arc-enabled server](./10.png)
+    ![Screenshot showing the Azure portal and Azure Arc-enabled server](./10.png)
 
 ## Semi-Automated Deployment (Optional)
 
@@ -201,7 +201,7 @@ If you want to demo/control the actual registration process, do the following:
 
     ![Screenshot showing azcmagent connect being run](./16.png)
 
-- When complete, your VM will be registered with Azure Arc and visible in the resource group inside Azure Portal.
+- When complete, your VM will be registered with Azure Arc and visible in the resource group inside the Azure portal.
 
 ## Delete the deployment
 

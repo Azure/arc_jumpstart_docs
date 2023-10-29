@@ -22,7 +22,7 @@ Azure Automanage removes the need to discover virtual machines manually and auto
 
 By the end of this scenario, you will have an Azure Arc-enabled server with Azure Automanage enabled and configured following Microsoft Cloud Adoption Framework best practices for Dev/Test or Production environments.
 
-> **NOTE: This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[Azure Stack HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
@@ -40,9 +40,9 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
 
 - This scenario starts at the point where you already deployed and connected VMs or bare-metal servers to Azure Arc. For this scenario we will be using a Google Cloud Platform (GCP) instance that has been already connected to Azure Arc and is visible as a resource in Azure.
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled server](./01.png)
+    ![Screenshot of Azure portal showing Azure Arc-enabled server](./01.png)
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled server detail](./02.png)
+    ![Screenshot of Azure portal showing Azure Arc-enabled server detail](./02.png)
 
 - [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.49.0 or later. Use ```az --version``` to check your current installed version.
 
@@ -75,9 +75,9 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -113,7 +113,7 @@ Read the explanation below to get familiar with the automation and deployment fl
     ```
 
 - To run the automation, navigate to the [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/automanage_custom_profile/) and edit [the parameters file](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/automanage_custom_profile/azuredeploy.parameters.json)
-  - _`machineName`_: Name of your Azure Arc-enabled server as it is shown in the Azure Portal.
+  - _`machineName`_: Name of your Azure Arc-enabled server as it is shown in the Azure portal.
   - _`customProfileName`_: Name of your Azure Arc-enabled Server custom profile.
   - _`subscriptionId`_: Subscription ID where you want to create your custom profile.
   - _`azureSecurityBaselineAssignmentType`_: Audit mode for the Azure Security Baseline.
@@ -129,7 +129,7 @@ Read the explanation below to get familiar with the automation and deployment fl
 
   ![Scripts output](./07.png)
 
-  > **NOTE: For the script to work properly you must run this command from the deployment folder. The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.**
+  > **Note:** For the script to work properly you must run this command from the deployment folder. The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
 - After the script has finished its run you will have Azure Automanage enabled. You should be able to see the Azure Arc-enabled Server under 'Automanage' with the Status set in 'In progress', after a few minutes it will change to Conformant.
 

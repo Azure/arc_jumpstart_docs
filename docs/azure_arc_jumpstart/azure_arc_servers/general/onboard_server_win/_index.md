@@ -47,9 +47,9 @@ The following Jumpstart scenario will guide you on how to connect an Windows mac
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -73,7 +73,7 @@ The following Jumpstart scenario will guide you on how to connect an Windows mac
 
 - Create a new Azure resource group where you want your machine(s) to show up.
 
-    ![Screenshot showing Azure Portal with empty resource group](./01.png)
+    ![Screenshot showing the Azure portal with empty resource group](./01.png)
 
 - Download the [az_connect_win](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/scripts/az_connect_win.ps1) PowerShell script.
 
@@ -93,16 +93,16 @@ Upon completion, you will have your Windows server, connected as a new Azure Arc
 
 ![Screenshot showing PowerShell script being run](./05.png)
 
-![Screenshot showing Azure Portal with Azure Arc-enabled server resource](./06.png)
+![Screenshot showing the Azure portal with Azure Arc-enabled server resource](./06.png)
 
-![Screenshot showing Azure Portal with Azure Arc-enabled server resource detail](./07.png)
+![Screenshot showing the Azure portal with Azure Arc-enabled server resource detail](./07.png)
 
 ## Delete the deployment
 
-The most straightforward way is to delete the server via the Azure Portal, just select server and delete it.
+The most straightforward way is to delete the server via the Azure portal, just select server and delete it.
 
-![Screenshot showing delete resource function in Azure Portal](./08.png)
+![Screenshot showing delete resource function in the Azure portal](./08.png)
 
 If you want to delete the entire environment, just delete the Azure resource group.
 
-![Screenshot showing delete resource group function in Azure Portal](./09.png)
+![Screenshot showing delete resource group function in the Azure portal](./09.png)

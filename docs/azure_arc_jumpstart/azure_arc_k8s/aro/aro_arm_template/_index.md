@@ -55,9 +55,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the resource providers for Azure Arc-enabled Kubernetes and Azure Red Hat OpenShift. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -79,7 +79,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
 - Check your subscription quota for the DSv3 family.
 
-    > **NOTE: Azure Red Hat OpenShift requires a [minimum of 40 cores](/azure/openshift/tutorial-create-cluster#before-you-begin) to create and run an OpenShift cluster.**
+    > **Note:** Azure Red Hat OpenShift requires a [minimum of 40 cores](/azure/openshift/tutorial-create-cluster#before-you-begin) to create and run an OpenShift cluster.
 
   ```shell
   LOCATION=eastus
@@ -153,13 +153,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
   --parameters azuredeploy.parameters.json
   ```
 
-    > **NOTE: It normally takes about ~30-40 minutes for the ARO cluster to deploy.**
+    > **Note:** It normally takes about ~30-40 minutes for the ARO cluster to deploy.
 
 - Once the ARM template deployment is completed, a new Azure Red Hat OpenShift cluster in a new Azure resource group is created.
 
-  ![Screenshot of Azure Portal showing Aro resource](./06.png)
+  ![Screenshot of Azure portal showing Aro resource](./06.png)
 
-  ![Screenshot of Azure Portal showing Aro resource](./07.png)
+  ![Screenshot of Azure portal showing Aro resource](./07.png)
 
 ## Connecting to Azure Arc
 
@@ -173,7 +173,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - After editing the environment variables in the [*az_connect_aro*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aro/arm_template/scripts/az_connect_aro.sh) shell script to match your parameters, save the file and then upload it to the Cloud Shell environment and run it using the ```. ./az_connect_aro.sh``` command.
 
-  > **NOTE: The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the other commands.**
+  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
 
   ![Screenshot showing upload of file to Cloud Shell](./10.png)
 
@@ -181,11 +181,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - Once the script run has finished, the Aro cluster will be projected as a new Azure Arc-enabled Kubernetes cluster resource.
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./12.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./12.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./13.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./13.png)
 
-  ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./14.png)
+  ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./14.png)
 
 ## Logging
 

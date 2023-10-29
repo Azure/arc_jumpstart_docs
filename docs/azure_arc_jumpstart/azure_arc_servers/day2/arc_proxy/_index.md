@@ -22,7 +22,7 @@ In this scenario, you will emulate a full proxy-client configuration. The scenar
   - Proxy Server: will have a script to deploy and configure [Squid proxy](https://ubuntu.com/server/docs/proxy-servers-squid).
   - Client VM: will use the custom script extension to install and configure the Connected Machine agent using the proxy connection.
 
-    > **NOTE: It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.**
+    > **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
 ## Prerequisites
 
@@ -112,10 +112,10 @@ As mentioned, this deployment will leverage ARM templates.
     --resource-group <Resource Group Name> \
     --name <Deployment Name> \
     --template-file <The *azuredeploy.json* template file location> \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **NOTE: make sure that you are using the same Azure resource group name as the one you’ve just used in the azuredeploy.parameters.json file**
+    > **Note:** make sure that you are using the same Azure resource group name as the one you’ve just used in the _azuredeploy.parameters.json_ file.
 
     For example:
 
@@ -140,7 +140,7 @@ As mentioned, this deployment will leverage ARM templates.
 
 - Let the script to run its course and **do not close** the shell session.
 
-    > **NOTE: The script run time is ~1-2min long.**
+    > **Note:** The script run time is ~1-2min long.
 
     ![Screenshot script output](./04.png)
 

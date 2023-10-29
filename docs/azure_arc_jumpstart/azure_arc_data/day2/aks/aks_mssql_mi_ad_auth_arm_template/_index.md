@@ -82,9 +82,9 @@ By the end of this scenario, you will have an AKS cluster deployed with an Azure
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -124,7 +124,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Boolean that sets whether to deploy Azure Bastion or not to connect to the client VM. Default value is _**false**_.
   - _`bastionHostName`_ - Azure Bastion host name. Default value is _**Arc-Data-Demo-Bastion**_.
 
-    > **NOTE: In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["High Availability"](##-High-Availability-with-Always-On-availability-groups) section in this readme.
+    > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["High Availability"](##-High-Availability-with-Always-On-availability-groups).section in this readme.
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/ARM) and run the below command:
 
@@ -134,10 +134,10 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
     --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/ARM/azuredeploy.json \
-    --parameters <The *azuredeploy.parameters.json* parameters file location>
+    --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **NOTE: Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file**
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the _`azuredeploy.parameters.json`_ file.
 
     For example:
 
@@ -150,9 +150,9 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters azuredeploy.parameters.json
     ```
 
-    > **NOTE: The deployment time for this scenario can take ~20-25min**
+    > **Note:** The deployment time for this scenario can take ~20-25min.
 
-    > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned, you will be able to see them in the Azure portal. At this point, the resource group should have **12 various Azure resources** deployed (If you chose to deploy Azure Bastion, you will have **13 Azure resources**).
 
@@ -191,7 +191,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing connecting to the VM using Bastion](./08.png)
 
-  > **NOTE: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -207,7 +207,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 - At first login to Client VM using Remote Desktop Connection, use **jumpstart\arcdemo** Active Directory user account to login. This user account is the domain administrator and has full privileges to setup AD authentication in SQL Managed Instance. As mentioned in the "Automation Flow" section above, the [_DataServicesLogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/ARM/artifacts/DataServicesLogonScript.ps1) PowerShell logon script will start it's run.
 
-> **NOTE: Using just arcdemo to login Client VM will not start automation script at first login, as this scenario relies on domain credentials to support AD authentication to connect SQL Managed Instance.**
+> **Note:** Using just arcdemo to login Client VM will not start automation script at first login, as this scenario relies on domain credentials to support AD authentication to connect SQL Managed Instance.
 
   ![Screenshot showing the PowerShell logon script run](./11.png)
 
@@ -251,13 +251,13 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   - _Azure Arc Data Controller_ - The data controller that is now deployed on the Kubernetes cluster.
 
-  > **NOTE: Azure resource will not be created for SQL Managed Instance with AD authentication created in the scenario using YAML. Azure resources are created only when using ARM template or deployed SQL Managed Instance using Azure Portal**.
+  > **Note:** Azure resource will not be created for SQL Managed Instance with AD authentication created in the scenario using YAML. Azure resources are created only when using ARM template or deployed SQL Managed Instance using the Azure portal.
 
   ![Screenshot showing additional Azure resources in the resource group](./27.png)
 
 - As part of the automation, SQL Server Management Studio and Azure Data Studio is installed along with the _Azure Data CLI_, _Azure CLI_, _Azure Arc_ and the _PostgreSQL_ extensions. Open Azure Data Studio to connect to SQL Managed Instance using AD authentication.
 
-  > **NOTE: As part of the automation SQL Managed Instance and PostgreSQL database connections are pre-created with SQL endpoints in Azure Data Studio.**
+  > **Note:** As part of the automation SQL Managed Instance and PostgreSQL database connections are pre-created with SQL endpoints in Azure Data Studio.
 
   ![Screenshot showing SQL Managed Instance endpoints and database server credentials](./28.png)
 

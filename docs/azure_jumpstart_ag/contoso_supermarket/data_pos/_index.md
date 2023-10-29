@@ -1,7 +1,6 @@
 ---
 type: docs
 weight: 100
-toc_hide: true
 title: Data pipeline and reporting across cloud and edge for store orders
 summary: |
   One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.
@@ -34,7 +33,7 @@ Contoso supports dashboard reports for the PoS application analytics and monitor
 
 ## Manually import dashboards
 
-> __NOTE: If you used the [Azure Developer CLI (azd) method](/azure_jumpstart_ag/contoso_supermarket/deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.__
+> **Note:** If you used the [Azure Developer CLI (azd) method](/azure_jumpstart_ag/contoso_supermarket/deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
 
 Follow the below steps in order to view the PoS Orders dashboard reports you will need to import these into ADX.
 
@@ -44,7 +43,7 @@ Follow the below steps in order to view the PoS Orders dashboard reports you wil
 
 - Copy these ADX dashboards report JSON files on your local machine in a temporary folder to import into ADX dashboards. Alternatively, you can log in to ADX Dashboards directly on the Client VM.
 
-  > __NOTE: Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.__
+  > **Note:** Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.
 
 - On your local machine open the browser of your choice OR on the Client VM open the Edge browser and log in to [ADX Dashboards](https://dataexplorer.azure.com/). Use the same user account that you deployed Jumpstart Agora in your subscription. Failure to use the same account will prevent access to the ADX Orders database to generate reports.
 
@@ -68,7 +67,7 @@ Follow the below steps in order to view the PoS Orders dashboard reports you wil
 
   ![Screenshot showing the empty data in orders dashboard report](./img/adx_orders_report_empty_data.png)
 
-  > __NOTE: Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
 
 ## Generate sample data using Data Emulator
 
@@ -80,7 +79,7 @@ By default there is no data available in Cosmos DB database after the deployment
 
 - Double click on the Data Emulator desktop icon to launch executable and generate sample data. Confirm by entering __Yes__ or __Y__ to start generating data, entering No or N will exit the tool. This tool generates data for the last 30 days. Say No or N to prevent regenerating sample data if it is generated earlier.
 
-  > __NOTE: You can still generate additional sample data by running this tool multiple times, but there might be duplicate key errors and fails to generate data in subsequent attempts.__
+  > **Note:** You can still generate additional sample data by running this tool multiple times, but there might be duplicate key errors and fails to generate data in subsequent attempts.
 
   ![Screenshot showing the sample data generation confirmation](./img/confirm_sample_data_generation.png)
 
@@ -118,7 +117,7 @@ By default there is no data available in Cosmos DB database after the deployment
 
 - In the ADX Portal, under Dashboards, open the PoS Orders report and set the time range for "_Last 30 minutes_", and refresh the report to see data.
 
-  > __NOTE: As the Cloud Sync service performs the sync in the backend, it might take a few minutes for orders to show up in ADX.__
+  > **Note:** As the Cloud Sync service performs the sync in the backend, it might take a few minutes for orders to show up in ADX.
 
   ![Screenshot showing the PoS Chicago dashboard report](./img/pos_chicago_customer_report.png)
 

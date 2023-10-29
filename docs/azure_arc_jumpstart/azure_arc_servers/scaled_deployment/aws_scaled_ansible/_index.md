@@ -79,9 +79,9 @@ This guide can be used even if you do not already have an existing Ansible test 
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -141,7 +141,7 @@ In order for Terraform to create resources in AWS, we will need to create a new 
 
 ## Option 1- Creating a sample AWS server inventory and Ansible control server using Terraform and onboarding the servers to Azure Arc
 
-**NOTE: If you already have an existing AWS server inventory and Ansible server, skip below to Option 2.**
+ > **Note:** If you already have an existing AWS server inventory and Ansible server, skip below to Option 2.
 
 ### Configure Terraform
 
@@ -211,9 +211,9 @@ Before executing the Terraform plan, you must export the environment variables w
 
     ![Screenshot of Ansible playbook being run](./05.png)
 
-- Open Azure Portal and navigate to the Arc-AWS-Demo resource group. You should see the Azure Arc-enabled servers listed.
+- Open the Azure portal and navigate to the Arc-AWS-Demo resource group. You should see the Azure Arc-enabled servers listed.
 
-    ![Screenshot of Azure Portal showing onboard Azure Arc-enabled servers](./06.png)
+    ![Screenshot of Azure portal showing onboard Azure Arc-enabled servers](./06.png)
 
 ### Clean up environment by deleting resources
 
@@ -223,7 +223,7 @@ To delete all the resources you created as part of this demo use the ```terrafor
 
 ## Option 2 - Onboarding an existing AWS server inventory to Azure Arc using your own Ansible control server
 
-> **NOTE: If you do not have an existing AWS server inventory and Ansible server, navigate back to Option 1**
+> **Note:** If you do not have an existing AWS server inventory and Ansible server, navigate back to Option 1.
 
 ### Review provided Ansible configuration and playbook
 
@@ -245,6 +245,6 @@ If the playbook run is successful, you should see output similar to the below sc
 
 ![Screenshot showing Ansible playbook being run](./05.png)
 
-Open Azure Portal and navigate to the Arc-Aws-Demo resource group. You should see the Azure Arc-enabled servers listed.
+Open the Azure portal and navigate to the Arc-Aws-Demo resource group. You should see the Azure Arc-enabled servers listed.
 
-![Screenshot showing Azure Portal with Azure Arc-enabled servers](./06.png)
+![Screenshot showing the Azure portal with Azure Arc-enabled servers](./06.png)

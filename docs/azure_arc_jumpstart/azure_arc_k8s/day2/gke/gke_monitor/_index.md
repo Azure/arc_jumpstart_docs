@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Monitor 
 
 in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the [Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
 
-> **NOTE: This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).**
+> > **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
 
 ## Prerequisites
 
@@ -57,9 +57,9 @@ in this scenario, you will hook the GKE cluster to Azure Monitor by deploying th
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Monitor for Containers Integration
 
@@ -67,13 +67,13 @@ in this scenario, you will hook the GKE cluster to Azure Monitor by deploying th
 
 * Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster is not currently being monitored.
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./01.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./01.png)
 
-    ![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource Insights](./02.png)
+    ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource Insights](./02.png)
 
 * Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the ```. ./gke_monitor_onboarding.sh``` command.
 
-    > **NOTE: The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.**
+    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Screenshot showing GKE cluster in GCP console](./03.png)
 
@@ -95,7 +95,7 @@ in this scenario, you will hook the GKE cluster to Azure Monitor by deploying th
 
 * Once the script will complete it's run, you will have an Azure Arc connected cluster integrated with Azure Monitor for Containers. At the end of it's run, the script generates URL for you to click on. This URL will open a new browser tab leading to the Azure Monitor for Containers Insights page.a
 
-    > **NOTE: As the Azure Monitor agent starts collecting telemetry from the cluster nodes and pods, it will take 5-10min for data to start show up in the Azure Portal.**
+    > **Note:** As the Azure Monitor agent starts collecting telemetry from the cluster nodes and pods, it will take 5-10min for data to start show up in the Azure portal.
 
     ![Screenshot showing script being run](./08.png)
 
@@ -103,12 +103,12 @@ in this scenario, you will hook the GKE cluster to Azure Monitor by deploying th
 
 * Click the "Connected Clusters" tab and see the Azure Arc connected cluster was added. Now that your cluster is being monitored, navigate through the different tabs and sections and watch the monitoring telemetry for the cluster nodes and pods.  
 
-    ![Screenshot showing Azure Portal with connected cluster detail](./10.png)
+    ![Screenshot showing the Azure portal with connected cluster detail](./10.png)
 
-    ![Screenshot showing Azure Portal with connected cluster detail](./11.png)
+    ![Screenshot showing the Azure portal with connected cluster detail](./11.png)
 
-    ![Screenshot showing Azure Portal with connected cluster detail](./12.png)
+    ![Screenshot showing the Azure portal with connected cluster detail](./12.png)
 
-    ![Screenshot showing Azure Portal with connected cluster detail](./13.png)
+    ![Screenshot showing the Azure portal with connected cluster detail](./13.png)
 
-    ![Screenshot showing Azure Portal with connected cluster detail](./14.png)
+    ![Screenshot showing the Azure portal with connected cluster detail](./14.png)

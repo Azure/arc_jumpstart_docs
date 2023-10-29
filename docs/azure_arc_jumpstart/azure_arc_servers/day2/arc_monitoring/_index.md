@@ -34,7 +34,7 @@ in this scenario, you will create the following Azure resources that support thi
 
   - Configure Dependency agent on Azure Arc-enabled Linux server.
 
-> **NOTE: This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
@@ -53,7 +53,7 @@ in this scenario, you will create the following Azure resources that support thi
 
     ![Screenshot showing AWS cloud console with EC2 instance](./01.png)
 
-    > **NOTE: Ensure that the servers you will use for this scenario are running an [OS supported by the Log Analytics Agent and the Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and meets the [firewall requirements](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).**
+    > **Note:** Ensure that the servers you will use for this scenario are running an [OS supported by the Log Analytics Agent and the Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and meets the [firewall requirements](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).
 
 - [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.49.0 or later. Use ```az --version``` to check your current installed version.
 
@@ -114,11 +114,11 @@ The steps below will help you get familiar with the automation and deployment fl
 
 - When the deployment is complete, you should be able to see the resource group with your Log Analytics workspace, Azure dashboard, VMInsights solution and three Workbooks:
 
-    ![Screenshot showing Azure Portal with resources deployed](./07.png)
+    ![Screenshot showing the Azure portal with resources deployed](./07.png)
 
 - Please, note that most of the deployed resources are hidden:
 
-    ![Screenshot showing Azure Portal hidden resources](./08.png)
+    ![Screenshot showing the Azure portal hidden resources](./08.png)
 
 ## Review that all the Azure Monitor deployed resources are configured
 
@@ -162,7 +162,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
     ![Screenshot showing created alerts](./20.png)
 
-    > **NOTE: This is just a small example of Azure Monitor alerts, which are based on log queries and log analytics workspace metrics. You may need to adjust alerts thresholds to your environment expected behaviour.**
+    > **Note:** This is just a small example of Azure Monitor alerts, which are based on log queries and log analytics workspace metrics. You may need to adjust alerts thresholds to your environment expected behavior.
 
 ## Deploying the Log Analytics Agent and the Dependency Agent
 
@@ -178,7 +178,7 @@ For **existing** Azure Arc-enabled servers connected within the scope of the pol
 
 - Click on the **Remediation** tab. Check if any of the policies that deploy the agents have resources to remediate. If so, click on the **Remediate** button:
 
-    > **NOTE: The following steps must be followed for each policy with resources pending to be remediated. Please, start with the remediation of the Log Analytics agent policies followed by the remediation of the Dependency Agent policies.**
+    > **Note:** The following steps must be followed for each policy with resources pending to be remediated. Please, start with the remediation of the Log Analytics agent policies followed by the remediation of the Dependency Agent policies.
 
     ![Screenshot showing how to start Azure policy remediation](./22.png)
 

@@ -28,7 +28,7 @@ This guide assumes you already have an exiting inventory of VMware Virtual Machi
 
 - Install VMware PowerCLI
 
-  > **NOTE: This guide was tested with the latest version of PowerCLI as of date (12.0.0) but earlier versions are expected to work as well**
+  > **Note:** This guide was tested with the latest version of PowerCLI as of date (12.0.0) but earlier versions are expected to work as well.
 
   - Supported PowerShell Versions - VMware PowerCLI 12.0.0 is compatible with the following PowerShell versions:
     - Windows PowerShell 5.1
@@ -74,9 +74,9 @@ This guide assumes you already have an exiting inventory of VMware Virtual Machi
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 

@@ -29,7 +29,7 @@ By the end of this scenario, you will have:
 
 ![Deployed Architecture](./01.png)
 
-> **NOTE: Currently, Azure Arc-enabled machine learning is in [public preview](https://github.com/Azure/AML-Kubernetes)**.
+> **Note:** Currently, Azure Arc-enabled machine learning is in [public preview](https://github.com/Azure/AML-Kubernetes).
 
 To demonstrate the various architecture components, the ML pipeline we deploy is an Image Classification model trained using [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) on the common [MNIST database of handwritten digits](https://docs.microsoft.com/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets) - a Jupyter Notebook representation of the training pipeline can be found [here](https://github.com/Azure/AML-Kubernetes/blob/master/examples/simple-train-sdk/img-classification-training.ipynb), and a visual representation of the model's inference capabilities is summarized as follows:
 
@@ -94,9 +94,9 @@ To demonstrate the various architecture components, the ML pipeline we deploy is
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -138,10 +138,10 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   --resource-group <Name of the Azure resource group> \
   --name <The name of this deployment> \
   --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_ml_jumpstart/aks/arm_template/azuredeploy.json \
-  --parameters <The *azuredeploy.parameters.json* parameters file location>
+  --parameters <The _azuredeploy.parameters.json_ parameters file location>
   ```
 
-  > **NOTE: Make sure that you are using the same Azure resource group name as the one you've just used in the _azuredeploy.parameters.json_ file**
+  > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the _azuredeploy.parameters.json_ file.
 
   For example:
 
@@ -155,13 +155,13 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   --parameters templateBaseUrl="https://raw.githubusercontent.com/your--github--handle/azure_arc/main/azure_arc_ml_jumpstart/aks/arm_template/"
   ```
 
-  > **NOTE: The deployment time for this scenario can take ~10-15min**
+  > **Note:** The deployment time for this scenario can take ~10-15min.
 
-  > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+  > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once the above deployment is kicked off - you also have the option to deploy an Azure Bastion to access the Client VM. This is specially useful for enterprise environments where access to Port 3389 is restricted from Public IP's (e.g. using preventative [Azure Policies](https://docs.microsoft.com/azure/virtual-network/policy-reference#azure-virtual-network)).
 
-  > **NOTE: Using Azure Bastion is completely optional for this scenario - if your environment allows RDP from your Public IP, feel free to skip this step**
+  > **Note:** Using Azure Bastion is completely optional for this scenario - if your environment allows RDP from your Public IP, feel free to skip this step.
 
   To deploy Azure Bastion on the VNET (which should already be deployed via the ARM template above) - run the below commands:
 
@@ -194,7 +194,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![Automation flow](./07.png)
 
-  > **NOTE: For visualizing the deployment flow, the automation script deploys [Weave Scope](https://www.weave.works/oss/scope/) pods in the K8s cluster and launches edge against the Load Balancer IP. Note that this is not core to the Azure ML or Azure Arc flow - but is included for visualization purposes.**
+  > **Note:** For visualizing the deployment flow, the automation script deploys [Weave Scope](https://www.weave.works/oss/scope/) pods in the K8s cluster and launches edge against the Load Balancer IP. Note that this is not core to the Azure ML or Azure Arc flow - but is included for visualization purposes.
 
   **1. Onboard AKS Cluster to Azure Arc**
 
@@ -258,7 +258,7 @@ In this scenario, the Azure Arc-enabled machine learning services cluster extens
 
 ## Known Issues
 
-- Deleting the **2** Inference Endpoint resources are not supported from Azure Portal at this time - doing so may return the following error:
+- Deleting the **2** Inference Endpoint resources are not supported from the Azure portal at this time - doing so may return the following error:
 
   ![Deleting Azure ML inference from resource group](./26.jpg)
 

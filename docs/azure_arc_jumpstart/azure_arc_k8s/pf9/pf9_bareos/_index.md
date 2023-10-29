@@ -27,7 +27,7 @@ The following Jumpstart scenario will guide on how to deploy a Kubernetes cluste
   sudo apt-get install -y kubectl
   ```
 
-  > **NOTE: The *kubectl* package is installed from the Kubernetes repository, hence the Google Cloud public signing key need to be downloaded to enable the repository. Note: All PMK cluster nodes would have kubectl installed once the cluster is deployed.**
+  > **Note:** The _kubectl_ package is installed from the Kubernetes repository, hence the Google Cloud public signing key need to be downloaded to enable the repository. Note: All PMK cluster nodes would have kubectl installed once the cluster is deployed.
 
 - [Install or update Azure CLI (az) to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -72,9 +72,9 @@ The following Jumpstart scenario will guide on how to deploy a Kubernetes cluste
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment
 
@@ -90,7 +90,7 @@ This deployment consists of 3 sections.
 
   ![Screenshot of PMK Management Plane Login Page](./01.png)
 
-  > **NOTE: If you do not have a registered Management Plane with Platform9, you can create one easily using [PMK Free Tier deployment](https://platform9.com/managed-kubernetes/)**
+  > **Note:** If you do not have a registered Management Plane with Platform9, you can create one easily using [PMK Free Tier deployment](https://platform9.com/managed-kubernetes/).
 
 - Onboard the Ubuntu host to your Management Plane.
 
@@ -103,7 +103,7 @@ This deployment consists of 3 sections.
 
   ![Screenshot of PF9 CLI](./03.png)
 
-  > **NOTE: Preparing the node and connecting it to Management Plane might take approximately 4-5 minutes to complete.**
+  > **Note:** Preparing the node and connecting it to Management Plane might take approximately 4-5 minutes to complete.
 
 ### Creating a PMK Cluster
 
@@ -138,7 +138,7 @@ This deployment consists of 3 sections.
 
   ![Screenshot of Exporting values](./08.png)
 
-  > **NOTE: The values can be referenced from the service principal output.**
+  > **Note:** The values can be referenced from the service principal output.
 
 - Set the KUBECONFIG variable for connecting to the K8s cluster. The kubeconfig file for the cluster is available for download from the Management Plane.
 
@@ -170,7 +170,7 @@ This deployment consists of 3 sections.
 
 ## Deleting the Deployment
 
-- The Azure Arc-enabled Kubernetes resource can be deleted via the Azure Portal.
+- The Azure Arc-enabled Kubernetes resource can be deleted via the Azure portal.
 
   ![Screenshot of Azure Arc cluster deletion](./13.png)
 

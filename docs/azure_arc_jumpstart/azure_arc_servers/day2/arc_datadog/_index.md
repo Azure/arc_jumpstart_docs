@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to onboard an Azure Arc-enabled server on to [Datadog](https://www.datadoghq.com/), so you can get insights into Arc environments with Datadog, visualize host status and identify any disconnected hosts across your hybrid infrastructure, set up Datadog monitors to alert you immediately when this connection status is no longer healthy, simplifying hybrid and multi-cloud management.
 
-> **NOTE: This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion:**
+> **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
@@ -27,13 +27,13 @@ The following Jumpstart scenario will guide you on how to onboard an Azure Arc-e
 
 - As mentioned, this scenario starts at the point where you already deployed and connected VMs or bare-metal servers to Azure Arc. For this scenario, as can be seen in the screenshots below, we will be using an Azure VM that has been already connected to Azure Arc and is visible as a resource in Azure.
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled server](./01.png)
+    ![Screenshot of Azure portal showing Azure Arc-enabled server](./01.png)
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled server detail](./02.png)
+    ![Screenshot of Azure portal showing Azure Arc-enabled server detail](./02.png)
 
 - Note that there is no Datadog extension on the Arc-enabled server
 
-    ![Screenshot of Azure Portal showing Azure Arc-enabled server extensions](./03.png)
+    ![Screenshot of Azure portal showing Azure Arc-enabled server extensions](./03.png)
 
 - [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.42.0 or later. Use ```az --version``` to check your current installed version.
 
@@ -66,9 +66,9 @@ The following Jumpstart scenario will guide you on how to onboard an Azure Arc-e
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Get a Datadog account. You can either use a preexisting one or create a [Datadog free trial](https://www.datadoghq.com/free-datadog-trial/) for 14 days.
 

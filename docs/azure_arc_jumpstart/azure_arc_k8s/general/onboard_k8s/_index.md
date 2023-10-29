@@ -55,9 +55,9 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
     }
     ```
 
-    > **NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password**.
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -87,9 +87,9 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
   az group create -l eastus -n Arc-k8s-Clusters
   ```
 
-  > **NOTE: Currently, Azure Arc-enabled Kubernetes resource creation is supported only in the following locations: eastus, westeurope. Use the --location (or -l) flag to specify one of these locations.**
+  > **Note:** Currently, Azure Arc-enabled Kubernetes resource creation is supported only in the following locations: eastus, westeurope. Use the --location (or -l) flag to specify one of these locations.
 
-  ![Screenshot showing Azure Portal with empty resource group](./01.png)
+  ![Screenshot showing the Azure portal with empty resource group](./01.png)
 
 * Change the following environment variables according to your Azure service principal name and Azure environment.
 
@@ -122,7 +122,7 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
   az extension add --name k8s-configuration
   ```
 
-  > **NOTE: If you already used this guide before and/or have the extensions installed, use the bellow commands:**
+  > **Note:** If you already used this guide before and/or have the extensions installed, use the bellow commands.
 
   ```shell
   az extension update --name connectedk8s
@@ -172,16 +172,16 @@ Upon completion, you will have your Kubernetes cluster, connected as a new Azure
 
 ![Screenshot showing Azure ARM template deployment](./02.png)
 
-![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./03.png)
+![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./03.png)
 
-![Screenshot showing Azure Portal with Azure Arc-enabled Kubernetes resource](./04.png)
+![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./04.png)
 
 ## Delete the deployment
 
-The most straightforward way is to delete the Azure Arc-enabled Kubernetes resource is via the Azure Portal, just select cluster and delete it.
+The most straightforward way is to delete the Azure Arc-enabled Kubernetes resource is via the Azure portal, just select cluster and delete it.
 
-![Screenshot showing how to delete resources in Azure Portal](./05.png)
+![Screenshot showing how to delete resources in the Azure portal](./05.png)
 
 If you want to delete the entire environment, just delete the Azure resource group.
 
-![Screenshot showing how to delete resource groups in Azure Portal](./06.png)
+![Screenshot showing how to delete resource groups in the Azure portal](./06.png)

@@ -58,7 +58,7 @@ This guide will not provide instructions on how to deploy and set up Azure Stack
 
     Copy the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 - Enable your subscription with the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -174,7 +174,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot showing the AKS on HCI deployment script running](./04.png)
 
-  > **NOTE: the script may take around 30 minutes to run**
+  > **Note:** the script may take around 30 minutes to run.
 
   ![Screenshot showing the script output](./05.png)
 
@@ -190,7 +190,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Delete the deployment
 
-The most straightforward way is to delete the Azure Arc-enabled Kubernetes cluster resource via the Azure Portal, just select the cluster and delete it.
+The most straightforward way is to delete the Azure Arc-enabled Kubernetes cluster resource via the Azure portal, just select the cluster and delete it.
 
 ![Screenshot showing how to delete Azure Arc-enabled Kubernetes resource](./09.png)
 

@@ -71,7 +71,7 @@ The commands below and the Powershell script described in this scenario should b
 
     Copy and save the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 - Enable CredSSP in the Host Server
 
@@ -108,7 +108,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Deployment
 
- > **NOTE: Once more, please make sure all the steps mentioned below are done in your management server.**
+ > **Note:** Once more, please make sure all the steps mentioned below are done in your management server.
 
 As mentioned, this deployment will leverage this [PowerShell script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/azure_stack_hci/powershell/azstack_hci_vm_deploy.ps1) to deploy all the needed componenets. Before running the script, it's important to edit the script variables for matching the parameters of your environment. We can split it in three sets of variables:
 
@@ -179,11 +179,11 @@ As mentioned, this deployment will leverage this [PowerShell script](https://git
   .\azstack_hci_vm_deploy.ps1
   ```
 
-  > **NOTE: The script takes some minutes to deploy, specially during the .VHDX download**  
+  > **Note:** The script takes some minutes to deploy, specially during the .VHDX download.  
 
     ![Screenshot showing the download of the VHDX file](./06.png)
 
-  > **NOTE: You'll be asked to provide the credentials for accessing your host server. If prompted with any other authorization requests (CredSSP, networking related, etc), please answer _Yes_ to all of them.**
+  > **Note:** You'll be asked to provide the credentials for accessing your host server. If prompted with any other authorization requests (CredSSP, networking related, etc), please answer _Yes_ to all of them.
 
     ![Screenshot showing the credentials prompt](./07.png)
 
@@ -201,7 +201,7 @@ As mentioned, this deployment will leverage this [PowerShell script](https://git
 
 ## Delete the deployment
 
-The most straightforward way is to delete the Azure Arc-enabled server resource via the Azure Portal, just select the cluster and delete it.
+The most straightforward way is to delete the Azure Arc-enabled server resource via the Azure portal, just select the cluster and delete it.
 
 ![Screenshot showing how to delete Azure Arc-enabled server resource](./11.png)
 
