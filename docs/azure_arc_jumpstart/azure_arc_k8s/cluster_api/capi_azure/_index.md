@@ -85,8 +85,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   The script will transform the Rancher K3s Kubernetes cluster to a CAPI management cluster with the Azure Cluster API provisioned (CAPZ) components that are needed. It will then deploy the workload cluster and it's Azure resources based on the environment variables as described in the next bullet. Upon deployment completion, the cluster will be onboarded as an Azure Arc-enabled Kubernetes cluster.
 
-    > **Disclaimer: The CAPI/CAPZ _clusterctl_ CLI tool commands used in the script are taken straight from the ["Cluster API Book"](https://cluster-api.sigs.k8s.io/user/quick-start.html) and deserves it's writers all the credit for it!**
-    **The reason being for this process to be included is to provide you with the end-to-end user experience which also include the proprietary automation developed for this Jumpstart scenario.**
+    > **Disclaimer:** The CAPI/CAPZ _clusterctl_ CLI tool commands used in the script are taken straight from the ["Cluster API Book"](https://cluster-api.sigs.k8s.io/user/quick-start.html) and deserves it's writers all the credit for it! The reason being for this process to be included is to provide you with the end-to-end user experience which also include the proprietary automation developed for this Jumpstart scenario.
 
 - To download the script from the Ubuntu machine, use the below command.
 

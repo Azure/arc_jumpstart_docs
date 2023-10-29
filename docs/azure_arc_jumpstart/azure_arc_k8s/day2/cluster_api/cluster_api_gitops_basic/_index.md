@@ -137,7 +137,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
   - Create the GitOps configurations and deploy the Flux controllers on the Azure Arc connected cluster
   - Deploy the ["Hello Arc"](https://github.com/microsoft/azure_arc/blob/main/artifacts/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
 
-    > **Disclaimer: For the purpose of this guide, notice how the "*sync-interval 3s*" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min)**
+    > **Disclaimer:** For the purpose of this guide, notice how the "*sync-interval 3s*" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
 
 - Once the script will complete it's run, you will have the GitOps configuration create all the resources deployed in your Kubernetes cluster. Note that it takes a few min for the configuration change status from "Pending" to Install.
 
