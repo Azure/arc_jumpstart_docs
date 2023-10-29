@@ -8,7 +8,7 @@ description: >
 
 ## Use GitOps in an Azure Arc-enabled Kubernetes cluster for managing Calico Network Policy
 
- > **Disclaimer: This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program**
+ > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 
 The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
 
@@ -72,7 +72,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
   - Create the GitOps configuration and deploy the Flux operator and Memcached on the Azure Arc connected cluster
   - Deploy the `dev` utilities as well as `network policy` and `network set` on the Azure Arc connected cluster
 
-    > **Disclaimer: For the purpose of this guide, notice that "*git-poll-interval 30s*" is set. The 30 seconds interval is useful for demo purposes since changes can be observed quickly but it is recommended to have a longer interval in your production environment (default value is 5min)**
+    > **Disclaimer:** For the purpose of this guide, notice that "*git-poll-interval 30s*" is set. The 30 seconds interval is useful for demo purposes since changes can be observed quickly but it is recommended to have a longer interval in your production environment (default value is 5min).
 
 - Once the script completes running, a GitOps configuration will be created with all the resources deployed in your Kubernetes cluster. Note that it takes a few minutes for the configuration to change it's Operator state status from "Pending" to "Installed".
 

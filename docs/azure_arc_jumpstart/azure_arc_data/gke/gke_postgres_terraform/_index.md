@@ -50,7 +50,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
 
     ![Screenshot showing how to enable billing on GCP account](./03.png)
 
-    ***Disclaimer*** - **To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
+    > **Disclaimer:** To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README.
 
 - [Install Terraform 1.0 or higher](https://learn.hashicorp.com/terraform/getting-started/install.html)
 

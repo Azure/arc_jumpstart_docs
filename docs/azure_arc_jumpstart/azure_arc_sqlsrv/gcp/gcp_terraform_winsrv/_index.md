@@ -34,7 +34,7 @@ By the end of the guide, you will have a GCP VM instance installed with Windows 
 
     ![Screenshot showing how to enable billing on GCP account](./47.png)
 
-    ***Disclaimer*** - **To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
+    > **Disclaimer:** To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README.
 
 * [Install Terraform >=0.12](https://learn.hashicorp.com/terraform/getting-started/install.html)
 
