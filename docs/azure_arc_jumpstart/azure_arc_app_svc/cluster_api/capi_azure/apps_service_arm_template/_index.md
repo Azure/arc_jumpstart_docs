@@ -12,6 +12,8 @@ The following Jumpstart scenario will guide you on how to deploy a "Ready to Go"
 
 By the end of this scenario, you will have a CAPI Kubernetes cluster deployed with an App Service plan, a sample Web Application (Web App) and a Microsoft Windows Server 2022 (Datacenter) Azure VM, installed & pre-configured with all the required tools needed to work with Azure Arc-enabled app services.
 
+TESTING
+
 > **Note:** Currently, Azure Arc-enabled app services is in preview.
 
 ## Prerequisites
