@@ -40,7 +40,7 @@ HCIBox also includes a dedicated Windows Admin Center (WAC) gateway server. The 
 
   > **Note:** [Registering Windows Admin Center with Azure](https://learn.microsoft.com/azure-stack/hci/manage/register-windows-admin-center) is not supported in HCIBox.
 
-- Open this shortcut and use the domain credential (username_supplied_at_deployment@jumpstart.local) to start an RDP session to the Windows Admin Center VM.
+- Open this shortcut and use the domain credential (_username_supplied_at_deployment@jumpstart.local_) to start an RDP session to the Windows Admin Center VM.
 
   ![Screenshot showing WAC desktop shortcut](./wac_gateway_shortcut.png)
 

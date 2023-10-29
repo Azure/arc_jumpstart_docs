@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
+weight: 2
 title: Data pipeline and reporting across cloud and edge for store orders
+linkTitle: Data pipeline and reporting across cloud and edge for store orders
 summary: |
   One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.
 
@@ -67,7 +68,7 @@ Follow the below steps in order to view the PoS Orders dashboard reports you wil
 
   ![Screenshot showing the empty data in orders dashboard report](./img/adx_orders_report_empty_data.png)
 
-  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue__.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](/azure_jumpstart_ag/contoso_supermarket/troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
 
 ## Generate sample data using Data Emulator
 
@@ -77,7 +78,7 @@ By default there is no data available in Cosmos DB database after the deployment
 
   ![Screenshot showing the Data Emulator on the desktop](./img/locate_data_emulator_desktop.png)
 
-- Double click on the Data Emulator desktop icon to launch executable and generate sample data. Confirm by entering __Yes__ or __Y__ to start generating data, entering No or N will exit the tool. This tool generates data for the last 30 days. Say No or N to prevent regenerating sample data if it is generated earlier.
+- Double click on the Data Emulator desktop icon to launch executable and generate sample data. Confirm by entering **Yes** or **Y** to start generating data, entering No or N will exit the tool. This tool generates data for the last 30 days. Say No or N to prevent regenerating sample data if it is generated earlier.
 
   > **Note:** You can still generate additional sample data by running this tool multiple times, but there might be duplicate key errors and fails to generate data in subsequent attempts.
 

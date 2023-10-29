@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
+weight: 8
 title: Infrastructure security with Microsoft Defender for Servers
+linkTitle: Infrastructure security with Microsoft Defender for Servers
 summary: |
     Contoso Supermarket are aware that as they navigate the complex landscape of edge computing, it is essential to protect their servers against threats while maintaining a comprehensive view of their security posture. Microsoft Defender for Servers emerges as a vital component, playing a pivotal role in protecting servers from threats and providing unparalleled visibility into their security landscape.
 serviceOrPlatform: INFRASTRUCTURE
@@ -56,7 +57,7 @@ Now that you have successfully enabled Microsoft Defender for Servers, you will 
 
 Microsoft Defender for Servers will collect data from your Arc-enabled servers to monitor for security vulnerabilities and threats. The data collection will allow greater visibility into missing updates, non-secure OS settings, endpoint protection status, health, and threat protection.
 
-- Navigate to Microsoft Defender for Cloud. In the __Inventory__ section under __VM and Servers__, Defender will provide you with an overview of all the discovered security recommendations for your __Azure Arc-enabled servers__.
+- Navigate to Microsoft Defender for Cloud. In the **Inventory** section under **VM and Servers**, Defender will provide you with an overview of all the discovered security recommendations for your **Azure Arc-enabled servers**.
 
     ![Screenshot showing the Microsoft Defender for Cloud Inventory](./img/inventory_defender_for_servers.png)
 

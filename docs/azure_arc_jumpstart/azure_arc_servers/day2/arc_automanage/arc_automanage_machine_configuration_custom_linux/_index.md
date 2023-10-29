@@ -322,23 +322,23 @@ It may take 15-20 minutes for the policy remediation to be completed.
 Get a Machine Configuration specific view by following these steps:
 
 - In the Azure portal, navigate to *Azure Arc* -> *Servers*
-- Click on Arcbox-Ubuntu-01 -> Machine Configuration
-- If the status for *Arcbox-Ubuntu-01/AzureArcJumpstart_Linux* is not *Compliant*, wait a few more minutes and click *Refresh*
+- Click on ArcBox-Ubuntu-01 -> Machine Configuration
+- If the status for *ArcBox-Ubuntu-01/AzureArcJumpstart_Linux* is not *Compliant*, wait a few more minutes and click *Refresh*
 
 ![Screenshot of Azure portal showing Azure Machine Configuration compliance](./15.png)
 
-Click on *Arcbox-Ubuntu-01/AzureArcJumpstart_Linux* to get a per-resource view of the compliance state in the assigned configuration
+Click on *ArcBox-Ubuntu-01/AzureArcJumpstart_Linux* to get a per-resource view of the compliance state in the assigned configuration
 
 ![Screenshot of Azure portal showing Azure Machine Configuration compliance](./16.png)
 
 ### Verify that the operating system level settings are in place
 
-Login to Arcbox-Ubuntu-01 by running the below command
+Login to ArcBox-Ubuntu-01 by running the below command
 
 - Enter the password **ArcDemo123!!** when prompted
 
 ```powershell
-Enter-AzVM -ResourceGroupName $ResourceGroupName -Name Arcbox-Ubuntu-01 -LocalUser arcdemo
+Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Ubuntu-01 -LocalUser arcdemo
 ```
 
 Verify that the packages **hello** and **nginx** are installed by running ```apt list --installed | grep 'hello\|nginx/focal'```

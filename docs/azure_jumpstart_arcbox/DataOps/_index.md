@@ -736,7 +736,7 @@ Initiate the backup restore process
   $nestedWindowsPassword = "ArcDemo123!!"
   $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
   $winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
-  $session = New-PSSession -VMName Arcbox-SQL -Credential $winCreds
+  $session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
   #Copying the database backup to the Client VM
   Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
   #Copying the database to the AKS SQL Managed Instance

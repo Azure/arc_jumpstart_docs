@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
+weight: 10
 title: Troubleshooting
+linkTitle: Troubleshooting
 ---
 
 # Jumpstart Agora - Contoso Supermarket scenario troubleshooting

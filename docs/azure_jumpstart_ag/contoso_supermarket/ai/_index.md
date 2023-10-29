@@ -1,7 +1,8 @@
 ---
 type: docs
-weight: 100
+weight: 4
 title: Enabling AI at the Edge & Software configurations rollout with basic GitOps flow
+linkTitle: Enabling AI at the Edge & Software configurations rollout with basic GitOps flow
 summary: |
     Contoso prides itself on being technology innovators. In the current market, Contoso's leadership recognizes that maintaining their position as leaders in the retail space requires innovation in every aspect of their operations.
     To this end, Contoso Supermarket has developed an artificial intelligence (AI) mechanism that empowers them to enhance the customer experience in their stores. By implementing such a mechanism, their objective is to accurately detect the number of people waiting at different checkout lanes and enable proactive actions based on this data.
@@ -57,11 +58,11 @@ To access the "Managers Control Center", select the POS [_env_] Manager option f
 
 ![Screenshot showing the POS Bookmark](./img/control-center-menu.png)
 
-- __Heatmap:__ Using the heatmap, the Store Manager can open or close checkout lanes to distribute the traffic of the store, using the Toggles above each lane.
+- **Heatmap:** Using the heatmap, the Store Manager can open or close checkout lanes to distribute the traffic of the store, using the Toggles above each lane.
 
     ![Screenshot showing the Store Manager Screenshot Heatmap focus](./img/checkout-heatmap.png)
 
-- __Reporting:__ Contoso is interested in improving their store experience by measuring two key metrics: Total people in the store, and Shopper Wait Time. These metrics are shown in the Store Manager Control Center as shown below.
+- **Reporting:** Contoso is interested in improving their store experience by measuring two key metrics: Total people in the store, and Shopper Wait Time. These metrics are shown in the Store Manager Control Center as shown below.
 
     ![Screenshot showing the Store Manager Reporting Pane](./img/reporting.png)
 
