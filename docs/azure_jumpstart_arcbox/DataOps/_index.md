@@ -81,7 +81,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.40.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -474,7 +474,7 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
   ![Screenshot showing Grafana desktop shortcut](./grafana_icon.png)
 
-- [Optional] The IP address for this instance represents the Kubernetes LoadBalancer external IP that was provision as part of Azure Arc-enabled data services. Use the _kubectl get svc -n arc_ command to view the metricsui external service IP address.
+- [Optional] The IP address for this instance represents the Kubernetes LoadBalancer external IP that was provision as part of Azure Arc-enabled data services. Use the _kubectl get svc -n arc_ command to view the _metricsui_ external service IP address.
 
   ![Screenshot showing Grafana Ip address](./grafana_ip_address.png)
 
