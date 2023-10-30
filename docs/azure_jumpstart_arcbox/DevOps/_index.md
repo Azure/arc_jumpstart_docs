@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Jumpstart ArcBox for DevOps"
+linkTitle: "ArcBox for DevOps"
 weight: 3
 ---
 

@@ -24,7 +24,7 @@ Deploying the "Contoso Supermarket" scenario consists of the following steps (on
 
 Once automation is complete, users can immediately start enjoying the Contoso Supermarket experience.
 
-![Deployment flow architecture diagram](./img/deployment_flow.png)
+![Deployment flow architecture diagram](./img/deployment_workflow.png)
 
 ## Prerequisites
 
