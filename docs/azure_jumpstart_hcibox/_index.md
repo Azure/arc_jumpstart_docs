@@ -33,7 +33,7 @@ HCIBox installs and configures [Azure Arc Resource Bridge](https://learn.microso
 
 ![Screenshot showing HCIBox Azure Arc Resource Bridge](./arc_resource_bridge.png)
 
-### Azure Kubernetes Service on Azure Stack HCI and Azure Arc-enabled data services and 
+### Azure Kubernetes Service on Azure Stack HCI and Azure Arc-enabled data services
 
 HCIBox includes capabilities that allow users to run [Azure Kubernetes Services on Azure Stack HCI (AKS-HCI)](https://learn.microsoft.com/azure-stack/aks-hci/) and [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview). As part of the deployment automation, HCIBox configures AKS-HCI infrastructure including a management cluster. It then creates a [target](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts), or "workload", cluster (_HCIBox-AKS-$randomguid_). As an optional capability, HCIBox also includes a PowerShell script that can be used to configure a sample application on the target cluster using [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2).
 
