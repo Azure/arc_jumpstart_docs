@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Jumpstart ArcBox for IT Pros"
+linkTitle: "ArcBox for IT Pros"
 weight: 2
 ---
 
