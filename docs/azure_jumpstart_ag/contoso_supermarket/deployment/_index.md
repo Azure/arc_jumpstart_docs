@@ -83,6 +83,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
     ![Screenshot showing how to create the GitHub PAT](./img/github_PAT11.png)
 
     > **Note:** GitHub fine-grained access tokens are a beta feature of GitHub and may be subject to change in user experience or functionality.
+
     > **Note:** The token shown in the above screenshot is a placeholder value for example purposes only and not a working token.
 
 - [Install or update Azure CLI to version 2.49.0 or above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.

@@ -161,7 +161,7 @@ Microsoft Defender for Cloud will collect data from your Arc-enabled servers to 
 
     ![Screenshot showing Defender recommendation on Azure Arc-enabled server](./07.png)
 
-- For this Azure Arc-enabled server the recommendation "A vulnerability assessment solution should be enabled on your virtual machine" provides a ***Quick Fix***. It is using an ARM template to deploy the an extention to enable a vulnerability assessment solution on the Azure Arc machine.
+- For this Azure Arc-enabled server the recommendation "A vulnerability assessment solution should be enabled on your virtual machine" provides a ***Quick Fix***. It is using an ARM template to deploy the extension to enable a vulnerability assessment solution on the Azure Arc machine.
 
     ![Screenshot showing Defender Quick Fix ARM template](./08.png)
 
@@ -173,7 +173,7 @@ Microsoft Defender for Cloud will collect data from your Arc-enabled servers to 
 
     ![Screenshot showing healthy Azure Arc-enabled server](./10.png)
 
-> **NOTE:It can take several minutes after remediation completes to see the resources in the 'healthy resources' tab**
+> **Note:** It can take several minutes after remediation completes to see the resources in the 'healthy resources' tab.
 
 ## Clean up environment
 

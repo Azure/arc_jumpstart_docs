@@ -294,7 +294,7 @@ Verify that PowerShell 7 is installed by running ```pwsh```.
 
 ![Screenshot of PowerShell 7 presence on ArcBox-Win2K22](./07.png)
 
-> *NOTE: If you prefer to log on interactively to a Remote Desktop session in order to verify the configuration settings, add -Rdp to the Enter-AzVM command:
+> **Note:** If you prefer to log on interactively to a Remote Desktop session in order to verify the configuration settings, add -Rdp to the Enter-AzVM command.
 
 ```powershell
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser Administrator -Rdp
