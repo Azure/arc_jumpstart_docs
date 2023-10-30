@@ -86,7 +86,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
 
     > **Note:** The token shown in the above screenshot is a placeholder value for example purposes only and not a working token.
 
-- [Install or update Azure CLI to version 2.49.0 or above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 or above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
     ```shell
     az --version
