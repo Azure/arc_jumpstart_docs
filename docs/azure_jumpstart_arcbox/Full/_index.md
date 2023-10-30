@@ -8,7 +8,7 @@ weight: 1
 
 ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with all available Azure Arc technology with nothing more than an available Azure subscription.
 
-![ArcBox architecture diagram](./arch_full.png)
+![Screenshot showing ArcBox architecture diagram](./arch_full.png)
 
 ### Use cases
 
@@ -23,13 +23,13 @@ ArcBox is a solution that provides an easy to deploy sandbox for all things Azur
 
 ### Azure Arc-enabled servers
 
-![ArcBox servers diagram](./servers.png)
+![Screenshot showing ArcBox Arc-enabled servers diagram](./servers.png)
 
 ArcBox includes five Azure Arc-enabled server resources that are hosted using nested virtualization in Azure. As part of the deployment, a Hyper-V host (_ArcBox-Client_) is deployed with five guest virtual machines. These machines, _ArcBox-Win2k22_, _ArcBox-Win2k19_, _ArcBox-SQL_, _ArcBox-Ubuntu-01_, and _ArcBox-Ubuntu-02_ are connected as Azure Arc-enabled servers via the ArcBox automation.
 
 ### Azure Arc-enabled Kubernetes
 
-<img src="./k8s.png" width="250" alt="K8s diagram">
+![Screenshot of ArcBox Arc-enabled Kubernetes diagram](./k8s.png)
 
 ArcBox deploys one single-node Rancher K3s cluster running on an Azure virtual machine. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource (_ArcBox-K3s_).
 
@@ -37,7 +37,7 @@ ArcBox deploys one single-node Rancher K3s cluster running on an Azure virtual m
 
 ArcBox deploys one single-node Rancher K3s cluster (_ArcBox-CAPI-MGMT_), which is then transformed to a [Cluster API](https://cluster-api.sigs.k8s.io/user/concepts.html) management cluster using the Cluster API Provider Azure(CAPZ), and a workload cluster is deployed onto the management cluster. The Azure Arc-enabled data services and data controller are deployed onto this workload cluster via a PowerShell script that runs when first logging into _ArcBox-Client_ virtual machine.
 
-<img src="./dataservices2.png" width="400" alt="Data services diagram">
+![Screenshot of ArcBox Arc-enabled data services diagram](./dataservices2.png)
 
 ### Hybrid Unified Operations
 

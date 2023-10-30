@@ -8,7 +8,7 @@ weight: 2
 
 ArcBox for IT Pros is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
-![ArcBox architecture diagram](./arch_itpro.png)
+![Screenshot showing ArcBox architecture diagram](./arch_itpro.png)
 
 ### Use cases
 
@@ -23,7 +23,7 @@ ArcBox for IT Pros is a special "flavor" of ArcBox that is intended for users wh
 
 ### Azure Arc-enabled servers
 
-![ArcBox servers diagram](./servers.png)
+![Screenshot showing ArcBox Arc-enabled servers diagram](./servers.png)
 
 ArcBox includes three Azure Arc-enabled server resources that are hosted using nested virtualization in Azure. As part of the deployment, a Hyper-V host (_ArcBox-Client_) is deployed with three guest virtual machines. These machines, _ArcBoxWin_, _ArcBoxUbuntu_, and _ArcBoxSQL_ are connected as Azure Arc-enabled servers via the ArcBox automation.
 
