@@ -23,7 +23,7 @@ ArcBox comes in multiple "flavors", or configurations, which can be selected to 
 - [ArcBox "Full"](/azure_jumpstart_arcbox/Full)
     The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
 
-    ![ArcBox architecture diagram](./arch_full.png)
+    ![Screenshot showing ArcBox architecture diagram](./arch_full.png)
 
 - [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro)
     This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.

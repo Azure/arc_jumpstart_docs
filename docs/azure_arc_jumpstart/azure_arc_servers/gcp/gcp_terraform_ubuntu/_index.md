@@ -52,7 +52,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     ![Screenshot showing how to enable billing on GCP account](./03.png)
 
-    **Disclaimer - To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
+    > **Disclaimer - To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
 
 - Create Azure service principal (SP)
 

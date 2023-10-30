@@ -8,7 +8,7 @@ weight: 3
 
 ArcBox for DevOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled Kubernetes capabilities in a sandbox environment.
 
-![ArcBox architecture diagram](./arch_devops.png)
+![Screenshot showing ArcBox architecture diagram](./arch_devops.png)
 
 ### Use cases
 
