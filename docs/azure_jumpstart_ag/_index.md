@@ -14,9 +14,9 @@ Our mission is to create a rich marketplace of applications that can leverage Hy
 
 <p align="center"><img src="/img/agora_logo.png" alt="Jumpstart Agora logo" width="250"></p>
 
-![Jumpstart Agora logo](../../img/logo/agora.png)
+![Jumpstart Agora logo](./agora.png)
 
-![test](../../img/agora_logo.png)
+![test](./agora_logo.png)
 
 ### Why Jumpstart Agora?
 
