@@ -73,9 +73,9 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
     echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
     ```
 
-    > __NOTE: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.__
+    > __Note: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.__
 
-    > __NOTE: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
+    > __Note: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
 
 ## Automation Flow
 
@@ -139,7 +139,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters main.parameters.json
     ```
 
-    > **NOTE: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
 
 - Once Azure resources have been provisioned, you will be able to see them in Azure portal.
 
@@ -165,7 +165,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing all NSG rules after opening RDP](./nsg_rdp_rule.png)
 
-    > **NOTE: Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.**
+    > **Note: Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.**
 
 ### Connect using just-in-time access (JIT)
 
@@ -183,7 +183,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 - Let the script to run its course and _do not close_ the Powershell session. It will close automatically once completed.
 
-    > **NOTE: The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.**
+    > **Note: The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.**
 
     ![Screenshot script output](./logonscript.png)
 
@@ -197,7 +197,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
     ![Screenshot kubectl get pod -A](./kubectl_get_pods.png)
 
-    > **NOTE: It is normal for the pods in the video-indexer namespace to display some restarts.**
+    > **Note: It is normal for the pods in the video-indexer namespace to display some restarts.**
 
 ## Video Indexer Web API usage
 
