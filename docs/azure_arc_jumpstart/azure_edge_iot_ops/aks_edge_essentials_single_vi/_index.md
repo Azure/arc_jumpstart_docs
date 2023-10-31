@@ -262,7 +262,7 @@ Now we will use the Web API to index a video by making API calls through the Pos
 
 At this point the video is being indexed by the Video Indexer extension. This step will take some time. You can monitor the progress as follows:
 
-- Using Postman, make a new GET request to the following URI - https://192.168.0.4/Accounts/<accountId>/Videos?name=SampleVideo where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
+- Using Postman, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
 
   ![Upload Video step 5](./video_processing.png)
 
@@ -270,9 +270,9 @@ At this point the video is being indexed by the Video Indexer extension. This st
 
   ![Upload Video step 6](./video_processed.png)
 
-Now we can use other API calls to examine the indexed video content. 
+Now we can use other API calls to examine the indexed video content.
 
-- From the Postman client, make a new GET request to the following URI - https://192.168.0.4/Accounts/<accountId>/Videos/<videoId>/Index where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
+- From the Postman client, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
 
   ![Upload Video step 6](./video_insights.png)
 
@@ -284,7 +284,6 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 | ------- | ----------- |
 | _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _AKS-EE-Demo_ Azure VM. |
 | _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions as well as onboard the Azure VM. |
-|
 
 ![Screenshot showing the Temp folder with deployment logs](./logs_folder.png)
 
