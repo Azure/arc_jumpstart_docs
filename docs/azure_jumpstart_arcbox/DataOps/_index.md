@@ -579,7 +579,7 @@ This section provides instructions on how to perform point in time restore from 
 
 To view backups of full, differential, and transaction logs wait for more than 12 hours after deploying the ArcBox DataOps flavor. Once these backups are available follow instructions below to perform a point in time restore of database. If you would like to test this feature immediately, you can simply use the latest backup set when restoring.
 
-- Once you login to the ArcBox-Client VM using RDP or bastion host, locate Azure Data Studio icon on the desktop and open.
+- Once you login to the _ArcBox-Client_ VM using RDP or bastion host, locate Azure Data Studio icon on the desktop and open.
 
 ![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
 
