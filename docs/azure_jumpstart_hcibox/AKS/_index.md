@@ -34,7 +34,7 @@ Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service cl
 
 - We can deploy configurations for this workload cluster automatically from source using [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster). HCIBox includes a script that will automatically configure a simple "Hello Arc" application and ingress controller on the AKS cluster.
 
-- Open up Windows Explorer on the _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. From here, right click on the "_Deploy-GitOps.ps1_" file and run with PowerShell.
+- Open up Windows Explorer on the _HCIBox-Client_ VM and navigate to the _C:\HCIBox_ folder. From here, right click on the _Deploy-GitOps.ps1_ file and run with PowerShell.
 
   ![Screenshot showing starting GitOps script](./deploy_gitops.png)
 

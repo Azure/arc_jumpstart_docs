@@ -20,7 +20,7 @@ Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service cl
 
   ![Screenshot showing running a cli command to get custom location objectId](./objectid_script.png)
 
-- Open up Windows Explorer on the HCIBox-Client and navigate to the C:\HCIBox folder. From here, right click on the "Deploy-SQLMI.ps1" file and run with PowerShell.
+- Open up Windows Explorer on the _HCIBox-Client_ VM and navigate to the C:\HCIBox folder. From here, right click on the _Deploy-SQLMI.ps1_ file and run with PowerShell.
 
   ![Screenshot showing running a cli command to get custom location objectId](./deploy_sqlmi_script.png)
 

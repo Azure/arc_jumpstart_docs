@@ -19,8 +19,8 @@ Deploying the "Contoso Supermarket" scenario consists of the following steps (on
   2. Bicep template deploys multiple Azure resources including the Client virtual machine.
   3. Client VM uses a custom script extension to run the Bootstrap PowerShell script which initializes the environment.
   4. Bootstrap script injects the Logon script to the Client VM.
-  5. User logs in to the Agora-VM-Client Azure virtual machine.
-  6. After login the Agora-VM-Client PowerShell scripts automatically run that configure the applications and CI/CD. These scripts will take some time to run.
+  5. User logs in to the _Agora-VM-Client_ Azure virtual machine.
+  6. After login the _Agora-VM-Client_ PowerShell scripts automatically run that configure the applications and CI/CD. These scripts will take some time to run.
 
 Once automation is complete, users can immediately start enjoying the Contoso Supermarket experience.
 
