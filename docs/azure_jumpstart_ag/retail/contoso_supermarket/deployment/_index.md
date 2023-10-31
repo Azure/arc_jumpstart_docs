@@ -240,7 +240,7 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/_index.md).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/).
 
 ## Start post-deployment automation
 
@@ -254,8 +254,8 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 
 Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
 
-- [RDP](../deployment/_index.md#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/_index.md#connect-using-just-in-time-access-jit).
-- [Azure Bastion](../deployment/_index.md#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
+- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -309,4 +309,4 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Supermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/_index.md).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Supermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/).
