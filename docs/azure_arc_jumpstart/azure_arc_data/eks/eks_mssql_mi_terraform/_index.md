@@ -82,11 +82,13 @@ By the end of this scenario, you will have an EKS cluster deployed with an Azure
   # Note that the APPLICATION ID: bc313c14-388c-4e7d-a58e-70017303ee3b is constant across all tenants
   az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query id -o tsv
   ```
+
 - Create a resource group
 
    ```shell
    az group create --name "Arc-Data-Demo" --location "eastus"
    ```
+
 ### Create a new AWS IAM Role & Key
 
 Create AWS User IAM Key. An access key grants programmatic access to your resources which we will be using later in this scenario.
