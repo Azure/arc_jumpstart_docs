@@ -117,11 +117,11 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`windowsAdminUsername`_ - Client Windows VM Administrator name
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the deployment log analytics workspace.
-  - _`deploySQLMI`_ - Boolean that sets whether or not to deploy SQL Managed Instance, for this Azure Arc-enabled SQL Managed Instance scenario we will set it to _**true**_. Use value _**true**_ for this scenario to deploy SQL Managed Instance.
-  - _`SQLMIHA`_ - Boolean that sets whether to deploy SQL Managed Instance in high availability mode using Business Critical pricing tier. A value of _**false**_ selects General Purpose pricing tier and a value of _**true**_ selects Business Critical pricing tier. Default value is  _**false**_.
-  - _`enableADAuth`_ - Boolean that sets whether or not to deploy Active Directory Domain Services (ADDS) VM, for this Azure Arc-enabled SQL Managed Instance with AD authentication scenario. Default value is _**false**_. Use value _**true**_ for this scenario to deploy Domain Controller VM and support AD authentication in SQL Managed Instance.
-  - _`deployPostgreSQL`_ - Boolean that sets whether or not to deploy PostgreSQL, for this scenario. Default value is _**false**_.
-  - _`deployBastion`_ - Boolean that sets whether to deploy Azure Bastion or not to connect to the client VM. Default value is _**false**_.
+  - _`deploySQLMI`_ - Boolean that sets whether or not to deploy SQL Managed Instance, for this Azure Arc-enabled SQL Managed Instance scenario we will set it to ***true***. Use value ***true*** for this scenario to deploy SQL Managed Instance.
+  - _`SQLMIHA`_ - Boolean that sets whether to deploy SQL Managed Instance in high availability mode using Business Critical pricing tier. A value of ***false*** selects General Purpose pricing tier and a value of ***true*** selects Business Critical pricing tier. Default value is  ***false***.
+  - _`enableADAuth`_ - Boolean that sets whether or not to deploy Active Directory Domain Services (ADDS) VM, for this Azure Arc-enabled SQL Managed Instance with AD authentication scenario. Default value is ***false***. Use value ***true*** for this scenario to deploy Domain Controller VM and support AD authentication in SQL Managed Instance.
+  - _`deployPostgreSQL`_ - Boolean that sets whether or not to deploy PostgreSQL, for this scenario. Default value is ***false***.
+  - _`deployBastion`_ - Boolean that sets whether to deploy Azure Bastion or not to connect to the client VM. Default value is ***false***.
   - _`bastionHostName`_ - Azure Bastion host name. Default value is _**Arc-Data-Demo-Bastion**_.
 
   > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["Perform database failover with SQL Managed Instance Availability Groups"](../../day2/aks/aks_mssql_ha/_index.md) Jumpstart scenario as well as the ["High Availability with Azure Arc-enabled SQL Managed Instance"](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-high-availability) product documentation.
