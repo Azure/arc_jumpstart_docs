@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "Arc-enabled Video Indexer on single node AKS Edge Essentials single node"
-linkTitle: "Arc-enabled Video Indexer on single node AKS Edge Essentials single node"
+title: "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials single node"
+linkTitle: "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials single node"
 weight: 1
 description: >
 ---
