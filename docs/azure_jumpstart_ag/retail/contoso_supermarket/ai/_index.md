@@ -224,4 +224,4 @@ Contoso's DevOps team has also received a request from the _Seattle_ store manag
 
 ## Next Steps
 
-In the next scenario, learn how Contoso Supermarket are streamlining the [Software Delivery Process using CI/CD](../ci_cd/_index.md).
+In the next scenario, learn how Contoso Supermarket are streamlining the [Software Delivery Process using CI/CD](../../contoso_supermarket/ci_cd/).
