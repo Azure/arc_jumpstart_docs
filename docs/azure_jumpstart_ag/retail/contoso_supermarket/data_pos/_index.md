@@ -34,7 +34,7 @@ Contoso supports dashboard reports for the PoS application analytics and monitor
 
 ## Manually import dashboards
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/_index.md#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
+> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
 
 Follow the below steps in order to view the PoS Orders dashboard reports you will need to import these into ADX.
 
@@ -68,7 +68,7 @@ Follow the below steps in order to view the PoS Orders dashboard reports you wil
 
   ![Screenshot showing the empty data in orders dashboard report](./img/adx_orders_report_empty_data.png)
 
-  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](../troubleshooting/_index.md#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer to [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](../troubleshooting/#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
 
 ## Generate sample data using Data Emulator
 
@@ -128,4 +128,4 @@ By default there is no data available in Cosmos DB database after the deployment
 
 ## Next steps
 
-Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Data pipeline and reporting across cloud and edge for sensor telemetry](../freezer_monitor/_index.md).
+Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Data pipeline and reporting across cloud and edge for sensor telemetry](../freezer_monitor/).

@@ -21,8 +21,8 @@ linkTitle: Cleanup
 
   ![Screenshot showing azd down](./img/azd_down.png)
 
-  > **Note:** If you have manually configured Defender for Cloud, please refer to the [dedicated page](../arc_defender_servers/_index.md#cleanup) to clean up Defender for Cloud resources.
+  > **Note:** If you have manually configured Defender for Cloud, please refer to the [dedicated page](../arc_defender_servers/#cleanup) to clean up Defender for Cloud resources.
 
 ## Next steps
 
-If you still having issues with the deployment, please refer to the [Troubleshooting](../troubleshooting/_index.md/) section. Otherwise, if you have additional questions or feedback, please refer to the [FAQ](../../../faq/) section.
+If you still having issues with the deployment, please refer to the [Troubleshooting](../troubleshooting//) section. Otherwise, if you have additional questions or feedback, please refer to the [FAQ](../../../faq/) section.

@@ -116,7 +116,7 @@ Before starting to code this new feature, it is useful to take a look at how Con
 
 Contoso's DevOps team has received a request from the _Chicago_ store managers that they need the "Live View" feature enabled in their store as their queues are getting longer throughout peak hours throughout the day.
 
-- Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](../deployment/_index.md#connecting-to-the-agora-client-virtual-machine).
+- Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](../deployment/#connecting-to-the-agora-client-virtual-machine).
 
 - Open VSCode from the desktop shortcut.
 
