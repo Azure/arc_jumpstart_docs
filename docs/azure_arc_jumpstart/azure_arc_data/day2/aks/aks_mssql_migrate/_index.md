@@ -324,6 +324,7 @@ In order to view these cluster extensions, click on the Azure Arc-enabled Kubern
   ![Screenshot showing starting a new query in Azure Data Studio](./45.png)
 
   ![Screenshot showing the success message after backing up the AdventureWorks database in Azure Data Studio](./46.png)
+
 ### Migrate the _AdventureWorks_ database from the source SQL instance to the Azure Arc-enabled SQL Managed Instance
 
 - To migrate the backup we created, open a new PowerShell ISE session and use the following PowerShell snippet to:

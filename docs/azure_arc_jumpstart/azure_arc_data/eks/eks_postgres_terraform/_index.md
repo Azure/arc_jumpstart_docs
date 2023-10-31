@@ -84,11 +84,12 @@ By the end of this scenario, you will have an EKS cluster deployed with an Azure
   # Note that the APPLICATION ID: bc313c14-388c-4e7d-a58e-70017303ee3b is constant across all tenants
   az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query id -o tsv
   ```
+
 - Create a resource group
 
    ```shell
    az group create --name "Arc-Data-Demo" --location "eastus"
-   ```
+
 ### Create a new AWS IAM Role & Key
 
 Create AWS User IAM Key. An access key grants programmatic access to your resources which we will be using later in this scenario.
@@ -242,7 +243,6 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
 - At first login, as mentioned in the "Automation Flow" section above, the [_DataServicesLogonScript_](https://github.com/microsoft/azure_arc/tree/main/azure_arc_data_jumpstart/eks/terraform/artifacts/DataServicesLogonScript.ps1) PowerShell logon script will start it's run.
 
 - Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure Arc Data Controller will be deployed on the cluster and be ready to use.
-
 
     ![Screenshot showing the PowerShell logon script run](./24.png)
 

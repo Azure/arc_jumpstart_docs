@@ -168,6 +168,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
       command: ["stress"]
       args: ["--vm", "1", "--vm-bytes", "250M", "--vm-hang", "1"]
   ```
+
 - Create the above file and run the following command to create the pod:
 
   ```bash
