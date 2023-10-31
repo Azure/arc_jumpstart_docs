@@ -12,9 +12,11 @@ Jumpstart Agora is a marketplace of various “cloud to edge” industry scenari
 
 Our mission is to create a rich marketplace of applications that can leverage Hybrid Cloud, Internet of Things (IoT), and artificial intelligence (AI) technologies and make those accessible for enablement and educational purposes via the Jumpstart automation mechanisms.
 
-<!-- <p align="center"><img src="/img/agora_logo.png" alt="Jumpstart Agora logo" width="250"></p> -->
+<p align="center"><img src="/img/agora_logo.png" alt="Jumpstart Agora logo" width="250"></p>
 
 ![Jumpstart Agora logo](../../img/logo/agora.png)
+
+![test](../../img/agora_logo.png)
 
 ### Why Jumpstart Agora?
 

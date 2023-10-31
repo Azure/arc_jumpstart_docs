@@ -23,21 +23,29 @@ ArcBox comes in multiple "flavors", or configurations, which can be selected to 
 - [ArcBox "Full"](/azure_jumpstart_arcbox/Full)
     The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
 
-    ![Screenshot showing ArcBox architecture diagram](./arch_full.png)
+    <!-- ![Screenshot showing ArcBox architecture diagram](./arch_full.png) -->
+
+    ![Screenshot showing ArcBox Full architecture diagram](./../azure_jumpstart_arcbox/Full/arch_full.png)
 
 - [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro)
     This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.
 
-    ![ArcBox for IT Pros architecture diagram](./arch_itpro.png)
+    <!-- ![ArcBox for IT Pros architecture diagram](./arch_itpro.png) -->
+
+    ![Screenshot showing ArcBox for IT Pros architecture diagram](./../azure_jumpstart_arcbox/ITPro/arch_itpro.png)
 
 - [ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps)
     This essential Azure Arc-enabled Kubernetes sandbox with the included capabilities such as GitOps, Open Service Mesh (OSM), secrets management, monitoring, and more.
 
-    ![ArcBox for DevOps architecture diagram](./arch_devops.png)
+    <!-- ![ArcBox for DevOps architecture diagram](./arch_devops.png) -->
+
+    ![Screenshot showing ArcBox for DevOps architecture diagram](./../azure_jumpstart_arcbox/DevOps/arch_devops.png)
 
 - [ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps)
     This essential Azure Arc-enabled SQL Managed Instance sandbox with the included capabilities such as Active Directory authentication, point-in-time restore, high availability, disaster recovery, and more.
 
-    ![ArcBox for DevOps architecture diagram](./arch_dataops.png)
+    <!-- ![ArcBox for DevOps architecture diagram](./arch_dataops.png) -->
+
+    ![Screenshot showing ArcBox for DevOps architecture diagram](./../azure_jumpstart_arcbox/DataOps/arch_dataops.png)
 
 To get started with one of the flavors of ArcBox, click the relevant links above to view the detailed README for each flavor. For additional questions, please review the [Jumpstart FAQ](../../FAQ).
