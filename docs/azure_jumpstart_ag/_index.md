@@ -16,6 +16,8 @@ Our mission is to create a rich marketplace of applications that can leverage Hy
 
 ![Jumpstart Agora logo](../../img/logo/agora.png)
 
+![test](../../img/agora_logo.png)
+
 ### Why Jumpstart Agora?
 
 - Sandbox environment for getting hands-on with “cloud to edge” industry scenarios.
