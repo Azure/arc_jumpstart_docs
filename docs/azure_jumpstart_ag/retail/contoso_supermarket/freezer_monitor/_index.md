@@ -53,7 +53,7 @@ Contoso has an ADX dashboard report for Freezer Monitoring analytics and monitor
 
 ### Manually import dashboard
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as the dashboard is automatically imported for you during the automated deployment.
+> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/_index.md#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as the dashboard is automatically imported for you during the automated deployment.
 
 To view the Freezer Monitoring dashboard you will first need to import it into ADX.
 
@@ -87,7 +87,7 @@ To view the Freezer Monitoring dashboard you will first need to import it into A
 
   ![Screenshot showing the default freezer dashboard](./img/adx_freezer_dashboard_default.png)
 
-  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](../troubleshooting#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
+  > **Note:** Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster with an error _User principal 'msauser=xyz@abc.com' is not authorized to read database 'Orders'_. If you experience this access issue, refer [Jumpstart Agora - Contoso Supermarket scenario troubleshooting](../troubleshooting/_index.md#user-principal-is-not-authorized-to-read-database-orders) guide to troubleshoot and address this access issue.
 
 ## Scenarios
 
@@ -313,4 +313,4 @@ To see the ADX dashboard, review the steps from ["Scenario 1: View the data in A
 
 ## Next steps
 
-Now that you have seen how the data flows in the various Contoso Supermarket scenarios, you can now explore how to [enable AI at the edge and experiment with software configurations rollout using basic GitOps flow](../ai/).
+Now that you have seen how the data flows in the various Contoso Supermarket scenarios, you can now explore how to [enable AI at the edge and experiment with software configurations rollout using basic GitOps flow](../ai/_index.md).

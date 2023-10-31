@@ -191,6 +191,26 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
+## Deployment via Azure Developer CLI
+
+Jumpstart Agora provides a feature that allows users to deploy with the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). Follow these steps to try this feature in your subscription.
+
+- Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
+
+  > **Note:** PowerShell is required for using azd with Jumpstart Agora. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
+
+- Login with azd using ```azd auth login``` which will open a browser for interactive login.
+
+  ![Screenshot showing azd auth login](./img/azd_auth_login.png)
+
+- Run the ```azd init``` command from your cloned repo _*azure_jumpstart_ag*_ folder.
+  
+  ![Screenshot showing azd init](./img/azd_init.png)
+
+- Run the ```azd up``` command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
+
+  ![Screenshot showing azd up](./img/azd_up.png)
+
 ## Deployment: Bicep deployment via Azure CLI
 
 - Upgrade to latest Bicep version
@@ -220,27 +240,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/).
-
-## Deployment via Azure Developer CLI
-
-Jumpstart Agora provides a feature that allows users to deploy with the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). Follow these steps to try this feature in your subscription.
-
-- Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
-
-  > **Note:** PowerShell is required for using azd with Jumpstart Agora. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
-
-- Login with azd using ```azd auth login``` which will open a browser for interactive login.
-
-  ![Screenshot showing azd auth login](./img/azd_auth_login.png)
-
-- Run the ```azd init``` command from your cloned repo _*azure_jumpstart_ag*_ folder.
-  
-  ![Screenshot showing azd init](./img/azd_init.png)
-
-- Run the ```azd up``` command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
-
-  ![Screenshot showing azd up](./img/azd_up.png)
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/_index.md).
 
 ## Start post-deployment automation
 
@@ -254,8 +254,8 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 
 Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
 
-- [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](../deployment/_index.md#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/_index.md#connect-using-just-in-time-access-jit).
+- [Azure Bastion](../deployment/_index.md#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -309,4 +309,4 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Supermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Supermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/_index.md).
