@@ -74,7 +74,7 @@ Due to using MOF-based DSC resources for the Windows demo-configuration, we are 
 
 ## Azure resources
 
-> **Note:** For the remaining code blocks in this article, copy the code into ```C:\ArcBox\MachineConfiguration.ps1```, mark the lines you want to run and click F8.
+> **NOTE: For the remaining code blocks in this article, copy the code into ```C:\ArcBox\MachineConfiguration.ps1```, mark the lines you want to run and click F8.
 
 Authenticate to Azure
 
@@ -294,7 +294,7 @@ Verify that PowerShell 7 is installed by running ```pwsh```.
 
 ![Screenshot of PowerShell 7 presence on ArcBox-Win2K22](./07.png)
 
-> **Note:** If you prefer to log on interactively to a Remote Desktop session in order to verify the configuration settings, add -Rdp to the Enter-AzVM command.
+> **NOTE: If you prefer to log on interactively to a Remote Desktop session in order to verify the configuration settings, add -Rdp to the Enter-AzVM command.
 
 ```powershell
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser Administrator -Rdp
@@ -320,7 +320,7 @@ In this scenario you have performed the following tasks:
 - Used the GuestConfiguration module to [create an Azure Policy definition](https://learn.microsoft.com/azure/governance/machine-configuration/machine-configuration-create-definition) for at-scale management of your environment.
 - [Assigned your custom policy definition](https://learn.microsoft.com/azure/governance/policy/assign-policy-portal) to the ArcBox resource group.
 
-> **Note:** For ArcBox exploration, it is recommended to perform the assignment at the resource group level where the Azure Arc-enabled servers reside to not accidentally apply the configuration to other machines in your environment.
+> **NOTE: For ArcBox exploration, it is recommended to perform the assignment at the resource group level where the Azure Arc-enabled servers reside to not accidentally apply the configuration to other machines in your environment.
 
 ## Next steps
 
