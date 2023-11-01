@@ -41,15 +41,15 @@ You can [connect to the ArcBox machine as described in the documentation](/azure
 - Create C:\ArcBox\MachineConfiguration.ps1, then paste and run the following commands to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.12.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.5.1
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.5.2
+Install-Module -Name Az.Accounts -Force -RequiredVersion 2.13.1
+Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.3
+Install-Module -Name Az.Resources -Force -RequiredVersion 6.11.2
 Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 5.4.0
+Install-Module -Name Az.Storage -Force -RequiredVersion 5.10.1
 
 Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.4.0
 
-Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.5
+Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.7
 Install-Module PSDscResources -Force -RequiredVersion 2.12.0.0
 ```
 
@@ -261,7 +261,7 @@ It may take 15-20 minutes for the policy remediation to be completed.
 Get a Machine Configuration specific view by following these steps:
 
 - In the Azure portal, navigate to *Azure Arc* -> *Servers*
-- Click on ArcBox-Win2K22 -> Machine Configuration
+- Click on *ArcBox-Win2K22* -> Machine Configuration
 - If the status for *ArcBox-Win2K22/AzureArcJumpstart_Windows* is not *Compliant*, wait a few more minutes and click *Refresh*
 
 ![Screenshot of Azure portal showing Azure Machine Configuration compliance](./03.png)
@@ -272,7 +272,7 @@ Click on *ArcBox-Win2K22/AzureArcJumpstart_Windows* to get a per-resource view o
 
 ### Verify that the operating system level settings are in place
 
-Login to ArcBox-Win2K22 by running the below command
+Login to *ArcBox-Win2K22* by running the below command
 
 - Enter the password **ArcDemo123!!** when prompted
 

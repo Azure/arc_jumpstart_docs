@@ -14,7 +14,7 @@ While the use of custom configurations in Automanage Machine Configuration featu
 
 By the end of this scenario, you will have both Linux and Windows Azure Arc-enabled servers with Automanage Machine Configuration custom configurations assigned.
 
-This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/itpro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
+This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](../../../../../azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
 
 ![Screenshot of Azure portal showing Azure Arc-enabled servers](./01.png)
 
@@ -33,13 +33,14 @@ Operating system:
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring - and connect to a nested Linux VM.
 
 You can [connect to the ArcBox machine as described in the documentation](/azure_jumpstart_arcbox/itpro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
+You can [connect to the ArcBox machine as described in the documentation](../../../../../azure_jumpstart_arcbox/ITPro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
 
 - Open Visual Studio Code from the desktop shortcut.
 - Install the [Remote SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
 
 ![Screenshot of installing the Remote - SSH extension](./02.png)
 
-Open Hyper-V Manager and determine the IP address of the ArcBox-Ubuntu-01 VM:
+Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 
 ![Screenshot of Hyper-V Manager](./03.png)
 
@@ -68,8 +69,8 @@ Open Hyper-V Manager and determine the IP address of the ArcBox-Ubuntu-01 VM:
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/install-ubuntu?view=powershell-7.3#installation-via-direct-download) by running the following in the terminal window:
 
 ```bash
-wget https://github.com/PowerShell/PowerShell/releases/download/v7.3.3/powershell_7.3.3-1.deb_amd64.deb
-sudo dpkg -i /home/arcdemo/powershell_7.3.3-1.deb_amd64.deb
+wget https://github.com/PowerShell/PowerShell/releases/download/v7.3.9/powershell_7.3.9-1.deb_amd64.deb
+sudo dpkg -i /home/arcdemo/powershell_7.3.9-1.deb_amd64.deb
 ```
 
 - Followed by ```pwsh``` to ensure PowerShell is available.
@@ -97,16 +98,16 @@ Install-WSMan
 - Paste and run the following commands by pressing F5 in order to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.12.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.5.1
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.5.2
+Install-Module -Name Az.Accounts -Force -RequiredVersion 2.13.1
+Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.3
+Install-Module -Name Az.Resources -Force -RequiredVersion 6.11.2
 Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 5.4.0
+Install-Module -Name Az.Storage -Force -RequiredVersion 5.10.1
 
-Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.4.0
+Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.5.0
 
 Install-Module PSDesiredStateConfiguration -AllowPreRelease -Force -RequiredVersion 3.0.0-beta1
-Install-Module nxtools -Force -RequiredVersion 0.4.0-preview0001 -AllowPrerelease
+Install-Module nxtools -Force -RequiredVersion 1.3.0
 ```
 
 The GuestConfiguration module automates the process of creating custom content including:
@@ -163,47 +164,70 @@ Import-Module PSDesiredStateConfiguration -RequiredVersion 3.0.0
 
 Configuration AzureArcJumpstart_Linux
 {
+    param(
+        $FilePath = "/tmp/arc-nxscript-demo",
+        $FileContent = "Hello Arc!"
+    )
 
-    Import-DscResource -ModuleName nxtools -ModuleVersion 0.4.0
+    Import-DscResource -ModuleName nxtools -ModuleVersion 1.3.0
 
     Node localhost
     {
-
-      nxPackage nginx
-      {
-          Name = "nginx"
-          Ensure = "Present"
-      }
-      nxPackage hello
-      {
-          Name = "hello"
-          Ensure = "Present"
-      }
-<#
-
-    Due to a known issue with multiple class-based resources
-    we currently can`t leverage more than 1 DSC resource:
-    https://github.com/Azure/nxtools/issues/15
-
-      nxPackage powershell
-      {
-          Name = "powershell"
-          Version = "7.3.3"
-          Ensure = "Present"
-          #PackageType = "snap"
-      }
-
-      nxFile demo {
-        DestinationPath = "/tmp/arc-demo"
-        Ensure = "Present"
-        Contents = "Hello Arc!"
+        nxPackage nginx {
+            Name   = "nginx"
+            Ensure = "Present"
         }
+        nxPackage hello {
+            Name   = "hello"
+            Ensure = "Present"
+        }
+        nxFile demofile1 {
+            DestinationPath = "/tmp/arc-demo"
+            Ensure          = "Present"
+            Mode            = '0777'
+            Contents        = "Hello Arc!"
+            Owner           = 'root'
+            Group           = 'root'
+        }
+        nxGroup arcusers {
+            GroupName = "arcusers"
+            Ensure    = "Present"
+        }
+        nxScript demofile2 {
+            GetScript  = {
+                $Reason = [Reason]::new()
+                $Reason.Code = "Script:Script:FileMissing"
+                $Reason.Phrase = "File does not exist"
 
-      nxGroup arcusers {
-        GroupName = "arcusers"
-        Ensure = "Present"
-      }
-#>
+                if (Test-Path -Path $using:FilePath) {
+                    $text = $(Get-Content -Path $using:FilePath -Raw).Trim()
+                    if ($text -eq $using:FileContent) {
+                        $Reason.Code = "Script:Script:Success"
+                        $Reason.Phrase = "File exists with correct content"
+                    }
+                    else {
+                        $Reason.Code = "Script:Script:ContentMissing"
+                        $Reason.Phrase = "File exists but has incorrect content"
+                    }
+                }
+
+                return @{
+                    Reasons = @($Reason)
+                }
+            }
+            TestScript = {
+                if (Test-Path -Path $using:FilePath) {
+                    $text = $(Get-Content -Path $using:FilePath -Raw).Trim()
+                    return $text -eq $using:FileContent
+                }
+                else {
+                    return $false
+                }
+            }
+            SetScript  = {
+                $null = Set-Content -Path $using:FilePath -Value $using:FileContent
+            }
+        }
 
     }
 }
@@ -322,7 +346,7 @@ It may take 15-20 minutes for the policy remediation to be completed.
 Get a Machine Configuration specific view by following these steps:
 
 - In the Azure portal, navigate to *Azure Arc* -> *Servers*
-- Click on ArcBox-Ubuntu-01 -> Machine Configuration
+- Click on *ArcBox-Ubuntu-01* -> Machine Configuration
 - If the status for *ArcBox-Ubuntu-01/AzureArcJumpstart_Linux* is not *Compliant*, wait a few more minutes and click *Refresh*
 
 ![Screenshot of Azure portal showing Azure Machine Configuration compliance](./15.png)
@@ -333,7 +357,7 @@ Click on *ArcBox-Ubuntu-01/AzureArcJumpstart_Linux* to get a per-resource view o
 
 ### Verify that the operating system level settings are in place
 
-Login to ArcBox-Ubuntu-01 by running the below command
+Login to *ArcBox-Ubuntu-01* by running the below command
 
 - Enter the password **ArcDemo123!!** when prompted
 
