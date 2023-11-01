@@ -1,4 +1,4 @@
-name: Trigger for Staging in arc-jumpstart-app
+name: Trigger for canary in arc-jumpstart-app
 
 on:
   push:
