@@ -8,7 +8,7 @@ weight: 5
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Stack HCI and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
 
-![Screenshot showing HCIBox architecture diagram](./arch_full.png)
+![Screenshot showing HCIBox architecture diagram](./arch.png)
 
 ### Use cases
 
@@ -33,17 +33,13 @@ HCIBox installs and configures [Azure Arc Resource Bridge](https://learn.microso
 
 ![Screenshot showing HCIBox Azure Arc Resource Bridge](./arc_resource_bridge.png)
 
-### Azure Kubernetes Service on Azure Stack HCI
+### Azure Kubernetes Service on Azure Stack HCI and Azure Arc-enabled data services
 
-HCIBox includes [Azure Kubernetes Services on Azure Stack HCI (AKS-HCI)](https://learn.microsoft.com/azure-stack/aks-hci/). As part of the deployment automation, HCIBox configures AKS-HCI infrastructure including a management cluster. It then creates a [target](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts), or "workload", cluster (_HCIBox-AKS-$randomguid_). As an optional capability, HCIBox also includes a PowerShell script that can be used to configure a sample application on the target cluster using [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2).
+HCIBox includes capabilities that allow users to run [Azure Kubernetes Services on Azure Stack HCI (AKS-HCI)](https://learn.microsoft.com/azure-stack/aks-hci/) and [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview). As part of the deployment automation, HCIBox configures AKS-HCI infrastructure including a management cluster. It then creates a [target](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts), or "workload", cluster (_HCIBox-AKS-$randomguid_). As an optional capability, HCIBox also includes a PowerShell script that can be used to configure a sample application on the target cluster using [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2).
 
-<img src="./aks_hci.png" width="250" alt="AKS-HCI diagram">
+HCIBox also provides the option to deploy [Azure Arc-enabled SQL Managed Instance on Azure Stack HCI](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview). HCIBox uses the AKS-HCI [workload cluster](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts)to deploy an Azure Arc-enabled SQL Managed Instance.
 
-### Azure Arc-enabled SQL Managed Instance on Azure Stack HCI
-
-HCIBox includes [Azure Arc-enabled SQL Managed Instance on Azure Stack HCI](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview). As part of the deployment automation, HCIBox configures AKS-HCI infrastructure including a management cluster. It then creates a [target](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts), or "workload", cluster (_HCIBox-AKS-$randomguid_) and deploys an Azure Arc-enabled SQL Managed Instance.
-
-<img src="./aks_sqlmi.png" width="250" alt="AKS-HCI diagram">
+![Scneenshot showing AKS-HCI Diagram](./aks_hci.png)
 
 ### Hybrid unified operations
 
@@ -95,7 +91,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -390,7 +386,7 @@ HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](h
 
 ### Azure Arc-enabled SQL Managed Instance
 
-HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) on an AKS HCI cluster. Open the [HCIBox SQLMI documentation](/azure_jumpstart_hcibox/SQLMI/) to get started with Azure Arc-enabled SQL Managed Instance in HCIBox.
+HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) on an AKS HCI cluster. Open the [HCIBox SQL MI documentation](/azure_jumpstart_hcibox/SQLMI/) to get started with Azure Arc-enabled SQL Managed Instance in HCIBox.
 
 ![Screenshot showing SQLMI on Azure Stack HCI](./sqlmi_portal.png)
 

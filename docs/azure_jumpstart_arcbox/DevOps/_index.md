@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Jumpstart ArcBox for DevOps"
+linkTitle: "ArcBox for DevOps"
 weight: 3
 ---
 
@@ -8,7 +8,7 @@ weight: 3
 
 ArcBox for DevOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled Kubernetes capabilities in a sandbox environment.
 
-![ArcBox architecture diagram](./arch_devops.png)
+![Screenshot showing ArcBox architecture diagram](./arch_devops.png)
 
 ### Use cases
 
@@ -113,7 +113,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.40.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version

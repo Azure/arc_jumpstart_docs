@@ -14,23 +14,23 @@ By the end of the guide, you will have a VMware vSphere VM installed with Window
 
 ## Prerequisites
 
-* Clone the Azure Arc Jumpstart repository
+- Clone the Azure Arc Jumpstart repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-* [Install Terraform >=0.12](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- [Install Terraform >=0.12](https://learn.hashicorp.com/terraform/getting-started/install.html)
 
-* A VMware vCenter Server user with [permissions to deploy](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-4D0F8E63-2961-4B71-B365-BBFA24673FDB.html) a Virtual Machine from a Template in the vSphere Web Client.
+- A VMware vCenter Server user with [permissions to deploy](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-4D0F8E63-2961-4B71-B365-BBFA24673FDB.html) a Virtual Machine from a Template in the vSphere Web Client.
 
-* Create Azure service principal (SP)
+- Create Azure service principal (SP)
 
     To connect the VMware vSphere virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
 
@@ -63,7 +63,7 @@ By the end of the guide, you will have a VMware vSphere VM installed with Window
 
     > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
 
-* Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
+- Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.AzureArcData
@@ -96,16 +96,16 @@ For you to get familiar with the automation and deployment flow, below is an exp
     1. Install Azure CLI, Azure PowerShell module and SQL Server Management Studio (SSMS) [Chocolaty packages](https://chocolatey.org/).
 
     2. Create a runtime logon script (*LogonScript.ps1*) which will run upon the user first logon to Windows. Runtime script will:
-        * Install SQL Server Developer Edition
-        * Enable SQL TCP protocol on the default instance
-        * Create SQL Server Management Studio Desktop shortcut
-        * Restore [*AdventureWorksLT2019*](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms) Sample Database
-        * Onboard both the server and SQL to Azure Arc
-        * Deploy Azure Log Analytics and a workspace
-        * Install the [Microsoft Monitoring Agent (MMA) agent](https://docs.microsoft.com/services-hub/health/mma-setup)
-        * Enable Log Analytics Solutions
-        * Deploy MMA Azure Extension ARM Template from within the VM
-        * Configure SQL Azure Assessment
+        - Install SQL Server Developer Edition
+        - Enable SQL TCP protocol on the default instance
+        - Create SQL Server Management Studio Desktop shortcut
+        - Restore [*AdventureWorksLT2019*](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms) Sample Database
+        - Onboard both the server and SQL to Azure Arc
+        - Deploy Azure Log Analytics and a workspace
+        - Install the [Microsoft Monitoring Agent (MMA) agent](https://docs.microsoft.com/services-hub/health/mma-setup)
+        - Enable Log Analytics Solutions
+        - Deploy MMA Azure Extension ARM Template from within the VM
+        - Configure SQL Azure Assessment
 
     3. Disable Windows Firewall
 
@@ -117,11 +117,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 Before executing the Terraform plan, you must set the environment variables which will be used by the plan. These variables are based on the Azure service principal you've just created, your Azure subscription and tenant, and your VMware vSphere environment.
 
-* Retrieve your Azure subscription ID and tenant ID using the `az account list` command.
+- Retrieve your Azure subscription ID and tenant ID using the `az account list` command.
 
-* The Terraform plan creates resources in both Microsoft Azure and VMware vSphere. It then executes a script on the virtual machine to install all the necessary artifacts.
+- The Terraform plan creates resources in both Microsoft Azure and VMware vSphere. It then executes a script on the virtual machine to install all the necessary artifacts.
 
-* Both the script and the Terraform plan itself requires certain information about your VMware vSphere and Azure environments. Edit variables according to your environment and export it using the below commands
+- Both the script and the Terraform plan itself requires certain information about your VMware vSphere and Azure environments. Edit variables according to your environment and export it using the below commands
 
     ```shell
     export TF_VAR_subId='Your Azure subscription ID'
@@ -157,7 +157,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Screenshot of environment variables exporting in shell](./01.jpg)
 
-* From the folder within your cloned repo where the Terraform binaries are, the below commands to download the needed TF providers and to run the plan.
+- From the folder within your cloned repo where the Terraform binaries are, the below commands to download the needed TF providers and to run the plan.
 
     ```shell
     terraform init
@@ -172,7 +172,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Screenshot of Azure portal showing empty resource group](./04.jpg)
 
-* Log in to the VM (**using data from the *TF_VAR_admin_user* and *TF_VAR_admin_password* environment variables**) which will initiate the *LogonScript* run. Let the script to run it's course and which will also close the PowerShell session when completed.
+- Log in to the VM (**using data from the *TF_VAR_admin_user* and *TF_VAR_admin_password* environment variables**) which will initiate the *LogonScript* run. Let the script to run it's course and which will also close the PowerShell session when completed.
 
     > **Note:** The script runtime will take ~10-15min to complete.
 
@@ -194,13 +194,13 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Screenshot of PowerShell script being run](./13.jpg)
 
-* Open Microsoft SQL Server Management Studio (a Windows shortcut will be created for you) and validate the *AdventureWorksLT2019* sample database is deployed as well.
+- Open Microsoft SQL Server Management Studio (a Windows shortcut will be created for you) and validate the *AdventureWorksLT2019* sample database is deployed as well.
 
     ![Screenshot of SQL Server Management Studio](./14.jpg)
 
     ![Screenshot of SQL Server Management Studio](./15.jpg)
 
-* In the Azure portal, notice you now have an Azure Arc-enabled Server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
+- In the Azure portal, notice you now have an Azure Arc-enabled Server resource (with the MMA agent installed via an Extension), Azure Arc-enabled SQL resource and Azure Log Analytics deployed.
 
     ![Screenshot of Azure portal showing Azure Arc-enabled SQL server resources](./16.jpg)
 
@@ -214,7 +214,7 @@ Before executing the Terraform plan, you must set the environment variables whic
 
 Now that you have both the server and SQL projected as Azure Arc resources, the last step is complete the initiation of the SQL Assessment run.
 
-* On the SQL Azure Arc resource, click on "Environment Health" followed by clicking the "Download configuration script".
+- On the SQL Azure Arc resource, click on "Environment Health" followed by clicking the "Download configuration script".
 
     Since the *LogonScript* run in the deployment step took care of deploying and installing the required binaries, you can safely and delete the downloaded *AddSqlAssessment.ps1* file.
 
@@ -226,7 +226,7 @@ Now that you have both the server and SQL projected as Azure Arc resources, the 
 
     ![Screenshot showing Azure Arc-enabled SQL Server Environment Health](./22.jpg)
 
-* After few minutes you will notice how the "View SQL Assessment Results" button is available for you to click on. At this point, the SQL assessment data and logs are getting injected to Azure Log Analytics.
+- After few minutes you will notice how the "View SQL Assessment Results" button is available for you to click on. At this point, the SQL assessment data and logs are getting injected to Azure Log Analytics.
 
     Initially, the amount of data will be limited as it take a while for the assessment to complete a full cycle but after few hours you should be able to see much more data coming in.  
 

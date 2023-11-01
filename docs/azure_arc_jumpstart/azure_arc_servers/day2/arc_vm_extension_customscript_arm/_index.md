@@ -33,7 +33,7 @@ You can use the Azure portal, Azure CLI, an ARM template, PowerShell or Linux Sh
 
     ![Screenshot Azure Arc-enabled server on connected status](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.49.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
 
 - Create Azure Service Principal (SP)
 
@@ -94,9 +94,8 @@ The steps below will help you get familiar with the automation and deployment fl
   - _`Resource Group`_: Azure Resource Group where your Azure Arc-enabled server is registered
   - _`Location`_: Azure region where your Azure Arc-enabled server is connected to
   - _`VM Name`_: name of your Azure Arc-enabled server
-  - _`File Uris`_: for Windows provide https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1
-  
-  - _`Command to excute:`_ provide `./custom_script_linux.sh`
+  - _`File Uris`_: for Windows provide [https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1]
+  - _`Command to execute:`_ provide `./custom_script_linux.sh`
 
   ![Screenshot showing Azure portal deployment](./03.png)
 
@@ -108,7 +107,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - _`Location`_: Azure region where your Azure Arc-enabled server is connected to
   - _`VM Name`_: name of your Azure Arc-enabled server
   - _`File Uris`_: for Linux provide ["https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh"] include the URL in brackets
-  - _`Commant to Execute`_: provide ./custom_script_linux.sh
+  - _`Command to execute`_: provide ./custom_script_linux.sh
 
   ![Screenshot showing Azure portal deployment](./05.png)
 

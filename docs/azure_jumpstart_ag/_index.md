@@ -12,7 +12,10 @@ Jumpstart Agora is a marketplace of various “cloud to edge” industry scenari
 
 Our mission is to create a rich marketplace of applications that can leverage Hybrid Cloud, Internet of Things (IoT), and artificial intelligence (AI) technologies and make those accessible for enablement and educational purposes via the Jumpstart automation mechanisms.
 
-<p align="center"><img src="/img/agora_logo.png" alt="Jumpstart Agora logo" width="250"></p>
+<!-- <p align="center"><img src="/img/agora_logo.png" alt="Jumpstart Agora logo" width="250"></p> -->
+
+![Jumpstart Agora logo](./../../img/logo/agora.png)
+
 
 ### Why Jumpstart Agora?
 
@@ -28,7 +31,7 @@ Each Agora scenario is a full-stack deployment, from the infrastructure layer al
 
 | __Scenario__                                                                                | __Industry__ | __Version__           |
 |---------------------------------------------------------------------------------------------|--------------|-----------------------|
-| [Contoso Supermarket](/azure_jumpstart_ag/contoso_supermarket/) | Retail       | 1.0                   |
+| [Contoso Supermarket](../azure_jumpstart_ag/retail/contoso_supermarket/) |                  | Retail       | 1.0                   |
 
 ### Jumpstart Agora use cases
 

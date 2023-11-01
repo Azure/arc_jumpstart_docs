@@ -45,7 +45,7 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
     ![Screenshot of Azure portal showing Azure Arc-enabled server detail](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.49.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
 
 - Create Azure service principal (SP)
 
@@ -161,7 +161,7 @@ Microsoft Defender for Cloud will collect data from your Arc-enabled servers to 
 
     ![Screenshot showing Defender recommendation on Azure Arc-enabled server](./07.png)
 
-- For this Azure Arc-enabled server the recommendation "A vulnerability assessment solution should be enabled on your virtual machine" provides a ***Quick Fix***. It is using an ARM template to deploy the an extention to enable a vulnerability assessment solution on the Azure Arc machine.
+- For this Azure Arc-enabled server the recommendation "A vulnerability assessment solution should be enabled on your virtual machine" provides a ***Quick Fix***. It is using an ARM template to deploy the extension to enable a vulnerability assessment solution on the Azure Arc machine.
 
     ![Screenshot showing Defender Quick Fix ARM template](./08.png)
 
@@ -173,7 +173,7 @@ Microsoft Defender for Cloud will collect data from your Arc-enabled servers to 
 
     ![Screenshot showing healthy Azure Arc-enabled server](./10.png)
 
-> **NOTE:It can take several minutes after remediation completes to see the resources in the 'healthy resources' tab**
+> **Note:** It can take several minutes after remediation completes to see the resources in the 'healthy resources' tab.
 
 ## Clean up environment
 

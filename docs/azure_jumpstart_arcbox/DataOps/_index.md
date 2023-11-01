@@ -1,15 +1,14 @@
 ---
 type: docs
-linkTitle: "Jumpstart ArcBox for DataOps"
+linkTitle: "ArcBox for DataOps"
 weight: 4
 ---
-
 
 ## Jumpstart ArcBox for DataOps
 
 ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
-![ArcBox architecture diagram](./arc_dataops.png)
+![Screenshot showing ArcBox architecture diagram](./arch_dataops.png)
 
 ### Use cases
 
@@ -81,7 +80,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.40.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -420,7 +419,7 @@ Example:
 
   ![Screenshot showing connecting to the VM using UPN format in Bastion](./domain_login_bastion.png)
 
-> **Warning: Logging into the Client VM without the UPN format _username@&#65279;jumpstart.local_ will prevent the automation from running automatically.**
+> **Note:** Logging into the Client VM without the UPN format _username@&#65279;jumpstart.local_ will prevent the automation from running automatically.
 
 #### The Logon scripts
 
@@ -474,7 +473,7 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
   ![Screenshot showing Grafana desktop shortcut](./grafana_icon.png)
 
-- [Optional] The IP address for this instance represents the Kubernetes LoadBalancer external IP that was provision as part of Azure Arc-enabled data services. Use the _kubectl get svc -n arc_ command to view the metricsui external service IP address.
+- [Optional] The IP address for this instance represents the Kubernetes LoadBalancer external IP that was provision as part of Azure Arc-enabled data services. Use the _kubectl get svc -n arc_ command to view the _metricsui_ external service IP address.
 
   ![Screenshot showing Grafana Ip address](./grafana_ip_address.png)
 
@@ -580,7 +579,7 @@ This section provides instructions on how to perform point in time restore from 
 
 To view backups of full, differential, and transaction logs wait for more than 12 hours after deploying the ArcBox DataOps flavor. Once these backups are available follow instructions below to perform a point in time restore of database. If you would like to test this feature immediately, you can simply use the latest backup set when restoring.
 
-- Once you login to the ArcBox-Client VM using RDP or bastion host, locate Azure Data Studio icon on the desktop and open.
+- Once you login to the _ArcBox-Client_ VM using RDP or bastion host, locate Azure Data Studio icon on the desktop and open.
 
 ![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
 

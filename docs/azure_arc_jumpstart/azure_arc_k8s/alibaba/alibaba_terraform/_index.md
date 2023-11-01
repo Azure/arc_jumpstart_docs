@@ -12,25 +12,25 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 ## Prerequisites
 
-* Clone the Azure Arc Jumpstart repository
+- Clone the Azure Arc Jumpstart repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-* [Install or update Azure CLI to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-* [Install or update Helm to version 3.5.3 and above](https://helm.sh/docs/intro/install/). Use the below command to check your current installed version.
+- [Install or update Helm to version 3.5.3 and above](https://helm.sh/docs/intro/install/). Use the below command to check your current installed version.
 
   ```shell
   helm version
   ```
 
-* (Optional) [Install or update Aliyun CLI to latest version 3.0.73 and above](https://github.com/aliyun/aliyun-cli). Use the below command to check your current installed version.
+- (Optional) [Install or update Aliyun CLI to latest version 3.0.73 and above](https://github.com/aliyun/aliyun-cli). Use the below command to check your current installed version.
 
   > **Note:** Ālǐyún or Aliyun is actually the chinese name for Alibaba Cloud.
 
@@ -38,13 +38,13 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   aliyun --version
   ```
 
-* [Install Terraform >=1.0](https://learn.hashicorp.com/terraform/getting-started/install.html). Use the below command to check your current installed version.
+- [Install Terraform >=1.0](https://learn.hashicorp.com/terraform/getting-started/install.html). Use the below command to check your current installed version.
 
   ```shell
   terraform -v
   ```
 
-* [Enable Azure subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes. Login with an identity with sufficient authorizations.
+- [Enable Azure subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes. Login with an identity with sufficient authorizations.
 
   ```shell
   az login
@@ -59,7 +59,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   az provider show -n Microsoft.KubernetesConfiguration -o table
   ```
 
-* Install the Azure Arc for Kubernetes CLI extensions ***connectedk8s*** and ***k8s-configuration***:
+- Install the Azure Arc for Kubernetes CLI extensions ***connectedk8s*** and ***k8s-configuration***:
 
   ```shell
   az extension add --name connectedk8s
@@ -75,11 +75,11 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 ### Create a new Alibaba Cloud access key
 
-* [Sign up to or have an Alibaba Cloud account](https://www.alibabacloud.com/) - domestic or international
+- [Sign up to or have an Alibaba Cloud account](https://www.alibabacloud.com/) - domestic or international
 
   > **Note:** The screenshots and sample outputs shown here are based on a domestic account.
 
-* Browse to <https://console.aliyun.com/> and login with your Alibaba Cloud account. Once logged in, create a new access key from your profile. After creating it, be sure to copy down the access and secret key.
+- Browse to <https://console.aliyun.com/> and login with your Alibaba Cloud account. Once logged in, create a new access key from your profile. After creating it, be sure to copy down the access and secret key.
 
   ![Alibaba Cloud new access key](./01.png)
 
@@ -87,7 +87,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ![Alibaba Cloud new access key](./03.png)
 
-* Navigate to product *Container Service - Kubernetes*, activate this service and if demanded **Confirm Cloud Resource Access Authorization**
+- Navigate to product *Container Service - Kubernetes*, activate this service and if demanded **Confirm Cloud Resource Access Authorization**
 
   ![Cloud Resource Access Authorization](./04.png)
 
@@ -95,7 +95,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 The only thing you need to do before executing the Terraform plan is to export the environment variables which will be used by the plan. This is based on the Azure service principal you've just created and your subscription.  
 
-* Export the environment variables needed for the Terraform plan.
+- Export the environment variables needed for the Terraform plan.
 
   ```shell
   export ALICLOUD_ACCESS_KEY="<Your Alibaba Cloud access key>"
@@ -127,25 +127,25 @@ The only thing you need to do before executing the Terraform plan is to export t
   $env:ALICLOUD_ACCESS_KEY="aBcDeFgHiJkLmNo"
   ```
 
-* From folder `azure_arc_k8s_jumpstart/alibaba/terraform` run the ```terraform init``` command which will download the required terraform providers.
+- From folder `azure_arc_k8s_jumpstart/alibaba/terraform` run the ```terraform init``` command which will download the required terraform providers.
 
   ![terraform init output](./05.png)
 
-* Deploy cluster by running the below command and wait for the plan to finish.
+- Deploy cluster by running the below command and wait for the plan to finish.
 
   ```shell
   terraform apply --auto-approve
   ```
 
   ![terraform deploy output](./06.png)
-  ![terraform deploy output](./07.png)
 
+  ![terraform deploy output](./07.png)
 
   Sample cluster in Alibaba Cloud Resource Management view:
 
   ![Alibaba Cloud Resource Management](./08.png)
 
-* The plan will create the _kubeconfig_ file in the home directory `~/.kube/config_alicloudArc`. You can either use this directly or merge it into your _kubeconfig_ to be used with `kubectl` or `helm`.
+- The plan will create the _kubeconfig_ file in the home directory `~/.kube/config_alicloudArc`. You can either use this directly or merge it into your _kubeconfig_ to be used with `kubectl` or `helm`.
 
    ```shell
    cp ~/.kube/config ~/.kube/config_old
@@ -153,17 +153,20 @@ The only thing you need to do before executing the Terraform plan is to export t
    ```
 
   Get the name of your newly generated kubeconfig:
+
   ```shell
   kubectl config get-contexts
   ```
+
   Use the newly generated kubeconfig:
+
   ```shell
   kubectl config use-context <new config name>
   ```
 
 ## Connecting to Azure Arc
 
-* Now that you have a running cluster, based on the environment variables set and Azure environment prepared above, you can connect the Alibaba Cloud cluster to Azure Arc:
+- Now that you have a running cluster, based on the environment variables set and Azure environment prepared above, you can connect the Alibaba Cloud cluster to Azure Arc:
 
   ```shell
   az login

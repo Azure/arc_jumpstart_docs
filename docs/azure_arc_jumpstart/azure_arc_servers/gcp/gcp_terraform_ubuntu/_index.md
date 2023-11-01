@@ -18,7 +18,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.49.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -52,7 +52,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     ![Screenshot showing how to enable billing on GCP account](./03.png)
 
-    **Disclaimer - To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
+    > **Disclaimer - To prevent unexpected charges, please follow the "Delete the deployment" section at the end of this README**
 
 - Create Azure service principal (SP)
 
