@@ -1,4 +1,4 @@
-name: Trigger for canary in arc-jumpstart-app
+name: Trigger Production Workflow in azure-arc-jumpstart-app
 
 on:
   push:
@@ -20,4 +20,3 @@ jobs:
               workflow_id: 'canary.yml',
               ref: 'newversion'
             })
-            
