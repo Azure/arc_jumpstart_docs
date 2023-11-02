@@ -7,23 +7,21 @@ weight: 7
 
 # Jumpstart Scenario Write-up Guidelines
 
-Thank you for considering writing a Jumpstart scenario, we appreciate it, a lot!
+**Thank you for considering contributing to the Arc Jumpstart, it is highly appreciated!**
 
-The scenarios published as part of the Jumpstart project are high-quality documents and as such we want you to be able to have all the needed guidelines to create one yourself while meeting the project standards and publishing requirements.
-
-In this document, our goal is to provide you with as many details as possible for you to be efficient and successful and as a result, produce an awesome Jumpstart scenario. Our intent here is to give you pointers and tools to achieve just that.
+The scenarios and solutions published in Jumpstart are high-quality, detailed-oriented bundled automation and documents, so we want to make sure you will have all the necessary guidelines to make a successful contribution while meeting our quality standards and publishing requirements.
 
 > **Note:** If you are only getting started with contributing Jumpstart scenarios, it is highly recommended you will review the raw code for existing scenarios. These will help you understand what an approved scenario should look like and will represent all the guidelines provided. For any questions, please reach out or tag one of the Jumpstart project maintainers.
 
 ## Code reviews
 
-The Jumpstart project is a mix of various automation, code styles, and high-quality documentation and requires development effort.
+The Arc Jumpstart is a mix of various automation scripts and techniques, code styles, and documentation.
 
-Before a scenario is published, it will go through a code review process by one of the project maintainers. We want your scenario to be successful and widely adopted and to meet the highest standards possible and we are here to help get there!
+Before anything gets published, a code review process will be done by one of the Jumpstart core maintainers. We want your contribution to be successful and widely adopted, and to meet the highest standards possible - we are here to help you get there!
 
-## Pull requests and issues
+## Issues and pull requests
 
-Rather you are working on a new scenario or updating an existing one, a contribution must be submitted with a dedicated pull request (PR) to make the review process easier.
+Whether you are working on a new Jumpstart scenario, or solution, or updating existing code, a contribution must be submitted with a dedicated GitHub issue and pull request (PR) to make the review process easier.
 
 - New scenario
 
