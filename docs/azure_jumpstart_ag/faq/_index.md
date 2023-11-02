@@ -18,7 +18,7 @@ Currently, Agora offers the [Contoso Supermarket](../retail/contoso_supermarket/
 
 ## What is required to deploy Agora?
 
-Agora deployment requires an Azure service principal with Contributor or Owner role-based access control (RBAC) on an Azure subscription and resource group. You can deploy Agora using Azure Bicep or the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). The service principal is required to run the automation scripts that deploy and configure Agora features. You can view how the service principal is used by exploring the Agora code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
+Agora deployment requires an Azure service principal with **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy Agora using Azure Bicep or the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). The service principal is required to run the automation scripts that deploy and configure Agora features. You can view how the service principal is used by exploring the Agora code on our [public GitHub repository](https://aka.ms/JumpstartGitHubCode).
 
 ## What Azure regions can Agora be deployed to?
 
@@ -38,6 +38,6 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 ## Where can I go if I have trouble deploying or using Agora?
 
-Agora has a [dedicated page for troubleshooting](https://aka.ms/AgoraTroubleshooting) that you can review for common issues.
+Agora has a [dedicated page for troubleshooting](../retail/contoso_supermarket/troubleshooting/) that you can review for common issues.
 
-If you're still stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on our GitHub repository and the Jumpstart team will try to assist you.
+If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist you.
