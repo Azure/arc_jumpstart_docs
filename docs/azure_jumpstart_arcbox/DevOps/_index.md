@@ -42,7 +42,7 @@ The sample applications included in ArcBox are:
   - _bookstore_ is a server, which responds to HTTP requests. It is also a client making requests to the _bookwarehouse_ service.
   - _bookwarehouse_ is a server and should respond only to _bookstore_.
   - _mysql_ is a MySQL database only reachable by _bookwarehouse_.
-  - _bookstore-v2_ - this is the same container as the first bookstore, but for [Open Service Mesh (OSM)](#open-service-mesh-integration) traffic split scenario we will assume that it is a new version of the app we need to upgrade to.
+  - _bookstore-v2_ - this is the same container as the first bookstore, but for [Open Service Mesh (OSM)](#open-service-mesh-osm-integration) traffic split scenario we will assume that it is a new version of the app we need to upgrade to.
 
 The _bookbuyer_, _bookstore_, and _bookwarehouse_ pods will be in separate Kubernetes namespaces with the same names. _mysql_ will be in the _bookwarehouse_ namespace. _bookstore-v2_ will be in the _bookstore_ namespace.
 
