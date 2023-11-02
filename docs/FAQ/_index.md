@@ -7,81 +7,43 @@ weight: 8
 
 # Jumpstart Frequently Asked Questions (FAQ)
 
-## General
+## Can I contribute to the Arc Jumpstart?
 
-### Can I contribute to the Jumpstart?
+Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart Scenario Write-up Guidelines](../contributing/) and our [Code of Conduct](../../CODE_OF_CONDUCT.md).
 
-Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart Scenario Write-up Guidelines](/scenario_guidelines/) and our [Code of Conduct](/code_of_conduct/).
+## Can use an Azure free trial account with Arc Jumpstart?
 
-## Jumpstart ArcBox
+Yes, you can use an Azure [free trial account](https://azure.microsoft.com/free). However, some Jumpstart features may require additional Azure consumption than a free account will provide.
 
-### What are the use cases for ArcBox?
+## Does Azure Arc Jumpstart provide Azure or other cloud providers credit?
 
-ArcBox is a virtual hybrid sandbox that can be used to explore Azure Arc capabilities, build quick demo environments, support proof-of-concept projects, and even provide a testing platform for specific hybrid scenarios. Many partners and customers use ArcBox to quickly get hands-on with Azure Arc technology because its quick to deploy with minimal requirements.
+Arc Jumpstart does not provide free Azure or any other cloud providers credit. To use the Jumpstart you must provide your own environments to run any of the scenarios or solutions.
 
-### What is required to deploy ArcBox?
+## What permissions do I need to deploy Arc Jumpstart scenarios and solutions?
 
-ArcBox deployment requires an Azure service principal with Contributor or Owner role-based access control (RBAC) on an Azure subscription and resource group. You can deploy ArcBox using the Azure portal, Az CLI, Bicep, or Terraform. The service principal is required to run the automation scripts that deploy and configure ArcBox features. You can view how the service principal is used by exploring the ArcBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
+Each Arc Jumpstart scenario and solution describes what is needed to run the automation in the prerequisites section. Most of them will ask you to create a service principal therefore you will at least need an Azure **User Access Administrator** or
+**Role Base Access Control Administrator** permissions.
 
-### What Azure regions can ArcBox be deployed to?
+## Does the Arc Jumpstart considered "production-ready"?
 
-ArcBox can be deployed to the following regions:
+The intention of the Arc Jumpstart is to focus on the core Azure Arc, edge and IoT capabilities, deployment scenarios, use cases, and ease of use. It does not focus on Azure best practices, and/or other products or open-source projects being leveraged in our code. Jumpstart scenarios, ArcBox, HCIBox, and Agora are all intended for evaluation, training, and demo purposes only and are not supported for production use cases.
 
-- East US
-- East US 2
-- Central US
-- West US 2
-- North Europe
-- West Europe
-- France Central
-- UK South
-- Australia East
-- Japan East
-- Korea Central
-- Southeast Asia
+## Is there guidance on how to run a demo using the Arc Jumpstart?
 
-### What are the different "flavors" of ArcBox?
+You can get additional information and insights on how to use the Arc Jumpstart on our [YouTube channel](https://www.youtube.com/@azurearcjumpstart).
 
-ArcBox offers three different configurations, or "flavors", that allow the user to choose their own experience.
+## What if something does not work?
 
-- [ArcBox "Full"](/azure_jumpstart_arcbox/Full) - The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
-- [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro) - This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.
-- [ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps) - This essential Azure Arc-enabled Kubernetes sandbox with the included capabilities such as GitOps, Open Service Mesh (OSM), secretes management, monitoring, and more.
-- [ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps) - This essential Azure Arc-enabled SQL Managed Instance sandbox with the included capabilities such as AD authentication, disaster recovery, point-in-time restore, migration, and more.
+If you have any issues or questions, please [open a GitHub issue](https://aka.ms/JumpstartIssue) and one of our Jumpstart core maintainers or community members will address is as soon as possible. For any Azure product-related issues, please open a [support ticket](https://azure.microsoft.com/support/create-ticket).
 
-### What are the costs for using ArcBox?
+## Can I suggest improvements and features?
 
-ArcBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. Each flavor of ArcBox uses a different combination of Azure resources and therefore costs vary depending on the flavor used. You can view example estimates of ArcBox costs per flavor by clicking the links below.
+Of course you can! For any suggestion, please [open a GitHub feature](https://aka.ms/JumpstartFeature) and one of our Jumpstart core maintainers will address is as soon as possible. You are also encouraged to start a thread in our [GitHub Discussions](https://aka.ms/JumpstartDiscussions).
 
-- [ArcBox Full cost estimate](https://aka.ms/ArcBoxFullCost)
-- [ArcBox for ITPro cost estimate](https://aka.ms/ArcBoxITProCost)
-- [ArcBox for DevOps cost estimate](https://aka.ms/ArcBoxDevOpsCost)
-- [ArcBox for DataOps cost estimate](https://aka.ms/ArcBoxDataOpsCost)
+## I want to share my awesome Azure Arc, edge or IoT story with the Jumpstart community, is there a way to do so?
 
-### Where can I go if I have trouble deploying or using ArcBox?
+We would love to hear it! Fill out the [submission form](https://aka.ms/JumpstartLightningGuest) and you will be hearing from us soon.
 
-Each ArcBox flavor has a troubleshooting section of its documentation that you can review for common issues:
+## Is there a public Azure Arc Jumpstart Roadmap?
 
-- [Troubleshooting ArcBox Full](/azure_jumpstart_arcbox/full/#basic-troubleshooting)
-- [Troubleshooting ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
-
-If you're still stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on our GitHub repository and the Jumpstart team will try to assist you.
-
-## Jumpstart HCIBox
-
-### What Azure regions can HCIBox be deployed to?
-
-HCIBox can be deployed to the following regions:
-
-- East US
-- East US 2
-- West US 2
-- North Europe
-
-### What are the costs for using HCIBox?
-
-HCIBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. You can view example estimates of HCIBox costs per flavor by clicking the links below.
-
-- [HCIBox cost estimate](https://aka.ms/HCIBoxCost)
+An up-to-date roadmap for the Azure Arc Jumpstart scenarios can be found under [the repository GitHub Project](https://aka.ms/JumpstartRoadmap).
