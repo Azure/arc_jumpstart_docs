@@ -1,7 +1,7 @@
 ---
 type: docs
-weight: 100
-toc_hide: true
+linkTitle: "Resource Bridge"
+weight: 3
 ---
 
 # Jumpstart HCIBox - Virtual machine provisioning with Azure Arc

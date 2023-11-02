@@ -1,7 +1,7 @@
 ---
 type: docs
-weight: 100
-toc_hide: true
+linkTitle: "AKS on Stack HCI"
+weight: 2
 ---
 
 # Jumpstart HCIBox - Azure Kubernetes Service
