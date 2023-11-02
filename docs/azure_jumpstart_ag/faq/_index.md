@@ -10,7 +10,7 @@ weight: 2
 
 Jumpstart Agora is a marketplace of various “cloud to edge” industry scenarios, designed to provide an end-to-end user experience. The word "Agora" comes from the ancient Greek term for a public gathering place or assembly, and it has come to be used more broadly to refer to any place or forum where people come together for discussion or exchange. Our mission is to create a rich marketplace of applications that can leverage Hybrid Cloud, Internet of Things (IoT), and artificial intelligence (AI) technologies and make those accessible for enablement and educational purposes via the Jumpstart automation mechanisms.
 
-> **Note:** For general questions about Azure Arc Jumpstart please check the [main Jumpstart FAQ](../../FAQ/).
+> **Note:** For general questions about Azure Arc Jumpstart please check the [Jumpstart FAQ](../../faq/).
 
 ## What industry scenarios are available in Jumpstart Agora?
 
