@@ -13,7 +13,7 @@ The scenarios published as part of the Jumpstart project are high-quality docume
 
 In this document, our goal is to provide you with as many details as possible for you to be efficient and successful and as a result, produce an awesome Jumpstart scenario. Our intent here is to give you pointers and tools to achieve just that.
 
-> **IMPORTANT: If you are only getting started with contributing Jumpstart scenarios, it is highly recommended you will review the raw code for existing scenarios. These will help you understand what an approved scenario should look like and will represent all the guidelines provided. For any questions, please reach out or tag one of the Jumpstart project maintainers.**
+> **Note:** If you are only getting started with contributing Jumpstart scenarios, it is highly recommended you will review the raw code for existing scenarios. These will help you understand what an approved scenario should look like and will represent all the guidelines provided. For any questions, please reach out or tag one of the Jumpstart project maintainers.
 
 ## Code reviews
 
@@ -93,7 +93,7 @@ Every Jumpstart scenario must have a "Prerequisites" section as the first sectio
 
 ![Screenshot of the markdownlint extension](./markdownlint_extension.png)
 
-- Below you can find an example of common markdown lint issues that will be presented to you as you are writing your scenario and must be fixed. [Here](https://marketplace.visualstudio.com/items?itemName=DavidAnson.VS Code-markdownlint), you can find detailed explanations of the markdown rules highlighted by the extension and how to fix a violation of these rules.
+- Below you can find an example of common markdown lint issues that will be presented to you as you are writing your scenario and must be fixed. [Here](https://marketplace.visualstudio.com/items?itemName=DavidAnson.VSCode-markdownlint), you can find detailed explanations of the markdown rules highlighted by the extension and how to fix a violation of these rules.
 
 ![Screenshot of the markdown lint errors](./lint_errors.png)
 
