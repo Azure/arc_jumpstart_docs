@@ -1,7 +1,7 @@
 ---
 type: docs
-weight: 200
-toc_hide: true
+linkTitle: "Windows Admin Center"
+weight: 4
 ---
 
 # Jumpstart HCIBox - Windows Admin Center operations

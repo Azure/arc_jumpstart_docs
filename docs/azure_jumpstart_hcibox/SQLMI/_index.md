@@ -1,7 +1,7 @@
 ---
 type: docs
-weight: 100
-toc_hide: true
+linkTitle: "Arc-enabled SQL MI"
+weight: 5
 ---
 
 # Jumpstart HCIBox - Azure Arc-enabled SQL Managed Instance
