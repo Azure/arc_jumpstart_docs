@@ -53,7 +53,7 @@ ArcBox incurs normal Azure consumption charges for various Azure resources such 
 
 Each ArcBox flavor deployment guide has it's own troubleshooting section you can review for common issues.
 
-- [Troubleshooting ArcBox Full](/azure_jumpstart_arcbox/Full/#basic-troubleshooting)
-- [Troubleshooting ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps/##basic-troubleshooting)
-- [Troubleshooting ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox Full](../Full/)
+- [Troubleshooting ArcBox for IT Pros](../ITPro/)
+- [Troubleshooting ArcBox for DevOps](../DevOps/)
+- [Troubleshooting ArcBox for DataOps](../DataOps/)
