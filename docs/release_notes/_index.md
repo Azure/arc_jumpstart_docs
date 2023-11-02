@@ -7,9 +7,109 @@ weight: 6
 
 # Azure Arc Jumpstart release notes
 
-**Release notes will be released around the first week of each month and will cover the previous month.**
+> **Note:** notes will be released around the first week of each month and will cover the previous month.
 
 ## 2023
+
+### October 2023
+
+#### Release highlights
+
+- New scenarios: 1
+- New features: 0
+- Enhancements: 7
+- Bug fixes: 6
+- Documentation updates: 3
+
+#### Cross-scenario
+
+- [Documentation: Proposed changes in Azure Arc Documentation (grammar and wording) #2160](https://github.com/microsoft/azure_arc/issues/2160)
+
+#### Jumpstart Agora
+
+- [Enhancement: Control AKSEE schema version using config file #2140](https://github.com/microsoft/azure_arc/issues/2140)
+- [Enhancement: AKS Edge Essentials - sporadic registration issue #2191](https://github.com/microsoft/azure_arc/issues/2191)
+- [Documentation: Add guidance to update Az PowerShell module to latest version #2146](https://github.com/microsoft/azure_arc/issues/2146)
+
+#### Jumpstart ArcBox
+
+- [Bug: ArcBox deployment fails to complete. ArcBox-CAPI-VM custom script extension never finishes. #2162](https://github.com/microsoft/azure_arc/issues/2162)
+- [Documentation: ArcBox readme typos #2187](https://github.com/microsoft/azure_arc/issues/2187)
+
+
+#### Jumpstart HCIBox
+
+- [Enhancement: HCIBox host nodes still use Az CLI 32bit #2157](https://github.com/microsoft/azure_arc/issues/2157)
+- [Bug: HCIBox Resource Bridge script fails to complete due to change to custom locations cli commands #2158](https://github.com/microsoft/azure_arc/issues/2158)
+- [Bug: HCIBox fails to deploy #2178](https://github.com/microsoft/azure_arc/issues/2178)
+
+#### Azure Arc-enabled servers
+
+- [New scenario: Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server and SQL Server 2012](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_extended_security_updates/)
+
+#### Azure Arc-enabled Kubernetes
+
+- [Enhancement: Dynamically pull latest AKSEE schema version - Single node scenario #2152](https://github.com/microsoft/azure_arc/issues/2152)
+- [Enhancement: Dynamically pull latest AKSEE schema version - Multi-node scenario #2153](https://github.com/microsoft/azure_arc/issues/2153)
+- [Enhancement: Dynamically pull latest AKSEE schema version - Akri Single node scenario #2154](https://github.com/microsoft/azure_arc/issues/2154)
+- [Enhancement: Dynamically pull latest AKSEE schema version - Akri multi-node scenario #2155](https://github.com/microsoft/azure_arc/issues/2155)
+- [Bug: CAPI Vanilla deployment fails to complete #2170](https://github.com/microsoft/azure_arc/issues/2170)
+
+#### Azure Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - Oct release #2147](https://github.com/microsoft/azure_arc/issues/2147)
+
+#### Azure Arc-enabled app services
+
+- [Bug: CAPI Pin down for Arc Data and App Services #2189](https://github.com/microsoft/azure_arc/issues/2189)
+
+#### Jumpstart decks
+
+- [Bug: Some of the images are referring to: Azure Sentinel - its now Microsoft Sentinel #2144](https://github.com/microsoft/azure_arc/issues/2144)
+
+### September 2023
+
+#### Release highlights
+
+- Announcing [Jumpstart HCIBox general availability](https://aka.ms/HCIBoxGABlog)!
+- New scenarios: 0
+- New features: 1
+- Enhancements: 6
+- Bug fixes: 17
+- Documentation updates: 1
+
+#### Cross-scenario
+
+- [Enhancement: September versions bump #2138](https://github.com/microsoft/azure_arc/issues/2138)
+
+#### Jumpstart Agora
+
+- [Enhancement: Upgrade Azure CLI to 64-bit #2128](https://github.com/microsoft/azure_arc/issues/2128)
+- [Enhancement: Bump AKS and AKSEE versions in Agora #2121](https://github.com/microsoft/azure_arc/issues/2121)
+- [Bug: Copy-VMFile failed due to "The device is not ready for use" #2091](https://github.com/microsoft/azure_arc/issues/2091)
+- [Documentation: Azure Data Explorer reports doesn't show data. Principal xxx is not authorized to read database 'Orders'. #2098](https://github.com/microsoft/azure_arc/issues/2098)
+
+#### Jumpstart ArcBox
+
+- [Enhancement: Upgrade Azure CLI to 64-bit #2129](https://github.com/microsoft/azure_arc/issues/2129)
+
+#### Jumpstart HCIBox
+
+- [Enhancement: Upgrade Azure CLI to 64-bit #2127](https://github.com/microsoft/azure_arc/issues/2127)
+- [Bug: The hcibox azd provision scripts is checking DSv5 cores quota instead of ESv5 cores (As documented). #2100](https://github.com/microsoft/azure_arc/issues/2100)
+- [Bug: Deploy-ArcResourceBridge.ps1 fails to install the arcappliance extension #2102](https://github.com/microsoft/azure_arc/issues/2102)
+- [Bug: Deploy-ArcResourceBridge is blocked: Default_Group already exists #2106](https://github.com/microsoft/azure_arc/issues/2106)
+- [Bug: Unable to enable Insights after HCIBox cluster registration #2114](https://github.com/microsoft/azure_arc/issues/2114)
+- [Bug: Update HCIBox vhdx images to latest servicing updates for HCI 22H2 and WinServer 22h2 #2117](https://github.com/microsoft/azure_arc/issues/2117)
+
+#### Azure Arc-enabled Kubernetes
+
+- [Enhancement: AKS Edge Essentials - Scheme Update #2122](https://github.com/microsoft/azure_arc/issues/2122)
+- [Bug: Modify AKS EE Arc onboarding to allow Managed Prometheus Microsoft.AzureMonitor.Containers.Metrics Arc extension deployment #2132](https://github.com/microsoft/azure_arc/issues/2132)
+
+#### Azure Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - Sept release #2099](https://github.com/microsoft/azure_arc/issues/2099)
 
 ### August 2023
 
@@ -46,12 +146,12 @@ weight: 6
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Monitoring Azure Arc-enabled servers with Datadog](/azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog/)
+- [New scenario: Monitoring Azure Arc-enabled servers with Datadog](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog/)
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_single_akri/)
-- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full_akri/)
+- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_single_akri/)
+- [New scenario: Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full_akri/)
 - [Enhancement: ARO scenario should use securestring for SPN credential secret #2058](https://github.com/microsoft/azure_arc/issues/2058)
 - [Bug: update link to deployment folder in AKS Edge Essentials multi-node deployment tutorial #2030](https://github.com/microsoft/azure_arc/issues/2030)
 - [Bug: CAPI Vanilla scenario failing #2041](https://github.com/microsoft/azure_arc/issues/2041)
@@ -69,7 +169,7 @@ weight: 6
 #### Release highlights
 
 - Announcing [Jumpstart Agora](https://aka.ms/AgoraReleaseBlog)!
-- [Philosophy and design principals update](/#our-philosophy-and-core-design-principals)
+- [Philosophy and design principals update](https://azurearcjumpstart.io/#our-philosophy-and-core-design-principals)
 - Scenarios enhancements and bug fixes:
   - Azure Arc-enabled Kubernetes
 - ArcBox bug fixes
@@ -82,7 +182,7 @@ weight: 6
 
 #### Jumpstart HCIBox
 
-No updates this release.
+No updates in this release.
 
 #### Azure Arc-enabled Kubernetes
 
@@ -149,7 +249,7 @@ No updates this release.
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: AKS Edge Essentials multi-node deployment with Azure Arc using Azure Bicep](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full/)
+- [New scenario: AKS Edge Essentials multi-node deployment with Azure Arc using Azure Bicep](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials_full/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -173,8 +273,8 @@ No updates this release.
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Create Automanage Machine Configuration custom configurations for Windows](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows/)
-- [New scenario: Create Automanage Machine Configuration custom configurations for Linux](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux/)
+- [New scenario: Create Automanage Machine Configuration custom configurations for Windows](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows/)
+- [New scenario: Create Automanage Machine Configuration custom configurations for Linux](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -208,8 +308,8 @@ No updates this release.
 
 #### Azure Arc-enabled servers
 
-- [New scenario: Enable Azure Automanage custom profiles on an Azure Arc-enabled servers using an ARM Template](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles/)
-- [Updated scenario: Enable Azure Automanage built-in profiles on an Azure Arc-enabled servers using an ARM Template](/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles/)
+- [New scenario: Enable Azure Automanage custom profiles on Azure Arc-enabled servers using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles/)
+- [Updated scenario: Enable Azure Automanage built-in profiles on Azure Arc-enabled servers using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles/)
 
 #### Azure Arc-enabled SQL Server
 
@@ -295,11 +395,11 @@ No updates this release.
 
 #### Azure Arc-enabled SQL Server
 
-- [Updated scenario: Integrate Microsoft Defender for SQL servers with Azure Arc-enabled SQL Server (on Windows) using Hyper-V nested virtualization and ARM templates](/azure_arc_jumpstart/azure_arc_sqlsrv/azure/azure_arm_template_sqlsrv_winsrv_defender/)
+- [Updated scenario: Integrate Microsoft Defender for SQL servers with Azure Arc-enabled SQL Server (on Windows) using Hyper-V nested virtualization and ARM templates](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_sqlsrv/azure/azure_arm_template_sqlsrv_winsrv_defender/)
 
 #### Azure Arc-enabled Kubernetes
 
-- [New scenario: Deploy an AKS Edge Essentials in Azure Windows Server VM, and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using an ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials/)
+- [New scenario: Deploy an AKS Edge Essentials in Azure Windows Server VM, and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/aks_hybrid/aks_edge_essentials/)
 - [Feature: January Kubernetes-related version bump #1611](https://github.com/microsoft/azure_arc/issues/1611)
 - [Bug: Getting error while installing Azure Key Vault Secrets Provider extension on HCI Arc enabled Cluster #1587](https://github.com/microsoft/azure_arc/issues/1587)
 
@@ -310,7 +410,7 @@ No updates this release.
 
 #### Azure Arc-enabled app services
 
-- [New scenario: Deploy Azure Container Apps on AKS using an ARM Template](/azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template/)
+- [New scenario: Deploy Azure Container Apps on AKS using an ARM Template](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template/)
 - [Feature: January Kubernetes-related version bump #1611](https://github.com/microsoft/azure_arc/issues/1611)
 
 #### Jumpstart ArcBox
@@ -322,7 +422,7 @@ No updates this release.
 - [Bug: Ubuntu VMs offline due to full disks #1601](https://github.com/microsoft/azure_arc/issues/1601)
 - [Bug: DevOps Scenario K3sGitOps.ps1 script references the CAPI cluster not the K3s cluster #1607](https://github.com/microsoft/azure_arc/issues/1607)
 - [Bug: ArcBox Full - update API call to get SQLMI primary endpoint #1609](https://github.com/microsoft/azure_arc/issues/1609)
-- [Bug: BadRequest UbuntuCAPIDeployment - Azure ArcBox Full #1712](https://github.com/microsoft/azure_arc/issues/1712)
+- [Bug: BadRequest UbuntuCAPIDeployment - Azure Arcbox Full #1712](https://github.com/microsoft/azure_arc/issues/1712)
 
 #### Jumpstart HCIBox
 
@@ -330,11 +430,3 @@ No updates this release.
 - [Bug: HCIBox - HCIBoxLogonScript - NuGet/PS Timeout Errors on Deploy-AKS.ps1 #1591](https://github.com/microsoft/azure_arc/issues/1591)
 - [Bug: HCIBox - HCIBoxLogonScript - NuGet/PS Timeout Errors on Deploy-AKS.ps1 #1591](https://github.com/microsoft/azure_arc/issues/1591)
 - [Bug: HCIBox - Deployment Error- Choco Install Fails - Register-AzSHCI.ps1 #1597](https://github.com/microsoft/azure_arc/issues/1597)
-
-## 2022
-
-The 2022 archived release notes can be found [here](https://github.com/microsoft/azure_arc/tree/main/docs/release_notes/archive/2022.md).
-
-## 2021
-
-The 2021 archived release notes can be found [here](https://github.com/microsoft/azure_arc/tree/main/docs/release_notes/archive/2021.md).

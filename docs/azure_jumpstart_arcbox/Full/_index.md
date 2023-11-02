@@ -601,7 +601,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Incorporate your own tooling and automation into the existing automation framework
 - Build a certificate/secret/key management strategy with your Azure Arc resources
 
-Do you have an interesting use case to share? [Submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on GitHub with your idea and we will consider it for future releases!
+Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
 
 ## Clean up the deployment
 
@@ -615,7 +615,7 @@ az group delete -n <name of your resource group>
 
 ![Screenshot showing group delete from Azure portal](./portaldelete.png)
 
-## Basic Troubleshooting
+## Basic troubleshooting
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
@@ -681,4 +681,4 @@ In the case of a failed deployment, pointing to a failure in either the _ubuntuR
 
 - You might randomly get a similar error in the _InstallCAPI.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF`. This is an issue we are currently investigating. To resolve please redeploy ArcBox.
 
-If you are still having issues deploying ArcBox, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on GitHub and include a detailed description of your issue, the Azure region you are deploying to, the flavor of ArcBox you are trying to deploy. Inside the _C:\ArcBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.
+If you are still having issues deploying ArcBox, please [submit an issue](https://aka.ms/JumpstartIssue) on GitHub and include a detailed description of your issue, the Azure region you are deploying to, the flavor of ArcBox you are trying to deploy. Inside the _C:\ArcBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.

@@ -429,7 +429,7 @@ To clean up your deployment, simply delete the resource groups using Azure CLI, 
 
   ![Screenshot showing azd down](./azd_down.png)
 
-## Basic Troubleshooting
+## Basic troubleshooting
 
 Occasionally deployments of HCIBox may fail at various stages. Common reasons for failed deployments include:
 
@@ -456,4 +456,4 @@ Occasionally, you may need to review log output from scripts that run on the _HC
 
   ![Screenshot showing HCIBox logs folder on HCIBox-Client](./troubleshoot_logs.png)
 
-If you are still having issues deploying HCIBox, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on GitHub and include a detailed description of your issue and the Azure region you are deploying to. Inside the _C:\HCIBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.
+If you are still having issues deploying HCIBox, please [submit an issue](https://aka.ms/JumpstartIssue) on GitHub and include a detailed description of your issue and the Azure region you are deploying to. Inside the _C:\HCIBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.
