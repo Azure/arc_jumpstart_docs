@@ -4,7 +4,7 @@ linkTitle: "Resource Bridge"
 weight: 3
 ---
 
-# Virtual machine provisioning with Azure Arc
+## Virtual machine provisioning with Azure Arc
 
 Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). HCIBox is pre-configured with [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) to support this capability.
 
