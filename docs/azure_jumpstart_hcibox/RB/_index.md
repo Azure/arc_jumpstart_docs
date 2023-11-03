@@ -60,6 +60,6 @@ HCIBox includes a pre-configured Linux virtual machine image that you can use to
 
   ![Screenshot showing created VM detail](./created_vm_detail.png)
 
-### Next steps
+## Next steps
 
 Review the [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.

@@ -107,8 +107,8 @@ With Azure Arc, Contoso is able to project resources and register them into Azur
 
 ## Want to be an Azure Arc "Jumpstarter"?
 
-We would love to have you! We are always looking for community support so if you want to create your own Azure Arc Jumpstart scenario, hop over to the [Jumpstart Scenario Writeup Guidelines](/scenario_guidelines/) page to learn how to create one.
+We would love to have you and are always looking for community contribution! hop over to the [Jumpstart contribution guidelines](/contribution_guidelines/) and get started.
 
 ## Jumpstart Roadmap
 
-Up-to-date roadmap for the Azure Arc Jumpstart scenarios can be found under [the repository GitHub Project](https://github.com/orgs/microsoft/projects/162).
+Up-to-date roadmap for the Arc Jumpstart can be found in our [GitHub repository](https://aka.ms/JumpstartRoadmap).

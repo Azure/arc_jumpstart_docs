@@ -9,7 +9,7 @@ weight: 8
 
 ## Can I contribute to the Arc Jumpstart?
 
-Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart contribution guidelines](../scenario_guidelines/) and our [Code of Conduct](/CODE_OF_CONDUCT.md).
+Absolutely! The Jumpstart is a community-driven open-source project and all contributions are welcomed. To get started, review the [Jumpstart contribution guidelines](../contribution_guidelines/) and our [Code of Conduct](https://aka.ms/JumpstartCOC).
 
 ## Can use an Azure free trial account with Arc Jumpstart?
 
