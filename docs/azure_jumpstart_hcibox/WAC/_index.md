@@ -4,13 +4,11 @@ linkTitle: "Windows Admin Center"
 weight: 4
 ---
 
-# Jumpstart HCIBox - Windows Admin Center operations
-
-## Using Windows Admin Center
+# Windows Admin Center operations
 
 HCIBox includes multiple methods of exploring Windows Admin Center (WAC). Windows Admin Center is available from inside the Azure portal, and a deployment of [Windows Admin Center as a gateway server](https://learn.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options) is also available. A shortcut to the Windows Admin Center gateway server is available on the _HCIBox-Client_ desktop.
 
-### Windows Admin Center in Azure portal
+## Windows Admin Center in Azure portal
 
 Windows Admin Center can be used directly from the Azure portal. To set this up for your HCIBox cluster, follow these steps:
 
@@ -34,7 +32,7 @@ Windows Admin Center can be used directly from the Azure portal. To set this up 
 
   ![Screenshot showing Windows Admin Center in Azure portal](./wac_portal.png)
 
-### Windows Admin Center gateway server
+## Windows Admin Center gateway server
 
 HCIBox also includes a dedicated Windows Admin Center (WAC) gateway server. The WAC gateway server can be accessed by connecting to it from RDP. A shortcut is available on the _HCIBox-Client_ desktop.
 
@@ -102,6 +100,6 @@ HCIBox also includes a dedicated Windows Admin Center (WAC) gateway server. The 
 
   ![Screenshot showing migrated virtual machine](./wac_virtual_machine_move_complete.png)
 
-### Next steps
+## Next steps
 
 For additional Windows Admin Center operations, review the [official documentation](https://learn.microsoft.com/windows-server/manage/windows-admin-center/overview).
