@@ -204,7 +204,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portaldeploymentcomplete.png)
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/full/#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: ARM template with Azure CLI
 
@@ -240,7 +240,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing az deployment group create](./azdeploy.png)
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/full/#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 3: Bicep deployment via Azure CLI
 
@@ -276,7 +276,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/full/#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 4: Terraform Deployment
 
@@ -335,7 +335,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![terraform plan](./terraform_apply.png)
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](/azure_jumpstart_arcbox/full/#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
 

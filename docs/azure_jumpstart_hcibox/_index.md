@@ -255,8 +255,8 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 Various options are available to connect to _HCIBox-Client_ VM, depending on the parameters you supplied during deployment.
 
-- [RDP](/azure_jumpstart_hcibox/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _HCIBox-NSG_, or by enabling [Just-in-Time access (JIT)](/azure_jumpstart_hcibox/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](/azure_jumpstart_hcibox/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
+- [Azure Bastion](#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 

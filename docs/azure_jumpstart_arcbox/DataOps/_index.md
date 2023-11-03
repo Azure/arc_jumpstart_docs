@@ -217,7 +217,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
   
-    > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).
+    > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: ARM template with Azure CLI
 
@@ -254,7 +254,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing az deployment group create](./az_deploy.png)
   
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 3: Azure Bicep deployment via Azure CLI
 
@@ -291,7 +291,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
   
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 4: HashiCorp Terraform Deployment
 
@@ -353,7 +353,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![terraform plan](./terraform_apply.png)
   
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](/azure_jumpstart_arcbox/dataops/#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
 
@@ -883,7 +883,7 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuCAPIDepl
 
     ![Screenshot showing ArcBox-CAPI-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
 
-    > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](/azure_jumpstart_arcbox/DataOps/#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
+    > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
   - _ArcBox-CAPI-MGMT_ log path: _jumpstart_logs/installCAPI.log_

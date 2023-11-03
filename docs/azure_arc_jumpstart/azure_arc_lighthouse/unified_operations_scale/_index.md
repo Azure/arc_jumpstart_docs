@@ -61,7 +61,7 @@ Your Azure Arc-enabled resources should be registered on a managed tenant so you
 
 By using Azure Arc, your on-premises and multi-cloud resources become part of Azure Resource Manager and therefore you can use tools such as Azure Resource Graph as a way to explore your inventory at scale.  Your Azure Resource Graph queries can now include Azure Arc-enabled resources with filtering, using tags, or tracking changes.
 
-For multitenant organizations, this service also supports Azure Lighthouse to allow you to query resources in a managed tenant.
+For multi-tenant organizations, this service also supports Azure Lighthouse to allow you to query resources in a managed tenant.
 
 ![Azure Resource Graph at scale](./05.png)
 
@@ -71,9 +71,9 @@ To explore this use case, use this Jumpstart scenario to work with tagged Azure 
 
 ### Monitoring and Alerting
 
-Azure Lighthouse allows Contoso to also get monitoring and security alerts across all of the tenant’s subscriptions, run multitenant queries using Kusto query language (KQL), and set up dashboards that provide valuable insights on the managed environments. There is no need to store logs from different entities into a shared log analytics workspace, Microsoft, Fabrikam and Fourth Coffee can keep their logs on a dedicated workspace in their subscription, while Contoso gets delegated access to them and get insights from all tenants.
+Azure Lighthouse allows Contoso to also get monitoring and security alerts across all of the tenant’s subscriptions, run multi-tenant queries using Kusto query language (KQL), and set up dashboards that provide valuable insights on the managed environments. There is no need to store logs from different entities into a shared log analytics workspace, Microsoft, Fabrikam and Fourth Coffee can keep their logs on a dedicated workspace in their subscription, while Contoso gets delegated access to them and get insights from all tenants.
 
-![Azure Monitor multitenant](./06.png)
+![Azure Monitor multi-tenant](./06.png)
 
 By enabling a resource in Azure Arc it gives you the ability to perform configuration management and monitoring tasks on those services as if they were first-class citizens in Azure. You will be able to monitor your connected machine guest operating system performance or your Kubernetes clusters at the scope of the resource with VM and container Insights.
 
