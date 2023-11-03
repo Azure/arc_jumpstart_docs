@@ -1,11 +1,11 @@
 ---
 type: docs
-title: "Scenario Write-up Guidelines"
-linkTitle: "Scenario Write-up Guidelines"
+title: "Jumpstart contribution guidelines"
+linkTitle: "Jumpstart contribution guidelines"
 weight: 7
 ---
 
-# Jumpstart Scenario Write-up Guidelines
+## Jumpstart contribution guidelines
 
 **Thank you for considering contributing to the Arc Jumpstart, it is highly appreciated!**
 
