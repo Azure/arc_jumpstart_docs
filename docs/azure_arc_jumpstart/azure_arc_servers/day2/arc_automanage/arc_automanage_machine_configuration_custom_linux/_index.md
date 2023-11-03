@@ -14,7 +14,7 @@ While the use of custom configurations in Automanage Machine Configuration featu
 
 By the end of this scenario, you will have both Linux and Windows Azure Arc-enabled servers with Automanage Machine Configuration custom configurations assigned.
 
-This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
+This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
 
 ![Screenshot of Azure portal showing Azure Arc-enabled servers](./01.png)
 
