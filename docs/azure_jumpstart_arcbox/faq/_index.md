@@ -19,9 +19,9 @@ ArcBox deployment requires an Azure service principal with a **Contributor** or 
 ArcBox offers three different configurations, or "flavors", that allow the user to choose their own experience.
 
 - [ArcBox Full](/azure_jumpstart_arcbox/Full) - The core ArcBox experience with Azure Arc-enabled servers, Kubernetes, and data services capabilities.
-- [ArcBox for IT Pros](../ITPro/) - This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such as Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management, and more.
-- [ArcBox for DevOps](../DevOps) - This essential Azure Arc-enabled Kubernetes sandbox includes capabilities such as GitOps, Open Service Mesh (OSM), secretes management, monitoring, and more.
-- [ArcBox for DataOps](../DataOps) - This essential Azure Arc-enabled SQL Managed Instance sandbox includes capabilities such as Microsoft Active Directory authentication, disaster recovery, point-in-time restore, migration, and more.
+- [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/) - This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such as Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management, and more.
+- [ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps) - This essential Azure Arc-enabled Kubernetes sandbox includes capabilities such as GitOps, Open Service Mesh (OSM), secretes management, monitoring, and more.
+- [ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps) - This essential Azure Arc-enabled SQL Managed Instance sandbox includes capabilities such as Microsoft Active Directory authentication, disaster recovery, point-in-time restore, migration, and more.
 
 ## What Azure regions can ArcBox be deployed to?
 
@@ -54,6 +54,6 @@ ArcBox incurs normal Azure consumption charges for various Azure resources such 
 Each ArcBox flavor deployment guide has it's own troubleshooting section you can review for common issues.
 
 - [Troubleshooting ArcBox Full](/azure_jumpstart_arcbox/Full/#basic-troubleshooting)
-- [Troubleshooting ArcBox for IT Pros](../ITPro/)
-- [Troubleshooting ArcBox for DevOps](../DevOps/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DataOps](../DataOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
