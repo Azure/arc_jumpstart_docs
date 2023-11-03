@@ -12,8 +12,6 @@ Jumpstart Agora is a marketplace of various “cloud to edge” industry scenari
 
 > **Note:** For general questions about Azure Arc Jumpstart please check the [Jumpstart FAQ](../../faq/).
 
-> **Note:** For general questions about Azure Arc Jumpstart please check the [Jumpstart FAQ](/azure_arc_jumpstart/faq/).
-
 ## What industry scenarios are available in Jumpstart Agora?
 
 Currently, Agora offers the [Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket) retail industry experience. Contoso Supermarket includes everything needed to deploy, configure and use a realistic sample point-of-sale application including CI/CD, observability, security, and more.
