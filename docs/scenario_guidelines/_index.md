@@ -19,36 +19,25 @@ The Arc Jumpstart is a mix of various automation scripts and techniques, code st
 
 Before anything gets published, a code review process will be done by one of the Jumpstart core maintainers. We want your contribution to be successful and widely adopted, and to meet the highest standards possible - we are here to help you get there!
 
-## Issues and pull requests
+## Issues, pull requests and discussions
 
-Whether you are working on a new Jumpstart scenario, or solution, or updating existing code, a contribution must be submitted with a dedicated GitHub issue and pull request (PR) to make the review process easier.
+Before diving into your contribution, it's crucial to establish clear communication within our open-source community. To streamline collaboration and maintain transparency, we kindly request contributors to [open an issue](https://aka.ms/JumpstartIssue), start a discussion, or a [pull request (PR)](https://aka.ms/JumpstartFeature) before initiating work on their proposed changes. Opening an issue allows for discussion and consensus-building around the proposed idea, ensuring that it aligns with the project's goals and existing work.
 
-- New scenario
+[GitHub Discussions](https://aka.ms/JumpstartDiscussions), an additional avenue, provides an interactive platform for community members to engage in conversations, ask questions, and share ideas. A pull request serves as a tangible proposal, demonstrating the changes you wish to implement. By following this process and utilizing GitHub Discussions, we foster a collaborative environment where ideas are shared, reviewed, and refined collectively, ensuring the continuous improvement of our project. Your active participation and adherence to these guidelines are essential to the success of our collaborative efforts.
 
-    For new scenarios, please also create a new issue using the ["Feature request" template](https://github.com/microsoft/azure_arc/issues/new?assignees=&labels=&template=feature_request.md&title=). If needed, multiple examples can be found under the [Jumpstart project GitHub repository](https://github.com/microsoft/azure_arc/projects/1).
+![Screenshot of "Bug report" template](./bug_report.png)
 
-    ![Screenshot of "Feature request" template](./feature_request.png)
+![Screenshot of "Feature request" template](./feature_request.png)
 
-- Existing scenario
+When submitting your PR, make sure to associate the issue the PR is solving, so once merged, the issue will be closed automatically.
 
-    If you are updating an existing scenario, please create a new issue using the ["Bug report" template](https://github.com/microsoft/azure_arc/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+![Screenshot of attached issue](./attached_issue.png)
 
-    ![Screenshot of "Bug report" template](./bug_report.png)
+## Code placement
 
-- On the PR, make sure to associate the issue the PR is designed to solve, so once merged, the issue will be closed automatically.
+Before submitting a pull request (PR), we encourage contributors to consult with one of the project maintainers regarding the placement of their code and documentation within the folder structure. Maintainers have a deep understanding of the project's architecture and organization, ensuring that your contribution seamlessly integrates with the existing codebase. By seeking their guidance, you can make informed decisions about where your changes best fit, enhancing the overall coherence and maintainability of the project. Collaboration with maintainers not only ensures that your efforts align with the project's vision but also fosters a collaborative spirit that is vital to the success of our open-source community. Reach out to us; we're here to help you make meaningful contributions that positively impact our project.
 
-    ![Screenshot of attached issue](./attached_issue.png)
-
-## Folder Structure
-
-The Azure Arc Jumpstart GitHub repository follows a specific folder structure that you should get familiar with before creating or updating a scenario.
-
-- Automation, scripts, templates, JSON & YAML files, etc. must be placed under each Azure Arc technology that corresponds to each scenario.
-- The guide for the scenario must be under docs and follow a similar structure.
-
-![Screenshot of folder structure](./folder_structure.png)
-
-## Indexing
+<!-- ## Indexing
 
 The Azure Arc Jumpstart website is using [HUGO](https://gohugo.io/) as its web framework alongside [Docsy](https://www.docsy.dev/) as its theme of choice.
 
@@ -64,7 +53,7 @@ The Azure Arc Jumpstart website is using [HUGO](https://gohugo.io/) as its web f
 
     ![Screenshot of weight value in the code](./weight_code.png)
 
-    ![Screenshot of weight value on the website](./weight_web.png)
+    ![Screenshot of weight value on the website](./weight_web.png) -->
 
 ## Description
 
