@@ -10,7 +10,7 @@ HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azu
 
 ![Screenshot showing HCIBox architecture diagram](./arch.png)
 
-### Use cases
+## Use cases
 
 - Sandbox environment for getting hands-on with Azure Stack HCI and Azure Arc technologies
 - Accelerator for Proof-of-concepts or pilots
