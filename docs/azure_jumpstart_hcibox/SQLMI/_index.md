@@ -1,12 +1,10 @@
 ---
 type: docs
-linkTitle: "Arc-enabled SQL MI"
+linkTitle: "Arc-enabled SQL Managed Instance"
 weight: 5
 ---
 
-# Jumpstart HCIBox - Azure Arc-enabled SQL Managed Instance
-
-## Azure Arc-enabled SQL Managed Instance on Azure Stack HCI
+# Arc-enabled SQL Managed Instance on Azure Stack HCI
 
 Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/) which can be used to deploy Azure Arc-enabled SQL Managed Instance. HCIBox comes pre-configured with Azure Kubernetes Service on HCI (AKS-HCI) and an Azure Arc-enabled SQL Managed Instance. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
 

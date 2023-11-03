@@ -210,7 +210,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
 
   ![Screenshot showing azd up](./azd_up.png)
 
-- Once complete, continue on in the section [Start post-deployment automation](/azure_jumpstart_hcibox/#start-post-deployment-automation)
+- Once complete, continue on in the section [Start post-deployment automation](#start-post-deployment-automation)
 
 ## Bicep deployment via Azure CLI
 
