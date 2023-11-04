@@ -8,7 +8,7 @@ weight: 5
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Stack HCI and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
 
-![Screenshot showing HCIBox architecture diagram](./arch.png)
+<img src="/img/logo/hcibox.png" alt="HCIBox logo" width="250">
 
 ## Use cases
 
@@ -18,6 +18,8 @@ HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azu
 - Demo environment for customer presentations or events
 - Rapid integration testing platform
 - Infrastructure-as-code and automation template library for building hybrid cloud management solutions
+
+![Screenshot showing HCIBox architecture diagram](./arch.png)
 
 ## Azure Stack HCI capabilities available in HCIBox
 

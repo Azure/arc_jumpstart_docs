@@ -8,7 +8,9 @@ weight: 4
 
 ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with all available Azure Arc technology with nothing more than an available Azure subscription.
 
-### Use cases
+<img src="/img/logo/arcbox.png" alt="ArcBox logo" width="250">
+
+## Use cases
 
 - Sandbox environment for getting hands-on with Azure Arc
 - Accelerator for Proof-of-concepts or pilots
@@ -16,7 +18,7 @@ ArcBox is a solution that provides an easy to deploy sandbox for all things Azur
 - Demo environment for customer presentations or events
 - Rapid integration testing platform
 
-### ArcBox "Flavors"
+## ArcBox "Flavors"
 
 ArcBox comes in multiple "flavors", or configurations, which can be selected to best suit your needs. Currently, the available flavors are:
 

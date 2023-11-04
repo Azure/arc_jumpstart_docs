@@ -2,7 +2,7 @@
 type: docs
 title: "Overview"
 linkTitle: "Overview"
-weight: 1
+weight: 20
 ---
 
 ## Azure Arc Jumpstart
