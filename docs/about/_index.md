@@ -7,6 +7,8 @@ weight: 1
 
 ## Our mission and principles: Empowering seamless Azure Arc adoption
 
+<img src="/img/logo/jumpstart.png" alt="Arc Jumpstart logo" width="250">
+
 Welcome to the heart of our mission at Azure Arc Jumpstart, where we strive to transform your learning experience into a smooth and empowering journey. Our commitment is rooted in the principles that drive us forward:
 
 **1. Enabling Immediate Engagement:** Arc Jumpstart is meticulously crafted to offer a seamless "zero to hero" experience. We understand the value of your time, and our goal is to enable you to dive right into Azure Arc, eliminating barriers and complexities.
