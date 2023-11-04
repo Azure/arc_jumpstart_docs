@@ -1,14 +1,16 @@
 ---
 type: docs
-title: "Open-Source Commitment"
-linkTitle: "Open-Source Commitment"
+title: "Open-Source commitment"
+linkTitle: "Open-Source commitment"
 weight: 9
 ---
 
-# Azure Arc Jumpstart commitment to open-source software
+# Our Commitment to the Open-Source Community: Elevating Excellence Together
 
-The Azure Arc Jumpstart contains extensive automation and scripting for our scenarios and features, and for us, it is critical to maintain high code quality. To do that, it is important to not just go through extensive code reviews and testing, but also select and embed the right tools for the job.
+At Arc Jumpstart, we consider high code quality not just a priority, but a fundamental principle. Our extensive automation and scripting for scenarios and features undergo rigorous code reviews and testing, ensuring a standard of excellence that our users can rely on. We believe that quality is not just about meticulous craftsmanship, but also about selecting and integrating the right tools effectively.
 
-It is our mission to support the open-source community whenever we can and build on the amazing work of others when presented with the opportunity to do so. With more than 30 open-source projects used in the Jumpstart, we are committed to continue to support, advocate and contribute to these projects, so you can expect an AWESOME open-source experience when using the Azure Arc Jumpstart!
+In the spirit of open-source collaboration, we are deeply committed to supporting the wider community. We recognize the remarkable contributions of others and actively seek opportunities to build upon their work. With over 30 open-source projects seamlessly integrated into Jumpstart, our commitment extends beyond mere usage. We pledge to support, advocate, and contribute to these projects, fostering an environment of mutual growth and innovation.
 
-![Image showing open-source projects logos](/img/oss_logos.png)
+By embracing this ethos, we are dedicated to providing you with an unparalleled open-source experience. Expect nothing less than AWESOME when you embark on your journey with Azure Arc Jumpstart. Together, let's elevate the standards of open-source excellence and create a vibrant community where innovation knows no bounds.
+
+![Image showing open-source projects logos](/img/about/oss.png)
