@@ -9,15 +9,13 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
-## October 2023 🗓️
+## October 2023
 
 ### Release summary
 
-| **New scenarios** | **New features** | **Enhancements** | **Bug fixes** | **Documentation updates** |
-|-------------------|------------------|------------------|---------------|---------------------------|
-| 1                 | 0                | 7                | 6             | 3                         |
-
-🐛
+| **New scenarios** 🚀 | **New features** 🆕 | **Enhancements** ⬆️ | **Bug fixes**🐛 | **Documentation updates** 📄 |
+|----------------------|----------------------|----------------------|-----------------|-------------------------------|
+| 1                    | 0                    | 7                    | 6               | 3                             |
 
 ### Cross-scenario
 
@@ -71,6 +69,10 @@ weight: 6
 ## September 2023
 
 ### Release summary
+
+| **New scenarios** 🚀 | **New features** 🆕 | **Enhancements** ⬆️ | **Bug fixes**🐛 | **Documentation updates** 📄 |
+|----------------------|----------------------|----------------------|-----------------|-------------------------------|
+| 0                    | 1                    | 6                    | 17               | 1                             |
 
 - Announcing [Jumpstart HCIBox general availability](https://aka.ms/HCIBoxGABlog)!
 - New scenarios: 0
