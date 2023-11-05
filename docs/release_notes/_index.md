@@ -9,15 +9,15 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
-## October 2023
+## October 2023 🗓️
 
-### Release highlights
+### Release summary
 
-- New scenarios: 1
-- New features: 0
-- Enhancements: 7
-- Bug fixes: 6
-- Documentation updates: 3
+| **New scenarios** | **New features** | **Enhancements** | **Bug fixes** | **Documentation updates** |
+|-------------------|------------------|------------------|---------------|---------------------------|
+| 1                 | 0                | 7                | 6             | 3                         |
+
+🐛
 
 ### Cross-scenario
 
@@ -70,7 +70,7 @@ weight: 6
 
 ## September 2023
 
-### Release highlights
+### Release summary
 
 - Announcing [Jumpstart HCIBox general availability](https://aka.ms/HCIBoxGABlog)!
 - New scenarios: 0
@@ -114,7 +114,7 @@ weight: 6
 
 ## August 2023
 
-### Release highlights
+### Release summary
 
 - New scenarios: 3
 - New features: 3
@@ -167,7 +167,7 @@ weight: 6
 
 ## July 2023
 
-### Release highlights
+### Release summary
 
 - Announcing [Jumpstart Agora](https://aka.ms/AgoraReleaseBlog)!
 - [Philosophy and design principals update](https://azurearcjumpstart.io/#our-philosophy-and-core-design-principals)
@@ -191,7 +191,7 @@ No updates in this release.
 
 ## June 2023
 
-### Release highlights
+### Release summary
 
 - Scenarios enhancements and bug fixes:
   - Azure Arc-enabled SQL Server
@@ -227,7 +227,7 @@ No updates in this release.
 
 ## May 2023
 
-### Release highlights
+### Release summary
 
 - New Azure Arc-enabled Kubernetes scenario
 - Scenarios enhancements and bug fixes:
@@ -263,7 +263,7 @@ No updates in this release.
 
 ## April 2023
 
-### Release highlights
+### Release summary
 
 - New Azure Arc-enabled servers scenarios
 - Scenarios enhancements and bug fixes:
@@ -297,7 +297,7 @@ No updates in this release.
 
 ## March 2023
 
-### Release highlights
+### Release summary
 
 - New and updated Azure Arc-enabled servers scenarios
 - Multiple enhancements and bug fixes:
@@ -336,7 +336,7 @@ No updates in this release.
 
 ## February 2023
 
-### Release highlights
+### Release summary
 
 - Multiple ArcBox enhancements and bug fixes
 - Multiple HCIBox enhancements and bug fixes
@@ -382,7 +382,7 @@ No updates in this release.
 
 ## January 2023
 
-### Release highlights
+### Release summary
 
 - New and updated Jumpstart scenarios:
   - Azure Arc-enabled SQL Server
