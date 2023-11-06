@@ -165,7 +165,7 @@ weight: 6
 ### Release summary
 
 - Announcing [Jumpstart Agora](https://aka.ms/AgoraReleaseBlog)!
-- [Philosophy and design principals update](https://azurearcjumpstart.io/#our-philosophy-and-core-design-principals)
+- [Philosophy and design principals update](../about/)
 - Scenarios enhancements and bug fixes:
   - Azure Arc-enabled Kubernetes
 - ArcBox bug fixes

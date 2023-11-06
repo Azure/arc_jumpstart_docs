@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using cluster extensions"
-linkTitle: "Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using cluster extensions"
+title: "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster"
+linkTitle: "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster"
 weight: 3
 description: >
 ---
 
-## Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using cluster extensions
+## Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster.
 
-in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
+in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
 
 > > **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
 
@@ -24,7 +24,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -61,7 +61,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Create Azure monitor extensions instance
 

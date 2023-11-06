@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes"
-linkTitle: "Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes"
+title: "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy"
+linkTitle: "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy"
 weight: 4
 description: >
 ---
 
-## Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes
+## Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy
 
-The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Kubernetes Service (AKS) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Kubernetes Service (AKS) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
 
 > **Note:** This guide assumes you already deployed an AKS cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using either [ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or [Terraform](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).**
 
@@ -22,7 +22,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 
 * Fork the ["Hello Arc"](https://github.com/likamrat/hello_arc) demo application repository.
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -101,11 +101,11 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Policy for Azure Arc Connected Cluster Integration
 
-* In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_policy_onboarding* script against the AKS connected cluster. For your convenient, shell script is [provided to you](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/azure_policy/aks_policy_onboarding.sh).
+* In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_policy_onboarding* script against the AKS connected cluster. For your convenient, shell script is [provided to you](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/azure_policy/aks_policy_onboarding.sh).
 
 * Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the ```. ./aks_policy_onboarding.sh``` command. **If you decided to use the 'Policy Insights Data Writer (Preview)' role assignment as described in the perquisites section, make sure to use it's respective *appId*, *password* and *tenantId***
 

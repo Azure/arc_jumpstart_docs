@@ -8,11 +8,11 @@ description: >
 
 ## Deploy a vanilla Azure Arc Data Controller in directly connected mode on Kubeadm Kubernetes cluster with Azure provider using an ARM Template
 
-The following Jumpstart scenario will guide you on how to deploy a "Ready to Go" environment so you can start using [Azure Arc-enabled data services](https://docs.microsoft.com/azure/azure-arc/data/overview) deployed on [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/) Kubernetes cluster.
+The following Jumpstart scenario will guide you on how to deploy a "Ready to Go" environment so you can start using [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) deployed on [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/) Kubernetes cluster.
 
 By the end of this scenario, you will have a Kubeadm Kubernetes cluster deployed with an Azure Arc Data Controller and a Microsoft Windows Server 2022 (Datacenter) Azure client VM, installed & pre-configured with all the required tools needed to work with Azure Arc-enabled data services.
 
-> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes).
+> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://learn.microsoft.com/azure/azure-arc/data/release-notes).
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ By the end of this scenario, you will have a Kubeadm Kubernetes cluster deployed
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-- [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
+- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
 
   ```shell
   ssh-keygen -t rsa -b 4096
@@ -75,7 +75,7 @@ By the end of this scenario, you will have a Kubeadm Kubernetes cluster deployed
     }
     ```
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -92,7 +92,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - [_mgmtStagingStorage_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/kubeadm/azure/ARM/mgmtStagingStorage.json) - Used for staging files in automation scripts.
   - [_logAnalytics_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/kubeadm/azure/ARM/logAnalytics.json) - Deploys Azure Log Analytics workspace to support Azure Arc-enabled data services logs uploads.
 
-- User remotes into client Windows VM, which automatically kicks off the [_DataServicesLogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/kubeadm/azure/ARM/artifacts/DataServicesLogonScript.ps1) PowerShell script that creates a new Azure Arc-enabled Kubernetes cluster and configure Azure Arc-enabled data services on the Kubeadm Cluster including the Data Controller. Azure Arc-enabled data services deployed in directly connected are using this type of resource in order to deploy the data services [cluster extension](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-extensions) as well as for using Azure Arc [Custom location](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-custom-locations).
+- User remotes into client Windows VM, which automatically kicks off the [_DataServicesLogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/kubeadm/azure/ARM/artifacts/DataServicesLogonScript.ps1) PowerShell script that creates a new Azure Arc-enabled Kubernetes cluster and configure Azure Arc-enabled data services on the Kubeadm Cluster including the Data Controller. Azure Arc-enabled data services deployed in directly connected are using this type of resource in order to deploy the data services [cluster extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-extensions) as well as for using Azure Arc [Custom location](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-custom-locations).
 
 ## Deployment
 
@@ -110,7 +110,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deploySQLMI`_ - Boolean that sets whether or not to deploy SQL Managed Instance, for this data controller vanilla scenario we leave it set to ***false***.
   - _`SQLMIHA`_ - Boolean that sets whether or not to deploy SQL Managed Instance with high-availability (business continuity) configurations, for this data controller vanilla scenario we leave it set to ***false***.
   - _`deployPostgreSQL`_ - Boolean that sets whether or not to deploy PostgreSQL, for this data controller vanilla scenario we leave it set to ***false***.
-  - _`deployBastion`_ - Choice (true | false) to deploy Azure Bastion or not to connect to the client VM.
+  - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
 
 - You will also need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.
 
@@ -199,7 +199,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
 ### Connect using just-in-time access (JIT)
 
-If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Client VM, use the following steps:
+If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Client VM, use the following steps:
 
 - In the Client VM configuration pane, enable just-in-time. This will enable the default settings.
 

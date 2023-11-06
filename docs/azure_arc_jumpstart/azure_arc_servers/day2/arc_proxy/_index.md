@@ -8,7 +8,7 @@ description: >
 
 ## Azure Arc-enabled servers connectivity behind a proxy server
 
-The following Jumpstart scenario will guide you on how to configure your [Azure Arc-enabled server if the machine uses a proxy server](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-arc-servers-connectivity) to communicate over the internet.
+The following Jumpstart scenario will guide you on how to configure your [Azure Arc-enabled server if the machine uses a proxy server](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-arc-servers-connectivity) to communicate over the internet.
 
 In this scenario, you will emulate a full proxy-client configuration. The scenario will deploy both the proxy server and a client that will be Arc-enabled automatically with the agent configured to use the proxy. The automation for the proxy server deployment makes sure that the Azure Arc network service tags and IP addresses range are not blocked. To complete this process you deploy a single ARM template that will:
 
@@ -26,7 +26,7 @@ In this scenario, you will emulate a full proxy-client configuration. The scenar
 
 ## Prerequisites
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 

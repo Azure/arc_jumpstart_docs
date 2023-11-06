@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Using Cluster Connect to connect to an Azure Arc-enabled Kubernetes cluster via service account token authentication"
-linkTitle: "Using Cluster Connect to connect to an Azure Arc-enabled Kubernetes cluster via service account token authentication"
+title: "Using Cluster Connect to connect to an Arc-enabled Kubernetes cluster via service account token authentication"
+linkTitle: "Using Cluster Connect to connect to an Arc-enabled Kubernetes cluster via service account token authentication"
 weight: 5
 description: >
 ---
 
 ## Using Cluster Connect to connect to an Azure Arc-enabled Kubernetes cluster via service account token authentication
 
-The following Jumpstart scenario will guide you through how to use the [Cluster Connect](https://docs.microsoft.com/azure/azure-arc/kubernetes/cluster-connect) capability of an Azure Arc connected Kubernetes cluster to manage and connect to the cluster securely without opening inbound firewall ports.
+The following Jumpstart scenario will guide you through how to use the [Cluster Connect](https://learn.microsoft.com/azure/azure-arc/kubernetes/cluster-connect) capability of an Azure Arc connected Kubernetes cluster to manage and connect to the cluster securely without opening inbound firewall ports.
 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -40,7 +40,7 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
   Connect-AzAccount
   ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
