@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using a Shell script"
-linkTitle: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using a Shell script"
+title: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting"
+linkTitle: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting"
 weight: 2
 description: >
 ---
 
-## Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using a Shell script
+## Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting
 
-The following Jumpstart scenario will guide you on how to onboard an microK8s cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using a Shell script.
+The following Jumpstart scenario will guide you on how to onboard an microK8s cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using scripting.
 
 in this scenario, you will hook the microK8s cluster to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
 

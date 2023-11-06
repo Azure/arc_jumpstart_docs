@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Integrate Open Service Mesh (OSM) with Cluster API as an Arc Connected Cluster"
-linkTitle: "Integrate Open Service Mesh with Cluster API as an Arc Connected Cluster"
+title: "Integrate Open Service Mesh (OSM) with CAPI as an Arc Connected Cluster"
+linkTitle: "Integrate Open Service Mesh with CAPI as an Arc Connected Cluster"
 weight: 5
 description: >
 ---
 
-## Integrate Open Service Mesh with Cluster API as an Arc Connected Cluster
+## Integrate Open Service Mesh with CAPI as an Arc Connected Cluster
 
 The following Jumpstart scenario will guide you on how to enable [Open Service Mesh](https://openservicemesh.io/) for a Cluster API that is projected as an Azure Arc connected cluster. Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 

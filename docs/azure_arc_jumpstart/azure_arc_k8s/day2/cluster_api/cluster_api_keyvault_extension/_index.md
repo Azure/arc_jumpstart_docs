@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster"
-linkTitle: "Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster"
+title: "Integrate Azure Key Vault with CAPI as an Arc Connected Cluster"
+linkTitle: "Integrate Azure Key Vault with CAPI as an Arc Connected Cluster"
 weight: 4
 description: >
 ---

@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Integrate Microsoft Defender for Cloud with Cluster API as an Arc Connected Cluster"
-linkTitle: "Integrate Microsoft Defender for Cloud with Cluster API as an Arc Connected Cluster"
+title: "Integrate Microsoft Defender for Cloud with CAPI as an Arc Connected Cluster"
+linkTitle: "Integrate Microsoft Defender for Cloud with CAPI as an Arc Connected Cluster"
 weight: 3
 description: >
 ---
 
-## Integrate Microsoft Defender for Cloud with Cluster API as an Arc Connected Cluster
+## Integrate Microsoft Defender for Cloud with CAPI as an Arc Connected Cluster
 
 The following Jumpstart scenario will guide you on how to enable [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks) for a Cluster API that is projected as an Azure Arc-connected cluster.
 
