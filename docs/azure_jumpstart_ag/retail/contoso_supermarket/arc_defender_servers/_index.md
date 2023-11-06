@@ -27,7 +27,7 @@ To protect workloads with Microsoft Defender for Servers, you will need to enabl
 
 - Login to AZ CLI using the ```az login``` command.
 
-- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
     ![Screenshot showing the checking default subscription](./img/check_default_subscription.png)
 
@@ -92,7 +92,7 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 
 - Login to AZ CLI using the ```az login``` command.
 
-- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
     ![Screenshot showing the checking default subscription](./img/check_default_subscription.png)
 

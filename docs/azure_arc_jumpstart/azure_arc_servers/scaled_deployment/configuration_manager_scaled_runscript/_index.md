@@ -9,13 +9,13 @@ description: >
 
 The following Jumpstart scenario will guide you on how to connect a Windows machine to Azure Arc with a PowerShell script using Configuration Manager.
 
-This guide assumes that you already have an installation of [Microsoft Configuration Manager](https://docs.microsoft.com/mem/configmgr/core/understand/introduction), at least one active Windows server client, and a basic understanding of the product.
+This guide assumes that you already have an installation of [Microsoft Configuration Manager](https://learn.microsoft.com/mem/configmgr/core/understand/introduction), at least one active Windows server client, and a basic understanding of the product.
 
 ## Prerequisites
 
-- Make sure you have met all the Configuration Manager [prerequisites](https://docs.microsoft.com/mem/configmgr/apps/deploy-use/create-deploy-scripts#prerequisites) in order to use the "Run Script" feature.
+- Make sure you have met all the Configuration Manager [prerequisites](https://learn.microsoft.com/mem/configmgr/apps/deploy-use/create-deploy-scripts#prerequisites) in order to use the "Run Script" feature.
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -52,7 +52,7 @@ This guide assumes that you already have an installation of [Microsoft Configura
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 

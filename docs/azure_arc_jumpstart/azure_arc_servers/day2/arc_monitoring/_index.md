@@ -8,7 +8,7 @@ description: >
 
 ## Monitoring, Alerting, and Visualization on Azure Arc-enabled servers
 
-The scenario will show you how to onboard Azure Arc-enabled servers to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), so you can monitor your Linux and Windows servers running on-premises or at other cloud providers.
+The scenario will show you how to onboard Azure Arc-enabled servers to [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview), so you can monitor your Linux and Windows servers running on-premises or at other cloud providers.
 
 in this scenario, you will create the following Azure resources that support this Azure Monitor scenario:
 
@@ -53,9 +53,9 @@ in this scenario, you will create the following Azure resources that support thi
 
     ![Screenshot showing AWS cloud console with EC2 instance](./01.png)
 
-    > **Note:** Ensure that the servers you will use for this scenario are running an [OS supported by the Log Analytics Agent and the Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and meets the [firewall requirements](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).
+    > **Note:** Ensure that the servers you will use for this scenario are running an [OS supported by the Log Analytics Agent and the Dependency Agent](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and meets the [firewall requirements](https://learn.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
 
 ## Deployment Options and Automation Flow
 
@@ -166,7 +166,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 ## Deploying the Log Analytics Agent and the Dependency Agent
 
-This scenario is mainly based on the data collected from the Azure Arc-enabled servers into the Log Analytics workspace. Therefore, it is required to deploy on these servers the [Log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#log-analytics-agent) and the [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#dependency-agent). There are multiple [methods](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#installation-options) to deploy these agents. In this scenario, Azure Policies are used to deploy both agents in Windows and Linux.
+This scenario is mainly based on the data collected from the Azure Arc-enabled servers into the Log Analytics workspace. Therefore, it is required to deploy on these servers the [Log Analytics Agent](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#log-analytics-agent) and the [Dependency Agent](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#dependency-agent). There are multiple [methods](https://learn.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#installation-options) to deploy these agents. In this scenario, Azure Policies are used to deploy both agents in Windows and Linux.
 
 For **new** Azure Arc-enabled servers connected within the scope of the policies assignments, the policies will deploy the agents automatically.
 

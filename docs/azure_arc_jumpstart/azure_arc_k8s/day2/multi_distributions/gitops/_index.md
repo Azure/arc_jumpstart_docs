@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Managing Calico Network Policy using GitOps in an Azure Arc-enabled Kubernetes cluster"
-linkTitle: "Managing Calico Network Policy using GitOps in an Azure Arc-enabled Kubernetes cluster"
+title: "Managing Calico Network Policy using GitOps in an Arc-enabled Kubernetes cluster"
+linkTitle: "Managing Calico Network Policy using GitOps in an Arc-enabled Kubernetes cluster"
 weight: 1
 description: >
 ---
 
-## Use GitOps in an Azure Arc-enabled Kubernetes cluster for managing Calico Network Policy
+## Managing Calico Network Policy using GitOps in an Arc-enabled Kubernetes cluster
 
  > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 
-The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
+The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
 
   > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
@@ -36,7 +36,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 - Fork the [Tigera Azure-arc-demo repository](https://github.com/tigera-solutions/Azure-arc-demo)
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
   ```shell
   az --version

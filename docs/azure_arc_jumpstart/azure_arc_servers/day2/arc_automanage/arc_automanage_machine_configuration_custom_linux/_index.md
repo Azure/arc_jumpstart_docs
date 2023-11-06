@@ -8,7 +8,7 @@ description: >
 
 ## Create Automanage Machine Configuration custom configurations for Linux
 
-The following Jumpstart scenario will guide you on how to create and assign a custom Automanage Machine Configuration to an Azure Arc-enabled Linux server. Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://docs.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
+The following Jumpstart scenario will guide you on how to create and assign a custom Automanage Machine Configuration to an Azure Arc-enabled Linux server. Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://learn.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
 
 While the use of custom configurations in Automanage Machine Configuration feature is based on PowerShell Desired State Configuration (DSC), there are [Changes to behavior in PowerShell DSC for Machine Configuration](https://learn.microsoft.com/azure/governance/machine-configuration/machine-configuration-custom?view=dsc-2.0) to be aware of, the most significant being the use of PowerShell 7.
 
@@ -309,7 +309,7 @@ In order for the newly assigned policy to remediate existing resources, the poli
 - Grant a managed identity defined roles with PowerShell
 - Create a remediation task through Azure PowerShell
 
-See the [documentation](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
+See the [documentation](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
 
 ```powershell
 $PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.PolicyDefinitionId | Where-Object Name -eq '(AzureArcJumpstart) [Linux] Custom configuration'

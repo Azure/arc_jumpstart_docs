@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Integrate Azure Key Vault with Cluster API as an Azure Arc Connected Cluster using Kubernetes extensions"
-linkTitle: "Integrate Azure Key Vault with Cluster API as an Azure Arc Connected Cluster using Kubernetes extensions"
+title: "Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster"
+linkTitle: "Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster"
 weight: 4
 description: >
 ---
 
-## Integrate Azure Key Vault with Cluster API as an Azure Arc Connected Cluster using Kubernetes extensions
+## Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) for a Cluster API that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) for a Cluster API that is projected as an Azure Arc connected cluster.
 
 in this scenario, you will hook the Cluster API to Azure Key Vault by deploying the Azure Key Vault extension and a sample app on your Kubernetes cluster in order to integrate Azure Key Vault as a secrets store with a Kubernetes cluster via a [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) volume. This will also include deploying a Key Vault and sample secret on your Azure subscription.
 
@@ -24,7 +24,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -61,7 +61,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 

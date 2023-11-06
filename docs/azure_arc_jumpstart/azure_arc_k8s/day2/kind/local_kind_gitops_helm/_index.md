@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster"
-linkTitle: "Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster"
+title: "Perform Helm-based GitOps flow on kind as an Arc Connected Cluster"
+linkTitle: "Perform Helm-based GitOps flow on kind as an Arc Connected Cluster"
 weight: 1
 description: >
 ---
 
-## Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster
+## Perform Helm-based GitOps flow on kind as an Arc Connected Cluster
 
 The following Jumpstart scenario will guide you on how to create [Helm](https://helm.sh/)-based GitOps configuration on a [kind (Kubernetes in Docker)](https://kind.sigs.k8s.io/) cluster which is projected as an Azure Arc connected cluster resource.
 
@@ -40,7 +40,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
     ![Existing Azure Arc-enabled Kubernetes cluster](./02.png)
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -77,7 +77,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Manually setting up an ingress controller on kind
 
