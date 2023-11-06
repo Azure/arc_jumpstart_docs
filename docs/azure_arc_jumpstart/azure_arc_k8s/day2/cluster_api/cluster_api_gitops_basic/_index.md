@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Perform basic GitOps flow on Cluster API as an Arc Connected Cluster"
-linkTitle: "Perform basic GitOps flow on Cluster API as an Arc Connected Cluster"
+title: "Perform basic GitOps flow on CAPI as an Arc Connected Cluster"
+linkTitle: "Perform basic GitOps flow on CAPI as an Arc Connected Cluster"
 weight: 1
 description: >
 ---
 
-## Perform basic GitOps flow on Cluster API as an Arc Connected Cluster
+## Perform basic GitOps flow on CAPI as an Arc Connected Cluster
 
 The following Jumpstart scenario will guide you on how to create GitOps configuration on a Cluster API which is projected as an Azure Arc-connected cluster resource.
 

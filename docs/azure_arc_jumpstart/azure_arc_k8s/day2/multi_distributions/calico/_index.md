@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Use Azure Policy Add-on to audit pods' labels for use with Calico network policy"
-linkTitle: "Use Azure Policy Add-on to audit pods' labels for use with Calico network policy"
+title: "Use Azure Policy to audit pods' labels for use with network policy"
+linkTitle: "Use Azure Policy to audit pods' labels for use with network policy"
 weight: 1
 description: >
 ---
 
-## Use Azure Policy on an Azure Arc-enabled Kubernetes cluster to audit pods' labels for use with  Calico network policy
+## Use Azure Policy to audit pods' labels for use with network policy
 
  > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 

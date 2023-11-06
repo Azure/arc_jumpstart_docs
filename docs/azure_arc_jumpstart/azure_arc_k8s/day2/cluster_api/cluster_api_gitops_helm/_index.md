@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "Perform Helm-based GitOps flow on Cluster API as an Arc Connected Cluster"
-linkTitle: "Perform Helm-based GitOps flow on Cluster API as an Arc Connected Cluster"
+title: "Perform Helm-based GitOps flow on CAPI as an Arc Connected Cluster"
+linkTitle: "Perform Helm-based GitOps flow on CAPI as an Arc Connected Cluster"
 weight: 2
 description: >
 ---
