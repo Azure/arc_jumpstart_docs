@@ -191,7 +191,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
     ![Screenshot Azure Arc-enabled K8s on resource group](./arc_k8s.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview) and [extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions) [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)) are in a running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
 
     ![Screenshot kubectl get nodes -o wide](./kubectl_get_nodes.png)
 

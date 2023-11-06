@@ -116,7 +116,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployFunction`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Function application. For this scenario, we leave it set to ***false***.
   - _`deployAPIMgmt`_ - Boolean that sets whether or not to deploy a self-hosted Azure API Management gateway.  For this scenario, we leave it set to ***false***.
   - _`deployLogicApp`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to ***false***.
-  - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://github.com/microsoft/azure_arc) repository, but you can point this to your forked repo as well.
+  - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
   - _`adminEmail`_ - an email address that will be used on the Azure API Management deployment to receive all system notifications.
   - _`deployBastion`_ - Choice (true | false) to deploy Azure Bastion or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
@@ -206,7 +206,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 - Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure web application will be deployed on the cluster and be ready to use.
 
-    > **Note:** As you will notices from the screenshots below, during the Azure Container Apps connected environment, the pods will be restarted and will go through multiple Kubernetes pod lifecycle stages. This is normal and can safely be ignored. To learn more about the various Container Apps extension, visit the official [Azure Docs page](https://learn.microsoft.com/azure/container-apps/azure-arc-overview#resources-created-by-the-container-apps-extension).
+    > **Note:** As you will notices from the screenshots below, during the Azure Container Apps connected environment, the pods will be restarted and will go through multiple Kubernetes pod lifecycle stages. This is normal and can safely be ignored. To learn more about the various Container Apps extension, visit the [Azure documentation page](https://learn.microsoft.com/azure/container-apps/azure-arc-overview#resources-created-by-the-container-apps-extension).
 
     ![Screenshot showing PowerShell logon script run](./11.png)
 
@@ -238,7 +238,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   - **Container App** - Azure Container Apps manages the details of Kubernetes and container orchestration for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
   
-  ![Screenshot showing additional Azure resources in the resource group](20.png)
+  ![Screenshot showing additional Azure resources in the resource group](./20.png)
 
 - In this scenario, **ASP.NET Core Front-end and 2 Back-end APIs on Azure Container Apps** was deployed. To open the deployed web application in your web browser, simply click the Container App resource and the Application URL.
 

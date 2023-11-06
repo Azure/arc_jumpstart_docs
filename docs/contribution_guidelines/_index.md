@@ -9,7 +9,9 @@ weight: 7
 
 **Welcome to Arc Jumpstart contribution guidelines!**
 
-We extend our heartfelt gratitude for considering a contribution to Arc Jumpstart – your dedication is immensely valued! Our Jumpstart repository thrives on high-quality, detail-oriented bundled automation and documents. To ensure your contribution aligns seamlessly with our standards, we are here to provide comprehensive guidelines. These guidelines are your roadmap to crafting a successful and polished contribution. For newcomers, we encourage exploring the raw code of existing scenarios; these exemplars offer invaluable insights into the approved scenario format and encompass all the guidelines outlined here. Should any queries arise, our team of Jumpstart project maintainers is readily available to assist. Together, let's elevate the excellence of our shared contributions!
+We extend our heartfelt gratitude for considering a contribution to Arc Jumpstart – your dedication is immensely valued! Our Jumpstart repository thrives on high-quality, detail-oriented bundled automation and documents. 
+
+To ensure your contribution aligns seamlessly with our standards, we are here to provide comprehensive guidelines. These guidelines are your roadmap to crafting a successful and polished contribution. For newcomers, we encourage exploring the raw code of existing scenarios; these exemplars offer invaluable insights into the approved scenario format and encompass all the guidelines outlined here. Should any queries arise, our team of Jumpstart project maintainers is readily available to assist. Together, let's elevate the excellence of our shared contributions!
 
 ## Code reviews
 

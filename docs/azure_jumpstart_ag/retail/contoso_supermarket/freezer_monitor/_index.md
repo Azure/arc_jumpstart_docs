@@ -129,9 +129,9 @@ From the Client VM:
 
   ![Screenshot showing the list Grafana of Dashboards](./img/grafana_click_chicago.png)
 
-  - Notice that **freezer2** is showing significant variability and frequently exceeding the safe threshold of 20°F.
+- Notice that **freezer2** is showing significant variability and frequently exceeding the safe threshold of 20°F.
 
-    ![Screenshot showing Grafana with the Chicago dashboard](./img/grafana_chicago_dashboard.png)
+  ![Screenshot showing Grafana with the Chicago dashboard](./img/grafana_chicago_dashboard.png)
 
 - The manager can use this dashboard directly when talking to the technician about the freezer.
 
@@ -173,7 +173,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
     - Enter _Freezer too warm - food at risk_ as the **Rule name**.
 
-      ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_name.png)
+    ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_name.png)
 
   - Section 2
 
@@ -199,7 +199,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
       - Click away from the 'Legend' box, then back into it for the series names to update.
 
-        ![Screenshot showing the Grafana preview legend options](./img/grafana_add_alert_rule_preview_legend.png)
+      ![Screenshot showing the Grafana preview legend options](./img/grafana_add_alert_rule_preview_legend.png)
 
     - Notice in the chart the times where freezer2 exceeds the threshold and would trigger an alert.
 
@@ -209,7 +209,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
     - Under **Evaluation group** type _Alert Group_ and press **Enter**.
 
-      ![Screenshot showing the Grafana Folder selection](./img/grafana_add_alert_rule_folder.png)
+    ![Screenshot showing the Grafana Folder selection](./img/grafana_add_alert_rule_folder.png)
 
   - Scroll to the top of the page and click **Save and exit**.
 
