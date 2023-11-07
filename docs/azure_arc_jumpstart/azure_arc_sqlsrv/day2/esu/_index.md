@@ -20,7 +20,7 @@ In this scenario, you will be able to choose between working with Windows Server
 
 - Create Azure service principal (SP)
 
-    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -75,7 +75,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 - Edit the parameter file to match your environment. You will need to provide:
   - _`spnClientId`_: the AppId of the service principal you created before.
   - _`spnClientSecret`_: the password of the service principal you created before.
-  - _`spnTenantId`_: your Azure AD's tenant ID.
+  - _`spnTenantId`_: your Microsoft Entra ID tenant ID.
   - _`windowsAdminUsername`_: Windows admin username for your Azure VM.
   - _`windowsAdminPassword`_: password for the Windows admin username.
   - _`deployBastion`_: whether or not you'd like to deploy Azure Bastion to access the Azure VM. Values can be "true" or "false"
