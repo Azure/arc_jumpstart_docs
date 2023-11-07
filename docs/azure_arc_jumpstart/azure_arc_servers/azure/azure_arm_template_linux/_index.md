@@ -170,7 +170,7 @@ Various options are available to connect to _Arc-Data-Client_ VM, depending on t
 
 - [SSH](#connecting-directly-with-ssh) - available after configuring access to port 22 on the _Arc-Linux-Demo-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
 
-- [Azure Bastion](#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
 
 ### Connecting directly with SSH
 

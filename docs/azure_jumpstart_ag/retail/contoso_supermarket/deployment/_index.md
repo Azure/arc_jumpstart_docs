@@ -255,7 +255,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
 
 - [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
