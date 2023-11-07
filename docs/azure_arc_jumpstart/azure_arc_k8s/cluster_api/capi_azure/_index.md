@@ -93,11 +93,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
     curl -L https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/cluster_api/capi_azure/installCAPI.sh -o ~/installCAPI.sh
     ```
 
-    ![Screenshot showing the curl command and the downloaded script in the Ubuntu machine](01.png)
+    ![Screenshot showing the curl command and the downloaded script in the Ubuntu machine](./01.png)
 
 - Once downloaded, edit the environment variables to match your Azure subscription and service principal details created in the prerequisites section as well as the required workload cluster details. The following screenshots shows the downloaded/copied script before editing the environment variables.
 
-    ![Screenshot showing the script empty environment variables](02.png)
+    ![Screenshot showing the script empty environment variables](./02.png)
 
     > **Note:** Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as vi or nano.
 
@@ -105,7 +105,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     > **Note:** Both the _`githubAccount`_ and the _`githubBranch`_ are used for testing purposes. Unless you are developing independent tests that are based on the script, there is no need to edit these variables.
 
-    ![Screenshot showing the githubAccount and the githubBranch environment variables](03.png)
+    ![Screenshot showing the githubAccount and the githubBranch environment variables](./03.png)
 
   - _`CONTROL_PLANE_MACHINE_COUNT`_ - Control Plane node count. For example: 1
   - _`WORKER_MACHINE_COUNT`_ - Workers node count. For example: 2
