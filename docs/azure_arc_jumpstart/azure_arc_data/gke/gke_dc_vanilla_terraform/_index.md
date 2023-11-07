@@ -266,7 +266,7 @@ As mentioned, the Terraform plan and automation scripts will deploy a GKE cluste
   cd azure_arc_data_jumpstart/gke/terraform/
   ```
 
-- Run the ```terraform init``` command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
+- Run the `terraform init` command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
 
   ![terraform init](./22.png)
 

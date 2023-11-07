@@ -87,7 +87,7 @@ The following Jumpstart scenario will guide you on how to connect an Linux serve
 
 ## Deployment
 
-Run the script using the ```. ./az_connect_linux.sh``` command.
+Run the script using the _`. ./az_connect_linux.sh`_ command.
 
 > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 
