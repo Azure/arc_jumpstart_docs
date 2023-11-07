@@ -31,7 +31,7 @@ By the end of the guide, you will have an AWS EC2 instance installed with Window
 
 * Create Azure service principal  (SP)
 
-    To connect the EC2 instance to Azure Arc, an Azure service principal  assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the EC2 instance to Azure Arc, an Azure service principal  assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
