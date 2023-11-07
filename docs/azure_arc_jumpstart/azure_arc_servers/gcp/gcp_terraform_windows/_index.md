@@ -97,7 +97,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 2. User edits the tfvars to match the environment.
 
-3. User runs ```terraform init``` to download the required terraform providers
+3. User runs *`terraform init`* to download the required terraform providers
 
 4. User runs the automation. The terraform plan will:
 
@@ -133,9 +133,9 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 - Navigate to the [terraform folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform) and fill in the terraform.tfvars file with the values for your environment.
 
-- Run the ```terraform init``` command which will download the required terraform providers.
+- Run the *`terraform init`* command which will download the required terraform providers.
 
-- Next, run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion of the Terraform script, you will have deployed a GCP Windows Server 2019 VM and initiated a script to download the Azure Arc agent to the VM and connect the VM as a new Azure Arc-enabled server inside a new Azure resource group. It will take a few minutes for the agent to finish provisioning.
+- Next, Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion of the Terraform script, you will have deployed a GCP Windows Server 2019 VM and initiated a script to download the Azure Arc agent to the VM and connect the VM as a new Azure Arc-enabled server inside a new Azure resource group. It will take a few minutes for the agent to finish provisioning.
 
     ![Screenshot of terraform apply being run](./10.png)
 
@@ -151,11 +151,11 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 - If you want to demo/control the actual registration process, do the following:
 
-- Before running the ```terraform apply``` command, open [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/windows/terraform/main.tf) and comment out the ```windows-startup-script-ps1 = local_file.install_arc_agent_ps1.content``` line and save the file.
+- Before running the *`terraform apply`* command, open [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/windows/terraform/main.tf) and comment out the *`windows-startup-script-ps1 = local_file.install_arc_agent_ps1.content`* line and save the file.
 
     ![Screenshot showing main.tf being commented to disable automatic onboarding of Azure Arc agent](./13.png)
 
-- Run ```terraform apply --auto-approve``` as instructed above.
+- Run *`terraform apply --auto-approve`* as instructed above.
 
 - Open the Google Cloud console and navigate to the [Compute Instance page](https://console.cloud.google.com/compute/instances), then click on the VM that was created.
 
@@ -177,7 +177,7 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 ## Delete the deployment
 
-- To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+- To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
 
     ![Screenshot showing terraform destroy being run](./19.png)
 

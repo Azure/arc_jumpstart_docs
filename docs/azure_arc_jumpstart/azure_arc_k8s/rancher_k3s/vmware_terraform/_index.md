@@ -87,7 +87,7 @@ Before using the below guide to deploy an Ubuntu Server VM and connect it to Azu
 
 Before executing the Terraform plan, you must set the environment variables which will be used by the plan. These variables are based on the Azure service principal you've just created, your Azure subscription and tenant, and your VMware vSphere credentials.
 
-* Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+* Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 * The Terraform plan creates resources in both Microsoft Azure and VMware vSphere. It then executes a script on the virtual machine to install the Azure Arc agent and all necessary artifacts. This script requires certain information about your VMware vSphere and Azure environments.
 
@@ -118,11 +118,11 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![TF_VAR environment variables](./01.png)
 
-* Run the ```terraform init``` command which will download the Terraform AzureRM, Local and vSphere providers.
+* Run the *`terraform init`* command which will download the Terraform AzureRM, Local and vSphere providers.
 
     ![terraform init](./02.png)
 
-* Run the ```terraform apply --auto-approve``` command and wait for the plan to finish.
+* Run the *`terraform apply --auto-approve`* command and wait for the plan to finish.
 
     ![terraform apply](./03.png)
 
@@ -144,6 +144,6 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Delete Azure resource group](./08.png)
 
-* Alternatively, you can use the ```terraform destroy --auto-approve``` command.
+* Alternatively, you can use the *`terraform destroy --auto-approve`* command.
 
     ![terraform destroy](./09.png)

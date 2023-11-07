@@ -350,7 +350,7 @@ Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containeri
 
 - First, to test that the DB replication is working, a simple table modification is needed. For this example, on the primary replica, run the following query to update the title of one of the rows to be _Jumpstart Administrator_
 
-   ```Sql
+   ```sql
     USE [AdventureWorks2019]
     GO
     UPDATE [HumanResources].[Employee]

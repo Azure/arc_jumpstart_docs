@@ -268,15 +268,15 @@ As mentioned, the Terraform plan and automation scripts will deploy a GKE cluste
   cd azure_arc_data_jumpstart/gke/terraform
   ```
 
-- Run the ```terraform init``` command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
+- Run the *`terraform init`* command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
 
   ![terraform init](./22.png)
 
-- Run the ```terraform plan -out=infra.out``` command to make sure everything is configured properly.
+- Run the *`terraform plan -out=infra.out`* command to make sure everything is configured properly.
 
   ![terraform plan](./23.png)
 
-- Run the ```terraform apply "infra.out"``` command and wait for the plan to finish. **Runtime for deploying all the GCP resources for this plan is ~20-30min.**
+- Run the *`terraform apply "infra.out"`* command and wait for the plan to finish. **Runtime for deploying all the GCP resources for this plan is ~20-30min.**
 
   ![terraform apply completed](./24.png)
 
@@ -396,7 +396,7 @@ When deploying Azure Arc-enabled data services, a [Grafana](https://grafana.com/
 
   ![Grafana desktop shortcut](./58.png)
 
-- [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the _```kubectl get svc -n arc```_ command to view the _metricsui_ external service IP address.
+- [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the *`kubectl get svc -n arc`* command to view the _metricsui_ external service IP address.
 
   ![metricsui Kubernetes service](./59.png)
 

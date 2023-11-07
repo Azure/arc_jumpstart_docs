@@ -234,7 +234,7 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
 
   ![Screenshot showing starting an RDP session to the Client instance](./23.png)
 
-- Using the decrypted password generated from the plan output, RDP the Windows instance. In case you need to get the password later, use the ```terraform output``` command to re-present the plan output.
+- Using the decrypted password generated from the plan output, RDP the Windows instance. In case you need to get the password later, use the *`terraform output`* command to re-present the plan output.
 
 - At first login, as mentioned in the "Automation Flow" section above, the [_DataServicesLogonScript_](https://github.com/microsoft/azure_arc/tree/main/azure_arc_data_jumpstart/eks/terraform/artifacts/DataServicesLogonScript.ps1) PowerShell logon script will start it's run.
 

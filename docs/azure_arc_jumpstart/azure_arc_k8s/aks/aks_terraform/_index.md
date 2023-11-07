@@ -66,7 +66,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 For you to get familiar with the automation and deployment flow, below is an explanation.
 
 1. User edits the tfvars to match the environment.
-2. User runs ```terraform init``` to download the required terraform providers.
+2. User runs *`terraform init`* to download the required terraform providers.
 3. User is uploading the script to Azure Cloud Shell and running the shell script. The script will:
 
     - Connect to Azure using SPN credentials.
@@ -90,7 +90,7 @@ az aks get-versions -l "<Your Azure Region>"
 
 In case the AKS service is not available in your region, you can change the AKS Kubernetes version in the [*variables.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/terraform/variables.tf) file by searching for *kubernetes_version*.
 
-- Run the ```terraform init``` command which will download the required terraform providers.
+- Run the *`terraform init`* command which will download the required terraform providers.
 
     ![Screenshot showing terraform init being run](./01.png)
 

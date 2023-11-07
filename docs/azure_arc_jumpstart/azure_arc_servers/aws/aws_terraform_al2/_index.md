@@ -137,7 +137,7 @@ In order for Terraform to create resources in AWS, we will need to create a new 
 
 Before executing the Terraform plan, you must export the environment variables which will be used by the plan. These variables are based on your Azure subscription and tenant, the Azure service principal, and the AWS IAM user and keys you just created.
 
-- Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+- Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 - The Terraform plan creates resources in both Microsoft Azure and AWS. It then executes a script on an AWS EC2 virtual machine to install the Azure Arc agent and all necessary artifacts. This script requires certain information about your AWS and Azure environments. Edit [*scripts/vars.sh*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/AL2/terraform/scripts/vars.sh) and update each of the variables with the appropriate values.
 
@@ -158,13 +158,13 @@ Before executing the Terraform plan, you must export the environment variables w
 
 - Make sure your SSH keys are available in *~/.ssh* and named *id_rsa.pub* and *id_rsa*. If you followed the ssh-keygen guide above to create your key then this should already be setup correctly. If not, you may need to modify [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/AL2/terraform/main.tf) to use a key with a different path.
 
-- Run the ```terraform init``` command which will download the Terraform AzureRM provider.
+- Run the *`terraform init`* command which will download the Terraform AzureRM provider.
 
     ![Screenshot showing terraform init being run](./09.png)
 
 ## Deployment
 
-- Run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion, you will have an AWS Amazon Linux 2 EC2 instance deployed and connected as a new Azure Arc-enabled server inside a new resource group.
+- Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion, you will have an AWS Amazon Linux 2 EC2 instance deployed and connected as a new Azure Arc-enabled server inside a new resource group.
 
 - Open the Azure portal and navigate to the resource group "Arc-Servers-Demo". The virtual machine created in AWS will be visible as a resource.
 
@@ -181,11 +181,11 @@ If you want to demo/control the actual registration process, do the following:
 
     ![Screenshot showing azcmagent connect script commented out](./12.png)
 
-- Get the public IP of the AWS VM by running ```terraform output```
+- Get the public IP of the AWS VM by running *`terraform output`*
 
     ![Screenshot showing terraform output](./13.png)
 
-- SSH the VM using the ```ssh ec2-user@x.x.x.x``` where x.x.x.x is the host ip.
+- SSH the VM using the *`ssh ec2-user@x.x.x.x`* where *x.x.x.x* is the host ip.
 
     ![Screenshot showing SSH into EC2 server](./14.png)
 
@@ -205,7 +205,7 @@ If you want to demo/control the actual registration process, do the following:
 
 ## Delete the deployment
 
-To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
     ![Screenshot showing terraform destroy being run](./17.png)
 
 Alternatively, you can delete the AWS EC2 instance directly by terminating it from the [AWS Console](https://console.aws.amazon.com/ec2/v2/home).

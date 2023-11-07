@@ -115,7 +115,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 2. User edits the tfvars to match the environment.
 
-3. User runs ```terraform init``` to download the required terraform providers
+3. User runs *`terraform init`* to download the required terraform providers
 
 4. User runs the automation. The terraform plan will:
 
@@ -153,11 +153,11 @@ The only thing you need to do before executing the Terraform plan is to create t
 
 - Navigate to the [terraform folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform) and fill in the terraform.tfvars file with the values for your environment.
 
-- Run the ```terraform init``` command which will download the required terraform providers.
+- Run the *`terraform init`* command which will download the required terraform providers.
 
     ![Screenshot showing terraform init being run](./10.png)
 
-- Next, run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion, you will have a GCP Ubuntu VM deployed and connected as a new Azure Arc-enabled server inside a new resource group.
+- Next, Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion, you will have a GCP Ubuntu VM deployed and connected as a new Azure Arc-enabled server inside a new resource group.
 
 - Open the Azure portal and navigate to the resource group "Arc-GCP-Demo". The virtual machine created in GCP will be visible as a resource.
 
@@ -175,11 +175,11 @@ The only thing you need to do before executing the Terraform plan is to create t
 
     ![Screenshot showing azcmagent connect commented out](./13.png)
 
-- Get the public IP of the GCP VM by running ```terraform output```
+- Get the public IP of the GCP VM by running *`terraform output`*
 
     ![Screenshot showing terraform output](./14.png)
 
-- SSH the VM using the ```ssh arcdemo@x.x.x.x``` where x.x.x.x is the host ip.
+- SSH the VM using the *`ssh arcdemo@x.x.x.x`* where *x.x.x.x* is the host ip.
 
 - Provide values to the environment variables to match your environment in the file [_vars.sh_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform/scripts/vars.sh). Export the variables by copying and pasting the contents of the file
 
@@ -205,7 +205,7 @@ The only thing you need to do before executing the Terraform plan is to create t
 
 ## Delete the deployment
 
-To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
 
 ![Screenshot of terraform destroy being run](./17.png)
 

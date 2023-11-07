@@ -122,11 +122,11 @@ In case the AKS service is not available in your region, you can change the AKS 
     Set-Item -Path env:TF_VAR_client_id
     ```
 
-* Run the ```terraform init``` command which will download the Terraform AzureRM provider.
+* Run the *`terraform init`* command which will download the Terraform AzureRM provider.
 
     ![Screenshot showing terraform init being run](./01.png)
 
-* Run the ```terraform apply -auto-approve`` command and wait for the plan to finish.
+* Run the *`terraform apply -auto-approve`* command and wait for the plan to finish.
 
     Once the Terraform deployment is completed, a new Resource Group and all services (Vnet, Subnets, VMs, IoT Hub, EventHub, AKS Cluster) are created.
 
@@ -231,6 +231,6 @@ The most straightforward way is to delete the Azure Arc-enabled Kubernetes resou
 
 ![Screenshot showing delete function in the Azure portal](./14.png)
 
-If you want to nuke the entire environment, delete both the AKS and the AKS resources resource groups or run the ```terraform destroy -auto-approve``` command.
+If you want to nuke the entire environment, delete both the AKS and the AKS resources resource groups or run the *`terraform destroy -auto-approve`* command.
 
 ![Screenshot showing terraform destroy being run](./15.png)

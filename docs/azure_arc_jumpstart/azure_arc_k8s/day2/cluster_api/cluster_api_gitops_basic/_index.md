@@ -203,7 +203,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
   - In **Your fork** of the "Azure Arc Jumpstart App" repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
 
-  - The external IP address of the Kubernetes Service seen using the ```kubectl get svc -n hello-arc``` command.
+  - The external IP address of the Kubernetes Service seen using the *`kubectl get svc -n hello-arc`* command.
 
     ![kubectl get svc -n hello-arc](./15.png)
 

@@ -308,7 +308,7 @@ In order to view these cluster extensions, click on the Azure Arc-enabled Kubern
 
 - Expand the source SQL instance and navigate to the _AdventureWorks_ database and execute the following query, use the same username and password as the previous step.
 
-  ```Sql
+  ```sql
     BACKUP DATABASE AdventureWorksLT2019
     TO DISK = 'C:\temp\AdventureWorksLT2019.bak'
     WITH FORMAT, MEDIANAME = 'AdventureWorksLT2019' ;
@@ -332,7 +332,7 @@ In order to view these cluster extensions, click on the Azure Arc-enabled Kubern
   - Copy the backup to the Azure Arc-enabled SQL Managed Instance pod
   - Initiate the backup restore process
 
- ```PowerShell
+ ```powershell
  Set-Location -Path c:\temp
 $nestedWindowsUsername = "Administrator"
 $nestedWindowsPassword = "ArcDemo123!!"

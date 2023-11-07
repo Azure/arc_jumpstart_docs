@@ -35,7 +35,7 @@ The following Jumpstart scenario will guide you on how to onboard an Azure Arc-e
 
     ![Screenshot of Azure portal showing Azure Arc-enabled server extensions](./03.png)
 
-- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.42.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.42.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP)
 

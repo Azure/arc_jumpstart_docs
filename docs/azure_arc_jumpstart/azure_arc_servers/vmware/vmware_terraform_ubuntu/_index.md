@@ -93,7 +93,7 @@ Before using the below guide to deploy an Ubuntu Server VM and connect it to Azu
 
 Before executing the Terraform plan, you must set the environment variables which will be used by the plan. These variables are based on the Azure service principal you've just created, your Azure subscription and tenant, and your VMware vSphere credentials.
 
-- Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+- Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 - The Terraform plan creates resources in both Microsoft Azure and VMware vSphere. It then executes a script on the virtual machine to install the Azure Arc agent and all necessary artifacts. This script requires certain information about your VMware vSphere and Azure environments. Edit [_scripts/vars.sh_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/vmware/ubuntu/terraform/scripts/vars.sh) and update each of the variables with the appropriate values.
 
@@ -119,11 +119,11 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![ TF_VAR environment variables](./01.png)
 
-- Run the ```terraform init``` command which will download the Terraform AzureRM, Local and vSphere providers.
+- Run the *`terraform init`* command which will download the Terraform AzureRM, Local and vSphere providers.
 
     ![terraform init](./02.png)
 
-- Run the ```terraform apply --auto-approve``` command and wait for the plan to finish.
+- Run the *`terraform apply --auto-approve`* command and wait for the plan to finish.
 
 - Once the Terraform deployment is completed, a new Ubuntu Server VM will be up & running and will be projected as an Azure Arc-enabled server resource in a newly created Azure resource group.
 
@@ -143,6 +143,6 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     If you delete the instance manually, then you should also delete _install_arc_agent.sh_ which is created by the Terraform plan.
 
-- If you want to nuke the entire environment use the ```terraform destroy --auto-approve``` command as shown below.
+- If you want to nuke the entire environment use the *`terraform destroy --auto-approve`* command as shown below.
 
     ![terraform destroy](./08.png)

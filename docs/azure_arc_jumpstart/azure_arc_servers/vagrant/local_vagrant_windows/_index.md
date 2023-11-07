@@ -28,13 +28,13 @@ The following Jumpstart scenario will guide you on how to deploy a local **Windo
 
   - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
-    - If you are an OSX user, simply run ```brew cask install virtualbox```
+    - If you are an OSX user, simply run *`brew cask install virtualbox`*
     - If you are a Windows user, you can use the [Chocolatey package](https://chocolatey.org/packages/virtualbox)
     - If you are a Linux user, all package installation methods can be found [here](https://www.virtualbox.org/wiki/Linux_Downloads)
 
   - Install [Vagrant](https://www.vagrantup.com/docs/installation/)
 
-    - If you are an OSX user, simply run ```brew cask install vagrant```
+    - If you are an OSX user, simply run *`brew cask install vagrant`*
     - If you are a Windows user, you can use the [Chocolatey package](https://chocolatey.org/packages/vagrant)
     - If you are a Linux user, look [here](https://www.vagrantup.com/downloads.html)
 
@@ -107,7 +107,7 @@ Like any Vagrant deployment, a [*Vagrantfile*](https://github.com/microsoft/azur
 1. Download the Windows 10 image file [Vagrant Box](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
 2. Execute the Arc installation script
 
-After editing the ***scripts/vars.ps1*** script to match your environment, from the *Vagrantfile* folder, run ```vagrant up```. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Windows 10 box for the first time.
+After editing the ***scripts/vars.ps1*** script to match your environment, from the *Vagrantfile* folder, run *`vagrant up`*. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Windows 10 box for the first time.
 
 ![Screenshot of running vagrant up](./01.png)
 
@@ -135,7 +135,7 @@ In a case you want to demo/control the actual registration process, to the follo
 
     ![Screenshot of az group create being run](./07.png)
 
-- RDP the VM using the ```vagrant rdp``` command. Use *vagrant/vagrant* as the username/password.
+- RDP the VM using the *`vagrant rdp`* command. Use *vagrant/vagrant* as the username/password.
 
     ![Screenshot of RDP into a Vagrant server](./08.png)
 
@@ -143,12 +143,12 @@ In a case you want to demo/control the actual registration process, to the follo
 
     ![Screenshot of PowerShell ISE](./09.png)
 
-- Paste the ```Invoke-Expression "C:\runtime\vars.ps1"``` commmand, the ```az group create --location $env:location --name $env:resourceGroup --subscription $env:subscriptionId``` command and the same *azcmagent connect* command you've just commented and execute the script.
+- Paste the *`Invoke-Expression "C:\runtime\vars.ps1"`* commmand, the *`az group create --location $env:location --name $env:resourceGroup --subscription $env:subscriptionId`* command and the same *azcmagent connect* command you've just commented and execute the script.
 
     ![Screenshot of PowerShell ISE running a script](./10.png)
 
 ## Delete the deployment
 
-To delete the entire deployment, run the ```vagrant destroy -f``` command. The Vagrantfile includes a *before: destroy* Vagrant trigger which will run the command to delete the Azure resource group before destroying the actual VM. That way, you will be starting fresh next time.
+To delete the entire deployment, run the *`vagrant destroy -f`* command. The Vagrantfile includes a *before: destroy* Vagrant trigger which will run the command to delete the Azure resource group before destroying the actual VM. That way, you will be starting fresh next time.
 
 ![Screenshot of vagrant destroy being run](./11.png)

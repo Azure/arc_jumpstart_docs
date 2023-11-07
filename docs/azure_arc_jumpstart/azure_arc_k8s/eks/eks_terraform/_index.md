@@ -119,18 +119,18 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   cd azure_arc_k8s_jumpstart/eks/terraform
   ```
 
-* Run the ```terraform init``` command which will initialize Terraform, creating the state file to track our work:
+* Run the *`terraform init`* command which will initialize Terraform, creating the state file to track our work:
 
   ![Screenshot showing terraform init being run](./terraform_init.png)
 
-* Plan the Terraform deployment by running the ```terraform plan -out=infra.out``` command.
+* Plan the Terraform deployment by running the *`terraform plan -out=infra.out`* command.
   Wait for the plan to finish:
 
   ![Screenshot showing terraform plan being run](./terraform_plan.png)
 
   > **Note:**  Screenshot has been clipped for brevity.
 
-* Deploy EKS by running the ```terraform apply "infra.out"``` command.
+* Deploy EKS by running the *`terraform apply "infra.out"`* command.
   Wait for the plan to finish:
 
   ![Screenshot showing terraform apply being run](./terraform_apply.png)
@@ -149,7 +149,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   terraform output -raw kubeconfig > %USERPROFILE%\.kube\config
   ```
 
-  Check to see if cluster is discoverable by ```kubectl``` by running:
+  Check to see if cluster is discoverable by *`kubectl`* by running:
 
   ```shell
   kubectl version
@@ -225,6 +225,6 @@ az group delete --name "Arc-EKS-Demo"
 
 ![Screenshot showing delete resource group function in the Azure portal](./delete_resource_group.png)
 
-To delete the EKS cluster and supporting components, use the ```terraform destroy --auto-approve``` command.
+To delete the EKS cluster and supporting components, use the *`terraform destroy --auto-approve`* command.
 
 ![Screenshot showing terraform destroy being run](./terraform_destroy.png)

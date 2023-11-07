@@ -178,7 +178,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
 - On the Client VM, open Windows Terminal, switch to the _Staging_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Dev_ environment and deploys it to the _Staging_ cluster.
 
-  ```azurecli
+  ```shell
   kubectx staging
   kubectl get pods -n contoso-supermarket
   ```
@@ -211,7 +211,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
 - On the Client VM, open Windows Terminal, switch to the _Chicago_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
 
-  ```azurecli
+  ```shell
   kubectx chicago
   kubectl get pods -n contoso-supermarket
   ```
@@ -236,7 +236,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
 - On the Client VM, open Windows Terminal, switch to the _Seattle_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
 
-     ```azurecli
+     ```shell
      kubectx seattle
      kubectl get pods -n contoso-supermarket
      ```

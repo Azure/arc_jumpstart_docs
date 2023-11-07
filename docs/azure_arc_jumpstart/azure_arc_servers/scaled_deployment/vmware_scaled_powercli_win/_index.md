@@ -122,7 +122,7 @@ To demonstrate the before & after for this scenario, the below screenshots shows
 
 Before running the PowerCLI script, you must set the [environment variables](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/vmware/scaled_deployment/powercli/windows/vars.ps1) which will be used by the *install_arc_agent.ps1* script. These variables are based on the Azure service principal you've just created, your Azure subscription and tenant, and your VMware vSphere credentials and data.
 
-- Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command
+- Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command
 
 - Use the Azure service principal ID and password created in the prerequisites section
 

@@ -42,7 +42,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
 * [Install or update Azure PowerShell modules](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-5.6.0). Use the below command to check your current installed version.
 
-  ```PowerShell
+  ```powershell
   Get-InstalledModule -Name Az -AllVersions | select Name,Version
   ```
 
@@ -56,7 +56,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
 * Enable subscription with the resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
   Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
   Register-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
@@ -64,7 +64,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
   You can monitor the registration process with the following commands:
 
-  ```PowerShell
+  ```powershell
   Get-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
   Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
   Get-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
@@ -234,13 +234,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * To show the above flow, open 2 (ideally 3) side-by-side browser windows:
 
-  * In PowerShell run ```kubectl get pods -n prod -w```
+  * In PowerShell run *`kubectl get pods -n prod -w`*
 
     ![kubectl get pods -n prod -w](./12.png)
 
   * In your own repository fork, open the "Hello Arc" [*hello-arc.yaml*](https://github.com/likamrat/hello_arc/blob/master/releases/prod/hello-arc.yaml) Helm release file.
 
-  * The external IP address of the Kubernetes Service seen using the ```kubectl get svc -n cluster-mgmt``` command.
+  * The external IP address of the Kubernetes Service seen using the *`kubectl get svc -n cluster-mgmt`* command.
 
     ![kubectl get svc -n cluster-mgmt](./13.png)
 

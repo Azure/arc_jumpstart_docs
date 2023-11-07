@@ -17,7 +17,7 @@ linkTitle: Cleanup
 
   ![Screenshot showing group delete from Azure portal](./img/portal_delete.png)
 
-- If you used Azure Developer CLI to deploy then ```azd down``` can be used instead.
+- If you used Azure Developer CLI to deploy then *`azd down`* can be used instead.
 
   ![Screenshot showing azd down](./img/azd_down.png)
 
