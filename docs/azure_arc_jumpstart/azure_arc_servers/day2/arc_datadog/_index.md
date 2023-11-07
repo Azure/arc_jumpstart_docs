@@ -103,7 +103,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - app_Id: your service principal ID.
   - app_secret: your service principal secret.
   - subscription_id: your Azure subscription ID.
-  - tenantId: your Azure AD tenant.
+  - tenantId: your Microsoft Entra ID tenant.
 
 - To run the PowerShell script, navigate to the [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/datadog/) and run the below command:
 

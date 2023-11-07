@@ -194,7 +194,7 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
   - _`deploySQLMI`_ - Boolean that sets whether or not to deploy SQL Managed Instance, for this data controller vanilla scenario we leave it set to *`false`*.
   - _`SQLMIHA`_ - Boolean that sets whether or not to deploy SQL Managed Instance with high-availability (business continuity) configurations, for this data controller vanilla scenario we leave it set to *`false`*.
   - _`deployPostgreSQL`_ - Boolean that sets whether or not to deploy PostgreSQL, for this data controller vanilla scenario we leave it set to *`false`*.
-  - **_`customLocationObjectId`_** - The Azure AD application used by Azure Arc service retrieved in the prerequisites section.
+  - **_`customLocationObjectId`_** - The Microsoft Entra ID application used by Azure Arc service retrieved in the prerequisites section.
 
 > **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
 
