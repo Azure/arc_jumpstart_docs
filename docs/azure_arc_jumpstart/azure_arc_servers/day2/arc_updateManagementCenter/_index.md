@@ -58,6 +58,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 - Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_servers_jumpstart%2FupdateManagementCenter%2Fupdate-management-center-template.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for just the ARM template parameters highlighted below.
 
+
 For more information about these parameters, see their description provided in the [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/updateManagementCenter/update-management-center.parameters.json).
 
   ![Screenshot of Azure portal deployment](./02.png)
