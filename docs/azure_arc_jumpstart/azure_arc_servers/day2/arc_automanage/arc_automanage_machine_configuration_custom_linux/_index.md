@@ -67,7 +67,7 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 - In the VS Code menu, click Terminal -> New
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/install-ubuntu?view=powershell-7.3#installation-via-direct-download) by running the following in the terminal window:
 
-```bash
+```shell
 wget https://github.com/PowerShell/PowerShell/releases/download/v7.3.9/powershell_7.3.9-1.deb_amd64.deb
 sudo dpkg -i /home/arcdemo/powershell_7.3.9-1.deb_amd64.deb
 ```
@@ -78,7 +78,7 @@ sudo dpkg -i /home/arcdemo/powershell_7.3.9-1.deb_amd64.deb
 
 - Due to a specific prerequisite (libmi) for packaging Machine Configurations, install the PSWSMan module which contains the required dependencies:
 
-```bash
+```shell
 sudo pwsh
 Install-Module -Force -PassThru -Name PSWSMan
 Install-WSMan

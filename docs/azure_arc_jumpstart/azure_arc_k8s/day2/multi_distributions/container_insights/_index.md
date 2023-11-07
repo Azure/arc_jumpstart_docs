@@ -136,7 +136,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - You can also verify the pods by running the command below:
 
-  ```bash
+  ```shell
   kubectl get pod -n kube-system --kubeconfig <kubeconfig> | grep omsagent
   ```
 
@@ -171,7 +171,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Create the above file and run the following command to create the pod:
 
-  ```bash
+  ```shell
   kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
   ```
   
@@ -187,7 +187,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 Complete the following steps to clean up your environment. The commands below delete the extension instance, recommended alerts, action group and Log Analytics workspace.
 
-  ```bash
+  ```shell
   export arcClusterName='<Azure Arc Cluster Name>'
   export resourceGroup='<Azure resource group name>'
   export logAnalyticsWorkspace='<Log Analytics Workspace Name>'

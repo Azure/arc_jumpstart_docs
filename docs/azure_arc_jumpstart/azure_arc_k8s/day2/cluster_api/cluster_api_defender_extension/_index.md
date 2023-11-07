@@ -117,7 +117,7 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
 * You can also verify the deployment by running the command below:
 
-```bash
+```shell
 kubectl get pods -n azuredefender --kubeconfig <cluster-name>.kubeconfig
 ```
 
@@ -127,7 +127,7 @@ kubectl get pods -n azuredefender --kubeconfig <cluster-name>.kubeconfig
 
 To verify that Microsoft Defender for Cloud is working properly and alerting on security threats, run the below command to simulate an alert:
 
-```bash
+```shell
 kubectl get pods --namespace=asc-alerttest-662jfi039n --kubeconfig <cluster-name>.kubeconfig
 ```
 
@@ -143,6 +143,6 @@ Within 30 minutes Microsoft Defender for Cloud will detect this event and trigge
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace or disables Microsoft Defender for Cloud.
 
-```bash
+```shell
 az k8s-extension delete --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```

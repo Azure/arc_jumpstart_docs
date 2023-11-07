@@ -103,7 +103,7 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact. You can visit the Insights section of Azure Arc resource in the Azure portal and can see the onboarding state as not connected.
 
-```bash
+```shell
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 

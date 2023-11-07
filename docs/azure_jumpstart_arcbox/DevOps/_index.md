@@ -582,7 +582,7 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
       ![Screenshot showing bookstore RBAC delete pods](./capi_rbac03.png)
 
-  - Optionally, you can test the access using [auth can-i](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access) command to validate RBAC access.
+  - Optionally, you can test the access using [_auth can-i_](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access) command to validate RBAC access.
   
     ```shell
     kubectl --namespace bookstore auth can-i get pods --as=jane
@@ -673,7 +673,7 @@ ArcBox uses a GitOps configuration on the OSM bookstore application to split tra
 
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-CAPI-Data_ workload cluster:
 
-  ```bash
+  ```shell
   kubectx arcbox-capi
   kubectl get pods --namespace=asc-alerttest-662jfi039n
   ```
