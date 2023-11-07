@@ -100,7 +100,7 @@ Create AWS User IAM Key. An access key grants programmatic access to your resour
 
     ![Create AWS IAM Role & Key](./05.png)
 
-* In the popup window it will show you the ***Access key ID*** and ***Secret access key***. Save both of these values to configure the **Terraform plan** variables later.
+* In the popup window it will show you the *Access key ID* and *`Secret access key`*. Save both of these values to configure the **Terraform plan** variables later.
 
     ![Create AWS IAM Role & Key](./06.png)
 

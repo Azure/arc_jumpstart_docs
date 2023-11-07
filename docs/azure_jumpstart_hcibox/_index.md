@@ -230,9 +230,9 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the HCIBox Log Analytics workspace
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
-  - _`registerCluster`_ - Option to automatically register the cluster; set to true by default
-  - _`deployAKSHCI`_ - Option to automatically deploy and configure AKS on HCI; set to true by default
-  - _`deployResourceBridge`_ - Option to automatically deploy and configure Arc Resource Bridge; set to true by default
+  - _`registerCluster`_ - Option to automatically register the cluster; set to *`true`* by default
+  - _`deployAKSHCI`_ - Option to automatically deploy and configure AKS on HCI; set to *`true`* by default
+  - _`deployResourceBridge`_ - Option to automatically deploy and configure Arc Resource Bridge; set to *`true`* by default
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
 

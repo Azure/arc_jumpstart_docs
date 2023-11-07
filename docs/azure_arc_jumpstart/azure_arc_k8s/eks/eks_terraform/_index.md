@@ -99,7 +99,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     ![Screenshot showing how to create AWS IAM key](./iam_create_access_key.png)
 
-  * In the popup window it will show you the ***Access key ID*** and ***Secret access key***. Save both of these values to configure **AWS CLI** later
+  * In the popup window it will show you the *Access key ID* and *`Secret access key`*. Save both of these values to configure **AWS CLI** later
 
     ![Screenshot showing how to reveal the created AWS IAM key](./iam_show_access_key.png)
 

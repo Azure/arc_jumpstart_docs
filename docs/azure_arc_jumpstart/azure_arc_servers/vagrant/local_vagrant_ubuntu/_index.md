@@ -106,7 +106,7 @@ Like any Vagrant deployment, a [*Vagrantfile*](https://github.com/microsoft/azur
 1. Download the Ubuntu 16.04 image file [Vagrant Box](https://app.vagrantup.com/ubuntu/boxes/xenial64)
 2. Execute the installation script
 
-After editing the ***scripts/vars.sh*** script to match your environment, from the *Vagrantfile* folder, run *`vagrant up`*. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Ubuntu box for the first time.
+After editing the *`scripts/vars.sh`* script to match your environment, from the *Vagrantfile* folder, run *`vagrant up`*. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Ubuntu box for the first time.
 
 ![Screenshot of vagrant up being run](./01.png)
 

@@ -88,7 +88,7 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 
 ## Cleanup
 
-> **Note:** Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to _Free_.
+> **Note:** Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to *`Free`*`.
 
 - Login to AZ CLI using the *`az login`* command.
 
