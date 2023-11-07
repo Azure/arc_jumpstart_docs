@@ -1,18 +1,24 @@
-name: Trigger Production Workflow in azure-arc-jumpstart-app
+name: Trigger Workflow in azure-arc-jumpstart-app
 
 on:
   push:
     branches:
-      - main
+      - main-test
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Obtain a GitHub App Installation Access Token
+        id: githubAppAuth
+        run: |
+          TOKEN="$(npx obtain-github-app-installation-access-token ci ${{ secrets.GH_APP_CREDENTIALS_TOKEN_NEW }})"
+          echo "::add-mask::$TOKEN"
+          echo "::set-output name=token::$TOKEN"
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.REPO2_DISPATCH_TOKEN }}
+          github-token: ${{ steps.githubAppAuth.outputs.token }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'Azure',
