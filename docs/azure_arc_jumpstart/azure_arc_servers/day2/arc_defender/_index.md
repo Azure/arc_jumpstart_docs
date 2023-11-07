@@ -22,7 +22,7 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
 - Review Microsoft Defender for Cloud recommendations.
 
-- Apply recommended configurations on Azure Arc-enabled servers using the ***Quick Fix*** remediations.
+- Apply recommended configurations on Azure Arc-enabled servers using the ***Quick Fix*** remediation.
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 

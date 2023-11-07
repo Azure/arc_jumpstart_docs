@@ -230,9 +230,9 @@ Read the below explanation to get familiar with the automation and deployment fl
   - **_`ARC_DC_SUBSCRIPTION`_** - Azure Arc Data Controller Azure subscription ID
   - **_`ARC_DC_RG`_** - Azure resource group where all future Azure Arc resources will be deployed
   - **_`ARC_DC_REGION`_** - Azure location where the Azure Arc Data Controller resource will be created in Azure (Currently, supported regions supported are eastus, eastus2, centralus, westus2, westeurope, southeastasia)
-  - **_`deploy_SQLMI`_** - Boolean that sets whether or not to deploy SQL Managed Instance, for this data controller only scenario we leave it set to false
-  - **_`SQLMIHA`_** - Boolean that sets whether or not to deploy SQL Managed Instance with high-availability (business continuity) configurations, for this data controller vanilla scenario we leave it set to false
-  - **_`deploy_PostgreSQL`_** - Boolean that sets whether or not to deploy PostgreSQL, for this data controller only scenario we leave it set to false
+  - **_`deploy_SQLMI`_** - Boolean that sets whether or not to deploy SQL Managed Instance, for this data controller only scenario we leave it set to *`false`*
+  - **_`SQLMIHA`_** - Boolean that sets whether or not to deploy SQL Managed Instance with high-availability (business continuity) configurations, for this data controller vanilla scenario we leave it set to *`false`*
+  - **_`deploy_PostgreSQL`_** - Boolean that sets whether or not to deploy PostgreSQL, for this data controller only scenario we leave it set to *`false`*
   - **_`templateBaseUrl`_** - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well - e.g. `https://raw.githubusercontent.com/your--github--account/azure_arc/your--branch/azure_arc_data_jumpstart/gke/terraform/`
   - **_`MY_IP`_** - Your Client IP
 

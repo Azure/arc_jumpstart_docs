@@ -107,7 +107,7 @@ Like any Vagrant deployment, a [*Vagrantfile*](https://github.com/microsoft/azur
 1. Download the Windows 10 image file [Vagrant Box](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
 2. Execute the Arc installation script
 
-After editing the ***scripts/vars.ps1*** script to match your environment, from the *Vagrantfile* folder, run *`vagrant up`*. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Windows 10 box for the first time.
+After editing the *`scripts/vars.ps1`* script to match your environment, from the *Vagrantfile* folder, run *`vagrant up`*. As this is the first time you are creating the VM, the first run will be **much slower** than the ones to follow. This is because the deployment is downloading the Windows 10 box for the first time.
 
 ![Screenshot of running vagrant up](./01.png)
 

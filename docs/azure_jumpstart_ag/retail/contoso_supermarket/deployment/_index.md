@@ -226,7 +226,7 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
   - _`spnTenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator name
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to true or false.
+  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
   - _`githubUser`_ - The name of the user account on GitHub where you have forked the [_jumpstart-agora-apps_ repo](https://github.com/microsoft/jumpstart-agora-apps)
   - _`githubPAT`_ - The GitHub PAT token that you created as part of the prerequisites.
 
