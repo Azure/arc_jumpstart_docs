@@ -12,7 +12,7 @@ Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service cl
 
 - Sign in to Azure CLI using your user account. Fetch the objectId of the Azure AD application used by Azure Arc service.
 
-  ```bash
+  ```shell
   az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv
   ```
 

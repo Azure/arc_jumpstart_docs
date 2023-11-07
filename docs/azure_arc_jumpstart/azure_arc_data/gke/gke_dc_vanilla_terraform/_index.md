@@ -244,7 +244,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
   #### Option 1: Bash
 
-  ```bash
+  ```shell
   export TF_VAR_CL_OID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 

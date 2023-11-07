@@ -129,7 +129,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   #### Option 1: Bash
 
-  ```bash
+  ```shell
   customLocationRPOID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 

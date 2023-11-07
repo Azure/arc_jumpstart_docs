@@ -135,7 +135,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   
   - The azure-policy pods are installed in the kube-system namespace:
 
-    ```bash
+    ```shell
     kubectl get pods -n kube-system --kubeconfig <kubeconfig> | grep azure-policy
     ```
 
@@ -143,7 +143,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
   - The gatekeeper pods are installed in the gatekeeper-system namespace:
 
-    ```bash
+    ```shell
     kubectl get pods -n gatekeeper-system --kubeconfig <kubeconfig>
     ```
 
@@ -180,7 +180,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Create the above file and run the following command to create the pod:
 
-  ```bash
+  ```shell
   kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
   ```
 
@@ -204,7 +204,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 Complete the following steps to clean up your environment. The commands below delete the extension instance and the Azure Policy Assignment.
 
-  ```bash
+  ```shell
   export arcClusterName='<Azure Arc Cluster Name>'
   export resourceGroup='<Azure resource group name>'
   az k8s-extension delete --name azurepolicy --cluster-type connectedClusters --cluster-name $arcClusterName --resource-group $resourceGroup
