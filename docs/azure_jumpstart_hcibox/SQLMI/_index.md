@@ -10,7 +10,7 @@ Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service cl
 
 - You will first need to get the Azure Custom Location Resource Provider (RP) Object ID (OID). This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your Arc-enabled Kubernetes cluster.
 
-- Sign in to Azure CLI using your user account. Fetch the objectId of the Azure AD application used by Azure Arc service.
+- Sign in to Azure CLI using your user account. Fetch the objectId of the Microsoft Entra ID application used by Azure Arc service.
 
   ```shell
   az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv

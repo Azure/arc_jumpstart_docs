@@ -112,7 +112,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - _`vcenterPassword`_ - password to authenticate to vCenter
   - _`spnClientId`_ - your service principal App ID
   - _`spnClientSecret`_ - your service principal password
-  - _`spnTenantId`_ - your Azure AD tenant ID
+  - _`spnTenantId`_ - your Microsoft Entra ID tenant ID
   - _`vmTemplate`_ - the Arc appliance template name
   - _`datacenter`_ - the vSphere datacenter where the appliance will be deployed
   - _`datastore`_ - the vSphere datastore name where the appliance will be deployed
