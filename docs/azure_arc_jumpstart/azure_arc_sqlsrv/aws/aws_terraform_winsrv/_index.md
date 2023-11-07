@@ -116,7 +116,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     2. Generate and execute the [*sql.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/aws/winsrv/terraform/scripts/sql.ps1.tmpl) script. This script will:
 
-        1. Install Azure CLI, Azure PowerShell module and SQL Server Management Studio (SSMS) [Chocolaty packages](https://chocolatey.org/).
+        1. Install Azure CLI, Azure PowerShell module and SQL Server Management Studio (SSMS) [Chocolatey  packages](https://chocolatey.org/).
 
         2. Create a runtime logon script (*LogonScript.ps1*) which will run upon the user first logon to Windows. Runtime script will:
 
