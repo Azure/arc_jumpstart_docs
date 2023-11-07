@@ -96,7 +96,7 @@ The steps below will help you get familiar with the automation and deployment fl
     --tags "Project=jumpstart_azure_arc_servers"
     ```
 
-![Screenshot showing az group create being run](./04.png)
+    ![Screenshot showing az group create being run](./04.png)
 
 - Next, edit the ARM template [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.parameters.json), providing a name for your Log Analytics workspace and a single email account, which will be used for Azure Monitor alerts notifications. Please, see the [example](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.example.parameters.json) below:
 
@@ -110,7 +110,7 @@ The steps below will help you get familiar with the automation and deployment fl
         --parameters monitoring-template.parameters.json
     ```
 
-![Screenshot showing az deployment group create being run](./06.png)
+    ![Screenshot showing az deployment group create being run](./06.png)
 
 - When the deployment is complete, you should be able to see the resource group with your Log Analytics workspace, Azure dashboard, VMInsights solution and three Workbooks:
 
