@@ -27,7 +27,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
 ## Prerequisites
 
-- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -80,7 +80,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
   
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -89,7 +89,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "JumpstartArcSPN" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -153,7 +153,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the ARM template, login to Azure using AZ CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using AZ CLI with the *`az login`* command.
 
 - The deployment will use an ARM template parameters file to customize your environment. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/privatelink/azuredeploy.parameters.json) file located in your local cloned repository folder. Example parameters files is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/privatelink/azuredeploy.example.parameters.json).
 

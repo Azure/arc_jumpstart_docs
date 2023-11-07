@@ -27,9 +27,9 @@ By the end of the guide, you will have an Azure VM **JS-Client** installed with 
 
 - In case you don't already have one, you can [Create a free Azure account](https://azure.microsoft.com/free/). By default free subscriptions have limitation on number of VM cores used for VM deployment. This scenarios requires 16 vCores to deploy an Azure VM SKU D16sv4 and setup guest VM SQL Server 2019.
 
-- Login to AZ CLI using the ```az login``` command.
+- Login to AZ CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription you want to deploy Jumpstart scenario ARM template by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy Jumpstart scenario ARM template by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - Create Azure service principal (SP)
 
@@ -121,7 +121,7 @@ To get familiar with the automation and deployment flow read the following expla
 
 As mentioned, this deployment will use an ARM Template. You will deploy a single template that creates all the Azure resources in a single resource group as well as onboarding the nested Hyper-V guest SQL Server VM to Azure Arc.
 
-- Before deploying the ARM template, login to Azure using AZ CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using AZ CLI with the *`az login`* command.
 
 - The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.example.json).
 

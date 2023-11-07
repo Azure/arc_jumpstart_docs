@@ -153,7 +153,7 @@ We will use the Azure Custom Script extension on your Azure Arc-enabled server t
 
     ![Screenshot showing restart of nginx service](./21.png)
 
-- Test everything by accessing your Nginx webserver over HTTPS. Open a browser and enter "https://XX.XX.XX.XX" into the address bar, replacing the placeholder with the public IP address of your server.
+- Test everything by accessing your Nginx webserver over HTTPS. Open a browser and enter *`https://XX.XX.XX.XX`* into the address bar, replacing the placeholder with the public IP address of your server.
 
   - You should see a warning describing that your connection is not private or secure. The message will vary depending on which web browser you use.
 

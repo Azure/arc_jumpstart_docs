@@ -55,7 +55,7 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
   
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     Set-AzContext -SubscriptionId "<Subscription Id>" # Required if multiple Azure subscriptions available
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
@@ -65,7 +65,7 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     Set-AzContext -SubscriptionId "11111111-2222-3333-4444-555555555555" # Required if multiple Azure subscriptions available
     $spn = New-AzADServicePrincipal -DisplayName "JumpstartSPN" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
@@ -109,7 +109,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the ARM template, login to Azure using Azure CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
 - The deployment uses the Bicep parameters file. Before initiating the deployment, edit the [_main.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_vi/bicep/main.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_vi/bicep/main.parameters.example.json).
 

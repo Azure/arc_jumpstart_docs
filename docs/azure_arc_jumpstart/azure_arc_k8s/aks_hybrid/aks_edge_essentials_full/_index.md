@@ -83,7 +83,7 @@ As mentioned, this deployment will leverage Azure Bicep templates. You will depl
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the Azure Bicep template, login to Azure using Azure CLI with the ```az login``` command.
+- Before deploying the Azure Bicep template, login to Azure using Azure CLI with the *`az login`* command.
 
 - The deployment uses the Azure Bicep parameters file. Before initiating the deployment, edit the [_main.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_full/bicep_template/main.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_full/bicep_template/main.parameters.example.json).
 

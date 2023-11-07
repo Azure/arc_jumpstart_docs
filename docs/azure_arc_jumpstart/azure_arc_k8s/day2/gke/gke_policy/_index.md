@@ -127,7 +127,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
   * Retrieve cluster Azure Resource ID
   * Install the 'azure-policy-addon' helm chart & Gatekeeper
 
-    After few seconds, by running the the ```kubectl get pods -A``` command, you will notice all pods have been deployed.
+    After few seconds, by running the the *`kubectl get pods -A`* command, you will notice all pods have been deployed.
 
     ![kubectl get pods](./11.png)
 

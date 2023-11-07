@@ -82,7 +82,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
 - Check whether Azure Policy is installed in an Azure Arc-enabled Kubernetes cluster
 
-  > by running the ```kubectl get pods -n gatekeeper-system``` command.
+  > by running the *`kubectl get pods -n gatekeeper-system`* command.
   
 - You should see the following pods running.
 
@@ -98,7 +98,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
   kubectl create -f storefront.yaml
   ```
 
-- Deploy the `storefront` demo application in your cluster by running the  ```kubectl create -f storefront.yaml``` command.
+- Deploy the `storefront` demo application in your cluster by running the  *`kubectl create -f storefront.yaml`* command.
 
   ![Showing storefront pods](./20.png)
 
@@ -106,7 +106,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
   kubectl create -f calico-firewall-policy.yaml
   ```
 
-- Deploy a sample Calico network policy by running the  ```kubectl create -f calico-firewall-policy.yaml``` command.
+- Deploy a sample Calico network policy by running the  *`kubectl create -f calico-firewall-policy.yaml`* command.
 
   ![Showing storefront network policy](./21.png)
 

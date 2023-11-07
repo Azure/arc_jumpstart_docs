@@ -124,7 +124,7 @@ The script will:
 * Retrieve the Azure Arc Connected Cluster Azure Resource ID
 * Install the 'azure-policy-addon' helm chart & Gatekeeper
 
-After few seconds, by running the the ```kubectl get pods -A``` command, you will notice all pods have been deployed.
+After few seconds, by running the the *`kubectl get pods -A`* command, you will notice all pods have been deployed.
 
 ![Showing pods deployment](./09.png)
 

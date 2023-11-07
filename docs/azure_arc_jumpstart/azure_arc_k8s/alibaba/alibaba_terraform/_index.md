@@ -127,7 +127,7 @@ The only thing you need to do before executing the Terraform plan is to export t
   $env:ALICLOUD_ACCESS_KEY="aBcDeFgHiJkLmNo"
   ```
 
-- From folder `azure_arc_k8s_jumpstart/alibaba/terraform` run the ```terraform init``` command which will download the required terraform providers.
+- From folder `azure_arc_k8s_jumpstart/alibaba/terraform` Run the *`terraform init`* command which will download the required terraform providers.
 
   ![terraform init output](./05.png)
 

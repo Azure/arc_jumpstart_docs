@@ -46,7 +46,7 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 ![Screenshot of adding a new remote SSH target](./04.png)
 
 - Open VS Code and add a new Remote SSH target:
-  - Enter the value ```ssh arcdemo@10.10.1.103 -A``` and press Enter two times
+  - Enter the value *`ssh arcdemo@10.10.1.103 -A`* and press Enter two times
 
 ![Screenshot of adding SSH connection command](./05.png)
 
@@ -58,7 +58,7 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 
 ![Screenshot of platform selection](./07.png)
 
-- When prompted for password, enter ```ArcDemo123!!```
+- When prompted for password, enter *`ArcDemo123!!`*
 
 - As indicated in the lower left corner, VS Code should now be connected to the remote machine:
 
@@ -72,7 +72,7 @@ wget https://github.com/PowerShell/PowerShell/releases/download/v7.3.9/powershel
 sudo dpkg -i /home/arcdemo/powershell_7.3.9-1.deb_amd64.deb
 ```
 
-- Followed by ```pwsh``` to ensure PowerShell is available.
+- Followed by *`pwsh`* to ensure PowerShell is available.
 
 ![Screenshot of PowerShell installation command](./09.png)
 
@@ -364,7 +364,7 @@ Login to *ArcBox-Ubuntu-01* by running the below command
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Ubuntu-01 -LocalUser arcdemo
 ```
 
-Verify that the packages **hello** and **nginx** are installed by running ```apt list --installed | grep 'hello\|nginx/focal'```
+Verify that the packages **hello** and **nginx** are installed by running *`apt list --installed | grep 'hello\|nginx/focal'`*
 
 ![Screenshot of connection to ArcBox-Ubuntu-01](./17.png)
 

@@ -99,11 +99,11 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   az --version
   ```
 
-- Login to AZ CLI using the ```az login``` command.
+- Login to AZ CLI using the *`az login`* command.
 
 ### Required for manual deployment only (skip this section if using Azure Developer CLI)
 
-- Ensure that you have selected the correct subscription you want to deploy HCIBox to by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy HCIBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - HCIBox must be deployed to one of the following regions. **Deploying HCIBox outside of these regions may result in unexpected results or deployment errors.**
 
@@ -170,7 +170,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -179,7 +179,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "HCIBoxSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -200,15 +200,15 @@ The following prerequisites must be completed in order to deploy HCIBox using th
 
   > **Note:** PowerShell is required for using azd with HCIBox. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
 
-- Login with azd using ```azd auth login``` which will open a browser for interactive login.
+- Login with azd using *`azd auth login`* which will open a browser for interactive login.
 
   ![Screenshot showing azd auth login](./azd_auth_login.png)
 
-- Run the ```azd init``` command from your cloned repo _*azure_jumpstart_hcibox*_ folder.
+- Run the *`azd init`* command from your cloned repo _*azure_jumpstart_hcibox*_ folder.
   
   ![Screenshot showing azd init](./azd_init.png)
 
-- Run the ```azd up``` command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
+- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
 
   ![Screenshot showing azd up](./azd_up.png)
 

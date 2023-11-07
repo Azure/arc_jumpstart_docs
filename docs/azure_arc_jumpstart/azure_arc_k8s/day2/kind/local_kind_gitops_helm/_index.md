@@ -179,7 +179,7 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
 * To show the above flow, open 2 (ideally 3) side-by-side windows:
 
-  * Local shell running ```kubectl get pods -n prod -w```
+  * Local shell running *`kubectl get pods -n prod -w`*
 
     !['kubectl get pods' command](./11.png)
 

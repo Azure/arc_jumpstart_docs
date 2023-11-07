@@ -96,7 +96,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 For you to get familiar with the automation and deployment flow, below is an explanation.
 
 1. User edits the tfvars script to match the environment.
-2. User runs ```terraform init``` to download the required terraform providers.
+2. User runs *`terraform init`* to download the required terraform providers.
 3. User access the bootstrap VM created by the terraform plan and connects the K3s cluster to Azure Arc using the SPN credentials.
 4. User verifies the Arc-enabled Kubernetes cluster.
 
@@ -111,11 +111,11 @@ The only thing you need to do before executing the Terraform plan is to create t
     For example:
     ![Screenshot showing terraform tfvars example](./02.png)
 
-- Run the ```terraform init``` command which will download the Terraform AzureRM provider.
+- Run the *`terraform init`* command which will download the Terraform AzureRM provider.
 
     ![Screenshot showing terraform init](./03.png)
 
-- Run the ```terraform apply --auto-approve``` command and wait for the plan to finish.
+- Run the *`terraform apply --auto-approve`* command and wait for the plan to finish.
 
     ![Screenshot showing terraform apply completed](./04.png)
 

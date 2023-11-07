@@ -40,7 +40,7 @@ When deploying Azure Arc-enabled data services, a [Grafana](https://grafana.com/
 
   ![Grafana desktop shortcut](./grafanashortcut.png)
 
-* [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the _```kubectl get svc -n arc```_ command to view the _metricsui_ external service IP address.
+* [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the *`kubectl get svc -n arc`* command to view the _metricsui_ external service IP address.
 
   ![metricsui Kubernetes service](./metricsui.png)
 

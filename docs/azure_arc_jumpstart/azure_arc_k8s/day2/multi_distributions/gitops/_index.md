@@ -80,19 +80,19 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
     ![New GitOps configuration](./06.png)
 
-- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the ```kubectl get pods -n calico-config``` command.
+- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the *`kubectl get pods -n calico-config`* command.
   > You should see the following pods running.
 
   ![Showing operator deployment](./07.png)
 
 ## Confirm Network Sets exist in the Azure Arc connected cluster
 
-- Check `Network Sets` are installed in an Azure Arc connected Cluster by running the ```kubectl get networkset -n dev ```  command.
+- Check `Network Sets` are installed in an Azure Arc connected Cluster by running the *`kubectl get networkset -n dev`*  command.
   > You should see the following output.
 
   ![Showing network set deployment](./08.png)
 
-- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs in the cluster are the same as your the definitions in the Git repository by running the ```kubectl get networkset -n dev dev-deny-ip -o yaml ``` and ```kubectl get networkset -n dev dev-allow-ip -o yaml ``` command.
+- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs in the cluster are the same as your the definitions in the Git repository by running the *`kubectl get networkset -n dev dev-deny-ip -o yaml`* and *`kubectl get networkset -n dev dev-allow-ip -o yaml`* command.
   > You should see the following output.
   ![Confirm the CIDR](./09.png)  
   ![Confirm the CIDR](./10.png)  
@@ -107,7 +107,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
   
   > **Note:** The sync process can take some time depending on your platform, you can restart your Flux operator to trigger the sync.
 
-- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs have been updated in your Azure Arc connected cluster by running the ```kubectl get networkset -n dev dev-deny-ip -o yaml ``` and ```kubectl get networkset -n dev dev-allow-ip -o yaml ``` commands.
+- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs have been updated in your Azure Arc connected cluster by running the *`kubectl get networkset -n dev dev-deny-ip -o yaml`* and *`kubectl get networkset -n dev dev-allow-ip -o yaml`* commands.
   > You should see the following output.
   ![Confirm the CIDR](./14.png)
   ![Confirm the CIDR](./15.png)

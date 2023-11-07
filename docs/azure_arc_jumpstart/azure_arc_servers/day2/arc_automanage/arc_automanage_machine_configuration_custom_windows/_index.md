@@ -74,7 +74,7 @@ Due to using MOF-based DSC resources for the Windows demo-configuration, we are 
 
 ## Azure resources
 
-> **Note:** For the remaining code blocks in this article, copy the code into ```C:\ArcBox\MachineConfiguration.ps1```, mark the lines you want to run and click F8.
+> **Note:** For the remaining code blocks in this article, copy the code into *C:\ArcBox\MachineConfiguration.ps1*, mark the lines you want to run and click F8.
 
 Authenticate to Azure
 
@@ -280,17 +280,17 @@ Login to *ArcBox-Win2K22* by running the below command
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser Administrator
 ```
 
-Verify that the local group **arcusers** exists by first running ```powershell``` followed by ```Get-LocalUser -Name arcboxuser1```.
+Verify that the local group **arcusers** exists by first running *`powershell`* followed by *`Get-LocalUser -Name arcboxuser1`*.
 
 ![Screenshot of local user present on ArcBox-Win2K22](./05.png)
 
-Verify that the SMB1 feature is not installed by running ```Get-WindowsFeature -Name FS-SMB1```.
+Verify that the SMB1 feature is not installed by running *`Get-WindowsFeature -Name FS-SMB1`*.
 
 - The output should show that the feature is *Available*, not *Installed*
 
 ![Screenshot of SMB1 feature installation status on ArcBox-Win2K22](./06.png)
 
-Verify that PowerShell 7 is installed by running ```pwsh```.
+Verify that PowerShell 7 is installed by running *`pwsh`*.
 
 ![Screenshot of PowerShell 7 presence on ArcBox-Win2K22](./07.png)
 
@@ -302,7 +302,7 @@ Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser
 
 ![Screenshot of connecting to ArcBox-Win2K22 via Azure PowerShell](./08.png)
 
-If you want to evaluate how remediation works, try to make one of the above configuration settings non-compliant by, for example, removing the user arcboxuser1: ```Get-LocalUser -Name arcboxuser1 | Remove-LocalUser```
+If you want to evaluate how remediation works, try to make one of the above configuration settings non-compliant by, for example, removing the user arcboxuser1: *`Get-LocalUser -Name arcboxuser1 | Remove-LocalUser`*
 
 Trigger a [manual evaluation](https://learn.microsoft.com/powershell/module/az.policyinsights/start-azpolicycompliancescan?view=azps-9.4.0) or wait until the next policy evaluation cycle has completed and observe that the policy is now non-compliant.
 

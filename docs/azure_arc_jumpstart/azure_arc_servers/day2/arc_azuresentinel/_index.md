@@ -38,7 +38,7 @@ in this scenario, you will enable and configure Azure Sentinel on your Azure sub
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled server detail](./02.png)
 
-- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP).
 
