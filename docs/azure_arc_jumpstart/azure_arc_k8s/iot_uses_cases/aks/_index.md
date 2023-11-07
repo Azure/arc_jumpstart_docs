@@ -126,9 +126,7 @@ In case the AKS service is not available in your region, you can change the AKS 
 
     ![Screenshot showing terraform init being run](./01.png)
 
-* Run the *`terraform apply -auto-approve`* command and wait for the plan to finish.
-
-    Once the Terraform deployment is completed, a new Resource Group and all services (Vnet, Subnets, VMs, IoT Hub, EventHub, AKS Cluster) are created.
+* Run the *`terraform apply -auto-approve`* command and wait for the plan to finish. Once the Terraform deployment is completed, a new Resource Group and all services (Vnet, Subnets, VMs, IoT Hub, EventHub, AKS Cluster) are created.
 
     ![Screenshot showing terraform plan completing](./02.png)
 
@@ -173,11 +171,11 @@ connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
 sudo iotedge config apply
  ```
 
-![Screenshot showing sync config IoT Edge device in VM](./08.png)
+  ![Screenshot showing sync config IoT Edge device in VM](./08.png)
 
 * Once completed the above steps, return to the Azure Cloud Shell where we will assign to our new device a module to simulate a temperature sensor. For this we will upload the file through the Azure Cloud Shell interface:  
 
-![Screenshot showing sync config IoT Edge device in VM](./09.png)
+  ![Screenshot showing sync config IoT Edge device in VM](./09.png)
 
 * Once the file is uploaded, execute the following command:
 
@@ -189,9 +187,9 @@ az iot edge set-modules --hub-name k8sedgejumpstart --device-id "EdgeDeviceSim" 
 
 * From the Azure portal, select the IoT Hub instance under _K8sEdgeJumpStart_. By selecting our IoT Edge device, we can see all the information about the modules it is running and If everything has been successful we will see that the "SimulatedTemperatureSensor" module is running correctly.
 
-![Screenshot showing IoT Edge device in IoT Hub](./10.png)
+  ![Screenshot showing IoT Edge device in IoT Hub](./10.png)
 
-![Screenshot showing IoT Edge device in IoT Hub](./11.png)
+  ![Screenshot showing IoT Edge device in IoT Hub](./11.png)
 
 * We can also check from the virtual machine itself the modules that are running at that moment, using the following command:
 
@@ -199,7 +197,7 @@ az iot edge set-modules --hub-name k8sedgejumpstart --device-id "EdgeDeviceSim" 
 sudo iotedge list
 ```
 
-![Screenshot showing IoT Edge modules running in the device](./12.png)
+  ![Screenshot showing IoT Edge modules running in the device](./12.png)
 
 * Now download the [values.yaml](https://github.com/Azure/iotedge/blob/preview/iiot/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the deviceConnectionString placeholder at the end of the file with the connection string you noted earlier.
 
@@ -213,12 +211,12 @@ provisioning:
 
 * Edit the environment variables section in the included in the [_az_k8sconfig_helm_aks.sh_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_iot_edge/terraform/scripts/helm/az_k8sconfig_helm_aks.sh) shell script. As we did in the previous steps, upload the files to our Azure Cloud Shell.
 
-![Screenshot environment variables section](./13.png)
+  ![Screenshot environment variables section](./13.png)
 
 * Once the script run has finished, the AKS cluster will be projected as a new Azure Arc-enabled Kubernetes resource. We will proceed to connect to our AKS cluster and in a couple of minutes you should see the workload modules defined in the edge deployment running as pods along with edgeagent and iotedged.
 We can use the following commands to check it:
 
-![Screenshot environment variables section](./16.png)
+  ![Screenshot environment variables section](./16.png)
 
 ```shell
 kubectl get pods -n iotedge
