@@ -147,7 +147,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Connecting to Azure Arc
 
-- Now that you have a running AKS cluster, edit the environment variables section in the included [az_connect_aks](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/arm_template/scripts/az_connect_aks.sh) shell script.
+- Now that you have a running AKS cluster, edit the environment variables section in the included [*az_connect_aks*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/arm_template/scripts/az_connect_aks.sh) shell script.
 
   ![Screenshot of az_connect_aks shell script](./06.png)
 
@@ -159,7 +159,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot of Azure Cloud Shell button in Visual Studio Code](./08.png)
 
-- After editing the environment variables in the [*az_connect_aks*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/arm_template/scripts/az_connect_aks.sh) shell script to match your parameters, save the file and then upload it to the Cloud Shell environment and run it using the ```. ./az_connect_aks.sh``` command.
+- After editing the environment variables in the [az_connect_aks](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/arm_template/scripts/az_connect_aks.sh) shell script to match your parameters, save the file and then upload it to the Cloud Shell environment and run it using the `. ./az_connect_aks.sh` command.
 
   > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
 

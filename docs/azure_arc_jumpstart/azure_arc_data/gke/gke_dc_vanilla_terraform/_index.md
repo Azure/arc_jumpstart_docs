@@ -162,7 +162,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
   3. *Bootstrap.ps1* script will run at the Terraform plan runtime Runtime and will:
       - Create the *Bootstrap.log* file  
-      - Install the required tools – az cli, PowerShell module, kubernetes-cli, Visual C++ Redistributable, HELM, VS Code, etc. (Chocolaty packages)
+      - Install the required tools – az cli, PowerShell module, kubernetes-cli, Visual C++ Redistributable, HELM, VS Code, etc. (Chocolatey  packages)
       - Download Azure Data Studio & Azure Data CLI
       - Disable Windows Server Manager, remove Internet Explorer, disable Windows Firewall
       - Download the DataServicesLogonScript.ps1 PowerShell script

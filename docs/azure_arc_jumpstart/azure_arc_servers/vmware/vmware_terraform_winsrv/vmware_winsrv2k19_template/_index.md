@@ -100,7 +100,7 @@ Before converting the VM to a template, few actions needs to be taken.
   - Turn off Windows Defender FW (can be later tuned on via Group Policy or a PowerShell script)
   - Disabling Internet Explorer Enhanced Security Configuration (ESC) (can be later tuned on via Group Policy or a PowerShell script)
   - Enable Remote Desktop
-  - In PowerShell, install [Chocolaty](https://chocolatey.org/install)
+  - In PowerShell, install [Chocolatey ](https://chocolatey.org/install)
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))

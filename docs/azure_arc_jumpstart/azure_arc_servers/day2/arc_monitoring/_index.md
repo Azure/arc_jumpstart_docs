@@ -96,9 +96,9 @@ The steps below will help you get familiar with the automation and deployment fl
     --tags "Project=jumpstart_azure_arc_servers"
     ```
 
-    ![Screenshot showing az group create being run](./04.png)
+![Screenshot showing az group create being run](./04.png)
 
-- Next, edit the ARM template [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.json), providing a name for your Log Analytics workspace and a single email account, which will be used for Azure Monitor alerts notifications. Please, see the [example](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.example.parameters.json) below:
+- Next, edit the ARM template [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.parameters.json), providing a name for your Log Analytics workspace and a single email account, which will be used for Azure Monitor alerts notifications. Please, see the [example](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/monitoring/monitoring-template.example.parameters.json) below:
 
     ![Screenshot showing Azure ARM template](./05.png)
 
@@ -110,7 +110,7 @@ The steps below will help you get familiar with the automation and deployment fl
         --parameters monitoring-template.parameters.json
     ```
 
-   ![Screenshot showing az deployment group create being run](./06.png)
+![Screenshot showing az deployment group create being run](./06.png)
 
 - When the deployment is complete, you should be able to see the resource group with your Log Analytics workspace, Azure dashboard, VMInsights solution and three Workbooks:
 
@@ -136,7 +136,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
     ![Screenshot showing Syslog of Log Analytics workspace](./13.png)
 
-- Click on the **Solutions** blade of the **Log Analytics workspace**. Review that  **VMInsights** solution is enabled:
+- Click on the **Solutions** blade of the **Log Analytics workspace**. Review that **VMInsights** solution is enabled:
 
     ![Screenshot showing VMInsights solution of Log Analytics workspace](./14.png)
 
@@ -166,7 +166,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 ## Deploying the Log Analytics Agent and the Dependency Agent
 
-This scenario is mainly based on the data collected from the Azure Arc-enabled servers into the Log Analytics workspace. Therefore, it is required to deploy on these servers the [Log Analytics Agent](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#log-analytics-agent) and the [Dependency Agent](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#dependency-agent). There are multiple [methods](https://learn.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#installation-options) to deploy these agents. In this scenario, Azure Policies are used to deploy both agents in Windows and Linux.
+This scenario is mainly based on the data collected from the Azure Arc-enabled servers into the Log Analytics workspace. Therefore, it is required to deploy on these servers the [Log Analytics Agent](https://learn.microsoft.com/azure/azure-monitor/agents/log-analytics-agent) and the [Dependency Agent](https://learn.microsoft.com/azure/virtual-machines/extensions/agent-dependency-windows). There are multiple [methods](https://learn.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#installation-options) to deploy these agents. In this scenario, Azure Policies are used to deploy both agents in Windows and Linux.
 
 For **new** Azure Arc-enabled servers connected within the scope of the policies assignments, the policies will deploy the agents automatically.
 
