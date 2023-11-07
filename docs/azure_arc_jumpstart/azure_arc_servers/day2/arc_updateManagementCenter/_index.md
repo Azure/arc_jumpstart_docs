@@ -60,7 +60,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 For more information about these parameters, see their description provided in the [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/updateManagementCenter/update-management-center.parameters.json).
 
-  ![Screenshot of Azure portal deployment](./02.png)
+![Screenshot of Azure portal deployment](./02.png)
 
 ## Deployment Option 2: ARM template with Azure CLI
 

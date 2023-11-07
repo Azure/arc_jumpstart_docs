@@ -79,7 +79,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
 - Check your subscription quota for the DSv3 family.
 
-    > **Note:** Azure Red Hat OpenShift requires a [minimum of 40 cores](/azure/openshift/tutorial-create-cluster#before-you-begin) to create and run an OpenShift cluster.
+    > **Note:** Azure Red Hat OpenShift requires a [minimum of 40 cores](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#before-you-begin) to create and run an OpenShift cluster.
 
   ```shell
   LOCATION=eastus
