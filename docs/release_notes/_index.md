@@ -8,6 +8,7 @@ weight: 6
 # Azure Arc Jumpstart release notes
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
+Test commit
 
 ## October 2023
 
