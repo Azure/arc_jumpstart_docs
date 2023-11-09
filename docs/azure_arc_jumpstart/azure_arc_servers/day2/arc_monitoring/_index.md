@@ -94,7 +94,17 @@ The steps below will help you get familiar with the automation and deployment fl
     az group create --name <Name for your resource group> \
     --location <Location for your resources> \
     --tags "Project=jumpstart_azure_arc_servers"
+    ```  
+
+    ![Screenshot showing az group create being run](./04.png)
+
+    ```shell
+    az group create --name <Name for your resource group> \
+    --location <Location for your resources> \
+    --tags "Project=jumpstart_azure_arc_servers"
     ```
+
+    <p>&nbsp;</p>
 
     ![Screenshot showing az group create being run](./04.png)
 
