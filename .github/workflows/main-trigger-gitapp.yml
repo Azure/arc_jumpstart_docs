@@ -3,7 +3,7 @@ name: Production Trigger
 on:
   push:
     branches:
-      - main-test
+      - main
 
 jobs:
   dispatch:
