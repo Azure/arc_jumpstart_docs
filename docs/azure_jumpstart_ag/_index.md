@@ -18,7 +18,7 @@ Our mission is to create a rich marketplace of applications that can leverage Hy
 
 - Sandbox environment for getting hands-on with “cloud to edge” industry scenarios.
 - Accelerator for proofs-of-concept or pilots.
-- Training tool for various Microsoft Azure services and open-source projects skills development.
+- Training tool for various Microsoft Azure services and open source projects skills development.
 - Demo environment for customer presentations or events.
 - Rapid integration testing platform.
 
