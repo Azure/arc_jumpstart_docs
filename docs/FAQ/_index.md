@@ -9,7 +9,7 @@ weight: 8
 
 ## Can I contribute to the Arc Jumpstart?
 
-Absolutely! Arc Jumpstart is a community-driven open-source project, and contributions are welcomed. To get started, review the [Jumpstart contribution guidelines](../contribution_guidelines/) and our [Code of Conduct](https://aka.ms/JumpstartCOC).
+Absolutely! Arc Jumpstart is a community-driven open source project, and contributions are welcomed. To get started, review the [Jumpstart contribution guidelines](../contribution_guidelines/) and our [Code of Conduct](https://aka.ms/JumpstartCOC).
 
 ## Can I use an Azure free trial account with Arc Jumpstart?
 
@@ -25,7 +25,7 @@ Each Arc Jumpstart scenario and solution describes what is needed to run the aut
 
 ## Is Arc Jumpstart considered "production-ready"?
 
-The intention of the Arc Jumpstart is to focus on the core Azure Arc, edge, and IoT capabilities, deployment scenarios, use cases, and ease of use. It does not focus on Azure best practices, and/or other products or open-source projects being leveraged in our code. Jumpstart Scenarios, ArcBox, HCIBox, and Agora are all intended for evaluation, training, and demo purposes only and are not supported for production use cases.
+The intention of the Arc Jumpstart is to focus on the core Azure Arc, edge, and IoT capabilities, deployment scenarios, use cases, and ease of use. It does not focus on Azure best practices, and/or other products or open source projects being leveraged in our code. Jumpstart Scenarios, ArcBox, HCIBox, and Agora are all intended for evaluation, training, and demo purposes only and are not supported for production use cases.
 
 ## Is there guidance on how to run a demo using the Arc Jumpstart?
 
