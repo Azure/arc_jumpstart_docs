@@ -196,13 +196,13 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   > **Note:** For visualizing the deployment flow, the automation script deploys [Weave Scope](https://www.weave.works/oss/scope/) pods in the K8s cluster and launches edge against the Load Balancer IP. Note that this is not core to the Azure ML or Azure Arc flow - but is included for visualization purposes.
 
-  **1. Onboard AKS Cluster to Azure Arc**
+  1. Onboard AKS Cluster to Azure Arc
 
   ![PowerShell logon script run](./08.png)
 
   ![PowerShell logon script run](./09.png)
 
-  **2. Enabling Azure Arc-enabled Machine Learning components (k8s-extension with Training, Inference)**
+  2. Enabling Azure Arc-enabled Machine Learning components (k8s-extension with Training, Inference)
 
   ![PowerShell logon script run](./10.png)
 
@@ -212,7 +212,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./13.png)
 
-  **3. Train model using Azure Machine Learning CLI**
+  3. Train model using Azure Machine Learning CLI
 
   ![PowerShell logon script run](./14.png)
 
@@ -220,7 +220,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./16.png)
 
-  **4. Deploy inference endpoint on Kubernetes Cluster**
+  4. Deploy inference endpoint on Kubernetes Cluster
 
   ![PowerShell logon script run](./17.png)
 
@@ -228,7 +228,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./19.png)
 
-  **5. Invoke Inference with sample JSON payload**
+  5. Invoke Inference with sample JSON payload
 
   ![PowerShell logon script run](./20.png)
 
