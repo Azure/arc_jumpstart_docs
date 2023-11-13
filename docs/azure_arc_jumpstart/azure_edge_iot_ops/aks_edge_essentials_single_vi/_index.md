@@ -10,11 +10,13 @@ description: >
 
 The following Jumpstart scenario will guide you on deploying [Azure Video Indexer](https://vi.microsoft.com/) at the edge by using [Azure Arc](https://azure.microsoft.com/products/azure-arc) and [AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-overview). This scenario will deploy the necessary infrastructure in an Azure Virtual Machine, configure an AKS Edge Essentials [single-node deployment](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-howto-single-node-deployment), connect the cluster to Azure Arc, then deploy the Video Indexer extension. The provided Bicep file and PowerShell scripts create the Azure resources and automation needed to configure the Video Indexer extension deployment on the AKS Edge Essentials cluster.
 
-The Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster. This scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks.
+Thie architecture used in this scenario relies on nested virtualization. An Azure virtual machine running Windows Server 2022 is configured as a Hyper-V virtualization host. AKS Edge Essentials is deployed on this host. Because the Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster, this scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks attached to the Azure VM.
 
-  ![Architecture Diagram](./placeholder.png)
+  ![Architecture Diagram](./arch_diagram.png)
 
 ## Prerequisites
+
+- You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
 
 - [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
@@ -199,9 +201,76 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     > **Note: It is normal for the pods in the video-indexer namespace to display some restarts.**
 
-## Video Indexer Web API usage
+## Using Video Indexer enabled by Arc
 
-This scenario deploys the Azure Video Indexer extension via Azure Arc. This extension can be used to index video content using AI algorithms and extract transcriptions, index and timecode content, and perform language translations. Follow this guidance to explore the Video Indexer extension functionality.
+The Video Indexer enabled by Arc can be used in two ways, either through the dedicated [Video Indexer web portal](#video-indexer-web-portal) or [directly via API calls](#video-indexer-web-api). Both methods are described below.
+
+### Video Indexer Web Portal
+
+The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension.
+
+- Open the [Video Indexer web portal](https://www.videoindexer.ai/) and sign in with your AAD account.
+
+  ![Screenshot showing login to VI portal](./portal_login.png)
+
+- Switch to the Video Indexer extension by clicking the dropdown in the upper right corner where your account GUID is shown.
+
+  ![Screenshot showing switching to the Arc extension](./portal_switch_account.png)
+
+- Select the extension from the left pane and then click the "Upload" button.
+
+  ![Screenshot showing selecting the extension](./portal_upload_video)
+
+- You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
+
+  > **Note: You can upload up to 10 video files at a time.**
+
+  ![Screenshot showing upload options](./portal_upload_options1.png)
+
+###########################
+##########################
+#############################
+- Click on __Advance settings__ and select __Indexing preset__, here you can choose the set of AIs to use when indexing your video content, for this scenario we will choose the __Basic video + audio__ preset.
+
+  ![Scrrenshot indexing preset](./upload_preset.png)
+#################
+####################
+
+- Click on "Upload + index" to start the upload process. Once the upload process is finished, you may close the dialog box.
+
+  ![Screenshot showing upload progress](./portal_video_uploading.png)
+
+- A new video box will then be added to the Video library page, and a progress bar will appear to indicate the indexing process.
+
+  ![Screenshot showing indexing progress](./portal_video_indexing.png)
+
+- After the indexing is done, you can view the insights by selecting the video. Go to the video page by clicking on the indexed video.
+
+  ![Screenshot showing video page](./portal_video_page.png)
+
+- First, click on play video. The video will be streamed from the local location set at the extension installation.
+
+  ![Screenshot showing video playing](./portal_play_video.png)
+
+- Click on "Timeline" to view the video transcription including the time stamps. Check that while the video is playing the correct transcript line is highlighted. The text can be translated to one of the supported languages: English (US), Spanish, German, French, Italian, Chinese (Simplified) and Arabic. Click on the dropdown on the top right of the page and select German.
+
+  ![Screenshot showing video language translation options](./portal_language_select.png)
+
+- Now the transcript shown on the right of the page will display the translated transcript in the selected language.
+
+  ![Screenshot showing video transcript](./portal_translated.png)
+
+- Last step, to turn on the captions, click on the text bubble icon on the bottom right side of the player, select one of the supported languages. Captions should start to show while the video is playing.
+
+  ![Screenshot showing captions](./portal_captions.png)
+
+############################
+###########################
+###########################
+
+### Video Indexer Web API
+
+The Video Indexer API is available and running on the AKS cluster. You can make direct calls to the API by using the included Postman application on the Client VM. Follow these steps to work with the API via Postman.
 
 - First, verify that the extension deployed successfully by using Azure CLI. Replace the resource group and cluster name with the values from your deployment. Cluster name is the name of the Arc-enabled Kubernetes cluster as seen from inside your resource group:
 
@@ -276,7 +345,7 @@ Now we can use other API calls to examine the indexed video content.
 
   ![Upload Video step 6](./video_insights.png)
 
-### Exploring logs from the Client VM
+## Exploring logs from the Client VM
 
 Occasionally, you may need to review log output from scripts that run on the _AKS-EE-Demo_ VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the _C:\Temp_ folder on _AKS-EE-Demo_ Azure VM. A short description of the logs and their purpose can be seen in the list below:
 
