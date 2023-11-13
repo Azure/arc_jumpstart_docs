@@ -207,13 +207,66 @@ The Video Indexer enabled by Arc can be used in two ways, either through the ded
 
 ### Video Indexer Web Portal
 
-The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension. 
+The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension.
 
 - Open the [Video Indexer web portal](https://www.videoindexer.ai/) and sign in with your AAD account.
 
   ![Screenshot showing login to VI portal](./portal_login.png)
 
-- Locate the Video Indexer extension.
+- Switch to the Video Indexer extension by clicking the dropdown in the upper right corner where your account GUID is shown.
+
+  ![Screenshot showing switching to the Arc extension](./portal_switch_account.png)
+
+- Select the extension from the left pane and then click the "Upload" button.
+
+  ![Screenshot showing selecting the extension](./portal_upload_video)
+
+- You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
+
+  > **Note: You can upload up to 10 video files at a time.**
+
+  ![Screenshot showing upload options](./portal_upload_options1.png)
+
+###########################
+##########################
+#############################
+- Click on __Advance settings__ and select __Indexing preset__, here you can choose the set of AIs to use when indexing your video content, for this scenario we will choose the __Basic video + audio__ preset.
+
+  ![Scrrenshot indexing preset](./upload_preset.png)
+#################
+####################
+
+- Click on "Upload + index" to start the upload process. Once the upload process is finished, you may close the dialog box.
+
+  ![Screenshot showing upload progress](./portal_video_uploading.png)
+
+- A new video box will then be added to the Video library page, and a progress bar will appear to indicate the indexing process.
+
+  ![Screenshot showing indexing progress](./portal_video_indexing.png)
+
+- After the indexing is done, you can view the insights by selecting the video. Go to the video page by clicking on the indexed video.
+
+  ![Screenshot showing video page](./portal_video_page.png)
+
+- First, click on play video. The video will be streamed from the local location set at the extension installation.
+
+  ![Screenshot showing video playing](./portal_play_video.png)
+
+- Click on "Timeline" to view the video transcription including the time stamps. Check that while the video is playing the correct transcript line is highlighted. The text can be translated to one of the supported languages: English (US), Spanish, German, French, Italian, Chinese (Simplified) and Arabic. Click on the dropdown on the top right of the page and select German.
+
+  ![Screenshot showing video language translation options](./portal_language_select.png)
+
+- Now the transcript shown on the right of the page will display the translated transcript in the selected language.
+
+  ![Screenshot showing video transcript](./portal_translated.png)
+
+- Last step, to turn on the captions, click on the text bubble icon on the bottom right side of the player, select one of the supported languages. Captions should start to show while the video is playing.
+
+  ![Screenshot showing captions](./portal_captions.png)
+
+############################
+###########################
+###########################
 
 ### Video Indexer Web API
 
