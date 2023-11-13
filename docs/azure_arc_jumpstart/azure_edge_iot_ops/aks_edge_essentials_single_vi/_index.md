@@ -360,4 +360,4 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./placeholder.png)
+    ![Screenshot showing Azure resource group deletion](./delete_rg.png)
