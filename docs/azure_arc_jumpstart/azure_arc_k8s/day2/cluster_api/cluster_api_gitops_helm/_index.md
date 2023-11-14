@@ -101,7 +101,7 @@ With Namespace-level GitOps config, the goal is to have Kubernetes resources dep
 
 ## Azure Arc Kubernetes GitOps Configuration with Helm
 
-To create the GitOps Configuration, we will use the _`k8s-configuration flux create`_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to configure the GitOps on your Azure Arc-enabled Kubernetes cluster.
+To create the GitOps Configuration, we will use the _k8s-configuration flux create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to configure the GitOps on your Azure Arc-enabled Kubernetes cluster.
 
 > **Note:** Before configuring GitOps, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.
 
