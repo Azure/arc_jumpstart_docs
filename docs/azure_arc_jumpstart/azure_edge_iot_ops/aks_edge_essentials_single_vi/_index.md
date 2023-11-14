@@ -207,7 +207,11 @@ The Video Indexer enabled by Arc can be used in two ways, either through the ded
 
 ### Video Indexer Web Portal
 
-The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension.
+The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension. In production scenarios you would normally have a valid TLS certificate securing your web api endpoint. In our scenario we are not using a valid TLS and access to the web API is over unsecured HTTPS. In order to use the web portal, you must first allow your browser to connect over unsecure connections via a browser to your extension's API endpoint.
+
+- Open the Azure portal and enter ```https://<your VM public IP>/info``` in the address bar. To bypass the warning about unsecure HTTPS in Microsoft Edge you can type ```thisisunsafe``` with the browser in the foreground.
+
+  ![Screenshot showing access to web API info endpoint](./portal_api_info.png)
 
 - Open the [Video Indexer web portal](https://www.videoindexer.ai/) and sign in with your AAD account.
 
@@ -219,7 +223,7 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
 - Select the extension from the left pane and then click the "Upload" button.
 
-  ![Screenshot showing selecting the extension](./portal_upload_video)
+  ![Screenshot showing selecting the extension](./portal_upload_video)https://20.121.31.142/info
 
 - You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
 
@@ -227,14 +231,11 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
   ![Screenshot showing upload options](./portal_upload_options1.png)
 
-###########################
-##########################
-#############################
-- Click on __Advance settings__ and select __Indexing preset__, here you can choose the set of AIs to use when indexing your video content, for this scenario we will choose the __Basic video + audio__ preset.
+- Click on "Advance settings" and then "Indexing". Here you can choose the set of AIs to use when indexing your video content. For this scenario we will choose the "Basic video + audio" preset.
 
-  ![Scrrenshot indexing preset](./upload_preset.png)
-#################
-####################
+  ![Screenshot showing advanced settings preset](./portal_click_adv_settings.png)
+
+  ![Screenshot showing indexing settings](./portal_adv_settings.png)
 
 - Click on "Upload + index" to start the upload process. Once the upload process is finished, you may close the dialog box.
 
@@ -283,7 +284,7 @@ The Video Indexer API is available and running on the AKS cluster. You can make 
 
   ![Showing video indexer extension](./show_extension.png)
 
-- Next, you will need to get the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
+- You will need the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
 
   ```shell
     kubectl get ing -n video-indexer
@@ -360,4 +361,4 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./placeholder.png)
+    ![Screenshot showing Azure resource group deletion](./delete_rg.png)
