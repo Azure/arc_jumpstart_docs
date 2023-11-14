@@ -269,7 +269,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
   - In **your fork** of the "Azure Arc Jumpstart Apps" repository, open the _hello-arc.yaml_ file (/hello-arc/releases/app/hello-arc.yaml).
 
-  - Another browser window that has the webpage <http://172.19.174.107:32046> open **(replace with your own values)**.
+  - Another browser window that has the webpage *`http://172.19.174.107:32046`* open **(replace with your own values)**.
 
   - End result should look like that:
 

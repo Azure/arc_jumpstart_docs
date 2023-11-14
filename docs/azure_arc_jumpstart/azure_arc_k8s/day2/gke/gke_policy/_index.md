@@ -151,9 +151,7 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
     ![Azure Policy definitions in the Azure portal](./16.png)
 
-* In the below example, the scope of the policy represent the resource group where the GKE connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*.
-
-    For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
+* In the below example, the scope of the policy represent the resource group where the GKE connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*. For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
 
     ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./17.png)
 
