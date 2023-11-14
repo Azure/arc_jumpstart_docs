@@ -119,7 +119,8 @@ The steps below will help you get familiar with the automation and deployment fl
         --template-file monitoring-template.json \
         --parameters monitoring-template.parameters.json
     ```
-
+    
+    <span>&nbsp;</span>
     ![Screenshot showing az deployment group create being run](./06.png)
 
 - When the deployment is complete, you should be able to see the resource group with your Log Analytics workspace, Azure dashboard, VMInsights solution and three Workbooks:
