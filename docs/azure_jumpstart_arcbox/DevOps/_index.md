@@ -4,7 +4,9 @@ linkTitle: "ArcBox for DevOps"
 weight: 3
 ---
 
-## Jumpstart ArcBox for DevOps
+# Jumpstart ArcBox for DevOps
+
+## Overview
 
 ArcBox for DevOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled Kubernetes capabilities in a sandbox environment.
 
