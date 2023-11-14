@@ -71,7 +71,7 @@ in this scenario, you will hook the AKS cluster to Azure Monitor by deploying th
 
     ![An existing Azure Arc-enabled Kubernetes cluster with no Azure Monitor integration](./02.png)
 
-* Edit the environment variables in either of the scripts to match your environment parameters, upload it to the Cloud Shell environment and run it using the ```. ./aks_monitor_onboarding.sh``` (Bash) or ```./aks_monitor_onboarding.ps1``` (PowerShell) command.
+* Edit the environment variables in either of the scripts to match your environment parameters, upload it to the Cloud Shell environment and run it using the `. ./aks_monitor_onboarding.sh` (Bash) or `./aks_monitor_onboarding.ps1` (PowerShell) command.
 
     > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
 

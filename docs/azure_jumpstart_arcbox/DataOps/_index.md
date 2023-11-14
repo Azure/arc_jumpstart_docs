@@ -4,7 +4,9 @@ linkTitle: "ArcBox for DataOps"
 weight: 4
 ---
 
-## Jumpstart ArcBox for DataOps
+# Jumpstart ArcBox for DataOps
+
+## Overview
 
 ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 

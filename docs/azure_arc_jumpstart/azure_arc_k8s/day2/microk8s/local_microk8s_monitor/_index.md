@@ -71,7 +71,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
     ![An existing Azure Arc-enabled Kubernetes cluster with no Azure Monitor integration](./02.png)
 
-* Edit the environment variables in either of the scripts to match your environment parameters, run it using the ```. ./microk8s_monitor_onboarding.sh``` (Bash) or ```./microk8s_monitor_onboarding.ps1``` (PowerShell) command.
+* Edit the environment variables in either of the scripts to match your environment parameters, run it using the `. ./microk8s_monitor_onboarding.sh` (Bash) or `./microk8s_monitor_onboarding.ps1` (PowerShell) command.
 
     ```shell
     export subscriptionId='e73c1dbe-XXXX-XXXX-XXXX-c813757b1786'
