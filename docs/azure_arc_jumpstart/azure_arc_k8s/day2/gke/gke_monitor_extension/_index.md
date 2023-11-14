@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster.
 
-in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
+in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
 
 > > **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
 
@@ -75,9 +75,9 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource Insights](./02.png)
 
-* Edit the environment variables in the script to match your environment parameters and upload it to the Cloud Shell environment. After than run it using the `. ./azure_monitor_k8s_extension.sh` command.
+* Edit the environment variables in the script to match your environment parameters and upload it to the Cloud Shell environment. After than run it using the *`. ./azure_monitor_k8s_extension.sh`* command.
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Screenshot showing GKE cluster in GCP console](./03.png)
 

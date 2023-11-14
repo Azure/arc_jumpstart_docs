@@ -81,7 +81,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * User is running the shell script. The script will use the extension management feature of Azure Arc to deploy the Microsoft Defender for Cloud extension on the Azure Arc connected cluster.
 
-* User is veryfing the cluster is shown in Microsoft Defender for Cloud and that the extension is deployed.
+* User is verifying the cluster is shown in Microsoft Defender for Cloud and that the extension is deployed.
 
 * User is simulating a security alert on the Kubernetes cluster that will cause Microsoft Defender for Cloud to detect this activity and trigger a security alert.
 
@@ -95,11 +95,11 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./02.png)
 
-* Edit the environment variables in [the script](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/cluster_api/capi_defender_extension/azure_defender_k8s_extension.sh) to match your environment parameters followed by running the `. ./azure_defender_k8s_extension.sh` command.
+* Edit the environment variables in [the script](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/cluster_api/capi_defender_extension/azure_defender_k8s_extension.sh) to match your environment parameters followed by running the *`. ./azure_defender_k8s_extension.sh`* command.
 
     ![Screenshot parameter examples](./03.png)
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -109,11 +109,11 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
 * You can see that Microsoft Defender for Cloud is enabled once you visit the security tab section of the Azure Arc-enabled Kubernetes cluster resource in Azure.
 
-![Screenshot extension deployment security tab](./04.png)
+  ![Screenshot extension deployment security tab](./04.png)
 
 * Also verify under the Extensions section of the Azure Arc-enabled Kubernetes cluster that the Microsoft Defender extension is correctly installed.
 
-![Screenshot extension deployment](./05.png)
+  ![Screenshot extension deployment](./05.png)
 
 * You can also verify the deployment by running the command below:
 

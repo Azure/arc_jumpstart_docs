@@ -173,7 +173,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - After editing the environment variables in the [*az_connect_aro*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aro/arm_template/scripts/az_connect_aro.sh) shell script to match your parameters, save the file and then upload it to the Cloud Shell environment and run it using the _`. ./az_connect_aro.sh`_ command.
 
-  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
+  > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the other commands.
 
   ![Screenshot showing upload of file to Cloud Shell](./10.png)
 

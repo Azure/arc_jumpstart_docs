@@ -103,7 +103,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
     ![Screenshot parameter examples](./06.png)
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 

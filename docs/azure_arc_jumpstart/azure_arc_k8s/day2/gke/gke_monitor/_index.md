@@ -71,9 +71,9 @@ in this scenario, you will hook the GKE cluster to Azure Monitor by deploying th
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource Insights](./02.png)
 
-* Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the `. ./gke_monitor_onboarding.sh` command.
+* Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the *`. ./gke_monitor_onboarding.sh`* command.
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Screenshot showing GKE cluster in GCP console](./03.png)
 
