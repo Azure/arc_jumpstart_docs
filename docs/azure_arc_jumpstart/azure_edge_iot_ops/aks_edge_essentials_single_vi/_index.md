@@ -223,7 +223,7 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
 - Select the extension from the left pane and then click the "Upload" button.
 
-  ![Screenshot showing selecting the extension](./portal_upload_video)https://20.121.31.142/info
+  ![Screenshot showing selecting the extension](./portal_upload_video.png)
 
 - You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
 
