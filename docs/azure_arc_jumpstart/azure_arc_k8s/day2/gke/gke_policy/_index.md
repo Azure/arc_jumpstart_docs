@@ -153,13 +153,13 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
 * In the below example, the scope of the policy represent the resource group where the GKE connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*. For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./17.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./17.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./18.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./18.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./19.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./19.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./20.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./20.png)
 
 * Once the policy configuration deployed, after ~10-20min, the policy remediation task will start the evaluation against the Kubernetes cluster, recognize it as "Non-compliant" (since it's still does note have the GitOps configuration deployed) and lastly, after the configuration has been deployed the policy will move to a "Compliant" state. To check this, go back to the main Policy page in the Azure portal.
 

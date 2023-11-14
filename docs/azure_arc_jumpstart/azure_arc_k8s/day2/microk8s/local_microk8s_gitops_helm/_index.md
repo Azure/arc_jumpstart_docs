@@ -125,7 +125,7 @@ The demo application that will be deployed later in this scenario relies on an i
 
     ![multipass list](./05.png)
 
-- Combining the IP address from multipass and the NodePort assigned to the ingress controller, we can now test that the NGINX ingress controller has been deployed successfully. In our case, the full address becomes _`http://172.19.174.107:32046`_.
+- Combining the IP address from multipass and the NodePort assigned to the ingress controller, we can now test that the NGINX ingress controller has been deployed successfully. In our case, the full address becomes _http://172.19.174.107:32046_.
 
 - Using the below in your browser or command line, should get you with a HTTP 404 response with a nginx footer. This shows that the ingress is working. The 404 response is to be expected since you haven't setup an ingress route yet. You will do that in the next section.
 
@@ -163,7 +163,7 @@ With Namespace-level GitOps config, the goal is to have Kubernetes resources dep
 
 ## Azure Arc Kubernetes GitOps Configuration with Helm
 
-To create the GitOps Configuration, we will use the _`k8s-configuration flux create`_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to configure the GitOps on your Azure Arc-enabled Kubernetes cluster.
+To create the GitOps Configuration, we will use the _k8s-configuration flux create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to configure the GitOps on your Azure Arc-enabled Kubernetes cluster.
 
 - In the screenshot below, notice how currently there is no GitOps configuration in your Arc-enabled Kubernetes cluster.
 
@@ -269,7 +269,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
   - In **your fork** of the "Azure Arc Jumpstart Apps" repository, open the _hello-arc.yaml_ file (/hello-arc/releases/app/hello-arc.yaml).
 
-  - Another browser window that has the webpage *`http://172.19.174.107:32046`* open **(replace with your own values)**.
+  - Another browser window that has the webpage *http://172.19.174.107:32046* open **(replace with your own values)**.
 
   - End result should look like that:
 
