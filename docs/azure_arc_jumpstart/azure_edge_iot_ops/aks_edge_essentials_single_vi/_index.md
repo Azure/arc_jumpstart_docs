@@ -6,13 +6,15 @@ weight: 6
 description: >
 ---
 
-## Azure Video Indexer enabled by Arc on AKS Edge Essentials single node deployment
+## Azure Video Indexer enabled by Arc on AKS Edge Essentials single node deployment (preview)
 
 The following Jumpstart scenario will guide you on deploying [Azure Video Indexer](https://vi.microsoft.com/) at the edge by using [Azure Arc](https://azure.microsoft.com/products/azure-arc) and [AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-overview). This scenario will deploy the necessary infrastructure in an Azure Virtual Machine, configure an AKS Edge Essentials [single-node deployment](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-howto-single-node-deployment), connect the cluster to Azure Arc, then deploy the Video Indexer extension. The provided Bicep file and PowerShell scripts create the Azure resources and automation needed to configure the Video Indexer extension deployment on the AKS Edge Essentials cluster.
 
 Thie architecture used in this scenario relies on nested virtualization. An Azure virtual machine running Windows Server 2022 is configured as a Hyper-V virtualization host. AKS Edge Essentials is deployed on this host. Because the Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster, this scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks attached to the Azure VM.
 
   ![Architecture Diagram](./arch_diagram.png)
+
+  > **Note:** Azure Video Indexer enabled by Arc is currently in preview and is not officially supported by Microsoft.
 
 ## Prerequisites
 
@@ -75,9 +77,9 @@ Thie architecture used in this scenario relies on nested virtualization. An Azur
     echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
     ```
 
-    > __Note: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.__
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > __Note: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices)__
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -141,7 +143,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters main.parameters.json
     ```
 
-    > **Note: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned, you will be able to see them in Azure portal.
 
@@ -167,7 +169,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing all NSG rules after opening RDP](./nsg_rdp_rule.png)
 
-    > **Note: Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.**
+    > **Note:** Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.
 
 ### Connect using just-in-time access (JIT)
 
@@ -185,7 +187,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Let the script to run its course and _do not close_ the Powershell session. It will close automatically once completed.
 
-    > **Note: The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.**
+    > **Note:** The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.
 
     ![Screenshot script output](./logonscript.png)
 
@@ -199,7 +201,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot kubectl get pod -A](./kubectl_get_pods.png)
 
-    > **Note: It is normal for the pods in the video-indexer namespace to display some restarts.**
+    > **Note:** It is normal for the pods in the video-indexer namespace to display some restarts.
 
 ## Using Video Indexer enabled by Arc
 
@@ -227,7 +229,7 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
 - You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
 
-  > **Note: You can upload up to 10 video files at a time.**
+  > **Note:** You can upload up to 10 video files at a time.
 
   ![Screenshot showing upload options](./portal_upload_options1.png)
 
@@ -241,7 +243,7 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
   ![Screenshot showing upload progress](./portal_video_uploading.png)
 
-- A new video box will then be added to the Video library page, and a progress bar will appear to indicate the indexing process.
+- The uploaded video will be added to the Video library page, and a progress bar will appear to indicate the indexing process.
 
   ![Screenshot showing indexing progress](./portal_video_indexing.png)
 
@@ -261,13 +263,9 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
   ![Screenshot showing video transcript](./portal_translated.png)
 
-- Last step, to turn on the captions, click on the text bubble icon on the bottom right side of the player, select one of the supported languages. Captions should start to show while the video is playing.
+- Turn on the captions by clicking on the text bubble icon on the bottom right side of the player and selecting one of the supported languages. Captions should start to show while the video is playing.
 
   ![Screenshot showing captions](./portal_captions.png)
-
-############################
-###########################
-###########################
 
 ### Video Indexer Web API
 
