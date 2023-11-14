@@ -207,7 +207,11 @@ The Video Indexer enabled by Arc can be used in two ways, either through the ded
 
 ### Video Indexer Web Portal
 
-The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension.
+The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension. In production scenarios you would normally have a valid TLS certificate securing your web api endpoint. In our scenario we are not using a valid TLS and access to the web API is over unsecured HTTPS. In order to use the web portal, you must first allow your browser to connect over unsecure connections via a browser to your extension's API endpoint.
+
+- Open the Azure portal and enter ```https://<your VM public IP>/info``` in the address bar. To bypass the warning about unsecure HTTPS in Microsoft Edge you can type ```thisisunsafe``` with the browser in the foreground.
+
+  ![Screenshot showing access to web API info endpoint](./portal_api_info.png)
 
 - Open the [Video Indexer web portal](https://www.videoindexer.ai/) and sign in with your AAD account.
 
@@ -219,7 +223,7 @@ The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with th
 
 - Select the extension from the left pane and then click the "Upload" button.
 
-  ![Screenshot showing selecting the extension](./portal_upload_video)
+  ![Screenshot showing selecting the extension](./portal_upload_video)https://20.121.31.142/info
 
 - You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
 
