@@ -75,9 +75,9 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource Insights](./02.png)
 
-* Edit the environment variables in the script to match your environment parameters and upload it to the Cloud Shell environment. After than run it using the `. ./azure_monitor_k8s_extension.sh` command.
+* Edit the environment variables in the script to match your environment parameters and upload it to the Cloud Shell environment. After than run it using the *`. ./azure_monitor_k8s_extension.sh`* command.
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Screenshot showing GKE cluster in GCP console](./03.png)
 

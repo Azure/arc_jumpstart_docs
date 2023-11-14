@@ -127,7 +127,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
     ![Screenshot parameter examples](./06.png)
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     The script will:
 
@@ -135,7 +135,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
   - Retrieve the cluster credentials (KUBECONFIG)
   - Will use Helm to deploy NGINX ingress controller
   - Create the GitOps configurations and deploy the Flux controllers on the Azure Arc connected cluster
-  - Deploy the ["Hello Arc"](https://github.com/microsoft/azure_arc/blob/main/artifacts/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
+  - Deploy the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
 
     > **Disclaimer:** For the purpose of this guide, notice how the "*sync-interval 3s*" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
 
@@ -185,7 +185,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 - The GitOps flow works as follow:
 
-    1. The Flux operator holds the "desired state" of the "Hello Arc" application, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/microsoft/azure_arc/blob/main/artifacts/hello-arc) application repository.
+    1. The Flux operator holds the "desired state" of the "Hello Arc" application, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc) application repository.
 
     2. Changing the application, which is considered to be a new version of it, will trigger the Flux operator to kick in the GitOps flow.
 

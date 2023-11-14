@@ -85,7 +85,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is running the shell script. The script will use the extension management feature of Azure Arc to deploy the Azure Monitor cluster extension on the Azure Arc-enabled Kubernetes cluster and create all the recommended alerts.
 
-- User is veryfing that the cluster is shown in Azure Monitor and that the extension is deployed as well as all the recommended alerts.
+- User is verifying that the cluster is shown in Azure Monitor and that the extension is deployed as well as all the recommended alerts.
 
 - User is simulating an alert.
 
@@ -121,7 +121,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   sudo chmod +x azure_monitor_alerts.sh && . ./azure_monitor_alerts.sh
   ```
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 

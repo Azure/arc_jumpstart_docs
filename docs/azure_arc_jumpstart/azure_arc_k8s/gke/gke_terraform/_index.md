@@ -196,7 +196,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - Upload the [*az_connect_gke*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/terraform/scripts/az_connect_gke.sh) shell script and run it using the *`. ./az_connect_gke.sh`* command.
 
-  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+  > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
   ![Upload a file to Cloud Shell](./31.png)
 

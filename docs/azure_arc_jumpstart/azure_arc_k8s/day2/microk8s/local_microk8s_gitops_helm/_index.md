@@ -191,7 +191,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
     . ./az_k8sconfig_helm_microk8s.sh
     ```
 
-    > **Note:** The extra dot is due to the script having an _export_ function and that needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the script having an *export* function and that needs to have the vars exported in the same shell session as the rest of the commands.
 
 - Windows
 

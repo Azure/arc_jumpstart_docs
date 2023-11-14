@@ -118,7 +118,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   sudo chmod +x azure_monitor_alerts.sh && . ./azure_policy.sh
   ```
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 

@@ -127,7 +127,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   sudo chmod +x installCAPI.sh && . ./installCAPI.sh
   ```
 
-  > **Note:** The extra dot is due to the script using the _export_ command, used for exporting the environment variables in the same shell session as the other commands in the script.
+  > **Note:** The extra dot is due to the script using the *export* command, used for exporting the environment variables in the same shell session as the other commands in the script.
 
     ![Screenshot showing the script runtime](./05.png)
 

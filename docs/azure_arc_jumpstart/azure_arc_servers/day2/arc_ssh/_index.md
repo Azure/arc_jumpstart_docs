@@ -118,7 +118,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
     . ./enable_ssh.sh
   ```
 
-  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
+  > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the other commands.
 
     ![Script's output](./02.png)
 

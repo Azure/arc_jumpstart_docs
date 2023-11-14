@@ -143,7 +143,7 @@ For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart App
 
     ![Screenshot parameter examples](./10.png)
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     The script will:
 
