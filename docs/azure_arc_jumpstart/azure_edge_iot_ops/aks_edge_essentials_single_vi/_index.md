@@ -278,7 +278,7 @@ The Video Indexer API is available and running on the AKS cluster. You can make 
       --cluster-name <name of your connected cluster> -o table
   ```
 
-  ![Showing video indexer extension](./show_extension.png)
+  ![Screenshot showing video indexer extension](./show_extension.png)
 
 - You will need the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
 
@@ -286,61 +286,61 @@ The Video Indexer API is available and running on the AKS cluster. You can make 
     kubectl get ing -n video-indexer
   ```
 
-  ![Web API port](./kubectl_get_ing.png)
+  ![Screenshot showing Web API port](./kubectl_get_ing.png)
 
 Now we will use the Web API to index a video by making API calls through the Postman client.
 
 - From Azure portal, navigate to the Azure AI Video Indexer resource and then click "Management API". Change the Permission dropdown to Contributor, then click Generate and copy the Access.
 
-  ![Get VI access token](./generate_access_token.png)
+  ![Screenshot showing VI access token](./generate_access_token.png)
 
 - Open the Postman client from the shortcut on the Client VM desktop, and then select "lightweight API client".
 
-  ![Video Streaming](./open_postman.png)
+  ![Screenshot showing Video Streaming](./open_postman.png)
 
 - Using Postman, make a GET request to the Web API info function. Enter *`https://192.168.0.4/info`* for the URI and click Send. You should get a JSON object back representing the extension info and public endpoint. Note the "accountId" field as you will need it in the next step.
 
-  ![API Info](./postman_api_info.png)
+  ![Screenshot showing API Info](./postman_api_info.png)
 
 - Next, change the request type to POST and the URI to *`https://192.168.0.4/Accounts/<accountId>/Videos`*, where accountId is your Video Indexer account ID retrieved in the previous step.
 
-  ![Upload Video step 1](./upload_1.png)
+  ![Screenshot showing Upload Video step 1](./upload_1.png)
 
 - In the Key/value table, enter a new key with the name "name" and the value "SampleVideo" as seen in the screenshot below.
 
-  ![Upload Video step 1b](./upload_1b.png)
+  ![Screenshot showing Upload Video step 1b](./upload_1b.png)
 
 - Switch to the "Authorization" tab and change the Type dropdown to "Bearer Token". In the Token field enter the Bearer token you generated from the Azure portal.
 
-  ![Upload Video step 2](./upload_2.png)
+  ![Screenshot showing Upload Video step 2](./upload_2.png)
 
 - Switch to the "Body" tab. In the Key/value table enter a new key with name "fileName" and then and select the "File" option from the dropdown under the Key column.
 
-  ![Upload Video step 3](./upload_3.png)
+  ![Screenshot showing Upload Video step 3](./upload_3.png)
 
 - Choose "Select file" under the "Value" column and navigate to C:\Temp\video.mp4 to select the sample video to upload.
 
-  ![Upload Video step 4](./upload_4.png)
+  ![Screenshot showing Upload Video step 4](./upload_4.png)
 
 - Finally, click the "Send" button to send the request. If you've done things correctly, you will see the video id and the "processing" status in the JSON response.
 
-  ![Upload Video step 5](./video_uploading.png)
+  ![Screenshot showing Upload Video step 5](./video_uploading.png)
 
 At this point the video is being indexed by the Video Indexer extension. This step will take some time. You can monitor the progress as follows:
 
 - Using Postman, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo`* where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
 
-  ![Upload Video step 5](./video_processing.png)
+  ![Screenshot showing Upload Video step 6](./video_processing.png)
 
 - You can repeat the same API call to monitor the progress. When complete, the state will change to "Processed" and the processingProgress should show 100%. Note the id field for the next step.
 
-  ![Upload Video step 6](./video_processed.png)
+  ![Screenshot showing Upload Video step 7](./video_processed.png)
 
 Now we can use other API calls to examine the indexed video content.
 
 - From the Postman client, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index`* where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
 
-  ![Upload Video step 6](./video_insights.png)
+  ![Screenshot showing Upload Video step 8](./video_insights.png)
 
 ## Exploring logs from the Client VM
 
