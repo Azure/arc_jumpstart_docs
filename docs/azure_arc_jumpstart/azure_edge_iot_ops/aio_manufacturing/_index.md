@@ -60,11 +60,11 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
 
-    ![Screenshot showing searching for Entra Id in the Azure Portal](./03.png)
+    ![Screenshot showing searching for Entra Id in the Azure portal](./03.png)
 
   - Click on "App registrations" and search for the name of the service principal you created.
 
-    ![Screenshot showing searching for the service principal in the Entra Id Portal](./04.png)
+    ![Screenshot showing searching for the service principal in the Entra Id portal](./04.png)
 
   - Click on "API permissions" and add a new permission.
 
