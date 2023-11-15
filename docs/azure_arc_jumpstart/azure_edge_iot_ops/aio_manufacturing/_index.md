@@ -407,12 +407,11 @@ Follow the below steps in order to view the dashboard reports, you will need to 
 
   ![Screenshot showing the empty data in orders dashboard report](./65.png)
 
-- Contoso staff can start levergaing the dashboards, for instance, a regional manager overseeing three plants might use the ADX dashboard to assess the collective OEE of these facilities. The dashboard aggregates essential metrics such as Overall OEE, Performance, and Availability, offering a consolidated view of productivity and efficiency. It highlights the most prevalent current shift's waste reason—in this case, 'Overcooked' and quantifies waste volumes alongside unplanned downtimes and their duration in minutes.
+- Contoso staff can start leveraging the dashboards, for instance, a regional manager overseeing three plants might use the ADX dashboard to assess the collective OEE of these facilities. The dashboard aggregates essential metrics such as Overall OEE, Performance, and Availability, offering a consolidated view of productivity and efficiency. It highlights the most prevalent current shift's waste reason - in this case, 'Overcooked' and quantifies waste volumes alongside unplanned downtimes and their duration in minutes.
 
 - Furthermore, these stakeholders often engage in comparative analysis. The ADX dashboard enables them to compare the performance across the different shifts operating within a single plant, discerning the OEE for primary products like donuts, bread, and pastries. It also facilitates a comparative review of the OEE across the three plants located in Seattle, Mexico City, and Miami. Quality indicators are also on display, ensuring products meet the required specifications in size and weight.
 
   ![Screenshot showing the OEE ADX dashboard](./66.png)
-
 
 - Critical quality-affecting factors, such as the oil temperature in fryers which can influence the color, size, or doneness of donuts, are also monitored. This level of detail provides executives with the data needed to make informed decisions, ensuring product consistency and operational excellence across the board.
 
