@@ -29,7 +29,7 @@ Each Agora scenario is a full-stack deployment, from the infrastructure layer al
 
 | __Scenario__                                                                                | __Industry__  | __Version__           |
 |---------------------------------------------------------------------------------------------|---------------|-----------------------|
-| [Contoso Supermarket](../retail/contoso_supermarket/)                                       | Retail        | 1.0                   |
+| [Contoso Supermarket](./../retail/contoso_supermarket/)                                     | Retail        | 1.0                   |
 | Contoso Bakeries - Coming soon                                                              | Manufacturing |                       |
 
 ### Jumpstart Agora use cases
