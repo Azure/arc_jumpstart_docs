@@ -340,7 +340,7 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
   ![Screenshot showing the simulated data](./53.png)
 
-- To enable the plant staff to monitor and visualize this data in real-time, open the Edge browser, expand InfluxDB in the Favorites Bar and select *AIO - InfluxDB*.
+- To enable the plant staff to monitor and visualize this data in real-time, open the Edge browser, expand InfluxDB in the Favorites Bar, and select *AIO - InfluxDB*.
 
   ![Screenshot showing opening influx bookmark](./54.png)
 
