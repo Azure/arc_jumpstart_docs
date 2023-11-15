@@ -54,7 +54,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   ![Screenshot showing az vm list-usage](./02.png)
 
-- **AIO requires 1 Public IP addresses**. Ensure you have sufficient Public IP addresses available in your Azure subscription and the region where you plan to deploy AIO.
+- **AIO requires 1 Public IP address**. Ensure you have sufficient public IP addresses available in your Azure subscription and the region where you plan to deploy AIO.
 
 - AIO requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
 
