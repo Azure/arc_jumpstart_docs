@@ -113,7 +113,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
   - *`spnObjectId`* Your Azure service principal object id
   - *`spnClientSecret`* - Your Azure service principal secret
   - *`spnTenantId`* - Your Azure tenant id
-  - *`windowsAdminUsername`* - Client Windows VM Administrator name
+  - *`windowsAdminUsername`* - Client Windows VM Administrator username
   - *`windowsAdminPassword`* - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - *`deployBastion`* - Option to deploy using Azure Bastion instead of traditional RDP. Set to true or false.
 
