@@ -1,6 +1,6 @@
 ---
 type: docs
-title: "Azure Arc Jumpstart Scenarios"
+title: "Jumpstart Scenarios"
 linkTitle: "Jumpstart Scenarios"
 weight: 2
 ---
