@@ -1,10 +1,10 @@
 ---
 type: docs
-weight: 100
-toc_hide: true
+linkTitle: "Resource Bridge"
+weight: 3
 ---
 
-# Jumpstart HCIBox - Virtual machine provisioning with Azure Arc
+## Virtual machine provisioning with Azure Arc
 
 Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). HCIBox is pre-configured with [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) to support this capability.
 
@@ -60,6 +60,6 @@ HCIBox includes a pre-configured Linux virtual machine image that you can use to
 
   ![Screenshot showing created VM detail](./created_vm_detail.png)
 
-### Next steps
+## Next steps
 
 Review the [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.

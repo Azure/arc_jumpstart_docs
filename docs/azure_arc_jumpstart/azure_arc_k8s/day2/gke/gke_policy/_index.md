@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes"
-linkTitle: "Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes"
+title: "Apply GitOps configurations on GKE as an Arc Connected Cluster using Azure Policy"
+linkTitle: "Apply GitOps configurations on GKE as an Arc Connected Cluster using Azure Policy"
 weight: 4
 description: >
 ---
 
-## Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes
+## Apply GitOps configurations on GKE as an Arc Connected Cluster using Azure Policy
 
-The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
 
-> > **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
+> **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -99,15 +99,15 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Policy for Azure Arc Connected Cluster Integration
 
 * In order to keep your local environment clean and untouched, we will use [Google Cloud Shell](https://cloud.google.com/shell) to run the [*gke_policy_onboarding*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/azure_policy/gke_policy_onboarding.sh) shell script against the GKE connected cluster.
 
-* Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the ```. ./gke_policy_onboarding.sh``` command. **If you decided to use the 'Policy Insights Data Writer (Preview)' role assignment as described in the perquisites section, make sure to use it's respective *appId*, *password* and *tenantId***.
+* Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the *`. ./gke_policy_onboarding.sh`* command. **If you decided to use the 'Policy Insights Data Writer (Preview)' role assignment as described in the perquisites section, make sure to use it's respective *appId*, *password* and *tenantId***.
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Run GCP Cloud Shell](./06.png)
 
@@ -127,7 +127,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
   * Retrieve cluster Azure Resource ID
   * Install the 'azure-policy-addon' helm chart & Gatekeeper
 
-    After few seconds, by running the the ```kubectl get pods -A``` command, you will notice all pods have been deployed.
+    After few seconds, by running the the *`kubectl get pods -A`* command, you will notice all pods have been deployed.
 
     ![kubectl get pods](./11.png)
 
@@ -151,17 +151,15 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
     ![Azure Policy definitions in the Azure portal](./16.png)
 
-* In the below example, the scope of the policy represent the resource group where the GKE connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*.
+* In the below example, the scope of the policy represent the resource group where the GKE connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*. For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
 
-    For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./17.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./17.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./18.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./18.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./19.png)
 
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./19.png)
-
-    ![Assign the "[Preview]: Deploy GitOps to Kubernetes cluster" Azure Policy](./20.png)
+    ![Assign the "Deploy GitOps to Kubernetes cluster" Azure Policy](./20.png)
 
 * Once the policy configuration deployed, after ~10-20min, the policy remediation task will start the evaluation against the Kubernetes cluster, recognize it as "Non-compliant" (since it's still does note have the GitOps configuration deployed) and lastly, after the configuration has been deployed the policy will move to a "Compliant" state. To check this, go back to the main Policy page in the Azure portal.
 

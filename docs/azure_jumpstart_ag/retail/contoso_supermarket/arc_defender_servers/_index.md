@@ -25,9 +25,9 @@ On the other hand, maintaining visibility into the security posture of Azure Arc
 
 To protect workloads with Microsoft Defender for Servers, you will need to enable its "Servers" plan at the Azure subscription level. Follow these steps, if it is not already enabled:
 
-- Login to AZ CLI using the ```az login``` command.
+- Login to AZ CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
     ![Screenshot showing the checking default subscription](./img/check_default_subscription.png)
 
@@ -88,11 +88,11 @@ Microsoft Defender for Servers will collect data from your Arc-enabled servers t
 
 ## Cleanup
 
-> **Note:** Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to _Free_.
+> **Note:** Proceed with the next steps if Microsoft Defender for Servers in your subscription was set to *`Free`*`.
 
-- Login to AZ CLI using the ```az login``` command.
+- Login to AZ CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
     ![Screenshot showing the checking default subscription](./img/check_default_subscription.png)
 

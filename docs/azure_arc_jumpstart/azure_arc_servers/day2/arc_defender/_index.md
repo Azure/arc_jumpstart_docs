@@ -8,7 +8,7 @@ description: >
 
 ## Connect Azure Arc-enabled servers to Microsoft Defender for Cloud
 
-The following Jumpstart scenario will guide you on how to onboard an Azure Arc-enabled server on to [Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/), so you can start collecting security-related configurations as well as event logs to recommend actions and improve your overall Azure security posture.
+The following Jumpstart scenario will guide you on how to onboard an Azure Arc-enabled server on to [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/), so you can start collecting security-related configurations as well as event logs to recommend actions and improve your overall Azure security posture.
 
 Microsoft Defender for Cloud is Microsoft's integrated cloud workload protection platform, it provides advance thread protection for Azure and hybrid resources. To access Microsoft Defender for Cloud you need to enable the plan on Microsoft Defender for Cloud.
 
@@ -22,7 +22,7 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
 - Review Microsoft Defender for Cloud recommendations.
 
-- Apply recommended configurations on Azure Arc-enabled servers using the ***Quick Fix*** remediations.
+- Apply recommended configurations on Azure Arc-enabled servers using the ***Quick Fix*** remediation.
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -45,11 +45,11 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
     ![Screenshot of Azure portal showing Azure Arc-enabled server detail](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP)
 
-    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -78,7 +78,7 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -146,7 +146,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 Now that you have successfully onboarded Microsoft Defender for Cloud, you will get recommendations to help you protect your resources, including your Azure Arc-enabled servers. Microsoft Defender for Cloud will then periodically analyze the security state of your Azure resources to identify potential security vulnerabilities.
 
-Microsoft Defender for Cloud will collect data from your Arc-enabled servers to monitor for security vulnerabilities and threats. The data collection will allow greater visibility into missing updates, non-secure OS settings, endpoint protection status, health and threat protection. You will get recommendations even if you do not provision an agent, however to fully benefit it is recommended to install the Log Analytics agent. The agent will read security-related configurations and event logs from the Arc-enabled server and send the data to the corresponding Log Analytics workspace where you enabled Microsoft Defender for Cloud. To install the agent on your Arc-enabled server you can use the extension management feature as it is described [here](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/_index.md) or by configuring policies as shown [here](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/_index.md)
+Microsoft Defender for Cloud will collect data from your Arc-enabled servers to monitor for security vulnerabilities and threats. The data collection will allow greater visibility into missing updates, non-secure OS settings, endpoint protection status, health and threat protection. You will get recommendations even if you do not provision an agent, however to fully benefit it is recommended to install the Log Analytics agent. The agent will read security-related configurations and event logs from the Arc-enabled server and send the data to the corresponding Log Analytics workspace where you enabled Microsoft Defender for Cloud. To install the agent on your Arc-enabled server you can use the extension management feature as it is described [here](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/) or by configuring policies as shown [here](/day2/arc_azuremonitoragent/arc_policies_mma/)
 
 > **Note:** it may take up to 30 minutes for your Azure Arc-enabled server to be shown in Microsoft Defender for Cloud Dashboard.
 

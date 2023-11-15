@@ -18,7 +18,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -38,7 +38,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 - Create Azure service principal (SP)
 
-    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -67,7 +67,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -97,7 +97,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 2. User edits the tfvars to match the environment.
 
-3. User runs ```terraform init``` to download the required terraform providers
+3. User runs *`terraform init`* to download the required terraform providers
 
 4. User runs the automation. The terraform plan will:
 
@@ -133,9 +133,9 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 - Navigate to the [terraform folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform) and fill in the terraform.tfvars file with the values for your environment.
 
-- Run the ```terraform init``` command which will download the required terraform providers.
+- Run the *`terraform init`* command which will download the required terraform providers.
 
-- Next, run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion of the Terraform script, you will have deployed a GCP Windows Server 2019 VM and initiated a script to download the Azure Arc agent to the VM and connect the VM as a new Azure Arc-enabled server inside a new Azure resource group. It will take a few minutes for the agent to finish provisioning.
+- Next, Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion of the Terraform script, you will have deployed a GCP Windows Server 2019 VM and initiated a script to download the Azure Arc agent to the VM and connect the VM as a new Azure Arc-enabled server inside a new Azure resource group. It will take a few minutes for the agent to finish provisioning.
 
     ![Screenshot of terraform apply being run](./10.png)
 
@@ -151,11 +151,11 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 - If you want to demo/control the actual registration process, do the following:
 
-- Before running the ```terraform apply``` command, open [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/windows/terraform/main.tf) and comment out the ```windows-startup-script-ps1 = local_file.install_arc_agent_ps1.content``` line and save the file.
+- Before running the *`terraform apply`* command, open [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/windows/terraform/main.tf) and comment out the *`windows-startup-script-ps1 = local_file.install_arc_agent_ps1.content`* line and save the file.
 
     ![Screenshot showing main.tf being commented to disable automatic onboarding of Azure Arc agent](./13.png)
 
-- Run ```terraform apply --auto-approve``` as instructed above.
+- Run *`terraform apply --auto-approve`* as instructed above.
 
 - Open the Google Cloud console and navigate to the [Compute Instance page](https://console.cloud.google.com/compute/instances), then click on the VM that was created.
 
@@ -177,7 +177,7 @@ The only thing you need to do before executing the Terraform plan is to edit the
 
 ## Delete the deployment
 
-- To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+- To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
 
     ![Screenshot showing terraform destroy being run](./19.png)
 

@@ -8,7 +8,7 @@ description: >
 
 ## Deploy an application using the Dapr Cluster extension for Azure Arc-enabled Kubernetes cluster
 
-The following Jumpstart scenario will guide you on how to set up [Dapr](https://dapr.io/) for the Azure Arc-enabled Kubernetes cluster. In this scenario, you will enable Dapr by deploying the Dapr Cluster extension on your Azure Arc-enabled Kubernetes cluster alongside a Python application that generates messages and a Node.js application that consumes and persists them on [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview).
+The following Jumpstart scenario will guide you on how to set up [Dapr](https://dapr.io/) for the Azure Arc-enabled Kubernetes cluster. In this scenario, you will enable Dapr by deploying the Dapr Cluster extension on your Azure Arc-enabled Kubernetes cluster alongside a Python application that generates messages and a Node.js application that consumes and persists them on [Azure Cache for Redis](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview).
 
 Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless, and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic.
 
@@ -28,7 +28,7 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
 
     ![Existing Azure Arc-enabled Kubernetes cluster](./02.png)
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -36,7 +36,7 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
 
 - Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -65,7 +65,7 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -103,7 +103,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
     ![Screenshot parameter examples](./06.png)
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 

@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster using a Shell script"
-linkTitle: "Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster using a Shell script"
+title: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting"
+linkTitle: "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting"
 weight: 2
 description: >
 ---
 
-## Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster using a Shell script
+## Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting
 
-The following Jumpstart scenario will guide you on how to onboard an microK8s cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using a Shell script.
+The following Jumpstart scenario will guide you on how to onboard an microK8s cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using scripting.
 
-in this scenario, you will hook the microK8s cluster to Azure Monitor by deploying the [Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
+in this scenario, you will hook the microK8s cluster to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
 
 > **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).
 
@@ -22,7 +22,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -30,7 +30,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
 * Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -59,7 +59,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Monitor for Containers Integration
 
@@ -71,7 +71,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
     ![An existing Azure Arc-enabled Kubernetes cluster with no Azure Monitor integration](./02.png)
 
-* Edit the environment variables in either of the scripts to match your environment parameters, run it using the ```. ./microk8s_monitor_onboarding.sh``` (Bash) or ```./microk8s_monitor_onboarding.ps1``` (PowerShell) command.
+* Edit the environment variables in either of the scripts to match your environment parameters, run it using the *`. ./microk8s_monitor_onboarding.sh`* (Bash) or *`./microk8s_monitor_onboarding.ps1`* (PowerShell) command.
 
     ```shell
     export subscriptionId='e73c1dbe-XXXX-XXXX-XXXX-c813757b1786'

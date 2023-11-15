@@ -38,15 +38,15 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
     ![Existing Azure Arc-enabled Kubernetes cluster](./02.png)
 
-* [Install or update Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-5.6.0). Use the below command to check your current installed version.
+* [Install or update Azure PowerShell modules](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-5.6.0). Use the below command to check your current installed version.
 
-  ```PowerShell
+  ```powershell
   Get-InstalledModule -Name Az -AllVersions | select Name,Version
     ```
 
   > **Note:** This guide combines automations that uses both Azure PowerShell Az modules as well as Azure CLI, however both of them can and will be run from a PowerShell window.
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -54,7 +54,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
 * Enable subscription with the resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
   Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
   Register-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
@@ -62,7 +62,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
   You can monitor the registration process with the following commands:
 
-  ```PowerShell
+  ```powershell
   Get-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
   Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
   Get-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
@@ -102,7 +102,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
     $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
     ```
 
-    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 * If you do not have the AksHci PowerShell module already, you will have to perform a clean installation. To install the AksHci PowerShell module remove any previous versions by running the below commands:
 
@@ -165,10 +165,10 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * Before kicking the GitOps flow, let's review the Kubernetes resources deployed by running few _kubectl_ commands.
 
-  * ```kubectl get pods -n prod``` - Will show the Flux operator, the Memcached pods and the "Hello Arc" application pods.
-    * ```kubectl get pods -n cluster-mgmt``` - Will show the NGINX controller.
-    * ```kubectl get svc -n prod``` - Will show NGINX controller Kubernetes Service (Type LoadBalancer).
-    * ```kubectl get ing -n prod``` - Will show NGINX rule which will route the traffic to the "Hello Arc" application from outside the cluster.
+  * *`kubectl get pods -n prod`* - Will show the Flux operator, the Memcached pods and the "Hello Arc" application pods.
+    * *`kubectl get pods -n cluster-mgmt`* - Will show the NGINX controller.
+    * *`kubectl get svc -n prod`* - Will show NGINX controller Kubernetes Service (Type LoadBalancer).
+    * *`kubectl get ing -n prod`* - Will show NGINX rule which will route the traffic to the "Hello Arc" application from outside the cluster.
 
     ![kubectl get pods -n prod](./07.png)
 
@@ -188,13 +188,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * To show the above flow, open 2 (ideally 3) side-by-side browser windows:
 
-  * Run ```kubectl get pods -n prod -w``` command
+  * Run *`kubectl get pods -n prod -w`* command
 
     ![kubectl get pods -n prod -w](./11.png)
 
   * Your fork of the "Hello Arc" application repository. Open the [*hello_arc.yaml*](https://github.com/likamrat/hello_arc/blob/master/yaml/hello_arc.yaml) file.
 
-  * The IP address of the Kubernetes Service seen using the ```kubectl get svc -n prod``` command.
+  * The IP address of the Kubernetes Service seen using the *`kubectl get svc -n prod`* command.
 
     ![kubectl get svc -n prod](./12.png)
 

@@ -20,7 +20,7 @@ By the end of the guide, you will have a GCP VM instance installed with Windows 
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -40,7 +40,7 @@ By the end of the guide, you will have a GCP VM instance installed with Windows 
 
 * Create Azure service principal (SP)
 
-    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -69,7 +69,7 @@ By the end of the guide, you will have a GCP VM instance installed with Windows 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 * Enable subscription for the *Microsoft.AzureArcData* and *Microsoft.HybridCompute* resource providers for Azure Arc-enabled SQL Server. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -137,16 +137,16 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     2. Generate and execute the [*sql.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/gcp/winsrv/terraform/scripts/sql.ps1.tmpl) script. This script will:
 
-        1. Install Azure CLI, Azure PowerShell module and SQL Server Management Studio (SSMS) [Chocolaty packages](https://chocolatey.org/).
+        1. Install Azure CLI, Azure PowerShell module and SQL Server Management Studio (SSMS) [Chocolatey  packages](https://chocolatey.org/).
 
         2. Create a runtime logon script (*LogonScript.ps1*) which will run upon the user first logon to Windows. Runtime script will:
             * Install SQL Server Developer Edition
             * Enable SQL TCP protocol on the default instance
             * Create SQL Server Management Studio Desktop shortcut
-            * Restore [*AdventureWorksLT2019*](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms) Sample Database
+            * Restore [*AdventureWorksLT2019*](https://learn.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms) Sample Database
             * Onboard both the server and SQL to Azure Arc
             * Deploy Azure Log Analytics and a workspace
-            * Install the [Microsoft Monitoring Agent (MMA) agent](https://docs.microsoft.com/services-hub/health/mma-setup)
+            * Install the [Microsoft Monitoring Agent (MMA) agent](https://learn.microsoft.com/services-hub/health/mma-setup)
             * Enable Log Analytics Solutions
             * Deploy MMA Azure Extension ARM Template from within the VM
             * Configure SQL Azure Assessment

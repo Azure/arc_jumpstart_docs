@@ -10,9 +10,9 @@ description: >
 
 The following scenario will guide you on how to deploy a "Ready to Go" environment so you can deploy Azure Arc-enabled data services on a [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) cluster using [Terraform](https://www.terraform.io/).
 
-By the end of this scenario, you will have a GKE cluster deployed with an Azure Arc Data Controller ([in "Directly Connected" mode](https://docs.microsoft.com/azure/azure-arc/data/connectivity)), Azure SQL Managed Instance with a sample database and a Microsoft Windows Server 2022 (Datacenter) GKE compute instance VM installed and pre-configured with all the required tools needed to work with Azure Arc data services.
+By the end of this scenario, you will have a GKE cluster deployed with an Azure Arc Data Controller ([in "Directly Connected" mode](https://learn.microsoft.com/azure/azure-arc/data/connectivity)), Azure SQL Managed Instance with a sample database and a Microsoft Windows Server 2022 (Datacenter) GKE compute instance VM installed and pre-configured with all the required tools needed to work with Azure Arc data services.
 
-> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://docs.microsoft.com/azure/azure-arc/data/release-notes).
+> **Note:** Currently, Azure Arc-enabled data services with PostgreSQL is in [public preview](https://learn.microsoft.com/azure/azure-arc/data/release-notes).
 
 ## Deployment Process Overview
 
@@ -36,7 +36,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -58,7 +58,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
 
   - "Owner" - Required for provisioning Azure resources, interact with Azure Arc-enabled data services billing, monitoring metrics, and logs management and creating role assignment for the Monitoring Metrics Publisher role.
 
-    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -87,7 +87,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
     }
     ```
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Create a new GCP Project, IAM Role & Service Account. In order to deploy resources in GCP, we will create a new GCP Project as well as a service account to allow Terraform to authenticate against GCP APIs and run the plan to deploy resources.
 
@@ -163,7 +163,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
   3. *Bootstrap.ps1* script will run during Terraform plan runtime and will:
       - Create the *Bootstrap.log* file  
-      - Install the required tools – az cli, PowerShell module, kubernetes-cli, Visual C++ Redistributable (Chocolaty packages)
+      - Install the required tools – az cli, PowerShell module, kubernetes-cli, Visual C++ Redistributable (Chocolatey  packages)
       - Download Azure Data Studio & Azure Data CLI
       - Disable Windows Server Manager, remove Internet Explorer, disable Windows Firewall
       - Download the DataServicesLogonScript.ps1 PowerShell script
@@ -232,10 +232,10 @@ Read the below explanation to get familiar with the automation and deployment fl
   - **_`ARC_DC_SUBSCRIPTION`_** - Azure Arc Data Controller Azure subscription ID
   - **_`ARC_DC_RG`_** - Azure resource group where all future Azure Arc resources will be deployed
   - **_`ARC_DC_REGION`_** - Azure location where the Azure Arc Data Controller resource will be created in Azure (Currently, supported regions supported are eastus, eastus2, centralus, westus2, westeurope, southeastasia)
-  - **_`deploy_SQLMI`_** - Boolean that sets whether or not to deploy SQL Managed Instance, for this scenario we leave it set to true
+  - **_`deploy_SQLMI`_** - Boolean that sets whether or not to deploy SQL Managed Instance, for this scenario we leave it set to *`true`*
   - **_`SQLMIHA`_** - Boolean that sets whether or not to deploy SQL Managed Instance with high-availability (business continuity) configurations, set this to either true or false
-  - **_`deploy_PostgreSQL`_** - Boolean that sets whether or not to deploy PostgreSQL, for this data controller only scenario we leave it set to false
-  - **_`templateBaseUrl`_** - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://github.com/microsoft/azure_arc) repository, but you can point this to your forked repo as well - e.g. `https://raw.githubusercontent.com/your--github--account/azure_arc/your--branch/azure_arc_data_jumpstart/gke/terraform/`
+  - **_`deploy_PostgreSQL`_** - Boolean that sets whether or not to deploy PostgreSQL, for this data controller only scenario we leave it set to *`false`*
+  - **_`templateBaseUrl`_** - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well - e.g. `https://raw.githubusercontent.com/your--github--account/azure_arc/your--branch/azure_arc_data_jumpstart/gke/terraform/`
   - **_`MY_IP`_** - Your Client IP
 
 ### Azure Custom Location Resource Provider (RP) and the Object ID (OID) environment variable
@@ -246,7 +246,7 @@ Read the below explanation to get familiar with the automation and deployment fl
 
   #### Option 1: Bash
 
-  ```bash
+  ```shell
   export TF_VAR_CL_OID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
@@ -268,15 +268,15 @@ As mentioned, the Terraform plan and automation scripts will deploy a GKE cluste
   cd azure_arc_data_jumpstart/gke/terraform
   ```
 
-- Run the ```terraform init``` command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
+- Run the *`terraform init`* command which is used to initialize a working directory containing Terraform configuration files and load the required Terraform providers.
 
   ![terraform init](./22.png)
 
-- Run the ```terraform plan -out=infra.out``` command to make sure everything is configured properly.
+- Run the *`terraform plan -out=infra.out`* command to make sure everything is configured properly.
 
   ![terraform plan](./23.png)
 
-- Run the ```terraform apply "infra.out"``` command and wait for the plan to finish. **Runtime for deploying all the GCP resources for this plan is ~20-30min.**
+- Run the *`terraform apply "infra.out"`* command and wait for the plan to finish. **Runtime for deploying all the GCP resources for this plan is ~20-30min.**
 
   ![terraform apply completed](./24.png)
 
@@ -396,7 +396,7 @@ When deploying Azure Arc-enabled data services, a [Grafana](https://grafana.com/
 
   ![Grafana desktop shortcut](./58.png)
 
-- [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the _```kubectl get svc -n arc```_ command to view the _metricsui_ external service IP address.
+- [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the *`kubectl get svc -n arc`* command to view the _metricsui_ external service IP address.
 
   ![metricsui Kubernetes service](./59.png)
 

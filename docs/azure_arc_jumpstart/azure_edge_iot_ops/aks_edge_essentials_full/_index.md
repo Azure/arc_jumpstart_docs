@@ -8,15 +8,15 @@ description: >
 
 ## AKS Edge Essentials multi-node deployment with Azure Arc using Azure Bicep
 
-The following Jumpstart scenario will show how to Create an AKS Edge Essentials full deployment with two VMs in Hyper-V nested virtualization in an Azure Windows Server VM, and connect the Hyper-V VMs and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Azure Bicep templates are responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation and Azure Arc onboarding (Hyper-V VMs and AKS Edge Essentials cluster)) on the Azure Windows Server VM.
+The following Jumpstart scenario will show how to Create an AKS Edge Essentials full deployment with two VMs in Hyper-V nested virtualization in an Azure Windows Server VM, and connect the Hyper-V VMs and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Azure Bicep templates are responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation and Azure Arc onboarding (Hyper-V VMs and AKS Edge Essentials cluster) on the Azure Windows Server VM.
 
 > **Note:** It is not expected to use a nested virtualization in a production environment, let alone using an Azure VM to do so. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
-![Architecture diagram](./01.png)
+![Screenshot showing an architecture diagram](./01.png)
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -26,7 +26,7 @@ The following Jumpstart scenario will show how to Create an AKS Edge Essentials 
 
 - Create Azure service principal (SP)
 
-    To complete the scenario and its related automation, an Azure service principal with the “Contributor” role assigned is required. To create it, login to your Azure account and run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To complete the scenario and its related automation, an Azure service principal with the “Contributor” role assigned is required. To create it, login to your Azure account and run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -55,7 +55,7 @@ The following Jumpstart scenario will show how to Create an AKS Edge Essentials 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -83,7 +83,7 @@ As mentioned, this deployment will leverage Azure Bicep templates. You will depl
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the Azure Bicep template, login to Azure using Azure CLI with the ```az login``` command.
+- Before deploying the Azure Bicep template, login to Azure using Azure CLI with the *`az login`* command.
 
 - The deployment uses the Azure Bicep parameters file. Before initiating the deployment, edit the [_main.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_full/bicep_template/main.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_full/bicep_template/main.parameters.example.json).
 
@@ -93,7 +93,7 @@ As mentioned, this deployment will leverage Azure Bicep templates. You will depl
   - _`spnTenantId`_ - Your Azure tenant id.
   - _`windowsAdminUsername`_ - Azure Windows Server VM Administrator name.
   - _`windowsAdminPassword`_ - Azure Windows Server VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Choice (true | false) to deploy Azure Bastion or not to connect to the Azure Windows Server VM.
+  - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the Azure Windows Server VM.
 
 - To deploy the Azure Bicep template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_full/bicep_template) and run the below command:
 
@@ -129,8 +129,8 @@ As mentioned, this deployment will leverage Azure Bicep templates. You will depl
 
 Various options are available to connect to the _AKS-EE-Full-VM_ Azure VM, depending on the parameters you supplied during deployment.
 
-- [RDP](/azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_full/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-Win-Demo-NSG_, or by enabling [Just-in-Time access (JIT)](/azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_full/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](/azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_full/#connect-using-azure-bastion) - available if ```true``` was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
+- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
 
 ### Connecting directly with RDP
 
@@ -152,7 +152,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
 ### Connect using just-in-time access (JIT)
 
-If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Azure Windows Server VM, use the following steps:
+If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Azure Windows Server VM, use the following steps:
 
 - In the Azure Windows Server VM configuration pane, enable just-in-time. This will enable the default settings.
 
@@ -206,7 +206,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 ![Screenshot Azure Arc-enabled server on resource group](./25.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster nodes status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview) and [extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions) [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)) are in running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
 
 ![Screenshot _kubectl get nodes -o wide_ command](./26.png)
 

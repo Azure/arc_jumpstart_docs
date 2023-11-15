@@ -35,11 +35,11 @@ The following Jumpstart scenario will guide you on how to onboard an Azure Arc-e
 
     ![Screenshot of Azure portal showing Azure Arc-enabled server extensions](./03.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.42.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.42.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP)
 
-    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -68,7 +68,7 @@ The following Jumpstart scenario will guide you on how to onboard an Azure Arc-e
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Get a Datadog account. You can either use a preexisting one or create a [Datadog free trial](https://www.datadoghq.com/free-datadog-trial/) for 14 days.
 
@@ -103,7 +103,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - app_Id: your service principal ID.
   - app_secret: your service principal secret.
   - subscription_id: your Azure subscription ID.
-  - tenantId: your Azure AD tenant.
+  - tenantId: your Microsoft Entra ID tenant.
 
 - To run the PowerShell script, navigate to the [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/datadog/) and run the below command:
 

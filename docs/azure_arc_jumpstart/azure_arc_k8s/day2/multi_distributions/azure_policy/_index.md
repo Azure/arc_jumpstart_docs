@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Integrate Azure Policy with an Azure Arc-enabled Kubernetes cluster using extensions"
-linkTitle: "Integrate Azure Policy with an Azure Arc-enabled Kubernetes cluster using extensions"
+title: "Integrate Azure Policy with an Arc-enabled Kubernetes"
+linkTitle: "Integrate Azure Policy with an Arc-enabled Kubernetes"
 weight: 3
 description: >
 ---
 
-## Integrate Azure Policy with an Azure Arc-enabled Kubernetes cluster using extensions
+## Integrate Azure Policy with an Arc-enabled Kubernetes
 
-The following Jumpstart scenario will guide you on how to enable [Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json) for an Azure Arc-enabled Kubernetes cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Policy](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json) for an Azure Arc-enabled Kubernetes cluster.
 
-In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Policy by deploying the [Azure Policy cluster extension](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) on your Kubernetes cluster in order to start using some of the Kubernetes Azure Policies.
+In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Policy by deploying the [Azure Policy cluster extension](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) on your Kubernetes cluster in order to start using some of the Kubernetes Azure Policies.
 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -36,7 +36,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -47,7 +47,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
   - "Contributor" - Required for provisioning Azure resources
   - "Resource Policy Contributor" - Required to assign Azure Policy definition
 
-    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -78,7 +78,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -118,7 +118,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   sudo chmod +x azure_monitor_alerts.sh && . ./azure_policy.sh
   ```
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -135,7 +135,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   
   - The azure-policy pods are installed in the kube-system namespace:
 
-    ```bash
+    ```shell
     kubectl get pods -n kube-system --kubeconfig <kubeconfig> | grep azure-policy
     ```
 
@@ -143,7 +143,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
   - The gatekeeper pods are installed in the gatekeeper-system namespace:
 
-    ```bash
+    ```shell
     kubectl get pods -n gatekeeper-system --kubeconfig <kubeconfig>
     ```
 
@@ -180,7 +180,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Create the above file and run the following command to create the pod:
 
-  ```bash
+  ```shell
   kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
   ```
 
@@ -204,7 +204,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 Complete the following steps to clean up your environment. The commands below delete the extension instance and the Azure Policy Assignment.
 
-  ```bash
+  ```shell
   export arcClusterName='<Azure Arc Cluster Name>'
   export resourceGroup='<Azure resource group name>'
   az k8s-extension delete --name azurepolicy --cluster-type connectedClusters --cluster-name $arcClusterName --resource-group $resourceGroup

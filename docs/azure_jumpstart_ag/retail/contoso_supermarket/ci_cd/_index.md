@@ -82,8 +82,8 @@ Contoso has implemented a CI/CD workflow to make it easier for their developers 
 
 - The repository has the following GitHub actions that build the Contoso Supermarket's CI/CD workflow
   - **Promote-to-staging:** This workflow is triggered once a pull request targeting the code of the PoS application is merged. It will build the new images based on code changes, increment the image tag, run unit tests, and update the PoS application on the _Staging_ environment.
-  - **Promote-to-canary:** This workflow is triggered once the staging cluster has a healthy deployment of the PoS application, this is done once the Flux v2 operator captures the new commit in the staging branch and generates a notification that the deployment is ready. It will build the new canary image, run integration tests, and submits a PR to update the image tag on the _canary_ Helm release.
-  - **Promote-to-production:** This workflow is triggered once the canary cluster has a healthy deployment of the PoS application, this is done once the Flux v2 operator captures the new commit in the canary branch and generates a notification that the deployment is ready. It will build the new production image, run final tests, and submits a PR to update the image tag on the _production_ Helm release.
+  - **Promote-to-canary:** This workflow is triggered once the staging cluster has a healthy deployment of the PoS application, this is done once the Flux operator captures the new commit in the staging branch and generates a notification that the deployment is ready. It will build the new canary image, run integration tests, and submits a PR to update the image tag on the _canary_ Helm release.
+  - **Promote-to-production:** This workflow is triggered once the canary cluster has a healthy deployment of the PoS application, this is done once the Flux operator captures the new commit in the canary branch and generates a notification that the deployment is ready. It will build the new production image, run final tests, and submits a PR to update the image tag on the _production_ Helm release.
 
     ![Screenshot showing all the GitHub actions](./img/github_actions_list.png)
 
@@ -176,9 +176,9 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the staging GitHub Action](./img/github_actions_dev.png)
 
-- On the Client VM, open Windows Terminal, switch to the _Staging_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux v2 extension picks up the changes you made on the _Dev_ environment and deploys it to the _Staging_ cluster.
+- On the Client VM, open Windows Terminal, switch to the _Staging_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Dev_ environment and deploys it to the _Staging_ cluster.
 
-  ```azurecli
+  ```shell
   kubectx staging
   kubectl get pods -n contoso-supermarket
   ```
@@ -209,9 +209,9 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing canary customer view before update](./img/edge_canary_before_update.png)
 
-- On the Client VM, open Windows Terminal, switch to the _Chicago_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux v2 extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
+- On the Client VM, open Windows Terminal, switch to the _Chicago_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
 
-  ```azurecli
+  ```shell
   kubectx chicago
   kubectl get pods -n contoso-supermarket
   ```
@@ -234,9 +234,9 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing production customer view before update](./img/edge_production_before_update.png)
 
-- On the Client VM, open Windows Terminal, switch to the _Seattle_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux v2 extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
+- On the Client VM, open Windows Terminal, switch to the _Seattle_ Kubernetes cluster and monitor the _contosopos_ pods. You should see the pods are recreated as the Flux extension picks up the changes you made on the _Staging_ environment and deploys it to the _Canary_ cluster.
 
-     ```azurecli
+     ```shell
      kubectx seattle
      kubectl get pods -n contoso-supermarket
      ```

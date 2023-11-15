@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Use Azure Policy Add-on to audit pods' labels for use with Calico network policy"
-linkTitle: "Use Azure Policy Add-on to audit pods' labels for use with Calico network policy"
+title: "Use Azure Policy to audit pods' labels for use with network policy"
+linkTitle: "Use Azure Policy to audit pods' labels for use with network policy"
 weight: 1
 description: >
 ---
 
-## Use Azure Policy on an Azure Arc-enabled Kubernetes cluster to audit pods' labels for use with  Calico network policy
+## Use Azure Policy to audit pods' labels for use with network policy
 
  > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 
-The following Jumpstart scenario will guide you how to use Azure Policy [Azure Policy for Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Arc-enabled Kubernetes cluster to audit/enforce labels for pods. [Network policy](https://projectcalico.docs.tigera.io/about/about-network-policy) is applied to pods using label selectors.
+The following Jumpstart scenario will guide you how to use Azure Policy [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Arc-enabled Kubernetes cluster to audit/enforce labels for pods. [Network policy](https://projectcalico.docs.tigera.io/about/about-network-policy) is applied to pods using label selectors.
 
   > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
@@ -36,7 +36,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
   ```shell
   az --version
@@ -82,7 +82,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
 - Check whether Azure Policy is installed in an Azure Arc-enabled Kubernetes cluster
 
-  > by running the ```kubectl get pods -n gatekeeper-system``` command.
+  > by running the *`kubectl get pods -n gatekeeper-system`* command.
   
 - You should see the following pods running.
 
@@ -98,7 +98,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
   kubectl create -f storefront.yaml
   ```
 
-- Deploy the `storefront` demo application in your cluster by running the  ```kubectl create -f storefront.yaml``` command.
+- Deploy the `storefront` demo application in your cluster by running the  *`kubectl create -f storefront.yaml`* command.
 
   ![Showing storefront pods](./20.png)
 
@@ -106,7 +106,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
   kubectl create -f calico-firewall-policy.yaml
   ```
 
-- Deploy a sample Calico network policy by running the  ```kubectl create -f calico-firewall-policy.yaml``` command.
+- Deploy a sample Calico network policy by running the  *`kubectl create -f calico-firewall-policy.yaml`* command.
 
   ![Showing storefront network policy](./21.png)
 

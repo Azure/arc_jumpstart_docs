@@ -157,7 +157,7 @@ By default, the managed identity on an Azure Arc-enabled server will have no acc
 
 ## Hybrid Instance Metadata Service
 
-The Hybrid Instance Metadata Service (HIMDS) is the hybrid counterpart to the [IMDS](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service?tabs=linux) endpoint.
+The Hybrid Instance Metadata Service (HIMDS) is the hybrid counterpart to the [IMDS](https://learn.microsoft.com/azure/virtual-machines/linux/instance-metadata-service?tabs=linux) endpoint.
 
 Below are the endpoints for comparison:
 

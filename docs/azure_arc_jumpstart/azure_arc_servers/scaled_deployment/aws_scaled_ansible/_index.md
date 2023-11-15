@@ -14,7 +14,7 @@ This guide assumes that you have a basic understanding of Ansible. A basic Ansib
 
 This guide can be used even if you do not already have an existing Ansible test environment and includes a Terraform plan that will create a sample AWS EC2 server inventory comprised of four (4) Windows Server 2019 servers and four (4) Ubuntu servers along with a basic CentOS 7 Ansible control server with a simple configuration.
 
-> **Note:** *The provided Ansible sample workbook uses WinRM with password authentication and HTTP to configure Windows-based servers. This is not advisable for production environments. If you are planning to use Ansible with Windows hosts in a production environment then you should use [WinRM over HTTPS](https://docs.microsoft.com/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) with a certificate.
+> **Note:** *The provided Ansible sample workbook uses WinRM with password authentication and HTTP to configure Windows-based servers. This is not advisable for production environments. If you are planning to use Ansible with Windows hosts in a production environment then you should use [WinRM over HTTPS](https://learn.microsoft.com/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) with a certificate.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ This guide can be used even if you do not already have an existing Ansible test 
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-- [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
+- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
 
   ```shell
   ssh-keygen -t rsa -b 4096
@@ -52,7 +52,7 @@ This guide can be used even if you do not already have an existing Ansible test 
 
 - Create Azure service principal (SP)
 
-    To connect the AWS virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the AWS virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -81,7 +81,7 @@ This guide can be used even if you do not already have an existing Ansible test 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -147,7 +147,7 @@ In order for Terraform to create resources in AWS, we will need to create a new 
 
 Before executing the Terraform plan, you must export the environment variables which will be used by the plan. These variables are based on your Azure subscription and tenant, the Azure service principal, and the AWS IAM user and keys you just created.
 
-- Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+- Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 - The Terraform plan creates resources in both Microsoft Azure and AWS. It then executes a script on an AWS EC2 virtual machine to install Ansible and all necessary artifacts. This Terraform plan requires certain information about your AWS and Azure environments which it accesses using environment variables. Edit [*scripts/vars.sh*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/scaled_deployment/ansible/terraform/scripts/vars.sh) and update each of the variables with the appropriate values.
 
@@ -168,13 +168,13 @@ Before executing the Terraform plan, you must export the environment variables w
 
 - Make sure your SSH keys are available in *~/.ssh* and named *id_rsa.pub* and *id_rsa*. If you followed the ssh-keygen guide above to create your key then this should already be setup correctly. If not, you may need to modify [*aws_infra.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/scaled_deployment/ansible/terraform/aws_infra.tf) to use a key with a different path.
 
-- Run the ```terraform init``` command which will download the required Terraform providers.
+- Run the *`terraform init`* command which will download the required Terraform providers.
 
     ![Screenshot of terraform init being run](./01.png)
 
 ### Deploy server infrastructure
 
-- From the *azure_arc_servers_jumpstart/aws/scaled_deployment/ansible/terraform- directory, run ```terraform apply --auto-approve``` and wait for the plan to finish. Upon successful completion, you will have four (4) Windows Server 2019 servers, four (4) Ubuntu servers, and one (1) CentOS 7 Ansible control server.
+- From the *azure_arc_servers_jumpstart/aws/scaled_deployment/ansible/terraform- directory, run *`terraform apply --auto-approve`* and wait for the plan to finish. Upon successful completion, you will have four (4) Windows Server 2019 servers, four (4) Ubuntu servers, and one (1) CentOS 7 Ansible control server.
 
 - Open the AWS console and verify you can see the created servers.
 
@@ -182,11 +182,11 @@ Before executing the Terraform plan, you must export the environment variables w
 
 ### Run the Ansible playbook to onboard the AWS EC2 instances as Azure Arc-enabled servers
 
-- When the Terraform plan completes, it will display the public IP of the Ansible control server in an output variable named *ansible_ip*. SSH into the Ansible server by running the ```ssh centos@XX.XX.XX.XX``` where XX.XX.XX.XX is substituted for your Ansible server's IP address.
+- When the Terraform plan completes, it will display the public IP of the Ansible control server in an output variable named *ansible_ip*. SSH into the Ansible server by running the *`ssh centos@XX.XX.XX.XX`* where _XX.XX.XX.XX_ is substituted for your Ansible server's IP address.
 
     ![Screenshot of SSH into Ansible control server](./03.png)
 
-- Change directory to the *ansible* directory by running ```cd ansible```. This folder contains the sample Ansible configuration and the playbook we will use to onboard the servers to Azure Arc.
+- Change directory to the *ansible* directory by running *`cd ansible`*. This folder contains the sample Ansible configuration and the playbook we will use to onboard the servers to Azure Arc.
 
     ![Screenshot of Ansible config folder in shell](./04.png)
 
@@ -217,7 +217,7 @@ Before executing the Terraform plan, you must export the environment variables w
 
 ### Clean up environment by deleting resources
 
-To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
 
 ![Screenshot of terraform destroy being run](./07.png)
 
