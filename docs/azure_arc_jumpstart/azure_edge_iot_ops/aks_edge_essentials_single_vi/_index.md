@@ -177,9 +177,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - In the Client VM configuration pane, enable just-in-time. This will enable the default settings.
 
-  ![Screenshot showing the Microsoft Defender for cloud portal, allowing RDP on the client VM](./placeholder.png)
-
-  ![Screenshot showing connecting to the VM using JIT](./placeholder.png)
+  ![Screenshot showing the configuring JIT, allowing RDP on the client VM](./configure_jit.png)
 
 ### Post Deployment
 
@@ -195,7 +193,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot Azure Arc-enabled K8s on resource group](./arc_k8s.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to check the status of the system pods, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview).
 
     ![Screenshot kubectl get nodes -o wide](./kubectl_get_nodes.png)
 
@@ -294,17 +292,17 @@ Now we will use the Web API to index a video by making API calls through the Pos
 
 - From Azure portal, navigate to the Azure AI Video Indexer resource and then click "Management API". Change the Permission dropdown to Contributor, then click Generate and copy the Access.
 
-  ![Get VI access token]()
+  ![Get VI access token](./generate_access_token.png)
 
 - Open the Postman client from the shortcut on the Client VM desktop, and then select "lightweight API client".
 
   ![Video Streaming](./open_postman.png)
 
-- Using Postman, make a GET request to the Web API info function. Enter "https://192.168.0.4/info for the URI and click Send. You should get a JSON object back representing the extension info and public endpoint. Note the "accountId" field as you will need it in the next step.
+- Using Postman, make a GET request to the Web API info function. Enter *`https://192.168.0.4/info`* for the URI and click Send. You should get a JSON object back representing the extension info and public endpoint. Note the "accountId" field as you will need it in the next step.
 
   ![API Info](./postman_api_info.png)
 
-- Next, change the request type to POST and the URI to "https://192.168.0.4/Accounts/<accountId>/Videos, where accountId is your Video Indexer account ID retrieved in the previous step.
+- Next, change the request type to POST and the URI to *`https://192.168.0.4/Accounts/<accountId>/Videos`*, where accountId is your Video Indexer account ID retrieved in the previous step.
 
   ![Upload Video step 1](./upload_1.png)
 
@@ -330,7 +328,7 @@ Now we will use the Web API to index a video by making API calls through the Pos
 
 At this point the video is being indexed by the Video Indexer extension. This step will take some time. You can monitor the progress as follows:
 
-- Using Postman, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
+- Using Postman, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo`* where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
 
   ![Upload Video step 5](./video_processing.png)
 
@@ -340,7 +338,7 @@ At this point the video is being indexed by the Video Indexer extension. This st
 
 Now we can use other API calls to examine the indexed video content.
 
-- From the Postman client, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
+- From the Postman client, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index`* where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
 
   ![Upload Video step 6](./video_insights.png)
 
