@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - `spnClientId` - Your Azure service principal id
   - `spnClientSecret` - Your Azure service principal secret
   - `spnTenantId` - Your Azure tenant id
-  - `windowsAdminUsername` - Client Windows VM Administrator name
+  - `windowsAdminUsername` - Client Windows VM Administrator username
   - `windowsAdminPassword` - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - `myIpAddress` - Your local public IP address. This is used to allow remote RDP and SSH connections to the client Windows VM and AKS cluster.
   - `logAnalyticsWorkspaceName` - Unique name for the deployment log analytics workspace.

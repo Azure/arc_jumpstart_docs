@@ -226,7 +226,7 @@ The following prerequisites must be completed in order to deploy HCIBox using th
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator name
+  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the HCIBox Log Analytics workspace
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
