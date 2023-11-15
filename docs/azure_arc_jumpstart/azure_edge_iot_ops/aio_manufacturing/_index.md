@@ -121,7 +121,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 - You will need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.
 
-> **NOTE: You need permissions to list all the service principals.**
+> **Note:** You need permissions to list all the service principals.**
 
 ### Option 1: Bash
 
