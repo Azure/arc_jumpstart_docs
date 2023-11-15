@@ -149,7 +149,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
     ![Screenshot Bicep output](./az_deployment.png)
 
-    ![Screenshot resources in resource group](./placeholder.png)
+    ![Screenshot resources in resource group](./deployed_resources.png)
 
 ## Windows Login & Post Deployment
 
