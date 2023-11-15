@@ -366,7 +366,6 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
 - Critical equipment, such as the fryer, is under special surveillance. The dashboard displays the current oil temperature against the target temperature, along with the oil level in the fryer, ensuring that any deviations from the norm can be quickly addressed.
 
-
 ## Advanced executive dashboards using Azure Data Explorer (ADX)
 
 The automation deploys an ADX cluster and provides a dashboard for Contoso's regional executives and directors who require a broader view across multiple plants. The Azure IoT MQ in the local cluster transmits data to Azure Event Grid, which acts as a cloud-based MQTT broker. It receives operational data and routes it to Azure Event Grid topics, and from there to the Event Hub. Event Hub streamlines the data inflow, allowing ADX to ingest it. Using Kusto Query Language (KQL), Azure Data Explorer provides advanced analytics and custom dashboards that give executives insights into the performance of multiple plants which is crucial for strategic decision-making and long-term planning.
