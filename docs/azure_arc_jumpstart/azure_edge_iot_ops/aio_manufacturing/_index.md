@@ -58,7 +58,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 - AIO requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
 
-  - Navigate to *Entra Id* in the Azure Portal.
+  - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
 
     ![Screenshot showing searching for Entra Id in the Azure Portal](./03.png)
 
