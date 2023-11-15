@@ -342,7 +342,7 @@ The automation deploys and configures a simulator that simulates data from vario
 
   ![Screenshot showing opening influx bookmark](./54.png)
 
-- Login with the username admin and the Windows Administrator password provided when you created the deployment.
+- Login with the Administrator username and password provided when you created the deployment.
 
   ![Screenshot showing logging into InfluxDB](./55.png)
 
