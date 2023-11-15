@@ -366,7 +366,7 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
   ![Screenshot showing the Grafana dashboard](./58.png)
 
-- Users can also view real-time data on the current product being produced—strawberry donuts—as well as the active shift, which in this case is the morning shift.
+- Users can also view real-time data on the current product being produced, strawberry donuts, as well as the active shift, which in this case is the morning shift.
 
   ![Screenshot showing the Grafana dashboard](./59.png)
 
