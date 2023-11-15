@@ -356,9 +356,9 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
   | Color   | Indication                                                        |
   | ------  | --------------------------------------------------------------    |
-  | Green  🟩  | OEE above the target range of 90% (optimal performance)        |
-  | Yellow 🟨  | OEE between 80% to 90% (acceptable but suboptimal performance) |
-  | Red      🟥  | OEE below 80% (immediate attention needed)                     |
+  | Green  🟩| OEE above the target range of 90% (optimal performance)        |
+  | Yellow 🟨| OEE between 80% to 90% (acceptable but suboptimal performance) |
+  | Red      🟥| OEE below 80% (immediate attention needed)                     |
 
   ![Screenshot showing the grafana dashboard](./57.png)
 
