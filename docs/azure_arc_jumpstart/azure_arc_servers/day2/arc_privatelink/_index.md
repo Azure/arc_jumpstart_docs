@@ -8,13 +8,13 @@ description: >
 
 ## Use Azure Private Link to securely connect networks to Azure Arc-enabled servers
 
-The following Jumpstart scenario will guide you on how to use [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview) to securely connect from an Azure Arc-enabled server to Azure using a VPN. [This feature](https://docs.microsoft.com/azure/azure-arc/servers/private-link-security) allows you to connect privately to Azure Arc without opening up public network access but rather using private endpoints over a VPN or ExpressRoute connection, ensuring that all traffic is being sent to Azure privately.
+The following Jumpstart scenario will guide you on how to use [Azure Private Link](https://learn.microsoft.com/azure/private-link/private-link-overview) to securely connect from an Azure Arc-enabled server to Azure using a VPN. [This feature](https://learn.microsoft.com/azure/azure-arc/servers/private-link-security) allows you to connect privately to Azure Arc without opening up public network access but rather using private endpoints over a VPN or ExpressRoute connection, ensuring that all traffic is being sent to Azure privately.
 
 In this scenario, you will emulate a hybrid environment connected to Azure over a VPN with hybrid resources that will be Azure Arc-enabled, and Azure Private Link Scope will be used to connect over a private connection. To complete this process you deploy a single ARM template that will:
 
 - Create two separate resource groups:
 
-  - "On-premises" resource group will contain resources that simulate a private on-premises environment with a Windows virtual machine. This VM will not have a public IP address assigned to it so [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) is deployed to have administrative access to the operating system. The Windows virtual machine is an Azure Arc-enabled server by installing the Azure Arc connected machine agent using Azure Private Link.
+  - "On-premises" resource group will contain resources that simulate a private on-premises environment with a Windows virtual machine. This VM will not have a public IP address assigned to it so [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) is deployed to have administrative access to the operating system. The Windows virtual machine is an Azure Arc-enabled server by installing the Azure Arc connected machine agent using Azure Private Link.
   - "Azure" resource group will contain the Azure Arc-enabled server and its Private Link Scope.
 
 - Both resource groups have their own virtual networks and address spaces, and they are connected via Azure VPN gateways to set up a hybrid private connection.
@@ -27,7 +27,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
 ## Prerequisites
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -80,7 +80,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
   
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -89,7 +89,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "JumpstartArcSPN" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -102,7 +102,7 @@ In this scenario, you will emulate a hybrid environment connected to Azure over 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -153,7 +153,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the ARM template, login to Azure using AZ CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using AZ CLI with the *`az login`* command.
 
 - The deployment will use an ARM template parameters file to customize your environment. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/privatelink/azuredeploy.parameters.json) file located in your local cloned repository folder. Example parameters files is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/privatelink/azuredeploy.example.parameters.json).
 

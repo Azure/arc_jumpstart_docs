@@ -18,14 +18,14 @@ This guide provides an overview of how managed service providers or any multi-te
 
 ### Management across tenants
 
-[Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) is an Azure service that enables cross and multi-tenant management providing greater visibility and scale into operations. Azure Lighthouse uses an Azure Resource Provider that brings the Azure Delegated Resource Management capability by logically projecting resources from one tenant onto another and unlocking cross-tenant management without the need to do context switching.
+[Azure Lighthouse](https://learn.microsoft.com/azure/lighthouse/overview) is an Azure service that enables cross and multi-tenant management providing greater visibility and scale into operations. Azure Lighthouse uses an Azure Resource Provider that brings the Azure Delegated Resource Management capability by logically projecting resources from one tenant onto another and unlocking cross-tenant management without the need to do context switching.
 
-This service is very valuable for service providers as they can realize efficiencies in their offerings using Azure’s operations and management tools for multiple customers, however, it is as useful to customers that may have multiple Azure AD tenants (e.g. multiple subsidiaries or geographies in separate tenants).
+This service is very valuable for service providers as they can realize efficiencies in their offerings using Azure’s operations and management tools for multiple customers, however, it is as useful to customers that may have multiple Microsoft Entra ID tenants (e.g. multiple subsidiaries or geographies in separate tenants).
 
 To get started with Azure Lighthouse you can onboard a managed tenant using the Azure Delegated resource management. The onboarding process can be done in two different ways:
 
-- [Using an ARM template](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template)
-- [Publishing a Managed Service offer to the Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
+- [Using an ARM template](https://learn.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template)
+- [Publishing a Managed Service offer to the Azure Marketplace](https://learn.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
 After you finish the onboarding process you will have a central management tenant, in this scenario Contoso, that will aggregate the information from multiple customers: Microsoft, Fabrikam, and Fourth Coffee.
 
@@ -61,7 +61,7 @@ Your Azure Arc-enabled resources should be registered on a managed tenant so you
 
 By using Azure Arc, your on-premises and multi-cloud resources become part of Azure Resource Manager and therefore you can use tools such as Azure Resource Graph as a way to explore your inventory at scale.  Your Azure Resource Graph queries can now include Azure Arc-enabled resources with filtering, using tags, or tracking changes.
 
-For multitenant organizations, this service also supports Azure Lighthouse to allow you to query resources in a managed tenant.
+For multi-tenant organizations, this service also supports Azure Lighthouse to allow you to query resources in a managed tenant.
 
 ![Azure Resource Graph at scale](./05.png)
 
@@ -71,9 +71,9 @@ To explore this use case, use this Jumpstart scenario to work with tagged Azure 
 
 ### Monitoring and Alerting
 
-Azure Lighthouse allows Contoso to also get monitoring and security alerts across all of the tenant’s subscriptions, run multitenant queries using Kusto query language (KQL), and set up dashboards that provide valuable insights on the managed environments. There is no need to store logs from different entities into a shared log analytics workspace, Microsoft, Fabrikam and Fourth Coffee can keep their logs on a dedicated workspace in their subscription, while Contoso gets delegated access to them and get insights from all tenants.
+Azure Lighthouse allows Contoso to also get monitoring and security alerts across all of the tenant’s subscriptions, run multi-tenant queries using Kusto query language (KQL), and set up dashboards that provide valuable insights on the managed environments. There is no need to store logs from different entities into a shared log analytics workspace, Microsoft, Fabrikam and Fourth Coffee can keep their logs on a dedicated workspace in their subscription, while Contoso gets delegated access to them and get insights from all tenants.
 
-![Azure Monitor multitenant](./06.png)
+![Azure Monitor multi-tenant](./06.png)
 
 By enabling a resource in Azure Arc it gives you the ability to perform configuration management and monitoring tasks on those services as if they were first-class citizens in Azure. You will be able to monitor your connected machine guest operating system performance or your Kubernetes clusters at the scope of the resource with VM and container Insights.
 
@@ -81,7 +81,7 @@ By enabling a resource in Azure Arc it gives you the ability to perform configur
 
 Use these Jumpstart scenarios to integrate Azure Monitor and Azure Arc in your managed tenants:
 
-- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/)
+- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/)
 - [Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor/)
 - [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor/)
 - [Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_monitor/)
@@ -94,13 +94,13 @@ In the Contoso scenario, you will centrally manage at scale infrastructure and s
 - Using Azure Policy and its remediation tasks
 - Azure Arc’s extension management capabilities
 
-The extension management feature for [Azure Arc-enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions) and [Azure Arc-enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/extensions) provides the same post-deployment configuration and automation tasks that you have for Azure VMs or Azure Kubernetes Service. With this feature, you can deploy small pieces of software to your Arc-enabled resources in an automated fashion, onboarding to Azure Monitor, Azure Defender, DSC, or even deploy a custom script on your VMs.
+The extension management feature for [Azure Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/manage-vm-extensions) and [Azure Arc-enabled Kubernetes](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions) provides the same post-deployment configuration and automation tasks that you have for Azure VMs or Azure Kubernetes Service. With this feature, you can deploy small pieces of software to your Arc-enabled resources in an automated fashion, onboarding to Azure Monitor, Azure Defender, DSC, or even deploy a custom script on your VMs.
 
 ![Azure Arc extension management](./08.png)
 
 To work with Azure Arc extension management check out these Jumpstart scenarios:
 
-- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
+- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
 - [Deploy Custom Script Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_customscript_arm/#deploy-custom-script-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
 - [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/)
 - [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension/)
@@ -131,8 +131,6 @@ All of these data and application deployments can be done across organizations b
 
 To work with Azure Arc-enabled data services and Azure Arc-enabled Kubernetes check out these Jumpstart scenarios:
 
-- [Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/aks_stack_hci/aks_hci_gitops_basic/)
-- [Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/aks_stack_hci/aks_hci_gitops_helm/)
 - [Deploy GitOps configurations and perform basic GitOps flow on GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_basic/)
 - [Deploy GitOps configurations and perform Helm-based GitOps flow on GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm/)
 -[Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/kind/local_kind_gitops_helm/)

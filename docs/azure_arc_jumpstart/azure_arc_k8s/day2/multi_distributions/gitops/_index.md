@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Managing Calico Network Policy using GitOps in an Azure Arc-enabled Kubernetes cluster"
-linkTitle: "Managing Calico Network Policy using GitOps in an Azure Arc-enabled Kubernetes cluster"
+title: "Managing Calico Network Policy using GitOps with Arc-enabled Kubernetes cluster"
+linkTitle: "Managing Calico Network Policy using GitOps with Arc-enabled Kubernetes cluster"
 weight: 1
 description: >
 ---
 
-## Use GitOps in an Azure Arc-enabled Kubernetes cluster for managing Calico Network Policy
+## Managing Calico Network Policy using GitOps with Arc-enabled Kubernetes cluster
 
  > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 
-The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
+The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
 
   > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
@@ -36,7 +36,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 - Fork the [Tigera Azure-arc-demo repository](https://github.com/tigera-solutions/Azure-arc-demo)
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
   ```shell
   az --version
@@ -55,9 +55,9 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
   [Google Cloud Shell](https://cloud.google.com/shell)
   [AWS Cloud Shell](https://aws.amazon.com/cloudshell/)
 
-- Edit the environment variables in the [*calico_k8sconfig_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfig_gitops.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the ```. ./calico_k8sconfig_gitops.sh``` command to create the GitOps configuration.
+- Edit the environment variables in the [*calico_k8sconfig_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfig_gitops.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the *`. ./calico_k8sconfig_gitops.sh`* command to create the GitOps configuration.
 
-    > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
     > **Note:** The default branch is `master`. Newer repositories have a root branch named main, in which case you need to set `--git-branch=main` in operator params.
 
     ![Upload a file to Cloud Shell](./03.png)
@@ -80,19 +80,19 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
     ![New GitOps configuration](./06.png)
 
-- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the ```kubectl get pods -n calico-config``` command.
+- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the *`kubectl get pods -n calico-config`* command.
   > You should see the following pods running.
 
   ![Showing operator deployment](./07.png)
 
 ## Confirm Network Sets exist in the Azure Arc connected cluster
 
-- Check `Network Sets` are installed in an Azure Arc connected Cluster by running the ```kubectl get networkset -n dev ```  command.
+- Check `Network Sets` are installed in an Azure Arc connected Cluster by running the *`kubectl get networkset -n dev`*  command.
   > You should see the following output.
 
   ![Showing network set deployment](./08.png)
 
-- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs in the cluster are the same as your the definitions in the Git repository by running the ```kubectl get networkset -n dev dev-deny-ip -o yaml ``` and ```kubectl get networkset -n dev dev-allow-ip -o yaml ``` command.
+- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs in the cluster are the same as your the definitions in the Git repository by running the *`kubectl get networkset -n dev dev-deny-ip -o yaml`* and *`kubectl get networkset -n dev dev-allow-ip -o yaml`* command.
   > You should see the following output.
   ![Confirm the CIDR](./09.png)  
   ![Confirm the CIDR](./10.png)  
@@ -107,7 +107,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
   
   > **Note:** The sync process can take some time depending on your platform, you can restart your Flux operator to trigger the sync.
 
-- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs have been updated in your Azure Arc connected cluster by running the ```kubectl get networkset -n dev dev-deny-ip -o yaml ``` and ```kubectl get networkset -n dev dev-allow-ip -o yaml ``` commands.
+- Check that the `dev-deny-ip` and `dev-allow-ip` CIDRs have been updated in your Azure Arc connected cluster by running the *`kubectl get networkset -n dev dev-deny-ip -o yaml`* and *`kubectl get networkset -n dev dev-allow-ip -o yaml`* commands.
   > You should see the following output.
   ![Confirm the CIDR](./14.png)
   ![Confirm the CIDR](./15.png)

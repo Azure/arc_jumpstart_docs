@@ -33,11 +33,11 @@ You can use the Azure portal, Azure CLI, an ARM template, PowerShell or Linux Sh
 
     ![Screenshot Azure Arc-enabled server on connected status](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure Service Principal (SP)
 
-    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -66,11 +66,11 @@ You can use the Azure portal, Azure CLI, an ARM template, PowerShell or Linux Sh
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - In order to demonstrate the custom script extension, we will use the below Linux and Windows scripts.
   - [*Linux*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh): The script will modify the message of the day (MOTD) on the operating system.
-  - [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1): The script will install Windows Terminal, Microsoft Edge, 7zip and Visual Studio Code [Chocolaty](https://chocolatey.org/) packages on the VM.
+  - [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1): The script will install Windows Terminal, Microsoft Edge, 7zip and Visual Studio Code [Chocolatey ](https://chocolatey.org/) packages on the VM.
 
 ## Deployment Options and Automation Flow
 
@@ -94,7 +94,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - _`Resource Group`_: Azure Resource Group where your Azure Arc-enabled server is registered
   - _`Location`_: Azure region where your Azure Arc-enabled server is connected to
   - _`VM Name`_: name of your Azure Arc-enabled server
-  - _`File Uris`_: for Windows provide [https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1]
+  - _`File Uris`_: for Windows use the following [PowerShell script](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_windows.ps1).
   - _`Command to execute:`_ provide `./custom_script_linux.sh`
 
   ![Screenshot showing Azure portal deployment](./03.png)
@@ -106,7 +106,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - _`Resource Group`_: Azure Resource Group where your Azure Arc-enabled server is registered
   - _`Location`_: Azure region where your Azure Arc-enabled server is connected to
   - _`VM Name`_: name of your Azure Arc-enabled server
-  - _`File Uris`_: for Linux provide ["https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh"] include the URL in brackets
+  - _`File Uris`_: for Linux use the following [Shell script]("https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh").
   - _`Command to execute`_: provide ./custom_script_linux.sh
 
   ![Screenshot showing Azure portal deployment](./05.png)
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates.
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Edit the extensions parameters file for [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/extensions/arm/customscript-templatewindows.parameters.json) or for [*Linux*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/extensions/arm/customscript-templatelinux.parameters.json)
+- Edit the extensions parameters file for [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/archive/extensions/arm/customscript-templatewindows.parameters.json) or for [*Linux*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/archive/extensions/arm/customscript-templatelinux.parameters.json)
 
    ![Screenshot parameters file](./07.png)
 
@@ -151,13 +151,13 @@ As mentioned, this deployment will leverage ARM templates.
 
     - Linux:
 
-         ```bash
+         ```shell
          ./custom_script_linux.sh
          ```
 
 - To deploy the ARM template for Linux or Windows, navigate to the [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/extensions/arm) and run the below command with the templates that match your operating system:
 
-    ```bash
+    ```shell
     az deployment group create --resource-group <Name of the Azure resource group> \
     --template-file <The *customscript-template.json* template file location for Linux or Windows> \
     --parameters <The *customscript-template.parameters.json* template file location>

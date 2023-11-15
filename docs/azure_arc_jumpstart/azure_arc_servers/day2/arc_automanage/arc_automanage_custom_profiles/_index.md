@@ -8,17 +8,17 @@ description: >
 
 ## Enable Azure Automanage custom profiles on an Azure Arc-enabled servers using an ARM Template
 
-The following Jumpstart scenario will guide you on how to onboard an Azure Arc-enabled server onto [Azure Automanage](https://docs.microsoft.com/azure/automanage/automanage-virtual-machines#prerequisites). Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://docs.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
+The following Jumpstart scenario will guide you on how to onboard an Azure Arc-enabled server onto [Azure Automanage](https://learn.microsoft.com/azure/automanage/automanage-virtual-machines#prerequisites). Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://learn.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
 
-Azure Automanage removes the need to discover virtual machines manually and automatically onboards and configures certain services in Azure following best practices as defined in [Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/best-practices). Azure services included in Azure Automanage are:
+Azure Automanage removes the need to discover virtual machines manually and automatically onboards and configures certain services in Azure following best practices as defined in [Microsoft Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/manage/best-practices). Azure services included in Azure Automanage are:
 
-- [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-- [Change Tracking & Inventory](https://docs.microsoft.com/azure/automation/change-tracking/overview)
-- [Update Management](https://docs.microsoft.com/azure/automation/update-management/overview)
-- [Machines Insights Monitoring](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-overview)
-- [Azure Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)
-- [Azure Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account)
-- [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview)
+- [Microsoft Antimalware](https://learn.microsoft.com/azure/security/fundamentals/antimalware)
+- [Change Tracking & Inventory](https://learn.microsoft.com/azure/automation/change-tracking/overview)
+- [Update Management](https://learn.microsoft.com/azure/automation/update-management/overview)
+- [Machines Insights Monitoring](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)
+- [Azure Guest Configuration](https://learn.microsoft.com/azure/governance/policy/concepts/guest-configuration)
+- [Azure Automation Account](https://learn.microsoft.com/azure/automation/automation-create-standalone-account)
+- [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview)
 
 By the end of this scenario, you will have an Azure Arc-enabled server with Azure Automanage enabled and configured following Microsoft Cloud Adoption Framework best practices for Dev/Test or Production environments.
 
@@ -44,11 +44,11 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
 
     ![Screenshot of Azure portal showing Azure Arc-enabled server detail](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP)
 
-    To connect a VM or bare-metal server to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -77,7 +77,7 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -129,7 +129,7 @@ Read the explanation below to get familiar with the automation and deployment fl
 
   ![Scripts output](./07.png)
 
-  > **Note:** For the script to work properly you must run this command from the deployment folder. The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+  > **Note:** For the script to work properly you must run this command from the deployment folder. The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
 - After the script has finished its run you will have Azure Automanage enabled. You should be able to see the Azure Arc-enabled Server under 'Automanage' with the Status set in 'In progress', after a few minutes it will change to Conformant.
 

@@ -8,8 +8,8 @@ description: >
 
 ## Connect Azure Arc-enabled servers to Microsoft Sentinel
 
-The following Jumpstart scenario will guide you on how to onboard Azure Arc-enabled servers on to [Microsoft Sentinel](https://docs.microsoft.com/es-es/azure/sentinel/), so you can start collecting security-related events and start correlating them with other data sources.
-in this scenario, you will enable and configure Azure Sentinel on your Azure subscription. To complete this process you will:
+The following Jumpstart scenario will guide you on how to onboard Azure Arc-enabled servers on to [Microsoft Sentinel](https://learn.microsoft.com/azure/sentinel/), so you can start collecting security-related events and start correlating them with other data sources.
+in this scenario, you will enable and configure Microsoft Sentinel on your Azure subscription. To complete this process you will:
 
 - Setup a Log Analytics Workspace where logs and events will be aggregated for analysis and correlation.
 
@@ -38,11 +38,11 @@ in this scenario, you will enable and configure Azure Sentinel on your Azure sub
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled server detail](./02.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - Create Azure service principal (SP).
 
-    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect a VM or bare-metal server to Azure Arc, Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -71,7 +71,7 @@ in this scenario, you will enable and configure Azure Sentinel on your Azure sub
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -128,7 +128,7 @@ There are connectors for Microsoft services, third party solutions from the Secu
 
 For servers and VMs, you can install the Microsoft Monitoring Agent (MMA) agent or the Sentinel agent which collects the logs and forwards them to Microsoft Sentinel. You can deploy the agent in multiple ways by leveraging Azure Arc:
 
-- Using **[Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_mma_arm/)**
+- Using **[Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/)**
 
 This feature in Azure Arc-enabled servers allows you to deploy the MMA agent VM extensions to a non-Azure Windows and/or Linux VMs. You can use the Azure portal, Azure CLI, an ARM template as well as PowerShell script to manage extension deployment to Azure Arc-enabled servers.
 

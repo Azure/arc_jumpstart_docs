@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Integrate Azure Monitor Container Insights and recommended alerts with an Azure Arc-enabled Kubernetes cluster using extensions"
-linkTitle: "Integrate Azure Monitor Container Insights and recommended alerts with an Azure Arc-enabled Kubernetes cluster using extensions"
+title: "Integrate Azure Monitor Container Insights and recommended alerts with an Arc-enabled Kubernetes"
+linkTitle: "Integrate Azure Monitor Container Insights and recommended alerts with an Arc-enabled Kubernetes"
 weight: 3
 description: >
 ---
 
-## Integrate Azure Monitor Container Insights and recommended alerts with an Azure Arc-enabled Kubernetes cluster using extensions
+## Integrate Azure Monitor Container Insights and recommended alerts with an Arc-enabled Kubernetes
 
-The following Jumpstart scenario will guide you on how to enable [Azure Monitor Container Insights](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json) and configure all [recommended metric alerts from Container insights](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-metric-alerts) for an Azure Arc-enabled Kubernetes cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Monitor Container Insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json) and configure all [recommended metric alerts from Container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-metric-alerts) for an Azure Arc-enabled Kubernetes cluster.
 
-In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Monitor Container Insights by deploying the [Azure Monitor cluster extension](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#create-extension-instance-using-azure-cli) on your Kubernetes cluster in order to start collecting Kubernetes related logs and telemetry. Then the recommended alerts will be enabled by an [ARM template](https://docs.microsoft.com/es-es/azure/azure-resource-manager/templates/overview).
+In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Monitor Container Insights by deploying the [Azure Monitor cluster extension](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#create-extension-instance-using-azure-cli) on your Kubernetes cluster in order to start collecting Kubernetes related logs and telemetry. Then the recommended alerts will be enabled by an [ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -36,7 +36,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -46,7 +46,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
   - "Contributor" - Required for provisioning Azure resources
 
-    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -73,7 +73,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     }
     ```
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -85,7 +85,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is running the shell script. The script will use the extension management feature of Azure Arc to deploy the Azure Monitor cluster extension on the Azure Arc-enabled Kubernetes cluster and create all the recommended alerts.
 
-- User is veryfing that the cluster is shown in Azure Monitor and that the extension is deployed as well as all the recommended alerts.
+- User is verifying that the cluster is shown in Azure Monitor and that the extension is deployed as well as all the recommended alerts.
 
 - User is simulating an alert.
 
@@ -121,7 +121,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   sudo chmod +x azure_monitor_alerts.sh && . ./azure_monitor_alerts.sh
   ```
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
    The script will:
 
@@ -136,7 +136,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - You can also verify the pods by running the command below:
 
-  ```bash
+  ```shell
   kubectl get pod -n kube-system --kubeconfig <kubeconfig> | grep omsagent
   ```
 
@@ -171,7 +171,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 - Create the above file and run the following command to create the pod:
 
-  ```bash
+  ```shell
   kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
   ```
   
@@ -187,7 +187,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 Complete the following steps to clean up your environment. The commands below delete the extension instance, recommended alerts, action group and Log Analytics workspace.
 
-  ```bash
+  ```shell
   export arcClusterName='<Azure Arc Cluster Name>'
   export resourceGroup='<Azure resource group name>'
   export logAnalyticsWorkspace='<Log Analytics Workspace Name>'

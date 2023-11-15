@@ -20,9 +20,9 @@ in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), sing
 
 ## Prerequisites
 
-- The automation for this scenario is designed with the assumption that an existing (brownfield) Ubuntu server is already deployed. This can achieved in multiple ways but we recommend using either an [Ubuntu Azure virtual machine](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) or Ubuntu deployed [using Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install).
+- The automation for this scenario is designed with the assumption that an existing (brownfield) Ubuntu server is already deployed. This can achieved in multiple ways but we recommend using either an [Ubuntu Azure virtual machine](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal) or Ubuntu deployed [using Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/install).
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -59,7 +59,7 @@ in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), sing
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -93,11 +93,11 @@ For you to get familiar with the automation and deployment flow, below is an exp
     curl -L https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/cluster_api/capi_azure/installCAPI.sh -o ~/installCAPI.sh
     ```
 
-    ![Screenshot showing the curl command and the downloaded script in the Ubuntu machine](01.png)
+    ![Screenshot showing the curl command and the downloaded script in the Ubuntu machine](./01.png)
 
 - Once downloaded, edit the environment variables to match your Azure subscription and service principal details created in the prerequisites section as well as the required workload cluster details. The following screenshots shows the downloaded/copied script before editing the environment variables.
 
-    ![Screenshot showing the script empty environment variables](02.png)
+    ![Screenshot showing the script empty environment variables](./02.png)
 
     > **Note:** Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as vi or nano.
 
@@ -105,7 +105,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     > **Note:** Both the _`githubAccount`_ and the _`githubBranch`_ are used for testing purposes. Unless you are developing independent tests that are based on the script, there is no need to edit these variables.
 
-    ![Screenshot showing the githubAccount and the githubBranch environment variables](03.png)
+    ![Screenshot showing the githubAccount and the githubBranch environment variables](./03.png)
 
   - _`CONTROL_PLANE_MACHINE_COUNT`_ - Control Plane node count. For example: 1
   - _`WORKER_MACHINE_COUNT`_ - Workers node count. For example: 2
@@ -127,7 +127,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   sudo chmod +x installCAPI.sh && . ./installCAPI.sh
   ```
 
-  > **Note:** The extra dot is due to the script using the _export_ command, used for exporting the environment variables in the same shell session as the other commands in the script.
+  > **Note:** The extra dot is due to the script using the *export* command, used for exporting the environment variables in the same shell session as the other commands in the script.
 
     ![Screenshot showing the script runtime](./05.png)
 

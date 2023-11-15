@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using a Shell script"
-linkTitle: "Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using a Shell script"
+title: "Integrate Azure Monitor for Containers with AKS as an Arc Connected Cluster using scripting"
+linkTitle: "Integrate Azure Monitor for Containers with AKS as an Arc Connected Cluster using scripting"
 weight: 3
 description: >
 ---
 
-## Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using a Shell script
+## Integrate Azure Monitor for Containers with AKS as an Arc Connected Cluster using scripting
 
-The following Jumpstart scenario will guide you on how to onboard an Azure Kubernetes Service (AKS) cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using a Shell script.
+The following Jumpstart scenario will guide you on how to onboard an Azure Kubernetes Service (AKS) cluster which is projected an Azure Arc connected cluster resource on to [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) using scripting.
 
-in this scenario, you will hook the AKS cluster to Azure Monitor by deploying the [OMS agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
+in this scenario, you will hook the AKS cluster to Azure Monitor by deploying the [OMS agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster to start collecting telemetry.  
 
 > **Note:** This guide assumes you already deployed an AKS cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using either [ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or [Terraform](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).**
 
@@ -22,7 +22,7 @@ in this scenario, you will hook the AKS cluster to Azure Monitor by deploying th
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -30,7 +30,7 @@ in this scenario, you will hook the AKS cluster to Azure Monitor by deploying th
 
 * Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -59,11 +59,11 @@ in this scenario, you will hook the AKS cluster to Azure Monitor by deploying th
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Monitor for Containers Integration
 
-* In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_monitor_onboarding* script against the AKS connected cluster. For your convenient, both shell and PowerShell scripts are [provided](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks/azure_monitor).
+* In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_monitor_onboarding* script against the AKS connected cluster. For your convenient, both shell and PowerShell scripts are [provided](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks/azure_monitor).
 
 * Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster is not currently being monitored.
 
@@ -71,9 +71,9 @@ in this scenario, you will hook the AKS cluster to Azure Monitor by deploying th
 
     ![An existing Azure Arc-enabled Kubernetes cluster with no Azure Monitor integration](./02.png)
 
-* Edit the environment variables in either of the scripts to match your environment parameters, upload it to the Cloud Shell environment and run it using the ```. ./aks_monitor_onboarding.sh``` (Bash) or ```./aks_monitor_onboarding.ps1``` (PowerShell) command.
+* Edit the environment variables in either of the scripts to match your environment parameters, upload it to the Cloud Shell environment and run it using the *`. ./aks_monitor_onboarding.sh`* (Bash) or *`./aks_monitor_onboarding.ps1`* (PowerShell) command.
 
-    > **Note:** The extra dot is due to the shell script having an _export_ function and needs to have the vars exported in the same shell session as the rest of the commands.
+    > **Note:** The extra dot is due to the shell script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
     ![Open Azure Cloud Shell](./03.png)
 

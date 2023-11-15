@@ -18,7 +18,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -30,7 +30,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -59,9 +59,9 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
-* [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
+* [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
@@ -87,7 +87,7 @@ Before using the below guide to deploy an Ubuntu Server VM and connect it to Azu
 
 Before executing the Terraform plan, you must set the environment variables which will be used by the plan. These variables are based on the Azure service principal you've just created, your Azure subscription and tenant, and your VMware vSphere credentials.
 
-* Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+* Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 * The Terraform plan creates resources in both Microsoft Azure and VMware vSphere. It then executes a script on the virtual machine to install the Azure Arc agent and all necessary artifacts. This script requires certain information about your VMware vSphere and Azure environments.
 
@@ -118,11 +118,11 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![TF_VAR environment variables](./01.png)
 
-* Run the ```terraform init``` command which will download the Terraform AzureRM, Local and vSphere providers.
+* Run the *`terraform init`* command which will download the Terraform AzureRM, Local and vSphere providers.
 
     ![terraform init](./02.png)
 
-* Run the ```terraform apply --auto-approve``` command and wait for the plan to finish.
+* Run the *`terraform apply --auto-approve`* command and wait for the plan to finish.
 
     ![terraform apply](./03.png)
 
@@ -144,6 +144,6 @@ Before executing the Terraform plan, you must set the environment variables whic
 
     ![Delete Azure resource group](./08.png)
 
-* Alternatively, you can use the ```terraform destroy --auto-approve``` command.
+* Alternatively, you can use the *`terraform destroy --auto-approve`* command.
 
     ![terraform destroy](./09.png)

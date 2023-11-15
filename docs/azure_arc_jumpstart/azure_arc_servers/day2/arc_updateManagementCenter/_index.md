@@ -1,18 +1,16 @@
 ---
 type: docs
-title: "Update Management Center"
-linkTitle: "Update Management Center"
+title: "Azure Update Manager"
+linkTitle: "Azure Update Manager"
 weight: 15
 description: >
 ---
 
-## Onboard Azure Arc-enabled servers to Update Management Center
+## Onboard Azure Arc-enabled servers to Azure Update Manager
 
-The following Jumpstart scenario will guide you on how to onboard Azure Arc-enabled servers to [Update Management Center](https://learn.microsoft.com/azure/update-center/overview).
+The following Jumpstart scenario will guide you on how to onboard Azure Arc-enabled servers to [Azure Update Manager](https://learn.microsoft.com/azure/update-manager/overview).
 
-> **Note:** Currently, Update Management Center is in public preview.
-
-Update Management Center is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Update Management Center, you can make updates in real-time or schedule them within a defined maintenance window.
+Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Azure Update Manager, you can make updates in real-time or schedule them within a defined maintenance window.
 
 > **Note:** This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -27,7 +25,7 @@ Update Management Center is a unified service to help manage and govern updates 
 - **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
 - **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
 
-Please review the [Update Management Center supported OS documentation](https://learn.microsoft.com/azure/update-center/support-matrix?tabs=azurevm%2Cazurearc-os#supported-operating-systems) and ensure that the VMs you will use for this exercise are supported.
+Please review the [Azure Update Manager supported OS documentation](https://learn.microsoft.com/azure/update-manager/support-matrix?tabs=azurevm%2Cazurearc-os#supported-operating-systems) and ensure that the VMs you will use for this exercise are supported.
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ Please review the [Update Management Center supported OS documentation](https://
 
     ![Screenshot of Azure Arc-enabled servers](./01.png)
 
-- [Install or update Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use ```az --version``` to check your current installed version.
+- [Install or update Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI should be running version 2.53.0 or later. Use *`az --version`* to check your current installed version.
 
 - To complete this scenario, the user or service principal running the automation need these minimum Role-based access control (RBAC) permissions: _Resource Policy Contributor_ and _Microsoft.Resources/deployments/_ on the resource group where you have your Azure Arc-enabled servers.
 
@@ -56,9 +54,11 @@ The steps below will help you get familiar with the automation and deployment fl
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_servers_jumpstart%2FupdateManagementCenter%2Fupdate-management-center-template.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for just the ARM template parameters highlighted below. For more information about these parameters, see their description provided in the [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/updateManagementCenter/update-management-center.parameters.json).
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_servers_jumpstart%2FupdateManagementCenter%2Fupdate-management-center-template.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for just the ARM template parameters highlighted below.  
 
-  ![Screenshot of Azure portal deployment](./02.png)
+For more information about these parameters, see their description provided in the [parameters file](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/updateManagementCenter/update-management-center.parameters.json).
+
+![Screenshot of Azure portal deployment](./02.png)
 
 ## Deployment Option 2: ARM template with Azure CLI
 
@@ -92,7 +92,7 @@ As mentioned, this deployment will leverage ARM templates.
 
 In the resource group that you specified as a parameter, there will be a new policy assignment named "_(jumpstart) Configure periodic checking for missing system updates on azure Arc-enabled servers_". This policy, once it's remediated, enables Periodic Assessment.
 
-Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Update Management Center fetches updates on your machine once every 24 hours.
+Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Azure Update Manager fetches updates on your machine once every 24 hours.
 
 - Go to your **resource group** and click on **Policies**:
 
@@ -116,9 +116,9 @@ Periodic Assessment is a setting on your machine that enables you to see the lat
 
   > **Note:** You will need to wait some time until the first update assessment is run.
 
-- On the update assessment task is run, go back to your **Azure Arc-enabled server** and click on **Extensions**, you will see that a new extension has been installed. Update Management Center relies on this Azure extension designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates.
+- On the update assessment task is run, go back to your **Azure Arc-enabled server** and click on **Extensions**, you will see that a new extension has been installed. Azure Update Manager relies on this Azure extension designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates.
 
-    ![Screenshot of Update Management Center extension](./10.png)
+    ![Screenshot of Azure Update Manager extension](./10.png)
 
 - Click on **Updates**. Under **Recommended updates**, you will see which are the missing updates on this machine:
 
@@ -150,30 +150,30 @@ As part of this scenario, a new **Maintenance Configuration** resource is create
 
     ![Screenshot of Update deployment history details](./18.png)
 
-## Update Management Center
+## Azure Update Manager
 
-From the **Update Management Center**, you can oversee the update compliance for your entire fleet of machines in Azure, on-premises, and other cloud environments.
+From the **Azure Update Manager**, you can oversee the update compliance for your entire fleet of machines in Azure, on-premises, and other cloud environments.
 You can also instantly deploy critical updates to help secure your machines.
 
-- On the top bar search, type **Update Management Center** and click on it:
+- On the top bar search, type **Azure Update Manager** and click on it:
 
-    ![Screenshot of Update Management Center](./19.png)
+    ![Screenshot of Azure Update Manager](./19.png)
 
 - The **Overview** blade shows you the current updates status of your hybrid environment:
 
-    ![Screenshot of Update Management Center - Overview](./20.png)
+    ![Screenshot of Azure Update Manager - Overview](./20.png)
 
 - If you click on **Machines**, you will get more details per each individual machine:
 
-    ![Screenshot of Update Management Center - Machines](./21.png)
+    ![Screenshot of Azure Update Manager - Machines](./21.png)
 
 - Moreover, **History** shows you all the updates activities on your hybrid environment:
 
-    ![Screenshot of Update Management Center - History](./22.png)
+    ![Screenshot of Azure Update Manager - History](./22.png)
 
 - Lastly, under the **Workbooks** section, there is a built-in workbook that provides an unified view for your current updates status:
 
-    ![Screenshot of Update Management Center - Workbooks](./23.png)
+    ![Screenshot of Azure Update Manager - Workbooks](./23.png)
 
 ## Clean up environment
 

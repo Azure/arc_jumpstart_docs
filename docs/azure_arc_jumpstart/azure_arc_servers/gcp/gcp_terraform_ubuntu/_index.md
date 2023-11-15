@@ -18,13 +18,13 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-- [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
+- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
 
   ```shell
   ssh-keygen -t rsa -b 4096
@@ -40,7 +40,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   ssh-rsa o1djFhyNe5NXyYk7XVF7wOBAAABgQDO/QPJ6IZHujkGRhiI+6s1ngK8V4OK+iBAa15GRQqd7scWgQ1RUSFAAKUxHn2TJPx/Z/IU60aUVmAq/OV9w0RMrZhQkGQz8CHRXc28S156VMPxjk/gRtrVZXfoXMr86W1nRnyZdVwojy2++sqZeP/2c5GoeRbv06NfmHTHYKyXdn0lPALC6i3OLilFEnm46Wo+azmxDuxwi66RNr9iBi6WdIn/zv7tdeE34VAutmsgPMpynt1+vCgChbdZR7uxwi66RNr9iPdMR7gjx3W7dikQEo1djFhyNe5rrejrgjerggjkXyYk7XVF7wOk0t8KYdXvLlIyYyUCk1cOD2P48ArqgfRxPIwepgW78znYuwiEDss6g0qrFKBcl8vtiJE5Vog/EIZP04XpmaVKmAWNCCGFJereRKNFIl7QfSj3ZLT2ZXkXaoLoaMhA71ko6bKBuSq0G5YaMq3stCfyVVSlHs7nzhYsX6aDU6LwM/BTO1c= user@pc
   ```
 
-- [Create free Google Cloud account]((https://cloud.google.com/free))
+- [Create free Google Cloud account](https://cloud.google.com/free)
 
 - [Install Terraform >=1.1.9](https://learn.hashicorp.com/terraform/getting-started/install.html)
 
@@ -56,7 +56,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 - Create Azure service principal (SP)
 
-    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the GCP virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -85,7 +85,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -115,7 +115,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 2. User edits the tfvars to match the environment.
 
-3. User runs ```terraform init``` to download the required terraform providers
+3. User runs *`terraform init`* to download the required terraform providers
 
 4. User runs the automation. The terraform plan will:
 
@@ -153,11 +153,11 @@ The only thing you need to do before executing the Terraform plan is to create t
 
 - Navigate to the [terraform folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform) and fill in the terraform.tfvars file with the values for your environment.
 
-- Run the ```terraform init``` command which will download the required terraform providers.
+- Run the *`terraform init`* command which will download the required terraform providers.
 
     ![Screenshot showing terraform init being run](./10.png)
 
-- Next, run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion, you will have a GCP Ubuntu VM deployed and connected as a new Azure Arc-enabled server inside a new resource group.
+- Next, Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion, you will have a GCP Ubuntu VM deployed and connected as a new Azure Arc-enabled server inside a new resource group.
 
 - Open the Azure portal and navigate to the resource group "Arc-GCP-Demo". The virtual machine created in GCP will be visible as a resource.
 
@@ -175,11 +175,11 @@ The only thing you need to do before executing the Terraform plan is to create t
 
     ![Screenshot showing azcmagent connect commented out](./13.png)
 
-- Get the public IP of the GCP VM by running ```terraform output```
+- Get the public IP of the GCP VM by running *`terraform output`*
 
     ![Screenshot showing terraform output](./14.png)
 
-- SSH the VM using the ```ssh arcdemo@x.x.x.x``` where x.x.x.x is the host ip.
+- SSH the VM using the *`ssh arcdemo@x.x.x.x`* where *x.x.x.x* is the host ip.
 
 - Provide values to the environment variables to match your environment in the file [_vars.sh_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/gcp/ubuntu/terraform/scripts/vars.sh). Export the variables by copying and pasting the contents of the file
 
@@ -205,7 +205,7 @@ The only thing you need to do before executing the Terraform plan is to create t
 
 ## Delete the deployment
 
-To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
 
 ![Screenshot of terraform destroy being run](./17.png)
 

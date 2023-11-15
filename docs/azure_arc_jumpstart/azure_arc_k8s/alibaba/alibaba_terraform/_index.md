@@ -18,7 +18,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -44,7 +44,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   terraform -v
   ```
 
-- [Enable Azure subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes. Login with an identity with sufficient authorizations.
+- [Enable Azure subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes. Login with an identity with sufficient authorizations.
 
   ```shell
   az login
@@ -127,7 +127,7 @@ The only thing you need to do before executing the Terraform plan is to export t
   $env:ALICLOUD_ACCESS_KEY="aBcDeFgHiJkLmNo"
   ```
 
-- From folder `azure_arc_k8s_jumpstart/alibaba/terraform` run the ```terraform init``` command which will download the required terraform providers.
+- From folder `azure_arc_k8s_jumpstart/alibaba/terraform` Run the *`terraform init`* command which will download the required terraform providers.
 
   ![terraform init output](./05.png)
 

@@ -22,7 +22,7 @@ The following Jumpstart scenario will guide you on how to use the provided ARM t
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -30,7 +30,7 @@ The following Jumpstart scenario will guide you on how to use the provided ARM t
 
 - Create Azure service principal (SP).
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -57,7 +57,7 @@ The following Jumpstart scenario will guide you on how to use the provided ARM t
     }
     ```
 
-    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
 ## Automation Flow
 
@@ -73,7 +73,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 As mentioned, this deployment will leverage an ARM template. You will deploy a single ARM template at resource group scope.
 
-- Before deploying the ARM template, login to Azure using AZ CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using AZ CLI with the *`az login`* command.
 
 - The deployment will use an ARM template parameters file to customize your environment. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_vsphere_jumpstart/vmware_arm_template_win/azuredeploy.parameters.json) file located in your local cloned repository folder. Example parameters files are located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_vsphere_jumpstart/vmware_arm_template_win/azuredeploy.example.parameters.json). Fill out the parameters according to your environment:
 

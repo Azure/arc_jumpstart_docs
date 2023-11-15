@@ -8,7 +8,7 @@ description: >
 
 ## Enable SSH access to Azure Arc-enabled servers
 
-The following Jumpstart scenario will guide you on how to enable [SSH access to Azure Arc-enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/ssh-arc-overview), this feature allows you to connect over SSH to your Arc-enabled servers both Linux and Windows without requiring a public IP address or additional open ports.
+The following Jumpstart scenario will guide you on how to enable [SSH access to Azure Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-overview), this feature allows you to connect over SSH to your Arc-enabled servers both Linux and Windows without requiring a public IP address or additional open ports.
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
@@ -31,11 +31,11 @@ The following Jumpstart scenario will guide you on how to enable [SSH access to 
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
 - Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -64,7 +64,7 @@ The following Jumpstart scenario will guide you on how to enable [SSH access to 
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers SSH feature depends on the following Azure resource provider in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -118,7 +118,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
     . ./enable_ssh.sh
   ```
 
-  > **Note:** The extra dot is due to the script having an _export_ function and needs to have the vars exported in the same shell session as the other commands.
+  > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the other commands.
 
     ![Script's output](./02.png)
 
@@ -140,7 +140,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     ![Test SSH connection](./04.png)
 
-  > **Note:** if your Arc-enabled server uses other authentication methods make sure to review the [_az ssh arc_ documentation](https://docs.microsoft.com/cli/azure/ssh?view=azure-cli-latest#az-ssh-arc).
+  > **Note:** if your Arc-enabled server uses other authentication methods make sure to review the [_az ssh arc_ documentation](https://learn.microsoft.com/cli/azure/ssh?view=azure-cli-latest#az-ssh-arc).
 
 ## Cleanup
 

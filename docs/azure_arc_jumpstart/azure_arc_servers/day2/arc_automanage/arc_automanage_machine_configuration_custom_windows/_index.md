@@ -8,13 +8,13 @@ description: >
 
 ## Create Automanage Machine Configuration custom configurations for Windows
 
-The following Jumpstart scenario will guide you on how to create and assign a custom Automanage Machine Configuration to an Azure Arc-enabled Windows server. Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://docs.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
+The following Jumpstart scenario will guide you on how to create and assign a custom Automanage Machine Configuration to an Azure Arc-enabled Windows server. Automanage makes it easy to follow best practices in reliability, security, and management for Azure Arc-enabled servers using Azure services such as [Azure Update Management](https://learn.microsoft.com/azure/automation/update-management/overview) and [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview).
 
 While the use of custom configurations in Automanage Machine Configuration feature is based on PowerShell Desired State Configuration (DSC), there are [Changes to behavior in PowerShell DSC for Machine Configuration](https://learn.microsoft.com/azure/governance/machine-configuration/machine-configuration-custom?view=dsc-2.0) to be aware of, the most significant being the use of PowerShell 7.
 
 By the end of this scenario, you will have Windows Azure Arc-enabled servers with a custom Automanage Machine Configuration assigned.
 
-This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/itpro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
+This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
 
 ![Screenshot of Azure portal showing Azure Arc-enabled servers](./01.png)
 
@@ -32,7 +32,7 @@ Operating system:
 
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring.
 
-You can [connect to the ArcBox machine as described in the documentation](/azure_jumpstart_arcbox/itpro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
+You can [connect to the ArcBox machine as described in the documentation](/azure_jumpstart_arcbox/ITPro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
 
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.3).
   - Run ```$PSVersionTable``` to check your currently installed version.
@@ -41,15 +41,15 @@ You can [connect to the ArcBox machine as described in the documentation](/azure
 - Create C:\ArcBox\MachineConfiguration.ps1, then paste and run the following commands to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.12.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.5.1
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.5.2
+Install-Module -Name Az.Accounts -Force -RequiredVersion 2.13.1
+Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.3
+Install-Module -Name Az.Resources -Force -RequiredVersion 6.11.2
 Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 5.4.0
+Install-Module -Name Az.Storage -Force -RequiredVersion 5.10.1
 
 Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.4.0
 
-Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.5
+Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.7
 Install-Module PSDscResources -Force -RequiredVersion 2.12.0.0
 ```
 
@@ -74,7 +74,7 @@ Due to using MOF-based DSC resources for the Windows demo-configuration, we are 
 
 ## Azure resources
 
-> **Note:** For the remaining code blocks in this article, copy the code into ```C:\ArcBox\MachineConfiguration.ps1```, mark the lines you want to run and click F8.
+> **Note:** For the remaining code blocks in this article, copy the code into *C:\ArcBox\MachineConfiguration.ps1*, mark the lines you want to run and click F8.
 
 Authenticate to Azure
 
@@ -225,7 +225,7 @@ In order for the newly assigned policy to remediate existing resources, the poli
 - Grant a managed identity defined roles with PowerShell
 - Create a remediation task through Azure PowerShell
 
-See the [documentation](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
+See the [documentation](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
 
 ```powershell
 $PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.PolicyDefinitionId | Where-Object Name -eq '(AzureArcJumpstart) [Windows] Custom configuration'
@@ -261,7 +261,7 @@ It may take 15-20 minutes for the policy remediation to be completed.
 Get a Machine Configuration specific view by following these steps:
 
 - In the Azure portal, navigate to *Azure Arc* -> *Servers*
-- Click on ArcBox-Win2K22 -> Machine Configuration
+- Click on *ArcBox-Win2K22* -> Machine Configuration
 - If the status for *ArcBox-Win2K22/AzureArcJumpstart_Windows* is not *Compliant*, wait a few more minutes and click *Refresh*
 
 ![Screenshot of Azure portal showing Azure Machine Configuration compliance](./03.png)
@@ -272,7 +272,7 @@ Click on *ArcBox-Win2K22/AzureArcJumpstart_Windows* to get a per-resource view o
 
 ### Verify that the operating system level settings are in place
 
-Login to ArcBox-Win2K22 by running the below command
+Login to *ArcBox-Win2K22* by running the below command
 
 - Enter the password **ArcDemo123!!** when prompted
 
@@ -280,17 +280,17 @@ Login to ArcBox-Win2K22 by running the below command
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser Administrator
 ```
 
-Verify that the local group **arcusers** exists by first running ```powershell``` followed by ```Get-LocalUser -Name arcboxuser1```.
+Verify that the local group **arcusers** exists by first running *`powershell`* followed by *`Get-LocalUser -Name arcboxuser1`*.
 
 ![Screenshot of local user present on ArcBox-Win2K22](./05.png)
 
-Verify that the SMB1 feature is not installed by running ```Get-WindowsFeature -Name FS-SMB1```.
+Verify that the SMB1 feature is not installed by running *`Get-WindowsFeature -Name FS-SMB1`*.
 
 - The output should show that the feature is *Available*, not *Installed*
 
 ![Screenshot of SMB1 feature installation status on ArcBox-Win2K22](./06.png)
 
-Verify that PowerShell 7 is installed by running ```pwsh```.
+Verify that PowerShell 7 is installed by running *`pwsh`*.
 
 ![Screenshot of PowerShell 7 presence on ArcBox-Win2K22](./07.png)
 
@@ -302,7 +302,7 @@ Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Win2K22 -LocalUser
 
 ![Screenshot of connecting to ArcBox-Win2K22 via Azure PowerShell](./08.png)
 
-If you want to evaluate how remediation works, try to make one of the above configuration settings non-compliant by, for example, removing the user arcboxuser1: ```Get-LocalUser -Name arcboxuser1 | Remove-LocalUser```
+If you want to evaluate how remediation works, try to make one of the above configuration settings non-compliant by, for example, removing the user arcboxuser1: *`Get-LocalUser -Name arcboxuser1 | Remove-LocalUser`*
 
 Trigger a [manual evaluation](https://learn.microsoft.com/powershell/module/az.policyinsights/start-azpolicycompliancescan?view=azps-9.4.0) or wait until the next policy evaluation cycle has completed and observe that the policy is now non-compliant.
 

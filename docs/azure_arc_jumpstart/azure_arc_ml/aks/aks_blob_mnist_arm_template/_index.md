@@ -8,22 +8,22 @@ description: >
 
 ## Train, Deploy and call inference on an image classification model - MNIST dataset from Azure Blob Storage
 
-The following Jumpstart scenario will guide you on how to deploy an end-to-end Machine Learning pipeline using [Azure Arc-enabled machine learning](https://docs.microsoft.com/azure/machine-learning/how-to-attach-arc-kubernetes) deployed on [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes) cluster using [Azure ARM Templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+The following Jumpstart scenario will guide you on how to deploy an end-to-end Machine Learning pipeline using [Azure Arc-enabled machine learning](https://learn.microsoft.com/azure/machine-learning/how-to-attach-arc-kubernetes) deployed on [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster using [Azure ARM Templates](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
 
 By the end of this scenario, you will have:
 
 - An AKS cluster onboarded with Azure Arc
-- A Microsoft Windows Server 2022 (Datacenter) Azure client VM (with optional steps outlined to remote access via [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) for increased Security Posture)
+- A Microsoft Windows Server 2022 (Datacenter) Azure client VM (with optional steps outlined to remote access via [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) for increased Security Posture)
 - Azure Machine Learning with:
 
-  - Attached [Kubernetes (Preview) Compute](https://docs.microsoft.com/azure/machine-learning/how-to-attach-compute-targets#kubernetes) (Azure Arc)
-  - Model Training Run performed on Kubernetes Cluster - using [Azure CLI](https://docs.microsoft.com/cli/azure/ml/job?view=azure-cli-latest#az_ml_job_create)
-  - [Model Registered](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-and-track-ml-models) on Azure ML Studio (via [`pickle`](https://docs.python.org/3/library/pickle.html) file)
-  - Model Inference endpoint (pod) deployed on Kubernetes Cluster - using [Azure CLI](https://docs.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_create)
+  - Attached [Kubernetes (Preview) Compute](https://learn.microsoft.com/azure/machine-learning/how-to-attach-compute-targets#kubernetes) (Azure Arc)
+  - Model Training Run performed on Kubernetes Cluster - using [Azure CLI](https://learn.microsoft.com/cli/azure/ml/job?view=azure-cli-latest#az_ml_job_create)
+  - [Model Registered](https://learn.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-and-track-ml-models) on Azure ML Studio (via [`pickle`](https://docs.python.org/3/library/pickle.html) file)
+  - Model Inference endpoint (pod) deployed on Kubernetes Cluster - using [Azure CLI](https://learn.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_create)
   - Model Inference endpoint (pod) invoked using:
 
-    1. [Azure CLI](https://docs.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_invoke) using `az ml endpoint invoke`; and,
-    2. [PowerShell native RESTful methods](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.1).
+    1. [Azure CLI](https://learn.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_invoke) using `az ml endpoint invoke`; and,
+    2. [PowerShell native RESTful methods](https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.1).
 
     The point of the second method is to demonstrate that the inference pod can be called from any downstream business applications against the deployed model's REST API endpoint (i.e. we're simulating this using PowerShell).
 
@@ -31,7 +31,7 @@ By the end of this scenario, you will have:
 
 > **Note:** Currently, Azure Arc-enabled machine learning is in [public preview](https://github.com/Azure/AML-Kubernetes).
 
-To demonstrate the various architecture components, the ML pipeline we deploy is an Image Classification model trained using [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) on the common [MNIST database of handwritten digits](https://docs.microsoft.com/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets) - a Jupyter Notebook representation of the training pipeline can be found [here](https://github.com/Azure/AML-Kubernetes/blob/master/examples/simple-train-sdk/img-classification-training.ipynb), and a visual representation of the model's inference capabilities is summarized as follows:
+To demonstrate the various architecture components, the ML pipeline we deploy is an Image Classification model trained using [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) on the common [MNIST database of handwritten digits](https://learn.microsoft.com/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets) - a Jupyter Notebook representation of the training pipeline can be found [here](https://github.com/Azure/AML-Kubernetes/blob/master/examples/simple-train-sdk/img-classification-training.ipynb), and a visual representation of the model's inference capabilities is summarized as follows:
 
 ![MNIST prediction model](./02.png)
 
@@ -43,13 +43,13 @@ To demonstrate the various architecture components, the ML pipeline we deploy is
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-- [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
+- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
 
   ```shell
   ssh-keygen -t rsa -b 4096
@@ -96,7 +96,7 @@ To demonstrate the various architecture components, the ML pipeline we deploy is
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - `spnClientId` - Your Azure service principal id
   - `spnClientSecret` - Your Azure service principal secret
   - `spnTenantId` - Your Azure tenant id
-  - `windowsAdminUsername` - Client Windows VM Administrator name
+  - `windowsAdminUsername` - Client Windows VM Administrator username
   - `windowsAdminPassword` - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - `myIpAddress` - Your local public IP address. This is used to allow remote RDP and SSH connections to the client Windows VM and AKS cluster.
   - `logAnalyticsWorkspaceName` - Unique name for the deployment log analytics workspace.
@@ -159,7 +159,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
-- Once the above deployment is kicked off - you also have the option to deploy an Azure Bastion to access the Client VM. This is specially useful for enterprise environments where access to Port 3389 is restricted from Public IP's (e.g. using preventative [Azure Policies](https://docs.microsoft.com/azure/virtual-network/policy-reference#azure-virtual-network)).
+- Once the above deployment is kicked off - you also have the option to deploy an Azure Bastion to access the Client VM. This is specially useful for enterprise environments where access to Port 3389 is restricted from Public IP's (e.g. using preventative [Azure Policies](https://learn.microsoft.com/azure/virtual-network/policy-reference#azure-virtual-network)).
 
   > **Note:** Using Azure Bastion is completely optional for this scenario - if your environment allows RDP from your Public IP, feel free to skip this step.
 
@@ -196,13 +196,13 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   > **Note:** For visualizing the deployment flow, the automation script deploys [Weave Scope](https://www.weave.works/oss/scope/) pods in the K8s cluster and launches edge against the Load Balancer IP. Note that this is not core to the Azure ML or Azure Arc flow - but is included for visualization purposes.
 
-  **1. Onboard AKS Cluster to Azure Arc**
+  1. Onboard AKS Cluster to Azure Arc
 
   ![PowerShell logon script run](./08.png)
 
   ![PowerShell logon script run](./09.png)
 
-  **2. Enabling Azure Arc-enabled Machine Learning components (k8s-extension with Training, Inference)**
+  2. Enabling Azure Arc-enabled Machine Learning components (k8s-extension with Training, Inference)
 
   ![PowerShell logon script run](./10.png)
 
@@ -212,7 +212,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./13.png)
 
-  **3. Train model using Azure Machine Learning CLI**
+  3. Train model using Azure Machine Learning CLI
 
   ![PowerShell logon script run](./14.png)
 
@@ -220,7 +220,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./16.png)
 
-  **4. Deploy inference endpoint on Kubernetes Cluster**
+  4. Deploy inference endpoint on Kubernetes Cluster
 
   ![PowerShell logon script run](./17.png)
 
@@ -228,7 +228,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
   ![PowerShell logon script run](./19.png)
 
-  **5. Invoke Inference with sample JSON payload**
+  5. Invoke Inference with sample JSON payload
 
   ![PowerShell logon script run](./20.png)
 

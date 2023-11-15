@@ -18,13 +18,13 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
   ```
 
-- [Generate a new SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
+- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client).
 
   ```shell
   ssh-keygen -t rsa -b 4096
@@ -46,7 +46,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 - Create Azure service principal (SP)
 
-    To connect the AWS virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
+    To connect the AWS virtual machine to Azure Arc, an Azure service principal assigned with the "Contributor" role is required. To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
 
     ```shell
     az login
@@ -75,7 +75,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Azure Arc-enabled servers depends on the following Azure resource providers in your subscription in order to use this service. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -137,7 +137,7 @@ In order for Terraform to create resources in AWS, we will need to create a new 
 
 Before executing the Terraform plan, you must export the environment variables which will be used by the plan. These variables are based on your Azure subscription and tenant, the Azure service principal, and the AWS IAM user and keys you just created.
 
-- Retrieve your Azure subscription ID and tenant ID using the ```az account list``` command.
+- Retrieve your Azure subscription ID and tenant ID using the *`az account list`* command.
 
 - The Terraform plan creates resources in both Microsoft Azure and AWS. It then executes a script on an AWS EC2 virtual machine to install the Azure Arc agent and all necessary artifacts. This script requires certain information about your AWS and Azure environments. Edit [*scripts/vars.sh*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/ubuntu/terraform/scripts/vars.sh) and update each of the variables with the appropriate values.
 
@@ -158,13 +158,13 @@ Before executing the Terraform plan, you must export the environment variables w
 
 - Make sure your SSH keys are available in *~/.ssh* and named *id_rsa.pub* and *id_rsa*. If you followed the ssh-keygen guide above to create your key then this should already be setup correctly. If not, you may need to modify [*main.tf*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/aws/ubuntu/terraform/main.tf) to use a key with a different path.
 
-- Run the ```terraform init``` command which will download the Terraform AzureRM provider.
+- Run the *`terraform init`* command which will download the Terraform AzureRM provider.
 
     ![Screenshot of terraform init being run](./09.png)
 
 ## Deployment
 
-- Run the ```terraform apply --auto-approve``` command and wait for the plan to finish. Upon completion, you will have an AWS Amazon Linux 2 EC2 instance deployed and connected as a new Azure Arc-enabled server inside a new resource group.
+- Run the *`terraform apply --auto-approve`* command and wait for the plan to finish. Upon completion, you will have an AWS Amazon Linux 2 EC2 instance deployed and connected as a new Azure Arc-enabled server inside a new resource group.
 
 - Open the Azure portal and navigate to the resource group "Arc-AWS-Demo". The virtual machine created in AWS will be visible as a resource.
 
@@ -183,11 +183,11 @@ If you want to demo/control the actual registration process, do the following:
 
     ![Screenshot showing azcmagent connect script commented out](./12.png)
 
-- Get the public IP of the AWS VM by running ```terraform output```
+- Get the public IP of the AWS VM by running *`terraform output`*
 
     ![Screenshot of terraform output being run](./13.png)
 
-- SSH the VM using the ```ssh ubuntu@x.x.x.x``` where x.x.x.x is the host ip.
+- SSH the VM using the *`ssh ubuntu@x.x.x.x`* where *x.x.x.x* is the host ip.
 
     ![Screenshot of SSH into EC2 server](./14.png)
 
@@ -207,7 +207,7 @@ If you want to demo/control the actual registration process, do the following:
 
 ## Delete the deployment
 
-To delete all the resources you created as part of this demo use the ```terraform destroy --auto-approve``` command as shown below.
+To delete all the resources you created as part of this demo use the *`terraform destroy --auto-approve`* command as shown below.
     ![Screenshot showing terraform destroy being run](./17.png)
 
 Alternatively, you can delete the AWS EC2 instance directly by terminating it from the [AWS Console](https://console.aws.amazon.com/ec2/v2/home). Note that it will take a few minutes for the instance to actually be removed.

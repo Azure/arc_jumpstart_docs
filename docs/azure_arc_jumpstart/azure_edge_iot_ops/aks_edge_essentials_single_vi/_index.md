@@ -2,21 +2,25 @@
 type: docs
 title: "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials"
 linkTitle: "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials"
-weight: 5
+weight: 6
 description: >
 ---
 
-## Azure Video Indexer enabled by Arc on AKS Edge Essentials single node deployment
+## Azure Video Indexer enabled by Arc on AKS Edge Essentials single node deployment (preview)
 
 The following Jumpstart scenario will guide you on deploying [Azure Video Indexer](https://vi.microsoft.com/) at the edge by using [Azure Arc](https://azure.microsoft.com/products/azure-arc) and [AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-overview). This scenario will deploy the necessary infrastructure in an Azure Virtual Machine, configure an AKS Edge Essentials [single-node deployment](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-howto-single-node-deployment), connect the cluster to Azure Arc, then deploy the Video Indexer extension. The provided Bicep file and PowerShell scripts create the Azure resources and automation needed to configure the Video Indexer extension deployment on the AKS Edge Essentials cluster.
 
-The Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster. This scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks.
+Thie architecture used in this scenario relies on nested virtualization. An Azure virtual machine running Windows Server 2022 is configured as a Hyper-V virtualization host. AKS Edge Essentials is deployed on this host. Because the Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster, this scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks attached to the Azure VM.
 
-  ![Architecture Diagram](./placeholder.png)
+  ![Architecture Diagram](./arch_diagram.png)
+
+  > **Note:** Azure Video Indexer enabled by Arc is currently in preview and is not officially supported by Microsoft.
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
+
+- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -55,7 +59,7 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
   
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     Set-AzContext -SubscriptionId "<Subscription Id>" # Required if multiple Azure subscriptions available
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
@@ -65,7 +69,7 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     Set-AzContext -SubscriptionId "11111111-2222-3333-4444-555555555555" # Required if multiple Azure subscriptions available
     $spn = New-AzADServicePrincipal -DisplayName "JumpstartSPN" -Role "Contributor" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
@@ -73,9 +77,9 @@ The Video Indexer extension requires a ReadWriteMany (RWX) storage class availab
     echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
     ```
 
-    > __Note: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.__
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > __Note: The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)__
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -109,7 +113,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Before deploying the ARM template, login to Azure using Azure CLI with the ```az login``` command.
+- Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
 - The deployment uses the Bicep parameters file. Before initiating the deployment, edit the [_main.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_vi/bicep/main.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_vi/bicep/main.parameters.example.json).
 
@@ -139,7 +143,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters main.parameters.json
     ```
 
-    > **Note: If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.**
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned, you will be able to see them in Azure portal.
 
@@ -165,11 +169,11 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing all NSG rules after opening RDP](./nsg_rdp_rule.png)
 
-    > **Note: Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.**
+    > **Note:** Some Azure environments may have additional [Azure Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) restrictions that prevent RDP access using port 3389. In these cases, you can change the port that RDP listens on by passing a port value to the rdpPort parameter in the Bicep plan parameters file.
 
 ### Connect using just-in-time access (JIT)
 
-If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Azure Client VM, use the following steps:
+If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Azure Client VM, use the following steps:
 
 - In the Client VM configuration pane, enable just-in-time. This will enable the default settings.
 
@@ -183,7 +187,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
 - Let the script to run its course and _do not close_ the Powershell session. It will close automatically once completed.
 
-    > **Note: The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.**
+    > **Note:** The script run time is approximately 15 minutes long. You may see pods in the video-indexer namespace restarting multiple times during configuration.
 
     ![Screenshot script output](./logonscript.png)
 
@@ -191,17 +195,81 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
     ![Screenshot Azure Arc-enabled K8s on resource group](./arc_k8s.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview) and [extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions) [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)) are in a running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
 
     ![Screenshot kubectl get nodes -o wide](./kubectl_get_nodes.png)
 
     ![Screenshot kubectl get pod -A](./kubectl_get_pods.png)
 
-    > **Note: It is normal for the pods in the video-indexer namespace to display some restarts.**
+    > **Note:** It is normal for the pods in the video-indexer namespace to display some restarts.
 
-## Video Indexer Web API usage
+## Using Video Indexer enabled by Arc
 
-This scenario deploys the Azure Video Indexer extension via Azure Arc. This extension can be used to index video content using AI algorithms and extract transcriptions, index and timecode content, and perform language translations. Follow this guidance to explore the Video Indexer extension functionality.
+The Video Indexer enabled by Arc can be used in two ways, either through the dedicated [Video Indexer web portal](#video-indexer-web-portal) or [directly via API calls](#video-indexer-web-api). Both methods are described below.
+
+### Video Indexer Web Portal
+
+The [Video Indexer web portal](https://www.videoindexer.ai/) can be used with the Video Indexer enabled by Arc extension. In production scenarios you would normally have a valid TLS certificate securing your web api endpoint. In our scenario we are not using a valid TLS and access to the web API is over unsecured HTTPS. In order to use the web portal, you must first allow your browser to connect over unsecure connections via a browser to your extension's API endpoint.
+
+- Open the Azure portal and enter ```https://<your VM public IP>/info``` in the address bar. To bypass the warning about unsecure HTTPS in Microsoft Edge you can type ```thisisunsafe``` with the browser in the foreground.
+
+  ![Screenshot showing access to web API info endpoint](./portal_api_info.png)
+
+- Open the [Video Indexer web portal](https://www.videoindexer.ai/) and sign in with your AAD account.
+
+  ![Screenshot showing login to VI portal](./portal_login.png)
+
+- Switch to the Video Indexer extension by clicking the dropdown in the upper right corner where your account GUID is shown.
+
+  ![Screenshot showing switching to the Arc extension](./portal_switch_account.png)
+
+- Select the extension from the left pane and then click the "Upload" button.
+
+  ![Screenshot showing selecting the extension](./portal_upload_video.png)
+
+- You can upload your own video or you can use the one included on the Client VM located at "C:\Temp\video.mp4". Select the video you want to upload, set the video name and source language, then check the consent checkbox to agree to the terms and conditions.
+
+  > **Note:** You can upload up to 10 video files at a time.
+
+  ![Screenshot showing upload options](./portal_upload_options1.png)
+
+- Click on "Advance settings" and then "Indexing". Here you can choose the set of AIs to use when indexing your video content. For this scenario we will choose the "Basic video + audio" preset.
+
+  ![Screenshot showing advanced settings preset](./portal_click_adv_settings.png)
+
+  ![Screenshot showing indexing settings](./portal_adv_settings.png)
+
+- Click on "Upload + index" to start the upload process. Once the upload process is finished, you may close the dialog box.
+
+  ![Screenshot showing upload progress](./portal_video_uploading.png)
+
+- The uploaded video will be added to the Video library page, and a progress bar will appear to indicate the indexing process.
+
+  ![Screenshot showing indexing progress](./portal_video_indexing.png)
+
+- After the indexing is done, you can view the insights by selecting the video. Go to the video page by clicking on the indexed video.
+
+  ![Screenshot showing video page](./portal_video_page.png)
+
+- First, click on play video. The video will be streamed from the local location set at the extension installation.
+
+  ![Screenshot showing video playing](./portal_play_video.png)
+
+- Click on "Timeline" to view the video transcription including the time stamps. Check that while the video is playing the correct transcript line is highlighted. The text can be translated to one of the supported languages: English (US), Spanish, German, French, Italian, Chinese (Simplified) and Arabic. Click on the dropdown on the top right of the page and select German.
+
+  ![Screenshot showing video language translation options](./portal_language_select.png)
+
+- Now the transcript shown on the right of the page will display the translated transcript in the selected language.
+
+  ![Screenshot showing video transcript](./portal_translated.png)
+
+- Turn on the captions by clicking on the text bubble icon on the bottom right side of the player and selecting one of the supported languages. Captions should start to show while the video is playing.
+
+  ![Screenshot showing captions](./portal_captions.png)
+
+### Video Indexer Web API
+
+The Video Indexer API is available and running on the AKS cluster. You can make direct calls to the API by using the included Postman application on the Client VM. Follow these steps to work with the API via Postman.
 
 - First, verify that the extension deployed successfully by using Azure CLI. Replace the resource group and cluster name with the values from your deployment. Cluster name is the name of the Arc-enabled Kubernetes cluster as seen from inside your resource group:
 
@@ -214,7 +282,7 @@ This scenario deploys the Azure Video Indexer extension via Azure Arc. This exte
 
   ![Showing video indexer extension](./show_extension.png)
 
-- Next, you will need to get the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
+- You will need the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
 
   ```shell
     kubectl get ing -n video-indexer
@@ -276,7 +344,7 @@ Now we can use other API calls to examine the indexed video content.
 
   ![Upload Video step 6](./video_insights.png)
 
-### Exploring logs from the Client VM
+## Exploring logs from the Client VM
 
 Occasionally, you may need to review log output from scripts that run on the _AKS-EE-Demo_ VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the _C:\Temp_ folder on _AKS-EE-Demo_ Azure VM. A short description of the logs and their purpose can be seen in the list below:
 
@@ -291,4 +359,4 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./placeholder.png)
+    ![Screenshot showing Azure resource group deletion](./delete_rg.png)

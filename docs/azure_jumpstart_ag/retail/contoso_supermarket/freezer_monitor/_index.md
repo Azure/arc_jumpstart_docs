@@ -33,7 +33,7 @@ Contoso Supermarket is researching a number of additional health and safety syst
 
 The local collection and visualization of sensor data uses the same infrastructure as the [Infrastructure Observability](../k8s_infra_observability/) stack, namely Prometheus and Grafana. This provides the store manager with a single pane of glass for monitoring both the infrastructure and the sensors, and minimizes the number of new technologies that the manager needs to learn and that Contoso must support.
 
-[Prometheus](https://prometheus.io/) is a highly efficient open-source monitoring system that collects and stores metrics from various sources in real-time. It provides a flexible query language for analyzing the collected metrics and offers robust alerting capabilities. On the other hand, [Grafana](https://grafana.com/) is a powerful open-source data visualization and analytics platform. It allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time and also offers its own alerting capabilities.
+[Prometheus](https://prometheus.io/) is a highly efficient open source monitoring system that collects and stores metrics from various sources in real-time. It provides a flexible query language for analyzing the collected metrics and offers robust alerting capabilities. On the other hand, [Grafana](https://grafana.com/) is a powerful open source data visualization and analytics platform. It allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time and also offers its own alerting capabilities.
 
 ### Architecture
 
@@ -41,7 +41,7 @@ The local collection and visualization of sensor data uses the same infrastructu
 
 The environmental observability architecture for _Dev_, _Staging_, and _Prod_ environments leverage the same Kube Prometheus Stack as Infrastructure Observability, which includes Kubernetes manifests, Grafana dashboards, and Prometheus rules. Added to that are the IoT sensors (simulated in the scenario), [Mosquitto MQTT broker](https://mosquitto.org/), Azure IoT Hub, ADX, and a service that exposes IoT data to be scraped by Prometheus called [MQTT2PROM](https://github.com/hikhvar/mqtt2prometheus).
 
-Mosquitto open-source MQTT broker was chosen due to its popularity, lightweight implementation, and efficiency, making it a good fit for handling the sensors' messaging flow. Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. It also provides a device registry that stores information about the devices and their capabilities.
+Mosquitto open source MQTT broker was chosen due to its popularity, lightweight implementation, and efficiency, making it a good fit for handling the sensors' messaging flow. Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. It also provides a device registry that stores information about the devices and their capabilities.
 
 The _Dev_ and _Staging_ environments are configured with individual Prometheus and Grafana instances, while the _Prod_ environment is configured with a central Grafana instance. This architecture allows for more granular monitoring and troubleshooting in the _Dev_ and _Staging_ environments, while still providing a centralized view of the infrastructure's health and performance in the _Prod_ environment.
 
@@ -63,7 +63,7 @@ To view the Freezer Monitoring dashboard you will first need to import it into A
 
 - Copy these ADX dashboard JSON files on your local machine in a temporary folder to import into ADX dashboards. Alternatively, you can log in to ADX Dashboards directly on the Client VM.
 
-  > **Note:** Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.
+  > **Note:** Depending on the account being used to log in to the ADX portal, the Microsoft Entra ID tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.
 
 - On your local machine open the browser of your choice OR on the Client VM open the Edge browser and log in to [ADX Dashboards](https://dataexplorer.azure.com/). Use the same user account that you deployed Jumpstart Agora in your subscription. Failure to use the same account will prevent access to the ADX Orders database to generate dashboards.
 
@@ -129,9 +129,9 @@ From the Client VM:
 
   ![Screenshot showing the list Grafana of Dashboards](./img/grafana_click_chicago.png)
 
-  - Notice that **freezer2** is showing significant variability and frequently exceeding the safe threshold of 20°F.
+- Notice that **freezer2** is showing significant variability and frequently exceeding the safe threshold of 20°F.
 
-    ![Screenshot showing Grafana with the Chicago dashboard](./img/grafana_chicago_dashboard.png)
+  ![Screenshot showing Grafana with the Chicago dashboard](./img/grafana_chicago_dashboard.png)
 
 - The manager can use this dashboard directly when talking to the technician about the freezer.
 
@@ -173,7 +173,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
     - Enter _Freezer too warm - food at risk_ as the **Rule name**.
 
-      ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_name.png)
+    ![Screenshot showing the Grafana Add alert rule form](./img/grafana_add_alert_rule_name.png)
 
   - Section 2
 
@@ -199,7 +199,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
       - Click away from the 'Legend' box, then back into it for the series names to update.
 
-        ![Screenshot showing the Grafana preview legend options](./img/grafana_add_alert_rule_preview_legend.png)
+      ![Screenshot showing the Grafana preview legend options](./img/grafana_add_alert_rule_preview_legend.png)
 
     - Notice in the chart the times where freezer2 exceeds the threshold and would trigger an alert.
 
@@ -209,7 +209,7 @@ As the manager of the Chicago store, you can use the Grafana dashboard to see th
 
     - Under **Evaluation group** type _Alert Group_ and press **Enter**.
 
-      ![Screenshot showing the Grafana Folder selection](./img/grafana_add_alert_rule_folder.png)
+    ![Screenshot showing the Grafana Folder selection](./img/grafana_add_alert_rule_folder.png)
 
   - Scroll to the top of the page and click **Save and exit**.
 

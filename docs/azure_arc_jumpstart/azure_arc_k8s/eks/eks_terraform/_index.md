@@ -22,7 +22,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * [Install AWS IAM Authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -49,7 +49,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
     az account set --subscription "d4617bb1-551c-4450-88a7-f3e4d17cbe46"
     ```
 
-* [Enable subscription with](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
+* [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
@@ -99,7 +99,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     ![Screenshot showing how to create AWS IAM key](./iam_create_access_key.png)
 
-  * In the popup window it will show you the ***Access key ID*** and ***Secret access key***. Save both of these values to configure **AWS CLI** later
+  * In the popup window it will show you the *Access key ID* and *`Secret access key`*. Save both of these values to configure **AWS CLI** later
 
     ![Screenshot showing how to reveal the created AWS IAM key](./iam_show_access_key.png)
 
@@ -119,18 +119,18 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   cd azure_arc_k8s_jumpstart/eks/terraform
   ```
 
-* Run the ```terraform init``` command which will initialize Terraform, creating the state file to track our work:
+* Run the *`terraform init`* command which will initialize Terraform, creating the state file to track our work:
 
   ![Screenshot showing terraform init being run](./terraform_init.png)
 
-* Plan the Terraform deployment by running the ```terraform plan -out=infra.out``` command.
+* Plan the Terraform deployment by running the *`terraform plan -out=infra.out`* command.
   Wait for the plan to finish:
 
   ![Screenshot showing terraform plan being run](./terraform_plan.png)
 
   > **Note:**  Screenshot has been clipped for brevity.
 
-* Deploy EKS by running the ```terraform apply "infra.out"``` command.
+* Deploy EKS by running the *`terraform apply "infra.out"`* command.
   Wait for the plan to finish:
 
   ![Screenshot showing terraform apply being run](./terraform_apply.png)
@@ -149,7 +149,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   terraform output -raw kubeconfig > %USERPROFILE%\.kube\config
   ```
 
-  Check to see if cluster is discoverable by ```kubectl``` by running:
+  Check to see if cluster is discoverable by *`kubectl`* by running:
 
   ```shell
   kubectl version
@@ -225,6 +225,6 @@ az group delete --name "Arc-EKS-Demo"
 
 ![Screenshot showing delete resource group function in the Azure portal](./delete_resource_group.png)
 
-To delete the EKS cluster and supporting components, use the ```terraform destroy --auto-approve``` command.
+To delete the EKS cluster and supporting components, use the *`terraform destroy --auto-approve`* command.
 
 ![Screenshot showing terraform destroy being run](./terraform_destroy.png)
