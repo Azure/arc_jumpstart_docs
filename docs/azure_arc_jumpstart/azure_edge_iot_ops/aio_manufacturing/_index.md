@@ -352,7 +352,13 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
   ![Screenshot showing the grafana dashboard](./56.png)
 
-- Contoso staff can start monitoring the strawberry donut production line. The most critical KPI featured is the Overall Equipment Effectiveness (OEE). The OEE indicator is color-coded for at-a-glance status updates: a green indicator signifies an OEE above the target range of 90%, symbolizing optimal performance. A yellow indicator represents an OEE between 80% to 90%, suggesting acceptable but suboptimal performance, and a red indicator flags any OEE below 80%, indicating a need for immediate attention.
+- Contoso staff can start monitoring the strawberry donut production line. The most critical KPI featured is the Overall Equipment Effectiveness (OEE). The OEE indicator is color-coded for at-a-glance status updates:
+
+  | Color   | Indication                                                        |
+  | ------  | --------------------------------------------------------------    |
+  | Green  🟩  | OEE above the target range of 90% (optimal performance)        |
+  | Yellow 🟨  | OEE between 80% to 90% (acceptable but suboptimal performance) |
+  | Red    🟥  | OEE below 80% (immediate attention needed)                     |
 
   ![Screenshot showing the grafana dashboard](./57.png)
 
