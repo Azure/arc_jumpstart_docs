@@ -300,7 +300,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 > **Note:** Occassionaly you might get the below error in deploying AIO, this is a known issue. The automation will retry the deployment and proceed
 
-![Screenshot showing AIO-Client-VM](./40.png)
+  ![Screenshot showing AIO-Client-VM](./40.png)
 
   ![Screenshot showing AIO-Client-VM](./41.png)
 
@@ -352,15 +352,15 @@ The automation deploys and configures a simulator that simulates data from vario
 
 - Contoso staff can start monitoring the strawberry donut production line. The most critical KPI featured is the Overall Equipment Effectiveness (OEE). The OEE indicator is color-coded for at-a-glance status updates: a green indicator signifies an OEE above the target range of 90%, symbolizing optimal performance. A yellow indicator represents an OEE between 80% to 90%, suggesting acceptable but suboptimal performance, and a red indicator flags any OEE below 80%, indicating a need for immediate attention.
 
-   ![Screenshot showing the grafana dashboard](./57.png)
+  ![Screenshot showing the grafana dashboard](./57.png)
 
 - Additionally, the dashboard breaks down the components of OEE—Availability, Product Quality, and Performance—to provide a detailed analysis. A key focus is on Availability, with constant monitoring of Downtimes to identify and classify lost time reasons, such as equipment malfunctions or ingredient shortages.
 
-   ![Screenshot showing the grafana dashboard](./58.png)
+  ![Screenshot showing the grafana dashboard](./58.png)
 
 - Users can also view real-time data on the current product being produced—strawberry donuts—as well as the active shift, which in this case is the morning shift.
 
-   ![Screenshot showing the grafana dashboard](./59.png)
+  ![Screenshot showing the grafana dashboard](./59.png)
 
 - Critical equipment, such as the fryer, is under special surveillance. The dashboard displays the current oil temperature against the target temperature, along with the oil level in the fryer, ensuring that any deviations from the norm can be quickly addressed.
 
