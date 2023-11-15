@@ -10,7 +10,7 @@ description: >
 
 Contoso Bakeries, a fictional company, requires dashboards and analytics on the Edge (in its plant) and in Azure to provide real-time operational data to plant operators such as Operational Technology (OT) Managers, Operators, and Maintenance personnel. This includes insights into production line operations and key performance indicators (KPIs) like overall equipment effectiveness (OEE), downtime, and waste. A prime focus is on data from critical equipments like fryers. Additionally, regional executives and directors are interested in supervising main KPIs across multiple plants remotely.
 
-> **Note:** Currently, Azure IoT Operations is in preview.
+> **Note:**** Currently, Azure IoT Operations is in preview.
 
 ## Architecture
 
@@ -123,7 +123,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 - You will need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.
 
-> **Note:** You need permissions to list all the service principals.**
+> **Note:** You need permissions to list all the service principals.
 
 ### Option 1: Bash
 
@@ -205,9 +205,9 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
     ![Screenshot showing creating an SPN with PowerShell](./13.png)
 
-    > **Note: If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret.**
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret
 
-    > **Note: The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://docs.microsoft.com/azure/role-based-access-control/best-practices)**
 
 ## Start post-deployment automation
 
@@ -215,7 +215,7 @@ Once your deployment is complete, you can open the Azure portal and see the AIO 
 
   ![Screenshot showing all deployed resources in the resource group](./14.png)
 
-   > **Note: For enhanced AIO security posture, RDP (3389) and SSH (22) ports are not open by default in AIO deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.**
+   > **Note:** For enhanced AIO security posture, RDP (3389) and SSH (22) ports are not open by default in AIO deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM
 
 ## Connecting to the AIO Client virtual machine
 
@@ -248,7 +248,7 @@ By design, AIO does not open port 3389 on the network security group. Therefore,
 
   ![Screenshot showing connecting to the VM using Bastion](./20.png)
 
-  > **Note: When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to *AIO-Client-VM* with Azure Bastion.**
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to *AIO-Client-VM* with Azure Bastion
 
 ### Connect using just-in-time access (JIT)
 
@@ -298,7 +298,7 @@ If you already have [Microsoft Defender for Cloud](https://docs.microsoft.com/az
 
   ![Screenshot showing AIO-Client-VM](./39.png)
 
-> **Note: Occassionaly you might get the below error in deploying AIO, this is a known issue. The automation will retry the deployment and proceed.**
+> **Note:** Occassionaly you might get the below error in deploying AIO, this is a known issue. The automation will retry the deployment and proceed
 
 ![Screenshot showing AIO-Client-VM](./40.png)
 
@@ -369,11 +369,11 @@ The automation deploys and configures a simulator that simulates data from vario
 
 The automation deploys an ADX cluster and provides a dashboard for Contoso's regional executives and directors who require a broader view across multiple plants. The Azure IoT MQ in the local cluster transmits data to Azure Event Grid, which acts as a cloud-based MQTT broker. It receives operational data and routes it to Azure Event Grid topics, and from there to the Event Hub. Event Hub streamlines the data inflow, allowing ADX to ingest it. Using Kusto Query Language (KQL), Azure Data Explorer provides advanced analytics and custom dashboards that give executives insights into the performance of multiple plants which is crucial for strategic decision-making and long-term planning.
 
-> **Note: See the diagram in the [Architecture section](#architecture) for more context**
+> **Note:** See the diagram in the [Architecture section](#architecture) for more context**
 
 ### Manually import dashboards
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
+> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment
 
 Follow the below steps in order to view the dashboard reports, you will need to import them into ADX.
 
@@ -383,7 +383,7 @@ Follow the below steps in order to view the dashboard reports, you will need to 
 
 - Copy this ADX dashboard report JSON file on your local machine in a temporary folder to import into ADX dashboards. Alternatively, you can log in to ADX Dashboards directly on the Client VM.
 
-  > **Note:** Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization.
+  > **Note:** Depending on the account being used to log in to the ADX portal, the Azure AD tenant of that account may have conditional access policies enabled to allow access only from corporate-managed devices (for example managed by Microsoft Intune) and might prevent login to ADX Dashboards from the Client VM as this VM is not managed by your organization
 
 - On your local machine open the browser of your choice OR on the Client VM open the Edge browser and log in to [ADX Dashboards](https://dataexplorer.azure.com/). Use the same user account that you deployed the scenario in your subscription. Failure to use the same account will prevent access to the ADX Orders database to generate reports.
 
