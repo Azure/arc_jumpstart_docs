@@ -354,7 +354,7 @@ The automation deploys and configures a simulator that simulates data from vario
 
   ![Screenshot showing the grafana dashboard](./57.png)
 
-- Additionally, the dashboard breaks down the components of OEE—Availability, Product Quality, and Performance—to provide a detailed analysis. A key focus is on Availability, with constant monitoring of Downtimes to identify and classify lost time reasons, such as equipment malfunctions or ingredient shortages.
+- Additionally, the dashboard breaks down the components of OEE; *Availability*, *Product Quality*, and *Performance*, to provide a detailed analysis. A key focus is on *Availability*, with constant monitoring of downtime to identify and classify lost time reasons, such as equipment malfunctions or ingredient shortages.
 
   ![Screenshot showing the grafana dashboard](./58.png)
 
