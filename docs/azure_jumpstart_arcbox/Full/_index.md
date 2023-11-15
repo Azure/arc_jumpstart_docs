@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "ArcBox Full"
-weight: 1
+weight: 2
 ---
 
 # Jumpstart ArcBox "Full" Edition
