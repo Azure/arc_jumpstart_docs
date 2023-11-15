@@ -324,7 +324,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Industrial telemetry at the edge
 
-The automation deploys and configures a simulator that simulates data from various bakery equipment, such as ovens, dividers, and mixers, including a dedicated simulation for a fryer unit—a critical asset in the bakery's production line. The MQTT listener captures this data and funnels it into *InfluxDb* which is optimized for time-series data. Grafana, a leading open-source platform for monitoring and observability, taps into InfluxDb to render comprehensive dashboards and analytics, enabling the plant staff at Contoso to monitor and enhance the performance of the strawberry donut production line effectively. Those dashboards provide near real-time information and insights, often projected directly within the production line area, to enable immediate response and decision-making where it matters most.
+The automation deploys and configures a simulator that simulates data from various bakery equipment, such as ovens, dividers, and mixers, including a dedicated simulation for a fryer unit - a critical asset in the bakery's production line. The MQTT listener captures this data and funnels it to InfluxDB which is optimized for time-series data. 
+
+Grafana, a leading open-source platform for monitoring and observability, taps into InfluxDB to render comprehensive dashboards and analytics, enabling the plant staff at Contoso to monitor and enhance the performance of the strawberry donut production line effectively. Those dashboards provide near real-time information and insights, often projected directly within the production line area, to enable immediate response and decision-making where it matters most.
 
 - Open the MQTT explorer desktop shortcut, it is already configured to connect to the MQTT listener on the cluster.
 
