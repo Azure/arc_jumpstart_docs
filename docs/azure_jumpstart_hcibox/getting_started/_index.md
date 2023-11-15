@@ -1,7 +1,8 @@
 ---
 type: docs
-linkTitle: "Jumpstart HCIBox"
-weight: 5
+linkTitle: "HCIBox Getting started"
+isGettingStarted: true
+weight: 1
 ---
 
 ## Jumpstart HCIBox - Overview
