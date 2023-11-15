@@ -14,11 +14,11 @@ The architecture used in this scenario relies on nested virtualization. An Azure
 
   ![Architecture Diagram](./arch_diagram.png)
 
-  > **Note:** Azure Video Indexer enabled by Arc is currently in preview and is not officially supported by Microsoft.
+  > **Note:** Azure Video Indexer enabled by Arc is currently in preview. You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
 
 ## Prerequisites
 
-- You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
+- Azure subscription approval to use the Video Indexer enabled by Arc extension. [Register here](https://aka.ms/vi-register).
 
 - [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
