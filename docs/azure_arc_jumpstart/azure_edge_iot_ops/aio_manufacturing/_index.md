@@ -375,7 +375,7 @@ The automation deploys an *Azure Data Explorer* cluster and provides a dashboard
 
 > **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
 
-Follow the below steps in order to view the dashboard reports, you will need to import it into ADX.
+Follow the below steps in order to view the dashboard reports, you will need to import them into ADX.
 
 - On the Client VM, open Windows Explorer and navigate to folder *C:\AIO\adx_dashboard* folder. This folder contains an ADX dashboard report JSON file (*dashboard.json*) with the ADX URI updated when the deployment PowerShell logon script is completed.
 
