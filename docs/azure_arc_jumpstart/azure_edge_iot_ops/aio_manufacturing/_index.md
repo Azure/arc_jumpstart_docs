@@ -44,7 +44,6 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   - East US 2
   - West US 2
-  - West US 3
   - North Europe
   - West Europe
 
