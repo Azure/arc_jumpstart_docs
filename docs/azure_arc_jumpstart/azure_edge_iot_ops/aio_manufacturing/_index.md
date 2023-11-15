@@ -226,17 +226,17 @@ Various options are available to connect to *AIO-Client-VM*, depending on the pa
 
 ### Connecting directly with RDP
 
-By design, AIO does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, port 3389 isn't opened by default on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the *AIO-NSG-Prod* resource in Azure portal and click "Add" to add a new rule.
 
   ![Screenshot showing adding a new inbound security rule](./15.png)
 
+  ![Screenshot showing adding a new allow RDP inbound security rule](./16.png)
+
 - Select My IP address from the dropdown.
 
-  <img src="./16.png" alt="Screenshot showing adding a new allow RDP inbound security rule" width="400">
-
-  <br/>
+  ![Screenshot showing adding a new allow RDP inbound security rule](./17.png)
 
   ![Screenshot showing all inbound security rule](./18.png)
 
