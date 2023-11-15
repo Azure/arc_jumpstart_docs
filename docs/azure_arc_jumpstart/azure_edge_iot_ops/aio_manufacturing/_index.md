@@ -125,7 +125,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 ### Option 1: Bash
 
-  ```bash
+  ```shell
   customLocationRPOID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
