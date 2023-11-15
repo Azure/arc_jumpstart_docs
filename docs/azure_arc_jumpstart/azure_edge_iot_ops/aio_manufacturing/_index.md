@@ -18,7 +18,7 @@ The solution for Contoso will involve deploying the following:
 
 - A Kubernetes cluster on the Edge using AKS Edge Essentials, managed by Azure Arc, which hosts various Azure IoT Operations services.
 - A custom-developed MQTT-Simulator that mimics plant and fryer data, transmitting it to Azure IoT MQ via MQTT.
-- An MQTT-listener service that captures this production line data, sending it to an open-source InfluxDb on the Edge, generating near real-time dashboards and analytics and visualizes it using Grafana.
+- An MQTT-listener service that captures this production line data, sending it to an open-source [InfluxDb](https://www.influxdata.com/) on the Edge, generating near real-time dashboards and analytics and visualizes it using [Grafana](https://grafana.com/).
 - An Azure IoT MQ connection with Azure Event Grid namespace, an MQTT broker integrated into Azure, pushing data to Azure Event Grid and subsequently to Azure Data Explorer.
 - Azure Data Explorer dashboards and analytics for supervisory and executive roles monitoring multiple plants' operations.
 
@@ -316,11 +316,11 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing AIO-Client-VM](./47.png)
 
-- Deployment is complete! Let's begin exploring how Contoso staff can start using the deployed solution.
-
   ![Screenshot showing complete deployment](./48.png)
 
   ![Screenshot showing AIO resources in Azure portal](./49.png)
+
+- Deployment is complete! Let's begin exploring how Contoso staff can start using the deployed solution.
 
 ## Industrial telemetry at the edge
 
@@ -430,7 +430,3 @@ Follow the below steps in order to view the dashboard reports, you will need to 
 - If you used Azure Developer CLI to deploy then *`azd down`* can be used instead.
 
   ![Screenshot showing azd down](./69.png)
-
-## Next steps
-
-If you still having issues with the deployment, please refer to the [Troubleshooting](../troubleshooting//) section. Otherwise, if you have additional questions or feedback, please refer to the [FAQ](../../../faq/) section.
