@@ -8,7 +8,7 @@ description: >
 
 ## Enhance operational insights at the edge using Azure IoT Operations (AIO)
 
-Contoso Bakeries, a fictional company, requires dashboards and analytics on the Edge (in its plant) and in Azure to provide real-time operational data to plant operators such as Operational Technology (OT) Managers, Operators, and Maintenance personnel. This includes insights into production line operations and key performance indicators (KPIs) like overall equipment effectiveness (OEE), downtime, and waste. A prime focus is on data from critical equipments like fryers. Additionally, regional executives and directors are interested in supervising main KPIs across multiple plants remotely.
+Contoso Bakeries, a fictional company, requires dashboards and analytics on the edge (in its plant) and in Azure to provide real-time operational data to plant operators such as Operational Technology (OT) Managers, Operators, and Maintenance personnel. This includes insights into production line operations and key performance indicators (KPIs) like overall equipment effectiveness (OEE), downtime, and waste. A prime focus is on data from critical equipment like fryers. Additionally, regional executives and directors are interested in supervising main KPIs across multiple plants remotely.
 
 > **Note:**** Currently, Azure IoT Operations is in preview.
 
@@ -342,7 +342,7 @@ The automation deploys and configures a simulator that simulates data from vario
 
   ![Screenshot showing opening influx bookmark](./54.png)
 
-- Login with the username admin and the Windows Administrator password provided when you created the deployment.
+- Login with the Administrator username and password provided when you created the deployment.
 
   ![Screenshot showing logging into InfluxDB](./55.png)
 
