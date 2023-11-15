@@ -215,7 +215,7 @@ Once your deployment is complete, you can open the Azure portal and see the AIO 
 
   ![Screenshot showing all deployed resources in the resource group](./14.png)
 
-   > **Note:** For enhanced AIO security posture, RDP (3389) and SSH (22) ports are not open by default in AIO deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM
+   > **Note:** For enhanced security posture, RDP (3389) and SSH (22) ports are not open by default in AIO deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://docs.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM
 
 ## Connecting to the AIO Client virtual machine
 
