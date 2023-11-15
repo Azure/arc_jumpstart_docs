@@ -26,7 +26,7 @@ The solution for Contoso will involve deploying the following:
 
 The following Jumpstart scenario will show how to create an AKS Edge Essentials cluster in Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Bicep template is responsible for creating the Azure resources as well as executing the LogonScript including AKS Edge Essentials cluster creation, AIO deployment, Azure resource deployment, and Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) on the Azure VM.
 
-> **:** It is not expected to use a nested virtualization in a production environment, let alone using an Azure VM to do so. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
+> **Note:** It is not expected to use a nested virtualization in a production environment, let alone using an Azure VM to do so. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
 ## Prerequisites
 
@@ -137,7 +137,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
   $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_edge_iot_ops_jumpstart/aio_manufacturing/bicep) and run the below command:
 
   ```shell
   az login
@@ -182,7 +182,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install or update Azure PowerShell to version 10.4.0 or above.
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -193,7 +193,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
     For example:
 
-    ```PowerShell
+    ```powershell
     $account = Connect-AzAccount
     $spn = New-AzADServicePrincipal -DisplayName "JumpstartAIOSP" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
     echo "SPN App id: $($spn.AppId)"
@@ -360,6 +360,7 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
   | Yellow  | 🟨 OEE between 80% to 90% (acceptable but suboptimal performance) |
   | Red     | 🟥 OEE below 80% (immediate attention needed)                     |
 
+
   ![Screenshot showing the Grafana dashboard](./57.png)
 
 - Additionally, the dashboard breaks down the components of OEE; *Availability*, *Product Quality*, and *Performance*, to provide a detailed analysis. A key focus is on *Availability*, with constant monitoring of downtime to identify and classify lost time reasons, such as equipment malfunctions or ingredient shortages.
@@ -380,7 +381,7 @@ The automation deploys an ADX cluster and provides a dashboard for Contoso's reg
 
 ### Manually import dashboards
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment
+> **Note:** If you used the [Azure Developer CLI (azd) method](#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment
 
 Follow the below steps in order to view the dashboard reports, you will need to import them into ADX.
 
