@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "ArcBox FAQ"
-weight: 5
+weight: 6
 ---
 
 # Jumpstart ArcBox Frequently Asked Questions (FAQ)

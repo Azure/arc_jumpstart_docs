@@ -10,15 +10,15 @@ description: >
 
 The following Jumpstart scenario will guide you on deploying [Azure Video Indexer](https://vi.microsoft.com/) at the edge by using [Azure Arc](https://azure.microsoft.com/products/azure-arc) and [AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-overview). This scenario will deploy the necessary infrastructure in an Azure Virtual Machine, configure an AKS Edge Essentials [single-node deployment](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-howto-single-node-deployment), connect the cluster to Azure Arc, then deploy the Video Indexer extension. The provided Bicep file and PowerShell scripts create the Azure resources and automation needed to configure the Video Indexer extension deployment on the AKS Edge Essentials cluster.
 
-Thie architecture used in this scenario relies on nested virtualization. An Azure virtual machine running Windows Server 2022 is configured as a Hyper-V virtualization host. AKS Edge Essentials is deployed on this host. Because the Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster, this scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks attached to the Azure VM.
+The architecture used in this scenario relies on nested virtualization. An Azure virtual machine running Windows Server 2022 is configured as a Hyper-V virtualization host. AKS Edge Essentials is deployed on this host. Because the Video Indexer extension requires a ReadWriteMany (RWX) storage class available on the Kubernetes cluster, this scenario uses [Longhorn](https://longhorn.io/) to provide the RWX storage class by using local disks attached to the Azure VM.
 
   ![Architecture Diagram](./arch_diagram.png)
 
-  > **Note:** Azure Video Indexer enabled by Arc is currently in preview and is not officially supported by Microsoft.
+  > **Note:** Azure Video Indexer enabled by Arc is currently in preview. You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
 
 ## Prerequisites
 
-- You must have your Azure subscription approved to use the Video Indexer enabled by Arc extension. To get your subscription approved please submit [this form](https://aka.ms/vi-register).
+- Azure subscription approval to use the Video Indexer enabled by Arc extension. [Register here](https://aka.ms/vi-register).
 
 - [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
@@ -149,7 +149,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
     ![Screenshot Bicep output](./az_deployment.png)
 
-    ![Screenshot resources in resource group](./placeholder.png)
+    ![Screenshot resources in resource group](./deployed_resources.png)
 
 ## Windows Login & Post Deployment
 
@@ -177,9 +177,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - In the Client VM configuration pane, enable just-in-time. This will enable the default settings.
 
-  ![Screenshot showing the Microsoft Defender for cloud portal, allowing RDP on the client VM](./placeholder.png)
-
-  ![Screenshot showing connecting to the VM using JIT](./placeholder.png)
+  ![Screenshot showing the configuring JIT, allowing RDP on the client VM](./configure_jit.png)
 
 ### Post Deployment
 
@@ -195,7 +193,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot Azure Arc-enabled K8s on resource group](./arc_k8s.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to check the status of the system pods, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview).
 
     ![Screenshot kubectl get nodes -o wide](./kubectl_get_nodes.png)
 
@@ -280,7 +278,7 @@ The Video Indexer API is available and running on the AKS cluster. You can make 
       --cluster-name <name of your connected cluster> -o table
   ```
 
-  ![Showing video indexer extension](./show_extension.png)
+  ![Screenshot showing video indexer extension](./show_extension.png)
 
 - You will need the IP address of the Video Indexer Web API ingress. By default the address should be 192.168.0.4.
 
@@ -288,61 +286,61 @@ The Video Indexer API is available and running on the AKS cluster. You can make 
     kubectl get ing -n video-indexer
   ```
 
-  ![Web API port](./kubectl_get_ing.png)
+  ![Screenshot showing Web API port](./kubectl_get_ing.png)
 
 Now we will use the Web API to index a video by making API calls through the Postman client.
 
 - From Azure portal, navigate to the Azure AI Video Indexer resource and then click "Management API". Change the Permission dropdown to Contributor, then click Generate and copy the Access.
 
-  ![Get VI access token]()
+  ![Screenshot showing VI access token](./generate_access_token.png)
 
 - Open the Postman client from the shortcut on the Client VM desktop, and then select "lightweight API client".
 
-  ![Video Streaming](./open_postman.png)
+  ![Screenshot showing Video Streaming](./open_postman.png)
 
-- Using Postman, make a GET request to the Web API info function. Enter "https://192.168.0.4/info for the URI and click Send. You should get a JSON object back representing the extension info and public endpoint. Note the "accountId" field as you will need it in the next step.
+- Using Postman, make a GET request to the Web API info function. Enter *`https://192.168.0.4/info`* for the URI and click Send. You should get a JSON object back representing the extension info and public endpoint. Note the "accountId" field as you will need it in the next step.
 
-  ![API Info](./postman_api_info.png)
+  ![Screenshot showing API Info](./postman_api_info.png)
 
-- Next, change the request type to POST and the URI to "https://192.168.0.4/Accounts/<accountId>/Videos, where accountId is your Video Indexer account ID retrieved in the previous step.
+- Next, change the request type to POST and the URI to *`https://192.168.0.4/Accounts/<accountId>/Videos`*, where accountId is your Video Indexer account ID retrieved in the previous step.
 
-  ![Upload Video step 1](./upload_1.png)
+  ![Screenshot showing Upload Video step 1](./upload_1.png)
 
 - In the Key/value table, enter a new key with the name "name" and the value "SampleVideo" as seen in the screenshot below.
 
-  ![Upload Video step 1b](./upload_1b.png)
+  ![Screenshot showing Upload Video step 1b](./upload_1b.png)
 
 - Switch to the "Authorization" tab and change the Type dropdown to "Bearer Token". In the Token field enter the Bearer token you generated from the Azure portal.
 
-  ![Upload Video step 2](./upload_2.png)
+  ![Screenshot showing Upload Video step 2](./upload_2.png)
 
 - Switch to the "Body" tab. In the Key/value table enter a new key with name "fileName" and then and select the "File" option from the dropdown under the Key column.
 
-  ![Upload Video step 3](./upload_3.png)
+  ![Screenshot showing Upload Video step 3](./upload_3.png)
 
 - Choose "Select file" under the "Value" column and navigate to C:\Temp\video.mp4 to select the sample video to upload.
 
-  ![Upload Video step 4](./upload_4.png)
+  ![Screenshot showing Upload Video step 4](./upload_4.png)
 
 - Finally, click the "Send" button to send the request. If you've done things correctly, you will see the video id and the "processing" status in the JSON response.
 
-  ![Upload Video step 5](./video_uploading.png)
+  ![Screenshot showing Upload Video step 5](./video_uploading.png)
 
 At this point the video is being indexed by the Video Indexer extension. This step will take some time. You can monitor the progress as follows:
 
-- Using Postman, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
+- Using Postman, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos?name=SampleVideo`* where accountId is your Video Indexer account id. In the example below the video processing is 10% complete, as seen in the JSON response.
 
-  ![Upload Video step 5](./video_processing.png)
+  ![Screenshot showing Upload Video step 6](./video_processing.png)
 
 - You can repeat the same API call to monitor the progress. When complete, the state will change to "Processed" and the processingProgress should show 100%. Note the id field for the next step.
 
-  ![Upload Video step 6](./video_processed.png)
+  ![Screenshot showing Upload Video step 7](./video_processed.png)
 
 Now we can use other API calls to examine the indexed video content.
 
-- From the Postman client, make a new GET request to the following URI - https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
+- From the Postman client, make a new GET request to the following URI - *`https://192.168.0.4/Accounts/{accountId}/Videos/{videoId}/Index`* where AccountID is your Video Indexer account id and videoId is the id of the video. Review the JSON response to see insights of the video extracted by the Video Indexer extension.
 
-  ![Upload Video step 6](./video_insights.png)
+  ![Screenshot showing Upload Video step 8](./video_insights.png)
 
 ## Exploring logs from the Client VM
 
