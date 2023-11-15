@@ -20,7 +20,7 @@ The solution for Contoso will involve deploying the following:
 - An Azure IoT MQ connection with Azure Event Grid namespace, an MQTT broker integrated into Azure, pushing data to Azure Event Grid and subsequently to Azure Data Explorer.
 - Azure Data Explorer dashboards and analytics for supervisory and executive roles monitoring multiple plants' operations.
 
-![Architecture diagram](./01.png)
+![Screenshot showing an architecture diagram](./01.png)
 
 The following Jumpstart scenario will show how to create an AKS Edge Essentials cluster in Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Bicep template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, AIO deployment, Azure resource deployment and Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster)) on the Azure VM.
 
