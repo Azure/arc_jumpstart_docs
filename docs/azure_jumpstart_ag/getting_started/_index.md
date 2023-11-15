@@ -1,7 +1,8 @@
 ---
 type: docs
-linkTitle: "Jumpstart Agora"
-weight: 3
+linkTitle: "Agora Getting started"
+isGettingStarted: true
+weight: 1
 ---
 
 ## Jumpstart Agora
