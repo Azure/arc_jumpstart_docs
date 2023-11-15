@@ -16,7 +16,7 @@ The solution for Contoso will involve deploying the following:
 
 - A Kubernetes cluster on the edge using [AKS Edge Essentials](https://learn.microsoft.com/azure/aks/hybrid/aks-edge-overview), managed by Azure Arc, which hosts various [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/get-started/overview-iot-operations) services.
 - A custom-developed MQTT-Simulator that mimics plant and fryer data, transmitting it to Azure IoT MQ via MQTT.
-- An MQTT-listener service that captures this production line data, sending it to an open source [InfluxDb](https://www.influxdata.com/) on the edge, generating near real-time dashboards and analytics and visualizes it using [Grafana](https://grafana.com/).
+- An MQTT-listener service that captures this production line data, sending it to an open source [InfluxDb](https://www.influxdata.com/) on the edge, generating near real-time dashboards and analytics and visualizes it using [Grafana](https://Grafana.com/).
 - An Azure IoT MQ connection with [Azure Event Grid namespace](https://learn.microsoft.com/azure/event-grid/create-view-manage-namespaces), an MQTT broker integrated into Azure, pushing data to Azure Event Grid and subsequently to [Azure Data Explorer](https://learn.microsoft.com/azure/data-explorer/).
 - Azure Data Explorer dashboards and analytics for supervisory and executive roles monitoring multiple plants' operations.
 
@@ -350,7 +350,7 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
 - Click on dashboards and select the "Contoso Bakery Strawberry Donut production line" dashboard.
 
-  ![Screenshot showing the grafana dashboard](./56.png)
+  ![Screenshot showing the Grafana dashboard](./56.png)
 
 - Contoso staff can start monitoring the strawberry donut production line. The most critical KPI featured is the Overall Equipment Effectiveness (OEE). The OEE indicator is color-coded for at-a-glance status updates:
 
@@ -360,15 +360,15 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
   | Yellow  | 🟨 OEE between 80% to 90% (acceptable but suboptimal performance) |
   | Red     | 🟥 OEE below 80% (immediate attention needed)                     |
 
-  ![Screenshot showing the grafana dashboard](./57.png)
+  ![Screenshot showing the Grafana dashboard](./57.png)
 
 - Additionally, the dashboard breaks down the components of OEE; *Availability*, *Product Quality*, and *Performance*, to provide a detailed analysis. A key focus is on *Availability*, with constant monitoring of downtime to identify and classify lost time reasons, such as equipment malfunctions or ingredient shortages.
 
-  ![Screenshot showing the grafana dashboard](./58.png)
+  ![Screenshot showing the Grafana dashboard](./58.png)
 
 - Users can also view real-time data on the current product being produced—strawberry donuts—as well as the active shift, which in this case is the morning shift.
 
-  ![Screenshot showing the grafana dashboard](./59.png)
+  ![Screenshot showing the Grafana dashboard](./59.png)
 
 - Critical equipment, such as the fryer, is under special surveillance. The dashboard displays the current oil temperature against the target temperature, along with the oil level in the fryer, ensuring that any deviations from the norm can be quickly addressed.
 
