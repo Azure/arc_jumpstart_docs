@@ -34,9 +34,9 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
     az --version
     ```
 
-- Login to Azure CLI using the ```az login``` command.
+- Login to Azure CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription you want to deploy AIO to by using the ```az account list --query "[?isDefault]"``` command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy AIO to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - AIO must be deployed to one of the following regions. **Deploying AIO outside of these regions may result in unexpected results or deployment errors.**
 
@@ -86,17 +86,17 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   > **Note:** PowerShell is required for using azd with Jumpstart AIO. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
 
-- Run ```Connect-AzAccount``` which will open a prompt for interactive login for Azure PowerShell.
+- Run *`Connect-AzAccount`* which will open a prompt for interactive login for Azure PowerShell.
 
   ![Screenshot showing azure powershell login](./09.png)
 
-- Login with azd using ```azd auth login``` which will open a browser for a similar interactive login for Azure Developer CLI.
+- Login with azd using *`azd auth login`* which will open a browser for a similar interactive login for Azure Developer CLI.
 
-- Run the ```azd init``` command from your cloned repo *azure_arc_jumpstart/azure_edge_iot_ops_jumpstart/aio_manufacturing* folder.
+- Run the *`azd init`* command from your cloned repo *azure_arc_jumpstart/azure_edge_iot_ops_jumpstart/aio_manufacturing* folder.
 
   ![Screenshot showing azd init](./10.png)
 
-- Run the ```azd up``` command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
+- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
 
   ![Screenshot showing azd up](./11.png)
 
@@ -222,7 +222,7 @@ Once your deployment is complete, you can open the Azure portal and see the AIO 
 Various options are available to connect to *AIO-Client-VM*, depending on the parameters you supplied during deployment.
 
 - [RDP](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the *AIO-NSG-Prod*, or by enabling [Just-in-Time access (JIT)](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/deployment/#connect-using-just-in-time-accessjit).
-- [Azure Bastion](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/deployment/#connect-using-azure-bastion) - available if ```true``` was the value of your *`deployBastion`* parameter during deployment.
+- [Azure Bastion](https://azurearcjumpstart.io/azure_jumpstart_ag/contoso_supermarket/deployment/#connect-using-azure-bastion) - available if *`true`* was the value of your *`deployBastion`* parameter during deployment.
 
 ### Connecting directly with RDP
 
@@ -427,7 +427,7 @@ Follow the below steps in order to view the dashboard reports, you will need to 
 
   ![Screenshot showing group delete from Azure portal](./68.png)
 
-- If you used Azure Developer CLI to deploy then ```azd down``` can be used instead.
+- If you used Azure Developer CLI to deploy then *`azd down`* can be used instead.
 
   ![Screenshot showing azd down](./69.png)
 
