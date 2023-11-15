@@ -1,11 +1,11 @@
 ---
 type: docs
-linkTitle: "ArcBox Getting started"
+linkTitle: "Getting started"
 isGettingStarted: true
 weight: 1
 ---
 
-## Jumpstart ArcBox - Overview
+## Getting started
 
 ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with all available Azure Arc technology with nothing more than an available Azure subscription.
 
