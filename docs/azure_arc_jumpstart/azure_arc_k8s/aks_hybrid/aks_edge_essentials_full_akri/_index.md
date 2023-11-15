@@ -14,7 +14,7 @@ Akri is an open source project for a Kubernetes resource interface that lets you
 
 > **Note:** It is not expected to use a nested virtualization in a production environment, let alone using an Azure VM to do so. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
-![Architecture diagram](./01.png)
+![Screenshot showing an architecture diagram](./01.png)
 
 ## Prerequisites
 

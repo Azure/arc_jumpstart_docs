@@ -21,7 +21,7 @@ Arc Jumpstart does not provide free credit to Azure or any other cloud providers
 
 ## What permissions do I need to deploy Arc Jumpstart scenarios and solutions?
 
-Each Arc Jumpstart scenario and solution describes what is needed to run the automation—take a look at the prerequisites section. Most of them will ask you to create a service principal, so you will need an Azure **User Access Administrator** or **Role Base Access Control Administrator** permissions.
+Each Arc Jumpstart scenario and solution describes what is needed to run the automation — take a look at the prerequisites section. Most of them will ask you to create a service principal, so you will need an Azure **User Access Administrator** or **Role Base Access Control Administrator** permissions.
 
 ## Is Arc Jumpstart considered "production-ready"?
 

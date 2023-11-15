@@ -234,7 +234,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator name
+  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
   - _`flavor`_ - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
@@ -277,7 +277,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator name
+  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
   - _`flavor`_ - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
@@ -491,13 +491,13 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
 - Change the dashboard time range to "Last 5 minutes" and re-run the stress test using SqlQueryStress (in case it was already finished).
 
-  ![Screenshot showing changing time frame to last 5 minutes in grafana dashboard](./grafana_time_range.png)
+  ![Screenshot showing changing time frame to last 5 minutes in Grafana dashboard](./grafana_time_range.png)
 
 - You can now see how the SQL graphs are starting to show increased activity and load on the database instance.
 
-  ![Screenshot showing changing increased CPU and memory activity in grafana dashboard](./grafana_increased_activity.png)
+  ![Screenshot showing changing increased CPU and memory activity in Grafana dashboard](./grafana_increased_activity.png)
 
-  ![Screenshot showing changing increased database activity in grafana dashboard](./grafana_database_activity.png)
+  ![Screenshot showing changing increased database activity in Grafana dashboard](./grafana_database_activity.png)
 
 ### Application
 
