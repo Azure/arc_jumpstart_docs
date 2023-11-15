@@ -22,7 +22,7 @@ The solution for Contoso will involve deploying the following:
 
 ![Screenshot showing an architecture diagram](./01.png)
 
-The following Jumpstart scenario will show how to create an AKS Edge Essentials cluster in Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Bicep template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, AIO deployment, Azure resource deployment and Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster)) on the Azure VM.
+The following Jumpstart scenario will show how to create an AKS Edge Essentials cluster in Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc using [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview). The provided Bicep template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, AIO deployment, Azure resource deployment, and Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) on the Azure VM.
 
 > **Note:** It is not expected to use a nested virtualization in a production environment, let alone using an Azure VM to do so. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
 
@@ -60,7 +60,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
   - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
 
-    ![Screenshot showing searching for Entra Id in the Azure portal](./03.png)
+    ![Screenshot showing searching for Microsoft Entra ID in the Azure portal](./03.png)
 
   - Click on "App registrations" and search for the name of the service principal you created.
 
@@ -375,7 +375,7 @@ The automation deploys an *Azure Data Explorer* cluster and provides a dashboard
 
 > **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
 
-Follow the below steps in order to view the dashboard reports, you will need to import it into ADX.
+Follow the below steps in order to view the dashboard reports, you will need to import them into ADX.
 
 - On the Client VM, open Windows Explorer and navigate to folder *C:\AIO\adx_dashboard* folder. This folder contains an ADX dashboard report JSON file (*dashboard.json*) with the ADX URI updated when the deployment PowerShell logon script is completed.
 
@@ -407,12 +407,11 @@ Follow the below steps in order to view the dashboard reports, you will need to 
 
   ![Screenshot showing the empty data in orders dashboard report](./65.png)
 
-- Contoso staff can start levergaing the dashboards, for instance, a regional manager overseeing three plants might use the ADX dashboard to assess the collective OEE of these facilities. The dashboard aggregates essential metrics such as Overall OEE, Performance, and Availability, offering a consolidated view of productivity and efficiency. It highlights the most prevalent current shift's waste reason—in this case, 'Overcooked' and quantifies waste volumes alongside unplanned downtimes and their duration in minutes.
+- Contoso staff can start leveraging the dashboards, for instance, a regional manager overseeing three plants might use the ADX dashboard to assess the collective OEE of these facilities. The dashboard aggregates essential metrics such as Overall OEE, Performance, and Availability, offering a consolidated view of productivity and efficiency. It highlights the most prevalent current shift's waste reason - in this case, 'Overcooked' and quantifies waste volumes alongside unplanned downtimes and their duration in minutes.
 
 - Furthermore, these stakeholders often engage in comparative analysis. The ADX dashboard enables them to compare the performance across the different shifts operating within a single plant, discerning the OEE for primary products like donuts, bread, and pastries. It also facilitates a comparative review of the OEE across the three plants located in Seattle, Mexico City, and Miami. Quality indicators are also on display, ensuring products meet the required specifications in size and weight.
 
   ![Screenshot showing the OEE ADX dashboard](./66.png)
-
 
 - Critical quality-affecting factors, such as the oil temperature in fryers which can influence the color, size, or doneness of donuts, are also monitored. This level of detail provides executives with the data needed to make informed decisions, ensuring product consistency and operational excellence across the board.
 
