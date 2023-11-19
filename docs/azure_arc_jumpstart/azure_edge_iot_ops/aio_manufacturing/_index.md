@@ -57,6 +57,70 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 - **AIO requires 1 Public IP address**. Ensure you have sufficient public IP addresses available in your Azure subscription and the region where you plan to deploy AIO.
 
+- Create Azure service principal (SP). An Azure service principal assigned with the *Owner* Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
+
+  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
+
+    ```shell
+    az login
+    subscriptionId=$(az account show --query id --output tsv)
+    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
+    ```
+
+    For example:
+
+    ```shell
+    az login
+    subscriptionId=$(az account show --query id --output tsv)
+    az ad sp create-for-rbac -n "JumpstartAIOSP" --role "Owner" --scopes /subscriptions/$subscriptionId
+    ```
+
+    Output should look similar to this:
+
+    ```json
+    {
+    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "displayName": "JumpstartAIOSP",
+    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+    ```
+
+    To get the service principal object id, you can run the following command
+
+    ```shell
+    az ad sp list --display-name "<Unique SP Name>" --query "[].{Name:displayName, ObjectId:id}"
+    ```
+
+  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install or update Azure PowerShell to version 10.4.0 or above.
+
+    ```powershell
+    $account = Connect-AzAccount
+    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
+    echo "SPN App id: $($spn.AppId)"
+    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
+    echo "SPN tenant: $($account.Context.Tenant.Id)"
+    echo "SPN object id: $($spn.Id)"
+    ```
+
+    For example:
+
+    ```powershell
+    $account = Connect-AzAccount
+    $spn = New-AzADServicePrincipal -DisplayName "JumpstartAIOSP" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
+    echo "SPN App id: $($spn.AppId)"
+    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
+    echo "SPN object id: $($spn.Id)"
+    ```
+
+    Output should look similar to this:
+
+    ![Screenshot showing creating an SPN with PowerShell](./13.png)
+
+    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret
+
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+
 - AIO requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
 
   - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
@@ -143,70 +207,6 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
   ```
-
-- Create Azure service principal (SP). An Azure service principal assigned with the *Owner* Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
-
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    For example:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartAIOSP" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    Output should look similar to this:
-
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartAIOSP",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
-
-    To get the service principal object id, you can run the following command
-
-    ```shell
-    az ad sp list --display-name "<Unique SP Name>" --query "[].{Name:displayName, ObjectId:id}"
-    ```
-
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install or update Azure PowerShell to version 10.4.0 or above.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    echo "SPN tenant: $($account.Context.Tenant.Id)"
-    echo "SPN object id: $($spn.Id)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "JumpstartAIOSP" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    echo "SPN object id: $($spn.Id)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./13.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret
-
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Start post-deployment automation
 
