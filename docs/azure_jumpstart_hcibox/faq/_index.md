@@ -31,6 +31,10 @@ HCIBox incurs normal Azure consumption charges for various Azure resources such 
 
 - [HCIBox cost estimate](https://aka.ms/HCIBoxCost)
 
+## Which versions of Azure Stack HCI does HCIBox support?
+
+HCIBox currently uses the 22H2 build of the Azure Stack HCI OS. Work is in progress to support 23H2 moving forward. See the [discussion thread here](https://github.com/microsoft/azure_arc/discussions/1454) for more details.
+
 ## Where can I go if I have trouble deploying or using HCIBox?
 
 If you're stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on our GitHub repository and the Jumpstart team will try to assist you as soon as we can.
