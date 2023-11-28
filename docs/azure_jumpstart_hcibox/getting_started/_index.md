@@ -9,6 +9,8 @@ weight: 1
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Stack HCI and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
 
+  > **Note:** [Azure Stack HCI 23H2](https://learn.microsoft.com/azure-stack/hci/whats-new) is now available in public preview. 23H2 introduces changes to the deployment process for HCI clusters and related workloads like [Resource Bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. The Jumpstart team is currently updating HCIBox to support the 23H2 and it will be released in the coming weeks. Meanwhile, some aspects of the current HCIBox build are not functioning, including Resource Bridge deployments. [Join the discussion](https://github.com/microsoft/azure_arc/discussions/1454) here to learn more.
+
 <img src="/img/logo/hcibox.png" alt="Jumpstart HCIBox logo" width="250">
 
 ## Use cases
