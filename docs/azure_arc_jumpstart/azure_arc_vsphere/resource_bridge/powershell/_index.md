@@ -72,7 +72,7 @@ The following Jumpstart scenario will guide you on how to use the provided Power
 
 - A vSphere datastore with a minimum of 100 GB of free disk space.
 
-- A vSphere account [assigned](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-18071E9A-EED1-4968-8D51-E0B4F526FDA3.html) with the following [permissions](https://docs.microsoft.com/azure/azure-arc/vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script#vsphere-account):
+- A vSphere account [assigned](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-18071E9A-EED1-4968-8D51-E0B4F526FDA3.html) with the following [permissions](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script#vsphere-account):
   - Read all inventory.
   - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
