@@ -78,7 +78,7 @@ The following Jumpstart scenario will guide you on how to use the provided Power
 
 As mentioned, this scenario starts at the point where you already have an up and running VMware vSphere environment managed by vCenter. The automation will be run from a PowerShell window on a computer (which can be your local computer) that has network connectivity to vCenter.
 
-  > **NOTE: the script will automatically uninstall any pre-existing Azure CLI versions in the workstation and will deploy the latest 64-bit version, as it is a requirement to deploy the Azure Arc resource bridge**
+  > **Note:** the script will automatically uninstall any pre-existing Azure CLI versions in the workstation and will deploy the latest 64-bit version, as it is a requirement to deploy the Azure Arc resource bridge.
 
 ## Automation Flow
 
