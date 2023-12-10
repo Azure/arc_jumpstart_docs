@@ -589,7 +589,7 @@ This section guide you through deploy AdventureWorks WebAPI workload on k3s clus
   C:\ArcBox\Deploy-APIM.ps1
 ```
 
-The following task will be performed by the deployment:
+The following tasks will be performed by the deployment:
    - Deploy AdventureWorks API to k3s.
    - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
    - Deploy Azure API Management with the self-hosted gateway.
