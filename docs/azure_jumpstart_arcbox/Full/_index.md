@@ -581,9 +581,9 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 This section guide you through deploy Adventure Work WebAPI workload on k3s cluster together with Azure API Management to bring all the control panel on Azure inline with other ARC service. 
 
-> Note: The assumption is the Arc SQL Managed Instance has been deployed. The deployment start once the SQL Managed Instance has completed.
+> Note: The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
-- Start deployment by powershell command.
+- Start deployment by PowerShell command.
 
 ``` powershell
   C:\ArcBox\Deploy-APIM.ps1
@@ -591,28 +591,28 @@ This section guide you through deploy Adventure Work WebAPI workload on k3s clus
 
 - The script will do the following:
    - Deploy Adventure Web API to k3s.
-   - Set back end of the Web API to AdventureWork SQL Managed Instance.
-   - Deploy Azure API Management with self host gateway.
-   - Deploy Self-host gate way to the k3s
-   - Configure the connectively from Azure API Management, Self-host gateway and Adventure Workload
+   - Set the backend of the Web API to AdventureWork SQL Managed Instance.
+   - Deploy Azure API Management with the self-hosted gateway.
+   - Deploy self-hosted gateway to the k3s
+   - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
 
 - Deployment will finish show the following message
-  ![Screenshot showing Terminal screenshot show output of the deployment ](./apim_01_deploymentcomplete.png)
+  ![Screenshot showing terminal output of the deployment ](./apim_01_deploymentcomplete.png)
 
- - Get the IP address for the selft host agent
+ - Get the IP address for the self-hosted gateway
  
  ``` powershell
  C:\ArcBox\kubectl get svc
  ```
- - The selfhost agent IP as below
+ - The self-hosted gateway IP as below
  ![Screenshot showing Terminal screenshot show IP of the self host agent service ](./apim_02_selfhost_ip.png)
 
  - Adventure Workload can be tested using the IP
-![Screenshot showing Terminal screenshot show output of the deployment ](./apim_10_request.png)
+![Screenshot showing terminal output of the deployment ](./apim_10_request.png)
 
 ### Included tools
 
-The following tools are including on the _ArcBox-Client_ VM.
+The following tools are included in the _ArcBox-Client_ VM.
 
 - Azure Data Studio with Arc and PostgreSQL extensions
 - kubectl, kubectx, helm
