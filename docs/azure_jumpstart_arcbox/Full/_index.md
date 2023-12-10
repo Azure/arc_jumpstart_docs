@@ -577,9 +577,9 @@ Please note it may take some time to show this status in the Azure portal, but s
 - The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
   ![Screenshot showing test script results](./brute-force-attack-alert.png)
 
-### Adventure Workload and Azure API Management
+### AdventureWorks API and Azure API Management
 
-This section guide you through deploy Adventure Work WebAPI workload on k3s cluster together with Azure API Management to bring all the control panel on Azure inline with other ARC service. 
+This section guide you through deploy AdventureWorks WebAPI workload on k3s cluster together with Azure API Management to bring all the control panel on Azure inline with other Azure ARC service. 
 
 > Note: The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
@@ -590,8 +590,8 @@ This section guide you through deploy Adventure Work WebAPI workload on k3s clus
 ```
 
 - The script will do the following:
-   - Deploy Adventure Web API to k3s.
-   - Set the backend of the Web API to AdventureWork SQL Managed Instance.
+   - Deploy AdventureWorks Web API to k3s.
+   - Set the backend of the Web API to AdventureWorks SQL Managed Instance.
    - Deploy Azure API Management with the self-hosted gateway.
    - Deploy self-hosted gateway to the k3s
    - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
@@ -607,7 +607,7 @@ This section guide you through deploy Adventure Work WebAPI workload on k3s clus
  - The self-hosted gateway IP as below
  ![Screenshot showing Terminal screenshot show IP of the self host agent service ](./apim_02_selfhost_ip.png)
 
- - Adventure Workload can be tested using the IP
+ - AdventureWorks API can be tested using the IP
 ![Screenshot showing terminal output of the deployment ](./apim_10_request.png)
 
 ### Included tools
