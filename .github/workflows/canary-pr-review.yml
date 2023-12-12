@@ -1,0 +1,41 @@
+name: Vale Linting and PR Review
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
+      with:
+        files: |
+           **.md
+
+    - name: List all changed files markdown files
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          echo "$file was changed"
+        done
+
+    - name: Calculate changed files to pass to Vale
+      id: calc_changed_files
+      run: |
+        beginning='["'
+        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
+        end='"]'
+        echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
+
+    - name: Vale
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        version: 2.30.0
+        reporter: github-pr-check
+        filter_mode: nofilter
+        fail_on_error: false
+        files: '${{ env.files_to_change }}'
+        token: ${{secrets.GITHUB_TOKEN}}
