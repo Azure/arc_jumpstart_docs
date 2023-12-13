@@ -41,7 +41,7 @@ Of course! For any suggestion, please [open a GitHub feature](https://aka.ms/Jum
 
 ## I want to share my awesome Azure Arc, edge, or IoT story with the Jumpstart community—how can I do that?
 
-We’d love to hear it! Fill out the [submission form](https://aka.ms/JumpstartLightningGuest) and we’ll get back to you soon.
+We’d love to hear it! Fill out the [submission form](https://aka.ms/LightningGuest) and we’ll get back to you soon.
 
 ## Is there a public Azure Arc Jumpstart Roadmap?
 
