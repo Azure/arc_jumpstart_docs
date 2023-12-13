@@ -1,6 +1,6 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-contractions
+link:  https://learn.microsoft.com/style-guide/word-choice/use-contractions
 level: error
 ignorecase: true
 action:

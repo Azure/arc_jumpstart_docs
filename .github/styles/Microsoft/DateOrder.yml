@@ -1,6 +1,6 @@
 extends: existence
 message: "Always spell out the name of the month."
-link: https://docs.microsoft.com/en-us/style-guide/numbers#numbers-in-dates
+link:  https://learn.microsoft.com/style-guide/numbers#numbers-in-dates
 ignorecase: true
 level: error
 nonword: true
