@@ -1,7 +1,7 @@
 extends: existence
 message: "Don't use '%s'. See the A-Z word list for details."
 # See the A-Z word list
-link: https://docs.microsoft.com/en-us/style-guide
+link:  https://learn.microsoft.com/style-guide
 ignorecase: true
 level: error
 tokens:
