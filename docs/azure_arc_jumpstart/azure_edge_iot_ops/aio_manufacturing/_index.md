@@ -57,6 +57,16 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 - **AIO requires 1 Public IP address**. Ensure you have sufficient public IP addresses available in your Azure subscription and the region where you plan to deploy AIO.
 
+- Register necessary Azure resource providers by running the following commands.
+
+  ```shell
+  az provider register --namespace Microsoft.Kusto --wait
+  az provider register --namespace Microsoft.EventGrid --wait
+  az provider register --namespace Microsoft.EventHub --wait
+  az provider register --namespace Microsoft.KeyVault --wait
+  az provider register --namespace Microsoft.Storage --wait
+  ```
+
 - Create Azure service principal (SP). An Azure service principal assigned with the *Owner* Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
 
   - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
