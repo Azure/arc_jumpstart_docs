@@ -581,7 +581,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 This section guide you through deploy AdventureWorks WebAPI workload on k3s cluster together with Azure API Management to bring all the control panel on Azure inline with other Azure Arc service. 
 
-> Note: The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
+> **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
 - Start deployment by PowerShell command.
 
