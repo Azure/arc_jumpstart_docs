@@ -579,7 +579,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 ### AdventureWorks API and Azure API Management
 
-This section guides you through deploying AdventureWorks WebAPI workload on the ArcBox-K3s cluster together with Azure API Management to bring all the control panel on Azure inline with other Azure Arc service.
+This section guides you through deploying the AdventureWorks WebAPI workload on the ArcBox-K3s cluster together with Azure API Management provide Azure control plane management similar to other Azure Arc-enabled services.
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
