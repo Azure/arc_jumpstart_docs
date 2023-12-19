@@ -582,7 +582,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3S_ cluster together with Azure APIM. This allows you to run workloads withintermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
 
 - A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
-- A sport venue where ticket operation and data need to be onsite.
+- A sport venue where ticket operation and data retention needs to remain onsite.
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
