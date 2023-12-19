@@ -579,7 +579,10 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 ### AdventureWorks API and Azure API Management
 
-This section guides you through deploying the AdventureWorks WebAPI workload on the ArcBox-K3s cluster together with Azure API Management provide Azure control plane management similar to other Azure Arc-enabled services.
+This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3S_ cluster together with Azure APIM. This allows you to run workloads with intermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
+
+- A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
+- A sport venue where ticket operation and data retention needs to remain onsite.
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
@@ -590,11 +593,11 @@ This section guides you through deploying the AdventureWorks WebAPI workload on 
 ```
 
 The following tasks will be performed by the deployment:
-  - Deploy AdventureWorks API to ArcBox-k3s.
-  - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
-  - Deploy Azure API Management with the self-hosted gateway.
-  - Deploy self-hosted gateway to the k3s
-  - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
+   - Deploy AdventureWorks API to _ArcBox-K3S_.
+   - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
+   - Deploy Azure API Management with the self-hosted gateway.
+   - Deploy self-hosted gateway to the k3s
+   - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
 
 - Deployment will finish show the following message:
   ![Screenshot showing terminal output of the deployment ](./apim_01_deploymentcomplete.png)
