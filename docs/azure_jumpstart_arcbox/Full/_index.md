@@ -579,9 +579,9 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 ### AdventureWorks API and Azure API Management
 
-This section guides you through deploy AdventureWorks WebAPI workload on K3S cluster together with Azure API. Couple of benefits are capability to run workload where intermittent internet connectivity and centralised the control panel align with other Azure Arc resources. Example of use cases are:
+This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3S_ cluster together with Azure APIM. This allows you to run workloads withintermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
 
-- A farm in a rural area where data can be captured on-site to be synchronise to Azure for analysis with Azure Fabric.
+- A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
 - A sport venue where ticket operation and data need to be onsite.
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
@@ -593,7 +593,7 @@ This section guides you through deploy AdventureWorks WebAPI workload on K3S clu
 ```
 
 The following tasks will be performed by the deployment:
-   - Deploy AdventureWorks API to K3S.
+   - Deploy AdventureWorks API to _ArcBox-K3S_.
    - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
    - Deploy Azure API Management with the self-hosted gateway.
    - Deploy self-hosted gateway to the k3s
