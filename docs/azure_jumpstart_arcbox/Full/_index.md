@@ -581,7 +581,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 This section guides you through deploy AdventureWorks WebAPI workload on k3s cluster together with Azure API. Couple of benefits are capability to run workload where intermittent internet connectivity and centralised the control panel align with other Azure Arc resources. Example of use cases are:
 
-- A farm in a rural area where data can be captured on-site to be synchronise to Azure for analysis later.
+- A farm in a rural area where data can be captured on-site to be synchronise to Azure for analysis with Azure Fabric.
 - A sport venue where ticket operation and data need to be onsite.
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
