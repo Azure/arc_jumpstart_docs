@@ -586,7 +586,7 @@ This section guides you through deploying the AdventureWorks WebAPI workload on 
 
 > **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
 
-- Start deployment by PowerShell command.
+- Start deployment by running the following PowerShell command:
 
 ``` powershell
   C:\ArcBox\Deploy-APIM.ps1
@@ -599,18 +599,19 @@ The following tasks will be performed by the deployment:
    - Deploy self-hosted gateway to the k3s
    - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
 
-- Deployment will finish show the following message
+- Deployment will finish show the following message:
   ![Screenshot showing terminal output of the deployment ](./apim_01_deploymentcomplete.png)
 
- - Get the IP address for the self-hosted gateway
- 
+- Get the IP address for the self-hosted gateway:
+
  ``` powershell
  C:\ArcBox\kubectl get svc
  ```
- - The self-hosted gateway IP as below
+
+- The self-hosted gateway IP should look similar to the following screenshot:
  ![Screenshot showing Terminal screenshot show IP of the self host agent service ](./apim_02_selfhost_ip.png)
 
- - AdventureWorks API can be tested using the IP
+- AdventureWorks API can be tested using the IP
 ![Screenshot showing terminal output of the deployment ](./apim_10_request.png)
 
 ### Included tools
