@@ -584,19 +584,17 @@ This section guides you through deploying the AdventureWorks WebAPI workload on 
 - A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
 - A sport venue where ticket operation and data retention needs to remain onsite.
 
-> **Note:** The assumption is the Arc-enabled SQL Managed Instance has been deployed. The deployment starts once the SQL Managed Instance has been created.
-
-- Start deployment by running the following PowerShell command:
+Start deployment by running the following PowerShell command:
 
 ``` powershell
-  C:\ArcBox\Deploy-APIM.ps1
+  C:\ArcBox\DeployAPIM.ps1
 ```
 
 The following tasks will be performed by the deployment:
-   - Deploy AdventureWorks API to _ArcBox-K3S_.
+   - Deploy AdventureWorks API to _ArcBox-K3s_.
    - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
    - Deploy Azure API Management with the self-hosted gateway.
-   - Deploy self-hosted gateway to the k3s
+   - Deploy self-hosted gateway to the K3s.
    - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
 
 - Deployment will finish show the following message:
