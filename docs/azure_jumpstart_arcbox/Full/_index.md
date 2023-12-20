@@ -603,13 +603,13 @@ The following tasks will be performed by the deployment:
 - Get the IP address for the self-hosted gateway:
 
  ``` powershell
- C:\ArcBox\kubectl get svc
+ C:\ArcBox\arcdemo\kubectl get svc
  ```
 
 - The self-hosted gateway IP should look similar to the following screenshot:
  ![Screenshot showing Terminal screenshot show IP of the self host agent service ](./apim_02_selfhost_ip.png)
 
-- AdventureWorks API can be tested using the IP
+- AdventureWorks API can be tested using the IP (http://{gateway IP}/adventurework/api/customers)
 ![Screenshot showing terminal output of the deployment ](./apim_10_request.png)
 
 ### Included tools
