@@ -577,9 +577,44 @@ Please note it may take some time to show this status in the Azure portal, but s
 - The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
   ![Screenshot showing test script results](./brute-force-attack-alert.png)
 
+### AdventureWorks API and Azure API Management
+
+This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3s_ cluster together with [Azure API Management (APIM)](https://learn.microsoft.com/azure/api-management/). This allows you to run workloads with intermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
+
+- A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
+- A sport venue where ticket operation and data retention needs to remain onsite.
+
+Start deployment by running the following PowerShell command:
+
+``` powershell
+  C:\ArcBox\DeployAPIM.ps1
+```
+
+The following tasks will be performed by the deployment:
+   - Deploy AdventureWorks API to _ArcBox-K3s_.
+   - Set the backend of the AdventureWorks API to AdventureWorks SQL Managed Instance.
+   - Deploy Azure API Management with the self-hosted gateway.
+   - Deploy self-hosted gateway to the K3s.
+   - Configure the connectivity from Azure API Management, self-hosted gateway, and AdventureWorks API.
+
+- Deployment will finish show the following message:
+  ![Screenshot showing terminal output of the deployment ](./apim_01_deploymentcomplete.png)
+
+- Get the IP address for the self-hosted gateway:
+
+ ``` powershell
+ C:\ArcBox\arcdemo\kubectl get svc
+ ```
+
+- The self-hosted gateway IP should look similar to the following screenshot:
+ ![Screenshot showing Terminal screenshot show IP of the self host agent service ](./apim_02_selfhost_ip.png)
+
+- AdventureWorks API can be tested using the IP (http://{gateway IP}/adventurework/api/customers)
+![Screenshot showing terminal output of the deployment ](./apim_10_request.png)
+
 ### Included tools
 
-The following tools are including on the _ArcBox-Client_ VM.
+The following tools are included in the _ArcBox-Client_ VM.
 
 - Azure Data Studio with Arc and PostgreSQL extensions
 - kubectl, kubectx, helm
