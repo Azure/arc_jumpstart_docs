@@ -579,7 +579,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 ### AdventureWorks API and Azure API Management
 
-This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3S_ cluster together with Azure APIM. This allows you to run workloads with intermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
+This section guides you through deploying the AdventureWorks WebAPI workload on the _ArcBox-K3s_ cluster together with Azure APIM. This allows you to run workloads with intermittent internet connectivity and centralizes the control plane to align with other Azure Arc resource management. Example use cases include:
 
 - A farm in a rural area where data can be captured on-site to be synchronized to Azure for analysis with Azure Fabric.
 - A sport venue where ticket operation and data retention needs to remain onsite.
