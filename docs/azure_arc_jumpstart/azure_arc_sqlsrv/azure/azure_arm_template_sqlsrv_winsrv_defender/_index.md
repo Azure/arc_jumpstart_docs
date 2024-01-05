@@ -71,30 +71,36 @@ By the end of the guide, you will have an Azure VM **JS-Client** installed with 
   - *Microsoft.OperationsManagement*
   - *Microsoft.HybridConnectivity*
   - *Microsoft.GuestConfiguration*
-  
+
 ## Automation Flow
 
 The automation for this scenario includes different PowerShell scripts executed in the following order:
 
-1. [*Bootstrap.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1) - Executed at ARM Template deployment time as a CustomScriptExtension. This script has the following functionalities:
+- [*Bootstrap.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1)
 
-    1. Download and install pre-requisite utilities via [Chocolatey](https://chocolatey.org/).
-    2. Download the [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1), [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1), and [*testDefenderForSQL.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/testDefenderForSQL.ps1) scripts.
+  Executed at ARM Template deployment time as a CustomScriptExtension. This script has the following functionalities:
 
-2. [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1) - Executed upon initial login to the **JS-Client** Azure virtual machine. This script has the following functionalities:
+  1. Download and install pre-requisite utilities via [Chocolatey](https://chocolatey.org/).
+  2. Download the [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1), [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1), and [*testDefenderForSQL.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/testDefenderForSQL.ps1) scripts.
 
-    1. Install Windows Hyper-V server and configure networking.
-    2. Create a guest Windows Server VM with SQL Server pre-installed.
-    3. Restore *AdventureWorksLT2019* Database.
-    4. Execute the *ArcServersLogonScript.ps1* script.
-    5. Enable Defender for SQL Servers on Machine at the subscription level and setup the default Log Analytics workspace.
-    6. Execute the *testDefenderForSQL.ps1* script to simulate SQL attacks.
+- [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1)
 
-3. [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1) - This is the main script and will be executed by the *ArcServersLogonScript.ps1* script at VM runtime. This script has the following functionalities:
+  Executed upon initial login to the **JS-Client** Azure virtual machine. This script has the following functionalities:
 
-    1. Project SQL Server as an Azure Arc-enabled SQL server resource
-    2. Install the Log Analytics agent using an extension on the Azure Arc-enabled server
-    3. Create SQL Assessment and inject data to Azure Log Analytics workspace
+  1. Install Windows Hyper-V server and configure networking.
+  2. Create a guest Windows Server VM with SQL Server pre-installed.
+  3. Restore *AdventureWorksLT2019* Database.
+  4. Execute the *ArcServersLogonScript.ps1* script.
+  5. Enable Defender for SQL Servers on Machine at the subscription level and setup the default Log Analytics workspace.
+  6. Execute the *testDefenderForSQL.ps1* script to simulate SQL attacks.
+
+- [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1)
+
+  This is the main script and will be executed by the *ArcServersLogonScript.ps1* script at VM runtime. This script has the following functionalities:
+
+  1. Project SQL Server as an Azure Arc-enabled SQL server resource
+  2. Install the Log Analytics agent using an extension on the Azure Arc-enabled server
+  3. Create SQL Assessment and inject data to Azure Log Analytics workspace
 
 To get familiar with the automation and deployment flow read the following explanation.
 
