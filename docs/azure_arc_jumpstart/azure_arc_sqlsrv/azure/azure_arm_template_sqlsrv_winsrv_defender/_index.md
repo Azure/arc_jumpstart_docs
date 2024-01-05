@@ -112,7 +112,7 @@ To get familiar with the automation and deployment flow read the following expla
 
   ![Screenshot showing Azure portal deployment of Jumpstart scenario](./portaldeploy.png)
 
-  > **Note:** Azure Arc-enabled SQL Server features such as performance metrics require Standard or Enterprise edition. Use *Sql Server Edition* parameter to deploy SQL Server Standard or Enterprise edition on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. The default is the Developer edition. 
+  > **Note:** Azure Arc-enabled SQL Server features such as performance metrics require Standard or Enterprise edition. Use the *Sql Server Edition* parameter to deploy SQL Server Standard or Enterprise edition on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. The default is the Developer edition. 
 
   ![Screenshot showing Azure portal deployment creation of Jumpstart scenario](./portaldeploy-create.png)
 
