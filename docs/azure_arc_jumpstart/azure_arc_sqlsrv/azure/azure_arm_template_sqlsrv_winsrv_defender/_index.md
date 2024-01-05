@@ -300,7 +300,7 @@ Follow the steps below to simulate Microsoft Defender for SQL threats
   Password: JS123!!
   ```
 
-  ![Screenshot showing to connect SQL server guest VM](./connect-guest-sql-vm.png)
+  ![Screenshot showing how to connect SQL server guest VM](./connect-guest-sql-vm.png)
 
 - Enter Administrator password as *JS123!!* and login to the guest VM.
   ![Screenshot showing enter password to login to guest VM](./login-to-guest-vm.png)
