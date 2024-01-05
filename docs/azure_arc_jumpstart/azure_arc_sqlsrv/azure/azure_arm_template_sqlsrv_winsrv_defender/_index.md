@@ -61,55 +61,64 @@ By the end of the guide, you will have an Azure VM **JS-Client** installed with 
     ```
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
+
     > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - As part of the scenario deployment following resource providers are registered in your subscription to support Azure Arc-enabled SQL Server.
 
-  - _Microsoft.AzureArcData_
-  - _Microsoft.HybridCompute_
-  - _Microsoft.OperationsManagement_
-  - _Microsoft.HybridConnectivity_
-  - _Microsoft.GuestConfiguration_
-  
+  - *Microsoft.AzureArcData*
+  - *Microsoft.HybridCompute*
+  - *Microsoft.OperationsManagement*
+  - *Microsoft.HybridConnectivity*
+  - *Microsoft.GuestConfiguration*
+
 ## Automation Flow
 
 The automation for this scenario includes different PowerShell scripts executed in the following order:
 
-1. [_Bootstrap.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1) - Executed at ARM Template deployment time as a CustomScriptExtension. This script has the following functionalities:
+- [*Bootstrap.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1)
 
-    1. Download and install pre-requisite utilities via [Chocolatey](https://chocolatey.org/).
-    2. Download the [_ArcServersLogonScript.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1), [_installArcAgentSQLSP.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1), and [_testDefenderForSQL.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/testDefenderForSQL.ps1) scripts.
+  Executed at ARM Template deployment time as a CustomScriptExtension. This script has the following functionalities:
 
-2. [_ArcServersLogonScript.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1) - Executed upon initial login to the **JS-Client** Azure virtual machine. This script has the following functionalities:
+  1. Download and install pre-requisite utilities via [Chocolatey](https://chocolatey.org/).
+  2. Download the [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1), [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1), and [*testDefenderForSQL.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/testDefenderForSQL.ps1) scripts.
 
-    1. Install Windows Hyper-V server and configure networking.
-    2. Create a guest Windows Server VM with SQL Server pre-installed.
-    3. Restore _AdventureWorksLT2019_ Database.
-    4. Execute the _ArcServersLogonScript.ps1_ script.
-    5. Enable Defender for SQL Servers on Machine at the subscription level and setup the default Log Analytics workspace.
-    6. Execute the _testDefenderForSQL.ps1_ script to simulate SQL attacks.
 
-3. [_installArcAgentSQLSP.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1) - This is the main script and will be executed by the _ArcServersLogonScript.ps1_ script at VM runtime. This script has the following functionalities:
+- [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1)
 
-    1. Project SQL Server as an Azure Arc-enabled SQL server resource
-    2. Install the Log Analytics agent using an extension on the Azure Arc-enabled server
-    3. Create SQL Assessment and inject data to Azure Log Analytics workspace
+  Executed upon initial login to the **JS-Client** Azure virtual machine. This script has the following functionalities:
+
+  1. Install Windows Hyper-V server and configure networking.
+  2. Create a guest Windows Server VM with SQL Server pre-installed.
+  3. Restore *AdventureWorksLT2019* Database.
+  4. Execute the *ArcServersLogonScript.ps1* script.
+  5. Enable Defender for SQL Servers on Machine at the subscription level and setup the default Log Analytics workspace.
+  6. Execute the *testDefenderForSQL.ps1* script to simulate SQL attacks.
+
+
+- [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1)
+
+  This is the main script and will be executed by the *ArcServersLogonScript.ps1* script at VM runtime. This script has the following functionalities:
+
+  1. Project SQL Server as an Azure Arc-enabled SQL server resource
+  2. Install the Log Analytics agent using an extension on the Azure Arc-enabled server
+  3. Create SQL Assessment and inject data to Azure Log Analytics workspace
 
 To get familiar with the automation and deployment flow read the following explanation.
 
 1. User edits the ARM template parameters file (1-time edit). These parameters values are used throughout the deployment.
+2. The ARM template includes an Azure VM Custom Script Extension which will deploy the [*Bootstrap.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1) PowerShell Script. The script will:
 
-2. The ARM template includes an Azure VM Custom Script Extension which will deploy the [_Bootstrap.ps1_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1) PowerShell Script. The script will:
-
-    1. Download the _ArcServersLogonScript.ps1_, _installArcAgentSQLSP.ps1_, and _testDefenderForSQL.ps1_ PowerShell scripts
-
-    2. Set local OS environment variables
+    - Download the *ArcServersLogonScript.ps1*, *installArcAgentSQLSP.ps1*, and *testDefenderForSQL.ps1* PowerShell scripts
+    - Set local OS environment variables
 
 ## Deployment Option 1: Azure portal
 
 - Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_sqlsrv_jumpstart%2Fazure%2Fwindows%2Fdefender_sql%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment of Jumpstart scenario](./portaldeploy.png)
+
+  > **Note:** Azure Arc-enabled SQL Server features such as performance metrics require Standard or Enterprise edition. Use the *Sql Server Edition* parameter to deploy SQL Server Standard or Enterprise edition on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. The default is the Developer edition. 
 
   ![Screenshot showing Azure portal deployment creation of Jumpstart scenario](./portaldeploy-create.png)
 
@@ -123,8 +132,18 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
 
 - Before deploying the ARM template, login to Azure using AZ CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.example.json).
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.parameters.example.json).
 
+Edit the [azuredeploy.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/ARM/azuredeploy.parameters.json) ARM template parameters file and supply some values for your environment.
+
+- *`spnClientId`* - Your Azure service principal id
+- *`spnClientSecret`* - Your Azure service principal secret
+- *`spnTenantId`* - Your Azure tenant id
+- *`sqlServerEdition`* - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition.
+- *`windowsAdminUsername`* - Client Windows VM Administrator username
+- *`windowsAdminPassword`* - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
+- *`logAnalyticsWorkspaceName`* - Name for the ArcBox Log Analytics workspace that will be created
+- *`deployBastion`* - Set to *`true`* if you want to use Azure Bastion to connect to *ArcBox-Client*
 - Create a Resource Group which will contain the target for the ARM Template deployment using the following command:
 
     ```shell
@@ -144,7 +163,7 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
     --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/azuredeploy.json \
-    --parameters <The _azuredeploy.parameters.json_ parameters file location>
+    --parameters <The *azuredeploy.parameters.json* parameters file location>
     ```
 
     > **Note:** Make sure that you are using the same Azure resource group name as the one you created in the previous step.
@@ -171,16 +190,16 @@ As mentioned, this deployment will use an ARM Template. You will deploy a single
 
 ## Windows Login & Post Deployment
 
-There are two options available to connect to _JS-Client_ VM, depending on the parameters you supplied during deployment.
+There are two options available to connect to *JS-Client* VM, depending on the parameters you supplied during deployment.
 
-- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
-- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the *Arc-App-Client-NSG*, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
+- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your *`deployBastion`* parameter during deployment.
 
 ### Connecting directly with RDP
 
 By design, port 3389 is not allowed to access from the public internet. You must create an NSG rule to allow inbound 3389.
 
-- Open the _JS-NSG_ resource in the Azure portal, go to Inbound security rules, and click "Add" to add your client IP to allow RDP access to the VM.
+- Open the *JS-NSG* resource in the Azure portal, go to Inbound security rules, and click "Add" to add your client IP to allow RDP access to the VM.
 
   ![Screenshot showing Arc-App-Client NSG with blocked RDP](./default-nsg-rules.png)
 
@@ -200,7 +219,7 @@ By design, port 3389 is not allowed to access from the public internet. You must
 
   ![Screenshot showing connecting to the VM using Bastion](./vm-bastion.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _JS-Client_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to *JS-Client* with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -240,7 +259,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing Azure nested SQL Server VM after login](./hyperv-nested-vm-sql-login.png)
 
-- Open Microsoft SQL Server Management Studio (a Windows shortcut will be created for you) and validate the _AdventureWorksLT2019_ sample database is deployed.
+- Open Microsoft SQL Server Management Studio (a Windows shortcut will be created for you) and validate the *AdventureWorksLT2019* sample database is deployed.
 
   ![Screenshot showing SQL Management Studio](./sqlserver-management-login.png)
 
@@ -248,7 +267,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Microsoft Defender for Cloud - SQL servers on machines
 
-This section guides you through different settings for enabling Microsoft Defender for Cloud - SQL servers on machines. Most of these settings are already enabled during the logon script execution when login to _JS-Client_ Azure VM. Even though these are pre-configured there might be delays in showing them in the Azure portal.
+This section guides you through different settings for enabling Microsoft Defender for Cloud - SQL servers on machines. Most of these settings are already enabled during the logon script execution when login to *JS-Client* Azure VM. Even though these are pre-configured there might be delays in showing them in the Azure portal.
 
 - Following are the settings of Microsoft Defender for Cloud - SQL servers on machines configured using automation scripts and can be reviewed in Azure portal.
 
@@ -265,21 +284,38 @@ Please note it may take some time to show this status in the Azure portal, but s
 
   ![Screenshot showing Defender for SQL security incidents and alerts](./defender-sql-security-incidents.png)
 
-- The below screenshot shows the test script used to generate SQL threats, detect, and alert using Defender for Cloud for SQL servers.
+- The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
+  ![Screenshot showing test script results](./brute-force-attack-alert.png)
 
-  ![Screenshot showing Defender for SQL test scripts](./defender-sql-testing-script.png)
+> **Note:** Occasionally, Microsoft Defender for SQL server may not detect SQL threats generated by the simulation *testDefenderForSQL.ps1* PowerShell script executed during the Client VM logon automation and will not receive an alert email as documented in this scenario. If this happens follow the steps in the **Simulate Microsoft Defender for SQL threats** below to re-generate threats and receive an alert email.
 
-- Please note once in a while these test execution may fails randomly. If you don't find these alerts, login to nested SQL VM in Hyper-V and execute test script manually as show below. Following are the credentials to login to nested SQL Server VM.
+## Simulate Microsoft Defender for SQL threats
+
+Follow the steps below to simulate Microsoft Defender for SQL threats
+
+- On the *JS-Client* Azure VM desktop, locate the Hyper-V Manager icon as shown below and double-click to open Hyper-V Manager.
+  ![Screenshot showing Hyper-V Manager desktop icon](./locate-hyper-v-manager.png)
+
+- In the Hyper-V Manager expand JS-Client and double-click on the *JS-Win-SQL-01* guest VM to login.
+  ![Screenshot showing SQL server guest VM in Hyper-V Manager](./locate-guest-sql-vm.png)
+
+- Click connect. Following are the credentials to log in to the nested SQL Server VM.
 
   ```text
   Username: Administrator
-  Password: ArcDemo123!!
+  Password: JS123!!
   ```
 
-  ![Screenshot showing manual execution of the test scripts](./manual-brute-force-test.png)
+  ![Screenshot showing how to connect SQL server guest VM](./connect-guest-sql-vm.png)
 
-- The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
-  ![Screenshot showing test script results](./brute-force-attack-alert.png)
+- Enter the Administrator password as *JS123!!* and login to the guest VM.
+  ![Screenshot showing enter password to login to guest VM](./login-to-guest-vm.png)
+
+- Open Windows Explorer and navigate to the *C:\Jumpstart\agentScript* folder.
+  ![Screenshot showing locating Defender for SQL simulation script file](./locate-simulation-script.png)
+
+- Right click on the *testDefenderForSQL.ps1* PowerShell script file and select *Run with PowerShell*.
+  ![Screenshot showing executing Defender for SQL simulation script file](./execute-defender-simulation-script.png)
 
 ## Cleanup
 
