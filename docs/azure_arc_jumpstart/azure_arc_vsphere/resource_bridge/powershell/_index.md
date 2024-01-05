@@ -118,7 +118,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - _`resourcePool`_ - The name of the vSphere resource pool to be used by the appliance. Make sure to include the full path, for example: '/Jumpstart - Datacenter/host/Jumpstart Cluster/Resources'
   - _`controlPlaneEndpoint`_ - IP address of the Kubernetes cluster control plane
   
-  ![Screenshot environment variables](./img/01.png)
+  ![Screenshot environment variables](./01.png)
 
 - Once you have provided all of the required environment variables, open a PowerShell window (as an Administrator) and run the script with the command:
 
@@ -126,41 +126,41 @@ For you to get familiar with the automation and deployment flow, below is an exp
   .\vCenter_onboarding.ps1
   ```
 
-  ![Screenshot showing script output](./img/02.png)
+  ![Screenshot showing script output](./02.png)
   
-  ![Screenshot showing script output](./img/03.png)
+  ![Screenshot showing script output](./03.png)
 
-  ![Screenshot showing script output](./img/04.png)
+  ![Screenshot showing script output](./04.png)
 
-  ![Screenshot showing script output](./img/05.png)
+  ![Screenshot showing script output](./05.png)
 
 - While the script is running, from vCenter you should be able to see a running task:
 
-  ![Screenshot showing vCenter task](./img/06.png)
+  ![Screenshot showing vCenter task](./06.png)
   
-  ![Screenshot showing vCenter task](./img/07.png)
+  ![Screenshot showing vCenter task](./07.png)
   
-  ![Screenshot showing vCenter task](./img/08.png)
+  ![Screenshot showing vCenter task](./08.png)
 
 - From the Azure portal, in the resource group, you should see three new resources, including the VMware vCenter.
 
-  ![Screenshot showing the Azure Arc resources in the Azure Portal](./img/09.png)
+  ![Screenshot showing the Azure Arc resources in the Azure Portal](./09.png)
 
-  ![Screenshot showing the connected VMware vCenter](./img/10.png)
+  ![Screenshot showing the connected VMware vCenter](./10.png)
 
 - You should also be able to get a list of VMs, resource pools, templates, networks and data stores that are managed by the vCenter. Resources such as VMs are projected to Azure:
 
-  ![Screenshot showing the VMware machines list](./img/11.png)
+  ![Screenshot showing the VMware machines list](./11.png)
 
-  ![Screenshot showing the Azure Arc virtual machines list](./img/12.png)
+  ![Screenshot showing the Azure Arc virtual machines list](./12.png)
   
-  ![Screenshot showing the Resource pools list](./img/13.png)
+  ![Screenshot showing the Resource pools list](./13.png)
   
-  ![Screenshot showing the Templates list](./img/14.png)
+  ![Screenshot showing the Templates list](./14.png)
   
-  ![Screenshot showing the Networks list](./img/15.png)
+  ![Screenshot showing the Networks list](./15.png)
   
-  ![Screenshot showing the Data stores list](./img/16.png)
+  ![Screenshot showing the Data stores list](./16.png)
 
 ## Clean up environment
 
@@ -168,10 +168,10 @@ Complete the following steps to clean up your environment:
 
 - If you want to delete the entire Azure resources, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./img/17.png)
+    ![Screenshot showing Azure resource group deletion](./17.png)
 
 - From the vSphere client, power Off the appliance and remove from disk.
 
-    ![Screenshot showing powering off the appliance from vSphere client](./img/18.png)
+    ![Screenshot showing powering off the appliance from vSphere client](./18.png)
 
-    ![Screenshot showing deleting the appliance from vSphere client](./img/19.png)
+    ![Screenshot showing deleting the appliance from vSphere client](./19.png)
