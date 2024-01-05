@@ -83,6 +83,7 @@ The automation for this scenario includes different PowerShell scripts executed 
   1. Download and install pre-requisite utilities via [Chocolatey](https://chocolatey.org/).
   2. Download the [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1), [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1), and [*testDefenderForSQL.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/testDefenderForSQL.ps1) scripts.
 
+
 - [*ArcServersLogonScript.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/ArcServersLogonScript.ps1)
 
   Executed upon initial login to the **JS-Client** Azure virtual machine. This script has the following functionalities:
@@ -93,6 +94,7 @@ The automation for this scenario includes different PowerShell scripts executed 
   4. Execute the *ArcServersLogonScript.ps1* script.
   5. Enable Defender for SQL Servers on Machine at the subscription level and setup the default Log Analytics workspace.
   6. Execute the *testDefenderForSQL.ps1* script to simulate SQL attacks.
+
 
 - [*installArcAgentSQLSP.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/installArcAgentSQLSP.ps1)
 
@@ -105,12 +107,10 @@ The automation for this scenario includes different PowerShell scripts executed 
 To get familiar with the automation and deployment flow read the following explanation.
 
 1. User edits the ARM template parameters file (1-time edit). These parameters values are used throughout the deployment.
-
 2. The ARM template includes an Azure VM Custom Script Extension which will deploy the [*Bootstrap.ps1*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_sqlsrv_jumpstart/azure/windows/defender_sql/arm_template/scripts/Bootstrap.ps1) PowerShell Script. The script will:
 
-    1. Download the *ArcServersLogonScript.ps1*, *installArcAgentSQLSP.ps1*, and *testDefenderForSQL.ps1* PowerShell scripts
-
-    2. Set local OS environment variables
+    - Download the *ArcServersLogonScript.ps1*, *installArcAgentSQLSP.ps1*, and *testDefenderForSQL.ps1* PowerShell scripts
+    - Set local OS environment variables
 
 ## Deployment Option 1: Azure portal
 
