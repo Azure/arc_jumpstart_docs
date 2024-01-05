@@ -302,13 +302,13 @@ Follow the steps below to simulate Microsoft Defender for SQL threats
 
   ![Screenshot showing how to connect SQL server guest VM](./connect-guest-sql-vm.png)
 
-- Enter Administrator password as *JS123!!* and login to the guest VM.
+- Enter the Administrator password as *JS123!!* and login to the guest VM.
   ![Screenshot showing enter password to login to guest VM](./login-to-guest-vm.png)
 
-- Open Windows Explorer and navigate to C:\Jumpstart\agentScript folder.
+- Open Windows Explorer and navigate to the *C:\Jumpstart\agentScript* folder.
   ![Screenshot showing locating Defender for SQL simulation script file](./locate-simulation-script.png)
 
-- Right click *testDefenderForSQL.ps1* script file and select *Run with PowerShell*.
+- Right click on the *testDefenderForSQL.ps1* PowerShell script file and select *Run with PowerShell*.
   ![Screenshot showing executing Defender for SQL simulation script file](./execute-defender-simulation-script.png)
 
 ## Cleanup
