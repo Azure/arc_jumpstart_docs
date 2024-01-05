@@ -287,13 +287,13 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 Follow the steps below to simulate Microsoft Defender for SQL threats
 
-- On the *JS-Client* Azure VM desktop, locate Hyper-V Manager icon as shown below and double click to open Hyper-V Manager.
+- On the *JS-Client* Azure VM desktop, locate the Hyper-V Manager icon as shown below and double-click to open Hyper-V Manager.
   ![Screenshot showing Hyper-V Manager desktop icon](./locate-hyper-v-manager.png)
 
-- In the Hyper-V Manager expand JS-Client and double click on the JS-Win-SQL-01 guest VM to login.
+- In the Hyper-V Manager expand JS-Client and double-click on the *JS-Win-SQL-01* guest VM to login.
   ![Screenshot showing SQL server guest VM in Hyper-V Manager](./locate-guest-sql-vm.png)
 
-- Click connect. Following are the credentials to login to nested SQL Server VM.
+- Click connect. Following are the credentials to log in to the nested SQL Server VM.
 
   ```text
   Username: Administrator
