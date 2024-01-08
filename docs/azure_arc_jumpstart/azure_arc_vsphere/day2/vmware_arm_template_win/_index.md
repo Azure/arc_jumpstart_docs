@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided ARM template to deploy a Windows VM in your Azure Arc-enabled vSphere cluster using custom locations.
 
-> **Note:**  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.
+> **Note:** This Jumpstart scenario assumes you already have a working VMware vSphere environment and does not cover VMware-specific best practices and design recommendations.
 
 ## Prerequisites
 
