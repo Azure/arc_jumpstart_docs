@@ -10,9 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy the [Azure Arc resource bridge](https://docs.microsoft.com/azure/azure-arc/resource-bridge/overview) in your vSphere environment to connect your vCenter Server to Azure Arc.
 
-> **NOTE:  This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.**
-
-> **Note:** Azure Arc-enabled VMware vSphere is currently in Preview and as a result, versions captured in the scenario's various screenshots are subject to change.
+> **Note:** This Jumpstart scenario assumes you already have a working VMware vSphere environment and is not covering VMware-specific best practices and design recommendations.
 
 ## Prerequisites
 
@@ -58,7 +56,7 @@ The following Jumpstart scenario will guide you on how to use the provided Power
 
     Copy and save the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **NOTE: It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0)**
+    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 ### vCenter Prerequisites
 
