@@ -24,6 +24,17 @@ If you're unsure about your future contribution, don't hesitate to start a [GitH
 
 Happy contributing!
 
+## Branch guidance
+
+The Arc Jumpstart docs handles branching similarly to most code repositories. There are two main branches that are mantained, each one attached to a specific website slot (prod/canary). 
+
+The following branches are currently maintained:
+
+| Branch                                                       | Website                    | Description                                                                                      |
+| ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------ |
+| [main](https://github.com/Azure/arc_jumpstart_docs) (primary)               | https://arcjumpstart.com/       | Latest Arc Jumpstart release documentation. This is the latest docuemntation available in the deployed to the production slot. |
+| [canary](https://github.com/Azure/arc_jumpstart_docs/tree/canary) (canary) | https://preview.arcjumpstart.com/ | Pre-release documentation. Doc updates should be merged to canary for preview validation before being merged to main. |
+
 ## Cloning the repositories
 
 To contribute, you'll likely need to clone both this repository and the [source code repository](https://github.com/Azure/arc_jumpstart_docs). Use the following commands:
