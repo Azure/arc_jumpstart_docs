@@ -26,7 +26,7 @@ Happy contributing!
 
 ## Branch guidance
 
-The Arc Jumpstart docs handles branching similarly to most code repositories. There are two main branches that are mantained, each one attached to a specific website slot (prod/canary). 
+The Arc Jumpstart docs handles branching similarly to most code repositories. There are two primary branches that are mantained, each one attached to a specific website slot (prod/canary). 
 
 The following branches are currently maintained:
 
