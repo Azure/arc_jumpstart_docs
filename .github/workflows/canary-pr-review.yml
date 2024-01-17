@@ -26,7 +26,13 @@ jobs:
       id: calc_changed_files
       run: |
         beginning='["'
-        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
+        
+        # File calculation without folder filtering
+        # middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
+        
+        # File calculation applying folder filtering for azure_arc_app_svc & azure_arc_k8s
+        middle=$(echo $all_changed_files | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)
+        
         end='"]'
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
 
