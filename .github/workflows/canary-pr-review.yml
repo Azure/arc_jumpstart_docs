@@ -38,6 +38,7 @@ jobs:
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
 
     - name: Vale
+      if: ${{ env.files_to_change != '[""]' }}
       uses: errata-ai/vale-action@reviewdog
       with:
         version: 2.30.0
