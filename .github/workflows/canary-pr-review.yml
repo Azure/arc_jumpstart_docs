@@ -34,6 +34,7 @@ jobs:
         middle=$(echo $all_changed_files | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)
         
         end='"]'
+        echo "files_to_change=$beginning$middle$end"
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
 
     - name: Vale
