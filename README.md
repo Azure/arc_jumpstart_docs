@@ -62,6 +62,7 @@ a CLA and decorate the PR appropriately (for example, status check, comment). Si
 provided by the bot. You will only need to do this once across all repos using Microsoft's CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
@@ -69,11 +70,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 This repository uses [vale.sh](https://vale.sh/) to help tech writers and contributors adhere to Microsoft's writing styling guidelines. **Vale** is a command-line tool that allows you to check your writing for grammar and spelling errors against a set of style rules. 
 
-When you create a pull request, the [vale-action](https://github.com/errata-ai/vale-action) is triggered to check the modified content. This allows reviewers to easily surface errors. A report is automatically generated, and all errors **must** be fixed before the pull request can be merged
-
-- To review modified content locally, use [Visual Studio Code + Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server).
-- To configure Vale with Microsoft's writing style, see [Vale Microsoft styling](https://github.com/errata-ai/Microsoft).
-- To contribute or communicate with the Arc Jumpstart team, open a new [issue](./issues).
+For more information about Vale configuration, local usage and GitHub CI actions, check [Wiki - Vale Integration](https://github.com/Azure/arc_jumpstart_docs/wiki/Vale.sh-Integration).
 
 ## Trademarks
 
