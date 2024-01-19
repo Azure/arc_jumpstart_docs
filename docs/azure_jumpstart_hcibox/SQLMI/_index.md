@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Arc-enabled SQL Managed Instance"
-weight: 5
+weight: 6
 ---
 
 ## Arc-enabled SQL Managed Instance on Azure Stack HCI

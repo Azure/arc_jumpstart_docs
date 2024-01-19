@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Resource Bridge"
-weight: 3
+weight: 4
 ---
 
 ## Virtual machine provisioning with Azure Arc

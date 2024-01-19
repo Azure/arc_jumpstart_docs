@@ -1,8 +1,8 @@
 ---
 type: docs
-linkTitle: "Getting started"
-isGettingStarted: true
-weight: 1
+linkTitle: "Deployment"
+isGettingStarted: false
+weight: 2
 ---
 
 ## Getting started
