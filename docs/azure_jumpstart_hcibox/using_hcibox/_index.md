@@ -58,25 +58,17 @@ Azure Stack HCI supports [VM provisioning through the Azure portal](https://lear
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 
-### Windows Admin Center
-
-HCIBox includes an experimental option to configure of a Windows Admin Center (WAC) gateway server via PowerShell script. Windows Admin Center can also be used from the Azure portal.
-
-![Screenshot showing Windows Admin Center](./wac_portal.png)
-
-  > **Note:** [Registering Windows Admin Center with Azure](https://learn.microsoft.com/azure-stack/hci/manage/register-windows-admin-center) is not supported in HCIBox.
-
 ### Azure Kubernetes Service
 
 HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Currently AKS on HCI is an experimental feature in HCIBox. Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Stack HCI](./aks_portal.png)
 
-### Azure Arc-enabled SQL Managed Instance
+### Windows Admin Center
 
-HCIBox supports deploying [Azure Arc-enabled SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) on an AKS HCI cluster. Open the [HCIBox SQL MI documentation](/azure_jumpstart_hcibox/SQLMI/) to get started with Azure Arc-enabled SQL Managed Instance in HCIBox.
+Windows Admin Center can be used from directly in the Azure portal. Windows Admin Center offers additional capabilities for cluster management and operations directly from Azure portal.
 
-![Screenshot showing SQLMI on Azure Stack HCI](./sqlmi_portal.png)
+![Screenshot showing Windows Admin Center](./wac_portal.png)
 
 ### Advanced Configurations
 
