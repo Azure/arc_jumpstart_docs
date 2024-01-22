@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Cloud Deployment"
 isGettingStarted: false
-weight: 2
+weight: 5
 ---
 
 ## Start post-deployment automation
@@ -109,14 +109,24 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing edit parameters option](./edit_parameters.png)
 
-- Click through again on "CreatE" and then "Review and Create" to start the validation phase of cluster deployment.
+- Click through again on "Create" and then "Review and Create" to start the validation phase of cluster deployment.
 
   ![Screenshot showing starting validation phase](./validation_in_progress.png)
 
 #### Deploy cluster in Azure portal
 
-- When validation is complete navigate to the cluster resource in your HCIBox resource group.
+- When validation is complete navigate to the cluster resource in your HCIBox resource group and then click the "Deploy now" link.
+
+  ![Screenshot showing validated cluster resource in Azure portal](./validated_cluster.resource.png)
 
 - Click the link to deploy the validated cluster resource and then click through again to deploy the cluster. The cluster may take several hours to deploy.
 
-- You can monitor progress on the Deployments tab of the cluster resource.
+  ![Screenshot showing progress of deploying cluster](./cluster_deployment_progress.png)
+
+- If you navigate elsewhere in the Azure Portal, you can return monitor progress on the Deployments tab of the cluster resource.
+
+  ![Screenshot showing deployments tab of cluster](./deployments_tab.png)
+
+#### Deployment complete
+
+- Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_stack_hcibox/using_hcibox) guide for next steps.

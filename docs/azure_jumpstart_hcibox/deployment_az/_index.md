@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Deploy with AZ CLI"
 isGettingStarted: false
-weight: 2
+weight: 4
 ---
 
 ## Azure CLI

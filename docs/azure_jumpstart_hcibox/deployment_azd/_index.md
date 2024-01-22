@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Deploy with AZD CLI"
 isGettingStarted: false
-weight: 2
+weight: 3
 ---
 
 ## Azure Developer CLI

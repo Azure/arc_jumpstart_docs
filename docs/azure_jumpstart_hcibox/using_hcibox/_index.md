@@ -1,3 +1,10 @@
+---
+type: docs
+linkTitle: "Using HCIBox"
+isGettingStarted: false
+weight: 6
+---
+
 ## Using HCIBox
 
 HCIBox has many features that can be explored through the Azure portal or from inside the _HCIBox-Client_ virtual machine. To help you navigate all the features included, read through the following sections to understand the general architecture and how to use various features.
