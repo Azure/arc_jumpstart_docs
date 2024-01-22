@@ -10,66 +10,20 @@ Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.micros
 
 ## Create Virtual Machine images from Azure marketplace
 
-Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In our use case we will create an image from Azure marketplace.
+Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case you will create an image from Azure marketplace.
 
 - Navigate to your cluster resource inside the HCIBox resource group and click it.
 
   ![Screenshot showing cluster resource](./hcicluster_rg.png)
 
-- Click on "VM Images" in the menu and then click the "Add VM image" dropdown and select "From Azure Marketplace".
+- Click on "VM Images" in the menu and then click the "Add VM image" dropdown and select "From Azure Marketplace."
 
   ![Screenshot showing create VM](./add_image_from_marketplace.png)
 
-## Deploy a new Linux virtual machine
+- In this example we will select Windows Server 2022 Core Azure Edition from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically."
 
-HCIBox includes a pre-configured Linux virtual machine image that you can use to deploy new guest virtual machines on the HCI cluster. Follow these steps to deploy one in your HCIBox.
-
-- Navigate to the Azure Stack HCI cluster resource in your HCIBox resource group.
-
-  ![Screenshot showing Azure Stack HCI cluster in RG](./hcicluster_rg.png)
-
-- Click on "Virtual Machines" in the navigation menu, then click "Create VM"
-
-  ![Screenshot showing Azure Stack HCI cluster resource blade](./hcicluster_create_vm.png)
-
-  ![Screenshot showing Create VM blade](./hcicluster_create_vm_blade.png)
-
-- Provide a name for the VM, select the _ubuntu20_ image, and set the virtual processor count to 1 and the memory count to 2.
-
-  ![Screenshot showing select gallery image](./create_vm_detail_1.png)
-
-- Click the Networking tab of the create wizard, then click Add network interface.
-
-  ![Screenshot showing network tab of create vm wizard](./create_vm_detail_2.png)
-
-- Give the new network interface a name and select _sdnswitch_ in the Network dropdown, then click Add.
-
-  ![Screenshot showing create NIC tab of create vm wizard](./create_vm_detail_3.png)
-
-  ![Screenshot showing NIC was created](./create_vm_detail_4.png)
-
-- Click the Review + Create tab and then click Create.
-
-  ![Screenshot showing Review and Create tab](./create_vm_detail_5.png)
-
-- Download the private key and save it to your local computer.
-
-  ![Screenshot showing download the private key](./create_vm_detail_6.png)
-
-- Wait for the deployment to complete.
-
-  ![Screenshot showing deployment in progress](./create_vm_detail_7.png)
-
-  ![Screenshot showing deployment complete](./create_vm_detail_8.png)
-
-- Navigate back to the HCI cluster Virtual machines tab to view your created VM.
-
-  ![Screenshot showing created VM](./created_vm.png)
-
-- Click on the VM to drill into the Azure Arc-enabled HCI machine detail.
-
-  ![Screenshot showing created VM detail](./created_vm_detail.png)
+  ![Screenshot showing create VM image details](./vm_image_review_create.png)
 
 ## Next steps
 
-Review the [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
+Review the [Azure Stack HCI VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
