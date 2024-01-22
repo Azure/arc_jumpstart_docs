@@ -53,7 +53,7 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 
   ![Screenshot showing logs configured](./hci_insights.png)
 
-### VM provisioning through Azure portal with Arc Resource Bridge
+### Virtual machine provisioning through Azure portal with Arc Resource Bridge
 
 Azure Stack HCI supports [VM provisioning through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
 
@@ -89,7 +89,7 @@ HCIBox provides a full Azure Stack HCI sandbox experience with minimal configura
 
 ### Next steps
   
-HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a to jumpstart a proof of concept projects. Ultimately, you are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
+HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a to jumpstart a proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
 
 - Explore Windows Admin Center from either Azure portal or from the WAC gateway server
 - Deploy GitOps configurations with Azure Arc-enabled Kubernetes
@@ -105,7 +105,7 @@ Occasionally deployments of HCIBox may fail at various stages. Common reasons fo
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 48 available. See the [prerequisites](#prerequisites) section for more details.
 - Target Azure region does not support all required Azure services - ensure you are running HCIBox in one of the supported regions. See the [prerequisites](#prerequisites) section for more details.
 - Authentication issues - Most HCIBox operations require the use of the domain credentials configured during deployment. These credentials take the UPN format of _<username>@jumpstart.local_. If you have issues accessing services such as Windows Admin Center make sure you are using the correct credential.
-- Script failures due to upstream dependencies - This can happen due to network issues or failures in upstream services that HCIBox depends on (such as package repositories) - in most cases deleting the deployment and redeploying is the simplest resolution.
+- Script failures due to upstream dependencies - This can happen due to network issues or failures in upstream services that HCIBox depends on (such as package repositories) - usually deleting the deployment and redeploying is the simplest resolution.
 
 If you have issues that you cannot resolve when deploying HCIBox please submit an issue on the [Github repo](https://github.com/microsoft/azure_arc/issues)
 
