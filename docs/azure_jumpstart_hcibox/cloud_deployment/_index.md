@@ -7,7 +7,7 @@ weight: 2
 
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment.
+Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
@@ -72,7 +72,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Check in Azure portal that both HCI nodes have been onboarded as Arc-enabled servers.
 
-- Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, LCMController, DeviceManagement
+- Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
+
+  ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
 ### Azure portal Azure Stack HCI cluster validation and deployment
 
@@ -82,6 +84,10 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
   2. **Deploy** - the same ARM template is redeployed with the "deploy" flag. This deploys the cluster and Arc infrastructure and registers the cluster. This step takes around 2-3 hours.
 
 #### Validate cluster in Azure portal
+
+- Before submitting the ARM deployment, you need to add your user account as a Key Vault Administrator on the HCIBox resource group. Navigate to the resource group then click "Access Control (IAM)" and then "Add role assignment". Select the "Key Vault Administrator role" then click on to the next screen to select your user account and assign your user the role.
+
+  ![Screenshot showing key vault assignment](./key_vault_rbac.png)
 
 - Now you will use the generated ARM template to validate the HCI cluster in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right click on the folder and open in VSCode.
 
@@ -103,6 +109,10 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing edit parameters option](./edit_parameters.png)
 
+- Click through again on "CreatE" and then "Review and Create" to start the validation phase of cluster deployment.
+
+  ![Screenshot showing starting validation phase](./validation_in_progress.png)
+
 #### Deploy cluster in Azure portal
 
 - When validation is complete navigate to the cluster resource in your HCIBox resource group.
@@ -110,5 +120,3 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 - Click the link to deploy the validated cluster resource and then click through again to deploy the cluster. The cluster may take several hours to deploy.
 
 - You can monitor progress on the Deployments tab of the cluster resource.
-
-
