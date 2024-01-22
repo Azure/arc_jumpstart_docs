@@ -22,7 +22,6 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 | _AzSHOST2_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Stack HCI     |
 | _AzSMGMT_        | Nested hypervisor                   | No            | _HCIBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
-| _AdminCenter_    | Windows Admin Center gateway server | Yes           | _AzSMGMT_       | Windows Server 2022 |
 | _Bgp-Router_     | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
 
 ### Active Directory domain user credentials
@@ -61,7 +60,7 @@ Azure Stack HCI supports [VM provisioning through the Azure portal](https://lear
 
 ### Windows Admin Center
 
-HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Windows Admin Center can also be used from the Azure portal. Open the [HCIBox Windows Admin Center documentation](/azure_jumpstart_hcibox/WAC/) to get started.
+HCIBox includes an experimental option to configure of a Windows Admin Center (WAC) gateway server via PowerShell script. Windows Admin Center can also be used from the Azure portal.
 
 ![Screenshot showing Windows Admin Center](./wac_portal.png)
 
@@ -69,7 +68,7 @@ HCIBox includes a deployment of a Windows Admin Center (WAC) gateway server. Win
 
 ### Azure Kubernetes Service
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to get started with AKS-HCI in HCIBox.
+HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Currently AKS on HCI is an experimental feature in HCIBox. Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Stack HCI](./aks_portal.png)
 
