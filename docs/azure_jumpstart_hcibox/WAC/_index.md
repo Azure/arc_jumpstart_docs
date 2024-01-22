@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Windows Admin Center"
-weight: 5
+weight: 9
 ---
 
 ## Windows Admin Center operations
