@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "AKS on Stack HCI"
-weight: 2
+weight: 8
 ---
 
 ## Azure Kubernetes Service on Azure Stack HCI

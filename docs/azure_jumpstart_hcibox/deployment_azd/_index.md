@@ -1,0 +1,56 @@
+---
+type: docs
+linkTitle: "Deploy with AZD CLI"
+isGettingStarted: false
+weight: 3
+---
+
+## Azure Developer CLI
+
+Azure Developer CLI automates the creation or retrieval of several Azure deployment requirements. It's best used when the deploying user has permission to create applications in Microsoft Entra ID.
+
+### Prepare environment
+
+- Clone the Azure Arc Jumpstart repository
+
+  ```shell
+  git clone https://github.com/microsoft/azure_arc.git
+  ```
+
+- Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
+
+  > **Note:** PowerShell is required for using azd with HCIBox. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
+
+- Login with azd using *`azd auth login`* which will open a browser for interactive login.
+
+  ![Screenshot showing azd auth login](./azd_auth_login.png)
+
+- Run the *`azd init`* command from your cloned repo _*azure_jumpstart_hcibox*_ folder.
+  
+  ![Screenshot showing azd init](./azd_init.png)
+
+### Deploy the environment
+
+- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
+
+  ![Screenshot showing azd up](./azd_up.png)
+
+- Wait for the deployment to complete, then continue by logging into the _HCIBox-Client_ VM using RDP or Bastion.
+
+## Start post-deployment automation
+
+Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment. [Continue in Cloud Deployment guide](/azure_jumpstart_hcibox/cloud_deployment) for the next steps.
+
+  ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
+
+## Clean up the deployment
+
+After you are finished with your HCIBox deployment, simply delete the resource groups using Azure Developer CLI, or Azure portal.
+
+- Clean up using Azure Developer CLI
+
+  ```shell
+  azd down
+  ```
+
+  ![Screenshot showing azd down](./azd_down.png)
