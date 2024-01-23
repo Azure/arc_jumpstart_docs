@@ -34,6 +34,27 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 - From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
+  ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
+
+- Once complete the script window will automatically close. You can now check your resource group and find the newly created logical network resource.
+
+  ![Screenshot showing logical network in Azure portal](./logical_network.png)
+
+### Create a VM
+
+- Open the VM image resource and verify that your VM image has finished downloading.
+
+  ![Screenshot showing VM image complete](./monitor_vm_image_available.png)
+
+- Open your Azure Stack HCI cluster resource and then open the Virtual machines blade.
+
+  ![Screenshot showing create VM detail](./create_vm.png)
+
+- 
+
+
+- Login to VM
+
 ## Next steps
 
 Review the [Azure Stack HCI VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
