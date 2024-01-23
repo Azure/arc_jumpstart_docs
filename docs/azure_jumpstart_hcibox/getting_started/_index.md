@@ -9,7 +9,7 @@ weight: 2
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Stack HCI and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
 
-  > **Note:** [Azure Stack HCI 23H2](https://learn.microsoft.com/azure-stack/hci/whats-new) is now available in public preview. 23H2 introduces changes to the deployment process for HCI clusters and related workloads like [Resource Bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. HCIBox now offers clusters built on the new 23H2 OS, and prior Azure Stack HCI releases are no longer part of HCIBox or supported by the Jumpstart team. [Join the discussion](https://github.com/microsoft/azure_arc/discussions/1454) here to learn more.
+  > **Note:** [Azure Stack HCI 23H2](https://learn.microsoft.com/azure-stack/hci/whats-new) is now available in public preview. 23H2 introduces changes to the deployment process for HCI clusters and related workloads like [Resource Bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. HCIBox has also been updated and now offers clusters built on the new 23H2 OS, and prior Azure Stack HCI releases are no longer part of HCIBox or supported by the Jumpstart team. If you've used earlier versions of HCIBox you should read this guide thoroughly to understand the new deployment process.
 
 <img src="/img/logo/hcibox.png" alt="Jumpstart HCIBox logo" width="250">
 
@@ -34,25 +34,11 @@ HCIBox automatically provisions and configures a two-node Azure Stack HCI cluste
 
 ### Azure Arc Resource Bridge
 
-HCIBox comes with [Azure Arc Resource Bridge](https://learn.microsoft.com/azure/azure-arc/resource-bridge/overview). This allows full virtual machine lifecycle management from Azure portal or CLI. HCIBox also configures a [custom location](https://learn.microsoft.com/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line?tabs=for-static-ip-address#create-a-custom-location-by-installing-azure-arc-resource-bridge) and deploys a [gallery image](https://learn.microsoft.com/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line?tabs=for-static-ip-address#create-virtual-network-and-gallery-image) (Windows Server 2022). This gallery image can be used to create virtual machines through the Azure portal.
-
-![Screenshot showing HCIBox Azure Arc Resource Bridge](./arc_resource_bridge.png)
+HCIBox comes with [guest VM management in Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview). The HCIBox documentation will walk you through how to use this feature, including configuring VM images from Azure marketplace and creating VMs on your cluster.
 
 ### Azure Kubernetes Service on Azure Stack HCI and Azure Arc-enabled data services
 
-Azure Stack HCI includes [Azure Kubernetes Services on Azure Stack HCI (AKS-HCI)](https://learn.microsoft.com/azure-stack/aks-hci/) as part of the default configuration. HCIBox includes this capability and also provides the ability to deploy [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) on the HCIBox cluster.
-
-  > **Note:** [AKS on HCI](https://learn.microsoft.com/azure-stack/hci/whats-new) is now available in public preview. 23H2 introduces changes to the deployment process for HCI clusters and related workloads like [Resource Bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. HCIBox now offers clusters built on the new 23H2 OS, and prior OS releases are no longer part of HCIBox or supported by the Jumpstart team. [Join the discussion](https://github.com/microsoft/azure_arc/discussions/1454) here to learn more.
-
-HCIBox also provides the option to deploy [Azure Arc-enabled SQL Managed Instance on Azure Stack HCI](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview). HCIBox uses the AKS-HCI [workload cluster](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts)to deploy an Azure Arc-enabled SQL Managed Instance.
-
-![Scneenshot showing AKS-HCI Diagram](./aks_hci.png)
-
-### Hybrid unified operations
-
-HCIBox includes capabilities to support managing, monitoring and governing the cluster. The deployment automation configures [Azure Stack HCI Insights](https://learn.microsoft.com/azure-stack/hci/manage/monitor-hci-multi) along with [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-query-overview). Additionally, [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview) can be configured to support automation configuration and remediation of resources.
-
-![Screenshot showing HCIBox unified operations diagram](./governance.png)
+Azure Stack HCI includes [Azure Kubernetes Services on Azure Stack HCI (AKS hybrid)](https://learn.microsoft.com/azure/aks/hybrid/) as part of the default configuration. HCIBox includes this capability and also provides an experimental option to deploy [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) on the HCIBox cluster.
 
 ## HCIBox Azure Consumption Costs
 
@@ -67,22 +53,6 @@ HCIBox provides two methods for deploying and configuring the necessary resource
 - An [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) template that can be used to for a more streamlined experience.
 
 ![Screenshot showing deployment flow diagram for Bicep-based deployments](./deployment_flow.png)
-
-HCIBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagram provides an overview of the deployment flow. A high-level summary of the deployment is:
-
-- User deploys the primary Bicep file (_main.bicep_). This file contains several nested objects that will run simultaneously.
-  - Host template - deploys the _HCIBox-Client_ VM. This is the Hyper-V host VM that uses nested virtualization to host the complete HCIBox infrastructure. Once the Bicep template finishes deploying, the user remotes into this client using RDP to start the second step of the deployment.
-  - Network template - deploys the network artifacts required for the solution
-  - Storage account template - used for staging files in automation scripts and as the cloud witness for the HCI cluster
-  - Management artifacts template - deploys Azure Log Analytics workspace and solutions and Azure Policy artifacts
-- User remotes into _HCIBox-Client_ VM, which automatically kicks off a PowerShell script that:
-  - Deploys and configure three (3) nested virtual machines in Hyper-V
-    - Two (2) Azure Stack HCI virtual nodes
-    - One (1) Windows Server 2019 virtual machine
-  - Configures the necessary virtualization and networking infrastructure on the Hyper-V host to support the HCI cluster.
-  - Deploys an Active Directory domain controller, a Windows Admin Center server in gateway mode, and a Remote Access Server acting as a BGP router
-  - Generates an ARM template and parameters file to use to validate and deploy the cluster via Azure portal
-- User takes the generated ARM template and parameters file and uses them to validate and deploy the cluster in Azure portal
 
 ## Deployment options and prerequisites
 
