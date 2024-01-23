@@ -108,6 +108,9 @@ Occasionally, you may need to review log output from scripts that run on the _HC
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | _C:\HCIBox\Logs\Bootstrap.log_                | Output from the initial bootstrapping script that runs on _HCIBox-Client_.                                                                |
 | _C:\HCIBox\Logs\New-HCIBoxCluster.log_        | Output of _New-HCIBoxCluster.ps1_ which configures the Hyper-V host and builds the HCI cluster, management VMs, and other configurations. |
+| _C:\HCIBox\Logs\Generate-ARM-Template.log_    | Log output of the script that builds the hci.json and hci.parameters.json file                                                            |
+| _C:\HCIBox\Logs\HCIBoxLogonScript.log_        | Log output from the orchestrator script that manages the install                                                                          |
+| _C:\HCIBox\Logs\Tools.log_                    | Log output from tools installation during bootstrap                                                                                       |
 
   ![Screenshot showing HCIBox logs folder on HCIBox-Client](./troubleshoot_logs.png)
 
