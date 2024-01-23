@@ -40,20 +40,29 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
   ![Screenshot showing logical network in Azure portal](./logical_network.png)
 
-### Create a VM
+### Create a virtual machine
 
 - Open the VM image resource and verify that your VM image has finished downloading.
 
   ![Screenshot showing VM image complete](./monitor_vm_image_available.png)
 
-- Open your Azure Stack HCI cluster resource and then open the Virtual machines blade.
+- Open your Azure Stack HCI cluster resource and then open the Virtual machines blade, then click the "Create virtual machine" button.
 
-  ![Screenshot showing create VM detail](./create_vm.png)
+  ![Screenshot showing create VM overview](./create_vm.png)
 
-- 
+- Choose your HCIBox resource group, give your VM a name, select "Standard" for security type, and select the VM image you created earlier for the image. Set processor count to 2 and memory to 8192. Click next, and then next again to continue to the network tab.
 
+  ![Screenshot showing create VM detail](./create_vm_detail_1.png)
 
-- Login to VM
+- Click "Add network interface" and then give the interface a name and select the network you created earlier from the dropdown. Leave allocation method set to Automatic. Add the network card and then click next.
+
+  ![Screenshot showing create VM network card](./create_vm_detail_vnic.png)
+
+  ![Screenshot showing create VM network card](./create_vm_detail_add_vnic.png)
+
+- Review the virtual machine details and click "Review + create" when ready.
+
+  ![Screenshot showing final create VM step](./vm_image_review_create.png)
 
 ## Next steps
 
