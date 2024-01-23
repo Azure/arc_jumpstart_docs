@@ -149,4 +149,3 @@ To clean up your deployment, simply delete the resource groups using Azure CLI o
   az group delete -n <name of your resource group>
   ```
 
-  ![Screenshot showing az group delete](./az_delete.png)
