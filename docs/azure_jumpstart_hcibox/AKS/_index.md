@@ -10,41 +10,64 @@ Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service cl
 
 ## Explore AKS on Azure Stack HCI
 
-- Open the resource group and group by type to see the Kubernetes clusters deployed with HCIBox. We can see two clusters here. The first cluster with the long _guid_ for a name is the [management cluster](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts#the-management-cluster). This is a cluster used by AKS-HCI to manage AKS-HCI [workload clusters](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-concepts#the-workload-cluster). The second cluster with the name prefix _hcibox-aks_ is a workload cluster.
+HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
 
-  ![Screenshot showing clusters in resource group](./rg_aks.png)
+  | Network details |                  |
+  | ---------- | --------------------- |
+  | Subnet     | 10.10.0.0/24          |
+  | Gateway    | 10.10.0.1             |
+  | VLAN Id    | 110                   |
+  | DNS Server | 192.168.1.254         |
 
-- Click on the workload cluster resource to drill into it. We can see this cluster was onboarded as an [Arc-enabled Kubernetes cluster](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview).
+Before creating an AKS workload cluster, you must create a local virtual network object. HCIBox includes a script that will complete this task using the pre-configured network. The script will then create a new AKS workload cluster.
 
-  ![Screenshot showing clusters in resource group](./aks_cluster_detail.png)
+- Open your HCIBox resource group and click on the _jumpstart_ custom location resource, then click "Arc-enabled services." Here you should see the hybridaksextension service available on the cluster. This is installed by default on Azure Stack HCI clusters, and is required for creating AKS workload clusters on HCI.
 
-- We can also view Kubernetes resources on the cluster from Azure portal. To do this you will need a service account bearer token. You can create one by opening the C:\HCIBox folder and running the GetServiceAccountBearerToken.ps1 script by right clicking on it and selecting "Run with PowerShell".
+  ![Screenshot showing aks extension](./custom_location_resources.png)
 
-  ![Screenshot showing how to run the service account bearer token generating script](./run_token_script.png)
+Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsoft.com/azure/aks/hybrid/aks-create-clusters-cli#before-you-begin). Create a new Microsoft Entra group or use an existing one where you are a member for this exercise.
 
-- After the script completes it will pause to allow you to copy the token. Highlight the token and right click to copy it.
+- [Create a Microsoft Entra group](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) or use an existing one.
 
-  ![Screenshot showing the script running](./run_token_script_result.png)
+- Retrieve the object id of the Microsoft Entra group and copy it down for use in the next step.
 
-- Navigate to the workload cluster in Azure portal and select Namespaces under Kubernetes resources (preview). After signing in with the token your Kubernetes resources will be available to view from Azure portal.
+  ![Screenshot showing Entra group id](./entra_group_id.png)
 
-  ![Screenshot showing Kubernetes token page in Azure portal](./enter_token_portal.png)
+- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the "C:\HCIBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Open with Code."
 
-  ![Screenshot showing Kubernetes resources in Azure portal](./k8s_resources_portal.png)
+  ![Screenshot showing edit with VSCode](./open_with_code.png)
 
-- We can deploy configurations for this workload cluster automatically from source using [GitOps](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster). HCIBox includes a script that will automatically configure a simple "Hello Arc" application and ingress controller on the AKS cluster.
+- Uncomment line 6 in the script and edit the placeholder value for the $aadgroupID parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
 
-- Open up Windows Explorer on the _HCIBox-Client_ VM and navigate to the _C:\HCIBox_ folder. From here, right click on the _Deploy-GitOps.ps1_ file and run with PowerShell.
+  ![Screenshot showing editing script](./edit_script.png)
 
-  ![Screenshot showing starting GitOps script](./deploy_gitops.png)
+- - From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the "C:\HCIBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
 
-  ![Screenshot showing running GitOps script](./deploying_gitops.png)
+  ![Screenshot showing clusters in resource group](./run_with_powershell.png)
 
-- Once this script completes you will have a "Hello-Arc" icon on desktop of AdminCenter computer. Open this link to see the Hello Arc application deployed on your cluster.
+- Let the script run its course. It will close automatically when complete.
 
-  ![Screenshot showing Hello Arc link](./hello_arc_desktop.png)
+  ![Screenshot showing script running](./run_configure_aks.png)
 
-  ![Screenshot showing Hello Arc app](./hello_arc.png)
+- Once complete, you should have an AKS workload cluster called _hcibox-aks_ in your HCIBox resource group.
+
+  ![Screenshot showing AKS in resource group](./aks_in_resource_group.png)
+
+- Click on the AKS cluster to view details such as Kubernetes version. "Status" may show connecting for some time while the cluster fully connects to Azure.
+
+  ![Screenshot showing cluster detail](./cluster_detail.png)
+
+- From Azure portal, open Cloud Shell and run the following command, using the name of your HCIBox resource group.
+
+  ```
+  az connectedk8s proxy -n hcibox-aks -g <name of your resource group>
+  ```
+
+  ![Screenshot showing run connectedk8s](./cloud_shell_proxy.png)
+
+- From Cloud Shell, click "New Session" and then in the new shell you will have kubectl access to your cluster. Try running some kubectl commands for yourself.
+
+  ![Screenshot showing kubectl proxy access](./cloud_shell_k8s.png)
 
 ## Next steps
 
