@@ -73,6 +73,8 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
   ![Screenshot showing final create VM step](./vm_image_review_create.png)
 
+- Open the Azure Stack HCI VM resource and see connectivity to Arc and other details.
+
 ## Next steps
 
 Review the [Azure Stack HCI VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
