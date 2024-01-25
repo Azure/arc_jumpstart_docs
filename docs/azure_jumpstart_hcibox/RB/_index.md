@@ -41,7 +41,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
   | VLAN Id    | 200                   |
   | DNS Server | 192.168.1.254         |
 
-- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
+- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
   ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
 
