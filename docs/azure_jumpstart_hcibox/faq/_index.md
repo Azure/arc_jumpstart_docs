@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "HCIBox FAQ"
-weight: 6
+weight: 7
 ---
 
 ## Jumpstart HCIBox Frequently Asked Questions (FAQ)
