@@ -22,7 +22,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 - Select an image from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically." When everything looks good, click "Review and Create."
 
-  ![Screenshot showing create VM image details](./vm_image_review_create.png)
+  ![Screenshot showing create VM image details](./create_vm_detail_win11.png)
 
 - It will take some time for the VM image to download to your cluster from Azure marketplace. You can monitor progress by visiting the VM Image resource in your resource group and reviewing the resource properties.
 
@@ -61,7 +61,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
 - Choose your HCIBox resource group, give your VM a name, select "Standard" for security type, and select the VM image you created earlier for the image. Set processor count to 2 and memory to 8192. Click next, and then next again to continue to the network tab.
 
-  ![Screenshot showing create VM detail](./create_vm_detail_1.png)
+  ![Screenshot showing create VM detail](./create_vm_detail_win11.png)
 
 - Click "Add network interface" and then give the interface a name and select the network you created earlier from the dropdown. Leave allocation method set to Automatic. Add the network card and then click next.
 
@@ -74,6 +74,8 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
   ![Screenshot showing final create VM step](./vm_image_review_create.png)
 
 - Open the Azure Stack HCI VM resource and see connectivity to Arc and other details.
+
+  ![Screenshot showing VM resource](./vm_resource_detail.png)
 
 ## Next steps
 
