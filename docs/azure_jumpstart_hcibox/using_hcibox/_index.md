@@ -22,7 +22,7 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 | _AzSHOST2_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Stack HCI     |
 | _AzSMGMT_        | Nested hypervisor                   | No            | _HCIBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
-| _Vm-Router_     | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
+| _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
 
 ### Active Directory domain user credentials
 
