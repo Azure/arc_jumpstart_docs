@@ -1,13 +1,13 @@
 ---
 type: docs
-linkTitle: "Deploy with AZD CLI"
+linkTitle: "Deploy (azd)"
 isGettingStarted: false
 weight: 3
 ---
 
-## Azure Developer CLI
+## Deploy HCIBox infrastructure with Azure Developer CLI
 
-Azure Developer CLI automates the creation or retrieval of several Azure deployment requirements. It's best used when the deploying user has permission to create applications in Microsoft Entra ID.
+Azure Developer CLI automates the creation or retrieval of several HCIBox deployment requirements. It's best used when the deploying user has permission to [create applications in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 
 ### Prepare environment
 
@@ -45,7 +45,7 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 ## Clean up the deployment
 
-After you are finished with your HCIBox deployment, simply delete the resource groups using Azure Developer CLI, or Azure portal.
+After you are finished with your HCIBox deployment use ```azd down``` to delete your resources.
 
 - Clean up using Azure Developer CLI
 

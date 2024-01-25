@@ -34,45 +34,33 @@ Once you are logged into the _HCIBox-Client_ VM using the local admin credential
 
 Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azure-stack/hci/manage/monitor-hci-single) to support monitoring HCI cluster insights through the Azure portal. Follow these steps to configure monitoring on your HCIBox cluster.
 
-- From the Overview blade of the _HCIBox-Cluster_ resource, select the "Capabilities" tab, then click on "Not configured" on the "Logs" box.
+- Open the Overview blade of your cluster and see that platform monitoring is available by default.
 
-  ![Screenshot showing capabilities tab](./enable_monitoring_1.png)
+  ![Screenshot showing platform monitoring in Az monitor](./monitor_platform.png)
 
-- On the dialog box, select the HCIBox-Workspace log analytics workspace in the dropdown, then click "Add". This will begin the process of installing the Log Analytics extensions on the host nodes and will take a few minutes. When complete, the Logs box will show as "Configured" on the Capabilities tab.
+- From the Overview blade of the _HCIBox-Cluster_ resource, select the "Capabilities" tab, then click on Insights and then "Getting Started." Follow the wizard to create a new data collection rule and data collection endpoint.
 
-  ![Screenshot showing capabilities tab](./enable_monitoring_2.png)
+  ![Screenshot showing capabilities tab](./create_dcr.png)
 
-- On the "Capabilities" tab, click on "Not configured" on the "Insights" box.
-
-- On the dialog box, click "Turn on". After a few seconds, the Insights box should show as "Configured" on the Capabilities tab.
-
-  ![Screenshot showing logs configured](./enable_monitoring_3.png)
-
-- It will take time for logs data to flow through to Log Analytics. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
+- It will take time for logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
 
   ![Screenshot showing logs configured](./hci_insights.png)
 
-### Virtual machine provisioning through Azure portal with Arc Resource Bridge
+### Virtual machine management through Azure portal
 
-Azure Stack HCI supports [VM provisioning through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
+Azure Stack HCI supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 
 ### Azure Kubernetes Service
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Currently AKS on HCI is an experimental feature in HCIBox. Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to explore currently available features.
+HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Stack HCI](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to explore currently available features.
 
-![Screenshot showing AKS on Azure Stack HCI](./aks_portal.png)
-
-### Windows Admin Center
-
-Windows Admin Center can be used from directly in the Azure portal. Windows Admin Center offers additional capabilities for cluster management and operations directly from Azure portal.
-
-![Screenshot showing Windows Admin Center](./wac_portal.png)
+![Screenshot showing AKS on Azure Stack HCI](./cluster_detail.png)
 
 ### Advanced Configurations
 
-HCIBox provides a full Azure Stack HCI sandbox experience with minimal configuration required by the user. Some users may be interested in changing HCIBox's default configuration. Many advanced settings can be configured by modifying the values in the [_HCIBox-Config.psd1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_jumpstart_hcibox/artifacts/HCIBox-Config.psd1) PowerShell file. If you wish to make changes to this file, you must fork the Jumpstart repo and make the changes in your fork, then set the optional _githubAccount_ and _githubBranch_ deployment template parameters to point to your fork.
+Some users may be interested in changing HCIBox's default configuration. Many settings can be configured by modifying the values in the [_HCIBox-Config.psd1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_jumpstart_hcibox/artifacts/HCIBox-Config.psd1) PowerShell file. If you wish to make changes to this file, you must fork the Jumpstart repo and make the changes in your fork, then set the optional _githubAccount_ and _githubBranch_ deployment template parameters to point to your fork.
 
   > **Note:** Advanced configuration deployments are not supported by the Jumpstart team. Changes made to the _HCIBox-Config.psd1_ file may result in failures at any point in HCIBox deployment. Make changes to this file only if you understand the implications of the change.
 
@@ -87,29 +75,3 @@ HCIBox is a sandbox that can be used for a large variety of use cases, such as a
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Reuse automation for external solutions or proof-of-concepts
-
-## Basic troubleshooting
-
-Occasionally deployments of HCIBox may fail at various stages. Common reasons for failed deployments include:
-
-- Invalid service principal id, service principal secret or service principal Azure tenant ID provided in _main.parameters.json_ file. This can cause failures when running automation that requires logging into Azure, such as the scripts that register the HCI cluster, deploy AKS-HCI, or configure Arc resource bridge.
-- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 48 available. See the [prerequisites](#prerequisites) section for more details.
-- Target Azure region does not support all required Azure services - ensure you are running HCIBox in one of the supported regions. See the [prerequisites](#prerequisites) section for more details.
-
-If you have issues that you cannot resolve when deploying HCIBox please submit an issue on the [Github repo](https://github.com/microsoft/azure_arc/issues)
-
-### Exploring logs from the _HCIBox-Client_ virtual machine
-
-Occasionally, you may need to review log output from scripts that run on the _HCIBox-Client_ virtual machines in case of deployment failures. To make troubleshooting easier, the HCIBox deployment scripts collect all relevant logs in the _C:\HCIBox\Logs_ folder on _HCIBox-Client_. A short description of the logs and their purpose can be seen in the list below:
-
-| Log file                                      | Description                                                                                                                               |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| _C:\HCIBox\Logs\Bootstrap.log_                | Output from the initial bootstrapping script that runs on _HCIBox-Client_.                                                                |
-| _C:\HCIBox\Logs\New-HCIBoxCluster.log_        | Output of _New-HCIBoxCluster.ps1_ which configures the Hyper-V host and builds the HCI cluster, management VMs, and other configurations. |
-| _C:\HCIBox\Logs\Generate-ARM-Template.log_    | Log output of the script that builds the hci.json and hci.parameters.json file                                                            |
-| _C:\HCIBox\Logs\HCIBoxLogonScript.log_        | Log output from the orchestrator script that manages the install                                                                          |
-| _C:\HCIBox\Logs\Tools.log_                    | Log output from tools installation during bootstrap                                                                                       |
-
-  ![Screenshot showing HCIBox logs folder on HCIBox-Client](./troubleshoot_logs.png)
-
-If you are still having issues deploying HCIBox, please [submit an issue](https://aka.ms/JumpstartIssue) on GitHub and include a detailed description of your issue and the Azure region you are deploying to. Inside the _C:\HCIBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.
