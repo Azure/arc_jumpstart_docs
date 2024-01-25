@@ -140,7 +140,6 @@ To clean up your deployment, simply delete the resource groups using Azure CLI o
 - Clean up Using Azure CLI
 
   ```shell
-  az group delete -n <name of your resource group>-ArcServers
   az group delete -n <name of your resource group>
   ```
 
