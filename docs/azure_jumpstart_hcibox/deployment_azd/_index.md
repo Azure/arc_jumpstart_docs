@@ -31,7 +31,7 @@ weight: 3
 
 ### Deploy the environment
 
-- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
+- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters.
 
   ![Screenshot showing azd up](./azd_up.png)
 

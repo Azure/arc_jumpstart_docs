@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "AKS on Stack HCI"
+linkTitle: "AKS on Azure Stack HCI"
 weight: 8
 ---
 
@@ -37,11 +37,11 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing edit with VSCode](./open_with_code.png)
 
-- Uncomment line 6 in the script and edit the placeholder value for the $aadgroupID parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
+- Uncomment line 6 in the script and edit the placeholder value for the _$aadgroupID_ parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
 
   ![Screenshot showing editing script](./edit_script.png)
 
-- - From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the _C:\HCIBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
+- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the "C:\HCIBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
 
   ![Screenshot showing clusters in resource group](./run_with_powershell.png)
 

@@ -62,17 +62,17 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 #### The Logon scripts
 
-- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take between 1-2 hours to finish, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
+- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 1-2 hours to finish, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-- Check in Azure portal that both HCI nodes have been created as Arc-enabled servers.
+- In Azure portal, validate that both HCI nodes have been created as Arc-enabled servers.
 
 - Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
-- If everything looks good, proceed on to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
+- If everything looks good, proceed to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
 
 ### Azure portal Azure Stack HCI cluster validation and deployment
 
@@ -87,7 +87,7 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing key vault assignment](./key_vault_rbac.png)
 
-- Now you will use the generated ARM template to validate the HCI cluster in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right click on the folder and open in VSCode.
+- Now you will use the generated ARM template to validate the HCI cluster in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right-click on the folder and open it in VSCode.
 
 - Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the parameters file looks correct without "staging" placeholder values.
 
@@ -119,12 +119,12 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing validated cluster resource in Azure portal](./validated_cluster_resource.png)
 
-- Click through to submit the deployment. The cluster may take some time to deploy. If you navigate elsewhere in the Azure Portal, you can return monitor progress on the Deployments tab of the cluster resource. Click Refresh to get the latest status on deployment.
+- Click through to submit the deployment. The cluster may take some time to deploy. If you navigate elsewhere in the Azure Portal, you can return to monitor progress on the _Deployments_ tab of the cluster resource. Click Refresh to get the latest status on deployment.
 
   ![Screenshot showing progress of deploying cluster](./cluster_deployment_progress.png)
 
 #### Deployment complete
 
-- Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_stack_hcibox/using_hcibox) guide for next steps.
+- Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_stack_hcibox/using_hcibox) guide for the next steps.
 
   ![screenshot showing deployed cluster](./placeholder.png)

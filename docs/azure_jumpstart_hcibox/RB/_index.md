@@ -10,7 +10,7 @@ Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.micros
 
 ### Create Virtual Machine images from Azure marketplace
 
-Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case you will create an image from Azure marketplace.
+Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
 - Navigate to your cluster resource inside the HCIBox resource group and click it.
 
@@ -32,7 +32,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 ### Create a logical network on your HCI cluster
 
-HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create an logical network resource that maps to this subnet.
+HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
   | Network details |                  |
   | ---------- | --------------------- |
@@ -41,7 +41,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
   | VLAN Id    | 200                   |
   | DNS Server | 192.168.1.254         |
 
-- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
+- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
   ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
 

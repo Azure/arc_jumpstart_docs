@@ -22,7 +22,7 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 | _AzSHOST2_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Stack HCI     |
 | _AzSMGMT_        | Nested hypervisor                   | No            | _HCIBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
-| _Vm-Router_     | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
+| _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
 
 ### Active Directory domain user credentials
 
@@ -42,7 +42,7 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 
   ![Screenshot showing capabilities tab](./create_dcr.png)
 
-- It will take time for logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
+- It will take time for the logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
 
   ![Screenshot showing logs configured](./hci_insights.png)
 
@@ -68,7 +68,7 @@ Some users may be interested in changing HCIBox's default configuration. Many se
 
 ### Next steps
   
-HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a to jumpstart a proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
+HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or to jumpstart proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
 
 - Explore Windows Admin Center from either Azure portal or from the WAC gateway server
 - Deploy GitOps configurations with Azure Arc-enabled Kubernetes
