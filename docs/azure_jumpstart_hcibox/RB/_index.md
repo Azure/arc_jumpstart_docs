@@ -32,7 +32,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 ### Create a logical network on your HCI cluster
 
-HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create an logical network resource that maps to this subnet.
+HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
   | Network details |                  |
   | ---------- | --------------------- |
