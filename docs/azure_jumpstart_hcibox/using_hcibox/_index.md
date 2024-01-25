@@ -42,7 +42,7 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 
   ![Screenshot showing capabilities tab](./create_dcr.png)
 
-- It will take time for logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
+- It will take time for the logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
 
   ![Screenshot showing logs configured](./hci_insights.png)
 
