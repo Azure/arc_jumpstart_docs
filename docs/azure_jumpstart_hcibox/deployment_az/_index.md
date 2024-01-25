@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Deploy (az)"
+linkTitle: "Azure CLI Deployment"
 isGettingStarted: false
 weight: 4
 ---

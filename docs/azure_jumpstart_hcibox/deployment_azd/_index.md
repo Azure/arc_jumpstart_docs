@@ -1,13 +1,13 @@
 ---
 type: docs
-linkTitle: "Deploy (azd)"
+linkTitle: "Azure Developer CLI Deployment"
 isGettingStarted: false
 weight: 3
 ---
 
 ## Deploy HCIBox infrastructure with Azure Developer CLI
 
-Azure Developer CLI automates the creation or retrieval of several HCIBox deployment requirements. It's best used when the deploying user has permission to [create applications in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
+[Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) automates the creation or retrieval of several HCIBox deployment requirements. It's best used when the deploying user has permission to [create applications in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 
 ### Prepare environment
 

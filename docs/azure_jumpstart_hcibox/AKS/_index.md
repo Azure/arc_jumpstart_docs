@@ -33,7 +33,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing Entra group id](./entra_group_id.png)
 
-- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the "C:\HCIBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select Open with Code
+- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the _C:\HCIBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select Open with Code
 
   ![Screenshot showing edit with VSCode](./open_with_code.png)
 
