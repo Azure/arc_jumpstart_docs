@@ -70,7 +70,7 @@ HCIBox includes Bicep templates that can be used with Azure Developer CLI or Azu
 
 Looking for something else related to HCIBox?
 
-- [Cloud deployment](/azure_jumpstart_hcibox/cloud_deployment)
+- [Connect to HCIBox](/azure_jumpstart_hcibox/cloud_deployment)
 
 - [HCIBox FAQ](/azure_jumpstart_hcibox/faq)
 
