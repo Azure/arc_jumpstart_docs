@@ -37,7 +37,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing edit with VSCode](./open_with_code.png)
 
-- Uncomment line 6 in the script and edit the placeholder value for the $aadgroupID parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
+- Uncomment line 6 in the script and edit the placeholder value for the _$aadgroupID_ parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
 
   ![Screenshot showing editing script](./edit_script.png)
 
