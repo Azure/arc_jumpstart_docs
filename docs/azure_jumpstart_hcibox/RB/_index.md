@@ -10,7 +10,7 @@ Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.micros
 
 ### Create Virtual Machine images from Azure marketplace
 
-Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case you will create an image from Azure marketplace.
+Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
 - Navigate to your cluster resource inside the HCIBox resource group and click it.
 
