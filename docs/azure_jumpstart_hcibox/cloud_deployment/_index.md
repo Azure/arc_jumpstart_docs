@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Cloud Deployment"
+linkTitle: "Connect to HCIBox"
 isGettingStarted: false
 weight: 5
 ---
