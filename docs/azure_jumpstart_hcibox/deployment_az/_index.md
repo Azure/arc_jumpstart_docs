@@ -27,11 +27,6 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
 
 - Ensure that you have selected the correct subscription you want to deploy HCIBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
-- HCIBox must be deployed to one of the following regions. **Deploying HCIBox outside of these regions may result in unexpected results or deployment errors.**
-
-  - East US
-  - North Europe
-
 - **HCIBox requires 32 ESv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy HCIBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
@@ -93,7 +88,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deploy the Bicep template
 
@@ -123,7 +118,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the below command:
+- Deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the following command:
 
   ```shell
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
