@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Deployment"
+linkTitle: "Getting Started"
 isGettingStarted: false
 weight: 2
 ---

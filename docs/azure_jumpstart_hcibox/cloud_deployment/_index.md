@@ -11,7 +11,7 @@ Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, yo
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > **Note:** For enhanced HCIBox security posture, RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the HCIBox Client virtual machine
 
@@ -62,19 +62,17 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 #### The Logon scripts
 
-- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. **This script will take between 1-2 hours to finish**, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
+- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take between 1-2 hours to finish, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-  > **Note:** The automation will take 1-2 hours to fully complete. Do not close the PowerShell window during this time. When automation is completed successfully the PowerShell window will close and the desktop background will be changed to the HCIBox wallpaper.
-
-- Infrastructure deployment is complete. Review the logs in C:\HCIBox\Logs for any issues.
-
-- Check in Azure portal that both HCI nodes have been onboarded as Arc-enabled servers.
+- Check in Azure portal that both HCI nodes have been created as Arc-enabled servers.
 
 - Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
+
+- If everything looks good, proceed on to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
 
 ### Azure portal Azure Stack HCI cluster validation and deployment
 
@@ -113,13 +111,15 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing starting validation phase](./validation_in_progress.png)
 
+- Monitor validation as needed until complete.
+
 #### Deploy cluster in Azure portal
 
-- When validation is complete navigate to the cluster resource in your HCIBox resource group and then click the "Deploy now" link.
+- When validation is complete navigate to the cluster resource in your HCIBox resource group. The banner should indicate that your cluster is validated but not yet deployed. Click the "Deploy now" link.
 
   ![Screenshot showing validated cluster resource in Azure portal](./validated_cluster_resource.png)
 
-- Click the link to deploy the validated cluster resource and then click through again to deploy the cluster. The cluster may take several hours to deploy. If you navigate elsewhere in the Azure Portal, you can return monitor progress on the Deployments tab of the cluster resource.
+- Click through to submit the deployment. The cluster may take some time to deploy. If you navigate elsewhere in the Azure Portal, you can return monitor progress on the Deployments tab of the cluster resource. Click Refresh to get the latest status on deployment.
 
   ![Screenshot showing progress of deploying cluster](./cluster_deployment_progress.png)
 

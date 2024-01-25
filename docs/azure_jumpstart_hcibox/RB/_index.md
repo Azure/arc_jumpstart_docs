@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Resource Bridge"
+linkTitle: "VM Management"
 weight: 7
 ---
 
@@ -20,7 +20,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
   ![Screenshot showing create VM](./add_image_from_marketplace.png)
 
-- In this example we will select Windows Server 2022 Core Azure Edition from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically." When everything looks good, click "Review and Create."
+- Select an image from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically." When everything looks good, click "Review and Create."
 
   ![Screenshot showing create VM image details](./vm_image_review_create.png)
 
@@ -33,6 +33,13 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 ### Create a logical network on your HCI cluster
 
 HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create an logical network resource that maps to this subnet.
+
+  | Network details |                  |
+  | ---------- | --------------------- |
+  | Subnet     | 192.168.200.0/24      |
+  | Gateway    | 192.168.200.1         |
+  | VLAN Id    | 200                   |
+  | DNS Server | 192.168.1.254         |
 
 - From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 

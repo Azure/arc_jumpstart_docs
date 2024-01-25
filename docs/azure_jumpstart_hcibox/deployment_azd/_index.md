@@ -1,11 +1,11 @@
 ---
 type: docs
-linkTitle: "Deploy with AZD CLI"
+linkTitle: "Deploy (azd)"
 isGettingStarted: false
 weight: 3
 ---
 
-## Deploy HCIBox with Azure Developer CLI
+## Deploy HCIBox infrastructure with Azure Developer CLI
 
 Azure Developer CLI automates the creation or retrieval of several HCIBox deployment requirements. It's best used when the deploying user has permission to [create applications in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 
