@@ -66,13 +66,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-- Check in Azure portal that both HCI nodes have been created as Arc-enabled servers.
+- In Azure portal, validate that both HCI nodes have been created as Arc-enabled servers.
 
 - Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
-- If everything looks good, proceed on to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
+- If everything looks good, proceed to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
 
 ### Azure portal Azure Stack HCI cluster validation and deployment
 
