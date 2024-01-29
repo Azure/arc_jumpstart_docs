@@ -4,6 +4,7 @@ resources:
   repositories:
   - repository: ArcJumpstartWeb
     type: github
+    endpoint: arc_jumpstart_web
     name: arc_jumpstart_web
 
 trigger:
