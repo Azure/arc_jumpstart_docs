@@ -7,7 +7,7 @@ weight: 8
 
 # Jumpstart Frequently Asked Questions (FAQ)
 
-## Can I contribute to the Jumpstart?
+## Can I contribute to the Arc Jumpstart?
 
 Absolutely! Arc Jumpstart is a community-driven open source project, and contributions are welcomed. To get started, review the [Jumpstart contribution guidelines](../contribution_guidelines/) and our [Code of Conduct](https://aka.ms/JumpstartCOC).
 
