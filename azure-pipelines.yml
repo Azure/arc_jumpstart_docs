@@ -11,4 +11,5 @@ stages:
     jobs:
     - job: Trigger
       steps:
-      - bash: echo Trigger Deploy to Canary Web Slot
+        - checkout: none
+        - bash: echo Trigger Deploy to Canary Web Slot
