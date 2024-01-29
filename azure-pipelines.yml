@@ -1,4 +1,4 @@
-name: Canry push - Trigger Deploy to Canary Web Slot
+name: Canry push trigger Deploy to Canary Web Slot
 
 trigger:
   branches:
