@@ -7,6 +7,4 @@ stages:
     - job: Build
       steps:
         - checkout: none
-        - bash: echo Build.SourceBranch = $(Build.SourceBranch) # outputs refs/heads/main
-        - bash: echo Build.Reason = $(Build.Reason) # outputs IndividualCI
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
