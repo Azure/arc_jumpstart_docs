@@ -1,12 +1,5 @@
 name: Trigger Deploy to Branch Preview Web Slot
 
-pr:
-  branches:
-    include:
-    - canary
-    exclude:
-      - main
-
 stages:
   - stage: Build
     displayName: Trigger Preview Slot Web Deployment
@@ -14,4 +7,6 @@ stages:
     - job: Build
       steps:
         - checkout: none
+        - bash: echo Build.SourceBranch = $(Build.SourceBranch) # outputs refs/heads/main
+        - bash: echo Build.Reason = $(Build.Reason) # outputs IndividualCI
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
