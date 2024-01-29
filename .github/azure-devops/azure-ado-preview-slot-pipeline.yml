@@ -14,4 +14,4 @@ stages:
     - job: Build
       steps:
         - checkout: none
-        - bash: echo Trigger Deploy to Branch Preview Slot Web Slot
+        - bash: echo Trigger Deploy to $(branch_name) Slot Web Slot
