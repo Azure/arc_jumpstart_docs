@@ -1,0 +1,83 @@
+name: Deploy to Canary Web Slot
+
+trigger:
+  branches:
+    include:
+    - canary
+  paths:
+    exclude:
+    - README.md
+    - docs/*
+  
+jobs:
+  - job: Build
+    displayName: Build React Web
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - task: NodeTool@0
+        displayName: Set the NodeJS runtime
+        inputs:
+          versionSource: 'spec'
+          versionSpec: '18.x'
+
+      - task: CmdLine@2
+        displayName: Npm install and build web
+        inputs:
+          script: |
+            set -e
+            cd azure-arc-jumpstart-app
+            npm run fetch-docs --branch=canary
+            npm install
+            rm src/data/side-menu.json
+            node pre-build-script.js
+            rm -rf node_modules
+
+      - task: ArchiveFiles@2
+        displayName: Creating artifact .zip
+        inputs:
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/azure-arc-jumpstart-app'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/release.zip'
+          replaceExistingArchive: true
+
+      - task: PublishPipelineArtifact@1
+        displayName: Upload artifact .zip
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'release'
+          publishLocation: 'pipeline'
+
+  - job: deploy
+    displayName: Deploy React Web
+    dependsOn: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - checkout: none
+    - task: DownloadPipelineArtifact@2
+      displayName: Download artifact from build job
+      inputs:
+        buildType: 'current'
+        artifactName: 'release'
+        targetPath: '$(Pipeline.Workspace)'
+
+    - task: ExtractFiles@1
+      displayName: Unzip content
+      inputs:
+        archiveFilePatterns: '$(Pipeline.Workspace)/*.zip'
+        destinationFolder: '$(Pipeline.Workspace)/jumpstartWeb'
+
+    - task: AzureRmWebAppDeployment@4
+      displayName: Deploy to Azure WebApp
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure Arc Jumpstart Subscription(16471a83-9151-456e-bbb1-463027bed604)'
+        appType: 'webAppLinux'
+        WebAppName: 'arcjumpstart'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'ReactWeb-Hosting'
+        SlotName: 'canary'
+        packageForLinux: '$(Pipeline.Workspace)/release.zip'
+        RuntimeStack: 'NODE|18-lts'
