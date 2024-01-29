@@ -9,7 +9,7 @@ pr:
 
 variables:
 - name: branch_name
-  value: $(System.PullRequest.SourceBranch 
+  value: $(System.PullRequest.SourceBranch)
 - name: branch_test
   value: Hola
 
