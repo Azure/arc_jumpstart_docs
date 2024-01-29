@@ -6,10 +6,10 @@ trigger:
     - canary
 
 stages:
-  - stage: Trigger
+  - stage: Build
     displayName: Trigger Web Deployment
     jobs:
-    - job: Trigger
+    - job: Build
       steps:
         - checkout: none
         - bash: echo Trigger Deploy to Canary Web Slot
