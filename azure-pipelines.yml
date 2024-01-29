@@ -6,8 +6,9 @@ trigger:
     - canary
 
 stages:
-  - stage: Trigger Web Deployment
+  - stage: Trigger
+    displayName: Trigger Web Deployment
     jobs:
-    - job: A1
+    - job: Trigger
       steps:
       - bash: echo Trigger Deploy to Canary Web Slot
