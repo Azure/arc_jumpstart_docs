@@ -7,6 +7,12 @@ pr:
     exclude:
       - main
 
+variables:
+- name: branch_name
+  value: $(System.PullRequest.SourceBranch 
+- name: branch_test
+  value: Hola
+
 stages:
   - stage: Build
     displayName: Trigger Preview Slot Web Deployment
@@ -14,4 +20,4 @@ stages:
     - job: Build
       steps:
         - checkout: none
-        - bash: echo Trigger Deploy to $(branch_name) Slot Web Slot
+        - bash: echo Trigger Deploy to $(branch_name) or $(branch_test) Web Slot
