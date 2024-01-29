@@ -3,8 +3,7 @@ name: Canry push trigger Deploy to Canary Web Slot
 resources:
   repositories:
   - repository: ArcJumpstartWeb
-    type: github
-    endpoint: ado-github-serviceConnection
+    type: git
     name: arc_jumpstart_web
     ref: master
 
