@@ -1,8 +1,8 @@
-name: Trigger Deploy to Branch Preview Web Slot
+name: Trigger Deploy to Preview Web Slot
 
 stages:
   - stage: Build
-    displayName: Trigger Preview Slot Web Deployment
+    displayName: Trigger Preview Slot Creation and Web Deployment
     jobs:
     - job: Build
       steps:
