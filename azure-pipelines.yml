@@ -21,4 +21,3 @@ stages:
       steps:
         - checkout: none
         - bash: echo Trigger Deploy to Canary Web Slot
-        - template: 
