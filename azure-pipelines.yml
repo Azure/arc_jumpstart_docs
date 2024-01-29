@@ -1,12 +1,5 @@
 name: Canry push trigger Deploy to Canary Web Slot
 
-resources:
-  repositories:
-  - repository: ArcJumpstartWeb
-    type: git
-    name: arc_jumpstart_web
-    ref: master
-
 trigger:
   branches:
     include:
