@@ -5,7 +5,7 @@ linkTitle: "Jumpstart FAQ"
 weight: 8
 ---
 
-# Arc Jumpstart Frequently Asked Questions (FAQ)
+# Jumpstart Frequently Asked Questions (FAQ)
 
 ## Can I contribute to the Arc Jumpstart?
 
