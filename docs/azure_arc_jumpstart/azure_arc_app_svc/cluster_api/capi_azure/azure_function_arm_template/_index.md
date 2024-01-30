@@ -83,13 +83,13 @@ By the end of this scenario, you will have a CAPI Kubernetes cluster deployed wi
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Architecture (In a nutshell)
 
 From the Cluster API Book docs:
 
-"Cluster API requires an existing Kubernetes cluster accessible via kubectl; during the installation process the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it is recommended to keep it separated from any application workload."
+"Cluster API requires an existing Kubernetes cluster accessible via `kubectl`; during the installation process the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it's recommended to keep it separated from any application workload."
 
 in this scenario and as part of the automation flow (described below), a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/) cluster will be deployed which will be used as the management cluster. This cluster will then be used to deploy the workload cluster using the Cluster API Azure provider (CAPZ).
 
@@ -121,11 +121,11 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the deployment log analytics workspace.
-  - _`deployAppService`_ - Boolean that sets whether or not to deploy App Service plan and a Web App. For this scenario, we leave it set to *`false`*.
-  - _`deployFunction`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Function application. For this scenario, we leave it set to *`true`*.
-  - _`deployLogicApp`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to *`false`*.
-  - _`deployApiMgmt`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to *`false`*.
-  - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
+  - _`deployAppService`_ - Boolean that sets whether to deploy App Service plan and a Web App. For this scenario, default is set to *`false`*.
+  - _`deployFunction`_ - Boolean that sets whether to deploy App Service plan and an Azure Function application. For this scenario, default is set to *`true`*.
+  - _`deployLogicApp`_ - Boolean that sets whether to deploy App Service plan and an Azure Logic App. For this scenario, default is set to *`false`*.
+  - _`deployApiMgmt`_ - Boolean that sets whether to deploy App Service plan and an Azure Logic App. For this scenario, default is set to *`false`*.
+  - _`templateBaseUrl`_ - GitHub address to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
@@ -157,7 +157,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
     > **Note:** Since Azure Arc-enabled app services is [currently in preview](https://learn.microsoft.com/azure/app-service/overview-arc-integration#public-preview-limitations), deployment regions availability is limited to East US and West Europe.
 
-    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
+    > **Note:** If you receive an error message stating that the requested VM size isn't available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources has been provisioned, you will be able to see it in Azure portal. Included in this part of the automation, is also the onboarding of the cluster as an Azure Arc-enabled Kubernetes resource. Azure Arc-enabled app services are using this resource to deploy the app services [cluster extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-extensions), as well as using Azure Arc [Custom locations](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-custom-locations) which will be deployed later, in the next phase of the scenario automation.
 
@@ -174,7 +174,7 @@ Various options are available to connect to _Arc-App-Client_ VM, depending on th
 
 ### Connecting directly with RDP
 
-By design, port 3389 is not allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, port 3389 isn't allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _Arc-App-Client-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -196,7 +196,7 @@ By design, port 3389 is not allowed on the network security group. Therefore, yo
 
   ![Screenshot showing connecting to the VM using Bastion](./08.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -212,9 +212,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - At first login, as mentioned in the "Automation Flow" section above, the [_AppServicesLogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_app_services_jumpstart/cluster_api/capi_azure/ARM/artifacts/AppServicesLogonScript.ps1) PowerShell logon script will start it's run.
 
-- Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure web application will be deployed on the cluster and be ready to use.
+- Let the script to run its course and **don't close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure web application will be deployed on the cluster and be ready to use.
 
-    > **Note:** As you will notices from the screenshots below, during the Azure Arc-enabled app services environment, the _log-processor_ service pods will be restarted and will go through multiple Kubernetes pod lifecycle stages. This is normal and can safely be ignored. To learn more about the various Azure Arc-enabled app services Kubernetes components, visit the [Azure documentation page](https://learn.microsoft.com/azure/app-service/overview-arc-integration#pods-created-by-the-app-service-extension).
+    > **Note:** As you will notices from the screenshots below, during the Azure Arc-enabled app services environment, the _log-processor_ service pods will be restarted and will go through multiple Kubernetes pod lifecycle stages. This is normal and can be ignored. To learn more about the various Azure Arc-enabled app services Kubernetes components, visit the [Azure documentation page](https://learn.microsoft.com/azure/app-service/overview-arc-integration#pods-created-by-the-app-service-extension).
 
     ![Screenshot showing PowerShell logon script run](./11.png)
 
@@ -268,9 +268,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing additional Azure resources in the resource group](./29.png)
 
-- In this scenario, **a sample Jumpstart Azure Function application** was deployed. To open the deployed Function application in your web browser, simply click the Azure Function resource and the created URL or the Browse button.
+- In this scenario, **a sample Jumpstart Azure Function application** was deployed. To open the deployed Function application in your web browser, simply click the Azure Function resource and the created address or the Browse button.
 
-  ![Screenshot showing the Azure Function URL](./30.png)
+  ![Screenshot showing the Azure Function address](./30.png)
 
   ![Screenshot showing the Azure Function open in a web browser](./31.png)
 
@@ -290,13 +290,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing Azure Storage Explorer portal-based view storage queue](./37.png)
 
-- To generate your own messages using the Function application, use the Function invoke URL. As part of the deployment script, a _`funcUrl.txt`_ text file located in the Client VM under _C:\Temp_ folder that includes invoke URL was created for you. Copy the URL and open it in your web browser while adding the message text to it using the _`?name=<Something>`_ syntax, for example, _`?name=Bilbo`_.
+- To generate your own messages using the Function application, use the Function invoke address. As part of the deployment script, a _`funcUrl.txt`_ text file located in the Client VM under _C:\Temp_ folder that includes invoke address was created for you. Copy the address and open it in your web browser while adding the message text to it using the _`?name=<Something>`_ syntax, for example, _`?name=Bilbo`_.
 
   ![Screenshot showing the funcUrl.txt file](./38.png)
 
-  ![Screenshot showing invoke URL](./39.png)
+  ![Screenshot showing invoke address](./39.png)
 
-  ![Screenshot showing invoke URL in web browser](./40.png)
+  ![Screenshot showing invoke address in web browser](./40.png)
 
 - Go back to the storage queue and see the new added message.
 
@@ -304,9 +304,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Cluster extensions
 
-In this scenario, the Azure Arc-enabled app services cluster extension was deployed and used throughout this scenario in order to deploy the app services infrastructure. In addition, the Azure Monitor for Containers, Microsoft Cloud Defender and the Azure Policy extensions were also installed on the cluster.
+In this scenario, the Azure Arc-enabled app services cluster extension was deployed and used throughout this scenario to deploy the app services infrastructure. In addition, the Azure Monitor for Containers, Microsoft Cloud Defender and the Azure Policy extensions were also installed on the cluster.
 
-- In order to view cluster extensions, click on the Azure Arc-enabled Kubernetes resource Extensions settings.
+- To view cluster extensions, click on the Azure Arc-enabled Kubernetes resource Extensions settings.
 
   ![Screenshot showing the Azure Arc-enabled Kubernetes resource](./42.png)
 
