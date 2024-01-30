@@ -23,13 +23,15 @@ Windows Admin Center can be used directly from the Azure portal. To set this up 
 
 - Once installation is complete, click Connect from the Windows Admin Center blade on the cluster resource.
 
-  ![Screenshot showing connecting to WAC in portal](./wac_portal_setup_3.png)
+  ![Screenshot showing connecting to WAC in portal](./wac_connect.png)
 
-- Connecting to Windows Admin Center requires using the domain account credential. Connect with your domain account as shown in the screenshot below.
+- Connecting to Windows Admin Center requires adding your user to the "Windows Admin Center Administrator Login" Azure RBAC role.
 
-  ![Screenshot showing connecting with domain account](./wac_portal_setup_4.png)
+  ![Screenshot showing adding user to role 1](./wac_add_role_assignment_role.png)
 
-- You can now explore your cluster using Windows Admin Center in Azure portal.
+  ![Screenshot showing adding user to role 2](./wac_add_role_assignment_member.png)
+
+- Once complete, you can now connect and your cluster using Windows Admin Center in Azure portal.
 
   ![Screenshot showing Windows Admin Center in Azure portal](./wac_portal.png)
 
