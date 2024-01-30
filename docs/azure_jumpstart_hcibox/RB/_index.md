@@ -1,65 +1,82 @@
 ---
 type: docs
-linkTitle: "Resource Bridge"
-weight: 3
+linkTitle: "VM Management"
+weight: 7
 ---
 
 ## Virtual machine provisioning with Azure Arc
 
-Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). HCIBox is pre-configured with [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) to support this capability.
+Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Stack HCI clusters, the HCIBox cluster comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
-  > **Note:** Resource bridge only supports deploying a guest VM with DHCP IP assignment. HCIBox runs a simple DHCP server that provides IP addresses to VMs created with resource bridge. The DHCP range is 192.168.200.210 - 192.168.200.249. Static assignment of IP from the Azure portal is not supported at this time.
+### Create Virtual Machine images from Azure marketplace
 
-## Deploy a new Linux virtual machine
+Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
-HCIBox includes a pre-configured Linux virtual machine image that you can use to deploy new guest virtual machines on the HCI cluster. Follow these steps to deploy one in your HCIBox.
+- Navigate to your cluster resource inside the HCIBox resource group and click it.
 
-- Navigate to the Azure Stack HCI cluster resource in your HCIBox resource group.
+  ![Screenshot showing cluster resource](./hcicluster_rg.png)
 
-  ![Screenshot showing Azure Stack HCI cluster in RG](./hcicluster_rg.png)
+- Click on "VM Images" in the menu and then click the "Add VM image" dropdown and select "From Azure Marketplace."
 
-- Click on "Virtual Machines" in the navigation menu, then click "Create VM"
+  ![Screenshot showing create VM](./add_image_from_marketplace.png)
 
-  ![Screenshot showing Azure Stack HCI cluster resource blade](./hcicluster_create_vm.png)
+- Select an image from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically." When everything looks good, click "Review and Create."
 
-  ![Screenshot showing Create VM blade](./hcicluster_create_vm_blade.png)
+  ![Screenshot showing create VM image details](./create_vm_detail_win11.png)
 
-- Provide a name for the VM, select the _ubuntu20_ image, and set the virtual processor count to 1 and the memory count to 2.
+- It will take some time for the VM image to download to your cluster from Azure marketplace. You can monitor progress by visiting the VM Image resource in your resource group and reviewing the resource properties.
 
-  ![Screenshot showing select gallery image](./create_vm_detail_1.png)
+  ![Screenshot of VM image properties](./monitor_vm_image_progress.png)
 
-- Click the Networking tab of the create wizard, then click Add network interface.
+- Monitor the image as needed until is it finished downloading. While you wait, proceed to the next section to create the logical network on the cluster.
 
-  ![Screenshot showing network tab of create vm wizard](./create_vm_detail_2.png)
+### Create a logical network on your HCI cluster
 
-- Give the new network interface a name and select _sdnswitch_ in the Network dropdown, then click Add.
+HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
-  ![Screenshot showing create NIC tab of create vm wizard](./create_vm_detail_3.png)
+  | Network details |                  |
+  | ---------- | --------------------- |
+  | Subnet     | 192.168.200.0/24      |
+  | Gateway    | 192.168.200.1         |
+  | VLAN Id    | 200                   |
+  | DNS Server | 192.168.1.254         |
 
-  ![Screenshot showing NIC was created](./create_vm_detail_4.png)
+- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
-- Click the Review + Create tab and then click Create.
+  ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
 
-  ![Screenshot showing Review and Create tab](./create_vm_detail_5.png)
+- Once complete the script window will automatically close. You can now check your resource group and find the newly created logical network resource.
 
-- Download the private key and save it to your local computer.
+  ![Screenshot showing logical network in Azure portal](./logical_network.png)
 
-  ![Screenshot showing download the private key](./create_vm_detail_6.png)
+### Create a virtual machine
 
-- Wait for the deployment to complete.
+- Open the VM image resource and verify that your VM image has finished downloading.
 
-  ![Screenshot showing deployment in progress](./create_vm_detail_7.png)
+  ![Screenshot showing VM image complete](./monitor_vm_image_available.png)
 
-  ![Screenshot showing deployment complete](./create_vm_detail_8.png)
+- Open your Azure Stack HCI cluster resource and then open the Virtual machines blade, then click the "Create virtual machine" button.
 
-- Navigate back to the HCI cluster Virtual machines tab to view your created VM.
+  ![Screenshot showing create VM overview](./create_vm.png)
 
-  ![Screenshot showing created VM](./created_vm.png)
+- Choose your HCIBox resource group, give your VM a name, select "Standard" for security type, and select the VM image you created earlier for the image. Set processor count to 2 and memory to 8192. Click next, and then next again to continue to the network tab.
 
-- Click on the VM to drill into the Azure Arc-enabled HCI machine detail.
+  ![Screenshot showing create VM detail](./create_vm_detail_win11.png)
 
-  ![Screenshot showing created VM detail](./created_vm_detail.png)
+- Click "Add network interface" and then give the interface a name and select the network you created earlier from the dropdown. Leave allocation method set to Automatic. Add the network card and then click next.
+
+  ![Screenshot showing create VM network card](./create_vm_detail_vnic.png)
+
+  ![Screenshot showing create VM network card](./create_vm_detail_add_vnic.png)
+
+- Review the virtual machine details and click "Review + create" when ready.
+
+  ![Screenshot showing final create VM step](./vm_image_review_create.png)
+
+- Open the Azure Stack HCI VM resource and see connectivity to Arc and other details.
+
+  ![Screenshot showing VM resource](./vm_resource_detail.png)
 
 ## Next steps
 
-Review the [Arc resource bridge](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
+Review the [Azure Stack HCI VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.

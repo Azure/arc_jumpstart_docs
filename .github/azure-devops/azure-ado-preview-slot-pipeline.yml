@@ -1,0 +1,10 @@
+name: Trigger Deploy to Preview Web Slot
+
+stages:
+  - stage: Build
+    displayName: Trigger Preview Slot Creation and Web Deployment
+    jobs:
+    - job: Build
+      steps:
+        - checkout: none
+        - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot

@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "HCIBox FAQ"
-weight: 6
+weight: 7
 ---
 
 ## Jumpstart HCIBox Frequently Asked Questions (FAQ)
@@ -18,12 +18,9 @@ HCIBox deployment requires an Azure service principal with Owner role-based acce
 
 ## What Azure regions can HCIBox be deployed to?
 
-HCIBox can be deployed to the following regions:
+HCIBox has been tested in the following regions. Some HCIBox resources are deployed in specific regions where required services are available.
 
 - East US
-- East US 2
-- West US 2
-- North Europe
 
 ## How much will it cost to use HCIBox?
 
@@ -33,8 +30,8 @@ HCIBox incurs normal Azure consumption charges for various Azure resources such 
 
 ## Which versions of Azure Stack HCI does HCIBox support?
 
-HCIBox currently uses the 22H2 build of the Azure Stack HCI OS. Work is in progress to support 23H2 moving forward. See the [discussion thread here](https://github.com/microsoft/azure_arc/discussions/1454) for more details.
+HCIBox uses the 23H2 build of the Azure Stack HCI OS.
 
 ## Where can I go if I have trouble deploying or using HCIBox?
 
-If you're stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on our GitHub repository and the Jumpstart team will try to assist you as soon as we can.
+If you're stuck, please [submit an issue](https://github.com/microsoft/azure_arc/issues/new/choose) on the Jumpstart GitHub repository and the Jumpstart team will try to assist you.

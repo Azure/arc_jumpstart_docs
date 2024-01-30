@@ -1,0 +1,49 @@
+name: Vale Linting and PR Review
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    - name: Get all changed markdown files
+      id: changed-markdown-files
+      uses: tj-actions/changed-files@v40
+      with:
+        files: |
+           **.md
+
+    - name: List all changed files markdown files
+      if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      run: |
+        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
+          echo "$file was changed"
+        done
+
+    - name: Calculate changed files to pass to Vale
+      id: calc_changed_files
+      run: |
+        beginning='["'
+        
+        # File calculation without folder filtering
+        # middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
+        
+        # File calculation applying folder filtering for azure_arc_app_svc & azure_arc_k8s
+        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)
+        
+        end='"]'
+        echo "files_to_change=$beginning$middle$end"
+        echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
+
+    - name: Vale
+      if: ${{ env.files_to_change != '[""]' }}
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        version: 2.30.0
+        reporter: github-pr-check
+        filter_mode: nofilter
+        fail_on_error: false
+        files: '${{ env.files_to_change }}'
+        token: ${{secrets.GITHUB_TOKEN}}

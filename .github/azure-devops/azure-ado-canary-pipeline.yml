@@ -1,0 +1,15 @@
+name: Canry push trigger Deploy to Canary Web Slot
+
+trigger:
+  branches:
+    include:
+    - canary
+
+stages:
+  - stage: Build
+    displayName: Trigger Web Deployment
+    jobs:
+    - job: Build
+      steps:
+        - checkout: none
+        - bash: echo Trigger Deploy to Canary Web Slot

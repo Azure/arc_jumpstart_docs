@@ -1,0 +1,15 @@
+name: Main push trigger Deploy to Main Web Slot
+
+trigger:
+  branches:
+    include:
+    - main
+
+stages:
+  - stage: Build
+    displayName: Trigger Web Deployment
+    jobs:
+    - job: Build
+      steps:
+        - checkout: none
+        - bash: echo Trigger Deploy to Main Web Slot
