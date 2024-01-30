@@ -1,0 +1,10 @@
+name: Trigger Deploy to Delete Preview Web Slot
+
+stages:
+  - stage: Build
+    displayName: Trigger Preview Slot Deletion
+    jobs:
+    - job: Build
+      steps:
+        - checkout: none
+        - bash: echo Trigger Deletion of $(System.PullRequest.SourceBranch) Web Slot
