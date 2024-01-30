@@ -125,6 +125,6 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
 #### Deployment complete
 
-- Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_stack_hcibox/using_hcibox) guide for the next steps.
+- Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_jumpstart_hcibox/using_hcibox) guide for the next steps.
 
   ![screenshot showing deployed cluster](./cluster_detail.png)
