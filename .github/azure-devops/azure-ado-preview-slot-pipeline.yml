@@ -24,12 +24,13 @@ stages:
           name: SetMessage
     
     - job: CommentPR
-      displayName: Check if the PR name is correct
+      displayName: Add message to Pull Request
       dependsOn: CheckErrors
       variables:
         message: $[ dependencies.CheckErrors.outputs['SetMessage.message'] ]
         error: $[ dependencies.CheckErrors.outputs['SetMessage.error'] ]
       steps:
+        - checkout: none
         - task: GitHubComment@0
           inputs:
             gitHubConnection: 'Azure'
