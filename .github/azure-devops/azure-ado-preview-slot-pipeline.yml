@@ -9,9 +9,10 @@ stages:
       steps:
         - checkout: none
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
-        - task: GitHubComment@0
+        - task: PowerShell@2
           inputs:
-            gitHubConnection: 'Azure'
-            repositoryName: 'arc_jumpstart_docs'
-            id: '$(System.PullRequest.PullRequestId)'
-            comment: 'Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net'
+            targetType: 'inline'
+            script: |
+              $endpoint = Get-VstsEndpoint -Name $serviceName -Require
+              $token = $endpoint.Auth.Parameters.accessToken
+              Write-Output "$token is an Oauth Token"
