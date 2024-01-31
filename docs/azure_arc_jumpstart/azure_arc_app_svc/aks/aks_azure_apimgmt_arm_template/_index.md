@@ -3,7 +3,7 @@ type: docs
 title: "Azure API Management Gateway ARM Template"
 linkTitle: "Azure API Management Gateway ARM Template"
 weight: 5
-description: >
+description: 
 ---
 
 ## Deploy an Azure API Management gateway on AKS using an ARM Template

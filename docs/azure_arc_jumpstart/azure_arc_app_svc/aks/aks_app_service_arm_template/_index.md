@@ -3,7 +3,7 @@ type: docs
 title: "App Service (Container) ARM Template"
 linkTitle: "App Service (Container) ARM Template"
 weight: 2
-description: >
+description: 
 ---
 
 ## Deploy an App Service app using custom container on AKS using an ARM Template
