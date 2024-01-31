@@ -1,10 +1,44 @@
 name: Trigger Deploy to Preview Web Slot
-
+variables:
+  system.debug: true
 stages:
   - stage: Build
     displayName: Trigger Preview Slot Creation and Web Deployment
     jobs:
-    - job: Build
+    - job: CheckErrors
+      displayName: Check if the PR name is correct
       steps:
         - checkout: none
-        - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
+        - bash: |
+              if [[ $(System.PullRequest.SourceBranch) =~ [^a-zA-Z0-9_-] ]]; then
+                echo "Branch names cannot contain special characters. Please rename the branch and try again."
+                customMessage="Branch names cannot contain special characters. Please rename the branch and try again."
+                echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
+                echo "##vso[task.setvariable variable=error;isOutput=true]Yes"
+              else
+                echo "Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://pr-arcjumpstart-$(System.PullRequest.SourceBranch).azurewebsites.net"
+                customMessage="Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://pr-arcjumpstart-$(System.PullRequest.SourceBranch).azurewebsites.net"
+                echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
+                echo "##vso[task.setvariable variable=error;isOutput=true]No"
+              fi
+          name: SetMessage
+    
+    - job: CommentPR
+      displayName: Add message to Pull Request
+      dependsOn: CheckErrors
+      variables:
+        message: $[ dependencies.CheckErrors.outputs['SetMessage.customMessage'] ]
+        error: $[ dependencies.CheckErrors.outputs['SetMessage.error'] ]
+      steps:
+        - checkout: none
+        - task: GitHubComment@0
+          inputs:
+            gitHubConnection: 'Azure'
+            repositoryName: 'Azure/arc_jumpstart_docs'
+            comment: $(message)
+        - bash: |
+            if [ "$(error)" == "No" ]; then
+              exit 0
+            else 
+              exit 1
+            fi
