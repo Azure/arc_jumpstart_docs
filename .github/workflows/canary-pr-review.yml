@@ -25,7 +25,7 @@ jobs:
     - name: Calculate changed files to pass to Vale
       id: calc_changed_files
       run: |
-        beginning='["'
+        beginning='['
         
         # File calculation without folder filtering
         # middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
@@ -33,7 +33,7 @@ jobs:
         # File calculation applying folder filtering for azure_arc_app_svc & azure_arc_k8s
         middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)
         
-        end='"]'
+        end=']'
         echo "files_to_change=$beginning$middle$end"
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
 
