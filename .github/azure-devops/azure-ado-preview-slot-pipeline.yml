@@ -5,7 +5,8 @@ stages:
   - stage: Build
     displayName: Trigger Preview Slot Creation and Web Deployment
     jobs:
-    - job: Build
+    - job: CheckErrors
+      displayName: Check if the PR name is correct
       steps:
         - checkout: none
         - bash: |
@@ -20,11 +21,20 @@ stages:
                 echo "##vso[task.setvariable variable=message;isOutput=true]$customMessage"
                 echo "##vso[task.setvariable variable=error;isOutput=true]No"
               fi
+          name: SetMessage
+    
+    - job: CommentPR
+      displayName: Check if the PR name is correct
+      dependsOn: CheckErrors
+      variables:
+        message: $[ dependencies.CheckErrors.outputs['SetMessage.message'] ]
+        error: $[ dependencies.CheckErrors.outputs['SetMessage.error'] ]
+      steps:
         - task: GitHubComment@0
           inputs:
             gitHubConnection: 'Azure'
             repositoryName: 'Azure/arc_jumpstart_docs'
-            comment: '$(message)'
+            comment: "$(message)"
 
-        - bash: if [ "$error" == "Yes" ]; then exit 0 else exit 1 fi
+        - bash: if [ "$(error)" == "Yes" ]; then exit 0 else exit 1 fi
           name : Exit
