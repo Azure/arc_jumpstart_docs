@@ -9,10 +9,10 @@ stages:
         - checkout: none
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
         - script: |
+              echo "Authorization: Bearer $(System.AccessToken)"
+              echo "$(System.CollectionUri)$(System.TeamProject)/_apis/git/repositories/$(Build.Repository.ID)/pullrequests/$(System.PullRequest.PullRequestId)/threads?api-version=5.0-preview.1"
               if [[ $(System.PullRequest.SourceBranch) =~ [^a-zA-Z0-9_-] ]]; then
                 echo "Branch names cannot contain special characters. Please rename the branch and try again."
-                echo "Authorization: Bearer $(System.AccessToken)"
-                echo "$(System.CollectionUri)$(System.TeamProject)/_apis/git/repositories/$(Build.Repository.ID)/pullrequests/$(System.PullRequest.PullRequestId)/threads?api-version=5.0-preview.1"
                 curl -X POST -H "Authorization: Bearer $(System.AccessToken)" -H "Content-Type: application/json" -d '{"text": "Branch names cannot contain special characters. Please rename the branch and try again."}' "$(System.CollectionUri)$(System.TeamProject)/_apis/git/repositories/$(Build.Repository.ID)/pullrequests/$(System.PullRequest.PullRequestId)/threads?api-version=5.0-preview.1"
                 exit 1
               else
