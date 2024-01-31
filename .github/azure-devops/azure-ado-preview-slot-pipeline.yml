@@ -1,5 +1,6 @@
 name: Trigger Deploy to Preview Web Slot
-
+variables:
+  system.debug: true
 stages:
   - stage: Build
     displayName: Trigger Preview Slot Creation and Web Deployment
@@ -13,13 +14,3 @@ stages:
             gitHubConnection: 'Azure'
             repositoryName: 'arc_jumpstart_docs'
             comment: 'Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net'
-
-        - script: |
-              echo "Authorization: Bearer $(System.AccessToken)"
-              echo "$(System.pullRequest.sourceRepositoryUri)/_apis/git/repositories/$(Build.Repository.ID)/pullrequests/$(System.PullRequest.PullRequestId)/threads?api-version=5.0-preview.1"
-              if [[ $(System.PullRequest.SourceBranch) =~ [^a-zA-Z0-9_-] ]]; then
-                echo "Branch names cannot contain special characters. Please rename the branch and try again."
-                exit 1
-              else
-                echo ""
-              fi
