@@ -37,6 +37,16 @@ jobs:
         echo "files_to_change=$beginning$middle$end"
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
 
+    - name: Test
+      id : test_changed
+      run: |
+        echo "${{ env.files_to_change}}"
+        if [ "${{ env.files_to_change }}" != '[""]' ]; then
+          echo "Yes"
+        else
+          echo "No"
+        fi
+
     - name: Vale
       if: ${{ env.files_to_change != '[""]' }}
       uses: errata-ai/vale-action@reviewdog
