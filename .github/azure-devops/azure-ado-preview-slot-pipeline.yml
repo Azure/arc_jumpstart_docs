@@ -12,8 +12,8 @@ stages:
           inputs:
             gitHubConnection: 'Azure'
             repositoryName: 'arc_jumpstart_docs'
-            id: '240'
             comment: 'Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net'
+
         - script: |
               echo "Authorization: Bearer $(System.AccessToken)"
               echo "$(System.pullRequest.sourceRepositoryUri)/_apis/git/repositories/$(Build.Repository.ID)/pullrequests/$(System.PullRequest.PullRequestId)/threads?api-version=5.0-preview.1"
