@@ -13,12 +13,12 @@ stages:
               if [[ $(System.PullRequest.SourceBranch) =~ [^a-zA-Z0-9_-] ]]; then
                 echo "Branch names cannot contain special characters. Please rename the branch and try again."
                 customMessage = 'Branch names cannot contain special characters. Please rename the branch and try again.'
-                echo "##vso[task.setvariable variable=message;isOutput=true]$customMessage"
+                echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
                 echo "##vso[task.setvariable variable=error;isOutput=true]Yes"
               else
                 echo "Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net"
                 customMessage = 'Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net'
-                echo "##vso[task.setvariable variable=message;isOutput=true]$customMessage"
+                echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
                 echo "##vso[task.setvariable variable=error;isOutput=true]No"
               fi
           name: SetMessage
@@ -27,7 +27,7 @@ stages:
       displayName: Add message to Pull Request
       dependsOn: CheckErrors
       variables:
-        message: $[ dependencies.CheckErrors.outputs['SetMessage.message'] ]
+        message: $[ dependencies.CheckErrors.outputs['SetMessage.customMessage'] ]
         error: $[ dependencies.CheckErrors.outputs['SetMessage.error'] ]
       steps:
         - checkout: none
