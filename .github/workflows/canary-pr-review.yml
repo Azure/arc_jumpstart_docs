@@ -41,10 +41,10 @@ jobs:
       id : test_changed
       run: |
         echo "${{ env.files_to_change}}"
-        if [ "${{ env.files_to_change }}" != '[""]' ]; then
-          echo "Yes"
+        if [[ ! "${{ env.files_to_change}}" =~ \[[[:space:]]*\] ]]; then
+          echo "The string does not contain square brackets with spaces in between."
         else
-          echo "No"
+          echo "The string contains square brackets with spaces in between."
         fi
 
     - name: Vale
