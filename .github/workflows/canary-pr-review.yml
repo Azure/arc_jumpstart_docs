@@ -36,19 +36,16 @@ jobs:
         end=']'
         echo "files_to_change=$beginning$middle$end"
         echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
-
-    - name: Test
-      id : test_changed
-      run: |
-        echo "${{ env.files_to_change}}"
-        if [[ ! "${{ env.files_to_change}}" =~ \[[[:space:]]*\] ]]; then
-          echo "The string does not contain square brackets with spaces in between."
+        files_to_change=$beginning$middle$end
+        
+        if [[ ! "$files_to_change" =~ \[[[:space:]]*\] ]]; then
+          echo "run_vale=Yes" >> $GITHUB_ENV
         else
-          echo "The string contains square brackets with spaces in between."
+        echo "run_vale=No" >> $GITHUB_ENV
         fi
 
     - name: Vale
-      if: ${{ env.files_to_change != '[""]' }}
+      if: ${{ env.run_vale != 'No' }}
       uses: errata-ai/vale-action@reviewdog
       with:
         version: 2.30.0
