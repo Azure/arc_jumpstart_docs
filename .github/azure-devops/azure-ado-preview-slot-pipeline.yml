@@ -16,8 +16,8 @@ stages:
                 echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
                 echo "##vso[task.setvariable variable=error;isOutput=true]Yes"
               else
-                echo "Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net"
-                customMessage="Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net"
+                echo "Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://pr-arcjumpstart-$(System.PullRequest.SourceBranch).azurewebsites.net"
+                customMessage="Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://pr-arcjumpstart-$(System.PullRequest.SourceBranch).azurewebsites.net"
                 echo "##vso[task.setvariable variable=customMessage;isOutput=true]$customMessage"
                 echo "##vso[task.setvariable variable=error;isOutput=true]No"
               fi
@@ -41,5 +41,5 @@ stages:
             comment: $(message)
         - bash: |
             echo $(error)
-            if [ "$(error)" == "Yes" ]; then exit 0 else exit 1 fi
+            if [ "$(error)" == "Yes" ]; then exit 1 else exit 0 fi
           name : Exit
