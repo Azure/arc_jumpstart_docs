@@ -9,10 +9,11 @@ stages:
       steps:
         - checkout: none
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
-        - task: PowerShell@2
+        - task: Bash@3
           inputs:
             targetType: 'inline'
             script: |
-              $endpoint = Get-VstsEndpoint -Name $serviceName -Require
-              $token = $endpoint.Auth.Parameters.accessToken
-              Write-Output "$token is an Oauth Token"
+              # Write your commands here
+              B64_PAT=$(printf ":$(System.AccessToken)" | base64)  
+              echo 'Hello world'
+              echo "PAT: $(B64_PAT)"
