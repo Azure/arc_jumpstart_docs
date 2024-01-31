@@ -31,16 +31,12 @@ stages:
         error: $[ dependencies.CheckErrors.outputs['SetMessage.error'] ]
       steps:
         - checkout: none
-        - bash : | 
-            echo $(error)
-            echo $(message)
         - task: GitHubComment@0
           inputs:
             gitHubConnection: 'Azure'
             repositoryName: 'Azure/arc_jumpstart_docs'
             comment: $(message)
         - bash: |
-            echo $(error)
             if [ "$(error)" == "No" ]; then
               exit 0
             else 
