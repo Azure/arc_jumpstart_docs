@@ -15,6 +15,6 @@ stages:
         - task: GitHubComment@0
           inputs:
             gitHubConnection: 'Azure'
-            repositoryName: 'arc_jumpstart_docs'
+            repositoryName: 'Azure/arc_jumpstart_docs'
             id: '203'
             comment: 'Hello World'
