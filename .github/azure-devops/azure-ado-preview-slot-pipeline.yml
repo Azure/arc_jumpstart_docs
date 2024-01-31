@@ -8,8 +8,9 @@ stages:
     - job: Build
       steps:
         - checkout: none
-        - bash: echo $(INPUT_GITHUBCONNECTION)
-        - powershell: Write-Host ($env:var1).substring(0,1) + ($env:var1).substring(1)
-          displayName: DEBUG - print access token for local debugging
-          env:
-            var1: $(INPUT_GITHUBCONNECTION)
+        -
+- task: GitHubComment@0
+  inputs:
+    gitHubConnection: 'Azure'
+    repositoryName: 'Azure/arc_jumpstart_docs'
+    comment: 'Hello World'
