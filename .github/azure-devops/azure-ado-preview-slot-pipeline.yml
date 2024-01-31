@@ -13,4 +13,5 @@ stages:
           inputs:
             gitHubConnection: 'Azure'
             repositoryName: 'arc_jumpstart_docs'
+            id: 241
             comment: 'Deploying a new slot for this branch. This will take 5-10 minutes. Preview URL: https://$(System.PullRequest.PullRequestId)-pr-arcjumpstart.azurewebsites.net'
