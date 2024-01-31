@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided [Azure ARM Template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview) to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster and connected it as an Azure Arc cluster resource.
 
-  > **Note:** Since AKS is a 1st-party Azure solution and natively supports capabilities such as [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) integration as well as GitOps configurations, it is not expected for an AKS cluster to be projected as an Azure Arc-enabled Kubernetes cluster. Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only required for running Arc enabled services like App Services and Data Services on the cluster.
+  > **Note:** Since AKS is a 1st-party Azure solution and natively supports capabilities such as [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) integration as well as GitOps configurations, it's not expected for an AKS cluster to be projected as an Azure Arc-enabled Kubernetes cluster. Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only required for running Arc enabled services like App Services and Data Services on the cluster.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment Options and Automation Flow
 
@@ -97,7 +97,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Faks%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Faks%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment](./01.png)
 
@@ -137,7 +137,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   --parameters azuredeploy.parameters.json
   ```
 
-  > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
+  > **Note:** If you receive an error message stating that the requested VM size isn't available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once the ARM template deployment is completed, a new AKS cluster in a new Azure resource group is created.
 
@@ -155,7 +155,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot of az_connect_aks shell script](./07.png)
 
-- In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *az_connect_aks* shell script against the AKS cluster. **Make sure Cloud Shell is configured to use Bash.**
+- To keep your local environment clean and untouched, [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) is used (located in the top-right corner of the Azure portal) to run the *az_connect_aks* shell script against the AKS cluster. **Make sure Cloud Shell is configured to use Bash.**
 
   ![Screenshot of Azure Cloud Shell button in Visual Studio Code](./08.png)
 
