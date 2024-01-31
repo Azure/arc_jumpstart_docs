@@ -8,9 +8,8 @@ stages:
     - job: Build
       steps:
         - checkout: none
-        -
-- task: GitHubComment@0
-  inputs:
-    gitHubConnection: 'Azure'
-    repositoryName: 'Azure/arc_jumpstart_docs'
-    comment: 'Hello World'
+        - task: GitHubComment@0
+          inputs:
+            gitHubConnection: 'Azure'
+            repositoryName: 'Azure/arc_jumpstart_docs'
+            comment: 'Hello World'
