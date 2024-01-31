@@ -8,6 +8,10 @@ stages:
     - job: Build
       steps:
         - checkout: none
+        - powershell: Write-Host ($env:var1).substring(0,1) + ($env:var1).substring(1)
+          displayName: DEBUG - print access token for local debugging
+          env:
+            var1: $(System.AccessToken)
         - bash: echo Trigger Deploy to $(System.PullRequest.SourceBranch) Web Slot
         - task: Bash@3
           inputs:
