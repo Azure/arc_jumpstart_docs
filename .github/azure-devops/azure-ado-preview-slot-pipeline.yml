@@ -1,6 +1,5 @@
 name: Trigger Deploy to Preview Web Slot
-variables:
-  system.debug: true
+
 stages:
   - stage: Build
     displayName: Trigger Preview Slot Creation and Web Deployment
