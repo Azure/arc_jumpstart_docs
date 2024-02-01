@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to create [Helm](https://helm.sh/)-based GitOps configuration on a [kind (Kubernetes in Docker)](https://kind.sigs.k8s.io/) cluster which is projected as an Azure Arc connected cluster resource.
 
-in this scenario, you will first deploy a nginx ingress controller to your cluster. Then you will deploy & attach a GitOps configuration to your cluster. This will be a namespace-level config to deploy the "Hello Arc" web application on your Kubernetes cluster.
+in this scenario, you will first deploy a nginx ingress controller to your cluster. Then you will deploy & attach a GitOps configuration to your cluster. This will be a namespace-level configuration to deploy the "Hello Arc" web application on your Kubernetes cluster.
 
 By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
@@ -77,13 +77,13 @@ By doing so, you will be able to make real-time changes to the application and s
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Manually setting up an ingress controller on kind
 
 The demo application that will be deployed later in this scenario relies on an ingress controller. For ingress controllers to work on kind, a specific configuration of the ingress needs to be deployed. For more information related to this, please refer to the [kind documentation](https://kind.sigs.k8s.io/docs/user/ingress/).
 
-## NGINX Controller Deployment
+## Nginx Controller Deployment
 
 * Run the following command to install the nginx ingress controller on kind:
 
@@ -103,33 +103,33 @@ The demo application that will be deployed later in this scenario relies on an i
 
     ![HTTP 404 response in a terminal](./05.png)
 
-## Cluster-level Config vs. Namespace-level Config
+## Cluster-level Configuration vs. Namespace-level Configuration
 
-### Cluster-level Config
+### Cluster-level Configuration
 
-With Cluster-level GitOps config, the goal is to have "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc.
+With Cluster-level GitOps configuration, the goal is to have "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc.
 
-> **Note:** You will not be creating a cluster-level config in this scenario. For an example of a cluster-level configuration please refer to either the [Helm-based GitOps on AKS scenario](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm/) or the [GKE one](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm/).
+> **Note:** You won't be creating a cluster-level configuration in this scenario. For an example of a cluster-level configuration please refer to either the [Helm-based GitOps on AKS scenario](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm/) or the [GKE one](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm/).
 
-### Namespace-level Config
+### Namespace-level Configuration
 
-With Namespace-level GitOps config, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and its respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
+With Namespace-level GitOps configuration, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and its respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
 
 ## Azure Arc Kubernetes GitOps Configuration with Helm
 
 ### The Mechanism (In a nutshell)
 
-In the process of creating Azure Arc-enabled Kubernetes GitOps configuration, [Weaveworks Flux Kubernetes Operator](https://github.com/fluxcd/flux) is deployed on the cluster.
+In the process of creating Azure Arc-enabled Kubernetes GitOps configuration, [WeaveWorks Flux Kubernetes Operator](https://github.com/fluxcd/flux) is deployed on the cluster.
 
 The Operator is aware of the "HelmRelease" Custom Resource Definition (CRD). This HelmRelease points to a HELM chart in a git repo and can optionally contain specific values to input into the helm chart. Due to this configuration, a user can choose to leave the chart values intact or to have different values for different releases.
 
-For example, an application (captured in an Helm chart) dev release can have no pod replication (single pod) while a production release, using the same chart can have 3 pod replicas.
+For example, an application (captured in an Helm chart) development release can have no pod replication (single pod) while a production release, using the same chart can have 3 pod replicas.
 
 In the next section will use the "Hello Arc" Helm chart to deploy a production release which we will then change and see the results in real-time.
 
 ### Deployment Flow
 
-For our scenario, we will deploy the "Hello Arc" application from the ["demo repository"](https://github.com/likamrat/hello_arc) through GitOps. We will deploy the "Hello Arc" application (a Namespace-level component) with 1 replica to the *prod* namespace.
+For this scenario, we will deploy the "Hello Arc" application from the ["demo repository"](https://github.com/likamrat/hello_arc) through GitOps. We will deploy the "Hello Arc" application (a Namespace-level component) with 1 replica to the *prod* namespace.
 
 !["Hello Arc" application GitHub repository](./06.png)
 
@@ -137,27 +137,27 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
 ### Deployment
 
-* Edit the environment variables in the [*az_k8sconfig_helm_kind*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/gitops/helm/az_k8sconfig_helm_kind.sh) shell script to match your parameters, and run it using the ```. az_k8sconfig_helm_kind.sh``` command.
+* Edit the environment variables in the [*az_k8sconfiguration_helm_kind*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/gitops/helm/az_k8sconfiguration_helm_kind.sh) shell script to match your parameters, and run it using the ```. az_k8sconfiguration_helm_kind.sh``` command.
 
     > **Note:** The extra dot is due to the script having an *export* function and that needs to have the vars exported in the same shell session as the rest of the commands.
 
-    The `az_k8sconfig_helm_kind.sh` script will:
+    The `az_k8sconfiguration_helm_kind.sh` script will:
 
   * Login to your Azure subscription using the SPN credentials.
 
-  * Create the GitOps configurations for the Azure Arc Connected Cluster. The configuration will be using the Helm chart located in the "Hello Arc" repository. This will create a namespace-level config to deploy the "Hello Arc" application Helm chart.
+  * Create the GitOps configuration for the Azure Arc Connected Cluster. The configuration will be using the Helm chart located in the "Hello Arc" repository. This will create a namespace-level configuration to deploy the "Hello Arc" application Helm chart.
 
-    > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
+    > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to track changes on the repository but it's recommended to have longer interval in your production environment (default value is 5min).
 
 * Once the script will complete its run, you will have the GitOps configuration created and all the resources deployed in your local kind Kubernetes cluster.
 
-    > **Note:** it can take a few minutes for the configuration to change its Operator state status from "Pending" to "Installed".
+    > **Note:** it can take a few minutes for the configuration to change its Operator state status from **Pending** to **Installed**.
 
     ![New GitOps configuration created](./08.png)
 
     ![New GitOps configuration created](./09.png)
 
-* The Namespace-level config initiated the "Hello Arc" Pod (1 replica), Service and Ingress Route resource deployment.
+* The Namespace-level configuration initiated the "Hello Arc" Pod (1 replica), Service and Ingress Route resource deployment.
 
     ```shell
     kubectl get pods -n prod
@@ -173,7 +173,7 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
     1. The Flux operator holds the "desired state" of the "Hello Arc" Helm release. This is the configuration we deployed against the Azure Arc connected cluster. The operator will pull the state of the releases in the repository every 3 seconds.
 
-    2. Changing the application release will trigger the Flux operator to kick-in the GitOps flow. In our case, we will be changing the welcome message and the amount of replicas.
+    2. Changing the application release will trigger the Flux operator to kick-in the GitOps flow. In this case, we will be changing the welcome message and the amount of replicas.
 
     3. A new version of the application will be deployed on the cluster with more replicas as configured. Once the new pods are successfully deployed, the old ones will be terminated (rolling upgrade).
 
@@ -181,7 +181,7 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
   * Local shell running *`kubectl get pods -n prod -w`*
 
-    !['kubectl get pods' command](./11.png)
+    ![Get pods command](./11.png)
 
   * In your own repository fork, open the "Hello Arc" [*hello-arc.yaml*](https://github.com/likamrat/hello_arc/blob/master/releases/prod/hello-arc.yaml) Helm release file.
 
@@ -191,11 +191,11 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
     ![Side-by-side view of terminal, "Hello Arc" GitHub repo and the application open in a web browser](./12.png)
 
-* As mentioned in the prerequisites section, it is optional but very recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
+* As mentioned in the prerequisites section, it's optional but recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
 
     !["Tab Auto Refresh" extension](./13.png)
 
-* In the repository window showing the *hello-arc.yaml* file, change the number of *replicaCount* to 3 as well as the the message text and commit your changes. Alternatively, you can open the forked repository in your IDE, make the change, commit and push it.
+* In the repository window showing the *hello-arc.yaml* file, change the number of *replicaCount* to 3 as well as the message text and commit your changes. Alternatively, you can open the forked repository in your IDE, make the change, commit and push it.
 
     ![hello-arc.yaml file](./14.png)
 
@@ -209,10 +209,10 @@ For our scenario, we will deploy the "Hello Arc" application from the ["demo rep
 
 ## Cleanup
 
-* To delete the GitOps configuration and it's respective Kubernetes resources, edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [az_k8sconfig_helm_cleanup_kind](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/gitops/helm/az_k8sconfig_helm_cleanup_kind.sh) shell script.It is recommended to run this script locally, since it also removes elements from the local cluster.
+* To delete the GitOps configuration and it's respective Kubernetes resources, edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [az_k8sconfiguration_helm_cleanup_kind](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/gitops/helm/az_k8sconfiguration_helm_cleanup_kind.sh) shell script. It's recommended to run this script locally, since it also removes elements from the local cluster.
 
     ```shell
-    . ./az_k8sconfig_helm_cleanup_kind.sh
+    . ./az_k8sconfiguration_helm_cleanup_kind.sh
     ```
 
     ![Cleanup script in terminal](./18.png)

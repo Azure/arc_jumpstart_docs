@@ -14,9 +14,9 @@ The following Jumpstart scenario will guide on how to deploy a Kubernetes cluste
 
 ## Prerequisites
 
-- An Ubuntu 20.04 installed physical machine or VM. In this scenario, we would be using single node kubernetes cluster installation. This machine would also act as our management host.
+- An Ubuntu 20.04 installed physical machine or VM. In this scenario, we would be using single node Kubernetes cluster installation. This machine would also act as our management host.
 
-- The [kubectl](https://platform9.com/learn/tutorials/kubectl) executable binary for local cluster management. If you would want to have a separate host for cluster management, follow the below steps to [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management) on it.
+- The [Kubectl](https://platform9.com/learn/tutorials/kubectl) executable binary for local cluster management. If you would want to have a separate host for cluster management, follow the below steps to [install Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management) on it.
 
   ```shell
   sudo apt-get update
@@ -27,9 +27,9 @@ The following Jumpstart scenario will guide on how to deploy a Kubernetes cluste
   sudo apt-get install -y kubectl
   ```
 
-  > **Note:** The _kubectl_ package is installed from the Kubernetes repository, hence the Google Cloud public signing key need to be downloaded to enable the repository. Note: All PMK cluster nodes would have kubectl installed once the cluster is deployed.
+  > **Note:** The `kubectl` package is installed from the Kubernetes repository, hence the Google Cloud public signing key need to be downloaded to enable the repository. Note: All PMK cluster nodes would have `kubectl` installed once the cluster is deployed.
 
-- [Install or update Azure CLI (az) to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- [Install or update Azure CLI (Az) to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   Use the below command to check your current installed version.
 
@@ -74,23 +74,23 @@ The following Jumpstart scenario will guide on how to deploy a Kubernetes cluste
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Deployment
 
 This deployment consists of 3 sections.
 
-  1. Onboarding the node to Platform9 Management Plane.
-  2. Creating a PMK Cluster.
+  1. Create the node to Platform9 Management Plane.
+  2. Create a PMK Cluster.
   3. Connect the cluster to Microsoft Azure Arc.
 
-### Onboarding the node to Platform9 Management Plane
+### Create the node to Platform9 Management Plane
 
 - Login to your Management Plane.
 
   ![Screenshot of PMK Management Plane Login Page](./01.png)
 
-  > **Note:** If you do not have a registered Management Plane with Platform9, you can create one easily using [PMK Free Tier deployment](https://platform9.com/managed-kubernetes/).
+  > **Note:** If you don't have a registered Management Plane with Platform9, you can create one easily using [PMK Free Tier deployment](https://platform9.com/managed-kubernetes/).
 
 - Onboard the Ubuntu host to your Management Plane.
 
@@ -98,22 +98,22 @@ This deployment consists of 3 sections.
 
   ![Screenshot of Adding a node](./02.png)
 
-  This should take you to the Node onboarding page. A **pf9ctl** utility is provided to set up the nodes and get connected with Management Plane.
+  This should take you to the Node creation page. A **pf9ctl** utility is provided to set up the nodes and get connected with Management Plane.
   Follow the instructions to download and install the utility, which we will use to prepare the node and connect it with your Platform9 Management Plane.
 
   ![Screenshot of PF9 CLI](./03.png)
 
-  > **Note:** Preparing the node and connecting it to Management Plane might take approximately 4-5 minutes to complete.
+  > **Note:** Preparing the node and connecting it to Management Plane might take ~4/5 minutes to complete.
 
 ### Creating a PMK Cluster
 
-- The onboarded node should now be seen on our Management Plane. To create a [PMK cluster](https://platform9.com/learn/learn/get-started-bare-metal) via the PMK Management Plane UI, follow the steps as described below.
+- The created node should now be seen on our Management Plane. To create a [PMK cluster](https://platform9.com/learn/learn/get-started-bare-metal) via the PMK Management Plane UI, follow the steps as described below.
 
   - Click to add a cluster to the Management Plane.
 
   ![Screenshot of Adding Cluster](./04.png)
 
-  - Create a cluster from the nodes onboarded to the Management Plane.
+  - Create a cluster from the nodes created to the Management Plane.
 
   ![Screenshot of Creating One Click Cluster](./05.png)
 
@@ -140,14 +140,14 @@ This deployment consists of 3 sections.
 
   > **Note:** The values can be referenced from the service principal output.
 
-- Set the KUBECONFIG variable for connecting to the K8s cluster. The kubeconfig file for the cluster is available for download from the Management Plane.
+- Set the _kubeconfiguration_ variable for connecting to the K8s cluster. The kubeconfiguration file for the cluster is available for download from the Management Plane.
 
-  ![Screenshot to Download Kubeconfig](./09.png)
+  ![Screenshot to Download Kubeconfiguration](./09.png)
 
-  - An example output is shown below for setting the _KUBECONFIG_ variable;
+  - An example output is shown below for setting the __kubeconfiguration__ variable;
 
   ```shell
-  export KUBECONFIG=~/path/to/config/file
+  export _kubeconfiguration_=~/path/to/configuration/file
   ```
 
 - Run the _pf9_az_connect_k8s.sh_ script to connect the Platform9 Managed Kubernetes (PMK) cluster to Azure Arc.
@@ -160,7 +160,7 @@ This deployment consists of 3 sections.
 
 ## Verification
 
-- The cluster should be seen onboarded as a new Azure Arc-enabled Kubernetes resource.
+- The cluster should be seen created as a new Azure Arc-enabled Kubernetes resource.
 
   ![Screenshot of Cluster Verification](./11.png)
 

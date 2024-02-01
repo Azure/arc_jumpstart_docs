@@ -48,7 +48,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
     ![Existing GKE Azure Arc connected cluster](./02.png)
 
-- Before installing the Azure Policy Add-on or enabling any of the service features, your subscription must enable the _Microsoft.PolicyInsights_ resource provider and create a role assignment for the cluster service principal. To do that, open [Azure Cloud Shell](https://shell.azure.com/) and run either the Azure CLI or PowerShell command.
+- Before installing the Azure Policy Add-on or enabling any of the service features, your subscription must enable the  **Microsoft PolicyInsights** resource provider and create a role assignment for the cluster service principal. To do that, open [Azure Cloud Shell](https://shell.azure.com/) and run either the Azure CLI or PowerShell command.
 
     ![Open Azure Cloud Shell](./03.png)
 
@@ -148,7 +148,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
 - After the evaluation, the policy will inform you of the result and provide details if there are any resources that are `non-compliant`.  
 
-  > We will deploy a centos and nginx pod to the `storefront` namespace without the `fw-zone` label by running the commands below. Creation of these pods will be allowed as the policy effect is set to `audit` instead of `deny`.
+  > We will deploy a CentOS and nginx pod to the `storefront` namespace without the `fw-zone` label by running the commands below. Creation of these pods will be allowed as the policy effect is set to `audit` instead of `deny`.
 
   ```shell
   kubectl run centos --image=centos -n storefront --restart=Never -- /bin/sh -c "sleep 24h"
@@ -163,20 +163,20 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
   ![Audit details](./16.png)
 
-- Test Calico network policy enforcement by adding the `fw-zone` labels to the `centos` and `nginx` pods.
-  > The network policy is set to allow only `trusted` zone connections to the `restricted` zone, and will deny traffic from `dmz` zone. We will label the nginx pod with `fw-zone=restricted`, and test connectivity when changing the centos pod label from `fw-zone=trusted` to `fw-zone=dmz`.
+- Test Calico network policy enforcement by adding the `fw-zone` labels to the `CentOS` and `nginx` pods.
+  > The network policy is set to allow only `trusted` zone connections to the `restricted` zone, and will deny traffic from `dmz` zone. We will label the nginx pod with `fw-zone=restricted`, and test connectivity when changing the CentOS pod label from `fw-zone=trusted` to `fw-zone=dmz`.
 
 - Test Calico network policy enforcement without labels.
 
-  ![test result](./22.png)
+  ![Test result](./22.png)
 
 - Test Calico network policy enforcement with proper labels.
 
-  ![test result](./23.png)
+  ![Test result](./23.png)
 
 - Test Calico network policy enforcement with wrong labels.
 
-  ![test result](./24.png)
+  ![Test result](./24.png)
 
 ## Clean up environment
 
@@ -184,11 +184,11 @@ Complete the following steps to clean up your environment.
 
 - From each Azure Arc-enabled Kubernetes cluster under your resource group, click the _Azure Policy_ page, and disable the extension of Azure policy under `Onboard to Azure Policy for Azure Arc-enabled Kubernetes cluster`
 
-    ![Disable Azure Policy addon](./17.png)
+    ![Disable Azure Policy add-on](./17.png)
 
-    ![Disable Azure Policy addon](./18.png)
+    ![Disable Azure Policy add-on](./18.png)
 
-    ![Disable Azure Policy addon](./19.png)
+    ![Disable Azure Policy add-on](./19.png)
 
 - You can use these Jumpstart scenarios below for deleting the clusters:
 

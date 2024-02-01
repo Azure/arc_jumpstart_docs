@@ -10,9 +10,9 @@ description: >
 
 The following Jumpstart scenario will guide you on how to create [Helm](https://helm.sh/)-based GitOps configuration on a [MicroK8s](https://microk8s.io/) cluster which is projected as an Azure Arc connected cluster resource.
 
-In this scenario, you will deploy [nginx-ingress controller](https://kubernetes.github.io/ingress-nginx/) and a namespace-level config to deploy the "Hello Arc" web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
+In this scenario, you will deploy [nginx-ingress controller](https://kubernetes.github.io/ingress-nginx/) and a namespace-level configuration to deploy the "Hello Arc" web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declaratively manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This _HelmRelease_ points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
+GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declare and manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This _HelmRelease_ points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
 
 > **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).
 
@@ -71,31 +71,31 @@ GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a p
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
-- Export MicroK8s config
+- Export MicroK8s configuration
 
-    You can export MicroK8s cluster config to a file and use `kubectl` directly instead of `microk8s kubectl` command.
+    You can export MicroK8s cluster configuration to a file and use `kubectl` directly instead of `microk8s kubectl` command.
 
   - Windows
 
     ```shell
-    microk8s config view > %HOMEPATH%\.kube\microk8s
+    microk8s configuration view > %HOMEPATH%\.kube\microk8s
     ```
 
   - Linux
 
     ```shell
-    microk8s config view > ~/.kube/microk8s
+    microk8s configuration view > ~/.kube/microk8s
     ```
 
-- From this point forward, this guide assumes you have exported MicroK8s config file and have set it in kubectl using `--kubeconfig` flag or `$KUBECONFIG` environment variable. More information can be found in [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/).
+- From this point forward, this guide assumes you have exported MicroK8s configuration file and have set it in `kubectl` using `--kubeconfiguration` flag or `$_kubeconfiguration_` environment variable. More information can be found in [Organizing Cluster Access Using kubeconfiguration Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfiguration/).
 
 ## Manually setting up an ingress controller on MicroK8s
 
 The demo application that will be deployed later in this scenario relies on an ingress controller. Given that MicroK8s needs [Multipass](https://multipass.run/) on Windows and MacOS, we'll not be covering that scenario and assuming Multipass is running.
 
-### NGINX Controller Deployment
+### Nginx Controller Deployments
 
 - Run the following command to install the nginx ingress controller on MicroK8s:
 
@@ -117,15 +117,15 @@ The demo application that will be deployed later in this scenario relies on an i
 
     ![Running ingress nginx controller service](./04.png)
 
-- Take note of the port where the ingress has been exposed (in the image above it was assigned port **32046**). We now need to get the IP address assigned to our microk8s-vm instance in multipass:
+- Take note of the port where the ingress has been exposed (in the image above it was assigned port **32046**). We now need to get the IP address assigned to the microk8s-vm instance in Multipass:
 
     ```shell
-    multipass list
+    ultipass list
     ```
 
-    ![multipass list](./05.png)
+    ![Multipass list](./05.png)
 
-- Combining the IP address from multipass and the NodePort assigned to the ingress controller, we can now test that the NGINX ingress controller has been deployed successfully. In our case, the full address becomes _http://172.19.174.107:32046_.
+- Combining the IP address from Multipass and the NodePort assigned to the ingress controller, we can now test that the Nginx ingress controller has been deployed successfully. In this case, the full address becomes _http://172.19.174.107:32046_.
 
 - Using the below in your browser or command line, should get you with a HTTP 404 response with a nginx footer. This shows that the ingress is working. The 404 response is to be expected since you haven't setup an ingress route yet. You will do that in the next section.
 
@@ -139,7 +139,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User has deployed the Microk8s cluster and has it connected as an Azure Arc-enabled Kubernetes cluster.
 
-- User has deployed the NGINX Ingress Controller
+- User has deployed the Nginx Ingress Controller
 
 - User is editing the environment variables in the script file (1-time edit) which then be used throughout the GitOps configuration.
 
@@ -151,15 +151,15 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is making an edit on the GitHub repo that will cause Flux GitOps to detect this change and trigger an update to the pod deployment.
 
-## Cluster-level Config vs. Namespace-level Config
+## Cluster-level Configuration vs. Namespace-level Configuration
 
-### Cluster-level Config
+### Cluster-level Configuration
 
-With Cluster-level GitOps config, the goal is to have an "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc.
+With Cluster-level GitOps configuration, the goal is to have an "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc.
 
-### Namespace-level Config
+### Namespace-level Configuration
 
-With Namespace-level GitOps config, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and it's respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
+With Namespace-level GitOps configuration, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and it's respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
 
 ## Azure Arc Kubernetes GitOps Configuration with Helm
 
@@ -167,11 +167,11 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 - In the screenshot below, notice how currently there is no GitOps configuration in your Arc-enabled Kubernetes cluster.
 
-    ![Screenshot showing Azure portal with no Azure Arc-enabled Kubernetes GitOps configurations](./08.png)
+    ![Screenshot showing Azure portal with no Azure Arc-enabled Kubernetes GitOps configuration](./08.png)
 
 ### Deployment Flow
 
-For our scenario, notice we have Helm chart in the "Azure Arc Jumpstart Apps" repository for the Hello-Arc application as well as the Helm Release.
+For this scenario, notice we've Helm chart in the "Azure Arc Jumpstart Apps" repository for the Hello-Arc application as well as the Helm Release.
 
 !["Azure Arc Jumpstart Apps" GitHub repository](./09.png)
 
@@ -185,29 +185,29 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
 - Linux and MacOS
 
-    Edit the environment variables in the [_az_k8sconfig_helm_microk8s_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfig_helm_microk8s.sh) shell script to match your parameters, and run the below command.
+    Edit the environment variables in the [_az_k8sconfiguration_helm_microk8s_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfiguration_helm_microk8s.sh) shell script to match your parameters, and run the below command.
 
     ```shell
-    . ./az_k8sconfig_helm_microk8s.sh
+    . ./az_k8sconfiguration_helm_microk8s.sh
     ```
 
     > **Note:** The extra dot is due to the script having an *export* function and that needs to have the vars exported in the same shell session as the rest of the commands.
 
 - Windows
 
-    Edit the environment variables in the [_az_k8sconfig_helm_microk8s_windows_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfig_helm_microk8s_windows.ps1) PowerShell file to match your parameters, and run it using the ```.\az_k8sconfig_helm_microk8s.ps1``` command.
+    Edit the environment variables in the [_az_k8sconfiguration_helm_microk8s_windows_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfiguration_helm_microk8s_windows.ps1) PowerShell file to match your parameters, and run it using the ```.\az_k8sconfiguration_helm_microk8s.ps1``` command.
 
     For example:
 
     ![Screenshot parameter examples](./11.png)
 
-    The `az_k8sconfig_helm_microk8s` and `az_k8sconfig_helm_microk8s_windows` scripts will:
+    The `az_k8sconfiguration_helm_microk8s` and `az_k8sconfiguration_helm_microk8s_windows` scripts will:
 
   - Login to your Azure subscription using the SPN credentials
-  - Retrieve the cluster credentials (KUBECONFIG)
+  - Retrieve the cluster credentials (_kubeconfiguration_)
   - Create the GitOps configuration to deploy the Flux controllers and the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
 
-    > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval rapidly track changes on the repository but it is recommended to have a longer interval in your production environment (the default value is 5min).
+    > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval rapidly track changes on the repository but it's recommended to have a longer interval in your production environment (the default value is 5min).
 
 - Once the script will complete it's run, you will have the GitOps configuration create all the resources deployed in your Kubernetes cluster.
 
@@ -215,13 +215,13 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
     ![Flux extension](./12.png)
 
-    ![New GitOps configurations](./13.png)
+    ![New GitOps configuration](./13.png)
 
     ![App GitOps configuration](./14.png)
 
 ## The "Hello Arc" Application & Components
 
-- Before kicking off the GitOps flow, let's verify and "zoom in" to the Kubernetes resources deployed by running a few _kubectl_ commands.
+- Before kicking off the GitOps flow, let's verify and "zoom in" to the Kubernetes resources deployed by running a few `kubectl` commands.
 
 - Show the Flux operator pods.
 
@@ -229,7 +229,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
     kubectl get pods -n flux-system 
     ```
 
-    ![kubectl get pods -n flux-system ](./15.png)
+    ![Get pods of namespace flux-system ](./15.png)
 
 - Show 3 replicas and service of the "Hello Arc" application.
 
@@ -237,15 +237,15 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
     kubectl get pods,svc -n hello-arc
     ```
 
-    ![kubectl get pods,svc -n hello-arc](./16.png)
+    ![Get pods and services of namespace hello-arc](./16.png)
 
-- Show NGINX rule which will route the traffic to the "Hello Arc" application from outside the cluster.
+- Show Nginx rule which will route the traffic to the "Hello Arc" application from outside the cluster.
 
     ```shell
     kubectl get ing -n hello-arc
     ```
 
-    ![kubectl get ing -n hello-arc](./17.png)
+    ![Get ingress of namespace hello-arc](./17.png)
 
 ## Initiating "Hello Arc" Application GitOps
 
@@ -265,7 +265,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
       kubectl get pods -n hello-arc -w
       ```
   
-    ![kubectl get pods -n hello-arc -w](./18.png)
+    ![Get pods of namespace hello-arc -w](./18.png)
 
   - In **your fork** of the "Azure Arc Jumpstart Apps" repository, open the _hello-arc.yaml_ file (/hello-arc/releases/app/hello-arc.yaml).
 
@@ -275,7 +275,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
     ![Side-by-side view of terminal, "Hello Arc" GitHub repo and the application open in a web browser](./19.png)
 
-- As mentioned in the prerequisites section, it is optional but highly recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
+- As mentioned in the prerequisites section, it's optional but highly recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
 
     ![Tab Auto Refresh](./20.png)
 
@@ -295,18 +295,18 @@ To delete the GitOps configuration and it's respective Kubernetes resources, we'
 
 - Linux and MacOS
 
-    Edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [_az_k8sconfig_helm_cleanup_microk8s_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfig_helm_cleanup_microk8s.sh) shell script, then run the file:
+    Edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [_az_k8sconfiguration_helm_cleanup_microk8s_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfiguration_helm_cleanup_microk8s.sh) shell script, then run the file:
 
     ```shell
-    ./az_k8sconfig_helm_cleanup_microk8s.sh
+    ./az_k8sconfiguration_helm_cleanup_microk8s.sh
     ```
 
 - Windows
 
-    Edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [_az_k8sconfig_helm_cleanup_microk8s_windows_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfig_helm_cleanup_microk8s_windows.ps1) script, then run the file:
+    Edit the environment variables to match the Azure Arc Kubernetes cluster and Resources in the [_az_k8sconfiguration_helm_cleanup_microk8s_windows_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/microk8s/gitops/helm/az_k8sconfiguration_helm_cleanup_microk8s_windows.ps1) script, then run the file:
 
     ```powershell
-    .\az_k8sconfig_helm_cleanup_microk8s_windows.ps1
+    .\az_k8sconfiguration_helm_cleanup_microk8s_windows.ps1
     ```
 
 - You should see the resources being deleted:

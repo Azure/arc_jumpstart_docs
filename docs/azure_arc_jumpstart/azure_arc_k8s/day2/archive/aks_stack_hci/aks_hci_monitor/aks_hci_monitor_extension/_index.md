@@ -8,7 +8,7 @@ description: >
 
 ## Integrate Azure Monitor for Containers with AKS on Azure Stack HCI as an Azure Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for an AKS cluster running on Azure Stack HCI that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for an AKS cluster running on Azure Stack HCI that's projected as an Azure Arc connected cluster.
 
 in this scenario, you will hook the AKS cluster on HCI to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) in order to start collecting telemetry.  
 
@@ -63,13 +63,13 @@ The commands below and the script described in this scenario should be run on th
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Create Azure monitor extensions instance
 
 To create a new extension Instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Monitor extension on your Azure Arc-enabled Kubernetes cluster
 
-* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster is not currently being monitored.
+* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster isn't currently being monitored.
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./01.png)
 

@@ -10,7 +10,7 @@ description: >
 
  > **Disclaimer:** This scenario was contributed by the Tigera Project Calico team as part of the "Jumpstart Friends" program.
 
-The following Jumpstart scenario will guide you how to use GitOps [GitOps for Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
+The following Jumpstart scenario will guide you how to use [GitOps for Azure Arc](https://learn.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) in an Azure Arc connected Kubernetes cluster to manage Calico Network Policy [Network Policy](https://projectcalico.docs.tigera.io/about/about-network-policy).
 
   > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
@@ -50,15 +50,15 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 ## Azure Arc Kubernetes GitOps Configuration for Calico
 
-- We will use a shell script [*calico_k8sconfig_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfig_gitops.sh) against the GKE/EKS connected cluster. You can use Cloud Shell in order to keep your local environment clean.
+- We will use a shell script [*calico_k8sconfiguration_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfiguration_gitops.sh) against the GKE/EKS connected cluster. You can use Cloud Shell in order to keep your local environment clean.
 
   [Google Cloud Shell](https://cloud.google.com/shell)
   [AWS Cloud Shell](https://aws.amazon.com/cloudshell/)
 
-- Edit the environment variables in the [*calico_k8sconfig_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfig_gitops.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the *`. ./calico_k8sconfig_gitops.sh`* command to create the GitOps configuration.
+- Edit the environment variables in the [*calico_k8sconfiguration_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfiguration_gitops.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the *`. ./calico_k8sconfiguration_gitops.sh`* command to create the GitOps configuration.
 
     > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
-    > **Note:** The default branch is `master`. Newer repositories have a root branch named main, in which case you need to set `--git-branch=main` in operator params.
+    > **Note:** The default branch is `master`. Newer repositories have a root branch named main, in which case you need to set `--git-branch=main` in operator parameters.
 
     ![Upload a file to Cloud Shell](./03.png)
 
@@ -67,20 +67,20 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
     The script will:
 
   - Login to your Azure subscription using the SPN credentials
-  - Retrieve the cluster credentials (KUBECONFIG)
+  - Retrieve the cluster credentials (_kubeconfiguration_)
   - Install Helm 3 & Azure CLI & Azure Arc Extensions
   - Create the GitOps configuration and deploy the Flux operator and Memcached on the Azure Arc connected cluster
   - Deploy the `dev` utilities as well as `network policy` and `network set` on the Azure Arc connected cluster
 
-    > **Disclaimer:** For the purpose of this guide, notice that "*git-poll-interval 30s*" is set. The 30 seconds interval is useful for demo purposes since changes can be observed quickly but it is recommended to have a longer interval in your production environment (default value is 5min).
+    > **Disclaimer:** For the purpose of this guide, notice that "*git-poll-interval 30s*" is set. The 30 seconds interval is useful for demo purposes since changes can be observed quickly but it's recommended to have a longer interval in your production environment (default value is 5min).
 
-- Once the script completes running, a GitOps configuration will be created with all the resources deployed in your Kubernetes cluster. Note that it takes a few minutes for the configuration to change it's Operator state status from "Pending" to "Installed".
+- Once the script completes running, a GitOps configuration will be created with all the resources deployed in your Kubernetes cluster. Note that it takes a few minutes for the configuration to change it's Operator state status from **Pending** to **Installed**.
 
     ![New GitOps configuration](./05.png)
 
     ![New GitOps configuration](./06.png)
 
-- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the *`kubectl get pods -n calico-config`* command.
+- Check whether the Flux operator is installed in an Azure Arc connected cluster by running the *`kubectl get pods -n calico-configuration`* command.
   > You should see the following pods running.
 
   ![Showing operator deployment](./07.png)
@@ -121,7 +121,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 Complete the following steps to clean up your environment.
 
 - For each Azure Arc connected cluster in your resource group, click the _GitOps_ page, and delete `calico-gitops-test`.
-  ![Delete GitOps config](./17.png)
+  ![Delete GitOps configuration](./17.png)
 
 - Delete the k8s-configuration `calico-gitops-test` by running the following command:
 

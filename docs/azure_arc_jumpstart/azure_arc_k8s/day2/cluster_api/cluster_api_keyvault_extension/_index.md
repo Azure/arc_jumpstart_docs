@@ -8,7 +8,7 @@ description: >
 
 ## Integrate Azure Key Vault with Cluster API as an Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) for a Cluster API that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) for a Cluster API that's projected as an Azure Arc connected cluster.
 
 in this scenario, you will hook the Cluster API to Azure Key Vault by deploying the Azure Key Vault extension and a sample app on your Kubernetes cluster in order to integrate Azure Key Vault as a secrets store with a Kubernetes cluster via a [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) volume. This will also include deploying a Key Vault and sample secret on your Azure subscription.
 
@@ -61,7 +61,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -83,9 +83,9 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new extension Instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Key Vault extension on your Azure Arc-enabled Kubernetes cluster.
 
-> **Note:** Before installing the Key Vault extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.
+> **Note:** Before installing the Key Vault extension, make sure that the `kubectl` context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the Kubernetes context to different Kubernetes clusters.
 
-![Screenshot showing current kubectl context pointing to CAPI cluster](./01.png)
+![Screenshot showing current Kubernetes context pointing to CAPI cluster](./01.png)
 
 - In the screenshot below, notice how currently there are no extensions installed yet in your Arc-enabled Kubernetes cluster.
 
@@ -111,7 +111,7 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
     ![Screenshot extension deployment extensions tab](./04.png)
 
-- You can also verify the deployment by running the below _kubectl_ commands and seeing the deployed artifacts in the _kube-system_ namespace.
+- You can also verify the deployment by running the below `kubectl` commands and seeing the deployed artifacts in the _kube-system_ namespace.
 
     ```shell
     kubectl get pods,secret -n hello-arc
@@ -128,7 +128,7 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 
 ## Validate the Secrets
 
-- To verify that Azure Key Vault Secret Provider is working properly and fetching the secrets, run the below command to show secrets held in secrets-store:
+- To verify that Azure Key Vault Secret Provider is working correctly and fetching the secrets, run the below command to show secrets held in secrets-store:
 
     ```shell
     kubectl -n hello-arc exec busybox-secrets-sync -- ls /mnt/secrets-store/

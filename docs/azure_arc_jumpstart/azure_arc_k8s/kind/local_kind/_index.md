@@ -24,7 +24,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
   az --version
   ```
 
-* [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* [Install and Set Up Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 * [Install Helm 3](https://helm.sh/docs/intro/install/)
 
@@ -67,13 +67,13 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -81,7 +81,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -129,17 +129,17 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
   cd azure_arc/azure_arc_k8s_jumpstart/kind
   ```
 
-  * Create the kind cluster. We are using a configuration file called `kind_cluster.yaml` to specify our cluster configuration. This will create a 3 node cluster, with 1 master node and 2 worker nodes.
+  * Create the kind cluster. We're using a configuration file called `kind_cluster.yaml` to specify our cluster configuration. This will create a 3 node cluster, with 1 master node and 2 worker nodes.
 
   ```shell
-  kind create cluster --config kind_cluster.yaml --name arc-cluster
+  kind create cluster --configuration kind_cluster.yaml --name arc-cluster
   ```
 
   ![kind create cluster](./01.png)
 
-  > **Note:** By default, kind will store the kubeconfig file used to connect to your cluster in the ~/.kube directory. If you want to use a custom directory to store the kubeconfig file, use the `--kube-config` flag.
+  > **Note:** By default, kind will store the kubeconfiguration file used to connect to your cluster in the ~/.kube directory. If you want to use a custom directory to store the kubeconfiguration file, use the `--kube-configuration` flag.
 
-  If you chose a specific location for the cluster's *kubeconfig* file, make sure you export its location as an environment variable using the `export KUBECONFIG=/path/to/kubeconfig` location or in Windows, add this location to your PATH.
+  If you chose a specific location for the cluster's *kubeconfiguration* file, make sure you export its location as an environment variable using the `export _kubeconfiguration_=/path/to/kubeconfiguration` location or in Windows, add this location to your PATH.
 
 * Verify that kind has created the cluster successfully, and you can access the cluster using `kubectl`.
 
@@ -147,7 +147,7 @@ The following Jumpstart scenario will guide you on how to use [kind](https://kin
   kubectl get nodes
   ```
 
-  ![kubectl get nodes](./02.png)
+  ![Kubernetes get nodes](./02.png)
 
 ## Connecting to Azure Arc
 

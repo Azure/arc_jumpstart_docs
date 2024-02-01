@@ -8,7 +8,7 @@ description: >
 
 ## Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for a Google Kubernetes Engine (GKE) cluster that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for a Google Kubernetes Engine (GKE) cluster that's projected as an Azure Arc connected cluster.
 
 in this scenario, you will hook the GKE cluster to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) on your Kubernetes cluster in order to start collecting telemetry.  
 
@@ -61,15 +61,15 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Create Azure monitor extensions instance
 
 To create a new extension Instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Monitor extension on your Azure Arc-enabled Kubernetes cluster
 
-* In order to keep your local environment clean and untouched, we will use [Google Cloud Shell](https://cloud.google.com/shell) to run the [*gke_monitor_onboarding*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/gke_monitor_extension/azure_monitor_k8s_extension.sh) shell script against the GKE connected cluster.
+* To keep your local environment clean and untouched, we will use [Google Cloud Shell](https://cloud.google.com/shell) to run the [*gke_monitor_onboarding*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/gke_monitor_extension/azure_monitor_k8s_extension.sh) shell script against the GKE connected cluster.
 
-* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster is not currently being monitored.
+* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster isn't currently being monitored.
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./01.png)
 

@@ -73,7 +73,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     }
     ```
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -93,7 +93,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new extension instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Monitor cluster extension on your Azure Arc-enabled Kubernetes cluster.
 
-- Before integrating the cluster with Azure Monitor, click on the "Extensions" tab for the connected Azure Arc cluster to show how the cluster is not currently being assessed by Azure Monitor.
+- Before integrating the cluster with Azure Monitor, click on the "Extensions" tab for the connected Azure Arc cluster to show how the cluster isn't currently being assessed by Azure Monitor.
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./01.png)
 
@@ -137,7 +137,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 - You can also verify the pods by running the command below:
 
   ```shell
-  kubectl get pod -n kube-system --kubeconfig <kubeconfig> | grep omsagent
+  kubectl get pod -n kube-system --kubeconfiguration <kubeconfiguration> | grep omsagent
   ```
 
   ![Screenshot extension pods on cluster](./04.png)
@@ -172,7 +172,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 - Create the above file and run the following command to create the pod:
 
   ```shell
-  kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
+  kubectl apply -f pod-test.yaml --kubeconfiguration <kubeconfiguration>
   ```
   
 - In few minutes an alert will be created, you will see it in the Azure portal under Alerts tab of your Azure Arc-enabled cluster.

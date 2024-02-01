@@ -8,9 +8,9 @@ description: >
 
 ## Integrate Microsoft Defender for Cloud with CAPI as an Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks) for a Cluster API that is projected as an Azure Arc-connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks) for a Cluster API that's projected as an Azure Arc-connected cluster.
 
-in this scenario, you will hook the Cluster API to Microsoft Defender for Cloud by deploying the [Defender extension](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-cli%2Ck8s-verify-cli%2Ck8s-remove-arc%2Caks-removeprofile-api#protect-arc-enabled-kubernetes-clusters) on your Kubernetes cluster in order to start collecting security related logs and telemetry.  
+in this scenario, you will hook the Cluster API to Microsoft Defender for Cloud by deploying the [Defender extension](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-cli%2Ck8s-verify-cli%2Ck8s-remove-arc%2Caks-removeprofile-api#protect-arc-enabled-kubernetes-clusters) on your Kubernetes cluster to start collecting security related logs and telemetry.  
 
 > **Note:** This guide assumes you already deployed a Cluster API and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using a [Shell script](/azure_arc_jumpstart/azure_arc_k8s/cluster_api/capi_azure/).
 
@@ -69,7 +69,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -89,7 +89,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new extension Instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Microsoft Defender for Containers extension on your Azure Arc-enabled Kubernetes cluster.
 
-* Before integrating the cluster with Microsoft Defender for Cloud, click on the "Security (preview)" blade for the connected Azure Arc cluster to show how the cluster is not currently being assessed by Microsoft Defender for Cloud.
+* Before integrating the cluster with Microsoft Defender for Cloud, click on the "Security (preview)" blade for the connected Azure Arc cluster to show how the cluster isn't currently being assessed by Microsoft Defender for Cloud.
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./01.png)
 
@@ -118,7 +118,7 @@ To create a new extension Instance, we will use the _k8s-extension create_ comma
 * You can also verify the deployment by running the command below:
 
 ```shell
-kubectl get pods -n azuredefender --kubeconfig <cluster-name>.kubeconfig
+kubectl get pods -n azuredefender --kubeconfiguration <cluster-name>.kubeconfiguration
 ```
 
 ![Screenshot extension deployment on cluster](./06.png)
@@ -128,10 +128,10 @@ kubectl get pods -n azuredefender --kubeconfig <cluster-name>.kubeconfig
 To verify that Microsoft Defender for Cloud is working properly and alerting on security threats, run the below command to simulate an alert:
 
 ```shell
-kubectl get pods --namespace=asc-alerttest-662jfi039n --kubeconfig <cluster-name>.kubeconfig
+kubectl get pods --namespace=asc-alerttest-662jfi039n --kubeconfiguration <cluster-name>.kubeconfiguration
 ```
 
-Within 30 minutes Microsoft Defender for Cloud will detect this event and trigger a security alert that you wil see in the Azure portal under Microsoft Defender for Cloud's security alerts and also on the security tab of your Azure Arc-enabled cluster.
+Within 30 minutes Microsoft Defender for Cloud will detect this event and trigger a security alert that you will see in the Azure portal under Microsoft Defender for Cloud's security alerts and also on the security tab of your Azure Arc-enabled cluster.
 
 ![Screenshot security alert in Microsoft Defender for Cloud](./07.png)
 

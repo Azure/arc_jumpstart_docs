@@ -78,7 +78,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -96,7 +96,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new extension instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Azure Policy cluster extension on your Azure Arc-enabled Kubernetes cluster.
 
-- Before integrating the cluster with Azure Policy, click on the "Extensions" tab for the connected Azure Arc cluster to show how the cluster is not currently being assessed by Azure Policy.
+- Before integrating the cluster with Azure Policy, click on the "Extensions" tab for the connected Azure Arc cluster to show how the cluster isn't currently being assessed by Azure Policy.
 
     ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource extensions](./01.png)
 
@@ -125,7 +125,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   - Login to your Azure subscription using the service principal credentials
   - Add or Update your local _connectedk8s_ and _k8s-extension_ Azure CLI extensions
   - Create the Azure Policy cluster extension instance
-  - Assign the Azure Policy _Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits_ (cpuLimit=200m memoryLimit=1Gi) to the resource group of the Azure Arc-enabled Kubernetes cluster
+  - Assign the Azure Policy _Kubernetes cluster containers CPU and memory resource limits shouldn't exceed the specified limits_ (cpuLimit=200m memoryLimit=1Gi) to the resource group of the Azure Arc-enabled Kubernetes cluster
 
 - Verify under the extensions tab of the Azure Arc-enabled Kubernetes cluster that the Azure Policy cluster extension is correctly installed.
 
@@ -136,7 +136,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   - The azure-policy pods are installed in the kube-system namespace:
 
     ```shell
-    kubectl get pods -n kube-system --kubeconfig <kubeconfig> | grep azure-policy
+    kubectl get pods -n kube-system --kubeconfiguration <kubeconfiguration> | grep azure-policy
     ```
 
     ![Screenshot extension pods on cluster](./04.png)
@@ -144,7 +144,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
   - The gatekeeper pods are installed in the gatekeeper-system namespace:
 
     ```shell
-    kubectl get pods -n gatekeeper-system --kubeconfig <kubeconfig>
+    kubectl get pods -n gatekeeper-system --kubeconfiguration <kubeconfiguration>
     ```
 
     ![Screenshot extension pods on cluster](./05.png)
@@ -157,7 +157,7 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 
 > **Note:** Please note that it may take up to 30 minutes for the Azure Policy to take effect.
 
-- The Azure Policy we have assigned works as a [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range/), but we do not specify any namespace, so the Azure Policy will be applied on all namespaces. The limits specified in the Azure Policy are cpuLimit=200m and memoryLimit=1Gi, so to test it we need to create a pod with higher limits:
+- The Azure Policy we've assigned works as a [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range/), but we don't specify any namespace, so the Azure Policy will be applied on all namespaces. The limits specified in the Azure Policy are cpuLimit=200m and memoryLimit=1Gi, so to test it we need to create a pod with higher limits:
 
   > **pod-test.yaml**
   ```yaml
@@ -181,18 +181,18 @@ To create a new extension instance, we will use the _k8s-extension create_ comma
 - Create the above file and run the following command to create the pod:
 
   ```shell
-  kubectl apply -f pod-test.yaml --kubeconfig <kubeconfig>
+  kubectl apply -f pod-test.yaml --kubeconfiguration <kubeconfiguration>
   ```
 
   ![Screenshot Azure Policy test](./07.png)
 
-  As you can see we cannot create the pod due to the Azure policy that was applied.
+  As you can see we can't create the pod due to the Azure policy that was applied.
 
-- If there were pods that exceeded the limit before applying the Azure Policy, they will not be removed, but we can see which ones do not comply in the Azure Policy service in the Compliance tab, select the non-compliance event
+- If there were pods that exceeded the limit before applying the Azure Policy, they won't be removed, but we can see which ones don't comply in the Azure Policy service in the Compliance tab, select the non-compliance event
 
   ![Screenshot Azure Policy test](./08.png)
 
-- Click on Details to find out which pod is not compliant:
+- Click on Details to find out which pod isn't compliant:
 
   ![Screenshot Azure Policy test](./09.png)
 

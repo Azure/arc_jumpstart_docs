@@ -14,7 +14,7 @@ The following Jumpstart scenario will guide you on how to deploy a Kubernetes cl
 
 From the Cluster API Book docs:
 
-"Cluster API requires an existing Kubernetes cluster accessible via kubectl; during the installation process the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it is recommended to keep it separated from any application workload."
+"Cluster API requires an existing Kubernetes cluster accessible via `kubectl`; during the installation process the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it's recommended to keep it separated from any application workload."
 
 in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), single node cluster will be automatically deployed for you and will be used as the management cluster. This cluster will then be used to deploy the workload cluster using the Cluster API Azure provider (CAPZ).
 
@@ -59,7 +59,7 @@ in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), sing
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -83,7 +83,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - In the your directory of the cloned Jumpstart repository, navigate to where the [_installCAPI_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/cluster_api/capi_azure/installCAPI.sh) bash script is located. Alternatively, you can also download just the script instead of cloning the entire repository.
 
-  The script will transform the Rancher K3s Kubernetes cluster to a CAPI management cluster with the Azure Cluster API provisioned (CAPZ) components that are needed. It will then deploy the workload cluster and it's Azure resources based on the environment variables as described in the next bullet. Upon deployment completion, the cluster will be onboarded as an Azure Arc-enabled Kubernetes cluster.
+  The script will transform the Rancher K3s Kubernetes cluster to a CAPI management cluster with the Azure Cluster API provisioned (CAPZ) components that are needed. It will then deploy the workload cluster and it's Azure resources based on the environment variables as described in the next bullet. Upon deployment completion, the cluster will be configured as an Azure Arc-enabled Kubernetes cluster.
 
     > **Disclaimer:** The CAPI/CAPZ _clusterctl_ CLI tool commands used in the script are taken straight from the ["Cluster API Book"](https://cluster-api.sigs.k8s.io/user/quick-start.html) and deserves it's writers all the credit for it! The reason being for this process to be included is to provide you with the end-to-end user experience which also include the proprietary automation developed for this Jumpstart scenario.
 
@@ -99,13 +99,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     ![Screenshot showing the script empty environment variables](./02.png)
 
-    > **Note:** Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as vi or nano.
+    > **Note:** Editing the script can be done either before copy/downloading it to the Ubuntu machine by using an your preferred IDE (for example, VS Code) or after, in the machine itself, using native Linux text editor such as `vi` or `nano`.
 
 - Edit **ONLY** the following environment variables:
 
     > **Note:** Both the _`githubAccount`_ and the _`githubBranch`_ are used for testing purposes. Unless you are developing independent tests that are based on the script, there is no need to edit these variables.
 
-    ![Screenshot showing the githubAccount and the githubBranch environment variables](./03.png)
+    ![Screenshot showing the GitHub Account and the GitHub Branch environment variables](./03.png)
 
   - _`CONTROL_PLANE_MACHINE_COUNT`_ - Control Plane node count. For example: 1
   - _`WORKER_MACHINE_COUNT`_ - Workers node count. For example: 2
@@ -149,7 +149,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     ![Screenshot showing the script runtime](./14.png)
 
-- Upon completion, you will have a new Cluster API Kubernetes cluster deployed on top of Azure virtual machines that are already onboarded as an Azure Arc-enabled Kubernetes cluster.
+- Upon completion, you will have a new Cluster API Kubernetes cluster deployed on top of Azure virtual machines that are already configured as an Azure Arc-enabled Kubernetes cluster.
 
   ![Screenshot showing the Azure resource group](./15.png)
 

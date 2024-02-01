@@ -59,11 +59,11 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ### Create a new GCP Project
 
-- Browse to <https://console.cloud.google.com/> and login with your Google Cloud account. Once logged in, [create a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) named "Azure Arc Demo". After creating it, be sure to copy down the project id as it is usually different then the project name.
+- Browse to <https://console.cloud.google.com/> and login with your Google Cloud account. Once logged in, [create a new project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) named "Azure Arc Demo". After creating it, be sure to copy down the project id as it's usually different then the project name.
 
   ![GCP new project](./01.png)
 
@@ -155,7 +155,7 @@ The only thing you need to do before executing the Terraform plan is to create t
 
   ![terraform init](./21.png)
 
-- Run the *`terraform apply --auto-approve`* command and wait for the apply to finish. Once done, you will have a new empty Azure resource group and and a GKE cluster under the *Kubernetes Engine* page in your GCP console.
+- Run the *`terraform apply --auto-approve`* command and wait for the apply to finish. Once done, you will have a new empty Azure resource group and a GKE cluster under the *Kubernetes Engine* page in your GCP console.
 
   ![terraform apply](./22.png)
 
