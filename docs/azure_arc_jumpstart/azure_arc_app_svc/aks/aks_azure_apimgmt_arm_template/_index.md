@@ -83,7 +83,7 @@ By the end of this scenario, you will have an AKS cluster deployed with an Azure
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -117,11 +117,11 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`logAnalyticsWorkspaceName`_ - Unique name for the deployment log analytics workspace.
   - _`kubernetesVersion`_ - AKS version
   - _`dnsPrefix`_ - AKS unique DNS prefix
-  - _`deployAppService`_  Boolean that sets whether to deploy App Service plan and a Web App. For this scenario, default is set to *`false`*.
-  - _`deployFunction`_ - Boolean that sets whether to deploy App Service plan and an Azure Function application. For this scenario, default is set to *`false`*.
-    - _`deployLogicApp`_ - Boolean that sets whether to deploy App Service plan and an Azure Logic App. For this scenario, default is set to *`false`*.
-  - _`deployAPIMgmt`_ - Boolean that sets whether to deploy a self-hosted Azure API Management gateway. For this scenario, default is set to *`true`*.
-  - _`templateBaseUrl`_ - GitHub address to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
+  - _`deployAppService`_  Boolean that sets whether or not to deploy App Service plan and a Web App. For this scenario, we leave it set to *`false`*.
+  - _`deployFunction`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Function application. For this scenario, we leave it set to *`false`*.
+    - _`deployLogicApp`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to *`false`*.
+  - _`deployAPIMgmt`_ - Boolean that sets whether or not to deploy a self-hosted Azure API Management gateway. For this scenario, we leave it set to *`true`*.
+  - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
   - _`adminEmail`_ - an email address that will be used on the Azure API Management deployment to receive all system notifications.
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
@@ -150,7 +150,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters azuredeploy.parameters.json
     ```
 
-    > **Note:** If you receive an error message stating that the requested VM size isn't available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources has been provisioned, you will be able to see it in Azure portal. At this point, the resource group should have **7 various Azure resources** deployed.
 
@@ -167,7 +167,7 @@ Various options are available to connect to _Arc-App-Client_ VM, depending on th
 
 ### Connecting directly with RDP
 
-By design, port 3389 isn't allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, port 3389 is not allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _Arc-App-Client-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -189,7 +189,7 @@ By design, port 3389 isn't allowed on the network security group. Therefore, you
 
   ![Screenshot showing connecting to the VM using Bastion](./08.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -205,7 +205,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - At first login, as mentioned in the "Automation Flow" section above, the [_AppServicesLogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_app_services_jumpstart/aks/ARM/artifacts/AppServicesLogonScript.ps1) PowerShell logon script will start it's run.
 
-- Let the script to run its course and **don't close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure web application will be deployed on the cluster and be ready to use.
+- Let the script to run its course and **do not close** the PowerShell session, this will be done for you once completed. Once the script will finish it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change and the Azure web application will be deployed on the cluster and be ready to use.
 
     > **Note:** As you will notices from the screenshots below, during the Azure Arc-enabled app services environment, the _log-processor_ service pods will be restarted and will go through multiple Kubernetes pod lifecycle stages. This is normal and can safely be ignored. To learn more about the various Azure Arc-enabled app services Kubernetes components, visit the [Azure documentation page](https://learn.microsoft.com/azure/app-service/overview-arc-integration#pods-created-by-the-app-service-extension).
 
@@ -241,9 +241,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## API Management self-hosted gateway
 
-In this scenario, the Azure Arc-enabled API Management cluster extension was deployed and used throughout this scenario to deploy the self-hosted API Management gateway services infrastructure.
+In this scenario, the Azure Arc-enabled API Management cluster extension was deployed and used throughout this scenario in order to deploy the self-hosted API Management gateway services infrastructure.
 
-- To view cluster extensions, click on theAzure Arc-enabled Kubernetes resource Extensions settings.
+- In order to view cluster extensions, click on theAzure Arc-enabled Kubernetes resource Extensions settings.
 
   ![Azure Arc-enabled Kubernetes resource](./19.png)
 
