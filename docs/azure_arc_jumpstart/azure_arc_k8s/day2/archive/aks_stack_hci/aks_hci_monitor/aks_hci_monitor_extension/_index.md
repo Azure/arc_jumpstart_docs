@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for an AKS cluster running on Azure Stack HCI that's projected as an Azure Arc connected cluster.
 
-in this scenario, you will hook the AKS cluster on HCI to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) in order to start collecting telemetry.  
+in this scenario, you will hook the AKS cluster on HCI to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) to start collecting telemetry.  
 
 > **Note:** This guide assumes you already deployed an AKS on HCI cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
 

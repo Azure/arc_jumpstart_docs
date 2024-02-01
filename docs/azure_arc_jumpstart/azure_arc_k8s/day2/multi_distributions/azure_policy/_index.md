@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to enable [Azure Policy](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json) for an Azure Arc-enabled Kubernetes cluster.
 
-In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Policy by deploying the [Azure Policy cluster extension](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) on your Kubernetes cluster in order to start using some of the Kubernetes Azure Policies.
+In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azure Policy by deploying the [Azure Policy cluster extension](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) on your Kubernetes cluster to start using some of the Kubernetes Azure Policies.
 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 

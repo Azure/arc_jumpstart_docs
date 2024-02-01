@@ -50,7 +50,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 ## Azure Arc Kubernetes GitOps Configuration for Calico
 
-- We will use a shell script [*calico_k8sconfiguration_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfiguration_gitops.sh) against the GKE/EKS connected cluster. You can use Cloud Shell in order to keep your local environment clean.
+- We will use a shell script [*calico_k8sconfiguration_gitops*](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/multi_distributions/calico_gitops/calico_k8sconfiguration_gitops.sh) against the GKE/EKS connected cluster. You can use Cloud Shell to keep your local environment clean.
 
   [Google Cloud Shell](https://cloud.google.com/shell)
   [AWS Cloud Shell](https://aws.amazon.com/cloudshell/)
