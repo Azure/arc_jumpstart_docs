@@ -121,7 +121,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
 - Deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the following command:
 
   ```shell
-  az group create --name "<resource-group-name>"  --location "<preferred-location>"
+  az group create --name "<resource-group-name>"  --location "<location>"
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 

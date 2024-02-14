@@ -89,7 +89,7 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
 - Now you will use the generated ARM template to validate the HCI cluster in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right-click on the folder and open it in VSCode.
 
-- Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the parameters file looks correct without "staging" placeholder values.
+- Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the hci.parameters.json file looks correct without "-staging" placeholder parameter values.
 
 - Navigate to Azure portal and type "custom deployment" in the search bar, then select "Deploy a custom template".
 
