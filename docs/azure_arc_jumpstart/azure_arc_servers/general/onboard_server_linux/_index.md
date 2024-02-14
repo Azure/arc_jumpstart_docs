@@ -24,7 +24,7 @@ The following Jumpstart scenario will guide you on how to connect an Linux serve
 
     ```shell
     az login
-    $subscriptionId=$(az account show --query id --output tsv)
+    subscriptionId=$(az account show --query id --output tsv)
     az ad sp create-for-rbac -n "<Unique SP Name>" --role "Contributor" --scopes /subscriptions/$subscriptionId
     ```
 
@@ -32,7 +32,7 @@ The following Jumpstart scenario will guide you on how to connect an Linux serve
 
     ```shell
     az login
-    $subscriptionId=$(az account show --query id --output tsv)
+    subscriptionId=$(az account show --query id --output tsv)
     az ad sp create-for-rbac -n "JumpstartArc" --role "Contributor" --scopes /subscriptions/$subscriptionId
     ```
 
