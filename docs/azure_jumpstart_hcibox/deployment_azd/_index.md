@@ -31,7 +31,7 @@ weight: 3
 
 ### Deploy the environment
 
-- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters. It is highly recommended to use eastus as your region.
+- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters. It is highly recommended to use _eastus_ as your region.
 
   ![Screenshot showing azd up](./azd_up.png)
 
