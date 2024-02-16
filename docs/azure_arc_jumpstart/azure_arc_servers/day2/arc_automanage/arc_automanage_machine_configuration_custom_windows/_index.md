@@ -41,13 +41,14 @@ You can [connect to the ArcBox machine as described in the documentation](/azure
 - Create C:\ArcBox\MachineConfiguration.ps1, then paste and run the following commands to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.13.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.3
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.11.2
+Install-Module -Name Az.Accounts -Force -RequiredVersion 2.15.1
+Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.4
+Install-Module -Name Az.Resources -Force -RequiredVersion 6.15.1
 Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 5.10.1
+Install-Module -Name Az.Storage -Force -RequiredVersion 6.1.1
+Install-Module -Name MSI -Force -RequiredVersion 3.3.4
 
-Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.4.0
+Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.5.0
 
 Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.7
 Install-Module PSDscResources -Force -RequiredVersion 2.12.0.0
@@ -82,8 +83,8 @@ Authenticate to Azure
 Connect-AzAccount
 
 # Update the values to reflect your ArcBox deployment
-$ResourceGroupName = "arcbox-demo-rg"
-$Location = "northeurope"
+$ResourceGroupName = "<insert-rg-name>"
+$Location = "<insert-location-name>"
 ```
 
 Create storage account for storing DSC artifacts
@@ -101,7 +102,13 @@ New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name "arcboxmachinec
 The following steps needs to be executed from PowerShell 7 on the authoring machine for Windows.
 
 ```powershell
-Import-Module PSDesiredStateConfiguration -RequiredVersion 2.0.5
+Import-Module PSDesiredStateConfiguration -RequiredVersion 2.0.7
+
+$PS7Url = "https://github.com/PowerShell/PowerShell/releases/latest"
+$PS7LatestVersion = (Invoke-WebRequest -Uri $PS7url).Content | Select-String -Pattern "[0-9]+\.[0-9]+\.[0-9]+" | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty Value
+$PS7DownloadUrl = "https://github.com/PowerShell/PowerShell/releases/download/v$PS7LatestVersion/PowerShell-$PS7LatestVersion-win-x64.msi"
+Invoke-WebRequest -Uri $PS7DownloadUrl -OutFile $env:TEMP\ps7.msi
+$PS7ProductId = (Get-MSIProperty -Path $env:TEMP\ps7.msi -Property ProductCode).Value
 
 Configuration AzureArcJumpstart_Windows
 {
@@ -118,8 +125,8 @@ Configuration AzureArcJumpstart_Windows
     {
         MsiPackage PS7
         {
-            ProductId = '{323AD147-6FC4-40CB-A810-2AADF26D868A}'
-            Path = 'https://github.com/PowerShell/PowerShell/releases/download/v7.3.2/PowerShell-7.3.2-win-x64.msi'
+            ProductId = $PS7ProductId
+            Path = $PS7DownloadUrl
             Ensure = 'Present'
         }
         User ArcBoxUser
