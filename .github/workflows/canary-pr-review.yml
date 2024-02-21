@@ -51,6 +51,6 @@ jobs:
         version: 2.30.0
         reporter: github-pr-check
         filter_mode: nofilter
-        fail_on_error: false
+        fail_on_error: true
         files: '${{ env.files_to_change }}'
         token: ${{secrets.GITHUB_TOKEN}}
