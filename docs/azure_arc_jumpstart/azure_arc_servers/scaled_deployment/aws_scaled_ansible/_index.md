@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to automatically perform 
 
 This guide assumes that you have a basic understanding of Ansible. A basic Ansible playbook and configuration is provided that uses the [amazon.aws.aws_ec2](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_ec2_inventory.html) plugin for dynamic loading of EC2 server inventory.
 
-This guide can be used even if you do not already have an existing Ansible test environment and includes a Terraform plan that will create a sample AWS EC2 server inventory comprised of four (4) Windows Server 2019 servers and four (4) Ubuntu servers along with a basic CentOS 7 Ansible control server with a simple configuration.
+This guide can be used even if you do not already have an existing Ansible test environment and includes a Terraform plan that will create a sample AWS EC2 server inventory comprised of four (4) Windows Server 2022 servers and four (4) Ubuntu servers along with a basic Fedora 39 Ansible control server with a simple configuration.
 
 > **Note:** *The provided Ansible sample workbook uses WinRM with password authentication and HTTP to configure Windows-based servers. This is not advisable for production environments. If you are planning to use Ansible with Windows hosts in a production environment then you should use [WinRM over HTTPS](https://learn.microsoft.com/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) with a certificate.
 
@@ -109,35 +109,43 @@ In order for Terraform to create resources in AWS, we will need to create a new 
 
 - Login to the [AWS management console](https://console.aws.amazon.com)
 
-- After logging in, click the "Services" dropdown in the top left. Under "Security, Identity, and Compliance" select "IAM" to access the [Identity and Access Management page](https://console.aws.amazon.com/iam/home)
+- After logging in, type IAM in the search bar at the top of the page and press Enter or select "IAM" from the list to access the [Identity and Access Management page](https://console.aws.amazon.com/iam/home)
 
-    ![Screenshot of AWS cloud console](./19.png)
+    ![Screenshot of AWS cloud console](./019_typeIAMintoSearchBar.png)
 
-    ![Screenshot of IAM AWS cloud console](./20.png)
+- Click on "Users" from the left menu and then click on "Create user" to create a new IAM user.
 
-- Click on "Users" from the left menu and then click on "Add user" to create a new IAM user.
+    ![Screenshot of IAM AWS cloud console](./020_selectUsersInIAM.png)
 
-    ![Screenshot of new user creation in AWS cloud console](./21.png)
+    ![Screenshot of new user creation in AWS cloud console](./021_clickCreateUser.png)
 
-- On the "Add User" screen, name the user "terraform" and select the "Programmatic Access" checkbox then click "Next"
+- On the "Add User" screen, name the user "terraform" then click "Next"
 
-    ![Screenshot of new user creation in AWS cloud console](./22.png)
+    ![Screenshot of new user creation in AWS cloud console](./022_addUserName.png)
 
-- On the next "Set Permissions" screen, select "Attach existing policies directly" and then check the box next to AmazonEC2FullAccess as seen in the screenshot then click "Next"
+- On the next "Set Permissions" screen, select "Attach existing policies directly" and type EC2Full into the search filter, then check the box next to AmazonEC2FullAccess as seen in the screenshot then click "Next"
 
-    ![Screenshot showing new user in AWS cloud console](./23.png)
+    ![Screenshot showing attaching policy to user in AWS cloud console](./023_attachPolicy.png)
 
-- On the tags screen, assign a tag with a key of "azure-arc-demo" and click "Next" to proceed to the Review screen.
+- On the tags screen, assign a tag with a key of "azure-arc-demo" and click "Create user" to make the new user.
 
-    ![Screenshot showing tags in AWS cloud console](./24.png)
+    ![Screenshot showing tags in AWS cloud console](./024_tagUser.png)
 
-- Double check that everything looks correct and click "Create user" when ready.
+- After the user is created, you will need to add programmatic access in order to get an access key for use by Terraform. Click on "Security Credentials" then click "Create Access Key".
 
-    ![Screenshot showing creating a user in AWS cloud console](./25.png)
+    ![Screenshot showing created user in AWS cloud console](./026_createAccessKey.png)
 
-- After the user is created, you will see the user's Access key ID and Secret access key. Copy these values down before clicking the Close button. In the screen below, you can see an example of what this should look like. Once you have these keys, you will be able to use them with Terraform to create AWS resources.
+- On the first screen, scroll to the bottom and select "Other" then click "Next".
 
-    ![Screenshot showing created user in AWS cloud console](./26.png)
+    ![Screenshot showing reason for access key in AWS cloud console](./027_selectOther.png)
+
+- On the tags screen, assign a tag with a key of "azure-arc-demo" and click "Create Access Key".
+
+    ![Screenshot showing tags in AWS cloud console](./028_tagAccessKey.png)
+
+- Finally, make sure you retrieve your access key and secret.
+
+    ![Screenshot showing newly created access key and secret in AWS cloud console](./029_retrieveAccessKey.png)
 
 ## Option 1- Creating a sample AWS server inventory and Ansible control server using Terraform and onboarding the servers to Azure Arc
 
@@ -182,13 +190,13 @@ Before executing the Terraform plan, you must export the environment variables w
 
 ### Run the Ansible playbook to onboard the AWS EC2 instances as Azure Arc-enabled servers
 
-- When the Terraform plan completes, it will display the public IP of the Ansible control server in an output variable named *ansible_ip*. SSH into the Ansible server by running the *`ssh centos@XX.XX.XX.XX`* where _XX.XX.XX.XX_ is substituted for your Ansible server's IP address.
+- When the Terraform plan completes, it will display the public IP of the Ansible control server in an output variable named *ansible_ip*. SSH into the Ansible server by running the *`ssh fedora@XX.XX.XX.XX`* where _XX.XX.XX.XX_ is substituted for your Ansible server's IP address.
 
-    ![Screenshot of SSH into Ansible control server](./03.png)
+    ![Screenshot of SSH into Ansible control server](./03_sshToAnsible.png)
 
 - Change directory to the *ansible* directory by running *`cd ansible`*. This folder contains the sample Ansible configuration and the playbook we will use to onboard the servers to Azure Arc.
 
-    ![Screenshot of Ansible config folder in shell](./04.png)
+    ![Screenshot of Ansible config folder in shell](./04_llOfAnsibleFolder.png)
 
 - The aws_ec2 Ansible plugin requires AWS credentials to dynamically read your AWS server inventory. We will export these as environment variables. Run the commands below, replacing the values for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with AWS credentials you created earlier.
 
