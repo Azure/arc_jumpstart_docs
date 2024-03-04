@@ -21,6 +21,8 @@ HCIBox deployment requires an Azure service principal with Owner role-based acce
 HCIBox has been tested in the following regions. Some HCIBox resources are deployed in specific regions where required services are available.
 
 - East US
+- Australia East
+- West Europe
 
 ## How much will it cost to use HCIBox?
 
