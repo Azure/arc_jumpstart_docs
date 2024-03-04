@@ -14,6 +14,7 @@ weight: 6
 ### Release highlights
 
 - HCIBox support for 2402 OS version
+- HCIBox Azure region support - Australia East
 - Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [initial release](https://www.linkedin.com/posts/liorkamrat_arcjumpstart-mvpbuzz-msftadvocate-activity-7160667718273118212-iYrJ?utm_source=share&utm_medium=member_desktop)
 - Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [February release](https://www.linkedin.com/posts/liorkamrat_mvpbuzz-msftadvocate-azure-activity-7166081672575225857-AHV9?utm_source=share&utm_medium=member_desktop)
 
