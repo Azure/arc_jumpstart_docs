@@ -87,6 +87,8 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing key vault assignment](./key_vault_rbac.png)
 
+- Repeat this process to add your user account as a "Storage Account Contributor" on the HCIBox resource group.
+
 - Now you will use the generated ARM template to validate the HCI cluster in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right-click on the folder and open it in VSCode.
 
 - Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the hci.parameters.json file looks correct without "_-staging_" placeholder parameter values.
