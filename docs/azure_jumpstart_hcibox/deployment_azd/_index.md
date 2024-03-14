@@ -32,7 +32,8 @@ weight: 3
 ### Deploy the environment
 
 - Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters. It is highly recommended to use _eastus_ as your region.
-  > **Note:** It is possible that you might experience error such as "Unable to acquire token". This is due to deployment script use PowerShell script. The credential in the PowerShell might be different to az CLI's crendential. Please run Connect-AzAccount in PowerShell with the correct credential and re-run azd up. Reference: [https://github.com/microsoft/azure_arc/issues/2443](https://github.com/microsoft/azure_arc/issues/2443)). 
+
+  > **Note:** It is possible that you might experience an error such as "Unable to acquire token". Please run ```Connect-AzAccount``` in PowerShell with the correct credential and re-run ```azd up```. Reference: [https://github.com/microsoft/azure_arc/issues/2443](https://github.com/microsoft/azure_arc/issues/2443). 
   
   ![Screenshot showing azd up](./azd_up.png)
 
