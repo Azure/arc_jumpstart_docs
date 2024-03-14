@@ -10,9 +10,9 @@ description: >
 
 The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster on [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) and connected it as an Azure Arc cluster resource.
 
-Azure Kubernetes Service on Azure Stack HCI is an implementation of AKS on-premises using hyperconverged infrastructure operating system that is delivered as an Azure service.  
+Azure Kubernetes Service on Azure Stack HCI is an implementation of AKS on-premises using Hyper-converged infrastructure operating system that's delivered as an Azure service.  
 
-This guide will not provide instructions on how to deploy and set up Azure Stack HCI and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
+This guide won't provide instructions on how to deploy and set up Azure Stack HCI and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
 
 ## Prerequisites
 
@@ -58,13 +58,13 @@ This guide will not provide instructions on how to deploy and set up Azure Stack
 
     Copy the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
+    > **Note:** It's optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 - Enable your subscription with the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
-  Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
+  Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfigurationuration
   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState | Select-String  -Pattern "Microsoft.Kubernetes"
   ```
 
@@ -102,8 +102,8 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is running the PowerShell script to deploy a basic DHCP AKS cluster on Azure Stack HCI and onboard onto Azure Arc. Runtime script will:
 
-  - Configure the Azure Kubernetes Service cluster management services using _Set-AksHciConfig_ cmdlet.
-  - Register Azure Kubernetes Service on Azure Stack HCI with Azure ysing _Set-AksHciRegistration_ cmdlet.
+  - Configure the Azure Kubernetes Service cluster management services using _Set-AksHciConfiguration_ cmdlet.
+  - Register Azure Kubernetes Service on Azure Stack HCI with Azure using _Set-AksHciRegistration_ cmdlet.
   - Start the deployment of the AKS cluster management services using the _Install-AksHci_ cmdlet.
   - Retrieve the Azure Kubernetes Service cluster credentials.  
   - Create a target cluster with the number of Linux and Windows nodes specified.
@@ -119,7 +119,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - Now that all nodes are ready, you will deploy the AKS control management and the target cluster to your Azure Stack HCI using this [PowerShell script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/powershell/aks_hci_deploy.ps1). Edit the file to provide the environment variables that match the parameters of your environment:
 
-  - **vnetName:** the name of the vnet to host your AKS on HCI deployment.
+  - **vnetName:** the name of the VNET to host your AKS on HCI deployment.
   - **vSwitchName:** the name of the external virtual switch to connect the virtual machines to. If you already have an external switch on the host, you should pass the name of the switch here. To get the name of your available switches run the command _Get-VMSwitch_.
   - **vipPoolStart:** first IP address for the cluster VIP Pool. The IP addresses in the VIP pool will be used for the API Server and for Kubernetes services.
   - **vipPoolEnd:** last IP address for the cluster VIP Pool. The IP addresses in the VIP pool will be used for the API Server and for Kubernetes services.
@@ -128,16 +128,16 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - **ipAddressPrefix:** The address prefix to use for Static IP assignment.
   - **gateway:** The IP address of the default gateway of the subnet.
   - **dnsServers:**  An array of IP addresses pointing to the DNS servers to be used for the subnet, you should provide at least one.
-  - **imageDir:** path to the directory where AKS on Azure Stack HCI will store its VHD images, provide a shared path or SMB for multinode
-  - **cloudConfigLocation:** path to the directory where the cloud agent will store its configuration, provide a shared path or SMB for multi-node.
+  - **imageDir:** path to the directory where AKS on Azure Stack HCI will store its VHD images, provide a shared path or SMB for multi-node.
+  - **cloudConfigurationLocation:** path to the directory where the cloud agent will store its configuration, provide a shared path or SMB for multi-node.
   - **clusterName:** a name for your AKS cluster, **must be lowercase**.
   - **linuxNodeCount:** number of Linux node VMs for your cluster.
   - **resourceGroup:** resource group to connect your Azure Arc-enabled Kubernetes cluster.
   - **location:** Azure region to connect your Azure Arc-enabled Kubernetes cluster.
   - **subscriptionId:** subscription to connect your Azure Arc-enabled Kubernetes cluster.
-  - **appId:** the appID of the service principal created previously.
+  - **appId:** the appId of the service principal created previously.
   - **password:** the password of the service principal created.
-  - **tenant:** your tenantID.
+  - **tenant:** your tenantId.
 
   ![Screenshot showing the AKS on HCI deployment script](./02.png)
 
@@ -152,7 +152,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - **gateway** '192.168.0.1'
   - **dnsServers** '192.168.0.1'
   - **imageDir** 'C:\AKS-HCI\Image'
-  - **cloudConfigLocation:** 'C:\AKS-HCI\Config'
+  - **cloudConfigurationLocation:** 'C:\AKS-HCI\Configuration'
   - **clusterName:** 'archcidemo'
   - **linuxNodeCount:** 1
   - **resourceGroup:** 'Arc-AKS-HCI-Demo'

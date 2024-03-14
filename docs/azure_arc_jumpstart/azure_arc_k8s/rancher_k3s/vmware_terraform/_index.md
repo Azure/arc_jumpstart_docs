@@ -6,7 +6,7 @@ weight: 3
 description: >
 ---
 
-## Deploy Rancher k3s on a VMware vSphere VM and connect it to Azure Arc using Terraform
+## Deploy Rancher k3s on a VMware vSphere Virtual Machine and connect it to Azure Arc using Terraform
 
 The following Jumpstart scenario will guide you on how to use the provided [Terraform](https://www.terraform.io/) plan to deploy a "Ready to Go" VMware vSphere Ubuntu Server virtual machine installed with a single-master Rancher K3s Kubernetes cluster and connected it as an Azure Arc cluster resource.
 
@@ -59,13 +59,13 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -73,7 +73,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -81,7 +81,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 Before using the below guide to deploy an Ubuntu Server VM and connect it to Azure Arc, a VMware vSphere Template is required. [The following README](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/vmware_ubuntu_template/) will instruct you how to easily create such a template using VMware vSphere 6.5 and above.
 
-> **Note:** If you already have an Ubuntu Server VM template it is still recommended to use the guide as a reference.
+> **Note:** If you already have an Ubuntu Server VM template it's still recommended to use the guide as a reference.
 
 ## Deployment
 
@@ -106,7 +106,7 @@ Before executing the Terraform plan, you must set the environment variables whic
   * TF_VAR_admin_user=OS Admin Username
   * TF_VAR_admin_password=OS Admin Password
 
-* From CLI, navigate to the [*azure_arc_k8s_jumpstart/rancher_k3s/vmware/terraform*](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/rancher_k3s/vmware/terraform) directory of the cloned repo.
+* From CLI, navigate to the [*azure_arc_k8s_jumpstart/rancher_k3s/VMware/terraform*](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/rancher_k3s/vmware/terraform) directory of the cloned repo.
 
 * Export the environment variables you edited by running [*scripts/vars.sh*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/rancher_k3s/vmware/terraform/scripts/vars.sh) with the source command as shown below. Terraform requires these to be set for the plan to execute properly. Note that this script will also be automatically executed remotely on the virtual machine as part of the Terraform deployment.
 

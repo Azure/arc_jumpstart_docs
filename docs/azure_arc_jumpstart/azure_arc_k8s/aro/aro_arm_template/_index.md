@@ -57,13 +57,13 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the resource providers for Azure Arc-enabled Kubernetes and Azure Red Hat OpenShift. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
+  az provider register --namespace Microsoft.KubernetesConfigurationuration --wait
   az provider register --namespace Microsoft.ExtendedLocation --wait
   az provider register --namespace Microsoft.RedHatOpenShift --wait
   ```
@@ -72,7 +72,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   az provider show -n Microsoft.RedHatOpenShift -o table
   ```
@@ -94,7 +94,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
   az ad sp list --filter "displayname eq 'Azure Red Hat OpenShift RP'" --query "[?appDisplayName=='Azure Red Hat OpenShift RP'].{name: appDisplayName, objectId: id}"
   ```
 
-  ![Screenshot of Azure resource provider for Aro](./02.png)
+  ![Screenshot of Azure resource provider for ARO](./02.png)
 
 ## Deployment Options and Automation Flow
 
@@ -119,7 +119,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Faro%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Faro%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment](./03.png)
 
@@ -145,21 +145,21 @@ For you to get familiar with the automation and deployment flow, below is an exp
   For example:
 
   ```shell
-  az group create --name Arc-Aro-Demo --location "East US"
+  az group create --name Arc-ARO-Demo --location "East US"
   az deployment group create \
-  --resource-group Arc-Aro-Demo \
+  --resource-group Arc-ARO-Demo \
   --name arcarodemo01 \
   --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aro/arm_template/azuredeploy.json \
   --parameters azuredeploy.parameters.json
   ```
 
-    > **Note:** It normally takes about ~30-40 minutes for the ARO cluster to deploy.
+    > **Note:** It normally takes about ~30/40 minutes for the ARO cluster to deploy.
 
 - Once the ARM template deployment is completed, a new Azure Red Hat OpenShift cluster in a new Azure resource group is created.
 
-  ![Screenshot of Azure portal showing Aro resource](./06.png)
+  ![Screenshot of Azure portal showing ARO resource](./06.png)
 
-  ![Screenshot of Azure portal showing Aro resource](./07.png)
+  ![Screenshot of Azure portal showing ARO resource](./07.png)
 
 ## Connecting to Azure Arc
 
@@ -167,7 +167,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot of az_connect_aro shell script](./08.png)
 
-- In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *az_connect_aro* shell script against the Aro cluster. **Make sure Cloud Shell is configured to use Bash.**
+- To keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *az_connect_aro* shell script against the ARO cluster. **Make sure Cloud Shell is configured to use Bash.**
 
   ![Screenshot of Azure Cloud Shell button in Visual Studio Code](./09.png)
 
@@ -179,7 +179,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot showing upload of file to Cloud Shell](./11.png)
 
-- Once the script run has finished, the Aro cluster will be projected as a new Azure Arc-enabled Kubernetes cluster resource.
+- Once the script run has finished, the ARO cluster will be projected as a new Azure Arc-enabled Kubernetes cluster resource.
 
   ![Screenshot showing the Azure portal with Azure Arc-enabled Kubernetes resource](./12.png)
 

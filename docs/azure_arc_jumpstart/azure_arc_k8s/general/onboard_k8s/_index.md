@@ -12,9 +12,9 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
 
 ## Prerequisites
 
-* Make sure your *kubeconfig* file is configured properly and you are working against your [k8s cluster context](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
+* Make sure your *kubeconfiguration* file is configured properly and you are working against your [k8s cluster context](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
-* (Optional) To simplify work against multiple k8s contexts, consider using [kubectx](https://github.com/ahmetb/kubectx).
+* (Optional) To simplify work against multiple k8s contexts, consider using [Kubectx](https://github.com/ahmetb/kubectx).
 
 * [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
@@ -22,7 +22,7 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
   az --version
   ```
 
-* [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* [Install and Set Up using Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 * [Install Helm 3](https://helm.sh/docs/intro/install/). If you are on a Windows environment, a recommended and easy way is to use the [Helm 3 Chocolatey package](https://chocolatey.org/packages/kubernetes-helm).
 
@@ -57,13 +57,13 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 * [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -71,7 +71,7 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -147,10 +147,10 @@ The following Jumpstart scenario will guide you on how to connect an existing Ku
 
   ```shell
   sudo chown -R $USER /home/${USER}/.kube
-  sudo chown -R $USER /home/${USER}/.kube/config
-  sudo chown -R $USER /home/${USER}/.azure/config
+  sudo chown -R $USER /home/${USER}/.kube/configuration
+  sudo chown -R $USER /home/${USER}/.azure/configuration
   sudo chown -R $USER /home/${USER}/.azure
-  sudo chmod -R 777 /home/${USER}/.azure/config
+  sudo chmod -R 777 /home/${USER}/.azure/configuration
   sudo chmod -R 777 /home/${USER}/.azure
   ```
 

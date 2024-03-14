@@ -71,7 +71,7 @@ GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a p
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -81,7 +81,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is editing the environment variables in the Shell script file (1-time edit) which then be used throughout the GitOps configuration.
 
-- User is running the shell script. The script will use the extension management feature of Azure Arc to deploy the Flux extension and create GitOps configurations on the Azure Arc-connected Kubernetes cluster.
+- User is running the shell script. The script will use the extension management feature of Azure Arc to deploy the Flux extension and create GitOps configuration on the Azure Arc-connected Kubernetes cluster.
 
 - The script will also create a namespace and deploy Nginx Ingress Controller.
 
@@ -89,15 +89,15 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is making an edit on the GitHub repo that will cause Flux GitOps to detect this change and trigger an update to the pod deployment.
 
-## Cluster-level Config vs. Namespace-level Config
+## Cluster-level Configuration vs. Namespace-level Configuration
 
-### Cluster-level Config
+### Cluster-level Configuration
 
-With Cluster-level GitOps config, the goal is to have an "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc. A very popular example will also be Ingress Controller which is exactly the nginx-ingress controller we will deploy in the next section.
+With Cluster-level GitOps configuration, the goal is to have an "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc. A popular example will also be Ingress Controller which is exactly the nginx-ingress controller we will deploy in the next section.
 
-### Namespace-level Config
+### Namespace-level Configuration
 
-With Namespace-level GitOps config, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and it's respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
+With Namespace-level GitOps configuration, the goal is to have Kubernetes resources deployed only in the namespace selected. The most obvious use-case here is simply your application and it's respective pods, services, ingress routes, etc. In the next section will have the "Hello Arc" application deployed on a dedicated namespace.
 
 ## Azure Arc Kubernetes GitOps Configuration
 
@@ -105,11 +105,11 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 - In the screenshot below, notice how currently there is no GitOps configuration in your Arc-enabled Kubernetes cluster.
 
-    ![Screenshot showing Azure portal with no Azure Arc-enabled Kubernetes GitOps configurations](./03.png)
+    ![Screenshot showing Azure portal with no Azure Arc-enabled Kubernetes GitOps configuration](./03.png)
 
-- In order to keep your local environment clean and untouched, we will use [Google Cloud Shell](https://cloud.google.com/shell) to run the *az_k8sconfig_gke* shell script against the GKE connected cluster.
+- To keep your local environment clean and untouched, we will use [Google Cloud Shell](https://cloud.google.com/shell) to run the *az_k8sconfiguration_gke* shell script against the GKE connected cluster.
 
-- Edit the environment variables in the [*az_k8sconfig_gke*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/gitops/basic/az_k8sconfig_gke.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the _`. ./az_k8sconfig_gke.sh`_ command.
+- Edit the environment variables in the [*az_k8sconfiguration_gke*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/gke/gitops/basic/az_k8sconfiguration_gke.sh) shell script to match your parameters, upload it to the Cloud Shell environment and run it using the _`. ./az_k8sconfiguration_gke.sh`_ command.
 
     > **Note:** The extra dot is due to the script having an *export* function and needs to have the vars exported in the same shell session as the rest of the commands.
 
@@ -132,12 +132,12 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
     The script will:
 
   - Login to your Azure subscription using the SPN credentials
-  - Retrieve the cluster credentials (KUBECONFIG)
-  - Use Helm to deploy NGINX ingress controller
-  - Create the GitOps configurations and deploy the Flux controllers on the Azure Arc connected cluster
+  - Retrieve the cluster credentials (_kubeconfiguration_)
+  - Use Helm to deploy Nginx ingress controller
+  - Create the GitOps configuration and deploy the Flux controllers on the Azure Arc connected cluster
   - Deploy the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc/yaml) application alongside an Ingress rule to make it available from outside the cluster
 
-    > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (the default value is 5min).
+    > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it's recommended to have longer interval in your production environment (the default value is 5min).
 
 - Once the script will complete it's run, you will have the GitOps configuration created and all the resources deployed in your Kubernetes cluster.
 
@@ -145,15 +145,15 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
     ![Flux extension](./11.png)
 
-    ![New GitOps configurations](./12.png)
+    ![New GitOps configuration](./12.png)
 
-    ![New GitOps configurations](./13.png)
+    ![New GitOps configuration](./13.png)
 
-    ![New GitOps configurations](./14.png)
+    ![New GitOps configuration](./14.png)
 
 ## The "Hello Arc" Application & Components
 
-- Before kicking the GitOps flow, let's verify and "zoom-in" to the Kubernetes resources deployed by running few _kubectl_ commands.
+- Before kicking the GitOps flow, let's verify and "zoom-in" to the Kubernetes resources deployed by running few `kubectl` commands.
 
 - Show the Flux agent and controller pods.
 
@@ -161,31 +161,31 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
     kubectl get pods -n flux-system 
     ```
 
-    ![kubectl get pods -n flux-system ](./15.png)
+    ![Get pods of namespace flux-system ](./15.png)
 
-- Show 3 replicas of the "Hello Arc" application and the NGINX controller.
+- Show 3 replicas of the "Hello Arc" application and the Nginx controller.
 
     ```shell
     kubectl get pods -n hello-arc
     ```
 
-    ![kubectl get pods -n hello-arc](./16.png)
+    ![Get pods of namespace hello-arc](./16.png)
 
-- Show NGINX controller Kubernetes Service (Type _LoadBalancer_).
+- Show Nginx controller Kubernetes Service (Type _LoadBalancer_).
 
     ```shell
     kubectl get svc -n hello-arc
     ```
 
-    ![kubectl get svc -n hello-arc](./17.png)
+    ![Get services of namespace hello-arc](./17.png)
 
-- Show NGINX rule which will route the traffic to the "Hello Arc" application from outside the cluster.
+- Show Nginx rule which will route the traffic to the "Hello Arc" application from outside the cluster.
 
     ```shell
     kubectl get ing -n hello-arc
     ```
 
-    ![kubectl get ing -n hello-arc](./18.png)
+    ![Get ingress of namespace hello-arc](./18.png)
 
 - The GitOps flow works as follow:
 
@@ -203,19 +203,19 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
       kubectl get pods -n hello-arc -w
       ```
   
-    ![kubectl get pods -n hello-arc -w](./19.png)
+    ![Get pods of namespace hello-arc -w](./19.png)
 
   - In **your fork** of the "Azure Arc Jumpstart" repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
 
   - The external IP address of the Kubernetes Service seen using the _`kubectl get svc -n hello-arc`_ command.
 
-    ![kubectl get svc -n hello-arc](./20.png)
+    ![Get services of namespace hello-arc](./20.png)
 
   - End result should look like that:
 
     ![Side-by-side view of terminal, "Hello Arc" GitHub repo and the application open in a web browser](./21.png)
 
-- As mentioned in the prerequisites section, it is optional but highly recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
+- As mentioned in the prerequisites section, it's optional but highly recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
 
     ![Tab Auto Refresh](./22.png)
 

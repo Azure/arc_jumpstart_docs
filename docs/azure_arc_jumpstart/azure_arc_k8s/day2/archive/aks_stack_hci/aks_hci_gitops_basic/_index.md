@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
-linkTitle: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
+title: "Deploy GitOps configuration and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
+linkTitle: "Deploy GitOps configuration and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
 weight: 1
 description: >
 ---
 
-## Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster
+## Deploy GitOps configuration and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to create GitOps configuration on an Azure Kubernetes Service (AKS) cluster that is running on Azure Stack HCI and which is projected as an Azure Arc connected cluster resource.
+The following Jumpstart scenario will guide you on how to create GitOps configuration on an Azure Kubernetes Service (AKS) cluster that's running on Azure Stack HCI and which is projected as an Azure Arc connected cluster resource.
 
 in this scenario, you will deploy & attach GitOps configuration to your cluster which will also include deploying an "Hello World" Azure Arc web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
@@ -32,7 +32,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
   * [Mozilla Firefox](https://addons.mozilla.org/firefox/addon/tab-auto-refresh/)
 
-* As mentioned, this scenario starts at the point where you already have a connected AKS cluster to Azure Arc that is running on Azure Stack HCI.
+* As mentioned, this scenario starts at the point where you already have a connected AKS cluster to Azure Arc that's running on Azure Stack HCI.
 
     ![Existing Azure Arc-enabled Kubernetes cluster](./01.png)
 
@@ -56,7 +56,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
-  Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
+  Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfigurationuration
   Register-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
   ```
 
@@ -64,7 +64,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
   ```powershell
   Get-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
-  Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
+  Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfigurationuration
   Get-AzResourceProvider -ProviderNamespace Microsoft.ExtendedLocation
   ```
   
@@ -102,9 +102,9 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
     $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
     ```
 
-    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
+    > **Note:** It's optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
-* If you do not have the AksHci PowerShell module already, you will have to perform a clean installation. To install the AksHci PowerShell module remove any previous versions by running the below commands:
+* If you don't have the AksHci PowerShell module already, you will have to perform a clean installation. To install the AksHci PowerShell module remove any previous versions by running the below commands:
 
   ```powershell
   Install-Module -Name Az.Accounts -Repository PSGallery -RequiredVersion 2.2.4
@@ -134,9 +134,9 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 * User is running the PowerShell script to enable and set up a GitOps configuration. Runtime script will:
   * Login to your Azure subscription using the SPN credentials.
-  * Retrieve the cluster credentials (KUBECONFIG).
-  * Use Helm to deploy NGINX ingress controller.
-  * Create the GitOps configurations and deploy the Flux operator and Memcached on the Azure Arc connected cluster.
+  * Retrieve the cluster credentials (_kubeconfiguration_).
+  * Use Helm to deploy Nginx ingress controller.
+  * Create the GitOps configuration and deploy the Flux operator and Memcached on the Azure Arc connected cluster.
   * Deploy the ["Hello Arc"](https://github.com/likamrat/hello_arc) application along side an Ingress rule to make it available from outside the cluster.
 
 * User will kick the GitOps flow by making changes to the ["Hello Arc"](https://github.com/likamrat/hello_arc) application, this will be considered a new version by the Flux Operator.
@@ -147,42 +147,42 @@ For you to get familiar with the automation and deployment flow, below is an exp
   
 ## Azure Arc Kubernetes GitOps Configuration
 
-* Edit the environment variables in the [*az_k8sconfig_aks_hci*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/gitops/basic/az_k8sconfig_aks_hci.ps1) PowerShell script to match your parameters and run it using the ```.\az_k8sconfig_aks_hci.ps1``` command.
+* Edit the environment variables in the [*az_k8sconfiguration_aks_hci*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/gitops/basic/az_k8sconfiguration_aks_hci.ps1) PowerShell script to match your parameters and run it using the ```.\az_k8sconfiguration_aks_hci.ps1``` command.
 
-    > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
+    > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it's recommended to have longer interval in your production environment (default value is 5min).
 
 * Once the script will complete it's run, you will have the GitOps configuration created and all the resources deployed in your Kubernetes cluster running on Azure Stack HCI.
 
     > **Note:** that it takes few min for the configuration change it's Operator state status from "Pending" to Install.
 
-    ![New GitOps configurations](./04.png)
+    ![New GitOps configuration](./04.png)
 
-    ![New GitOps configurations](./05.png)
+    ![New GitOps configuration](./05.png)
 
-    ![New GitOps configurations](./06.png)
+    ![New GitOps configuration](./06.png)
 
 ## The "Hello Arc" Application & Components
 
-* Before kicking the GitOps flow, let's review the Kubernetes resources deployed by running few _kubectl_ commands.
+* Before starting the GitOps flow, let's review the Kubernetes resources deployed by running few `kubectl` commands.
 
   * *`kubectl get pods -n prod`* - Will show the Flux operator, the Memcached pods and the "Hello Arc" application pods.
-    * *`kubectl get pods -n cluster-mgmt`* - Will show the NGINX controller.
-    * *`kubectl get svc -n prod`* - Will show NGINX controller Kubernetes Service (Type LoadBalancer).
-    * *`kubectl get ing -n prod`* - Will show NGINX rule which will route the traffic to the "Hello Arc" application from outside the cluster.
+    * *`kubectl get pods -n cluster-mgmt`* - Will show the Nginx controller.
+    * *`kubectl get svc -n prod`* - Will show Nginx controller Kubernetes Service (Type LoadBalancer).
+    * *`kubectl get ing -n prod`* - Will show Nginx rule which will route the traffic to the "Hello Arc" application from outside the cluster.
 
-    ![kubectl get pods -n prod](./07.png)
+    ![Get pods of namespace prod](./07.png)
 
-    ![kubectl get pods -n cluster-mgmt](./08.png)
+    ![Get pods of  namespace cluster-mgmt](./08.png)
 
-    ![kubectl get svc -n prod](./09.png)
+    ![Get services of namespace prod](./09.png)
 
-    ![kubectl get ing -n prod](./10.png)
+    ![Get ingress of namespace prod](./10.png)
 
 * The GitOps flow works as follow:
 
     1. The Flux operator holds the "desired state" of the "Hello Arc" application, this are the configuration we deployed against the Azure Arc connected cluster. The operator "pulls" the state of the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository.
 
-    2. Changing the application which is consider to be a new version of it, will trigger the Flux operator to kick-in the GitOps flow.
+    2. Change the application which is consider to be a new version of it, will trigger the Flux operator to kick-in the GitOps flow.
 
     3. A new Kubernetes pod with the new version of the application will be deployed on the cluster. Once the new pods is successfully deployed, the old one will be terminated (rolling upgrade).
 
@@ -190,19 +190,23 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   * Run *`kubectl get pods -n prod -w`* command
 
-    ![kubectl get pods -n prod -w](./11.png)
+    ![Kubectl get pods -n prod -w](./11.png)
 
   * Your fork of the "Hello Arc" application repository. Open the [*hello_arc.yaml*](https://github.com/likamrat/hello_arc/blob/master/yaml/hello_arc.yaml) file.
 
-  * The IP address of the Kubernetes Service seen using the *`kubectl get svc -n prod`* command.
+  * The IP address of the Kubernetes Service. Run the following command:
+  
+    ```bash
+    kubectl get svc -n prod
+    ```
 
-    ![kubectl get svc -n prod](./12.png)
+    ![Kubectl get svc -n prod](./12.png)
 
   * End result should look like that:
 
     ![Side-by-side view of terminal, "Hello Arc" GitHub repo and the application open in a web browser](./13.png)
 
-* As mentioned in the prerequisites section, it is optional but very recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
+* As mentioned in the prerequisites section, it's optional but very recommended to configure the "Tab Auto Refresh" extension for your browser. If you did, in the "Hello Arc" application window, configure it to refresh every 2 seconds.
 
     ![Tab Auto Refresh](./14.png)
 

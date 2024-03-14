@@ -55,7 +55,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Enable subscription for two providers for Azure Arc-enabled Kubernetes.
   
@@ -63,7 +63,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -71,7 +71,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Azur
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -104,13 +104,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 1. User provides the ARM template parameter values, either via the portal or editing the ARM template parameters file (1-time edit). These parameters values are being used throughout the deployment.
 
-2. User deploys the ARM template that will initiate the deployment of the k3s cluster and that will be onboarded as an Azure Arc-enabled Kubernetes cluster.
+2. User deploys the ARM template that will initiate the deployment of the k3s cluster and that will be configure as an Azure Arc-enabled Kubernetes cluster.
 
 3. User configures external access for the cluster.
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Francher_k3s%2Fazure%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_k8s_jumpstart%2Francher_k3s%2Fazure%2Farm_template%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment](./01.png)
 
@@ -142,7 +142,7 @@ az deployment group create \
 --parameters azuredeploy.parameters.json
 ```
 
-> **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
+> **Note:** If you receive an error message stating that the requested VM size isn't available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 Upon completion, you will have new VM installed as a single-host k3s cluster which is already projected as an Azure Arc-enabled Kubernetes cluster in a new resource group.
 
@@ -158,7 +158,7 @@ cat /home/<USER>/jumpstart_logs/installK3s.log
 
 ![Screenshot showing the installK3s log file](./04.png)
 
-> **Note:** For enhanced security posture, SSH (22) port are not open by default in this scenario. You will need to create a network security group (NSG) rule to allow network access to port 22, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+> **Note:** For enhanced security posture, SSH (22) port aren't open by default in this scenario. You will need to create a network security group (NSG) rule to allow network access to port 22, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-configuration-asc%2Cjit-request-asc) access to connect to the VM.
 
 ## Cleanup
 

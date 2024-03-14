@@ -24,7 +24,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
   az --version
   ```
 
-- [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [Install and Set Up Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 - [Install Helm 3](https://helm.sh/docs/intro/install/)
 
@@ -58,13 +58,13 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
     ```
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - [Enable subscription with](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -72,7 +72,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -118,7 +118,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
     microk8s enable dns
     ```
 
-    ![linux install microk8s](./01.png)
+    ![Linux install microk8s](./01.png)
 
   MacOS:
 
@@ -135,20 +135,20 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
   [This blog post](https://ubuntu.com/blog/kubernetes-on-windows-with-microk8s-and-wsl-2) walks through an installation of MicroK8s in WSL 2.
 
-- Export MicroK8s cluster kubeconfig file path
+- Export MicroK8s cluster kubeconfiguration file path
 
-  MicroK8s will not update your .kube/config file, and accessing the cluster is done using the microk8s cli, eg: `microk8s kubectl get nodes`. To be able to use this config with the Azure Arc CLI, we need to export it into a file.
+  MicroK8s won't update your .kube/configuration file, and accessing the cluster is done using the microk8s-cli, for example: `microk8s kubectl get nodes`. To be able to use this configuration with the Azure Arc CLI, we need to export it into a file.
 
   Windows:
 
     ```shell
-    microk8s config view > %HOMEPATH%\.kube\microk8s
+    microk8s configuration view > %HOMEPATH%\.kube\microk8s
     ```
 
   Linux and MacOS:
 
     ```shell
-    microk8s config view > ~/.kube/microk8s
+    microk8s configuration view > ~/.kube/microk8s
     ```
 
 ## Connect the cluster to Azure Arc
@@ -178,13 +178,13 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
   Windows:
 
   ```shell
-  az connectedk8s connect --name Arc-MicroK8s-Demo --resource-group Arc-MicroK8s-Demo --kube-config %HOMEPATH%\.kube\microk8s --kube-context microk8s --tags 'Project=jumpstart_azure_arc_k8s' --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"
+  az connectedk8s connect --name Arc-MicroK8s-Demo --resource-group Arc-MicroK8s-Demo --kube-configuration %HOMEPATH%\.kube\microk8s --kube-context microk8s --tags 'Project=jumpstart_azure_arc_k8s' --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"
   ```
 
   Linux and MacOS:
 
   ```shell
-  az connectedk8s connect --name Arc-MicroK8s-Demo --resource-group Arc-MicroK8s-Demo  --kube-config ~/.kube/microk8s --kube-context microk8s --tags 'Project=jumpstart_azure_arc_k8s' --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"
+  az connectedk8s connect --name Arc-MicroK8s-Demo --resource-group Arc-MicroK8s-Demo  --kube-configuration ~/.kube/microk8s --kube-context microk8s --tags 'Project=jumpstart_azure_arc_k8s' --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"
   ```
 
   ![New Azure Arc-enabled Kubernetes cluster](./05.png)
@@ -199,7 +199,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
 Now that your Kubernetes cluster is connected to Azure Arc, you might want to explore the following Day 2 scenarios:
 
-- [Deploy GitOps configurations and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm/)
+- [Deploy GitOps configuration and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm/)
 
 ## Delete the deployment
 

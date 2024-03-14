@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy"
-linkTitle: "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy"
+title: "Apply GitOps configuration on AKS as an Arc Connected Cluster using Azure Policy"
+linkTitle: "Apply GitOps configuration on AKS as an Arc Connected Cluster using Azure Policy"
 weight: 4
 description: >
 ---
 
-## Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy
+## Apply GitOps configuration on AKS as an Arc Connected Cluster using Azure Policy
 
-The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Kubernetes Service (AKS) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Kubernetes Service (AKS) cluster that's projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
 
 > **Note:** This guide assumes you already deployed an AKS cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using either [ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or [Terraform](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).**
 
@@ -34,7 +34,7 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 
     ![Existing AKS Azure Arc connected cluster](./02.png)
 
-* Before installing the Azure Policy Add-on or enabling any of the service features, your subscription must enable the Microsoft.PolicyInsights resource provider and create a role assignment for the cluster service principal. To do that, open [Azure Cloud Shell](https://shell.azure.com/) and run either the Azure CLI or Azure PowerShell command.
+* Before installing the Azure Policy Add-on or enabling any of the service features, your subscription must enable the **Microsoft PolicyInsights** resource provider and create a role assignment for the cluster service principal. To do that, open [Azure Cloud Shell](https://shell.azure.com/) and run either the Azure CLI or Azure PowerShell command.
 
     ![Open Azure Cloud Shell](./03.png)
 
@@ -101,11 +101,11 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Policy for Azure Arc Connected Cluster Integration
 
-* In order to keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_policy_onboarding* script against the AKS connected cluster. For your convenient, shell script is [provided to you](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/azure_policy/aks_policy_onboarding.sh).
+* To keep your local environment clean and untouched, we will use [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) (located in the top-right corner of the Azure portal) to run the *aks_policy_onboarding* script against the AKS connected cluster. For your convenient, shell script is [provided to you](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks/azure_policy/aks_policy_onboarding.sh).
 
 * Edit the environment variables in the script to match your environment parameters, upload it to the Cloud Shell environment and run it using the *`. ./aks_policy_onboarding.sh`* command. ***If you decided to use the 'Policy Insights Data Writer (Preview)' role assignment as described in the perquisites section, make sure to use it's respective *appId*, *password* and *tenantId***.
 
@@ -120,11 +120,11 @@ The following Jumpstart scenario will guide you on how to enable [Azure Policy f
 The script will:
 
 * Login to your Azure subscription using the SPN credentials
-* Install NGINX Ingress Controller
+* Install Nginx Ingress Controller
 * Retrieve the Azure Arc Connected Cluster Azure Resource ID
 * Install the 'azure-policy-addon' helm chart & Gatekeeper
 
-After few seconds, by running the the *`kubectl get pods -A`* command, you will notice all pods have been deployed.
+After few seconds, by running the *`kubectl get pods -A`* command, you will notice all pods have been deployed.
 
 ![Showing pods deployment](./09.png)
 
@@ -132,9 +132,9 @@ After few seconds, by running the the *`kubectl get pods -A`* command, you will 
 
 Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm/) on each of your Azure Arc connected clusters, Azure Policy for Kubernetes allows to do the same on a broader scope (i.e subscription or resource group). That way, you can guarantee existing and newly added Azure Arc connected clusters to all have the same GitOps configuration and as a result, the same cluster baseline and/or application version deployed.
 
-* Before assigning the policy, in the Azure portal, click the *Configuration* setting in your AKS connected cluster. Notice how no GitOps configurations are deployed.
+* Before assigning the policy, in the Azure portal, click the *Configuration* setting in your AKS connected cluster. Notice how no GitOps configuration are deployed.
 
-    ![Empty GitOps configurations](./10.png)
+    ![Empty GitOps configuration](./10.png)
 
 * In the Search bar, look for *Policy* and click on *Definitions* which will show you all of the available Azure policies.
 
@@ -150,7 +150,7 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
 * In the below example, the scope of the policy represent the resource group where the AKS connected cluster Azure Arc resource is located. Alternatively, the scope could have been the entire Azure subscription or a resource group with many Azure Arc connected clusters. Also, make sure *Policy enforcement* is set to *Enabled*.
 
-    For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the NGINX ingress controller.
+    For this GitOps configuration policy, we will be using the ["Hello Arc"](https://github.com/likamrat/hello_arc) application repository which includes the Kubernetes Service for external access, Deployment as well as the ingress rule to be used by the Nginx ingress controller.
 
     ![Assigning Azure policy](./15.png)
 
@@ -178,15 +178,15 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
 ## Verify GitOps Configuration & App Deployment
 
-* Now that the policy is in compliant state, let's first verify the GitOps configurations. In the Azure portal click the AKS connected Azure Arc cluster and open the Configurations settings.
+* Now that the policy is in compliant state, let's first verify the GitOps configuration. In the Azure portal click the AKS connected Azure Arc cluster and open the Configurations settings.
 
-    ![Successful GitOps config deployment](./25.png)
+    ![Successful GitOps configuration deployment](./25.png)
 
-    ![Successful GitOps config deployment](./26.png)
+    ![Successful GitOps configuration deployment](./26.png)
 
-    ![Successful GitOps config deployment](./27.png)
+    ![Successful GitOps configuration deployment](./27.png)
 
-* In order to verify the "Hello Arc" application and it's component has been deployed, In the Azure Cloud Shell, run the below commands.
+* To verify the "Hello Arc" application and it's component has been deployed, In the Azure Cloud Shell, run the below commands.
 
     ```shell
     kubectl get pods -n hello-arc
@@ -206,7 +206,7 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
 Complete the following steps to clean up your environment.
 
-* Delete the AKS cluster as described in the [ARM Template teardown instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or the [Terraform teardown instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).
+* Delete the AKS cluster as described in the [ARM Template deletion instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or the [Terraform deletion instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).
 
 * From the Policy page in the Azure portal, remove the "[Preview]: Deploy GitOps to Kubernetes cluster" policy assignment from the cluster.
 

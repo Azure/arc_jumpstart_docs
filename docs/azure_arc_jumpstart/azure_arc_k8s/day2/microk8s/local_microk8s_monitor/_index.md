@@ -59,13 +59,13 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Azure Monitor for Containers Integration
 
 * Retrieve either the shell and PowerShell scripts [provided](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/microk8s/azure_monitor).
 
-* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster is not currently being monitored.
+* Before integrating the cluster with Azure Monitor for Containers, click on the "Insights (preview)" blade for the connected Arc cluster to show how the cluster isn't currently being monitored.
 
     ![An existing Azure Arc-enabled Kubernetes cluster](./01.png)
 
@@ -86,14 +86,14 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
   * Login to your Azure subscription using the SPN credentials
   * Download the Azure Monitor agent script
-  * Retrieve the Azure Arc Connected Cluster Azure Resource ID as well as the cluster credentials (KUBECONFIG)
-  * Retrieve the Kube config using the `microk8s config` command and append the configuration to ~/.kube/config
+  * Retrieve the Azure Arc Connected Cluster Azure Resource ID as well as the cluster credentials (_kubeconfiguration_)
+  * Retrieve the Kubernetes configuration using the `microk8s configuration` command and append the configuration to ~/.kube/configuration
   * Execute the script which will create Azure Log Analytics workspace, deploy the Azure Monitor agent on the Kubernetes cluster and tag the cluster
   * Delete the downloaded script
 
   * Once the script will complete its run, you will have an Azure Arc connected cluster integrated with Azure Monitor for Containers.
   
-At the end of its run, the script will generate a URL for you to click on, this URL will open a new browser tab leading to the Azure Monitor for Containers Insights page.
+At the end of its run, the script will generate an address for you to click on, this address will open a new browser tab leading to the Azure Monitor for Containers Insights page.
 
   > **Note:** As the Azure Monitor agent starts collecting telemetry from the cluster nodes and pods, it will take 5-10min for data to start show up in the Azure portal.
 

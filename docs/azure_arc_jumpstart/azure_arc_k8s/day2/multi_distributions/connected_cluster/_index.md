@@ -58,7 +58,7 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
 
 ## Azure Arc Kubernetes Connected Cluster Configuration
 
-The following steps walk through using the Cluster Connect functionality using Azure Active Directory (AAD); however, it can also be done using a service account token.  The benefit of using AAD authentication is that your current, logged-in user from the Azure CLI will be used and you won't have to obtain a service account token from your cluster.
+The following steps walk through using the Cluster Connect functionality using Azure Active Directory (AAD); however, it can also be done using a service account token. The benefit of using AAD authentication is that your current, logged-in user from the Azure CLI will be used and you won't have to obtain a service account token from your cluster.
 
 - First, get values for the cluster name and resource group name in your terminal.
 
@@ -107,7 +107,7 @@ The following steps walk through using the Cluster Connect functionality using A
 
 ## Access Cluster
 
-From your terminal, run the following command to establish the proxy to the cluster.  Note that the specific port number that's used may differ from the screenshot below.
+From your terminal, run the following command to establish the proxy to the cluster. Note that the specific port number that's used may differ from the screenshot below.
 
   ```shell
   az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
@@ -115,19 +115,19 @@ From your terminal, run the following command to establish the proxy to the clus
 
   ![Screenshot showing proxy established](./02.png)
 
-## Run kubectl commands
+## Run Kubernetes commands
 
-With the proxy established, in another terminal session run a kubectl command.
+With the proxy established, in another terminal session run a `kubectl` command.
 
   ```shell
   kubectl get nodes
   ```
 
-  ![Screenshot showing a running kubectl command](./03.png)
+  ![Screenshot showing a running Kubernetes command](./03.png)
 
-If you already have a workload running on your cluster, you can view it using other kubectl commands, as the following screenshot illustrates:
+If you already have a workload running on your cluster, you can view it using other `kubectl` commands, as the following screenshot illustrates:
 
-  ![Screenshot showing an example kubectl command](./04.png)
+  ![Screenshot showing an example Kubernetes command](./04.png)
 
 ## Close Proxy Connection
 
@@ -135,4 +135,4 @@ In your terminal, use the _CTRL+C_ key combination to close the proxy session.
 
   ![Screenshot showing closing Proxy to the connected cluster](./05.png)
 
-With the proxy session now closed, access to the cluster using kubectl via the proxy is disabled.
+With the proxy session now closed, access to the cluster using `kubectl` via the proxy is disabled.

@@ -65,7 +65,7 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 ## Automation Flow
 
@@ -89,9 +89,9 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 To create a new Cluster extension instance, we will use the _k8s-extension create_ command while passing in values for the mandatory parameters. This scenario provides you with the automation to deploy the Dapr Cluster extension on your Azure Arc-enabled Kubernetes cluster.
 
-> **Note:** Before installing the Dapr extension, make sure that the _kubectl_ context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the kubecontext to different Kubernetes clusters.
+> **Note:** Before installing the Dapr extension, make sure that the `kubectl` context is pointing to your Azure Arc-enabled Kubernetes cluster. To do that, you can refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) to find the options to change the Kubernetes context to different Kubernetes clusters.
 
-![Screenshot showing current kubectl context pointing to K8s cluster](./03.png)
+![Screenshot showing current Kubernetes context pointing to K8s cluster](./03.png)
 
 - In the screenshot below, notice how currently there are no extensions installed yet in your Arc-enabled Kubernetes cluster.
 
@@ -113,7 +113,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
   - Create Dapr extension Cluster instance
   - Configure the state store on Kubernetes and deploy the Node.js app
 
-- Once the script will complete it’s run, you can see that the Dapr Cluster extension is now enabled in the extension tab section of the Azure Arc-enabled Kubernetes cluster resource in Azure. The script usually takes 10-20 minutes to complete.
+- Once the script will complete it’s run, you can see that the Dapr Cluster extension is now enabled in the extension tab section of the Azure Arc-enabled Kubernetes cluster resource in Azure. The script usually takes ~10/20 minutes to complete.
 
     ![Screenshot script completion](./07.png)
 
@@ -121,7 +121,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
 ## Dapr Components & Node.js application
 
-- Before validating the app, let’s verify and “zoom in” to the Kubernetes resources deployed by running a few _kubectl_ commands.
+- Before validating the app, let’s verify and “zoom in” to the Kubernetes resources deployed by running a few `kubectl` commands.
 
     ```shell
     kubectl get pods -n dapr-system
@@ -169,7 +169,7 @@ To create a new Cluster extension instance, we will use the _k8s-extension creat
 
 ## Deploy the Python application with the Dapr sidecar
 
-The following is a basic "hello world" [Python app](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) that posts JSON messages to localhost:3500, which is the default listening port for Dapr. You can invoke the Node.js application's _neworder_ endpoint by posting to _v1.0/invoke/nodeapp/method/neworder_. The message contains some data with an _orderId_ that increments once per second.
+The following is a basic "hello world" [Python app](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) that posts JSON messages to localhost:3500, which is the default listening port for Dapr. You can invoke the Node.js application's _New Order_ endpoint by posting to _v1.0/invoke/nodeapp/method/neworder_. The message contains some data with an _orderId_ that increments once per second.
 
 - Deploy the Python App to your cluster.
 
@@ -208,7 +208,7 @@ The following is a basic "hello world" [Python app](https://github.com/dapr/quic
 
 Complete the following steps to clean up your environment.
 
-- Run below _kubectl_ commands to delete the Kubernetes resources.
+- Run below `kubectl` commands to delete the Kubernetes resources.
 
     ```shell
     kubectl delete -f python.yaml

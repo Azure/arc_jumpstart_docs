@@ -32,11 +32,11 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * [Install Terraform >=1.0](https://learn.hashicorp.com/terraform/getting-started/install.html)
 
-* [Install Kubectl](https://kubernetes.io/docs/tasks/tools/)
+* [Install Kubernetes Tools](https://kubernetes.io/docs/tasks/tools/)
 
 * Login to Azure CLI
 
-    To be able to complete the scenario and its related automation, you will need access to an Azure subscription in which you are assigned the role of at least "Contributor".
+    To be able to complete the scenario and its related automation, you will need access to an Azure subscription in which you are assigned the role of at least **Contributor**.
 
     ```shell
     az login
@@ -53,7 +53,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ```shell
   az provider register --namespace Microsoft.Kubernetes
-  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.KubernetesConfigurationuration
   az provider register --namespace Microsoft.ExtendedLocation
   ```
 
@@ -61,7 +61,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ```shell
   az provider show -n Microsoft.Kubernetes -o table
-  az provider show -n Microsoft.KubernetesConfiguration -o table
+  az provider show -n Microsoft.KubernetesConfigurationuration -o table
   az provider show -n Microsoft.ExtendedLocation -o table
   ```
 
@@ -135,18 +135,18 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
   ![Screenshot showing terraform apply being run](./terraform_apply.png)
 
-* You will need the configuration output from Terraform in order to use kubectl to interact with your new cluster. Create your kube configuration directory, and output the configuration from Terraform into the config file using the Terraform output command:
+* You will need the configuration output from Terraform to use `kubectl` to interact with your new cluster. Create your Kubernetes configuration directory, and output the configuration from Terraform into the configuration file using the Terraform output command:
 
   **Mac/Linux**
   ```shell
   mkdir ~/.kube/
-  terraform output -raw kubeconfig > ~/.kube/config
+  terraform output -raw kubeconfiguration > ~/.kube/configuration
   ```
 
   **Windows**
   ```text
   mkdir %USERPROFILE%\.kube
-  terraform output -raw kubeconfig > %USERPROFILE%\.kube\config
+  terraform output -raw kubeconfiguration > %USERPROFILE%\.kube\configuration
   ```
 
   Check to see if cluster is discoverable by *`kubectl`* by running:
@@ -164,14 +164,14 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
 
 * Configure EKS Nodes to communicate to EKS Control Plane
 
-  Now let’s add the ConfigMap to the cluster from Terraform as well. The ConfigMap is a Kubernetes configuration, in this case for granting access to our EKS cluster. This ConfigMap allows our ec2 instances in the cluster to communicate with the EKS master, as well as allowing our user account access to run commands against the cluster. You’ll run the Terraform output command to a file, and the kubectl apply command to apply that file:
+  Now let’s add the ConfigurationMap to the cluster from Terraform as well. The ConfigurationMap is a Kubernetes configuration, in this case for granting access to our EKS cluster. This ConfigurationMap allows our ec2 instances in the cluster to communicate with the EKS master, as well as allowing our user account access to run commands against the cluster. You’ll run the Terraform output command to a file, and the `kubectl` apply command to apply that file:
 
   ```shell
-  terraform output -raw config_map_aws_auth > configmap.yml
-  kubectl apply -f configmap.yml
+  terraform output -raw configuration_map_aws_auth > configurationmap.yml
+  kubectl apply -f configurationmap.yml
   ```
 
-  ![Screenshot showing kubectl apply being run](./kubectl_apply_configmap.png)
+  ![Screenshot showing Kubernetes apply being run](./kubectl_apply_configurationmap.png)
 
   Once this is complete, you should see your nodes from your autoscaling group either starting to join or joined to the cluster. Once the second column reads Ready the node can have deployments pushed to it. Again, your output may vary here:
 
@@ -179,7 +179,7 @@ The following Jumpstart scenario will guide you on how to use the provided [Terr
   kubectl get nodes -o wide
   ```
 
-  ![Screenshot showing kubectl get nodes being run](./kubectl_get_nodes.png)
+  ![Screenshot showing Kubernetes nodes being run](./kubectl_get_nodes.png)
 
 * Verify EKS deployment
 
