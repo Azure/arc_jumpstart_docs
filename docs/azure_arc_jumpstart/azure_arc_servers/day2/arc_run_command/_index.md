@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "Azure ARC RUN command"
-linkTitle: "Azure ARC RUN command"
+title: "Azure Arc RUN command"
+linkTitle: "Azure Arc RUN command"
 weight: 20
 description: >
 ---
