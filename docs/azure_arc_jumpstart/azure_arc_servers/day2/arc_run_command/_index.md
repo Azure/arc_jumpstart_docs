@@ -6,7 +6,7 @@ weight: 20
 description: >
 ---
 
-## Run Powershell and Shell scripts on Azure Arc-enabled servers using the Run command
+## Run PowerShell and Shell scripts on Azure Arc-enabled servers using the Run command
 
 The Run command feature uses the Connected Machine agent to remotely run PowerShell scripts within an Azure Arc-connected Windows machine and Shell scripts within an Azure Arc-connected Linux machine. 
 
@@ -54,18 +54,18 @@ The following Jumpstart scenario will guide you on how to use the Run command on
 ```
 - If the Connected Machine agent version is lower than 1.39 then upgrade the extension using [this guidance](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent).
 
-- To use PowerShell you need to check if the installed version of module _Az.ConnectedMachine_ is 0.6.0 or higher. Use the following Powershell command to check the installed version
+- To use PowerShell you need to check if the installed version of module _Az.ConnectedMachine_ is 0.6.0 or higher. Use the following PowerShell command to check the installed version
 
 ```powershell
 Get-Module -ListAvailable -Name Az.ConnectedMachine
 ```
-Use the following command to install the latest version of the Powershell module
+Use the following command to install the latest version of the PowerShell module
 
-```Powershell
+```powershell
 Install-Module -Name Az.ConnectedMachine -Force 
 ```
 
-## Use the Run command to execute a simple Powershell command within an Arc-connected Windows machine
+## Use the Run command to execute a simple PowerShell command within an Arc-connected Windows machine
 
 - Run the following Azure cli command after adding the appropriate resource group, name of the Arc-connected machine, a name identifying the command and the location of you Arc-connected machine
 
@@ -80,15 +80,15 @@ Install-Module -Name Az.ConnectedMachine -Force
     "output": "Hello World",
 ```
 
-If you prefer to use Powershell then use the following command
+If you prefer to use PowerShell then use the following command
 
 ```powershell
 New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Location "<Location>" -SourceScript "Write-Host 'Hello World'" -RunCommandName "<Identifying Name of command>" -MachineName "<Machine Name>"
 ```
 
-The successful output of the Powershell command will show the following output
+The successful output of the PowerShell command will show the following output
 
-![Screenshot success helloworld Powershell](07.png)
+![Screenshot success helloworld PowerShell](07.png)
 
 ## Use the Run command to execute a simple Shell command within an Arc-connected Linux machine
 
@@ -98,7 +98,7 @@ The successful output of the Powershell command will show the following output
     az connectedmachine run-command create --resource-group <Resource Group Name> --machine-name <Machine Name> --run-command-name <Identifying Name of command> --script "ifconfig" --location <Location>
 ```
 
-Or in Powershell
+Or in PowerShell
 
 ```powershell
 New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Location "<Location>" -SourceScript "ifconfig" -RunCommandName "<Identifying Name of command>" -MachineName "<Machine Name>"
@@ -146,7 +146,7 @@ New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Loc
     $sasuri=$(az storage blob generate-sas --account-name <storage account name> --container-name <storage container name> --name <name of blob for command output destination - it will be created if it doesn't exist> --permissions acdrw --expiry $end --full-uri | tr -d '"')
 ```
 
-- Execute the following run command which runs a Powershell script within the Arc-enabled Windows machine. The run command directs the output to the append blob.
+- Execute the following run command which runs a PowerShell script within the Arc-enabled Windows machine. The run command directs the output to the append blob.
 
 ```shell
     az connectedmachine run-command create --resource-group <Resource Group Name> --machine-name <Machine Name>  --run-command-name <Identifying Name of command> --script "Get-Process | Sort-Object CPU -desc | Select-Object -first 10" --location <Location> --output-blob-uri $sasuri
