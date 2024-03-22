@@ -238,35 +238,9 @@ To view these cluster extensions, click on the Azure Arc-enabled Kubernetes reso
 
   ![Screenshot showing the Azure Arc-enabled Kubernetes installed extensions](./25.png)
 
-## Akri deployment
+## Edge Storage Accelerator Demo
 
-This scenario deploys Akri and it is used to discover ONVIF cameras that are connected to the same network as your AKS Edge Essentials cluster, in this instance a mock ONVIF camera is deployed as a container. These steps help you get started using Akri to discover IP cameras through the ONVIF protocol and use them via a video broker that enables you to consume the footage from the camera and display it in a web application.
 
-First, verify that Akri can discover the camera, it should be seen as one Akri instance that represents the ONVIF camera:
-
-  ```shell
-    kubectl get akrii
-  ```
-
-  ![Camera as Akri instance](./26.png)
-
-Next, you will need to receive the Linux node IP and the port of your web app service. First, get the port of the web app service by running:
-
-  ```shell
-    kubectl get svc
-  ```
-
-  ![Web App service Port](./27.png)
-
-  ```powershell
-    Get-AksEdgeNodeAddr
-  ```
-
-  ![Get AKS edge node](./28.png)
-
-Open the Edge browser and navigate to the service, you should see the video streaming
-
-  ![Video Streaming](./29.png)
 
 ### Exploring logs from the Client VM
 
