@@ -1,16 +1,16 @@
 ---
 type: docs
-title: "Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment"
-linkTitle: "Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment"
+title: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
+linkTitle: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
 weight: 4
 description: >
 ---
 
-## Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment 
+## Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment 
 
-The following Jumpstart scenario will show how to create an AKS Edge Essentials single node deployment in an Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc. The provided ARM template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) and Akri deployment) on the Azure VM. Once Edge Essentials is deployed [Akri](https://docs.akri.sh/) is installed as a Kubernetes resource interface that exposes an IP mock camera as resources in the Edge Essentials cluster.
+The following Jumpstart scenario will show how to create an AKS Edge Essentials single node deployment in an Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc. The provided ARM template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) and Edge Storage Accelerator deployment) on the Azure VM. Once Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/arc_extension/edgestorageaccelerator) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
-Akri is an open source project for a Kubernetes resource interface that lets you expose heterogenous leaf devices as resources in a Kubernetes cluster. It currently supports OPC UA, ONVIF, and udev protocols, but you can also implement custom protocol handlers provided by the template. In this scenario, Akri is used for handling the dynamic appearance and disappearance of an [ONVIF](https://wikipedia.org/wiki/ONVIF) mock camera as the Discovery Handler.
+<ESA>
 
 Azure VMs leverage the [Azure Instance Metadata Service (IMDS)](https://learn.microsoft.com/azure/virtual-machines/windows/instance-metadata-service) by default to provide information about the VMs, and to manage and configure the VMs. By projecting an Azure VM as an Azure Arc-enabled server, a "conflict" is created which will not allow the Azure Arc server resources to be represented as one resource when the IMDS is being used. Instead, the Azure Arc server will still "act" as a native Azure VM.
 
@@ -63,6 +63,9 @@ However, **for demo purposes only**, the below guide will allow you to use and o
 
     > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
+- Createa a blob storage account
+    Edge Storage Accelerator leverages a blob storage account as the final destination of data from the edge. You must create a blob storage account with or without Hierarcial Name Space (HNS) support in order to use ESA. 
+
 ## Automation Flow
 
 For you to get familiar with the automation and deployment flow, below is an explanation.
@@ -94,7 +97,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_akri/arm_template/azuredeploy.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_akri/arm_template/azuredeploy.parameters.example.json).
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/azuredeploy.parameters.json) file located in your local cloned repository folder. An example parameters file is located [here](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/azuredeploy.parameters.example.json).
 
   - _`vmSize`_ - Client Windows VM size.
   - _`vmName`_ - Client Windows VM name.
@@ -109,15 +112,17 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`location`_ - Azure location.
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion name.
+  - _`storageAccountName`_ - Azure Storage Account Name
+  - _`storageContainer`_ - Container in Storage Account
 
-- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_akri/arm_template/) and run the below command:
+- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/) and run the below command:
 
     ```shell
     az group create --name <Name of the Azure resource group> --location <Azure Region>
     az deployment group create \
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_akri/arm_template/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/azuredeploy.json \
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
@@ -130,7 +135,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     az deployment group create \
     --resource-group AKS-EE-Akri-Demo \
     --name akseedemo \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_akri/arm_template/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/azuredeploy.json \
     --parameters azuredeploy.parameters.json
     ```
 
