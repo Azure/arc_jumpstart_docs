@@ -398,3 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command/02-old.png
 docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command/03-old.png
+docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command/07-old.png
+docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command/05-old.png
+docs/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command/04-old.png
