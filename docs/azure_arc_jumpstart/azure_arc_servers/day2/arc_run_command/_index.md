@@ -144,16 +144,18 @@ New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Loc
     $sasuri=$(az storage blob generate-sas --account-name <storage account name> --container-name <storage container name> --name <name of blob for command output destination - it will be created if it doesn't exist> --permissions acdrw --expiry $end --full-uri | tr -d '"')
 ```
 
-- Execute the following -run- command which runs a PowerShell script within the Arc-enabled Windows machine. The run command directs the output to the append blob.
+- Execute the following _run_ command which runs a PowerShell script within the Arc-enabled Windows machine. The run command directs the output to the append blob.
 
 ```shell
-    az connectedmachine run-command create --resource-group <Resource Group Name> --machine-name <Machine Name>  --run-command-name <Identifying Name of command> --script "Get-Process | Sort-Object CPU -desc | Select-Object -first 10" --location <Location> --output-blob-uri $sasuri
+    az connectedmachine run-command create --resource-group <Resource Group Name> --machine-name <Machine Name>  --run-command-name <Identifying Name of command> --script "Get-Process | Sort-Object CPU -desc | Select-Object -first 5" --location <Location> --output-blob-uri $sasuri
 ```
+
+or in PowerShell:
 
 ```powershell
-New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Location "<Location>" -SourceScript "Get-Process | Sort-Object CPU -desc | Select-Object -first 10" -RunCommandName "<Identifying Name of command>" -MachineName "<Machine Name>" -OutputBlobUri $sasuri
+New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Location "<Location>" -SourceScript "Get-Process | Sort-Object CPU -desc | Select-Object -first 5" -RunCommandName "<Identifying Name of command>" -MachineName "<Machine Name>" -OutputBlobUri $sasuri
 ```
 
-- Examine the storage container in the Azure portal or using the Azure storage explorer. Look for the output of the command in the blob specified by the SAS URI used in the run command. The output should be the top ten processes for CPU usage in the machine.
+- Examine the storage container in the Azure portal or using the Azure storage explorer. Look for the output of the command in the blob specified by the SAS URI used in the run command. The output should be the top five processes for CPU usage in the machine.
 
     ![Screenshot run command output in storage blob](./06.png)
