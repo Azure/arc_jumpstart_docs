@@ -240,7 +240,17 @@ To view these cluster extensions, click on the Azure Arc-enabled Kubernetes reso
 
 ## Edge Storage Accelerator Demo
 
+Once installed, you will need to open a PowerShell on the AKS-EE-Win-Demo server and obtain the IP and service port for the demonstration application. 
 
+![Screenshot kubectl get svc](./32.png)
+
+Use the esa-webserver-svc EXTERNAL-IP and PORT to reach the application web frontend.
+
+![Screenshot of web application](./33.png)
+
+After the application runs, you can validate that the detected objects have been saved to your blob storage account container.
+
+![Screenshot of Azure Portal Storage Account](./34.png)
 
 ### Exploring logs from the Client VM
 
