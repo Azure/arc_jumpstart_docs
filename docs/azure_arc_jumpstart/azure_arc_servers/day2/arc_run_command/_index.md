@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "Azure Arc RUN command"
-linkTitle: "Azure Arc RUN command"
+title: "Azure Arc Run command"
+linkTitle: "Azure Arc Run command"
 weight: 20
 description: >
 ---
@@ -86,7 +86,7 @@ New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Loc
 
 The successful execution of the PowerShell command will show the following output:
 
-![Screenshot success helloworld PowerShell](04.png)
+![Screenshot success helloworld PowerShell](./04.png)
 
 ## Use the Run command to execute a simple Shell command within an Arc-connected Linux machine
 
