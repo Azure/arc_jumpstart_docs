@@ -8,9 +8,9 @@ description: >
 
 ## Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment 
 
-The following Jumpstart scenario will show how to create an AKS Edge Essentials single node deployment in an Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc. The provided ARM template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) and Edge Storage Accelerator deployment) on the Azure VM. Once Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/arc_extension/edgestorageaccelerator) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
+The following Jumpstart scenario will show how to create an AKS Edge Essentials single node deployment in an Azure Windows Server VM and connect the Azure VM and AKS Edge Essentials cluster to Azure Arc. The provided ARM template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) and Edge Storage Accelerator deployment) on the Azure VM. Once Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/en-us/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
-<ESA>
+Edge Storage Accelerator (ESA) is a storage system designed for Arc-connected Kubernetes clusters to provide reliable, fault tollerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated in cloud on blob while maintaining a local copy, as space permits, for low latency local access. 
 
 Azure VMs leverage the [Azure Instance Metadata Service (IMDS)](https://learn.microsoft.com/azure/virtual-machines/windows/instance-metadata-service) by default to provide information about the VMs, and to manage and configure the VMs. By projecting an Azure VM as an Azure Arc-enabled server, a "conflict" is created which will not allow the Azure Arc server resources to be represented as one resource when the IMDS is being used. Instead, the Azure Arc server will still "act" as a native Azure VM.
 
@@ -63,8 +63,13 @@ However, **for demo purposes only**, the below guide will allow you to use and o
 
     > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
-- Create a blob storage account
-    Edge Storage Accelerator leverages a blob storage account as the final destination of data from the edge. You must create a blob storage account with or without Hierarcial Name Space (HNS) support in order to use ESA. 
+- Createa a blob storage account
+    Edge Storage Accelerator leverages a blob storage account as the final destination of data from the edge. You must create a blob storage account with or without Hierarcial Name Space (HNS) support in order to use ESA.
+
+    ```shell
+    az storage account create --name uniqueAccountName --resource-group myStorageRG
+    az storage container create --name esaStorageContainer
+    ```
 
 ## Automation Flow
 
