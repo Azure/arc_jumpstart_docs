@@ -27,7 +27,7 @@ weight: 3
 
 - Run the *`azd init`* command from your cloned repo _*azure_jumpstart_hcibox*_ folder.
   
-  ![azd_up](https://github.com/Azure/arc_jumpstart_docs/assets/82963626/b7488734-4cb7-4772-8d3d-23e1b80732fe)
+  ![Screenshot showing azd init](./azd_init.png)
 
 ### Deploy the environment
 
@@ -37,7 +37,7 @@ weight: 3
   > **Note:** It is possible that you might experience an error such as "Unable to acquire token". Please run ```Connect-AzAccount``` in PowerShell with the correct credential and re-run ```azd up```. Reference: [https://github.com/microsoft/azure_arc/issues/2443](https://github.com/microsoft/azure_arc/issues/2443).
   > **Note:** If you are deploying this in a subscription that rolls up to the Microsoft corp Entra tenant then there are default rules that get applied by a vnet manager that will block all access to RDP. You will need to configure Bastion to access the  _HCIBox-Client_ VM if that is the case, or you will need to change the rdp port to an alternate from 3389.
   
-  ![Screenshot showing azd up](./azd_up.png)
+  ![azd_up](https://github.com/Azure/arc_jumpstart_docs/assets/82963626/b7488734-4cb7-4772-8d3d-23e1b80732fe)
 
 - Wait for the deployment to complete, then continue by logging into the _HCIBox-Client_ VM using RDP or Bastion.
 
