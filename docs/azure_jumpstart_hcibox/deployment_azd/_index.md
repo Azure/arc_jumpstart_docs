@@ -34,10 +34,11 @@ weight: 3
 - Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters. It is highly recommended to use _eastus_ as your region.
 - This would deploy _HCIBox-Client_ VM and you would need to log into it to complete the setup. You can do this using Azure Bastion or RDP. If RDP is your preferred method of connection, answer *`N`* when prompted to configure Azure Bastion for accessing the VM. 
 
-  > **Note:** It is possible that you might experience an error such as "Unable to acquire token". Please run ```Connect-AzAccount``` in PowerShell with the correct credential and re-run ```azd up```. Reference: [https://github.com/microsoft/azure_arc/issues/2443](https://github.com/microsoft/azure_arc/issues/2443).
-  
   > **Note:** If you are deploying this in a subscription that rolls up to the Microsoft corp Entra tenant then there are default rules that get applied by a vnet manager that will block all access to RDP. You will need to configure Bastion to access the  _HCIBox-Client_ VM if that is the case, or you will need to change the rdp port to an alternate from 3389.
   
+  > **Note:** It is possible that you might experience an error such as "Unable to acquire token". Please run ```Connect-AzAccount``` in PowerShell with the correct credential and re-run ```azd up```. Reference: [https://github.com/microsoft/azure_arc/issues/2443](https://github.com/microsoft/azure_arc/issues/2443).
+
+ 
   ![Screenshot showing azd up](./azd_up.png)
 
 - Wait for the deployment to complete, then continue by logging into the _HCIBox-Client_ VM using RDP or Bastion.
