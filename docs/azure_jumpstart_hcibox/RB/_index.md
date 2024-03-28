@@ -22,7 +22,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 - Select an image from the list of images. Give your VM image a name, select the default custom location from the dropdown, and leave the storage path set to "Choose automatically." When everything looks good, click "Review and Create."
 
-  ![Screenshot showing create VM image details](./create_vm_detail_win11.png)
+  ![Screenshot showing create VM image details](./create_vm_image_detail_win11.png)
 
 - It will take some time for the VM image to download to your cluster from Azure marketplace. You can monitor progress by visiting the VM Image resource in your resource group and reviewing the resource properties.
 
