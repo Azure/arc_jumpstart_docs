@@ -159,3 +159,20 @@ New-AzConnectedMachineRunCommand -ResourceGroupName "<Resource Group Name>" -Loc
 - Examine the storage container in the Azure portal or using the Azure storage explorer. Look for the output of the command in the blob specified by the SAS URI used in the run command. The output should be the top five processes for CPU usage in the machine.
 
     ![Screenshot run command output in storage blob](./06.png)
+
+## Clean up environment
+
+Complete the following steps to clean up your environment.
+
+Remove the virtual machines from each environment by following the teardown instructions from each guide.
+
+- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
+- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
