@@ -118,7 +118,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion name.
   - _`storageAccountName`_ - Azure Storage Account Name
-  - _`storageContainer`_ - Container in Storage Account
+  - _`storageContainer`_ - Container in Storage Account (Leave this unmodified for a quick deployment)
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/) and run the below command:
 
