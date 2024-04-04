@@ -63,13 +63,6 @@ However, **for demo purposes only**, the below guide will allow you to use and o
 
     > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
-- Create a blob storage account
-    Edge Storage Accelerator leverages a blob storage account as the final destination of data from the edge. You must create a blob storage account with or without Hierarcial Name Space (HNS) support in order to use ESA.
-
-    ```shell
-    az storage account create --name uniqueAccountName --resource-group myStorageRG
-    az storage container create --name esaStorageContainer
-    ```
 
 ## Automation Flow
 
