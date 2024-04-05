@@ -1,12 +1,12 @@
 ---
 type: docs
-title: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
-linkTitle: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
+title: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
+linkTitle: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
 weight: 4
 description: >
 ---
 
-## Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment 
+## Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment 
 
 The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated in cloud on blob while maintaining a local copy, as space permits, for low latency local access. In this scenario, a model detects defects in bolts by analyzing video from a supply line streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
 
