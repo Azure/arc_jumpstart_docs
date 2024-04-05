@@ -81,7 +81,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 - User remotes into client Windows VM, which automatically kicks off the [_LogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/aio_esa/artifacts/LogonScript.ps1) PowerShell script to:
   - Create the AKS Edge Essentials cluster in the Windows Server VM
   - Onboard the Azure VM and AKS Edge Essentials cluster to Azure Arc
-  - Deploy Akri and ONVIF mock camera
+  - Deploy ESA and Fault Detection Model
 
 ## Deployment
 
@@ -129,9 +129,9 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     For example:
 
     ```shell
-    az group create --name AKS-EE-Akri-Demo --location "East US"
+    az group create --name AKS-EE-ESA-Demo --location "East US"
     az deployment group create \
-    --resource-group AKS-EE-Akri-Demo \
+    --resource-group AKS-EE-ESA-Demo \
     --name akseedemo \
     --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.json \
     --parameters azuredeploy.parameters.json
