@@ -8,7 +8,9 @@ description: >
 
 ## Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment 
 
-The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated in cloud on blob while maintaining a local copy, as space permits, for low latency local access. In this scenario, a model detects defects in bolts by analyzing video from a supply line streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
+The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access. 
+
+In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
 
 This scenario will help you create deploy Edge Storage Accelerator by creating an AKS Edge Essentials single node deployment in an Azure Windows Server VM. The provided ARM template is responsible for creating the Azure resources as well as executing the LogonScript (AKS Edge Essentials cluster creation, Azure Arc onboarding (Azure VM and AKS Edge Essentials cluster) and Edge Storage Accelerator deployment) on the Azure VM. Once Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
