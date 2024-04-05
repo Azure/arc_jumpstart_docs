@@ -120,7 +120,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     az deployment group create \
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_k8s_jumpstart/aks_hybrid/aks_edge_essentials_single_esa/arm_template/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.json \
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
