@@ -63,7 +63,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
     "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
     ```
-  
+
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
     ```powershell
@@ -115,6 +115,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the HCIBox Log Analytics workspace
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
+  - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled HCI cluster after the client VM deployment and automation script execution is complete.
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
 
