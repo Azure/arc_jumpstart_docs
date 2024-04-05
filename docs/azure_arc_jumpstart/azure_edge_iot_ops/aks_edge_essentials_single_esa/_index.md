@@ -214,7 +214,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot script output](./20.png)
 
-    ![Screenshot script output](./38.png.png)
+    ![Screenshot script output](./38.png)
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
 
@@ -222,9 +222,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
 
-![Screenshot kubectl get nodes -o wide](./36.png.png)
+![Screenshot kubectl get nodes -o wide](./36.png)
 
-![Screenshot kubectl get pod -A](./37.png.png)
+![Screenshot kubectl get pod -A](./37.png)
 
 
 ## Edge Storage Accelerator Demo
