@@ -1,16 +1,18 @@
 ---
 type: docs
-title: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
-linkTitle: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
+title: "Edge Storage Accelerator (preview) on AKS Edge Essentials single node deployment"
+linkTitle: "Edge Storage Accelerator (preview) on AKS Edge Essentials single node deployment"
 weight: 8
 description: >
 ---
 
-## Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment 
+## Edge Storage Accelerator (preview) on AKS Edge Essentials single node deployment 
 
 The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access. 
 
 In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
+
+![Screenshot scenario diagram](./01.png)
 
 The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Edge Storage Accelerator deployment. Once AKS Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
@@ -19,8 +21,6 @@ Azure VMs leverage the [Azure Instance Metadata Service (IMDS)](https://learn.mi
 However, **for demo purposes only**, the below guide will allow you to use and onboard Azure VMs to Azure Arc. By doing so, you will be able to simulate a server that is deployed outside of Azure (i.e. "on-premises" or in other cloud platforms)
 
 > **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. This configuration is unsupported and should ONLY be used for demo and testing purposes.
-
-![Screenshot ARM template output](./01.png)
 
 ## Prerequisites
 
@@ -214,7 +214,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot script output](./19.png)
 
-    ![Screenshot script output](./38.png)
+    ![Screenshot script output](./20.png)
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
 
