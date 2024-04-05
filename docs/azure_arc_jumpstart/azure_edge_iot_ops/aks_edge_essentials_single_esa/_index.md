@@ -212,8 +212,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot script output](./19.png)
 
-    ![Screenshot script output](./20.png)
-
     ![Screenshot script output](./38.png)
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
