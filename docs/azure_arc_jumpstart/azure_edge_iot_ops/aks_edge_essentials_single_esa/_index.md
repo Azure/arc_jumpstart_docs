@@ -226,7 +226,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ![Screenshot kubectl get pod -A](./37.png)
 
-
 ## Edge Storage Accelerator Demo
 
 Once installed, you will need to open a PowerShell on the AKS-EE-Win-Demo server and obtain the IP and service port for the demonstration application. 
