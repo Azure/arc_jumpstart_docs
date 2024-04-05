@@ -26,7 +26,7 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 
 ### Active Directory domain user credentials
 
-Once you are logged into the _HCIBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes or accessing Windows Admin Center. The default domain account is _administrator@jumpstart.local_.
+Once you are logged into the _HCIBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes. The default domain account is _administrator@jumpstart.local_.
 
   > **Note:** The password for this account is set as the same password you supplied during deployment for the local account. Many HCIBox operations will use the domain account wherever credentials are required.
 
@@ -70,7 +70,7 @@ Some users may be interested in changing HCIBox's default configuration. Many se
   
 HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or to jumpstart proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
 
-- Explore Windows Admin Center from either Azure portal or from the WAC gateway server
+- Explore Windows Admin Center from Azure portal
 - Deploy GitOps configurations with Azure Arc-enabled Kubernetes
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
