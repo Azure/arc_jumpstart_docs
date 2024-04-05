@@ -66,7 +66,7 @@ However, **for demo purposes only**, the below guide will allow you to use and o
 
 ## Automation Flow
 
-For you to get familiar with the automation and deployment flow, below is an explanation.
+The automation and deployment flow of the scenario proceeds as follows:
 
 - User edits the ARM template parameters file (1-time edit). These parameter values are used throughout the deployment.
 
