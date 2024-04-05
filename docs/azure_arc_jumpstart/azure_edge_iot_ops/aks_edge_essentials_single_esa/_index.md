@@ -2,7 +2,7 @@
 type: docs
 title: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
 linkTitle: "Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment"
-weight: 4
+weight: 8
 description: >
 ---
 
