@@ -16,7 +16,7 @@ Azure VMs leverage the [Azure Instance Metadata Service (IMDS)](https://learn.mi
 
 However, **for demo purposes only**, the below guide will allow you to use and onboard Azure VMs to Azure Arc. By doing so, you will be able to simulate a server that is deployed outside of Azure (i.e. "on-premises" or in other cloud platforms)
 
-> **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. The below scenario is unsupported and should ONLY be used for demo and testing purposes.
+> **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. This configuration is unsupported and should ONLY be used for demo and testing purposes.
 
 ![Screenshot ARM template output](./01.png)
 
