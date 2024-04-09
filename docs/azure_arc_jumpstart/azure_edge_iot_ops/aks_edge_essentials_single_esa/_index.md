@@ -8,17 +8,13 @@ description: >
 
 ## Discover Edge Storage Accelerator(Preview) on AKS Edge Essentials single node deployment 
 
-The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a ReadWriteMany persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access. 
+The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
+
+> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](#).
 
 In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
 
 The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Edge Storage Accelerator deployment. Once AKS Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
-
-Azure VMs leverage the [Azure Instance Metadata Service (IMDS)](https://learn.microsoft.com/azure/virtual-machines/windows/instance-metadata-service) by default to provide information about the VMs, and to manage and configure them. By projecting an Azure VM as an Azure Arc-enabled server, a "conflict" is created which will not allow the Azure Arc server resources to be represented as one resource when the IMDS is being used. Instead, the Azure Arc server will still "act" as a native Azure VM.
-
-However, **for demo purposes only**, the below guide will allow you to use and onboard Azure VMs to Azure Arc. By doing so, you will be able to simulate a server that is deployed outside of Azure (i.e. "on-premises" or in other cloud platforms)
-
-> **Note:** It is not expected for an Azure VM to be projected as an Azure Arc-enabled server. This configuration is unsupported and should ONLY be used for demo and testing purposes.
 
 ![Screenshot ARM template output](./01.png)
 
@@ -72,7 +68,7 @@ The automation and deployment flow of the scenario proceeds as follows:
 
 - User edits the ARM template parameters file (1-time edit). These parameter values are used throughout the deployment.
 
-- Main [_azuredeploy_ ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.json) will initiate the deployment of the following resources:
+- Main [_azuredeploy_ ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
 
   - _Virtual Network_ - Virtual Network for Azure Windows Server VM.
   - _Network Interface_ - Network Interface for Azure Windows Server VM.
@@ -80,7 +76,7 @@ The automation and deployment flow of the scenario proceeds as follows:
   - _Virtual Machine_ - Azure Windows Server VM.
   - _Custom script and Azure Desired State Configuration extensions_ - Configure the Azure Windows Server VM to host AKS Edge Essentials.
 
-- User remotes into client Windows VM, which automatically kicks off the [_LogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/aio_esa/artifacts/LogonScript.ps1) PowerShell script to:
+- User remotes into client Windows VM, which automatically kicks off the [_LogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
   - Create the AKS Edge Essentials cluster in the Windows Server VM
   - Onboard the Azure VM and AKS Edge Essentials cluster to Azure Arc
   - Deploy ESA and Fault Detection Model
@@ -97,7 +93,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.parameters.json) file located in your local cloned repository folder.
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
 
   - _`vmSize`_ - Client Windows VM size.
   - _`vmName`_ - Client Windows VM name.
@@ -115,14 +111,14 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`storageAccountName`_ - Azure Storage Account Name
   - _`storageContainer`_ - Container in Storage Account (Leave this unmodified for a quick deployment)
 
-- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/aio_esa/) and run the below command:
+- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/) and run the below command:
 
     ```shell
     az group create --name <Name of the Azure resource group> --location <Azure Region>
     az deployment group create \
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json \
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
@@ -135,11 +131,11 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     az deployment group create \
     --resource-group AKS-EE-ESA-Demo \
     --name akseedemo \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/aio_esa/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json \
     --parameters azuredeploy.parameters.json
     ```
 
-    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: 'Standard_D8s_v3'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
+    > **Note:** If you receive an error message stating that the requested VM size is not available in the desired location (as an example: '*Standard_D8s_v3*'), it means that there is currently a capacity restriction for that specific VM size in that particular region. Capacity restrictions can occur due to various reasons, such as high demand or maintenance activities. Microsoft Azure periodically adjusts the available capacity in each region based on usage patterns and resource availability. To continue deploying this scenario, please try to re-run the deployment using another region.
 
 - Once Azure resources have been provisioned, you will be able to see them in Azure portal.
 
@@ -220,21 +216,25 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ![Screenshot Azure Arc-enabled server on resource group](./22.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system, [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions), and [Azure Monitor extension pods](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) are in a running state.
+- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system and [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions)) are in a running state.
 
 ![Screenshot kubectl get nodes -o wide](./36.png)
 
 ![Screenshot kubectl get pod -A](./37.png)
 
-## Edge Storage Accelerator Demo
+## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
 
-Once installed, you will need to open a PowerShell on the AKS-EE-Win-Demo server and obtain the IP and service port for the demonstration application. 
+Once installed, you will need to open a PowerShell on the *AKS-EE-Win-Demo* server and obtain the IP and service port for the demonstration application. 
 
 ![Screenshot kubectl get svc](./32.png)
 
-Use the esa-webserver-svc EXTERNAL-IP and PORT to reach the application web frontend.
+Use the *esa-webserver-svc* EXTERNAL-IP and PORT to reach the application web frontend.
 
 ![Screenshot of web application](./33.png)
+
+Before the application runs, the *Logon.ps1* script will create a container in the *StorageAccountName* the user configured in *azuredeploy.parameters.json*.
+
+![Screenshot of Azure Portal Storage Account](./39.png)
 
 After the application runs, you can validate that the detected objects have been saved to your blob storage account container.
 
@@ -247,8 +247,7 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 | Log file | Description |
 | ------- | ----------- |
 | _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _AKS-EE-Demo_ Azure VM. |
-| _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions as well as onboard the Azure VM. |
-|
+| _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions for Edge Storage Accelerator, storage account, storage container, and the kubernetes deployment for running the fault detection scenario |
 
 ![Screenshot showing the Temp folder with deployment logs](./30.png)
 
