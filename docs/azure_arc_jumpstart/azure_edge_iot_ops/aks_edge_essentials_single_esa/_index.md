@@ -127,7 +127,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     For example:
 
     ```shell
-    az group create --name AKS-EE-ESA-Demo --location "East US"
+    az group create --name AKS-EE-ESA-Demo --location "East US 2"
     az deployment group create \
     --resource-group AKS-EE-ESA-Demo \
     --name akseedemo \
@@ -145,7 +145,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 ## Windows Login & Post Deployment
 
-Various options are available to connect to _AKS-EE-Demo_ Azure VM, depending on the parameters you supplied during deployment.
+Various options are available to connect to _ESA-Win-Demo_ Azure VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
 - [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
@@ -154,7 +154,7 @@ Various options are available to connect to _AKS-EE-Demo_ Azure VM, depending on
 
 By design, port 3389 is not allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-- Open the _AKS-EE-Demo-NSG_ resource in Azure portal and click "Add" to add a new rule.
+- Open the _ESA-Win-Demo-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
   ![Screenshot showing AKS-EE-Demo-NSG NSG with blocked RDP](./04.png)
 
@@ -224,7 +224,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
 
-Once installed, you will need to open a PowerShell on the *AKS-EE-Win-Demo* server and obtain the IP and service port for the demonstration application. 
+Once installed, you will need to open a PowerShell on the *ESA-Win-Demo* server and obtain the IP and service port for the demonstration application. 
 
 ![Screenshot kubectl get svc](./32.png)
 
@@ -242,11 +242,11 @@ After the application runs, you can validate that the detected objects have been
 
 ### Exploring logs from the Client VM
 
-Occasionally, you may need to review log output from scripts that run on the _AKS-EE-Demo_ VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the _C:\Temp_ folder on _AKS-EE-Demo_ Azure VM. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the _ESA-Win-Demo_ VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the _C:\Temp_ folder on _ESA-Win-Demo_ Azure VM. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
-| _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _AKS-EE-Demo_ Azure VM. |
+| _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _ESA-Win-Demo_ Azure VM. |
 | _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions for Edge Storage Accelerator, storage account, storage container, and the kubernetes deployment for running the fault detection scenario |
 
 ![Screenshot showing the Temp folder with deployment logs](./30.png)
