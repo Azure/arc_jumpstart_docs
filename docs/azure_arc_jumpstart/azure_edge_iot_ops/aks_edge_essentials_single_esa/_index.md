@@ -242,7 +242,7 @@ Before the application runs, the *Logon.ps1* script will create a container in t
 
 After the application runs, you can validate that the detected objects have been saved to your blob storage account container.
 
-![Screenshot of Azure Portal Storage Account](./34.png)
+![Screenshot of Azure portal showing storage account](./34.png)
 
 ### Exploring logs from the Client VM
 
