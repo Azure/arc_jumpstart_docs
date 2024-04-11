@@ -251,7 +251,7 @@ Occasionally, you may need to review log output from scripts that run on the _ES
 | Log file | Description |
 | ------- | ----------- |
 | _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _ESA-Win-Demo_ Azure VM. |
-| _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions for Edge Storage Accelerator, storage account, storage container, and the kubernetes deployment for running the fault detection scenario |
+| _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Edge Storage Accelerator, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
 
 ![Screenshot showing the Temp folder with deployment logs](./30.png)
 
