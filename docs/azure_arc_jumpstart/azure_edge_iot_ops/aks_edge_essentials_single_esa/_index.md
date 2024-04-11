@@ -14,7 +14,7 @@ The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which
 
 ![Screenshot showing scenario architecture diagram](./01.png)
 
-> **Note:** 🧪 For access to the preview, please complete this [questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) about your environment and use-case. We want to be sure that our customers will be successful in their testing! Once you have submitted your responses, one of the ESA PMs will get back to you with an update on your request! 
+> **Note:** 🧪 For access to the preview, please complete this [questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) about your environment and use-case. We want to be sure that our customers will be successful in their testing! Once you have submitted your responses, one of the ESA PMs will get back to you with an update on your request!
 🪲 If you found a bug or have an issue, please complete the [Edge Storage Accelerator Request Support Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUOVlRSjJNOFgxNkRPN1IzQUZENFE4SjlSNy4u).
 
 In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
@@ -69,15 +69,15 @@ The automation and deployment flow of the scenario proceeds as follows:
 
 - User edits the ARM template parameters file (1-time edit). These parameter values are used throughout the deployment.
 
-- Main [_azuredeploy_ ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
+- Main [*azuredeploy* ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
 
-  - _Virtual Network_ - Virtual Network for Azure Windows Server VM.
-  - _Network Interface_ - Network Interface for Azure Windows Server VM.
-  - _Network Security Group_ - Network Security Group to allow RDP in Azure Windows Server VM.
-  - _Virtual Machine_ - Azure Windows Server VM.
-  - _Custom script and Azure Desired State Configuration extensions_ - Configure the Azure Windows Server VM to host AKS Edge Essentials.
+  - *Virtual Network* - Virtual Network for Azure Windows Server VM.
+  - *Network Interface* - Network Interface for Azure Windows Server VM.
+  - *Network Security Group* - Network Security Group to allow RDP in Azure Windows Server VM.
+  - *Virtual Machine* - Azure Windows Server VM.
+  - *Custom script and Azure Desired State Configuration extensions* - Configure the Azure Windows Server VM to host AKS Edge Essentials.
 
-- User remotes into client Windows VM, which automatically kicks off the [_LogonScript_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
+- User remotes into client Windows VM, which automatically kicks off the [*LogonScript*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
   - Create the AKS Edge Essentials cluster in the Windows Server VM
   - Onboard the Azure VM and AKS Edge Essentials cluster to Azure Arc
   - Deploy ESA and Fault Detection Model
@@ -94,23 +94,23 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [_azuredeploy.parameters.json_](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
 
-  - _`vmSize`_ - Client Windows VM size.
-  - _`vmName`_ - Client Windows VM name.
-  - _`kubernetesDistribution`_ - Choice (k8s | k3s) kubernetes distribution.
-  - _`windowsNode`_ - Choice (true | false) to deploy AKS Windows Node.
-  - _`adminUsername`_ - Client Windows VM Administrator username.
-  - _`adminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`appId`_ - Your Azure service principal id.
-  - _`password`_ - Your Azure service principal secret.
-  - _`tenantId`_ - Your Azure tenant id.
-  - _`subscriptionId`_ - Your Subscription ID.
-  - _`location`_ - Azure location.
-  - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
-  - _`bastionHostName`_ - Azure Bastion name.
-  - _`storageAccountName`_ - Azure Storage Account Name
-  - _`storageContainer`_ - Container in Storage Account (Leave this unmodified for a quick deployment)
+  - *`vmSize`* - Client Windows VM size.
+  - *`vmName`* - Client Windows VM name.
+  - *`kubernetesDistribution`* - Choice (k8s | k3s) kubernetes distribution.
+  - *`windowsNode`* - Choice (true | false) to deploy AKS Windows Node.
+  - *`adminUsername`* - Client Windows VM Administrator username.
+  - *`adminPassword`* - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
+  - *`appId`* - Your Azure service principal id.
+  - *`password`* - Your Azure service principal secret.
+  - *`tenantId`* - Your Azure tenant id.
+  - *`subscriptionId`* - Your Subscription ID.
+  - *`location`* - Azure location.
+  - *`deployBastion`* - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
+  - *`bastionHostName`* - Azure Bastion name.
+  - *`storageAccountName`* - Azure Storage Account Name
+  - *`storageContainer`* - Container in Storage Account (Leave this unmodified for a quick deployment)
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/) and run the below command:
 
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
-    > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the _azuredeploy.parameters.json_ file.
+    > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the *azuredeploy.parameters.json* file.
 
     For example:
 
@@ -146,16 +146,16 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 ## Windows Login & Post Deployment
 
-Various options are available to connect to _ESA-Win-Demo_ Azure VM, depending on the parameters you supplied during deployment.
+Various options are available to connect to *ESA-Win-Demo* Azure VM, depending on the parameters you supplied during deployment.
 
-- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
-- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the *Arc-App-Client-NSG*, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
+- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your *`deployBastion`* parameter during deployment.
 
 ### Connecting directly with RDP
 
 By design, port 3389 is not allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-- Open the _ESA-Win-Demo-NSG_ resource in Azure portal and click "Add" to add a new rule.
+- Open the *ESA-Win-Demo-NSG* resource in Azure portal and click "Add" to add a new rule.
 
   ![Screenshot showing AKS-EE-Demo-NSG NSG with blocked RDP](./04.png)
 
@@ -175,15 +175,15 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - In the Client VM configuration pane, enable just-in-time. This will enable the default settings.
 
-  ![Screenshot showing the Microsoft Defender for cloud portal, allowing RDP on the client VM](./10.png)
+  ![Screenshot showing the Microsoft Defender for cloud portal, allowing RDP on the client VM](./09.png)
 
-  ![Screenshot showing connecting to the VM using JIT](./11.png)
+  ![Screenshot showing connecting to the VM using JIT](./10.png)
 
 ### Connect using Azure Bastion
 
 - If you have chosen to deploy Azure Bastion in your deployment, use it to connect to the Azure VM.
 
-  ![Screenshot showing connecting to the VM using Bastion](./09.png)
+  ![Screenshot showing connecting to the VM using Bastion](./11.png)
 
   > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting with Azure Bastion.
 
@@ -211,49 +211,49 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot script output](./19.png)
 
-    ![Screenshot script output](./38.png)
+    ![Screenshot script output](./20.png)
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
 
-![Screenshot Azure Arc-enabled server on resource group](./22.png)
+![Screenshot Azure Arc-enabled server on resource group](./21.png)
 
-- You can also run _kubectl get nodes -o wide_ to check the cluster node status and _kubectl get pod -A_ to see that the cluster is running and all the needed pods (system and [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions)) are in a running state.
+- You can also run *kubectl get nodes -o wide* to check the cluster node status and *kubectl get pod -A* to see that the cluster is running and all the needed pods (system and [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions)) are in a running state.
 
-![Screenshot kubectl get nodes -o wide](./36.png)
+![Screenshot kubectl get nodes -o wide](./22.png)
 
-![Screenshot kubectl get pod -A](./37.png)
+![Screenshot kubectl get pod -A](./23.png)
 
 ## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
 
-Once installed, you will need to open a PowerShell on the *ESA-Win-Demo* server and obtain the IP and service port for the demonstration application. 
+Once installed, you will need to open a PowerShell on the *ESA-Win-Demo* server and obtain the IP and service port for the demonstration application.
 
-![Screenshot kubectl get svc](./32.png)
+![Screenshot kubectl get svc](./24.png)
 
 Use the *esa-webserver-svc* EXTERNAL-IP and PORT to reach the application web frontend.
 
-![Screenshot of web application](./33.png)
+![Screenshot of web application](./25.png)
 
 Before the application runs, the *Logon.ps1* script will create a container in the *StorageAccountName* the user configured in *azuredeploy.parameters.json*.
 
-![Screenshot of Azure Portal Storage Account](./39.png)
+![Screenshot of Azure Portal Storage Account](./26.png)
 
 After the application runs, you can validate that the detected objects have been saved to your blob storage account container.
 
-![Screenshot of Azure portal showing storage account](./34.png)
+![Screenshot of Azure portal showing storage account](./27.png)
 
 ### Exploring logs from the Client VM
 
-Occasionally, you may need to review log output from scripts that run on the _ESA-Win-Demo_ VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the _C:\Temp_ folder on _ESA-Win-Demo_ Azure VM. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the *ESA-Win-Demo* VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the *C:\Temp* folder on *ESA-Win-Demo* Azure VM. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
 | *C:\Temp\Bootstrap.log* | Output from the initial *bootstrapping.ps1* script that runs on *ESA-Win-Demo* Azure VM. |
 | *C:\Temp\LogonScript.log* | Output of *LogonScript.ps1* which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Edge Storage Accelerator, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
 
-![Screenshot showing the Temp folder with deployment logs](./30.png)
+![Screenshot showing the Temp folder with deployment logs](./28.png)
 
 ## Cleanup
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./31.png)
+    ![Screenshot showing Azure resource group deletion](./29.png)
