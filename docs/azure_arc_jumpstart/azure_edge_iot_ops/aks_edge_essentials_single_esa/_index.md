@@ -1,26 +1,25 @@
 ---
 type: docs
-title: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
-linkTitle: "Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment"
+title: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
+linkTitle: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
 weight: 8
 description: >
 ---
 
-## Discover Edge Storage Accelerator on AKS Edge Essentials single node deployment 
+## Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment
 
 The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
 
 > ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://review.learn.microsoft.com/en-us/azure/azure-arc/edge-storage-accelerator/overview?branch=pr-en-us-268178).
 
+![Screenshot showing scenario architecture diagram](./01.png)
+
 > **Note:** 🧪 For access to the preview, please complete this [questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) about your environment and use-case. We want to be sure that our customers will be successful in their testing! Once you have submitted your responses, one of the ESA PMs will get back to you with an update on your request! 
 🪲 If you found a bug or have an issue, please complete the [Edge Storage Accelerator Request Support Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUOVlRSjJNOFgxNkRPN1IzQUZENFE4SjlSNy4u).
-
 
 In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
 
 The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Edge Storage Accelerator deployment. Once AKS Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
-
-![Screenshot showing scenario architecture diagram](./01.png)
 
 ## Prerequisites
 
@@ -62,9 +61,7 @@ The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge 
     ```
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
-
     > **Note:** The Jumpstart scenarios are designed with ease of use in-mind and adhere to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering use of a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
 
 ## Automation Flow
 
@@ -250,8 +247,8 @@ Occasionally, you may need to review log output from scripts that run on the _ES
 
 | Log file | Description |
 | ------- | ----------- |
-| _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _ESA-Win-Demo_ Azure VM. |
-| _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Edge Storage Accelerator, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
+| *C:\Temp\Bootstrap.log* | Output from the initial *bootstrapping.ps1* script that runs on *ESA-Win-Demo* Azure VM. |
+| *C:\Temp\LogonScript.log* | Output of *LogonScript.ps1* which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Edge Storage Accelerator, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
 
 ![Screenshot showing the Temp folder with deployment logs](./30.png)
 
