@@ -20,7 +20,7 @@ In this scenario, a computer vision AI model detects defects in bolts by analyzi
 
 The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Edge Storage Accelerator deployment. Once AKS Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
-![Screenshot ARM template output](./01.png)
+![Screenshot showing scenario architecture diagram](./01.png)
 
 ## Prerequisites
 
