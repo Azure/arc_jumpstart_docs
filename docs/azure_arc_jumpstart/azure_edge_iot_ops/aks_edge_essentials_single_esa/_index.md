@@ -2,7 +2,7 @@
 type: docs
 title: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
 linkTitle: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
-weight: 8
+weight: 7
 description: >
 ---
 
