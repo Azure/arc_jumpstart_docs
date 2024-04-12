@@ -72,7 +72,8 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
-- If everything looks good, proceed to validate and deploy your cluster. Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
+- If everything looks good, and you did not choose to configure the `autoDeployClusterResource` parameter with the value `true` in your deployment, proceed to the next section to validate and deploy your cluster. If you did enable this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
+Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
 
 ### Azure portal Azure Stack HCI cluster validation and deployment
 

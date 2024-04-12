@@ -5,9 +5,47 @@ linkTitle: "Jumpstart Release Notes"
 weight: 6
 ---
 
-# Azure Arc Jumpstart release notes
+# Arc Jumpstart release notes
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
+
+## March 2024
+
+### Release highlights
+
+- New Arc-enabled servers scenario
+- Arc-enabled data service monthly release
+- AKS version bump
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [March release](https://www.linkedin.com/posts/liorkamrat_kubernetes-mvpbuzz-msftadvocate-activity-7172952002442776576-vOjx?utm_source=share&utm_medium=member_desktop)
+
+### Cross Jumpstart
+
+- [Bug: Unsupported default version of Kubernetes in multiple scenarios #2452](https://github.com/microsoft/azure_arc/issues/2452)
+
+### Jumpstart ArcBox
+
+- [Bug: ArcBox DataOps deployment fails with AKS Version not available #2451](https://github.com/microsoft/azure_arc/issues/2451)
+- [Bug: Failed to connect AKS cluster with Azure Arc and failed to create custom location #2461](https://github.com/microsoft/azure_arc/issues/2461)
+
+### Jumpstart HCIBox
+
+- [Bug: HCIBox AZD use the current PowerShell context different to azd auth context #2443](https://github.com/microsoft/azure_arc/issues/2443)
+- [Bug: HCIBox: Cloud Deployment ARM Validation Failing #2444](https://github.com/microsoft/azure_arc/issues/2444)
+- [Bug: HCIBox - Windows Server 2022 latest Az marketplace image possibly causing slowness in nested virtualization network performance #2462](https://github.com/microsoft/azure_arc/issues/2462)
+- [Bug: PowerShell error when running the configure-AKSWorkloadCluser.ps1 #2469](https://github.com/microsoft/azure_arc/issues/2469)
+- [Bug: HCIBox AKS Kubernetes workload cluster deployment issues #2474](https://github.com/microsoft/azure_arc/issues/2474)
+
+### Jumpstart Agora
+
+- [Bug: AZD change - Have to provide default values for parameters #2459](https://github.com/microsoft/azure_arc/issues/2459)
+
+### Arc-enabled servers
+
+- [New scenario: Run PowerShell and Shell scripts on Azure Arc-enabled servers using the Run command](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - March release #2442](https://github.com/microsoft/azure_arc/issues/2442)
 
 ## February 2024
 
@@ -38,7 +76,7 @@ weight: 6
 
 - [Bug: Agora Retail deployment fails due to unsupported AKS version #2433](https://github.com/microsoft/azure_arc/issues/2433)
 
-### Azure Arc-enabled servers
+### Arc-enabled servers
 
 - [Bug: Arc AWS Scaled Deployment out of date #2424](https://github.com/microsoft/azure_arc/issues/2424)
 - [Documentation: Update module versions in scenario "Automanage Machine Configuration custom configurations for Windows" #254](https://github.com/Azure/arc_jumpstart_docs/issues/254)
@@ -48,7 +86,7 @@ weight: 6
 - [Bug: AIO scenario - error in AIO initializtion #2392](https://github.com/microsoft/azure_arc/issues/2392)
 - [Bug: Arc-enabled Video Indexer: update extension parameters to support release builds #2402](https://github.com/microsoft/azure_arc/issues/2402)
 
-### Azure Arc-enabled data services
+### Arc-enabled data services
 
 - [Feature: Azure Arc-enabled data services - February release #2397](https://github.com/microsoft/azure_arc/issues/2397)
 
@@ -72,11 +110,11 @@ weight: 6
 
 - [Bug: DockerDesktop popup #2351](https://github.com/microsoft/azure_arc/issues/2351)
 
-### Azure Arc-enabled SQL Server
+### Arc-enabled SQL Server
 
 - [Bug: Jumpstart Arc-enabled SQL Server - change server edition to allow use of performance metrics #2305](https://github.com/microsoft/azure_arc/issues/2305)
 
-### Azure Arc-enabled Kubernetes
+### Arc-enabled Kubernetes
 
 - [Bug: Calico Remove image pull secret #2345](https://github.com/microsoft/azure_arc/issues/2345)
 

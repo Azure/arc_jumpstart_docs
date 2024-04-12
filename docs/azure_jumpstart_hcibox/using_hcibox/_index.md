@@ -26,7 +26,7 @@ HCIBox simulates a 2-node physical deployment of Azure Stack HCI by using [neste
 
 ### Active Directory domain user credentials
 
-Once you are logged into the _HCIBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes or accessing Windows Admin Center. The default domain account is _administrator@jumpstart.local_.
+Once you are logged into the _HCIBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes. The default domain account is _administrator@jumpstart.local_.
 
   > **Note:** The password for this account is set as the same password you supplied during deployment for the local account. Many HCIBox operations will use the domain account wherever credentials are required.
 
@@ -45,6 +45,21 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 - It will take time for the logs data to flow through to Insights. Once data is available, click on the Insights blade of the _HCIBox-Cluster_ resource to view the Insights workbook and explore logs from your cluster.
 
   ![Screenshot showing logs configured](./hci_insights.png)
+
+### Upgrading Azure Stack HCI
+
+HCIBox is regularly updated with the latest available version of the installation medium. The product group regularly publish updates which contains security fixes and feature improvements, which may be released after the latest HCIBox update.
+Due to this, it might be required to trigger an update after the initial deployment of the HCI cluster.
+
+If you chose to enable the parameter `autoUpgradeClusterResource` to enable automatic upgrade of the HCI cluster after the deployment is complete, you should already be on the latest version available.
+
+If not, we recommend you to check whether there are any updates available.
+
+  ![Screenshot showing cluster updates](./cluster_updates.png)
+
+If the _Status_-column does not indicate _Up to date_, you can trigger the update process by clicking _One-time update_.
+
+See the [product documentation](https://learn.microsoft.com/azure-stack/hci/update/about-updates-23h2) for more information about HCI updates.
 
 ### Virtual machine management through Azure portal
 
@@ -67,10 +82,10 @@ Some users may be interested in changing HCIBox's default configuration. Many se
 ![Screenshot showing advanced configuration file](./advanced_config.png)
 
 ### Next steps
-  
+
 HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or to jumpstart proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
 
-- Explore Windows Admin Center from either Azure portal or from the WAC gateway server
+- Explore Windows Admin Center from Azure portal
 - Deploy GitOps configurations with Azure Arc-enabled Kubernetes
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
