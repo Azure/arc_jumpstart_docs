@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
 
-> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://learn.microsoft.com/en-us/azure/azure-arc/edge-storage-accelerator/overview).
+> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview).
 
 
 ![Screenshot showing scenario architecture diagram](./01.png)
