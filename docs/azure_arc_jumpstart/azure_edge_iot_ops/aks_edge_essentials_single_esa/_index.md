@@ -217,13 +217,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
 
-![Screenshot Azure Arc-enabled server on resource group](./21.png)
+  ![Screenshot Azure Arc-enabled server on resource group](./21.png)
 
 - You can also run *kubectl get nodes -o wide* to check the cluster node status and *kubectl get pod -A* to see that the cluster is running and all the needed pods (system and [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions)) are in a running state.
 
-![Screenshot kubectl get nodes -o wide](./22.png)
+  ![Screenshot kubectl get nodes -o wide](./22.png)
 
-![Screenshot kubectl get pod -A](./23.png)
+  ![Screenshot kubectl get pod -A](./23.png)
 
 ## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
 
