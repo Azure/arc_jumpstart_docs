@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
 
-> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://review.learn.microsoft.com/en-us/azure/azure-arc/edge-storage-accelerator/overview?branch=pr-en-us-268178).
+> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in private preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview).
 
 
 ![Screenshot showing scenario architecture diagram](./01.png)
@@ -217,13 +217,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Upon successful run, a new Azure Arc-enabled server and Azure Arc-enabled Kubernetes cluster will be added to the resource group.
 
-![Screenshot Azure Arc-enabled server on resource group](./21.png)
+  ![Screenshot Azure Arc-enabled server on resource group](./21.png)
 
 - You can also run *kubectl get nodes -o wide* to check the cluster node status and *kubectl get pod -A* to see that the cluster is running and all the needed pods (system and [the Arc-enabled Kubernetes extension pods](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions)) are in a running state.
 
-![Screenshot kubectl get nodes -o wide](./22.png)
+  ![Screenshot kubectl get nodes -o wide](./22.png)
 
-![Screenshot kubectl get pod -A](./23.png)
+  ![Screenshot kubectl get pod -A](./23.png)
 
 ## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
 
