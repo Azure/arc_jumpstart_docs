@@ -46,6 +46,21 @@ Azure Stack HCI integrates with [Azure Monitor](https://learn.microsoft.com/azur
 
   ![Screenshot showing logs configured](./hci_insights.png)
 
+### Upgrading Azure Stack HCI
+
+HCIBox is regularly updated with the latest available version of the installation medium. The product group regularly publish updates which contains security fixes and feature improvements, which may be released after the latest HCIBox update.
+Due to this, it might be required to trigger an update after the initial deployment of the HCI cluster.
+
+If you chose to enable the parameter `autoUpgradeClusterResource` to enable automatic upgrade of the HCI cluster after the deployment is complete, you should already be on the latest version available.
+
+If not, we recommend you to check whether there are any updates available.
+
+  ![Screenshot showing cluster updates](./cluster_updates.png)
+
+If the _Status_-column does not indicate _Up to date_, you can trigger the update process by clicking _One-time update_.
+
+See the [product documentation](https://learn.microsoft.com/azure-stack/hci/update/about-updates-23h2) for more information about HCI updates.
+
 ### Virtual machine management through Azure portal
 
 Azure Stack HCI supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
@@ -67,7 +82,7 @@ Some users may be interested in changing HCIBox's default configuration. Many se
 ![Screenshot showing advanced configuration file](./advanced_config.png)
 
 ### Next steps
-  
+
 HCIBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or to jumpstart proof of concept projects. You are free to do whatever you wish with HCIBox. Some suggested next steps for you to try in your HCIBox are:
 
 - Explore Windows Admin Center from Azure portal

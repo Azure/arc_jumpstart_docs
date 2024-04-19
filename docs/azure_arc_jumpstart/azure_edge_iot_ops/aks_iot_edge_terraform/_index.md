@@ -2,7 +2,7 @@
 type: docs
 title: "Azure IoT Edge integration with AKS as an Azure Arc Connected Cluster"
 linkTitle: "Azure IoT Edge integration with AKS as an Azure Arc Connected Cluster"
-weight: 7
+weight: 8
 description: >
 ---
 
