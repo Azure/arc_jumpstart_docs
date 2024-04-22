@@ -127,7 +127,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
     > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the *azuredeploy.parameters.json* file.
     
-    > **Note:** ESA currently supports only the following Azure regions: East US2, East US3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
+    > **Note:** ESA currently supports only the following Azure regions: East US2, West US3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
     For example:
 
     ```shell
