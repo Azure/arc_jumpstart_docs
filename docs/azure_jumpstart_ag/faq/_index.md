@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Agora FAQ"
-weight: 4
+weight: 3
 ---
 
 # Jumpstart Agora Frequently Asked Questions (FAQ)

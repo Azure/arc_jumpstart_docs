@@ -1,5 +1,5 @@
 ---
 type: docs
 linkTitle: "Manufacturing"
-weight: 3
+weight: 2
 ---
