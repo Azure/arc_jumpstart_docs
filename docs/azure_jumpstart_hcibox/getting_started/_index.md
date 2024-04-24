@@ -59,8 +59,8 @@ Deploying HCIBox is a multi-step process.
 
   1) Deploy Azure infrastructure
   2) Automation scripts configure virtual HCI cluster and generate ARM template
-  3) User deploys ARM template (HCI cluster validate phase)
-  4) User re-deploys ARM template (HCI cluster deploy phase)
+  3) User or automation deploys ARM template (HCI cluster validate phase)
+  4) User or automation re-deploys ARM template (HCI cluster deploy phase)
 
 HCIBox includes Bicep templates that can be used with Azure Developer CLI or Azure CLI. If your user can create application registrations in Microsoft Entra ID, then [Azure Developer CLI](/azure_jumpstart_hcibox/deployment_azd) will be the optimal deployment option that satisfies most other prerequisites. Otherwise, [Azure CLI](/azure_jumpstart_hcibox/deployment_az) can be used with a pre-configured service principal.
 
