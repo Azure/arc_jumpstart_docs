@@ -31,7 +31,7 @@ Follow these steps to verify that these required Azure Monitor artifacts have be
 
     ![Screenshot of searching Azure Policy](./img/search_policy.png)
 
-- Click on **Assignments**. You will see the Azure Policy initiative "_(Ag) Enable Azure Monitor for Hybrid VMs with AMA_". This initiative enables Azure Monitor for the hybrid virtual machines with AMA. It takes a Log Analytics workspace as and a Data Collection Rule (DCR) as parameters.
+- Click on **Assignments**. You will see the Azure Policy initiative **(Ag) Enable Azure Monitor for Hybrid VMs with AMA**. This initiative enables Azure Monitor for the hybrid virtual machines with AMA. It takes a Log Analytics workspace as and a Data Collection Rule (DCR) as parameters.
 
     ![Screenshot of Azure Monitor initiative assignment Azure Policy](./img/azure_monitor_initiative.png)
 
@@ -73,7 +73,7 @@ An Azure Monitor Workbook for Operating System (OS) Performance is also availabl
 
   ![Screenshot of opening OS Performance workbook](./img/open_osworkbook.png)
 
-- You will find a table that summarizes the OS performance status for your servers:
+- You will find a table that summarizes the OS performance status for your servers (CPU, Memory and Disk):
   
   ![Screenshot of summary OS Performance table](./img/summarize_osworkbook.png)
 
@@ -95,11 +95,11 @@ The second Azure Monitor Workbook functions as an inventory report detailing the
 
   ![Screenshot of opening Inventory workbook](./img/open_inventoryworkbook.png)
 
-- You will find the first inventory for **Machines overall status & configurations**:
+- You will find the first inventory for **Machines overall status & configurations**, which counts the number of machines by type and by their status:
 
   ![Screenshot of inventory workbook machines overall status & configurations](./img/machinesoverall_inventoryworkbook.png)
 
-- The second and third inventories list your **Azure Arc-enabled servers** and your **Azure Arc-enabled Kubernetes clusters**:
+- The second and third inventories list your **Azure Arc-enabled servers** and your **Azure Arc-enabled Kubernetes clusters**. It provides information about the status, the Arc agent version, the Operating System; location; and the number of compliant and non-compliant policies:
 
   ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/arcserverskubernetesclusters_inventoryworkbook.png)
 
