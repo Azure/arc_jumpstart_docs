@@ -10,3 +10,103 @@ technologyStack:
   - AZURE ARC
   - AZURE MONITOR
 ---
+
+# Infrastructure observability for Azure Arc-enabled servers using Azure Monitor
+
+## Overview
+
+Infrastructure observability is crucial for Contoso Motors to understand the performance and health of their Azure Arc-enabled servers. This is where [Azure Monitor](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-management-and-monitoring-arc-server) comes into play, playing a vital role in offering visibility into every facet of their Azure Arc-enabled servers ecosystem.
+
+Azure Monitor empowers Contoso with the capability to monitor and gather telemetry data from their Azure Arc-enabled servers. It serves as a central hub, providing near real-time insights into server performance, health, and resource utilization. Azure Monitor offers a comprehensive view of the entire infrastructure, ensuring proactive identification and resolution of potential issues.
+
+## Enable and configure Azure Monitor
+
+Azure Monitor can collect data directly from your Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. It requires installing the Azure Monitor Agent (AMA) VM extension in your Azure Arc-enabled servers, enabling VM insights to collect data from your machines.
+
+As part of the automated deployment, an Azure Policy monitoring initiative and a Data Collection Rule (DCR) are deployed. They allow collecting monitoring data from your Azure Arc-enabled servers.
+
+Follow these steps to verify that these required Azure Monitor artifacts have been successfully deployed:
+
+- In the top bar of the Azure portal, search for **policy** and click on **Policy**:
+
+    ![Screenshot of searching Azure Policy](./img/search_policy.png)
+
+- Click on **Assignments**. You will see the Azure Policy initiative "_(Ag) Enable Azure Monitor for Hybrid VMs with AMA_". This initiative enables Azure Monitor for the hybrid virtual machines with AMA. It takes a Log Analytics workspace as and a Data Collection Rule (DCR) as parameters.
+
+    ![Screenshot of Azure Monitor initiative assignment Azure Policy](./img/azure_monitor_initiative.png)
+
+- The DCR is in charge of collecting monitoring data from the Azure Arc-enabled servers. In the top bar, search for **Data collection rules**:
+
+    ![Screenshot of searching Data Collection Rules](./img/search_dcr.png)
+
+- You will find the DCR that has been created to collect insights from the Azure Arc-enabled servers:
+
+    ![Screenshot of the Data Collection Rules](./img/dcr_vmi.png)
+
+- Click on the DCR. You will see the data sources collected, in this case, performance counters:
+
+    ![Screenshot of the DCR - Data sources](./img/dcr_datasources.png)
+
+## Azure Arc-enabled servers and Azure Monitor VMInsights Integration
+
+Now that we have checked that the required monitoring artifacts have been successfully enabled, it's time to leverage VMInsights. It monitors the performance of your Azure Arc-enabled servers by collecting the required data with AMA.
+
+- Search for **Azure Arc**, go to **Machines** and click in one of your **Azure Arc-enabled servers**:
+
+    ![Screenshot of searching for an Azure Arc-enabled server](./img/search_arc_server.png)
+
+- Click on **Insights** and then on **Performance**. You will find a set of performance charts that target several key performance indicators to help you determine how well your Azure Arc-enabled server is performing. The charts show resource utilization over a period of time:
+
+    ![Screenshot of VMInsights - Performance](./img/vminsights_performance.png)
+
+## Operating System (OS) Performance Workbook
+
+An Azure Monitor Workbook for Operating System (OS) Performance is also available as part of the deployment. It complements the views provided by VMInsights.
+
+- Search for **workbooks** and click on **Azure workbooks**:
+
+  ![Screenshot of searching for Azure Monitor workbooks](./img/search_workbooks.png)
+
+- Click on the workbook whose name contains **Azure Arc-enabled servers OS Performance** and then click on **Open workbook**:
+
+  ![Screenshot of searching for clicking on OS Performance Workbook](./img/click_osworkbook.png)
+
+  ![Screenshot of opening OS Performance workbook](./img/open_osworkbook.png)
+
+- You will find a table that summarizes the OS performance status for your servers:
+  
+  ![Screenshot of summary OS Performance table](./img/summarize_osworkbook.png)
+
+- If you scroll down, you can use the charts and tables available per each key performance counter:
+
+  ![Screenshot of summary OS Performance table](./img/cpuusage_osworkbook.png)
+
+## Azure Arc-enabled resources inventory Workbook
+
+The second Azure Monitor Workbook functions as an inventory report detailing the various Arc-enabled resources that have been deployed.
+
+- Search for **workbooks** and click on **Azure workbooks**:
+
+  ![Screenshot of searching for Azure Monitor workbooks](./img/search_workbooks.png)
+
+- Click on the workbook whose name contains **Azure Arc-enabled resources inventory** and then click on **Open workbook**:
+
+  ![Screenshot of searching for clicking on Inventory Workbook](./img/click_inventoryworkbook.png)
+
+  ![Screenshot of opening Inventory workbook](./img/open_inventoryworkbook.png)
+
+- You will find the first inventory for **Machines overall status & configurations**:
+
+  ![Screenshot of inventory workbook machines overall status & configurations](./img/machinesoverall_inventoryworkbook.png)
+
+- The second and third inventories list your **Azure Arc-enabled servers** and your **Azure Arc-enabled Kubernetes clusters**:
+
+  ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/arcserverskubernetesclusters_inventoryworkbook.png)
+
+- There is also an inventory for checking the **Updates Data** of the servers:
+
+  ![Screenshot of inventory workbook updates data](./img/updatesdata_inventoryworkbook.png)
+
+- The last inventory will list any **Defender for Cloud active alerts**:
+
+  ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/defenderalerts_inventoryworkbook.png)
