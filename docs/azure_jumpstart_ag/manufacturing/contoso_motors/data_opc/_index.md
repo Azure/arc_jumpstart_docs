@@ -18,7 +18,7 @@ technologyStack:
 
 One of Contoso's biggest objectives is how to use the data coming from their manufacturing assembly line, welding robots, battery assemblies and visualize it for business intelligence by leveraging the power of the cloud.
 
-In this scenario, Contoso wants to use their data pipeline so cars manufactured at various plants flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports for production and operational efficiency. By doing so, Contoso management can leverage these reports to adjust their production, improve quality, reduce wastage, and save manufacturing cost.
+In this scenario, Contoso wants to use their data pipeline so that data coming from cars manufactured at various plants flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports for production and operational efficiency. By doing so, Contoso management can leverage these reports to adjust their production, improve quality, reduce wastage, and save manufacturing cost.
 
 ## Architecture
 
@@ -70,7 +70,7 @@ Follow the below steps in order to view the Contoso Motors dashboard reports as 
 
 ## Generate sample data using Data Emulator
 
-Once the Agora Contoso Motors scenarios is deployed and fully functions, MQTT simulators start sending assemblyline, battery, and welding data to Azure Event Hub and is ingested to ADX database using ADX database connection. While this data is realtime and takes time to produce enough data to view dashboards reports, this scenario comes with a Data Emulator tool available on the Agora client VM. Data Emulator can produce data for past several days or weeks to view dashboard reports. Use instructions below to generate sample data using the Data Emulator tool.
+Once the Agora Contoso Motors scenarios is deployed and fully functions, MQTT simulators start sending assemblyline, battery, and welding data to Azure Event Hub and is ingested to ADX database using ADX database connection. While this data is realtime, it takes time to produce enough data to view dashboards reports, this scenario comes with a Data Emulator tool available on the Agora client VM. Data Emulator can produce data for past several days or weeks to view dashboard reports. Use instructions below to generate sample data using the Data Emulator tool.
 
 - On the Client VM, locate Data Emulator icon on the desktop.
 
@@ -88,7 +88,7 @@ Once the Agora Contoso Motors scenarios is deployed and fully functions, MQTT si
 
   ![Screenshot showing the generating sample data](./img/sample_data_generation.png)
 
-- Once the sample data generation is complete, from ADX Dashboards open Contoso Motors and Auto Parts dashboard report to view simulated manufacturing data. Allow some time to propagate data into the ADX database using an integrated data pipeline.
+- Once the sample data generation is complete, from [ADX Dashboards](https://dataexplorer.azure.com/) open Contoso Motors and Auto Parts dashboard report to view simulated manufacturing data. Allow some time to propagate data into the ADX database using an integrated data pipeline.
 
   ![Screenshot showing the Contoso Motors with simulated data](./img/adx_contoso_motors_with_simulated_data.png)
 
