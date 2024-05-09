@@ -179,18 +179,20 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
 
-> **Note:** To get the `spnObjectId`, you can run one of the following commands:
->
-> **Azure Cli:**
-> ```shell
->az ad sp show --id <Service principal application Id> >--query id -o tsv
->```
->
-> **Azure PowerShell:**
-> ```shell
-> (Get-AzADServicePrincipal -ApplicationId <Service principal application Id>).Id
->```
+-To get the `spnObjectId`, you can run do so using either Azure CLI or Azure PowerShell.
 
+  - (Option 1) Using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI.
+
+    ```shell
+    az ad sp show --id "<Service principal application Id>" --query id -o tsv
+    ```
+
+  - (Option 2) Using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
+
+    ```powershell
+    (Get-AzADServicePrincipal -ApplicationId "<Service principal application Id>").Id
+    ```
+  
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
 - You will need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.
