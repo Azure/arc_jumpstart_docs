@@ -173,11 +173,23 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/manufacturing/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`spnClientId`_ - Your Azure service principal application id
   - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnObjectId`_ - Your Azure service principal object id
+  - _`spnObjectId`_ - Your Azure service principal id
   - _`spnTenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
+
+> **Note:** To get the `spnObjectId`, you can run one of the following commands:
+>
+> **Azure Cli:**
+> ```shell
+>az ad sp show --id <Service principal application Id> >--query id -o tsv
+>```
+>
+> **Azure PowerShell:**
+> ```shell
+> (Get-AzADServicePrincipal -ApplicationId <Service principal application Id>).Id`
+>```
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
