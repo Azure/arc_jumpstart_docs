@@ -35,6 +35,7 @@ Agora can be deployed to the following regions:
 Agora incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. Each industry scenario in Agora may use a different combination of Azure resources and therefore costs vary depending on the industry scenario used. You can view example estimates of Agora costs in the link below.
 
 - [Agora Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
+- [Agora Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
 
 ## Where can I go if I have trouble deploying or using Agora?
 
