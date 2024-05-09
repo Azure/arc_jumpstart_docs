@@ -15,7 +15,7 @@ technologyStack:
 
 ## Overview
 
-Infrastructure observability is crucial for Contoso Motors to understand the performance and health of their Azure Arc-enabled servers. This is where [Azure Monitor](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-management-and-monitoring-arc-server) comes into play, playing a vital role in offering visibility into every facet of their Azure Arc-enabled servers ecosystem.
+Infrastructure observability is crucial for Contoso Motors to understand the performance and health of their Azure Arc-enabled servers. This is where [Azure Monitor](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-management-and-monitoring-arc-server) steps in, playing a vital role in offering visibility into every facet of their Azure Arc-enabled servers ecosystem.
 
 Azure Monitor empowers Contoso with the capability to monitor and gather telemetry data from their Azure Arc-enabled servers. It serves as a central hub, providing near real-time insights into server performance, health, and resource utilization. Azure Monitor offers a comprehensive view of the entire infrastructure, ensuring proactive identification and resolution of potential issues.
 
