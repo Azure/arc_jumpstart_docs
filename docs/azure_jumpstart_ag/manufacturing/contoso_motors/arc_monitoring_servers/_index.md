@@ -47,7 +47,7 @@ Follow these steps to verify that these required Azure Monitor artifacts have be
 
     ![Screenshot of the DCR - Data sources](./img/dcr_datasources.png)
 
-## Azure Arc-enabled servers and Azure Monitor VMInsights Integration
+## Azure Arc-enabled servers and Azure Monitor VM insights Integration
 
 Now that we have checked that the required monitoring artifacts have been successfully enabled, it's time to leverage VMInsights. It monitors the performance of your Azure Arc-enabled servers by collecting the required data with AMA.
 
