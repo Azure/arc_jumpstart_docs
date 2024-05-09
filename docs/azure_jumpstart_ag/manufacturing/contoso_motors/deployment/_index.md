@@ -188,7 +188,7 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
 >
 > **Azure PowerShell:**
 > ```shell
-> (Get-AzADServicePrincipal -ApplicationId <Service principal application Id>).Id`
+> (Get-AzADServicePrincipal -ApplicationId <Service principal application Id>).Id
 >```
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
