@@ -61,7 +61,7 @@ Now that we have checked that the required monitoring artifacts have been succes
 
 ## Operating System (OS) Performance Workbook
 
-An Azure Monitor Workbook for Operating System (OS) Performance is also available as part of the deployment. It complements the views provided by VMInsights.
+An Azure Monitor Workbook for Operating System (OS) Performance is also available as part of the deployment. It complements the views provided by VM insights.
 
 - Search for **workbooks** and click on **Azure workbooks**:
 
