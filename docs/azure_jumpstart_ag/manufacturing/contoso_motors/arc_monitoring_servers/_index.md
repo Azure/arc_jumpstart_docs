@@ -57,7 +57,7 @@ Now that we have checked that the required monitoring artifacts have been succes
 
 - Click on **Insights** and then on **Performance**. You will find a set of performance charts that target several key performance indicators to help you determine how well your Azure Arc-enabled server is performing. The charts show resource utilization over a period of time:
 
-    ![Screenshot of VMInsights - Performance](./img/vminsights_performance.png)
+    ![Screenshot of VM insights - Performance](./img/vminsights_performance.png)
 
 ## Operating System (OS) Performance Workbook
 
