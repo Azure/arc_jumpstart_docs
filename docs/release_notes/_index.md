@@ -9,6 +9,37 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## April 2024
+
+### Release highlights
+
+- New "Arc, Edge, and IoT Operations" scenario for Edge Storage Accelerator
+- Multiple HCIBox features
+- Various critical bugs fixes
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [April release](https://www.linkedin.com/feed/update/urn:li:activity:7188194418762420227/)
+
+### Jumpstart HCIBox
+
+- [Bug: HCIBox setup script failed due to incorrect parameter name "autoUpdateClusterResource" #2498](https://github.com/microsoft/azure_arc/issues/2498)
+- [Feature: HCIBox - add automatic validation and deployment of cluster #2488](https://github.com/microsoft/azure_arc/issues/2488)
+- [Feature: HCIBox - add automatic upgrade of cluster #2493](https://github.com/microsoft/azure_arc/issues/2493)
+- [Feature: Update HCIBox VHDX images for April release #2524](https://github.com/microsoft/azure_arc/issues/2524)
+- [Documentation: Jumpstart HCIBox 23H2 Deployment - Where or how to get Windows Admin Center #2490](https://github.com/microsoft/azure_arc/issues/2490)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - April release #2495](https://github.com/microsoft/azure_arc/issues/2495)
+
+### Arc, Edge, and IoT Operations
+
+- [New scenario: Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single_esa)
+- [Bug: Deployment of Azure IoT Operations (AIO) fails with AKS-EE due to lack of logs space #2515](https://github.com/microsoft/azure_arc/pull/2514)
+- [Bug: AIO scenario preview repository #2517](https://github.com/microsoft/azure_arc/issues/2517)
+
+### Jumpstart Agora
+
+- [Bug: Video feed not working in Agora retail #2522](https://github.com/microsoft/azure_arc/issues/2522)
+
 ## March 2024
 
 ### Release highlights
@@ -16,7 +47,7 @@ weight: 6
 - New Arc-enabled servers scenario
 - Arc-enabled data service monthly release
 - AKS version bump
-- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [March release](https://www.linkedin.com/posts/liorkamrat_kubernetes-mvpbuzz-msftadvocate-activity-7172952002442776576-vOjx?utm_source=share&utm_medium=member_desktop)
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [March release](https://www.linkedin.com/feed/update/urn:li:activity:7172952002442776576/)
 
 ### Cross Jumpstart
 
