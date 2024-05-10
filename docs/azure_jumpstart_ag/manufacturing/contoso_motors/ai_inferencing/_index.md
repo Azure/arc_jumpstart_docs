@@ -7,7 +7,7 @@ linkTitle: AI
 
 # Jumpstart Agora - Contoso Motors Web UI & AI Inference
 
-The Contoso Motor AI inference flow was designed with a Kubernetes-based architecutre in mind, providing a flexible and scalable design that can be easily adapted and extended by our customers. 
+The Contoso Motor AI inference flow was designed with a Kubernetes-based architecutre in mind, providing a flexible and scalable design that can be easily adapted and extended by our customers. This document covers how Contoso Motors implements different AI models depending on the different scenarios. 
 
 ## Architecture
 
