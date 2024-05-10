@@ -205,7 +205,7 @@ Jumpstart Agora provides a feature that allows users to deploy with the [Azure D
   ![Screenshot showing azd auth login](./img/azd_auth_login.png)
 
 - Run the *`azd init`* command from your cloned repo _*azure_jumpstart_ag/retail*_ folder.
-  
+
   ![Screenshot showing azd init](./img/azd_init.png)
 
 - Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
