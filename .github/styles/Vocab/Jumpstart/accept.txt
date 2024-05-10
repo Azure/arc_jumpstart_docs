@@ -27,3 +27,6 @@ ARM
 US
 RDP
 JIT
+Downloader
+jsfiles
+ovmsclient
