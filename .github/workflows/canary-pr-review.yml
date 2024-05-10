@@ -28,7 +28,7 @@ jobs:
         beginning='['
         
         # File calculation without folder filtering
-        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g')
+        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g; s/^/"/; s/$/"/')
         
         # File calculation applying folder filtering for azure_arc_app_svc & azure_arc_k8s
         #middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s|azure_jumpstart_ag)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)

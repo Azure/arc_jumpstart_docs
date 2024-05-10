@@ -1,8 +1,0 @@
-extends: existence
-message: "Use the Oxford comma in '%s'."
-link:  https://learn.microsoft.com/style-guide/punctuation/commas
-scope: sentence
-level: suggestion
-nonword: true
-tokens:
-  - '(?:[^\s,]+,){1,} \w+ (?:and|or) \w+[.?!]'
