@@ -17,7 +17,7 @@ Welding is a process of joining two or more metal parts by melting and fusing th
 
 ![Welding defect archietcture](./img/flow.png)
 
-The image above shows the welding defect inference flow, which consists of five main steps: UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
+This diagram shows the welding defect inference flow, which consists of five main steps: UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
  
 1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the welding working station (highlighted in the image above), the welding detection flow is triggered. 
 
