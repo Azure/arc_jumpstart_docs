@@ -13,7 +13,7 @@ Contoso Motors uses AI-enhanced manufacturing designed and built with a Kubernet
 
 ![AI inference flow](./img/ai_flow.png)
 
-From the image above, the Edge AI inference flow can be divided into two configuration steps and three inference steps. 
+The Edge AI inference flow can be divided into two configuration steps and three inference steps. 
 
 1. **Model Downloader:** this is a *Kubernetes Job* that's in charge of downloading the binary files of the AI models and the corresponding configuration files. Depending on the model type, various formats can be used, such as .onnx, .hd5, .bin, and others. In general, the binary files contain the model weights and architecture, while the configuration files specify the model properties, such as input/output tensor shapes, number of layers, and more. 
 
