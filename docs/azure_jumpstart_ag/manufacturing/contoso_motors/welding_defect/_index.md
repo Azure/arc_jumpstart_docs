@@ -9,7 +9,7 @@ linkTitle: WeldingDfefect
 
 ## Overview
 
-This section describes the flow for the Welding defect scenario. This is one of the four AI scenarios that make up the Contoso Motor solution, which also includes Object Detection, Human Pose Estimation, and Helmet Detection. While each scenario has its own unique characteristics, they all follow the same architecture and flow of information.
+Contoso Motors uses AI-enhanced computer vision to improve welding operations on its assembly lines. Welding is one of the four computer vision use cases that Contoso Motors uses, which also include object detection, human pose estimation, and safety helmet detection. While each use case has its own unique characteristics, they all follow the same inferencing architecture pattern and data flow.
 
 Welding is a process of joining two or more metal parts by melting and fusing them together. Welding defects are flaws or irregularities that occur during or after the welding process, which can affect the quality, strength, and appearance of the weld. Welding defects can be caused by various factors, such as improper welding parameters, inadequate preparation, poor welding technique, or environmental conditions. In this scenario, an AI model is used to automatically detect and classify welding defects from a video feed. Welding defect inference can help improve the efficiency, accuracy, and safety of weld inspection and quality control.
 
