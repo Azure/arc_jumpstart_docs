@@ -5,7 +5,7 @@ title: AI Inference
 linkTitle: AI
 ---
 
-# Jumpstart Agora - Contoso Motors Web UI & AI Inference
+# Contoso Motors Web UI & AI Inference
 
 Contoso Motors leverages AI-powered manufacturing with a Kubernetes-based infrastructure which provides a flexible and scalable design that can be easily extended. This document covers how Contoso Motors implements different AI inferencing models for various use cases, leveraging [OpenVINO Model Server (OVMS)](https://docs.openvino.ai/2023.3/ovms_what_is_openvino_model_server.html). The OVMS by Intel, is a high-performance inference serving software that allows users to deploy and serve multiple AI models in a convinient, scalable and efficient way.
 
