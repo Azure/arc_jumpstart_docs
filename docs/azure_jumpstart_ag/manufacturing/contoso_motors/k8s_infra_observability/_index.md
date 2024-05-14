@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 7
+weight: 6
 title: Infrastructure observability for Kubernetes and Arc-enabled Kubernetes
 linkTitle: Infrastructure observability for Kubernetes and Arc-enabled Kubernetes
 summary: |

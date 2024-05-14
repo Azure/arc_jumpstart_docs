@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 6
+weight: 7
 title: Infrastructure observability for Azure Arc-enabled servers using Azure Monitor
 linkTitle: Infrastructure observability for Azure Arc-enabled servers using Azure Monitor
 summary: |
