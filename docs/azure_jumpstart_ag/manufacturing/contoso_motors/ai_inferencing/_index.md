@@ -15,7 +15,7 @@ Contoso Motors uses AI-enhanced manufacturing designed and built with a Kubernet
 
 The Edge AI inference flow can be divided into two configuration steps and three inference steps. 
 
-1. **Model Downloader:** this is a *Kubernetes Job* that's in charge of downloading the binary files of the AI models and the corresponding configuration files. Depending on the model type, various formats can be used, such as .onnx, .hd5, .bin, and others. In general, the binary files contain the model weights and architecture, while the configuration files specify the model properties, such as input/output tensor shapes, number of layers, and more. 
+1. **Model Downloader:** this is a *Kubernetes Job* that downloads the binary files of the AI models and the corresponding configuration files. Depending on the model type, various formats can be used, such as .onnx, .hd5, .bin, and others. In general, the binary files contain the model weights and architecture, while the configuration files specify the model properties, such as input/output tensor shapes, number of layers, and more. 
 
     In this scenario, the models and configurations needed for the OVMS deployment are hosted within the Arc Jumpstart **jsfiles** storage account. During deployment, the **Model Downloader** job pulls these models and configurations by running the **ovms_config.sh** script, which downloads all necessary model files and stores them in the  **ovms-pvc** persistent volume claim for the OVMS pods to access and serve. All models need to be placed and mounted in a particular directory structure and according to the rules described in [OpenVINO - Model Serving](https://docs.OpenVINO.ai/2022.3/ovms_docs_models_repository.html). 
     
