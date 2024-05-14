@@ -28,7 +28,7 @@ The Edge AI inference flow can be divided into two configuration steps and three
     | Weld-porosity | Weld porosity detection (no weld, weld, porosity) | [weld-porosity-detection-0001.bin](https://jsfiles.blob.core.windows.net/ai-models/weld-porosity-detection-0001.bin), [weld-porosity-detection-0001.xml](https://jsfiles.blob.core.windows.net/ai-models/weld-porosity-detection-0001.xml) | 
     | Pose-estimation | Human pose estimation | [human-pose-estimation-0007.bin](https://jsfiles.blob.core.windows.net/ai-models/human-pose-estimation-0007.bin), [human-pose-estimation-0007.xml](https://jsfiles.blob.core.windows.net/ai-models/human-pose-estimation-0007.xml) | 
 
-1. **Video Downloader:** this is an init-container in Kubernetes responsible for downloading sample video files used to simulate an RTSP video feed. In this scenario, all video streams are simulated using the **RTSP Simulator**. The videos are downloaded from the Arc Jumpstart **jsfiles** storage account and stored in a Kubernetes volume for use in the deployment.
+1. **Video Downloader:** this is an init-container in Kubernetes responsible for downloading sample video files used to simulate an RTSP video feed. All video streams are simulated using the **RTSP Simulator**. The videos are downloaded from the Arc Jumpstart **jsfiles** storage account and stored in a Kubernetes volume for use in the deployment.
 
     | Video | Scenario | Link | 
     | ----- | -------- | ---- | 
