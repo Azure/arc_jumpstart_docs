@@ -1,8 +1,18 @@
 ---
 type: docs
 weight: 9
-title: AI Inference
-linkTitle: AI
+title: Web UI & AI Inference flow
+linkTitle: Web UI & AI Inference flow
+summary: |
+   Contoso Motors leverages AI-powered manufacturing with a Kubernetes-based infrastructure which provides a flexible and scalable design that can be easily extended. This document covers how Contoso Motors implements different AI inferencing models for various use cases, leveraging OpenVINO Model Server (OVMS), a high-performance inference serving software that allows users to deploy and serve multiple AI models. The document also explains the architecture of the AI inference flow and the steps involved in the inference/processing.
+serviceOrPlatform: INFRASTRUCTURE
+technologyStack:
+  - AKS
+  - AI
+  - OPENVINO
+  - AKS EDGE ESSENTIALS
+  - OPENVINO MODEL SERVER
+  - RTSP
 ---
 
 # Contoso Motors Web UI & AI Inference
