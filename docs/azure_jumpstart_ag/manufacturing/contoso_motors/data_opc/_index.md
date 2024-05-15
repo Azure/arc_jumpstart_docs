@@ -32,7 +32,6 @@ Contoso supports dashboard reports for the manufacturing analytics and monitorin
 
 ## Manually import dashboards
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Motors scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
 
 Follow the below steps in order to view the Contoso Motors dashboard reports as you will need to import these into ADX.
 
