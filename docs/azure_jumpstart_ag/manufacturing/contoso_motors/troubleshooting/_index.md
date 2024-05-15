@@ -47,15 +47,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 
 ### Authorization errors when deploying Azure IoT Operations
 
-If you see authorization errors during the automation, please make sure to review the [prerequisites]() in the deployment guide.
-
-### Accessing the Kubernetes resources on the clusters
-
-After deploying Agora, if you try to access the Kubernetes resources on the clusters, you will see the following error message. This is expected as you must have access/permissions to the cluster, the Kubernetes API, and the Kubernetes objects. You must grant yourself the appropriate RBAC permission to view those resources.
-
-  ![Screenshot showing an error message when accessing Kubernetes resources on the AKS cluster](../deployment)
-
-- To able to access the Kubernetes resources on the AKS Edge Essentials clusters from the Azure portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/azure-arc/kubernetes/cluster-connect).
+If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment) in the deployment guide.
 
 ### User principal is not authorized to read database Orders
 

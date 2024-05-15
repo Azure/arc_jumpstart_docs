@@ -18,7 +18,7 @@ Agora offers two industry scenarios, [Contoso Motors](/azure_jumpstart_ag/manufa
 
 ## What is required to deploy Agora?
 
-Agora deployment requires an Azure service principal with **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy Agora using Azure Bicep or the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). A service principal is required to run the automation scripts that deploy and configure Agora features. You can view how the service principal is used by exploring the Agora code on our [public GitHub repository](https://aka.ms/JumpstartGitHubCode).
+Agora deployment requires an Azure service principal with **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy Agora using Azure Bicep. A service principal is required to run the automation scripts that deploy and configure Agora features. You can view how the service principal is used by exploring the Agora code on our [public GitHub repository](https://aka.ms/JumpstartGitHubCode).
 
 ## What Azure regions can Agora be deployed to?
 
