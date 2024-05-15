@@ -39,21 +39,22 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 | _C:\Ag\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _Ag-VM-Client_. |
 | _C:\Ag\Logs\ClusterSecrets.log_ | Output of secret creation on Kubernetes clusters. |
 | _C:\Ag\Logs\GitOps-Ag-*.log_ | Output of scripts that collect GitOps logs on the remote Kubernetes clusters. |
-| _C:\Ag\Logs\IoT.log_ | Output of automation tasks that configure Azure IoT services. |
 | _C:\Ag\Logs\L1AKSInfra.log_ | Output of scripts that configure AKS Edge Essentials clusters on the nested virtual machines. |
-| _C:\Ag\Logs\Nginx.log_ | Output from the script that configures Nginx load balancing on the Kubernetes clusters. |
 | _C:\Ag\Logs\Observability.log_ | Output from the script that configures observability components of the solution. |
 | _C:\Ag\Logs\Tools.log_ | Output from the tasks that set up developer tools on _Ag-VM-Client_. |
 
   ![Screenshot showing Agora logs folder on AG-Client](./img/logs_folder.png)
 
+### Authorization errors when deploying Azure IoT Operations
+
+If you see authorization errors during the automation, please make sure to review the [prerequisites]() in the deployment guide.
+
 ### Accessing the Kubernetes resources on the clusters
 
 After deploying Agora, if you try to access the Kubernetes resources on the clusters, you will see the following error message. This is expected as you must have access/permissions to the cluster, the Kubernetes API, and the Kubernetes objects. You must grant yourself the appropriate RBAC permission to view those resources.
 
-  ![Screenshot showing an error message when accessing Kubernetes resources on the AKS cluster](./img/aks_resources_access.png)
+  ![Screenshot showing an error message when accessing Kubernetes resources on the AKS cluster](../deployment)
 
-- To able to access the Kubernetes resources on the AKS cluster from the Azure portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/aks/kubernetes-portal?tabs=azure-cli#unauthorized-access).
 - To able to access the Kubernetes resources on the AKS Edge Essentials clusters from the Azure portal, follow the guidance mentioned in [this article](https://learn.microsoft.com/azure/azure-arc/kubernetes/cluster-connect).
 
 ### User principal is not authorized to read database Orders
