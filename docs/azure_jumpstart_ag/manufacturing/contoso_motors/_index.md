@@ -31,7 +31,7 @@ Contoso Motors uses an AI technology stack, services, and processes to support t
 
 ## Virtual edge environment
 
-Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Motors scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and simualted MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
+Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Motors scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
 
 ![Applications and technology stack architecture diagram](./img/simulation_stack.png)
 
