@@ -5,7 +5,7 @@ title: Troubleshooting
 linkTitle: Troubleshooting
 ---
 
-# Jumpstart Agora - Contoso Motors scenario troubleshooting
+# Contoso Motors scenario troubleshooting
 
 ## Basic troubleshooting
 

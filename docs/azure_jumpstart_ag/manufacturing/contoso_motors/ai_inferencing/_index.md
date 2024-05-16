@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 3
-title: Web UI & AI Inference flow
-linkTitle: Web UI & AI Inference flow
+title: Web UI and AI Inference flow
+linkTitle: Web UI and AI Inference flow
 summary: |
    Contoso Motors leverages AI-powered manufacturing with a Kubernetes-based infrastructure which provides a flexible and scalable design that can be easily extended. In this scenario, Contoso Motors wants to implement different AI inferencing models for various use cases, leveraging OpenVINO Model Server (OVMS), a high-performance inference serving software that allows users to deploy and serve multiple AI models. This scenario also explains the architecture of the AI inference flow and the steps involved in the inference/processing.
 serviceOrPlatform: INFRASTRUCTURE
@@ -15,7 +15,7 @@ technologyStack:
   - RTSP
 ---
 
-# Contoso Motors Web UI & AI Inference
+# Contoso Motors Web UI and AI Inference
 
 Contoso Motors leverages AI-powered manufacturing with a Kubernetes-based infrastructure which provides a flexible and scalable design that can be easily extended. This document covers how Contoso Motors implements different AI inferencing models for various use cases, leveraging [OpenVINO Model Server (OVMS)](https://docs.openvino.ai/2023.3/ovms_what_is_openvino_model_server.html). The OVMS by Intel, is a high-performance inference serving software that allows users to deploy and serve multiple AI models in a convient, scalable and efficient manner.
 
@@ -47,19 +47,19 @@ The Edge AI inference flow can be divided into two configuration steps and three
     | Welding feed | Weld porosity detection | [welding.mp4](https://jsfiles.blob.core.windows.net/video/agora/welding.mp4) | 
     | Worker interacting with robot | Human pose estimation | [object-detection.mp4](https://jsfiles.blob.core.windows.net/video/agora/object-detection.mp4) |
 
-After the configuration is complete, the inference flow can be initiated. The **Web AI Inference & UI** application retrieves data, such as video frames from an RTSP source or images, and applies any necessary preprocessing, such as resizing an image to a specific size with a specific RGB/BGR format. The data is then sent to the model server for inference, and any required post processing is applied to store or display the results to the user.
+After the configuration is complete, the inference flow can be initiated. The **Web AI Inference and UI** application retrieves data, such as video frames from an RTSP source or images, and applies any necessary preprocessing, such as resizing an image to a specific size with a specific RGB/BGR format. The data is then sent to the model server for inference, and any required post processing is applied to store or display the results to the user. 
 
 The steps involved in the inference/procressing can be described as follows:
 
-1. **Video Streamer Capture:** this is the code of the **Web AI Inference & UI** pod that handles the capture of the RTSP feeds. Depending on the AI scenario, this code will grab the appropriate video and using **OpenCV** will handle the video frames for processing and AI inference. For more information on the different videos available, please refer to the [rtsp-simulator.yaml](https://github.com/microsoft/jumpstart-agora-apps/tree/manufacturing/contoso_manufacturing/operations/charts/rtsp-simulator) file.
+1. **Video Streamer Capture:** this is the code of the **Web AI Inference and UI** pod that handles the capture of the RTSP feeds. Depending on the AI scenario, this code will grab the appropriate video and using **OpenCV** will handle the video frames for processing and AI inference. For more information on the different videos available, please refer to the [rtsp-simulator.yaml](https://github.com/microsoft/jumpstart-agora-apps/tree/manufacturing/contoso_manufacturing/operations/charts/rtsp-simulator) file.
 
-2. **Pre-process and AI inference:** this is the code of the **Web AI Inference & UI** pod that handles the **preprocessing** of the image and sends the processed input to the AI inference server. Each model has it's own Python class ([Yolo8](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/yolov8.py), [Welding](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py) and [Pose Estimator](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/pose_estimator.py)) that implements the **pre-process**, **post-process** and **run** methods according to the model requirements. Once the input data, generally a **torch** is created, it's then sent to the AI inference server using the [ovmsclient library](https://pypi.org/project/ovmsclient/).
+1. **Pre-process and AI inference:** this is the code of the **Web AI Inference and UI** pod that handles the **preprocessing** of the image and sends the processed input to the AI inference server. Each model has it's own Python class ([Yolo8](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/yolov8.py), [Welding](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py) and [Pose Estimator](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/pose_estimator.py)) that implements the **pre-process**, **post-process** and **run** methods according to the model requirements. Once the input data, generally a **torch** is created, it's then sent to the AI inference server using the [ovmsclient library](https://pypi.org/project/ovmsclient/). 
 
     The AI inference server, in our case the [OpenVINO Model Server](https://docs.OpenVINO.ai/2023.3/ovms_what_is_OpenVINO_model_server.html), hosts models and makes them accessible to software components over standard network protocols: a client sends a request to the model server, which performs model inference and sends a response back to the client. This scenario, uses  
 
     The OVMS model server is configured as part of the helm deployment, using the **OVMS Operator**. The deployment installs the OVMS Operator, sets up the storage for AI models, and configures the OVMS pods and services. For more information about the setup, check [OVMS Helm](https://github.com/microsoft/jumpstart-agora-apps/tree/manufacturing/contoso_manufacturing/operations/charts/ovms).For more information about OVMS Operator, check [OpenVINO Model Server with Kubernetes](https://docs.OpenVINO.ai/archive/2021.4/ovms_docs_kubernetes.html). The OVMS model server is typically deployed as a set of pods. Each pod contains one or more instances of the OVMS software, along with any necessary dependencies. The pods are managed by a Kubernetes controller, which is responsible for ensuring that the desired number of pods are running at all times. 
 
-3. **Post-process and UI rendering:** this is the code in the **Web AI Inference & UI** pod is responsible for handling post-processing and final UI rendering for the user. Depending on the model, once the OVMS provides the inference response, post-processing is applied to the image, such as adding labels, bounding boxes, or human skeleton graphs. Once the visual data is added to the frame, it's then served to the UI frontend using a **Flask App** method. For more information on the Flask App, please refer to the [Web UI - app.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/app.py)
+1. **Post-process and UI rendering:** this is the code in the **Web AI Inference and UI** pod is responsible for handling post-processing and final UI rendering for the user. Depending on the model, once the OVMS provides the inference response, post-processing is applied to the image, such as adding labels, bounding boxes, or human skeleton graphs. Once the visual data is added to the frame, it's then served to the UI frontend using a **Flask App** method. For more information on the Flask App, please refer to the [Web UI - app.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/app.py)
 
 ## OpenVINO Model Server
 
@@ -79,4 +79,3 @@ The OpenVINO Model Server offers many advantages for efficient model deployment:
 ## Next steps
 
 Now that you have completed the data pipeline scenario, it's time to continue to the next scenario, [Welding defect scenario using OpenVino and Kubernetes](../welding_defect/).
-
