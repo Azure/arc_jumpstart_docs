@@ -99,7 +99,7 @@ The second Azure Workbook functions as an inventory report detailing the various
 
   ![Screenshot of inventory workbook machines overall status & configurations](./img/machinesoverall_inventoryworkbook.png)
 
-- The second and third inventories list your **Azure Arc-enabled servers** and your **Azure Arc-enabled Kubernetes clusters**. It provides information about the status, the Arc agent version, the Operating System; location; and the number of compliant and non-compliant policies:
+- The second and third inventories list your **Azure Arc-enabled servers** and your **Azure Arc-enabled Kubernetes clusters**. It provides information about the status, Arc agent version, the operating system, location, and the number of compliant and non-compliant policies.
 
   ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/arcserverskubernetesclusters_inventoryworkbook.png)
 
