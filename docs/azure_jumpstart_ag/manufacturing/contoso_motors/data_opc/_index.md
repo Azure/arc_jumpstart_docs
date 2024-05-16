@@ -18,7 +18,7 @@ technologyStack:
 
 One of Contoso's biggest objectives is how to use the data coming from their manufacturing assembly line, welding robots, battery assemblies and visualize it for business intelligence by leveraging the power of the cloud.
 
-In this scenario, Contoso wants to use their data pipeline so that data coming from cars manufactured at various plants flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports for production and operational efficiency. By doing so, Contoso management can leverage these reports to adjust their production, improve quality, reduce wastage, and save manufacturing cost.
+In this scenario, Contoso wants to use their data pipeline so that data coming from automobile parts manufactured at various plants flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports for production and operational efficiency. By doing so, Contoso management can leverage these reports to adjust their production, improve quality, reduce wastage, and save manufacturing cost.
 
 ## Architecture
 
