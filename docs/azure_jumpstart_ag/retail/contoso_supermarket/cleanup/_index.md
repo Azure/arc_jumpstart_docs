@@ -17,10 +17,6 @@ linkTitle: Cleanup
 
   ![Screenshot showing group delete from Azure portal](./img/portal_delete.png)
 
-- If you used Azure Developer CLI to deploy then *`azd down`* can be used instead.
-
-  ![Screenshot showing azd down](./img/azd_down.png)
-
   > **Note:** If you have manually configured Defender for Cloud, please refer to the [dedicated page](../arc_defender_servers/#cleanup) to clean up Defender for Cloud resources.
 
 ## Next steps
