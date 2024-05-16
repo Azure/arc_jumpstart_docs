@@ -36,7 +36,7 @@ To get started with the "Contoso Motors" Jumpstart Agora scenario, we provided y
 | **Guide**  | **Contoso Motors service or platform** | **Technology stack** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_motors/deployment/) | Not applicable | Not applicable |
-| [Data pipeline and reporting across cloud and edge](../contoso_motors/data_opc/) | OT | Azure IoT Operations, Azure Data Explorer, MQTT, Event Grid, Event Hub, AKS Edge Essentials |
+| [Data pipeline and reporting across cloud and edge](../contoso_motors/data_opc/) | Operational technology (OT) | Azure IoT Operations, Azure Data Explorer, MQTT, Event Grid, Event Hub, AKS Edge Essentials |
 | [Enabling AI at the Edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | Azure IoT Operations, Azure Data Explorer, MQTT, RTSP simulator, OPC simulator, Intel OpenVino Inference Engine, Grafana, InfluxDB, AKS Edge Essentials |
 | [Optimizing welding processes for precision and efficiency](../contoso_motors/welding_defect/)  | Welding monitoring  | Azure IoT Operations, Azure Data Explorer, MQTT, RTSP simulator, OPC simulator, Intel OpenVino Inference Engine, Grafana, InfluxDB, AKS Edge Essentials  |
 | [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_motors/k8s_infra_observability/) | Infrastructure | AKS Edge Essentials, Prometheus, Grafana  |
