@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 9
+weight: 3
 title: Web UI & AI Inference flow
 linkTitle: Web UI & AI Inference flow
 summary: |
