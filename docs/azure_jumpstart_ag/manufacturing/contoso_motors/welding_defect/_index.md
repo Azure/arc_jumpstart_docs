@@ -1,11 +1,11 @@
 ---
 type: docs
-weight: 9
+weight: 4
 title: Welding Defect
-linkTitle: WeldingDfefect
 linkTitle: Welding defect scenario using OpenVino and Kubernetes
 summary: |
     The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
+serviceOrPlatform: Manufacturing
 technologyStack:
   - AKS
   - OPENVINO
@@ -14,7 +14,7 @@ technologyStack:
   - RTSP
 ---
 
-# Contoso Motors Welding defect flow
+# Welding defect flow
 
 ## Overview
 
@@ -27,7 +27,7 @@ Welding is a process of joining two or more metal parts by melting and fusing th
 ![Welding defect archietcture](./img/flow.png)
 
 This diagram shows the welding defect inference flow, which consists of five main steps: UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
- 
+
 1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the welding working station (highlighted in the image above), the welding detection flow is triggered. 
 
 1. **RTSP video simulation:** The welding defect flow requires a particular video of a welding to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of a real welding scenario, providing a reliable video for the AI inference process.
@@ -77,4 +77,6 @@ Expected color order is BGR.
 
 The features is a blob with the shape 1, 3 containing probability scores for three output classes (**no weld**, **normal weld** and **porosity**).
 
+## Next steps
 
+Now that you have completed the data pipeline scenario, it's time to continue to the next scenario, [Workers safety using AI](../workers_safety/).

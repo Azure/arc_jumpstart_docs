@@ -5,7 +5,7 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Jumpstart Agora - Contoso Supermarket deployment guide
+# Deployment guide
 
 ## Overview
 
@@ -14,7 +14,7 @@ Jumpstart Agora provides a simple deployment process using Azure Bicep and Power
 ![Architecture diagram](./img/architecture_diagram.png)
 
 Deploying the "Contoso Supermarket" scenario consists of the following steps (once prerequisites are met).
-  
+
   1. Deploy infrastructure - The user deploys a Bicep file that creates the infrastructure in an Azure resource group.
   2. Bicep template deploys multiple Azure resources including the Client virtual machine.
   3. Client VM uses a custom script extension to run the Bootstrap PowerShell script which initializes the environment.
@@ -33,7 +33,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
   - Open the [_jumpstart-Agora-apps_ repo](https://github.com/microsoft/jumpstart-agora-apps) while signed in to your GitHub account and click the "Fork" button in the upper-right corner.
 
     ![Screenshot showing how to fork the Jumpstart Agora Apps repo](./img/fork_repo1.png)
-  
+
   - Use the default settings to create your fork. Ensure your user is selected in the dropdown and then click the "Create Fork" button.
 
     ![Screenshot showing how to fork the Jumpstart Agora Apps repo](./img/fork_repo2.png)
@@ -191,26 +191,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
   ```
-
-## Deployment via Azure Developer CLI
-
-Jumpstart Agora provides a feature that allows users to deploy with the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). Follow these steps to try this feature in your subscription.
-
-- Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
-
-  > **Note:** PowerShell is required for using azd with Jumpstart Agora. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
-
-- Login with azd using *`azd auth login`* which will open a browser for interactive login.
-
-  ![Screenshot showing azd auth login](./img/azd_auth_login.png)
-
-- Run the *`azd init`* command from your cloned repo _*azure_jumpstart_ag/retail*_ folder.
-
-  ![Screenshot showing azd init](./img/azd_init.png)
-
-- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
-
-  ![Screenshot showing azd up](./img/azd_up.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
