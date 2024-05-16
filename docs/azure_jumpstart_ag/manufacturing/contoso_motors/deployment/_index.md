@@ -142,26 +142,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
 
     ![Screenshot showing added API permission](./img/entra_id_permission_added.png)
 
-## Deployment via Azure Developer CLI
-
-Jumpstart Agora provides a feature that allows users to deploy with the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). Follow these steps to try this feature in your subscription.
-
-- Follow to install guide for the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-linux) for your environment.
-
-  > **Note:** PowerShell is required for using azd with Jumpstart Agora. If you are running in a Linux environment be sure that you have [PowerShell for Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3) installed.
-
-- Login with azd using *`azd auth login`* which will open a browser for interactive login.
-
-  ![Screenshot showing azd auth login](./img/azd_auth_login.png)
-
-- Run the *`azd init`* command from your cloned repo _*azure_jumpstart_ag/manufacturing*_ folder.
-
-  ![Screenshot showing azd init](./img/azd_init.png)
-
-- Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region and all required parameters.
-
-  ![Screenshot showing azd up](./img/azd_up.png)
-
 ## Deployment: Bicep deployment via Azure CLI
 
 - Upgrade to latest Bicep version
@@ -286,4 +266,4 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Motors” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Motors” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Motors”](../data_opc/).

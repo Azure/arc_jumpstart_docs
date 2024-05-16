@@ -101,4 +101,4 @@ Once the Agora Contoso Motors scenarios is deployed and fully functions, MQTT si
 
 ## Next steps
 
-Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Data pipeline and reporting across cloud and edge for sensor telemetry](../freezer_monitor/).
+Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Web UI & AI Inference flow](../ai_inferencing/).
