@@ -266,4 +266,4 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Motors” experience, starting with the [“Data pipeline and reporting across cloud and edge for store orders”](../data_pos/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Motors” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Motors”](../data_opc/).
