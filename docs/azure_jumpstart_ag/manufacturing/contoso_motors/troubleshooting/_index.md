@@ -49,25 +49,16 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 
 If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment) in the deployment guide.
 
-### User principal is not authorized to read database Orders
+### Error loading dashboards with Azure Data Explorer
 
-Depending on the type of user account being used to access ADX dashboards, you might have issues accessing data in the _Orders_ database in the ADX cluster. Microsoft Accounts (MSAs) are all of the Microsoft-managed non-organizational user accounts. For example, **_hotmail.com, live.com, outlook.com_**. These MSAs require special syntax to grant database access permissions in the ADX cluster. Refer to [Referencing security principals](https://learn.microsoft.com/azure/data-explorer/kusto/management/referencing-security-principals#microsoft-accounts-msas) to use the correct syntax to grant user permissions to the ADX database.
+If you have access to mulitple Azure environments, you may receive an error when first accessing the dashboards in Azure Data Explorer.
 
-The screenshot below shows a permissions error when using MSAs.
+The screenshot below shows this type of error.
 
-  ![Screenshot showing the principal not authorized to read database error](./img/adx-principal-not-authorized.png)
+  ![Screenshot showing ADX error](./img/adx_trouble.png)
 
 Follow the below steps to address this permissions error.
 
-- In the [Azure portal](https://portal.azure.com/), locate the ADX cluster deployed in the resource group and open.
-- Click on _Query_ under Data, select the _Orders_ database, and enter the Kusto query as shown below to grant user access to the _Orders_ database. Replace the user principal with the correct principal to grant permissions.
+- Click your user icon in the upper-right of Azure Data Explorer and "Switch Directory" to the correct Azure environment where you deployed Contoso Motors.
 
-  ```shell
-  .add database Orders users ('msauser=xyz@hotmail.com') 'XYZ (hotmail.com)'
-  ```
-
-- Click _Run_ to execute the Kusto query to grant permissions.
-
-  ![Screenshot showing how to grant user permissions](./img/adx-database-grant-user-access.png)
-
-- Once user permission is granted go to [ADX dashboards](https://dataexplorer.azure.com/dashboards) and refresh the dashboard report to view _Orders_ data.
+  ![Screenshot showing switch tenants in ADX](./img/adx_switch.png)
