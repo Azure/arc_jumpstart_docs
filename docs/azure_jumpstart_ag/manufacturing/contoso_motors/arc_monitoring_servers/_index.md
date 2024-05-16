@@ -21,7 +21,7 @@ Azure Monitor empowers Contoso with the capability to monitor and gather telemet
 
 ## Enable and configure Azure Monitor
 
-Azure Monitor can collect data directly from your Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. It requires installing the Azure Monitor Agent (AMA) VM extension in your Azure Arc-enabled servers, enabling VM insights to collect data from your machines.
+Azure Monitor can collect data directly from your Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. It requires installing the Azure Monitor Agent (AMA) VM extension on your Azure Arc-enabled servers, enabling VM insights to collect data from your machines.
 
 As part of the automated deployment, an Azure Policy monitoring initiative and a Data Collection Rule (DCR) are deployed. They allow collecting monitoring data from your Azure Arc-enabled servers.
 
