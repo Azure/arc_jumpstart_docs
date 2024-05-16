@@ -110,3 +110,7 @@ The second Azure Workbook functions as an inventory report detailing the various
 - The last inventory will list any **Defender for Cloud active alerts**:
 
   ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/defenderalerts_inventoryworkbook.png)
+
+## Next steps
+
+Now that you have successfully completed all of the Contoso Motors scenarios, continue to the next step to learn how to [cleanup the deployment](../cleanup/).
