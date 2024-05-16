@@ -83,7 +83,7 @@ An Azure Workbook for Operating System (OS) Performance is also available as par
 
 ## Azure Arc-enabled resources inventory Workbook
 
-The second Azure Monitor Workbook functions as an inventory report detailing the various Arc-enabled resources that have been deployed.
+The second Azure Workbook functions as an inventory report detailing the various Arc-enabled resources that have been deployed.
 
 - Search for **workbooks** and click on **Azure workbooks**:
 
