@@ -75,3 +75,7 @@ The OpenVINO Model Server offers many advantages for efficient model deployment:
 - Efficient resource utilization with horizontal and vertical inference scaling.
 
    ![OVMS Archicture](./img/ovms.png)
+
+## Next steps
+
+Now that you have completed the data pipeline scenario, it's time to continue to the next scenario, [Welding defect scenario using OpenVino and Kubernetes](../welding_defect/).

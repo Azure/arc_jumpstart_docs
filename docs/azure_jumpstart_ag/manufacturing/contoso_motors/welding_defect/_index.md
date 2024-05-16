@@ -77,4 +77,6 @@ Expected color order is BGR.
 
 The features is a blob with the shape 1, 3 containing probability scores for three output classes (**no weld**, **normal weld** and **porosity**).
 
+## Next steps
 
+Now that you have completed the data pipeline scenario, it's time to continue to the next scenario, [Workers safety using AI](../workers_safety/).
