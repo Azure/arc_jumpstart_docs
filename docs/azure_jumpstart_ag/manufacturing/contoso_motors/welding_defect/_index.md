@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 5
+weight: 4
 title: Welding Defect
 linkTitle: Welding defect scenario using OpenVino and Kubernetes
 summary: |
