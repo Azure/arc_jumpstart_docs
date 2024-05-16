@@ -7,7 +7,7 @@ linkTitle: Cleanup
 
 # Cleanup deployment
 
-- To clean up your deployment, simply delete the resource group using Azure CLI or Azure portal.
+To clean up your deployment, simply delete the resource group using Azure CLI or Azure portal.
 
   ```shell
   az group delete -n <name of your resource group>

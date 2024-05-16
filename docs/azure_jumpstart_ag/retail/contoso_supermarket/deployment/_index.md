@@ -5,7 +5,7 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Jumpstart Agora - Contoso Supermarket deployment guide
+# Contoso Supermarket deployment guide
 
 ## Overview
 
