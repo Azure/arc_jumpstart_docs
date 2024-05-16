@@ -20,7 +20,7 @@ Looking ahead, Contoso Motors embraces Microsoft's Adaptive cloud approach, with
 
 ## Architecture and technology stack
 
-To support their digital transformation aspirations, Contoso Motors stores has a robust technology stack, services, and processes. To demonstrate the various use cases mentioned below, a set of reference use-cases is included:
+Contoso Motors uses an AI technology stack, services, and processes to support their digital transformation. To demonstrate the various use cases mentioned below, a set of reference use-cases is included with the Jumpstart Agora Contoso Motors scenario:
 
 - **Welding** - Optimizing welding processes for precision and efficiency, ensuring high-quality welds and minimizing defects through advanced techniques and technologies.
 - **AI-driven Safety** - Implementing artificial intelligence to enhance safety protocols, proactively identifying potential hazards and mitigating risks to ensure a secure working environment for personnel.
@@ -28,6 +28,12 @@ To support their digital transformation aspirations, Contoso Motors stores has a
 - **IT/OT Operations and Observability** - Integrating IT and operational technology (OT) systems to enhance visibility and control over manufacturing operations, enabling real-time monitoring, analysis, and optimization for increased productivity and reliability.
 
 ![Applications and technology stack architecture diagram](./img/architecture_diagram.png)
+
+## Virtual edge environment
+
+Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments. The automation in the Contoso Motors scenario deploys a number of resources to support this "virtual" factory's AI technology.
+
+![Applications and technology stack architecture diagram](./img/simulation_stack.png)
 
 ## Getting started
 
