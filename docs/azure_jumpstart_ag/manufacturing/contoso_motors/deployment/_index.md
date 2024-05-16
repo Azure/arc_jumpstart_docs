@@ -5,7 +5,7 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Jumpstart Agora - Contoso Motors deployment guide
+# Deployment guide
 
 ## Overview
 
@@ -172,7 +172,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
     ```powershell
     (Get-AzADServicePrincipal -ApplicationId "<Service principal application Id>").Id
     ```
-  
+
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
 - You will need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.

@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 2
-title: Data pipeline and reporting across cloud and edge for Contoso Motors
-linkTitle: Data pipeline and reporting across cloud and edge for Contoso Motors
+title: Data pipeline and reporting across cloud and edge
+linkTitle: Data pipeline and reporting across cloud and edge
 summary: |
   WIP
 serviceOrPlatform: Manufacturing
@@ -12,7 +12,7 @@ technologyStack:
   - AZURE EVENT GRID
 ---
 
-# Data pipeline and reporting across cloud and edge for Contoso Motors
+# Data pipeline and reporting across cloud and edge
 
 ## Overview
 
@@ -101,4 +101,4 @@ Once the Agora Contoso Motors scenarios is deployed and fully functions, MQTT si
 
 ## Next steps
 
-Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Web UI & AI Inference flow](../ai_inferencing/).
+Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Web UI and AI Inference flow](../ai_inferencing/).
