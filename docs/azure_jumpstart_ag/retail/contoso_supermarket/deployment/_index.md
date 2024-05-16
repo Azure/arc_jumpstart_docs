@@ -5,7 +5,7 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Contoso Supermarket deployment guide
+# Deployment guide
 
 ## Overview
 

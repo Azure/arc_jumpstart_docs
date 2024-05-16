@@ -5,7 +5,7 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Contoso Motors deployment guide
+# Deployment guide
 
 ## Overview
 
