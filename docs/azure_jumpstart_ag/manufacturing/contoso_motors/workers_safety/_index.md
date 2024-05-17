@@ -53,4 +53,3 @@ Contoso leverages their AI-enhanced computer vision to monitor the safety helmet
 ## Next steps
 
 Now that you have completed the workers safety scenario, it's time to continue to the next scenario, [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../k8s_infra_observability/).
-
