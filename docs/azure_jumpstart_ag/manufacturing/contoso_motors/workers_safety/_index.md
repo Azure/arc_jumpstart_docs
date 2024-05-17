@@ -22,7 +22,7 @@ Contoso Motors uses AI-enhanced computer vision to improve workers' safety by de
 
 ## Architecture
 
-![Welding defect archietcture](./img/flow.png)
+![Welding defect architecture](./img/flow.png)
 
 ### Model
 
