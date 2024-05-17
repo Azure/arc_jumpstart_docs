@@ -14,7 +14,7 @@ technologyStack:
   - RTSP
 ---
 
-# Welding defect flow
+# Welding defect scenario using OpenVino and Kubernetes
 
 ## Overview
 
@@ -22,13 +22,13 @@ Contoso Motors uses AI-enhanced computer vision to improve welding operations on
 
 Welding is a process of joining two or more metal parts by melting and fusing them together. Welding defects are flaws or irregularities that occur during or after the welding process, which can affect the quality, strength, and appearance of the weld. Welding defects can be caused by various factors, such as improper welding parameters, inadequate preparation, poor welding technique, or environmental conditions. In this scenario, an AI model is used to automatically detect and classify welding defects from a video feed. Welding defect inference can help improve the efficiency, accuracy, and safety of weld inspection and quality control.
 
-### Architecture
+## Architecture
 
 ![Welding defect archietcture](./img/flow.png)
 
 This diagram shows the welding defect inference flow, which consists of five main steps: UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 
-1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the welding working station (highlighted in the image above), the welding detection flow is triggered. 
+1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the welding working station (highlighted in the image above), the welding detection flow is triggered.
 
 1. **RTSP video simulation:** The welding defect flow requires a particular video of a welding to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of a real welding scenario, providing a reliable video for the AI inference process.
 
