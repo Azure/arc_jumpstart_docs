@@ -4,7 +4,7 @@ weight: 5
 title: Enabling AI at the Edge to enhance workers safety
 linkTitle: Enabling AI at the Edge to enhance workers safety
 summary: |
-    The enabling AI at the Edge to enhance workers safety page provides an overview of how Contoso Motors leverages AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
+    The enabling AI at the Edge to enhance workers safety page provides an overview of how Contoso Motors uses AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
   - AKS
