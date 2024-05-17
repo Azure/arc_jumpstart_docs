@@ -18,7 +18,7 @@ technologyStack:
 
 ## Overview
 
-Contoso Motors uses AI-enhanced computer vision to improve workers' safety by detecting workers with no helmets on the factory floor. Workers safety is one of the four computer vision use cases that Contoso Motors uses, which also include object detection, and human pose estimation. While each use case has its own unique characteristics, they all follow the same inferencing architecture pattern and data flow.
+Contoso Motors uses AI-enhanced computer vision to improve workers' safety by detecting workers with no helmets on the factory floor. Worker safety is one of the four computer vision use cases that Contoso Motors uses, which also include object detection, defect detection, and human pose estimation. While each use case has its own unique characteristics, they all follow the same inferencing architecture pattern and data flow.
 
 ## Architecture
 
