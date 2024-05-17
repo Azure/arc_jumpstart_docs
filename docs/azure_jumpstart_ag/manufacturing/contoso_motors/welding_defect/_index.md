@@ -55,7 +55,7 @@ This diagram shows the welding defect inference flow, which consists of five mai
 
     Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the welding inference (**no weld**, **normal weld**, **porosity**) and the probability of the result.
 
-![Welding defect uI](./img/welding_ui.png)
+![Welding defect UI](./img/welding_ui.png)
 
 If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](./ai_inferencing) page for additional information.
 

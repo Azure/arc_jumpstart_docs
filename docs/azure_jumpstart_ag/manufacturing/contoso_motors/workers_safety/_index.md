@@ -4,7 +4,7 @@ weight: 5
 title: Enabling AI at the Edge to enhance workers safety
 linkTitle: Enabling AI at the Edge to enhance workers safety
 summary: |
-    The enabling AI at the Edge to enhance workers safety page provides an overview of how Contoso Motors leverages AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
+    The enabling AI at the Edge to enhance workers safety page provides an overview of how Contoso Motors uses AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
   - AKS
@@ -18,7 +18,7 @@ technologyStack:
 
 ## Overview
 
-Contoso Motors uses AI-enhanced computer vision to improve workers' safety by detecting workers with no helmets on the factory floor. Workers safety is one of the four computer vision use cases that Contoso Motors uses, which also include object detection, and human pose estimation. While each use case has its own unique characteristics, they all follow the same inferencing architecture pattern and data flow.
+Contoso Motors uses AI-enhanced computer vision to improve workers' safety by detecting workers with no helmets on the factory floor. Worker safety is one of the four computer vision use cases that Contoso Motors uses, which also include object detection, defect detection, and human pose estimation. While each use case has its own unique characteristics, they all follow the same inferencing architecture pattern and data flow.
 
 ## Architecture
 
@@ -32,7 +32,7 @@ Contoso Motors uses AI-enhanced computer vision to improve workers' safety by de
 
 ## Operation technology (OT) Manager Experience
 
-Contoso leverages their AI-enhanced computer vision to monitor the safety helmet adherence for workers on the factory floor to help OT managers ensure workers safety through the "Control Center" interface.
+Contoso uses AI-enhanced computer vision to monitor the safety helmet adherence for workers on the factory floor to help OT managers ensure workers safety through the "Control Center" interface.
 
 - To access the "Control Center" interface, select the Control center [_env_] option from the _Control center_ Bookmarks folder. Each environment will have it's own "Control Center" instance with a different IP. Select one of the sites and click on the factory image to start navigating the different factory control centers.
 
