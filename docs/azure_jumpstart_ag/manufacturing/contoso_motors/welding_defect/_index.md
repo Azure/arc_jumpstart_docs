@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 4
-title: Welding Defect
+title: Welding defect scenario using OpenVino and Kubernetes
 linkTitle: Welding defect scenario using OpenVino and Kubernetes
 summary: |
     The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
@@ -41,7 +41,7 @@ This diagram shows the welding defect inference flow, which consists of five mai
     4. Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
     5. Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
     6. Flip the order of the color channels from RGB to BGR.
-    
+
     After the pre-processing step is completed, the final frame data is sent to the OpenVINO model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
 
 1. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
@@ -53,9 +53,9 @@ This diagram shows the welding defect inference flow, which consists of five mai
     5. Map the index of the highest probability value to a corresponding class label.
     6. Draw the label containing the predicted class and its corresponding probability on the input image
 
-    Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the welding inference (**no weld**, **normal weld**, **porosity**) and the probability of the result. 
+    Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the welding inference (**no weld**, **normal weld**, **porosity**) and the probability of the result.
 
-![Welding defect uI](./img/welding_ui.png)
+![Welding defect UI](./img/welding_ui.png)
 
 If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](./ai_inferencing) page for additional information.
 
@@ -76,6 +76,26 @@ Expected color order is BGR.
 #### Outputs
 
 The features is a blob with the shape 1, 3 containing probability scores for three output classes (**no weld**, **normal weld** and **porosity**).
+
+## Operation technology (OT) Manager Experience
+
+Contoso leverages their AI-enhanced computer vision to monitor the welding process and help OT managers detect welding defects through the "Control Center" interface.
+
+- To access the "Control Center" interface, select the Control center [_env_] option from the _Control center_ Bookmarks folder. Each environment will have it's own "Control Center" instance with a different IP. Select one of the sites and click on the factory image to start navigating the different factory control centers.
+
+  ![Screenshot showing the Control center Bookmark](./img/control-center-menu.png)
+
+- Click on the "Site" control center.
+
+  ![Screenshot showing the two Control centers](./img/control-center-site.png)
+
+- Click on the "Welding" control center image.
+
+  ![Screenshot showing the welding control center](./img/control-center-welding.png)
+
+- You can now see the AI-enhanced computer vision in action analyzing the video feed and showing the probability of the welding process detecting any defects.
+
+  ![Screenshot showing the welding defect monitoring feed](./img/welding-defect.png)
 
 ## Next steps
 
