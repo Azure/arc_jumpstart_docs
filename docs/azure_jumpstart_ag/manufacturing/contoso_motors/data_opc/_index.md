@@ -4,7 +4,9 @@ weight: 2
 title: Data pipeline and reporting across cloud and edge
 linkTitle: Data pipeline and reporting across cloud and edge
 summary: |
-  WIP
+  One of Contoso's biggest objectives is how to use the data coming from their factories and visualize it for business intelligence by leveraging the power of the cloud.
+
+  In this scenario, Contoso wants to use their data pipeline so data from their different factories and production lines, flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports. By doing so, Contoso management can leverage these reports to adjust their inventory and supply chain based on the product demand from customers across multiple filters - factories, day, week, month, and year. This helps optimize Contoso resources, stores supplies, saves significant costs and at the same time improves customer satisfaction and trust.
 serviceOrPlatform: Manufacturing
 technologyStack:
   - AZURE DATA EXPLORER

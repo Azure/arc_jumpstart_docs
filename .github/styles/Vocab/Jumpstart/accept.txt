@@ -30,3 +30,6 @@ JIT
 Downloader
 jsfiles
 ovmsclient
+Kube
+namespaces
+misconfigured
