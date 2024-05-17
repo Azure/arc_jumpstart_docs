@@ -42,7 +42,7 @@ Contoso leverages their AI-enhanced computer vision to monitor the safety helmet
 
   ![Screenshot showing the two Control centers](./img/control-center-site.png)
 
-- Click on the "Workders safety" control center image.
+- Click on the "Workers safety" control center image.
 
   ![Screenshot showing the workers safety control center](./img/control-center-workers-safety.png)
 
