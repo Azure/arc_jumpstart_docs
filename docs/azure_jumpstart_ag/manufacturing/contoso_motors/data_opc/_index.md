@@ -24,16 +24,81 @@ In this scenario, Contoso wants to use their data pipeline so that data coming f
 
 ## Architecture
 
-Below is an architecture diagram that shows how the data flows from the manufacturing plant and into the ADX database to generate near real-time reports of production line, batteries, and welding equipment received and processed across various manufacturing plants. This architecture includes a local InfluxDB, running at the edge in the plant, [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview), [Azure Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about), and ADX cluster in Azure cloud. MQTT broker at the edge receives event data from MQTT simulator and sends to Azure Event Grid in the cloud. Azure Event Grid routes these messages into Azure Event Hub. Data connection that is created in ADX cluster connects to Azure Event Hub and ingests data into ADX database for realtime analytics and dashboard reports.
+Below is an architecture diagram that shows how the data flows from the manufacturing plant and into the ADX database to generate near real-time reports of production line, batteries, and welding equipment received and processed in a single manufacturing plant. This architecture includes a local InfluxDB, running at the edge in the plant, [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview), [Azure Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about), and ADX cluster in Azure cloud. MQTT broker at the edge receives event data from MQTT simulator and sends to Azure Event Grid in the cloud. Azure Event Grid routes these messages into Azure Event Hub. Data connection that is created in ADX cluster connects to Azure Event Hub and ingests data into ADX database for realtime analytics and dashboard reports.
 
-![Screenshot showing the data pipeline architecture diagram](./img/contoso_motors-datapipeline_architecture.png)
+![Screenshot showing the data pipeline architecture diagram](./img/contoso_motors_edge_data_architecture.png)
 
-## Contoso Motors dashboard reports
+Below is an architecture diagram that shows how the data flows from the manufacturing plant and into the ADX database to generate near real-time reports of production line, batteries, and welding equipment received and processed across various manufacturing plants.
+
+![Screenshot showing the data pipeline architecture diagram](./img/contoso_motors_datapipeline_architecture.png)
+
+## Industrial telemetry at the edge
+
+### MQTT Explorer
+
+The automation deploys and configures a simulator that simulates data from various manufacturing equipment, such as cars assembly line, battery assembly line, and welding robots, including a dedicated simulation for a cars production line. The MQTT listener captures this data and funnels it to InfluxDB which is optimized for time-series data.
+
+Grafana, a leading open-source platform for monitoring and observability, taps into InfluxDB to render comprehensive dashboards and analytics, enabling the plant staff at Contoso to monitor and enhance the performance of the cars production line effectively. Those dashboards provide near real-time information and insights, often projected directly within the production line area, to enable immediate response and decision-making where it matters most.
+
+- Open the MQTT explorer desktop shortcut, it is already configured to connect to the MQTT listener on the cluster.
+
+  ![Screenshot showing opening MQTT explorer on the desktop](./img/open_mqtt_explorer.png)
+
+- Click _Connect_ to connect to MQTT listener. Once connected, you will start seeing simulated data being transmitted with various metrics from the plant assets.
+
+  ![Screenshot showing the simulated data](./img/mqtt_explorer.png)
+
+  ![Screenshot showing the simulated data](./img/mqtt_events_assembly_line.png)
+
+  ![Screenshot showing the simulated data](./img/mqtt_events_welding_robot.png)
+
+  ![Screenshot showing the simulated data](./img/mqtt_events_assembly_batteries.png)
+
+### Influxdb Dashboard Reports
+
+Contoso supports Influxdb dashboard reports for the manufacturing analytics and monitoring at the edge. These reports are created in Influxdb to allow staff who are working locally at the manufacturing plant to view dashboards reports. These reports are generated based on live data received from the sensors directly into Influxdb database.
+
+These reports are readily available to access through Edge browser. Follow the steps below to access these reports on the Client VM.
+
+- On the Client VM (_Ag-VM-Client_), open Edge browser, expand Influxdb favorite collection and chose Detroit or Monterrey plants to view dashboard reports.
+
+  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_open_dashboard_reports.png)
+
+- Login with the _admin_ username and password provided when you created the deployment.
+
+  ![Screenshot showing how to login to Influxdb dashboard reports](./img/influxdb_dashboard_reports_login.png)
+
+- Click on Dashboards icon as shown in the screen below to view list of available dashboard reports. There are 3 dashboard reports created to show car assembly line, battery line, and welding energy consumption reports.
+
+  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_list_dashboard_reports.png)
+
+  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_dashboard_reports.png)
+
+- Click on _Constoso Motors - Assembly Car Line_ dashboard report to view. Contoso staff can start monitoring the car assembly production line. The most critical KPI featured is the Assembly Robot Efficiency. The Efficiency indicator is color-coded for at-a-glance status updates:
+
+  | Color   | Indication                                                        |
+  | ------- | ------------------------------------------------------------------ |
+  | Green   | 🟩 Efficiency above the target range of 90% (optimal performance)        |
+  | Yellow  | 🟨 Efficiency between 80% to 90% (acceptable but suboptimal performance) |
+  | Red     | 🟥 Efficiency below 80% (immediate attention needed)                     |
+
+  ![Screenshot showing car assembly line dashboard reports](./img/influxdb_dashboard_assembly_car_line.png)
+
+- Additionally, the dashboard breaks down the components of Assembly Car Line report; _Availability_, _Cars produced_, and _Staff on shift_, to provide a detailed analysis. A key focus is on _Availability_, with constant monitoring of downtime to identify and classify lost time reasons, such as equipment malfunctions.
+
+- Click on _Constoso Motors - Battery Line_ dashboard report to view. Contoso staff can start monitoring the car battery assembly line KPIs featured in the dashboard report.
+
+  ![Screenshot showing battery assembly line dashboard reports](./img/influxdb_dashboard_assembly_battery_line.png)
+
+- Click on _Constoso Motors - Welding Energy Consumption_ dashboard report to view. Contoso staff can start monitoring the welding enerty consumption KPIs featured in the dashboard report.
+
+  ![Screenshot showing welding energy consumption dashboard reports](./img/influxdb_dashboard_welding_energy_consumption.png)
+
+## Contoso Motors ADX dashboard reports
 
 Contoso supports dashboard reports for the manufacturing analytics and monitoring. These reports are created in ADX to allow users to view dashboards reports. These reports are generated based on live data received from the MQTT Broker into the ADX database using data integration.
 
 ## Manually import dashboards
-
 
 Follow the below steps in order to view the Contoso Motors dashboard reports as you will need to import these into ADX.
 
