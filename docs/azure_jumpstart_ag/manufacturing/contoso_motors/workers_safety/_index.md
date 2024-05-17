@@ -32,7 +32,7 @@ Contoso Motors uses AI-enhanced computer vision to improve workers' safety by de
 
 ## Operation technology (OT) Manager Experience
 
-Contoso leverages their AI-enhanced computer vision to monitor the safety helmet adherence for workers on the factory floor to help OT managers ensure workers safety through the "Control Center" interface.
+Contoso uses AI-enhanced computer vision to monitor the safety helmet adherence for workers on the factory floor to help OT managers ensure workers safety through the "Control Center" interface.
 
 - To access the "Control Center" interface, select the Control center [_env_] option from the _Control center_ Bookmarks folder. Each environment will have it's own "Control Center" instance with a different IP. Select one of the sites and click on the factory image to start navigating the different factory control centers.
 
