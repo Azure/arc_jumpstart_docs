@@ -53,13 +53,13 @@ An up-to-date roadmap for Arc Jumpstart scenarios can be found under [the reposi
 ## Can I contribute a Drop?
 Arc Jumpstart Drops is fully open-source and welcomes all contributions that follow the Jumpstart Drops [contribution process](../contribution_guidelines/). Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant Arc Jumpstart team the rights to use your contribution. For details, visit [Microsoft CLA](https://cla.opensource.microsoft.com).
 
-## Do I need to host my source code inside the Jumpstart Drops repository?
-No, it's not necessary to host your source code in the Jumpstart Drops repository. You have two options for hosting the code, and you can choose the one that suits your use case better:
+## Do I need to host my contribution source code inside the Jumpstart Drops GitHub repository?
+No, it's not mandatory to host your contribution source code in the Jumpstart Drops repository. You have two options for hosting the code, and you can choose the one that suits your use case better:
 
-- **Include the code in the Pull Request (PR)**: You can include the code as part of your PR and host it within the Arc Jumpstart Drops repository.
+- **Include the code in the Pull Request (PR)**: You can include the code as part of your PR and host it within the Arc [Jumpstart Drops GitHub repository](https://github.com/Azure/arc_jumpstart_drops).
 - **Keep the code in your own repository**: Alternatively, you can keep the code in your own repository and provide a reference/URL to it in the Drop [definition file](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md).
 
-## Do I need to authenticate to the Arc Jumpstart portal to contribute or use Jumpstart Drops?
+## Do I need to authenticate to the Arc Jumpstart website to contribute or use Jumpstart Drops?
 No, authentication and logging in to the portal aren't required to contribute or use Jumpstart Drops. However, if you are logged in, we're developing features to provide contributors with insights on their contributions and enhance their experience and submission.
 
 ### What's the Jumnpstart Drop licensing schema?
