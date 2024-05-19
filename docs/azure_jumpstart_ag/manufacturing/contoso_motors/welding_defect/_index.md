@@ -61,7 +61,7 @@ If you're interested in learning more about the AI inference flow, check out the
 
 ### Model
 
-The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://docs.OpenVINO™.ai/2024/omz_models_model_weld_porosity_detection_0001.html).
+The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://docs.openvino.ai/2024/omz_models_model_weld_porosity_detection_0001.html).
 
 #### Inputs
 
