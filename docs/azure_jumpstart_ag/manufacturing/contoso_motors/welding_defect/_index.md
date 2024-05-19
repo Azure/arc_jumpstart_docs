@@ -75,7 +75,7 @@ Expected color order is BGR.
 
 #### Outputs
 
-The features is a blob with the shape 1, 3 containing probability scores for three output classes (**no weld**, **normal weld** and **porosity**).
+The output is a torch with the shape 1, 3 containing probability scores for three output classes (**no weld**, **normal weld** and **porosity**).
 
 ## Operation technology (OT) Manager Experience
 
