@@ -73,7 +73,7 @@ For more information, see [contribution process](../contribution_guidelines/).
 To discover a Jumpstart Drop tailored to your needs, leverage the filters and sorting options available on the Arc Jumpstart Drops main page. Start by visiting [Arc Jumpstart Drops](https://arcjumpstart.com/arc_jumpstart_drops) and then use the panel on the right-hand side to filter by criteria such as *Programming* *Language*, *Product*, *Difficulty*, *Industry*, *Topic*, and more. Additionally, you can always use the search bar at the top to search across all Jumpstart content, including Jumpstart Drops.
 
 ## How do I use a Jumpstart Drop?
-Using Jumsptart Drop is straightforward. Simply download the Jumnpstart Drop by clicking the Download button on the Jumpstart Drop's page. After downloading, you will have a .zip file containing all the necessary source code to run the Jumpstart Drop. Depending on the Jumpstart Drop, you may need to configure some prerequisites, but all instructions should be included in the **_index.md** file of the Jumpstart Drop.
+Using Jumsptart Drop is straightforward. Simply download the Jumnpstart Drop by clicking the Download button on the Jumpstart Drop's page. After downloading, you will have a .zip file containing all the necessary source code to run the Jumpstart Drop. Depending on the Jumpstart Drop, you may need to configure some prerequisites, but all instructions should be included in the *index.md* file of the Jumpstart Drop.
 
 ## How do I submit a Jumpstart Drop?
 Submitting a Jumpstart Drop is easy, upload your content and create a pull request directly in the Arc Jumpstart Drops repository.
