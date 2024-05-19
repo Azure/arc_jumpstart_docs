@@ -57,7 +57,7 @@ This diagram shows the welding defect inference flow, which consists of five mai
 
 ![Welding defect UI](./img/welding_ui.png)
 
-If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](./ai_inferencing#architecture) page for additional information.
+If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](../ai_inferencing/#architecture) page for additional information.
 
 ### Model
 

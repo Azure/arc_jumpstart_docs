@@ -50,7 +50,7 @@ This diagram shows the workers safety inference flow, which consists of five mai
 
     Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the worker safety inference (**helmet**, **head** and **person**) and the probability of the result.
 
-If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](./ai_inferencing#architecture) page for additional information.
+If you're interested in learning more about the AI inference flow, check out the [AI Inference Architecture](../ai_inferencing/#architecture) page for additional information.
 
 ### Model
 
