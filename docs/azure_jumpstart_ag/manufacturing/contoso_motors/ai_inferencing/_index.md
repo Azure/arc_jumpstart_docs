@@ -62,7 +62,7 @@ The steps involved in the inference/procressing can be described as follows:
 
 ## OpenVINO™ Model Server
 
-The [OpenVINO™ Model Server](https://www.intel.com/content/www/us/en/developer/articles/technical/deploy-OpenVINO™-in-openshift-and-kubernetes.html) by Intel, is a high-performance inference serving software that allows users to deploy and serve AI models. Model serving is taking a trained AI model and making it available to software components over a network API. OVMS offers a native method for exposing models over a gRPC or REST API. Furthermore, it supports various deep learning frameworks such as TensorFlow, PyTorch, OpenVINO™ and ONNX. By using OvMS developers can easily deploy AI models by specifying the model configuration and the input/output formats.
+The [OpenVINO™ Model Server](https://www.intel.com/content/www/us/en/developer/articles/technical/deploy-openvino-in-openshift-and-kubernetes.html) by Intel, is a high-performance inference serving software that allows users to deploy and serve AI models. Model serving is taking a trained AI model and making it available to software components over a network API. OVMS offers a native method for exposing models over a gRPC or REST API. Furthermore, it supports various deep learning frameworks such as TensorFlow, PyTorch, OpenVINO™ and ONNX. By using OvMS developers can easily deploy AI models by specifying the model configuration and the input/output formats.
 
 The OpenVINO™ Model Server offers many advantages for efficient model deployment:
 
