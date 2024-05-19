@@ -43,9 +43,9 @@ To get started with the "Contoso Motors" Jumpstart Agora scenario, we provided y
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_motors/deployment/) | Not applicable | Not applicable |
 | [Data pipeline and reporting across cloud and edge](../contoso_motors/data_opc/) | Operational technology (OT) | Azure IoT Operations, Azure Data Explorer, MQTT, Event Grid, Event Hub, AKS Edge Essentials, InfluxDB, MQTT simulators |
-| [Web UI and AI Inference flow](../contoso_motors/ai_inferencing/) | Operational technology (OT) | AI, OpenVINO Model Server (OVMS), MQTT, AKS Edge Essentials, RTSP |
-| [Welding defect scenario using OpenVino and Kubernetes](../contoso_motors/welding_defect/)  | Welding monitoring  | Azure IoT Operations, Azure Data Explorer, MQTT, RTSP simulator, Intel OpenVino Inference Engine, Grafana, InfluxDB, AKS Edge Essentials  |
-| [Enabling AI at the edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | Azure IoT Operations, Azure Data Explorer, RTSP simulator, OPC simulator, Intel OpenVino Inference Engine, AKS Edge Essentials |
+| [Web UI and AI Inference flow](../contoso_motors/ai_inferencing/) | Operational technology (OT) | OpenVINO Open Model Zoo, Yolo8, OpenVINO Model Server (OVMS), AKS Edge Essentials, RTSP, Flask, OpenCV,  |
+| [Welding defect scenario using OpenVino and Kubernetes](../contoso_motors/welding_defect/)  | Welding monitoring  | RTSP simulator, OpenVINO Model Server (OVMS), AKS Edge Essentials, Flask, OpenCV  |
+| [Enabling AI at the edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | RTSP simulator, OpenVINO Model Server (OVMS), AKS Edge Essentials, Flask, OpenCV |
 | [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_motors/k8s_infra_observability/) | Infrastructure | Arc-enabled Kubernetes, AKS Edge Essentials, Prometheus, Grafana  |
 | [Infrastructure observability for Arc-enabled servers using Azure Monitor](../contoso_motors/arc_monitoring_servers/) |Infrastructure   | Arc-enabled servers, Azure Monitor |
 | [Cleanup deployment](../contoso_motors/cleanup/) | Not applicable | Not applicable |
