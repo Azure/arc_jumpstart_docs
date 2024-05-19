@@ -8,7 +8,7 @@ summary: |
 serviceOrPlatform: Manufacturing
 technologyStack:
   - AKS
-  - OPENVINO
+  - OpenVINO™
   - AI
   - AKS EDGE ESSENTIALS
   - RTSP
@@ -39,7 +39,7 @@ This diagram shows the workers safety inference flow, which consists of five mai
     4. Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
     5. Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
 
-    After the pre-processing step is completed, the final frame data is sent to the OpenVINO model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
+    After the pre-processing step is completed, the final frame data is sent to the OpenVINO™ model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO™ toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
 
 1. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
 
