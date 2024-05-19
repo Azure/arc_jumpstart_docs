@@ -1,20 +1,20 @@
 ---
 type: docs
 weight: 4
-title: Welding defect scenario using OpenVino and Kubernetes
-linkTitle: Welding defect scenario using OpenVino and Kubernetes
+title: Welding defect scenario using OpenVINO™ and Kubernetes
+linkTitle: Welding defect scenario using OpenVINO™ and Kubernetes
 summary: |
     The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
   - AKS
-  - OPENVINO
+  - OpenVINO™
   - AI
   - AKS EDGE ESSENTIALS
   - RTSP
 ---
 
-# Welding defect scenario using OpenVino and Kubernetes
+# Welding defect scenario using OpenVINO™ and Kubernetes
 
 ## Overview
 
@@ -42,7 +42,7 @@ This diagram shows the welding defect inference flow, which consists of five mai
     5. Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
     6. Flip the order of the color channels from RGB to BGR.
 
-    After the pre-processing step is completed, the final frame data is sent to the OpenVINO model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
+    After the pre-processing step is completed, the final frame data is sent to the OpenVINO™ model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO™ toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
 
 1. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
 
@@ -61,7 +61,7 @@ If you're interested in learning more about the AI inference flow, check out the
 
 ### Model
 
-The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://docs.openvino.ai/2024/omz_models_model_weld_porosity_detection_0001.html).
+The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://docs.OpenVINO™.ai/2024/omz_models_model_weld_porosity_detection_0001.html).
 
 #### Inputs
 
