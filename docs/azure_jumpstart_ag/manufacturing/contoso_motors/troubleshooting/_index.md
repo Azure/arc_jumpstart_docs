@@ -47,7 +47,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 
 ### Authorization errors when deploying Azure IoT Operations
 
-If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment) in the deployment guide.
+If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment#prerequisites) in the deployment guide.
 
 ### Error loading dashboards with Azure Data Explorer
 
