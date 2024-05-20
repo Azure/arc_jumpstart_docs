@@ -33,3 +33,4 @@ ovmsclient
 Kube
 namespaces
 misconfigured
+snake_case
