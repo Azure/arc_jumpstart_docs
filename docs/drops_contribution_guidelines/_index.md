@@ -33,7 +33,9 @@ The contribution process consists of the following steps:
 
     - **Source Code**: Include all the code files you've created, along with any necessary documentation (README, images, videos, etc.). Ensure these files follow the correct structure defined in the [folder structure](#folder-structure) section. 
 
-    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](./SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as well as apply the correct filtering mechanisms. The Drop definition JSON file should be placed under the [drops](./drops/) folder, and the name should be unique, descriptive and using **snake_case**.
+    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](./SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, tags, authors, as well as apply the correct filtering mechanisms (left bar). The Drop definition JSON file should be placed under the [drops](./drops/) folder, and the name should be unique, descriptive and using **snake_case**. Also, this file will be used for the action buttons like _Download_ and _Share_. 
+
+    ![Drop card](./drop_definition.png)
 
 1. **Create Pull Request to Canary**: Submit your pull request (PR) to the Canary branch of [Arc Jumpstart Drops](https://github.com/Azure/arc_jumpstart_drops). 
 
@@ -61,7 +63,6 @@ The contribution process consists of the following steps:
 
 1. **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and publish to Production, the Drop will be available as part of [Azure Arc Jumpstart Drops](https://arcjumpstart.com/arc_jumpstart_drops).
 
-
 ## Drop Index
 
 When you select a Drop for more information, a right-side bar will appear, displaying a more detailed view of the Drop. The content of the right bar is based on the *_README.md_ or _Index.md_ file of the Drop's source code, which is used to render different sections. To ensure that the right bar displays all the relevant information, headers (H2, H3, or H4) must be included in the _README.md_ or _Index.md_ file. 
@@ -71,9 +72,9 @@ When you select a Drop for more information, a right-side bar will appear, displ
 When accessing the right-side bar, you'll be presented with the following sections:
 
 1. **Metadata header**: This section will display important information from the Drop JSON schema file, allowing you to quickly and easily access key details about your the Drop data.
-2. **Section selector**: A dropdown menu will enable you to choose from different sections of the Drop Index file, making it easy to navigate through the Drop documentation.
-3. **Selected content**: Once you've chosen a section, the content will be displayed, allowing you to view the information you need without having to navigate away from the page.
-4. **Full-screen mode**: If you need more space to work with, you can switch to full-screen mode with the click of a button, giving you a larger view of your data and making it easier to work with.
+1. **Section selector**: A dropdown menu will enable you to choose from different sections of the Drop Index file, making it easy to navigate through the Drop documentation.
+1. **Selected content**: Once you've chosen a section, the content will be displayed, allowing you to view the information you need without having to navigate away from the page.
+1. **Full-screen mode**: If you need more space to work with, you can switch to full-screen mode with the click of a button, giving you a larger view of your data and making it easier to work with.
 
 To help contributors write effective documentation for their Drop Index page, we recommend including the following sections:
 
@@ -97,9 +98,8 @@ The folder structure guidelines for submitting Drop source code as part of a Pul
 
 1. Create a root folder with the name of the Drop using **snake_case**. For example, *azure_arc_management_and_monitor_workbook*.
 
-2. Inside the root folder, include a file named *_index.md* that serves as a README file for the Drop. This file should provide a brief introduction and overview of the Drop, its objectives, prerequisites, deployment steps, and any additional resources or references.
+1. Inside the root folder, include a file named *_index.md* that serves as a README file for the Drop. This file should provide a brief introduction and overview of the Drop, its objectives, prerequisites, deployment steps, and any additional resources or references.
 
-3. Create a new folder named *artifacts* inside the root folder. This folder should contain all the files and scripts necessary to run the Drop.
+1. Create a new folder named *artifacts* inside the root folder. This folder should contain all the files and scripts necessary to run the Drop.
 
-4. Optionally, create a new folder named *media* inside the artifacts folder. This folder can contain any screenshots or architecture diagrams that showcase the Drop.
-
+1. Optionally, create a new folder named *media* inside the artifacts folder. This folder can contain any screenshots or architecture diagrams that showcase the Drop.
