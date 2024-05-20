@@ -33,9 +33,14 @@ The contribution process consists of the following steps:
 
     - **Source Code**: Include all the code files you've created, along with any necessary documentation (README, images, videos, etc.). Ensure these files follow the correct structure defined in the [folder structure](#folder-structure) section. 
 
-    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](./SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, tags, authors, as well as apply the correct filtering mechanisms (left bar). The Drop definition JSON file should be placed under the [drops](./drops/) folder, and the name should be unique, descriptive and using **snake_case**. Also, this file will be used for the action buttons like _Download_ and _Share_. 
+    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](./SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as you can see in the following image. 
 
     ![Drop card](./drop_definition.png)
+
+    1. Drop card created for each *JSON* definition schema file placed under the [drops](./drops/) folder, with a unique *Title* and *Authors*. The name should be unique, descriptive and using **snake_case**.
+    1. Description of the Drop
+    1. Filter bar to filter Drops based on the metadata of the Drop, like tags, products, creation date and topics.
+    1. Tags and action buttons: _Download_ and _Share_. 
 
 1. **Create Pull Request to Canary**: Submit your pull request (PR) to the Canary branch of [Arc Jumpstart Drops](https://github.com/Azure/arc_jumpstart_drops). 
 
