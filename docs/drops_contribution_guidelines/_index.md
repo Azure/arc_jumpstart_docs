@@ -33,11 +33,11 @@ The contribution process consists of the following steps:
 
     - **Source Code**: Include all the code files you've created, along with any necessary documentation (README, images, videos, etc.). Ensure these files follow the correct structure defined in the [folder structure](#folder-structure) section. 
 
-    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](./SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as you can see in the following image. 
+    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as you can see in the following image. 
 
     ![Drop card](./drop_definition.png)
 
-    1. Drop card created for each *JSON* definition schema file placed under the [drops](./drops/) folder, with a unique *Title* and *Authors*. The name should be unique, have a proper description, and use **snake_case**.
+    1. Drop card created for each *JSON* definition schema file placed under the [drops](https://github.com/Azure/arc_jumpstart_drops/tree/main/drops) folder, with a unique *Title* and *Authors*. The name should be unique, have a proper description, and use **snake_case**.
     1. Description of the Drop
     1. Filter bar to filter Drops based on the metadata of the Drop, like tags, products, creation date, and topics.
     1. Tags and action buttons: _Download_ and _Share_.
@@ -62,11 +62,11 @@ The contribution process consists of the following steps:
 
 1. **Merge to Canary**: If everything is correct, the PR will be merged to the **canary** branch, and the new Drop will be part of the approved Drops curated list. 
 
-1. **Validation with Preview Site**: Validate the changes using the [Preview Azure Arc Jumpstart site](https://preview.arcjumpstart.com/arc_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
+1. **Validation with Preview Site**: Validate the changes using the [Preview Azure Arc Jumpstart site](https://preview.arcjumpstart.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
 
     ![Preview site](./preview_site.png)
 
-1. **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Azure Arc Jumpstart Drops](https://arcjumpstart.com/arc_jumpstart_drops).
+1. **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Azure Arc Jumpstart Drops](https://arcjumpstart.com/azure_jumpstart_drops).
 
 ## Drop Index
 
