@@ -5,7 +5,7 @@ title: Troubleshooting
 linkTitle: Troubleshooting
 ---
 
-# Jumpstart Agora - Contoso Supermarket scenario troubleshooting
+# Contoso Supermarket scenario troubleshooting
 
 ## Basic troubleshooting
 
