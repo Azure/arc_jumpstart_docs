@@ -71,4 +71,4 @@ An up-to-date roadmap can be found in our [GitHub repository](https://aka.ms/Jum
 
 ## Want to be an Arc "Jumpstarter"?
 
-We would love to have you and are always looking for community contribution! Hop over to the [Jumpstart contribution guidelines](/contribution_guidelines/) and get started.
+We would love to have you and are always looking for community contribution! Hop over to the [Jumpstart contribution guidelines](/contribution_guidelines) and get started.
