@@ -9,7 +9,7 @@ weight: 7
 
 **Welcome to Jumpstart Drops contribution guidelines!**
 
-We welcome contributions following the guidelines described in the Arc Jumpstart [contribution guidelines](./../contribution_guidelines/).
+We welcome contributions following the guidelines described in the Arc Jumpstart [contribution guidelines](./../contribution_guidelines).
 
 Our goal is to create a simplified contribution process for our users that guarantees high-quality standards for all submissions. Contributing a Drop is as simple as opening a GitHub Pull Request following a simple [scheme](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). We're also working on a streamlined **“Create Drop”** wizard which will walk you through the process step by step, making it effortless to submit your new Drop. With our wizard, you'll also enjoy a live preview of how your contribution will appear on the website. This ensures everything is perfect before sharing it with the community. Stay tuned, we're expecting this wizard to become available on the Jumpstart Drops homepage in the very near future.
 
