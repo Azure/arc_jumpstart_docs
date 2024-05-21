@@ -20,7 +20,7 @@ The contribution process consists of the following steps:
 1. **Define source code hosting:** There are two alternatives to host the source code:
 
     - **Include Code in Pull Request:** Include the code/artifacts in the pull request and host all the content as part of the [Arc Jumpstart Drops repository](https://github.com/Azure/arc_jumpstart_drops).
-    - **Reference to Author's Repository:** Keep the code in the author's repository and provide a reference URL under the _"Source"_ in the Drop definition file (check [Drops schema](./SCHEMA.md)). Ensure that the repository is publicly available.
+    - **Reference to Author's Repository:** Keep the code in the author's repository and provide a reference URL under the _"Source"_ in the Drop definition file (check [Drops schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md)). Ensure that the repository is publicly available.
 
 1. **Artifacts creation and uploading:** Develop and validate the source code of your Jumpstart Drop and the JSON schema file. Before submitting your pull request, ensure to check the following:
     1. Test your Drop end-to-end in a new, unmodified environment to ensure it works as expected.
