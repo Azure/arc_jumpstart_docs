@@ -54,7 +54,7 @@ If you're interested in learning more about the AI inference flow, check out the
 
 ### Model
 
-The model was created by the Arc Jumpstart team, based on the [Yolo8](https://yolov8.com/) model. The model files can be downloaded from [safety-yolo8.bin](https://jsfiles.blob.core.windows.net/ai-models/safety-yolo8.bin) and [safety-yolo8.xml](https://jsfiles.blob.core.windows.net/ai-models/safety-yolo8.xml).
+The model was created by the Arc Jumpstart team, based on the [Yolo8](https://yolov8.com/) model. The model files can be downloaded from [safety-yolo8.bin](https://jumpstartprodsg.blob.core.windows.net/ai-models/safety-yolo8.bin) and [safety-yolo8.xml](https://jumpstartprodsg.blob.core.windows.net/ai-models/safety-yolo8.xml).
 
 #### Inputs
 
