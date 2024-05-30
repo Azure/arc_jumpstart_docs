@@ -33,18 +33,18 @@ The Edge AI inference flow can be divided into two configuration steps and three
     | Model | Scenario | Links |
     | ----- | -------- | ----- |
     | Yolo8 | Object detection | [Yolo8 Models](https://docs.ultralytics.com/modes/#introduction) |
-    | Safety-Yolo | Helmet detection | *[safety-yolo8.bin](https://jsfiles.blob.core.windows.net/ai-models/safety-yolo8.bin)*, *[safety-yolo8.xml](https://jsfiles.blob.core.windows.net/ai-models/safety-yolo8.xml)* |
-    | Weld-porosity | Weld porosity detection (no weld, weld, porosity) | *[weld-porosity-detection-0001.bin](https://jsfiles.blob.core.windows.net/ai-models/weld-porosity-detection-0001.bin)*, *[weld-porosity-detection-0001.xml](https://jsfiles.blob.core.windows.net/ai-models/weld-porosity-detection-0001.xml)* |
-    | Pose-estimation | Human pose estimation | *[human-pose-estimation-0007.bin](https://jsfiles.blob.core.windows.net/ai-models/human-pose-estimation-0007.bin)*, *[human-pose-estimation-0007.xml](https://jsfiles.blob.core.windows.net/ai-models/human-pose-estimation-0007.xml)* |
+    | Safety-Yolo | Helmet detection | *[safety-yolo8.bin](https://jumpstartprodsg.blob.core.windows.net/ai-models/safety-yolo8.bin)*, *[safety-yolo8.xml](https://jumpstartprodsg.blob.core.windows.net/ai-models/safety-yolo8.xml)* |
+    | Weld-porosity | Weld porosity detection (no weld, weld, porosity) | *[weld-porosity-detection-0001.bin](https://jumpstartprodsg.blob.core.windows.net/ai-models/weld-porosity-detection-0001.bin)*, *[weld-porosity-detection-0001.xml](https://jumpstartprodsg.blob.core.windows.net/ai-models/weld-porosity-detection-0001.xml)* |
+    | Pose-estimation | Human pose estimation | *[human-pose-estimation-0007.bin](https://jumpstartprodsg.blob.core.windows.net/ai-models/human-pose-estimation-0007.bin)*, *[human-pose-estimation-0007.xml](https://jumpstartprodsg.blob.core.windows.net/ai-models/human-pose-estimation-0007.xml)* |
 
 1. **Video Downloader:** this is an init-container in Kubernetes responsible for downloading sample video files used to simulate an RTSP video feed. All video streams are simulated using the **RTSP Simulator**. The videos are downloaded from the storage account and stored in a Kubernetes volume for use in the deployment.
 
     | Video | Scenario | Link |
     | ----- | -------- | ---- |
-    | Worker on normal routine | Object detection | *[object-detection.mp4](https://jsfiles.blob.core.windows.net/video/agora/object-detection.mp4)* |
-    | Worker walking with safety-gear | Helmet detection | *[helmet-detection.mp4](https://jsfiles.blob.core.windows.net/video/agora/helmet-detection.mp4)* |
-    | Welding feed | Weld porosity detection | *[welding.mp4](https://jsfiles.blob.core.windows.net/video/agora/welding.mp4)* |
-    | Worker interacting with robot | Human pose estimation | *[object-detection.mp4](https://jsfiles.blob.core.windows.net/video/agora/object-detection.mp4)* |
+    | Worker on normal routine | Object detection | *[object-detection.mp4](https://jumpstartprodsg.blob.core.windows.net/video/agora/object-detection.mp4)* |
+    | Worker walking with safety-gear | Helmet detection | *[helmet-detection.mp4](https://jumpstartprodsg.blob.core.windows.net/video/agora/helmet-detection.mp4)* |
+    | Welding feed | Weld porosity detection | *[welding.mp4](https://jumpstartprodsg.blob.core.windows.net/video/agora/welding.mp4)* |
+    | Worker interacting with robot | Human pose estimation | *[object-detection.mp4](https://jumpstartprodsg.blob.core.windows.net/video/agora/object-detection.mp4)* |
 
 After the configuration is complete, the inference flow can be initiated. The **Web AI Inference and UI** application retrieves data, such as video frames from an RTSP source or images, and applies any necessary preprocessing, such as resizing an image to a specific size with a specific RGB/BGR format. The data is then sent to the model server for inference, and any required post processing is applied to store or display the results to the user.
 
