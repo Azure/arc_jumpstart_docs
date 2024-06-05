@@ -72,7 +72,7 @@ By doing so, you will be able to make real-time changes to the application and s
 
 * Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below command.
+    To be able to complete the scenario and its related automation, Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account run the below Bash shell command.
 
     ```powershell
     Connect-AzAccount
