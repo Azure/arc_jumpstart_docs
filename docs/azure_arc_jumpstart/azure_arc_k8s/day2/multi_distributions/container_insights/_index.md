@@ -46,7 +46,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
 
   - "Contributor" - Required for provisioning Azure resources
 
-    To create it login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
+    To create it login to your Azure account run the below Bash shell command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
 
     ```shell
     az login
