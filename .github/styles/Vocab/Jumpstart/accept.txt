@@ -27,3 +27,10 @@ ARM
 US
 RDP
 JIT
+Downloader
+jsfiles
+ovmsclient
+Kube
+namespaces
+misconfigured
+snake_case

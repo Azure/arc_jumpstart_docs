@@ -35,7 +35,7 @@ The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge 
 
 - Create Azure service principal (SP)
 
-    To complete the scenario and its related automation, an Azure service principal with the “Contributor” role assigned is required. To create it, login to your Azure account and run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
+    To complete the scenario and its related automation, an Azure service principal with the “Contributor” role assigned is required. To create it, login to your Azure account and run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
 
     ```shell
     az login
@@ -127,7 +127,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
     > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the *azuredeploy.parameters.json* file.
     
-    > **Note:** ESA currently supports only the following Azure regions: East US 2, West US 3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
+    > **Note:** ESA currently supports only the following Azure regions: East US, East US 2, West US 3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
     For example:
 
     ```shell

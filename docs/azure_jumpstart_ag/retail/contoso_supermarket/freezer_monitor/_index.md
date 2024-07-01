@@ -53,8 +53,6 @@ Contoso has an ADX dashboard report for Freezer Monitoring analytics and monitor
 
 ### Manually import dashboard
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as the dashboard is automatically imported for you during the automated deployment.
-
 To view the Freezer Monitoring dashboard you will first need to import it into ADX.
 
 - On the Client VM, open Windows Explorer and navigate to the _C:\Ag\adx_dashboards_ folder. This folder contains two ADX dashboard JSON files (_adx-dashboard-iotsensor-payload.json_ and _adx-dashboard-orders-payload.json_) with the ADX name and URI updated when the deployment PowerShell logon script is completed.
