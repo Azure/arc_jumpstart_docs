@@ -30,7 +30,7 @@ in this scenario, a [Rancher K3s](https://rancher.com/docs/k3s/latest/en/), sing
 
 - Create Azure service principal (SP). To deploy this scenario, an Azure service principal assigned with "Contributor" Role-based access control (RBAC) is required for provisioning Azure resources
 
-    To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/).
+    To create it, login to your Azure account run the below command (this can also be done in [Azure Cloud Shell](https://shell.azure.com/)).
 
     ```shell
     az login

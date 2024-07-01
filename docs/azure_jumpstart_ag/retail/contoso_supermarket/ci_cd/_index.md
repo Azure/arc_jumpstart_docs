@@ -97,6 +97,10 @@ The development process will start from the local _dev_ cluster, where as a deve
 
 - Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](../deployment/#connecting-to-the-agora-client-virtual-machine).
 
+- We need to have "Docker Desktop" running in the background. Open it from the Start menu and have it minimized.
+
+    ![Screenshot showing opening Docker Dekstop from the start menu](./img/start_docker_desktop.png)
+
 - Open VSCode from the desktop shortcut.
 
     ![Screenshot showing the the VSCode icon on the desktop](./img/open_vscode.png)
