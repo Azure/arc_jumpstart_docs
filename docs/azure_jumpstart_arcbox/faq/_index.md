@@ -12,7 +12,7 @@ ArcBox is a sandbox that can be used to explore Azure Arc capabilities, build qu
 
 ## What is required to deploy ArcBox?
 
-ArcBox deployment requires an Azure service principal with a **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy ArcBox using the Azure portal, Azure CLI, Bicep, or Terraform. A service principal is required to run the automation scripts that deploy and configure ArcBox features. You can view how the service principal is used by exploring the ArcBox code on our [public GitHub repository](https://aka.ms/JumpstartGitHubCode).
+ArcBox deployment requires an Azure service principal with a **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy ArcBox using the Azure portal, Azure CLI or Bicep. A service principal is required to run the automation scripts that deploy and configure ArcBox features. You can view how the service principal is used by exploring the ArcBox code on our [public GitHub repository](https://aka.ms/JumpstartGitHubCode).
 
 ## What are the different "flavors" of ArcBox?
 

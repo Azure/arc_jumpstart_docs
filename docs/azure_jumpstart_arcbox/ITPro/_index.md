@@ -46,15 +46,12 @@ ArcBox provides multiple paths for deploying and configuring ArcBox resources. D
 - Azure portal
 - ARM template via Azure CLI
 - Bicep
-- Terraform
 
 ![Deployment flow diagram for ARM-based deployments](./deploymentflow.png)
 
-![Deployment flow diagram for Terraform-based deployments](./deploymentflow_tf.png)
-
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (azuredeploy.json), Bicep file (main.bicep), or Terraform plan (main.tf). These objects contain several nested objects that will run simultaneously.
+- User deploys the primary ARM template (azuredeploy.json) or Bicep file (main.bicep). These objects contain several nested objects that will run simultaneously.
   - ClientVM ARM template/plan - deploys the Client Windows VM. This is the Hyper-V host VM where all user interactions with the environment are made from.
   - Storage account template/plan - used for staging files in automation scripts
   - Management artifacts template/plan - deploys Azure Log Analytics workspace and solutions and Azure Policy artifacts
@@ -280,67 +277,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
     > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
-## Deployment Option 4: Terraform Deployment
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
-
-- Download and install the latest version of Terraform [here](https://www.terraform.io/downloads.html)
-
-  > **Note:** Terraform 1.x or higher is supported for this deployment. Tested with Terraform v1.011.
-
-- Create a `terraform.tfvars` file in the root of the terraform folder and supply some values for your environment.
-
-  ```HCL
-  azure_location    = "westus2"
-  spn_client_id     = "1414133c-9786-53a4-b231-f87c143ebdb1"
-  spn_client_secret = "fakeSecretValue123458125712ahjeacjh"
-  spn_tenant_id     = "33572583-d294-5b56-c4e6-dcf9a297ec17"
-  user_ip_address   = "99.88.99.88"
-  client_admin_ssh  = "C:/Temp/rsa.pub"
-  deployment_flavor = "ITPro"
-  ```
-
-- Variable Reference:
-  - **_`azure_location`_** - Azure location code (e.g. 'eastus', 'westus2', etc.)
-  - **_`resource_group_name`_** - Resource group which will contain all of the ArcBox artifacts
-  - **_`spn_client_id`_** - Your Azure service principal id
-  - **_`spn_client_secret`_** - Your Azure service principal secret
-  - **_`spn_tenant_id`_** - Your Azure tenant id
-  - **_`user_ip_address`_** - Your local IP address. This is used to allow remote RDP connections to the Client Windows VM. If you don't know your public IP, you can find it [here](https://www.whatismyip.com/)
-  - **_`client_admin_ssh`_** - SSH public key path, used for Linux VMs
-  - **_`deployment_flavor`_** - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
-  - _`client_admin_username`_ - Admin username for Windows & Linux VMs
-  - _`client_admin_password`_ - Admin password for Windows VMs. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - **_`workspace_name`_** - Unique name for the ArcBox Log Analytics workspace
-
-  > **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
-
-- Now you will deploy the Terraform file. Navigate to the local cloned deployment folder and run the commands below:
-
-  ```shell
-  terraform init
-  terraform plan -out=infra.out
-  terraform apply "infra.out"
-  ```
-
-- Example output from `terraform init`:
-
-  ![terraform init](./terraform_init.png)
-
-- Example output from `terraform plan -out=infra.out`:
-
-  ![terraform plan](./terraform_plan.png)
-
-- Example output from `terraform apply "infra.out"`:
-
-  ![terraform plan](./terraform_apply.png)
-
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
-
 ## Start post-deployment automation
 
 Once your deployment is complete, you can open the Azure portal and see the ArcBox resources inside your resource group. You will be using the _ArcBox-Client_ Azure virtual machine to explore various capabilities of ArcBox such as GitOps configurations and Key Vault integration. You will need to remotely access _ArcBox-Client_.
@@ -557,7 +493,6 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Visual Studio Code
 - Putty
 - 7zip
-- Terraform
 - Git
 
 ### Next steps
