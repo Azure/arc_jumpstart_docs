@@ -34,8 +34,6 @@ Contoso supports dashboard reports for the PoS application analytics and monitor
 
 ## Manually import dashboards
 
-> **Note:** If you used the [Azure Developer CLI (azd) method](../deployment/#deployment-via-azure-developer-cli) to deploy the Contoso Supermarket scenario, you may skip this section as these reports are automatically imported for you during the automated deployment.
-
 Follow the below steps in order to view the PoS Orders dashboard reports you will need to import these into ADX.
 
 - On the Client VM, open Windows Explorer and navigate to folder _C:\Ag\adx_dashboards_ folder. This folder contains two ADX dashboard report JSON files (_adx-dashboard-iotsensor-payload.json_ and _adx-dashboard-orders-payload.json_) with the ADX name and URI updated when the deployment PowerShell logon script is completed.

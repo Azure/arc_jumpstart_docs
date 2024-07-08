@@ -50,7 +50,7 @@ The following Jumpstart scenario will guide you on how to use the Run command on
 ```shell
     az connectedmachine show --name <Machine Name> --resource-group <Resource Group Name> --query "properties.agentVersion"
 ```
-- If the Connected Machine agent version is lower than 1.39 then upgrade the extension using [this guidance](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent).
+- If the Connected Machine agent version is lower than 1.39 then upgrade the extension using [this guidance](https://learn.microsoft.com/azure/azure-arc/servers/manage-agent).
 
 - To use PowerShell you need to check if the installed version of module _Az.ConnectedMachine_ is 0.6.0 or higher. Use the following PowerShell command to check the installed version:
 

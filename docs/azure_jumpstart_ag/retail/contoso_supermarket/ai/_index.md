@@ -11,7 +11,7 @@ technologyStack:
   - AKS EDGE ESSENTIALS
   - GITOPS (FLUX)
   - OSS POSTGRESQL
-  - INTEL OPENVINO
+  - INTEL OpenVINO™
 ---
 
 # Enabling AI at the Edge & Software configurations rollout with basic GitOps flow
@@ -38,9 +38,9 @@ Contoso's DevOps team has adopted GitOps methodologies which allows them to use 
 
 One of the main benefits of GitOps is its ability to provide a consistent and auditable deployment process. All changes to the infrastructure and application configurations are tracked and versioned in Git, making it easy to roll back to a previous state if necessary. The declarative nature of GitOps also enables the automation of the deployment process, which reduces the risk of human error and streamlines the entire process.
 
-### AI at the Edge using Intel OpenVino
+### AI at the Edge using Intel OpenVINO™
 
-Contoso aims to maximize the usage of their existing Closed-circuit television (CCTV) cameras installed across their stores. After careful evaluation, Contoso has opted to utilize Intel's OpenVino Technology for their solution. By leveraging OpenVino, Contoso can perform inference on the CPU of their edge devices, eliminating the need for expensive discrete GPUs. Intel also provides a set of pre-trained models that align with Contoso's requirements.
+Contoso aims to maximize the usage of their existing Closed-circuit television (CCTV) cameras installed across their stores. After careful evaluation, Contoso has opted to utilize Intel's OpenVINO™ Technology for their solution. By leveraging OpenVINO™, Contoso can perform inference on the CPU of their edge devices, eliminating the need for expensive discrete GPUs. Intel also provides a set of pre-trained models that align with Contoso's requirements.
 
 In this specific use case, Contoso has chosen the [_"person-detection-retail-0013 pre-trained model"_](https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html). This model boasts an impressive Average Precision of 88.62% and accepts high-definition videos (1024x768) as input.
 
@@ -118,9 +118,13 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
 - Connect to the Client VM _Ag-VM-Client_ using the instructions in the [deployment guide](../deployment/#connecting-to-the-agora-client-virtual-machine).
 
+- We need to have "Docker Desktop" running in the background. Open it from the Start menu and have it minimized.
+
+    ![Screenshot showing opening Docker Dekstop from the start menu](./img/start_docker_desktop.png)
+
 - Open VSCode from the desktop shortcut.
 
-    ![Screenshot showing the the VSCode icon on the desktop](./img/open_vscode.png)
+    ![Screenshot showing the VSCode icon on the desktop](./img/open_vscode.png)
 
 - Bring up the VSCode command palette.
 

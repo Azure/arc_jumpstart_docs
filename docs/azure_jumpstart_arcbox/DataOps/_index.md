@@ -60,15 +60,12 @@ ArcBox provides multiple paths for deploying and configuring ArcBox resources. D
 - Azure portal
 - ARM template via Azure CLI
 - Azure Bicep
-- HashiCorp Terraform
 
 ![Deployment flow diagram for ARM-based deployments](./deployment_flow.png)
 
-![Deployment flow diagram for Terraform-based deployments](./deployment_flow_tf.png)
-
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (_azuredeploy.json_), Bicep file (_main.bicep_), or Terraform plan (_main.tf_). These objects contain several nested objects that will run simultaneously.
+- User deploys the primary ARM template (_azuredeploy.json_) or Bicep file (_main.bicep_). These objects contain several nested objects that will run simultaneously.
   - Client virtual machine ARM template/plan - deploys a domain-joined Client Windows VM. This is a Windows Server VM that comes preconfigured with kubeconfig files to work with the three Kubernetes clusters, as well multiple tools such as VSCode, Azure Data Studio and SQL Server Management Studio to make working with ArcBox simple and easy.
   - Storage account template/plan - used for staging files in automation scripts.
   - Management artifacts template/plan - deploys Azure Log Analytics workspace, its required Solutions, a domain controller and two virtual networks.
@@ -127,7 +124,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ![Screenshot showing az vm list-skus with no restrictions](./list_skus_unrestricted.png)
 
   ![Screenshot showing az vm list-skus with restrictions](./list_skus.png)
-  
+
 - Register necessary Azure resource providers by running the following commands.
 
     ```shell
@@ -166,7 +163,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
     "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
     ```
-  
+
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
     ```powershell
@@ -218,7 +215,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy02.png)
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
-  
+
     > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: ARM template with Azure CLI
@@ -249,13 +246,13 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create \
   --resource-group <Name of the Azure resource group> \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json 
+  --parameters azuredeploy.parameters.json
   ```
 
   ![Screenshot showing az group create](./az_group_create.png)
 
   ![Screenshot showing az deployment group create](./az_deploy.png)
-  
+
   > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 3: Azure Bicep deployment via Azure CLI
@@ -272,7 +269,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
@@ -290,71 +287,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ```shell
   az login
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
-  ```
-  
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
-
-## Deployment Option 4: HashiCorp Terraform Deployment
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
+  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" --parameters customLocationRPOID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
   ```
 
-- Download and install the latest version of Terraform [here](https://www.terraform.io/downloads.html)
-
-  > **Note:** Terraform 1.x or higher is supported for this deployment. Tested with Terraform v1.0.9+.
-
-- Create a `terraform.tfvars` file in the root of the terraform folder and supply some values for your environment.
-
-  ```HCL
-  azure_location      = "westus2"
-  resource_group_name = "ArcBoxDataOps"
-  spn_client_id       = "1414133c-9786-53a4-b231-f87c143ebdb1"
-  spn_client_secret   = "fakeSecretValue123458125712ahjeacjh"
-  spn_tenant_id       = "33572583-d294-5b56-c4e6-dcf9a297ec17"
-  client_admin_ssh    = "C:/Temp/rsa.pub"
-  deployment_flavor   = "DataOps"
-  deploy_bastion      = false
-  ```
-
-- Variable Reference:
-  - **_`azure_location`_** - Azure location code (e.g. 'eastus', 'westus2', etc.)
-  - **_`resource_group_name`_** - Resource group which will contain all of the ArcBox artifacts
-  - **_`spn_client_id`_** - Your Azure service principal id
-  - **_`spn_client_secret`_** - Your Azure service principal secret
-  - **_`spn_tenant_id`_** - Your Azure tenant id
-  - **_`client_admin_ssh`_** - SSH public key path, used for Linux VMs
-  - **_`deployment_flavor`_** - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
-  - _`deployBastion`_ - Set to *`true`* if you want to use Azure Bastion to connect to _ArcBox-Client_
-  - _`client_admin_username`_ - Admin username for Windows & Linux VMs
-  - _`client_admin_password`_ - Admin password for Windows VMs. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - **_`workspace_name`_** - Unique name for the ArcBox Log Analytics workspace that will be created
-
-  > **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
-
-- Now you will deploy the Terraform file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the commands below:
-
-  ```shell
-  terraform init
-  terraform plan -out=infra.out
-  terraform apply "infra.out"
-  ```
-  
-- Example output from `terraform init`:
-
-  ![terraform init](./terraform_init.png)
-
-- Example output from `terraform plan -out=infra.out`:
-
-  ![terraform plan](./terraform_plan.png)
-
-- Example output from `terraform apply "infra.out"`:
-
-  ![terraform plan](./terraform_apply.png)
-  
   > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
@@ -409,7 +344,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
   ![Screenshot showing connecting to the VM using JIT](./jit_connect_rdp.png)
-  
+
 #### Client VM credentials
 
 After configuring access to the Client VM, you have to connect using the UPN format whether you are connecting using RDP or Azure Bastion.
@@ -547,9 +482,9 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
   $pod=kubectl --namespace arc get pods --selector=app=dbconnecttest --output="jsonpath={.items..metadata.name}"
   kubectl --namespace arc logs $pod -f
   ```
-  
+
   ![Screenshot showing DB Connection App logs 01](./capi_bookstore10.png)
-  
+
   ![Screenshot showing DB Connection App logs 02](./capi_bookstore11.png)
 
 - To test failover between the replicas, we will simulate a "crash" that will trigger an HA event and will force one of the secondary replicas to get promoted to a primary replica. Open two side-by-side PowerShell sessions. On the left side session review the deployed pods. The right-side session will be used to follow the DB Connection App logs. Delete the Primary replica by running below commands.
@@ -816,7 +751,6 @@ The following tools are including on the _ArcBox-Client_ VM.
 - SQL StressTest application
 - Putty
 - 7zip
-- Terraform
 - Git
 - ZoomIt
 

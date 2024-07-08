@@ -9,6 +9,80 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## June 2024
+
+### Release highlights
+
+- Various critical bugs fixes and features
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [June release](https://www.linkedin.com/feed/update/urn:li:activity:7211732533040799744/)
+
+### Jumpstart HCIBox
+
+- [Bug: High MTU (9014) causes network congestion on nested VMs when using Windows Server 20348.2340.240303 or later #2579](https://github.com/microsoft/azure_arc/issues/2579)
+- [Feature: HCI box unable to create RG - Unable to acquire a token error. #2571](https://github.com/microsoft/azure_arc/issues/2571)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - June release #2582](https://github.com/microsoft/azure_arc/issues/2582)
+
+## May 2024
+
+### Release highlights
+
+- Maintenance release
+
+### Cross Jumpstart
+
+- [Feature: Remove use of SAS tokens for VHD downloads #2551](https://github.com/microsoft/azure_arc/issues/2551)
+
+### Jumpstart ArcBox
+
+- [Feature: Leverage Managed Identity for authentication #2550](https://github.com/microsoft/azure_arc/issues/2550)
+
+### Jumpstart HCIBox
+
+- [Bug: Failed to deploy HCIBox: failure when processing extension 'Bootstrap' Missing an argument for parameter 'spnProviderId' #2541](https://github.com/microsoft/azure_arc/issues/2541)
+- [Bug: Syntax error line 169 - preprovision.ps1 #2546](https://github.com/microsoft/azure_arc/issues/2546)
+
+### Arc-enabled servers
+
+- [Bug: Failed to deploy Azure Arc-enabled servers connectivity behind a proxy server #303](https://github.com/Azure/arc_jumpstart_docs/issues/303)
+
+## April 2024
+
+### Release highlights
+
+- New "Arc, Edge, and IoT Operations" scenario for Edge Storage Accelerator
+- Multiple HCIBox features
+- Various critical bugs fixes
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [April release](https://www.linkedin.com/feed/update/urn:li:activity:7188194418762420227/)
+
+### Jumpstart HCIBox
+
+- [Bug: HCIBox setup script failed due to incorrect parameter name "autoUpdateClusterResource" #2498](https://github.com/microsoft/azure_arc/issues/2498)
+- [Feature: HCIBox - add automatic validation and deployment of cluster #2488](https://github.com/microsoft/azure_arc/issues/2488)
+- [Feature: HCIBox - add automatic upgrade of cluster #2493](https://github.com/microsoft/azure_arc/issues/2493)
+- [Feature: Update HCIBox VHDX images for April release #2524](https://github.com/microsoft/azure_arc/issues/2524)
+- [Documentation: Jumpstart HCIBox 23H2 Deployment - Where or how to get Windows Admin Center #2490](https://github.com/microsoft/azure_arc/issues/2490)
+
+### Arc-enabled servers
+
+- [Documentation: Code snippet to create service principal for Microsoft Azure: Windows Server Virtual Machine has error, causing it to fail #285](https://github.com/Azure/arc_jumpstart_docs/issues/285)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - April release #2495](https://github.com/microsoft/azure_arc/issues/2495)
+
+### Arc, Edge, and IoT Operations
+
+- [New scenario: Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single_esa)
+- [Bug: Deployment of Azure IoT Operations (AIO) fails with AKS-EE due to lack of logs space #2515](https://github.com/microsoft/azure_arc/pull/2514)
+- [Bug: AIO scenario preview repository #2517](https://github.com/microsoft/azure_arc/issues/2517)
+
+### Jumpstart Agora
+
+- [Bug: Video feed not working in Agora retail #2522](https://github.com/microsoft/azure_arc/issues/2522)
+
 ## March 2024
 
 ### Release highlights
@@ -16,7 +90,7 @@ weight: 6
 - New Arc-enabled servers scenario
 - Arc-enabled data service monthly release
 - AKS version bump
-- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [March release](https://www.linkedin.com/posts/liorkamrat_kubernetes-mvpbuzz-msftadvocate-activity-7172952002442776576-vOjx?utm_source=share&utm_medium=member_desktop)
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [March release](https://www.linkedin.com/feed/update/urn:li:activity:7172952002442776576/)
 
 ### Cross Jumpstart
 
