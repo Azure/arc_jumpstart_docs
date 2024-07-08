@@ -124,7 +124,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ![Screenshot showing az vm list-skus with no restrictions](./list_skus_unrestricted.png)
 
   ![Screenshot showing az vm list-skus with restrictions](./list_skus.png)
-  
+
 - Register necessary Azure resource providers by running the following commands.
 
     ```shell
@@ -163,7 +163,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
     "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
     ```
-  
+
   - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
 
     ```powershell
@@ -215,7 +215,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy02.png)
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
-  
+
     > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: ARM template with Azure CLI
@@ -246,13 +246,13 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create \
   --resource-group <Name of the Azure resource group> \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json 
+  --parameters azuredeploy.parameters.json
   ```
 
   ![Screenshot showing az group create](./az_group_create.png)
 
   ![Screenshot showing az deployment group create](./az_deploy.png)
-  
+
   > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 3: Azure Bicep deployment via Azure CLI
@@ -269,7 +269,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
@@ -287,7 +287,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ```shell
   az login
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
+  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" --parameters customLocationRPOID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
   ```
 
   > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
@@ -344,7 +344,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
   ![Screenshot showing connecting to the VM using JIT](./jit_connect_rdp.png)
-  
+
 #### Client VM credentials
 
 After configuring access to the Client VM, you have to connect using the UPN format whether you are connecting using RDP or Azure Bastion.
@@ -482,9 +482,9 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
   $pod=kubectl --namespace arc get pods --selector=app=dbconnecttest --output="jsonpath={.items..metadata.name}"
   kubectl --namespace arc logs $pod -f
   ```
-  
+
   ![Screenshot showing DB Connection App logs 01](./capi_bookstore10.png)
-  
+
   ![Screenshot showing DB Connection App logs 02](./capi_bookstore11.png)
 
 - To test failover between the replicas, we will simulate a "crash" that will trigger an HA event and will force one of the secondary replicas to get promoted to a primary replica. Open two side-by-side PowerShell sessions. On the left side session review the deployed pods. The right-side session will be used to follow the DB Connection App logs. Delete the Primary replica by running below commands.
