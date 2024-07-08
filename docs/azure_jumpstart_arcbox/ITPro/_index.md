@@ -205,43 +205,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
     > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
-## Deployment Option 2: ARM template with Azure CLI
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
-
-- Edit the [azuredeploy.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/ARM/azuredeploy.parameters.json) ARM template parameters file and supply some values for your environment.
-  - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
-  - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
-
-  ![Screenshot showing example parameters](./parameters.png)
-
-- Now you will deploy the ARM template. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/ARM) and run the below command:
-
-  ```shell
-  az group create --name <Name of the Azure resource group> --location <Azure Region>
-  az deployment group create \
-  --resource-group <Name of the Azure resource group> \
-  --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json
-  ```
-
-  ![Screenshot showing az group create](./azgroupcreate.png)
-
-  ![Screenshot showing az deployment group create](./azdeploy.png)
-
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
-
-## Deployment Option 3: Bicep deployment via Azure CLI
+## Deployment Option 2: Bicep deployment via Azure CLI
 
 - Clone the Azure Arc Jumpstart repository
 
