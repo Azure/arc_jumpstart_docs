@@ -44,7 +44,6 @@ ArcBox resources generate Azure Consumption charges from the underlying Azure re
 ArcBox provides multiple paths for deploying and configuring ArcBox resources. Deployment options include:
 
 - Azure portal
-- ARM template via Azure CLI
 - Bicep
 
 ![Deployment flow diagram for ARM-based deployments](./deploymentflow.png)
