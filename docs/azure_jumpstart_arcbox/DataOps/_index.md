@@ -58,14 +58,13 @@ ArcBox resources generate Azure consumption charges from the underlying Azure re
 ArcBox provides multiple paths for deploying and configuring ArcBox resources. Deployment options include:
 
 - Azure portal
-- ARM template via Azure CLI
 - Azure Bicep
 
 ![Deployment flow diagram for ARM-based deployments](./deployment_flow.png)
 
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (_azuredeploy.json_) or Bicep file (_main.bicep_). These objects contain several nested objects that will run simultaneously.
+- User deploys the Bicep template (_main.bicep_). These objects contain several nested objects that will run simultaneously.
   - Client virtual machine ARM template/plan - deploys a domain-joined Client Windows VM. This is a Windows Server VM that comes preconfigured with kubeconfig files to work with the three Kubernetes clusters, as well multiple tools such as VSCode, Azure Data Studio and SQL Server Management Studio to make working with ArcBox simple and easy.
   - Storage account template/plan - used for staging files in automation scripts.
   - Management artifacts template/plan - deploys Azure Log Analytics workspace, its required Solutions, a domain controller and two virtual networks.
@@ -135,61 +134,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
     az provider register --namespace Microsoft.OperationsManagement --wait
     ```
 
-- Create Azure service principal (SP). To deploy ArcBox, an Azure service principal assigned with the _Owner_ role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
-
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    For example:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartArcBoxSPN" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    Output should look similar to this:
-
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartArcBox",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
-
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "JumpstartArcBoxSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./create_spn_powershell.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
-
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
 - [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
 
   ```shell
@@ -218,44 +162,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
     > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
-## Deployment Option 2: ARM template with Azure CLI
-
-- Clone the Azure Arc Jumpstart repository
-
-    ```shell
-    git clone https://github.com/microsoft/azure_arc.git
-    ```
-
-- Edit the [azuredeploy.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/ARM/azuredeploy.parameters.json) ARM template parameters file and supply some values for your environment.
-  - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
-  - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
-  - _`flavor`_ - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
-  - _`deployBastion`_ - Set to *`true`* if you want to use Azure Bastion to connect to _ArcBox-Client_
-
-  ![Screenshot showing example parameters](./parameters.png)
-
-- Now you will deploy the ARM template. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox) and run the below command:
-
-  ```shell
-  az group create --name <Name of the Azure resource group> --location <Azure Region>
-  az deployment group create \
-  --resource-group <Name of the Azure resource group> \
-  --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json
-  ```
-
-  ![Screenshot showing az group create](./az_group_create.png)
-
-  ![Screenshot showing az deployment group create](./az_deploy.png)
-
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
-
-## Deployment Option 3: Azure Bicep deployment via Azure CLI
+## Deployment Option 2: Azure Bicep deployment via Azure CLI
 
 - Clone the Azure Arc Jumpstart repository
 
@@ -271,9 +178,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
@@ -779,7 +684,6 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
 - Automation scripts do not start after login - this is usually caused by logging into the client VM with wrong format of the username. Login needs to be done using domain credentials in UPN format _username@jumpstart.local_.
 - "User disabled" error message appears when you try to RDP or connect using Bastion to the Client VM - this is caused by logging into the client VM with wrong format of the username. Login needs to be done using domain credentials in UPN format _username@jumpstart.local_.
-- Invalid service principal id, service principal secret or service principal Azure tenant ID provided in _azuredeploy.parameters.json_ file.
 - Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
   - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
 
@@ -825,12 +729,6 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuCAPIDepl
   - _ArcBox-CAPI-MGMT_ log path: _jumpstart_logs/installCAPI.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
-
-- From the screenshot below, looking at _ArcBox-CAPI-MGMT_ virtual machine CAPI installation log using the `cat jumpstart_logs/installCAPI.log` command, we can see the _az login_ command failed due to bad service principal credentials.
-
-  ![Screenshot showing cat command for showing installation log](./cat_command.png)
-
-  ![Screenshot showing az login error](./az_login_error.png)
 
 - You might randomly get a similar error in the _InstallCAPI.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF` - this is an issue we are currently investigating. To resolve please redeploy ArcBox.
 
