@@ -9,6 +9,32 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## July 2024
+
+### Release highlights
+
+- Maintenance release
+- Jumpstart Assets - Arc Architecture Posters and Diagrams (APD) [July release](https://www.linkedin.com/posts/liorkamrat_msftadvocate-mvpbuzz-azure-activity-7224056401747136512-w6KF?utm_source=combined_share_message&utm_medium=member_desktop)
+
+### Cross Jumpstart
+
+- [Feature: Add ability to pin AKS Edge essentials to a specific schema version #2624](https://github.com/microsoft/azure_arc/issues/2624)
+
+### Jumpstart ArcBox
+
+- [Feature: Upcoming breaking change in Get-AzAccessToken #2611](https://github.com/microsoft/azure_arc/issues/2611)
+
+### Jumpstart HCIBox
+
+- [Bug: Unable to deploy Arcmanaged VM from Azure Portal](https://github.com/microsoft/azure_arc/issues/2599)
+- [Bug: AzSHOST1 : Extension AzureEdgeDeviceManagement and Extension AzureEdgeLifecycleManager are missing #2614](https://github.com/microsoft/azure_arc/issues/2614)
+- [Bug: A parameter cannot be found that matches parameter name 'AsPlainText'. #2620](https://github.com/microsoft/azure_arc/issues/2620)
+- [Feature: Upcoming breaking change in Get-AzAccessToken #2611](https://github.com/microsoft/azure_arc/issues/2611)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - July release #2608](https://github.com/microsoft/azure_arc/issues/2608)
+
 ## June 2024
 
 ### Release highlights
