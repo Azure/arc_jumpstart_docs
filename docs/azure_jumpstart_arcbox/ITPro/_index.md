@@ -44,17 +44,13 @@ ArcBox resources generate Azure Consumption charges from the underlying Azure re
 ArcBox provides multiple paths for deploying and configuring ArcBox resources. Deployment options include:
 
 - Azure portal
-- ARM template via Azure CLI
 - Bicep
-- Terraform
 
 ![Deployment flow diagram for ARM-based deployments](./deploymentflow.png)
 
-![Deployment flow diagram for Terraform-based deployments](./deploymentflow_tf.png)
-
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (azuredeploy.json), Bicep file (main.bicep), or Terraform plan (main.tf). These objects contain several nested objects that will run simultaneously.
+- User deploys the Bicep template (main.bicep). These objects contain several nested objects that will run simultaneously.
   - ClientVM ARM template/plan - deploys the Client Windows VM. This is the Hyper-V host VM where all user interactions with the environment are made from.
   - Storage account template/plan - used for staging files in automation scripts
   - Management artifacts template/plan - deploys Azure Log Analytics workspace and solutions and Azure Policy artifacts
@@ -110,61 +106,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.OperationsManagement --wait
   ```
 
-- Create Azure service principal (SP). To deploy ArcBox, an Azure service principal assigned with the _Owner_ Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
-
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    For example:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartArcBoxSPN" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    Output should look similar to this:
-
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartArcBox",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
-
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "JumpstartArcBoxSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./create_spn_powershell.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
-
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in-mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
 - [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
 
   ```shell
@@ -208,43 +149,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
     > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
-## Deployment Option 2: ARM template with Azure CLI
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
-
-- Edit the [azuredeploy.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/ARM/azuredeploy.parameters.json) ARM template parameters file and supply some values for your environment.
-  - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
-  - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
-
-  ![Screenshot showing example parameters](./parameters.png)
-
-- Now you will deploy the ARM template. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/ARM) and run the below command:
-
-  ```shell
-  az group create --name <Name of the Azure resource group> --location <Azure Region>
-  az deployment group create \
-  --resource-group <Name of the Azure resource group> \
-  --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json
-  ```
-
-  ![Screenshot showing az group create](./azgroupcreate.png)
-
-  ![Screenshot showing az deployment group create](./azdeploy.png)
-
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
-
-## Deployment Option 3: Bicep deployment via Azure CLI
+## Deployment Option 2: Bicep deployment via Azure CLI
 
 - Clone the Azure Arc Jumpstart repository
 
@@ -258,11 +163,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
@@ -275,69 +178,8 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ```shell
   az login
   az group create --name "<resource-group-name>" --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
+  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
   ```
-
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
-
-## Deployment Option 4: Terraform Deployment
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
-
-- Download and install the latest version of Terraform [here](https://www.terraform.io/downloads.html)
-
-  > **Note:** Terraform 1.x or higher is supported for this deployment. Tested with Terraform v1.011.
-
-- Create a `terraform.tfvars` file in the root of the terraform folder and supply some values for your environment.
-
-  ```HCL
-  azure_location    = "westus2"
-  spn_client_id     = "1414133c-9786-53a4-b231-f87c143ebdb1"
-  spn_client_secret = "fakeSecretValue123458125712ahjeacjh"
-  spn_tenant_id     = "33572583-d294-5b56-c4e6-dcf9a297ec17"
-  user_ip_address   = "99.88.99.88"
-  client_admin_ssh  = "C:/Temp/rsa.pub"
-  deployment_flavor = "ITPro"
-  ```
-
-- Variable Reference:
-  - **_`azure_location`_** - Azure location code (e.g. 'eastus', 'westus2', etc.)
-  - **_`resource_group_name`_** - Resource group which will contain all of the ArcBox artifacts
-  - **_`spn_client_id`_** - Your Azure service principal id
-  - **_`spn_client_secret`_** - Your Azure service principal secret
-  - **_`spn_tenant_id`_** - Your Azure tenant id
-  - **_`user_ip_address`_** - Your local IP address. This is used to allow remote RDP connections to the Client Windows VM. If you don't know your public IP, you can find it [here](https://www.whatismyip.com/)
-  - **_`client_admin_ssh`_** - SSH public key path, used for Linux VMs
-  - **_`deployment_flavor`_** - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
-  - _`client_admin_username`_ - Admin username for Windows & Linux VMs
-  - _`client_admin_password`_ - Admin password for Windows VMs. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - **_`workspace_name`_** - Unique name for the ArcBox Log Analytics workspace
-
-  > **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
-
-- Now you will deploy the Terraform file. Navigate to the local cloned deployment folder and run the commands below:
-
-  ```shell
-  terraform init
-  terraform plan -out=infra.out
-  terraform apply "infra.out"
-  ```
-
-- Example output from `terraform init`:
-
-  ![terraform init](./terraform_init.png)
-
-- Example output from `terraform plan -out=infra.out`:
-
-  ![terraform plan](./terraform_plan.png)
-
-- Example output from `terraform apply "infra.out"`:
-
-  ![terraform plan](./terraform_apply.png)
 
     > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -447,7 +289,7 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
   ```
 
   Ubuntu virtual machine credentials:
-  
+
   ```text
   Username: arcdemo
   Password: ArcDemo123!!
@@ -557,7 +399,6 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Visual Studio Code
 - Putty
 - 7zip
-- Terraform
 - Git
 
 ### Next steps
@@ -587,7 +428,6 @@ az group delete -n <name of your resource group>
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid service principal id, service principal secret or service principal Azure tenant ID provided in _azuredeploy.parameters.json_ file.
 - Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
   - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
 
