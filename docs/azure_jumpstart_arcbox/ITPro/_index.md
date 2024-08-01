@@ -50,7 +50,7 @@ ArcBox provides multiple paths for deploying and configuring ArcBox resources. D
 
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (azuredeploy.json) or Bicep file (main.bicep). These objects contain several nested objects that will run simultaneously.
+- User deploys the Bicep template (main.bicep). These objects contain several nested objects that will run simultaneously.
   - ClientVM ARM template/plan - deploys the Client Windows VM. This is the Hyper-V host VM where all user interactions with the environment are made from.
   - Storage account template/plan - used for staging files in automation scripts
   - Management artifacts template/plan - deploys Azure Log Analytics workspace and solutions and Azure Policy artifacts
@@ -165,7 +165,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnTenantId`_ - Your Azure tenant id
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
@@ -428,7 +428,6 @@ az group delete -n <name of your resource group>
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid service principal id, service principal secret or service principal Azure tenant ID provided in _azuredeploy.parameters.json_ file.
 - Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
   - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
 

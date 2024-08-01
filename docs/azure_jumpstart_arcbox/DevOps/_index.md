@@ -97,7 +97,7 @@ ArcBox provides multiple paths for deploying and configuring ArcBox resources. D
 
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
-- User deploys the primary ARM template (_azuredeploy.json_) or Bicep file (_main.bicep_). These objects contain several nested objects that will run simultaneously.
+- User deploys the Bicep template (_main.bicep_). These objects contain several nested objects that will run simultaneously.
   - Client virtual machine ARM template/plan - deploys the Client Windows VM. This is a Windows Server VM that comes preconfigured with kubeconfig files to work with the two Kubernetes clusters, as well multiple tools such as VSCode to make working with ArcBox simple and easy.
   - Storage account template/plan - used for staging files in automation scripts.
   - Management artifacts template/plan - deploys Azure Log Analytics workspace, its required Solutions, and Azure Policy artifacts.
@@ -211,7 +211,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`spnTenantId`_ - Your Azure tenant id
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace
@@ -716,7 +716,6 @@ az group delete -n <name of your resource group>
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid service principal id, service principal secret or service principal Azure tenant ID provided in _azuredeploy.parameters.json_ file.
 - Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
   - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
 
@@ -760,12 +759,6 @@ In the case of a failed deployment, pointing to a failure in either the _ubuntuR
   - _ArcBox-K3s_ log path: _jumpstart_logs/installK3s.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
-
-- From the screenshot below, looking at _ArcBox-CAPI-MGMT_ virtual machine CAPI installation log using the `cat jumpstart_logs/installCAPI.log` command, we can see the _az login_ command failed due to bad service principal credentials.
-
-  ![Screenshot showing cat command for showing installation log](./cat_command.png)
-
-  ![Screenshot showing az login error](./az_login_error.png)
 
 - You might randomly get a similar error in the _InstallCAPI.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF`. This is an issue we are currently investigating. To resolve please redeploy ArcBox.
 
