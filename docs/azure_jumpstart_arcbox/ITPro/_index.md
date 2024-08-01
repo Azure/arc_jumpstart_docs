@@ -89,7 +89,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox for IT Pros requires 16 DSv4-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox for IT Pros requires 16 DSv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -163,15 +163,17 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az bicep upgrade
   ```
 
-- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
   - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
   - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
+  - _`resourceTags`_ - Tags to assign for all ArcBox resources
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
 
-  ![Screenshot showing example parameters](./parameters_bicep.png)
+  ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
 
