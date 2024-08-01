@@ -171,7 +171,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
   - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
   - _`resourceTags`_ - Tags to assign for all ArcBox resources
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
