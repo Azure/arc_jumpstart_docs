@@ -349,6 +349,26 @@ Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/w
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 
+### Azure Update Manager
+
+Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Azure Update Manager, you can make updates in real-time or schedule them within a defined maintenance window.
+
+As part of the ArcBox deployment, Periodic Assessment is configured.
+
+Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Azure Update Manager fetches updates on your machine once every 24 hours.
+
+As part of the deployment, one on-demand assessment triggered.
+
+This means any available updates can be viewed immidiately after a successful deployment when navigating to the Updates-blade for the hybrid machines.
+
+Example from Linux machine:
+
+  ![Screenshot showing available updates for Linux machine](./azure-update-manager-1.png)
+
+Example from Windows machine:
+
+  ![Screenshot showing available updates for Windows machine](./azure-update-manager-2.png)
+
 ### Arc-enabled SQL Server - Best practices assessment
 
 As part of the ArcBox deployment, SQL Server best practices assessment is configured and run. Open _ArcBox-SQL_ Arc-enabled SQL Server resource from the resource group deployed or Azure Arc service blade to view SQL Server best practice assessment results.
@@ -397,11 +417,11 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 The following tools are including on the _ArcBox-Client_ VM.
 
-- Chocolatey
+- WinGet
 - Visual Studio Code
-- Putty
-- 7zip
 - Git
+- Windows Terminal
+- PowerShell 7
 
 ### Next steps
 
