@@ -2,6 +2,7 @@
 type: docs
 linkTitle: "ArcBox Full"
 weight: 2
+toc_hide: true
 ---
 
 # Jumpstart ArcBox "Full" Edition
