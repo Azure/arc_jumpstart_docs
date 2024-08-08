@@ -271,7 +271,7 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
   Ubuntu virtual machine credentials:
 
   ```text
-  Username: arcdemo
+  Username: jumpstart
   Password: JS123!!
   ```
 
@@ -289,7 +289,7 @@ You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-ena
 
   ```shell
     $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "arcdemo"
+    $localUser = "jumpstart"
 
     az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
   ```
@@ -299,7 +299,7 @@ or
 
   ```PowerShell
   $serverName = "ArcBox-Ubuntu-01"
-  $localUser = "arcdemo"
+  $localUser = "jumpstart"
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
  ```
 
