@@ -491,10 +491,6 @@ The other contains performance data:
 
 Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
 
-## PowerShell remoting to Azure Arc-enabled servers
-
-[SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-powershell-remoting) enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports. PowerShell remoting over SSH is available for Windows and Linux machines.
-
 ### Azure Update Manager
 
 Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Azure Update Manager, you can make updates in real-time or schedule them within a defined maintenance window.
