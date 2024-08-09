@@ -223,11 +223,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 #### The Logon scripts
 
-- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. Unless you have overriden the `vmAutologon` parameter in the parameters-file, the VM will automatically launch the logon scripts directly after the Azure-deployment has completed without waiting for a user to manually logon.
-
-
-
-These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically. At this point, the deployment is complete.
+- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. Unless you have overriden the `vmAutologon` parameter in the parameters-file, the VM will automatically launch the logon scripts directly after the Azure-deployment has completed without waiting for a user to manually logon. These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically.
 
   ![Screenshot showing ArcBox-Client](./automation.png)
 
@@ -278,6 +274,11 @@ You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-ena
 
     az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
   ```
+
+ ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
+
+> **Note:** You are not prompted for a password since ArcBox includes an SSH key-pair installed on ArcBox client VM and the hybrid Linux VMs.
+
 or
 
 **Azure PowerShell**
@@ -288,11 +289,7 @@ or
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
  ```
 
-   > **Note:** Server-side SSH is being provisioned asynchronously to the VMs in the automated provisioning scripts, so it might take up to 5 minutes after the ArcBox deployment scripts is finished until the _az ssh_ commands will run successfully.
-
- ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
-
- ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_02.png)
+![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_ps_01.png)
 
 - Following the previous method, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines via SSH.
 
