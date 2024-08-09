@@ -495,7 +495,6 @@ Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/w
 
 [SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-powershell-remoting) enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports. PowerShell remoting over SSH is available for Windows and Linux machines.
 
-
 ### Azure Update Manager
 
 Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Azure Update Manager, you can make updates in real-time or schedule them within a defined maintenance window.
@@ -515,6 +514,73 @@ Example from a Linux machine:
 Example from a Windows machine:
 
   ![Screenshot showing available updates for Windows machine](./azure-update-manager-2.png)
+
+### SSH Posture Control
+
+[SSH Posture Control](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distros including Ubuntu, Red Hat, Azure Linux, and more.
+
+In ArcBox, an Azure policy assignment is included for an SSH Posture Control policy in audit-only mode.
+
+To inspect the compliance status of the assigned policy, perform the following:
+
+1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we are using _Arcbox-Ubuntu-01_:
+
+![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
+
+2. Navigate to _Machine Configuration_ in the menu on the left side:
+
+![Screenshot showing Arcbox-Ubuntu-01](./ssh_posture_control_02.png)
+
+3. Click on the configuration name starting with _LinuxSshServerSecurityBaseline*_:
+
+![Screenshot showing assigned configurations](./ssh_posture_control_03.png)
+
+4. Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
+
+![Screenshot showing configuration settings](./ssh_posture_control_04.png)
+
+5. The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
+
+![Screenshot showing Azure Resource Graph Explorer](./resource_graph_explorer_01.png)
+
+6. Paste the following query into the query window and click _Run query_:
+
+```
+// SSH machine counts by compliance status
+guestconfigurationresources
+| where name contains "LinuxSshServerSecurityBaseline"
+| extend complianceStatus = tostring(properties.complianceStatus)
+| summarize machineCount = count() by complianceStatus
+```
+
+![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_05.png)
+
+7. Paste the following query into the query window and click _Run query_:
+
+```
+// SSH rule level detail
+GuestConfigurationResources
+| where name contains "LinuxSshServerSecurityBaseline"
+| project report = properties.latestAssignmentReport,
+ machine = split(properties.targetResourceId,'/')[-1],
+ lastComplianceStatusChecked=properties.lastComplianceStatusChecked
+| mv-expand report.resources
+| project machine,
+ rule = report_resources.resourceId,
+ ruleComplianceStatus = report_resources.complianceStatus,
+ ruleComplianceReason = report_resources.reasons[0].phrase,
+ lastComplianceStatusChecked
+```
+
+![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
+
+
+To learn more about how to configure the settings in audit-and-configure mode, check out the [documentation](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc).
+
+If you are interested to learn how to create your own configurations for Machine Configuration, check out the following related Jumpstart scenarios:
+
+- [Create Automanage Machine Configuration custom configurations for Linux](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux).
+- [Create Automanage Machine Configuration custom configurations for Windows](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows).
 
 ### Arc-enabled SQL Server - Best practices assessment
 
