@@ -106,21 +106,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.OperationsManagement --wait
   ```
 
-- ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected results or deployment errors.**
-
-  - East US
-  - East US 2
-  - Central US
-  - West US 2
-  - North Europe
-  - West Europe
-  - France Central
-  - UK South
-  - Australia East
-  - Japan East
-  - Korea Central
-  - Southeast Asia
-
 ## Deployment Option 1: Azure portal
 
 - Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
