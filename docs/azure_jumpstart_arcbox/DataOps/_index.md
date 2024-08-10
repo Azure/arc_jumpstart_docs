@@ -625,9 +625,23 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
+![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+
 - Click on Migration in left navigation.
 
+![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+
 - Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/en-us/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
+
+![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+
+- Review migration readiness to migrate to Azure SQL Managed Instance
+
+![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+
+- Review migration readiness to migrate to SQL Server on Virtual Machines
+
+![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
 ### Microsoft Defender for Cloud - SQL servers on machines
 
