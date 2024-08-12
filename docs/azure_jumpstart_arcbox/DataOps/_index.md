@@ -8,7 +8,7 @@ weight: 5
 
 ## Overview
 
-ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
+ArcBox for DataOps is a special "flavor" of ArcBox that's intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
 ![Screenshot showing ArcBox architecture diagram](./arch_dataops.png)
 
@@ -28,8 +28,8 @@ ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users wh
 ArcBox for DataOps deploys three Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
 - _**ArcBox-CAPI-Data-xxxx**_ - A single-node Rancher K3s cluster which is then transformed to a [Cluster API](https://cluster-api.sigs.k8s.io/user/concepts.html) management cluster using the Cluster API Provider for Azure (CAPZ), and a workload cluster (_ArcBox-CAPI-Data_) is deployed onto the management cluster. The workload cluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
-- _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that is connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
-- _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that is deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-CAPI-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
+- _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that's connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
+- _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that's deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-CAPI-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
 
 ### Sample applications
 
@@ -321,7 +321,7 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
   ![Screenshot showing Grafana Ip address](./grafana_ip_address.png)
 
-- To log in, use the same username and password that is in the SQLMI Endpoints text file desktop shortcut
+- To log in, use the same username and password that's in the SQLMI Endpoints text file desktop shortcut
 
   ![Screenshot showing Grafana login page](./grafana_login_page.png)
 
@@ -483,7 +483,7 @@ SELECT TOP (1000) [backup_set_id]
 
 ![Azure Arc-enabled SQL Managed InstanceI database restore](./sqlmi-pitr-database-select-restore.png)
 
-- Specify target database name to restore and backup set datetime that is noted down in the previous steps and click on Restore.
+- Specify target database name to restore and backup set datetime that's noted down in the previous steps and click on Restore.
 
 ![Azure Arc-enabled SQL Managed Instance target database restore](./sqlmi-pitr-targetdb.png)
 
@@ -615,7 +615,7 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
 
 ### SQL Server migration assessment
 
-Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/en-us/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
 
 As part of the ArcBox DataOps deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
 
@@ -631,7 +631,7 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
 ![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
 
-- Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/en-us/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
+- Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
 
 ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
