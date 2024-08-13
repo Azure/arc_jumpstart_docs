@@ -330,8 +330,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
-  ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
-
 ## Using ArcBox
 
 After deployment is complete, it's time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI, or similar) or from inside the _ArcBox-Client_ virtual machine. When remoted into the VM, here are some things to try:
