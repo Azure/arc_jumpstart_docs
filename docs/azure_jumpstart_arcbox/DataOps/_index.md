@@ -277,6 +277,8 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
 ## Using ArcBox
@@ -745,6 +747,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 | _C:\ArcBox\Logs\DataController-sqlmi-capi.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks.log_ | Output from the AKS cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks-dr.log_ | Output from the AKS DR cluster's Arc SQL Managed Instance deployment |
+| _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
 
   ![Screenshot showing ArcBox logs folder on ArcBox-Client](./troubleshoot_logs.png)
 
