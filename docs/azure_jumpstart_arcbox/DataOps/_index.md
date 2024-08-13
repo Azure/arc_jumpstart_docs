@@ -8,7 +8,7 @@ weight: 5
 
 ## Overview
 
-ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
+ArcBox for DataOps is a special "flavor" of ArcBox that's intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
 ![Screenshot showing ArcBox architecture diagram](./arch_dataops.png)
 
@@ -27,17 +27,17 @@ ArcBox for DataOps is a special "flavor" of ArcBox that is intended for users wh
 
 ArcBox for DataOps deploys three Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
-- _**ArcBox-CAPI-Data-xxxx**_ - A single-node Rancher K3s cluster which is then transformed to a [Cluster API](https://cluster-api.sigs.k8s.io/user/concepts.html) management cluster using the Cluster API Provider for Azure (CAPZ), and a workload cluster (_ArcBox-CAPI-Data_) is deployed onto the management cluster. The workload cluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
-- _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that is connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
-- _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that is deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-CAPI-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
+- _**ArcBox-K3s-Data-xxxx**_ - A single-node Rancher K3s cluster which is then transformed to a [Cluster API](https://cluster-api.sigs.k8s.io/user/concepts.html) management cluster using the Cluster API Provider for Azure (K3s), and a workload cluster (_ArcBox-K3s-Data_) is deployed onto the management cluster. The workload cluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
+- _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that's connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
+- _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that's deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-K3s-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
 
 ### Sample applications
 
-ArcBox for DataOps deploys two sample applications on the _ArcBox-CAPI-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
+ArcBox for DataOps deploys two sample applications on the _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
 
 The sample applications included in ArcBox are:
 
-- **The Bookstore Application** - An MVC web application. ArcBox will deploy **one Kubernetes pod replica** of the _Bookstore_ application in the _arc_ namespace onto the _ArcBox-CAPI-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
+- **The Bookstore Application** - An MVC web application. ArcBox will deploy **one Kubernetes pod replica** of the _Bookstore_ application in the _arc_ namespace onto the _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
 
 - **DB Connection Application** - An MVC application. ArcBox will deploy **one Kubernetes pod replica** as part of the DB connection app and an Ingress controller to demonstrate the active connections to the different Azure Arc-enabled SQL Managed Instances replicas.
 
@@ -72,8 +72,8 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Onboards the AKS clusters to Azure Arc as Arc-enabled Kubernetes clusters.
   - Deploys a data controller, AD connector and an Azure Arc-enabled SQL Managed Instance on each cluster.
   - Creates the necessary DNS records for the Azure Arc-enabled SQL Managed Instance's endpoints.
-  - Configures a distributed availability group between the Azure Arc-enabled SQL Managed Instances deployed on the _ArcBox-CAPI-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
-  - Deploys the _Bookstore_ application on the _ArcBox-CAPI-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
+  - Configures a distributed availability group between the Azure Arc-enabled SQL Managed Instances deployed on the _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
+  - Deploys the _Bookstore_ application on the _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters.
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring and visualizing ArcBox's various components.
 
 ## Prerequisites
@@ -84,9 +84,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az --version
   ```
 
-- Login to AZ CLI using the *`az login`* command.
+- Login to AZ CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected behavior or deployment errors.**
 
@@ -152,7 +152,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click below link to deploy using Azure portal and enter values for the the ARM template parameters.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json)
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy01.png)
 
@@ -160,7 +162,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
 
-    > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: Azure Bicep deployment via Azure CLI
 
@@ -183,7 +185,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
   - _`flavor`_ - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
-  - _`deployBastion`_ - Set to *`true`* if you want to use Azure Bastion to connect to _ArcBox-Client_
+  - _`deployBastion`_ - Set to _`true`_ if you want to use Azure Bastion to connect to _ArcBox-Client_
   - _`resourceTags`_ - Tags to assign for all ArcBox resources
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
 
@@ -212,7 +214,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
-- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -226,7 +228,7 @@ By design, ArcBox does not open port 3389 on the network security group. Therefo
 
 - Specify the IP address that you will be connecting from and select RDP as the service with "Allow" set as the action. You can retrieve your public IP address by accessing [https://icanhazip.com](https://icanhazip.com) or [https://whatismyip.com](https://whatismyip.com).
 
-  <img src="./nsg_add_rdp_rule.png" alt="Screenshot showing adding a new allow RDP inbound security rule" width="400">
+  ![Screenshot showing adding a new allow RDP inbound security rule](./nsg_add_rdp_rule.png)
 
   ![Screenshot showing all inbound security rule](./rdp_nsg_all_rules.png)
 
@@ -275,6 +277,8 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
 ## Using ArcBox
@@ -285,7 +289,7 @@ After deployment is complete, it's time to start exploring ArcBox. Most interact
 
 Included in ArcBox, is a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well to highlight operational practices described in the next section.
 
-- To start with, open the SqlQueryStress desktop shortcut and connect to the CAPI SQL Managed Instance primary endpoint Ip address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
+- To start with, open the SqlQueryStress desktop shortcut and connect to the K3s SQL Managed Instance primary endpoint Ip address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
 
   ![Screenshot showing SQL Stress application](./sql_stress_start.png)
 
@@ -321,7 +325,7 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
   ![Screenshot showing Grafana Ip address](./grafana_ip_address.png)
 
-- To log in, use the same username and password that is in the SQLMI Endpoints text file desktop shortcut
+- To log in, use the same username and password that's in the SQLMI Endpoints text file desktop shortcut
 
   ![Screenshot showing Grafana login page](./grafana_login_page.png)
 
@@ -343,7 +347,7 @@ When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafa
 
 ### Application
 
-ArcBox deploys bookstore application on the _ArcBox-CAPI-Data_ workload cluster.
+ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 
 - Click on the _Bookstore_ icon on the desktop to open _Bookstore_ application.
 
@@ -363,7 +367,7 @@ ArcBox deploys bookstore application on the _ArcBox-CAPI-Data_ workload cluster.
 
   ![Screenshot showing Azure Data Studio records query](./capi_bookstore06.png)
 
-- ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to CAPI cluster Ingress IP. Open PowerShell and run below commands to validate.
+- ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
   ```shell
   kubectx capi
@@ -483,7 +487,7 @@ SELECT TOP (1000) [backup_set_id]
 
 ![Azure Arc-enabled SQL Managed InstanceI database restore](./sqlmi-pitr-database-select-restore.png)
 
-- Specify target database name to restore and backup set datetime that is noted down in the previous steps and click on Restore.
+- Specify target database name to restore and backup set datetime that's noted down in the previous steps and click on Restore.
 
 ![Azure Arc-enabled SQL Managed Instance target database restore](./sqlmi-pitr-targetdb.png)
 
@@ -493,7 +497,7 @@ SELECT TOP (1000) [backup_set_id]
 
 ### Disaster Recovery
 
-The _ArcBox-CAPI-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deployed into a distributed availability group to simulate two different sites. Use the _az sql instance-failover-group-arc_ command to initiate a failover from the primary SQL instance to the secondary DR instance.
+The _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deployed into a distributed availability group to simulate two different sites. Use the _az sql instance-failover-group-arc_ command to initiate a failover from the primary SQL instance to the secondary DR instance.
 
 - Open PowerShell and run below commands to initiate the failover.
 
@@ -613,6 +617,36 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
 
   ![Screenshot showing SQL Server best practices assessment results part 2](./sql-bpa-results-2.png)
 
+### SQL Server migration assessment
+
+Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+
+As part of the ArcBox DataOps deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
+
+Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
+
+- Navigate to the resource group overview page in Azure Portal
+
+- Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
+
+![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+
+- Click on Migration in left navigation.
+
+![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+
+- Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
+
+![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+
+- Review migration readiness to migrate to Azure SQL Managed Instance
+
+![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+
+- Review migration readiness to migrate to SQL Server on Virtual Machines
+
+![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
+
 ### Microsoft Defender for Cloud - SQL servers on machines
 
 This section guides you through different settings for enabling Microsoft Defender for Cloud - SQL servers on machines. Most of these settings are already enabled during the logon script execution when login to _ArcBox-Client_ Azure VM. Even though these are pre-configured there might be delays in showing them in the Azure portal.
@@ -702,36 +736,37 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 | ------- | ----------- |
 | _C:\ArcBox\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _ArcBox-Client_. |
 | _C:\ArcBox\Logs\DataOpsLogonScript.log_ | Output of _DataOpsLogonScript.ps1_ which configures the Hyper-V host and guests and onboards the guests as Azure Arc-enabled servers. |
-| _C:\ArcBox\Logs\installCAPI.log_ | Output from the custom script extension which runs on _ArcBox-CAPI-MGMT_ and configures the Cluster API for Azure cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuCapi.json_ then review this log. |
+| _C:\ArcBox\Logs\installK3s.log_ | Output from the custom script extension which runs on _ArcBox-K3s-MGMT_ and configures the Cluster API for Azure cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuK3s.json_ then review this log. |
 | _C:\ArcBox\Logs\MonitorWorkbookLogonScript.log_ | Output from _MonitorWorkbookLogonScript.ps1_ which deploys the Azure Monitor workbook. |
 |_C:\ArcBox\Logs\DeploySQLMIADAuth.log_ | Output from the _DeploySQLMIADAuth.ps1_ script which deploys the AD connector and the Arc-enabled SQL Managed Instances|
 | _C:\ArcBox\Logs\DataOpsAppScript.log_ | Output from the _DataOpsAppScript.ps1_ script which deploys the book store application |
 | _C:\ArcBox\Logs\NestedSqlLogonScript.log_ | Output from the ArcServersLogonScript deployment |
-| _C:\ArcBox\Logs\DataController-capi.log_ | Output from the CAPI cluster's Data Controller deployment |
+| _C:\ArcBox\Logs\DataController-capi.log_ | Output from the K3s cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks.log_ | Output from the AKS cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks-dr.log_ | Output from the AKS DR cluster's Data Controller deployment |
-| _C:\ArcBox\Logs\DataController-sqlmi-capi.log_ | Output from the CAPI cluster's Arc SQL Managed Instance deployment |
+| _C:\ArcBox\Logs\DataController-sqlmi-capi.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks.log_ | Output from the AKS cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks-dr.log_ | Output from the AKS DR cluster's Arc SQL Managed Instance deployment |
+| _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
 
   ![Screenshot showing ArcBox logs folder on ArcBox-Client](./troubleshoot_logs.png)
 
 ### Exploring installation logs from the Linux virtual machines
 
-In the case of a failed deployment, pointing to a failure in the _ubuntuCAPIDeployment_ Azure deployment, an easy way to explore the deployment logs is available directly from the associated virtual machine.
+In the case of a failed deployment, pointing to a failure in the _ubuntuK3sDeployment_ Azure deployment, an easy way to explore the deployment logs is available directly from the associated virtual machine.
 
 - Connect using SSH to the associated virtual machine public IP:
-  - _ubuntuCAPIDeployment_ - _ArcBox-CAPI-MGMT_ virtual machine.
+  - _ubuntuK3sDeployment_ - _ArcBox-K3s-MGMT_ virtual machine.
 
-    ![Screenshot showing ArcBox-CAPI-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
+    ![Screenshot showing ArcBox-K3s-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
 
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
-  - _ArcBox-CAPI-MGMT_ log path: _jumpstart_logs/installCAPI.log_
+  - _ArcBox-K3s-MGMT_ log path: _jumpstart_logs/installK3s.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
 
-- You might randomly get a similar error in the _InstallCAPI.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF` - this is an issue we are currently investigating. To resolve please redeploy ArcBox.
+- You might randomly get a similar error in the _InstallK3s.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF` - this is an issue we are currently investigating. To resolve please redeploy ArcBox.
 
 If you are still having issues deploying ArcBox, please [submit an issue](https://aka.ms/JumpstartIssue) on GitHub and include a detailed description of your issue, the Azure region you are deploying to, the flavor of ArcBox you are trying to deploy. Inside the _C:\ArcBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.

@@ -328,6 +328,8 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+
 ## Using ArcBox
 
 After deployment is complete, it's time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI, or similar) or from inside the _ArcBox-Client_ virtual machine. When remoted into the VM, here are some things to try:
@@ -707,6 +709,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 | _C:\ArcBox\Logs\MonitorWorkbookLogonScript.log_ | Output from _MonitorWorkbookLogonScript.ps1_ which deploys the Azure Monitor workbook. |
 | _C:\ArcBox\Logs\K3sGitOps.log_ | Output from K3sGitOps.ps1 which deploys GitOps configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
 | _C:\ArcBox\Logs\K3sRBAC.log_ | Output from K3sRBAC.ps1 which deploys GitOps RBAC configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
+| _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
 
   ![Screenshot showing ArcBox logs folder on ArcBox-Client](./troubleshoot_logs.png)
 
