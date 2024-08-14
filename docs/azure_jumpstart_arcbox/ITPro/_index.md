@@ -587,6 +587,36 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
 
   ![Screenshot showing SQL Server best practices assessment results part 2](./sql-bpa-results-2.png)
 
+### SQL Server migration assessment
+
+Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+
+As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
+
+Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
+
+- Navigate to the resource group overview page in Azure Portal
+
+- Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
+
+![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+
+- Click on Migration in left navigation.
+
+![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+
+- Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
+
+![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+
+- Review migration readiness to migrate to Azure SQL Managed Instance
+
+![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+
+- Review migration readiness to migrate to SQL Server on Virtual Machines
+
+![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
+
 ### Microsoft Defender for Cloud - SQL servers on machines
 
 This section guides you through different settings for enabling Microsoft Defender for Cloud - SQL servers on machines. Most of these settings are already enabled during the logon script execution when login to _ArcBox-Client_ Azure VM. Even though these are pre-configured there might be delays in showing them in the Azure portal.
