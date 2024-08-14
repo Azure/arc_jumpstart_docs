@@ -43,3 +43,10 @@ config
 az
 vm
 VSCode
+ClientVM
+onboarded
+ITPro
+VMs
+Entra
+Automanage
+kickstarter
