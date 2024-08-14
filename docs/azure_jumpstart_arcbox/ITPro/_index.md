@@ -151,24 +151,21 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ### Bicep deployment option 1: Azure CLI
 
-  ```shell
-  az login
-  az group create --name "<resource-group-name>" --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
-  ```
+```shell
+az login
+az group create --name "<resource-group-name>" --location "<preferred-location>"
+az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
+```
 
 ### Bicep deployment option 2: Azure PowerShell
 
-  ```shell
-  Connect-AzAccount
-
-  $RGname = "<resource-group-name>"
-  $Location= "<preferred-location>"
-
-  New-AzResourceGroup -Name $RGname -Location $location
-
-  New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
-  ```
+```powershell
+Connect-AzAccount
+$RGname = "<resource-group-name>"
+$Location= "<preferred-location>"
+New-AzResourceGroup -Name $RGname -Location $location
+New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
+```
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -272,12 +269,12 @@ You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-ena
 
 **Azure CLI**
 
-  ```shell
-    $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "jumpstart"
+```shell
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
 
-    az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-  ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+```
 
  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
 
@@ -287,24 +284,24 @@ or
 
 **Azure PowerShell**
 
-  ```PowerShell
-  $serverName = "ArcBox-Ubuntu-01"
-  $localUser = "jumpstart"
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
- ```
+```powershell
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
+```
 
 ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_ps_01.png)
 
 - Following the previous method, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines via SSH.
 
-  ```powershell
-  az login --identity
+```powershell
+az login --identity
 
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
 
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-  ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+```
 
 Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
@@ -320,7 +317,7 @@ or
 
 **Azure PowerShell**
 
-  ```PowerShell
+  ```powershell
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
@@ -344,7 +341,7 @@ or
 
 **Azure PowerShell**
 
-  ```PowerShell
+  ```powershell
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
@@ -369,32 +366,32 @@ or
 
 **Azure CLI**
 
-  ```shell
-  # Log out from the Service Principal context
-  az logout
+```shell
+# Log out from the Service Principal context
+az logout
 
-  # Log in using your personal account
-  az login
+# Log in using your personal account
+az login
 
-  $serverName = "ArcBox-Ubuntu-01"
+$serverName = "ArcBox-Ubuntu-01"
 
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName
-  ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName
+```
 
 or
 
 **Azure PowerShell**
 
-  ```PowerShell
-  # Log out from the Service Principal context
-  Disconnect-AzAccount
+```powershell
+# Log out from the Service Principal context
+Disconnect-AzAccount
 
-  # Log in using your personal account
-  Connect-AzAccount
-  $serverName = "ArcBox-Ubuntu-01"
+# Log in using your personal account
+Connect-AzAccount
+$serverName = "ArcBox-Ubuntu-01"
 
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
-  ```
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
+```
 
 ### PowerShell remoting to Azure Arc-enabled servers
 
@@ -426,15 +423,15 @@ or
 
 **Azure PowerShell**
 
-```PowerShell
-    Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
-    Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
+```powershell
+Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
+Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 
-    $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "jumpstart"
-    $configFile = "C:\ArcBox\$serverName"
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
+$configFile = "C:\ArcBox\$serverName"
 
-    Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
+Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
 ```
 
 Expected output:
@@ -443,35 +440,35 @@ Expected output:
 
 2. Next, we need to extract the values for the SSH proxy command:
 
-```PowerShell
-    # Use a regex pattern to find the ProxyCommand line and extract its value
-    $proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
-    $match = Select-String -Path $configFile -Pattern $proxyCommandPattern
+```powershell
+# Use a regex pattern to find the ProxyCommand line and extract its value
+$proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
+$match = Select-String -Path $configFile -Pattern $proxyCommandPattern
 
-    $proxyCommandValue1 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[1].Value
-    $proxyCommandValue2 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[2].Value
-    $fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
+$proxyCommandValue1 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[1].Value
+$proxyCommandValue2 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[2].Value
+$fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
 
-    $options = @{ ProxyCommand = $fullProxyCommandValue }
+$options = @{ ProxyCommand = $fullProxyCommandValue }
 ```
 
 3. Lastly, we can leverage native PowerShell remoting constructs to interact with the remote machine:
 
-```PowerShell
-    # Create PowerShell Remoting session
-    New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+```powershell
+# Create PowerShell Remoting session
+New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
 
-    # Run a command
-    Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
+# Run a command
+Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
 
-    # Enter an interactive session
-    Enter-PSSession -Session $session[0]
+# Enter an interactive session
+Enter-PSSession -Session $session[0]
 
-    # Disconnect
-    exit
+# Disconnect
+exit
 
-    # Clean-up
-    $session | Remove-PSSession
+# Clean-up
+$session | Remove-PSSession
 ```
 
 Expected output:
@@ -542,7 +539,7 @@ To inspect the compliance status of the assigned policy, perform the following:
 
 6. Paste the following query into the query window and click _Run query_:
 
-```
+```kql
 // SSH machine counts by compliance status
 guestconfigurationresources
 | where name contains "LinuxSshServerSecurityBaseline"
@@ -554,7 +551,7 @@ guestconfigurationresources
 
 7. Paste the following query into the query window and click _Run query_:
 
-```
+```kql
 // SSH rule level detail
 GuestConfigurationResources
 | where name contains "LinuxSshServerSecurityBaseline"
