@@ -423,7 +423,7 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
 ArcBox uses a GitOps configuration on the bookstore application to split traffic to the bookstore APIs using Istio weighted load balancing. Follow these steps to explore this capability further:
 
-  ![Diagram of OSM bookstore app architecture](./bookstore_architecture.png)
+  ![Diagram of OSM bookstore app architecture](./sm_bookstore_architecture.png)
 
   ![Diagram of OSM bookstore app traffic split](./smi_traffic_split.png)
 
