@@ -38,7 +38,7 @@ The sample applications included in ArcBox are:
 
 - [Hello-Arc](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc) - A simple Node.js web application. ArcBox will deploy **three Kubernetes pod replicas** of the _Hello-Arc_ application in the _hello-arc_ namespace onto the _ArcBox-K3s-Data_ cluster.
 
-- [Bookstore](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
+- [Bookstore](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/bookstore/yaml) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
 
   - _bookbuyer_ is an HTTP client making requests to bookstore.
   - _bookstore_ is a server, which responds to HTTP requests. It is also a client making requests to the _bookwarehouse_ service.
@@ -290,7 +290,7 @@ By design, ArcBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing adding a new inbound security rule](./nsg_add_rule.png)
 
-- Specify the IP address that you will be connecting from and select RDP as the service with "Allow" set as the action. You can retrieve your public IP address by accessing [https://icanhazip.com](https://icanhazip.com) or [https://whatismyip.com](https://whatismyip.com).
+- Specify the IP address that you will be connecting from and select RDP as the service with "Allow" set as the action. You can retrieve your public IP address by accessing [https://whatismyip.com](https://whatismyip.com).
 
   <img src="./nsg_add_rdp_rule.png" alt="Screenshot showing adding a new allow RDP inbound security rule" width="400">
 
@@ -359,7 +359,7 @@ ArcBox deploys multiple GitOps configurations on the _ArcBox-K3s-Data_ cluster. 
 
 - To show the GitOps flow for the Hello-Arc application open two side-by-side windows.
 
-  - A browser window with the open Hello-Arc application _`https://arcbox.devops.com/`_ URL.
+  - A browser window with the open Hello-Arc application _`http://arcbox.devops.com/`_ URL.
   - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
 
     The result should look like this:
