@@ -106,9 +106,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az --version
   ```
 
-- Login to AZ CLI using the *`az login`* command.
+- Login to AZ CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected behavior or deployment errors.**
 
@@ -233,7 +233,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   - _`flavor`_ - Use the value "DevOps" to specify that you want to deploy the Devops flavor of ArcBox
   - _`resourceTags`_ - Tags to assign for all ArcBox resources
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
-  - _`deployBastion`_ - Set to *`true`* if you want to use Azure Bastion to connect to _ArcBox-Client_
+  - _`deployBastion`_ - Set to _`true`_ if you want to use Azure Bastion to connect to _ArcBox-Client_
   - _`githubUser`_ - Specify the name of your GitHub account where you cloned the Sample Apps repo
 
   ![Screenshot showing example parameters](./parameters_devops_bicep.png)
@@ -248,7 +248,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
   ```
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
+  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ### Bicep deployment option 2: Azure PowerShell
 
@@ -278,7 +278,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
-- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -328,7 +328,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
 ## Using ArcBox
 
