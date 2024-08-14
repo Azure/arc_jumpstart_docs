@@ -684,15 +684,18 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 The following tools are including on the _ArcBox-Client_ VM.
 
-- kubectl, kubectx, helm
-- Chocolatey
+- Azure CLI
+- Azure PowerShell
+- Git
+- PowerShell 7
 - Visual Studio Code
+- Windows Terminal
+- WinGet
+- kubectl, kubectx, helm
 - Microsoft SQL Server Management Studio
 - Azure Data Studio
 - SQL StressTest application
 - Putty
-- 7zip
-- Git
 - ZoomIt
 
 ### Next steps

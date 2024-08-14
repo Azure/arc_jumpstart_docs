@@ -95,7 +95,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - User remotes into Client Windows VM, which automatically kicks off multiple scripts that:
   - Deploys Istio service mesh on the _ArcBox-K3s-Data_ cluster, create application namespaces and add namespaces to Istio control plane.
   - Applies five GitOps configurations on the _ArcBox-K3s-Data_ cluster to deploy nginx-ingress controller, Hello Arc web application, Bookstore application and Bookstore RBAC/Istio configurations.
-  - Configures Ingress for Hello-Arc and Bookstore application.  
+  - Configures Ingress for Hello-Arc and Bookstore application.
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring and visualizing ArcBox's various components.
 
 ## Prerequisites
@@ -380,7 +380,7 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
 - Show Kubernetes RBAC Role and Role binding applied using GitOps Configuration.
 
-  - Review the [RBAC configuration](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/k8s-rbac-sample/namespace/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.  
+  - Review the [RBAC configuration](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/k8s-rbac-sample/namespace/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.
 
   - Show the bookstore namespace Role and Role Binding.
 
@@ -427,7 +427,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Diagram of OSM bookstore app traffic split](./smi_traffic_split.png)
 
-- Review the [OSM Traffic Split Policy](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/osm-sample/traffic-split.yaml) applied to the _ArcBox-K3s-Data_ cluster  
+- Review the [OSM Traffic Split Policy](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/osm-sample/traffic-split.yaml) applied to the _ArcBox-K3s-Data_ cluster
 
 - To show Istio traffic split, open below windows.
 
@@ -654,12 +654,15 @@ Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/w
 
 The following tools are including on the _ArcBox-Client_ VM.
 
-- kubectl, kubectx, helm
-- Chocolatey
-- Visual Studio Code
-- Putty
-- 7zip
+- Azure CLI
+- Azure PowerShell
 - Git
+- PowerShell 7
+- Visual Studio Code
+- Windows Terminal
+- WinGet
+- kubectl, kubectx, helm
+- Putty
 - ZoomIt
 
 ### Next steps
