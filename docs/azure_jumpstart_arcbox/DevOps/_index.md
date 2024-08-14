@@ -359,7 +359,7 @@ ArcBox deploys multiple GitOps configurations on the _ArcBox-K3s-Data_ cluster. 
 
 - To show the GitOps flow for the Hello-Arc application open two side-by-side windows.
 
-  - A browser window with the open Hello-Arc application _`https://arcbox.devops.com/`_ URL.
+  - A browser window with the open Hello-Arc application _`http://arcbox.devops.com/`_ URL.
   - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
 
     The result should look like this:
