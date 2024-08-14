@@ -580,7 +580,7 @@ Initiate the backup restore process
 Set-Location -Path c:\temp
 #Connecting to the nested Windows Server VM
 $nestedWindowsUsername = "Administrator"
-$nestedWindowsPassword = "ArcDemo123!!"
+$nestedWindowsPassword = "JS123!!"
 $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
 $winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
 $session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
