@@ -70,9 +70,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az --version
   ```
 
-- Login to AZ CLI using the *`az login`* command.
+- Login to AZ CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected results or deployment errors.**
 
@@ -151,24 +151,21 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ### Bicep deployment option 1: Azure CLI
 
-  ```shell
-  az login
-  az group create --name "<resource-group-name>" --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
-  ```
+```shell
+az login
+az group create --name "<resource-group-name>" --location "<preferred-location>"
+az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
+```
 
 ### Bicep deployment option 2: Azure PowerShell
 
-  ```shell
-  Connect-AzAccount
-
-  $RGname = "<resource-group-name>"
-  $Location= "<preferred-location>"
-
-  New-AzResourceGroup -Name $RGname -Location $location
-
-  New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
-  ```
+```powershell
+Connect-AzAccount
+$RGname = "<resource-group-name>"
+$Location= "<preferred-location>"
+New-AzResourceGroup -Name $RGname -Location $location
+New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
+```
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -185,7 +182,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _ArcBox-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
-- [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -235,7 +232,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
@@ -270,14 +267,14 @@ You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-ena
 
 1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
 
-**Azure CLI**
+### Azure CLI
 
-  ```shell
-    $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "jumpstart"
+```shell
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
 
-    az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-  ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+```
 
  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
 
@@ -285,30 +282,30 @@ You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-ena
 
 or
 
-**Azure PowerShell**
+### Azure PowerShell
 
-  ```PowerShell
-  $serverName = "ArcBox-Ubuntu-01"
-  $localUser = "jumpstart"
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
- ```
+```powershell
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
+```
 
 ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_ps_01.png)
 
 - Following the previous method, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines via SSH.
 
-  ```powershell
-  az login --identity
+```powershell
+az login --identity
 
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
 
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-  ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+```
 
 Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
-**Azure CLI**
+### Azure CLI
 
   ```shell
   $serverName = "ArcBox-Win2K22"
@@ -318,9 +315,9 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
 or
 
-**Azure PowerShell**
+### Azure PowerShell
 
-  ```PowerShell
+  ```powershell
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
@@ -332,7 +329,7 @@ or
 
 In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windows Server virtual machines using **Remote Desktop** tunneled via SSH.
 
-**Azure CLI**
+### Azure CLI
 
   ```shell
   $serverName = "ArcBox-Win2K22"
@@ -342,9 +339,9 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 
 or
 
-**Azure PowerShell**
+### Azure PowerShell
 
-  ```PowerShell
+  ```powershell
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
   Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
@@ -356,10 +353,10 @@ or
 
 1. The _Entra ID based SSH Login – Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
 
-  ```shell
-  $serverName = "ArcBox-Ubuntu-01"
-  az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
-  ```
+      ```shell
+      $serverName = "ArcBox-Ubuntu-01"
+      az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
+      ```
 
 2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal.  Two Azure roles are used to authorize VM login:
     - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
@@ -367,7 +364,7 @@ or
 
 3. After assigning one of the two roles for your personal Entra ID user account, run the following command to connect to _ArcBox-Ubuntu-01_ using SSH and AAD/Entra ID-based authentication:
 
-**Azure CLI**
+### Azure CLI
 
   ```shell
   # Log out from the Service Principal context
@@ -379,22 +376,22 @@ or
   $serverName = "ArcBox-Ubuntu-01"
 
   az ssh arc --resource-group $Env:resourceGroup --name $serverName
-  ```
+   ```
 
 or
 
-**Azure PowerShell**
+### Azure PowerShell
 
-  ```PowerShell
-  # Log out from the Service Principal context
-  Disconnect-AzAccount
+```powershell
+# Log out from the Service Principal context
+Disconnect-AzAccount
 
-  # Log in using your personal account
-  Connect-AzAccount
-  $serverName = "ArcBox-Ubuntu-01"
+# Log in using your personal account
+Connect-AzAccount
+$serverName = "ArcBox-Ubuntu-01"
 
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
-  ```
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
+```
 
 ### PowerShell remoting to Azure Arc-enabled servers
 
@@ -406,7 +403,7 @@ You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration
 
 1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
 
-**Azure CLI**
+### Azure CLI
 
   ```shell
     $serverName = "ArcBox-Ubuntu-01"
@@ -424,26 +421,26 @@ Expected output:
 
 or
 
-**Azure PowerShell**
+### Azure PowerShell
 
-```PowerShell
-    Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
-    Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
+  ```powershell
+  Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
+  Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 
-    $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "jumpstart"
-    $configFile = "C:\ArcBox\$serverName"
+  $serverName = "ArcBox-Ubuntu-01"
+  $localUser = "jumpstart"
+  $configFile = "C:\ArcBox\$serverName"
 
-    Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
-```
+  Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
+  ```
 
 Expected output:
 
-  ![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_02.png)
+![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_02.png)
 
 2. Next, we need to extract the values for the SSH proxy command:
 
-```PowerShell
+    ```powershell
     # Use a regex pattern to find the ProxyCommand line and extract its value
     $proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
     $match = Select-String -Path $configFile -Pattern $proxyCommandPattern
@@ -453,25 +450,25 @@ Expected output:
     $fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
 
     $options = @{ ProxyCommand = $fullProxyCommandValue }
-```
+    ```
 
 3. Lastly, we can leverage native PowerShell remoting constructs to interact with the remote machine:
 
-```PowerShell
-    # Create PowerShell Remoting session
-    New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+```powershell
+# Create PowerShell Remoting session
+New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
 
-    # Run a command
-    Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
+# Run a command
+Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
 
-    # Enter an interactive session
-    Enter-PSSession -Session $session[0]
+# Enter an interactive session
+Enter-PSSession -Session $session[0]
 
-    # Disconnect
-    exit
+# Disconnect
+exit
 
-    # Clean-up
-    $session | Remove-PSSession
+# Clean-up
+$session | Remove-PSSession
 ```
 
 Expected output:
@@ -542,7 +539,7 @@ To inspect the compliance status of the assigned policy, perform the following:
 
 6. Paste the following query into the query window and click _Run query_:
 
-```
+```kql
 // SSH machine counts by compliance status
 guestconfigurationresources
 | where name contains "LinuxSshServerSecurityBaseline"
@@ -554,7 +551,7 @@ guestconfigurationresources
 
 7. Paste the following query into the query window and click _Run query_:
 
-```
+```kql
 // SSH rule level detail
 GuestConfigurationResources
 | where name contains "LinuxSshServerSecurityBaseline"
@@ -570,7 +567,6 @@ GuestConfigurationResources
 ```
 
 ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
-
 
 To learn more about how to configure the settings in audit-and-configure mode, check out the [documentation](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc).
 

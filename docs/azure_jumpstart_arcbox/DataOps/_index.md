@@ -277,7 +277,7 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
@@ -351,41 +351,41 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 
 - Click on the _Bookstore_ icon on the desktop to open _Bookstore_ application.
 
-  ![Screenshot showing bookstore icon](./capi_bookstore01.png)
+  ![Screenshot showing bookstore icon](./bookstore01.png)
 
-  ![Screenshot showing bookstore app](./capi_bookstore02.png)
+  ![Screenshot showing bookstore app](./bookstore02.png)
 
 - The App creates a new Database _demo_ and inserts 4 records. Click on the books tab to review the records.
 
-  ![Screenshot showing bookstore app records](./capi_bookstore03.png)
+  ![Screenshot showing bookstore app records](./bookstore03.png)
 
 - Open _Azure Data Studio_ and query the _demo_ DB to review the records inserted in the database.
 
-  ![Screenshot showing Azure Data Studio](./capi_bookstore04.png)
+  ![Screenshot showing Azure Data Studio](./bookstore04.png)
 
-  ![Screenshot showing Azure Data Studio records](./capi_bookstore05.png)
+  ![Screenshot showing Azure Data Studio records](./bookstore05.png)
 
-  ![Screenshot showing Azure Data Studio records query](./capi_bookstore06.png)
+  ![Screenshot showing Azure Data Studio records query](./bookstore06.png)
 
 - ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
   ```shell
-  kubectx capi
+  kubectx k3s
   kubectl --namespace arc get ingress
   nslookup jumpstartbooks.jumpstart.local
   ```
 
-  ![Screenshot showing bookstore app DNS record](./capi_bookstore07.png)
+  ![Screenshot showing bookstore app DNS record](./bookstore07.png)
 
 ### High availability
 
 When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical tier, up to three SQL pods replicas will be deployed to assemble an availability group. The availability group includes three Kubernetes replicas with a primary instance and two secondary instances that can be configured to be readable secondaries. This availability groups managed the failover process to achieve high availability.
 
-  ![Screenshot showing SQL Managed Instance pods](./capi_bookstore08.png)
+  ![Screenshot showing SQL Managed Instance pods](./bookstore08.png)
 
 - Right click and run the _DataOpsTestAppScript.ps1_ script placed under _C:\ArcBox\DataOps_. The script will deploy the DB Connection App.
 
-  ![Screenshot showing DB Connection App script](./capi_bookstore09.png)
+  ![Screenshot showing DB Connection App script](./bookstore09.png)
 
 - DB Connection App connects to the primary SQL Managed Instance and inserts new book every second, and logs information of server it is connected to. Open PowerShell and run the below commands and follow the logs.
 
@@ -394,30 +394,30 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
   kubectl --namespace arc logs $pod -f
   ```
 
-  ![Screenshot showing DB Connection App logs 01](./capi_bookstore10.png)
+  ![Screenshot showing DB Connection App logs 01](./bookstore10.png)
 
-  ![Screenshot showing DB Connection App logs 02](./capi_bookstore11.png)
+  ![Screenshot showing DB Connection App logs 02](./bookstore11.png)
 
 - To test failover between the replicas, we will simulate a "crash" that will trigger an HA event and will force one of the secondary replicas to get promoted to a primary replica. Open two side-by-side PowerShell sessions. On the left side session review the deployed pods. The right-side session will be used to follow the DB Connection App logs. Delete the Primary replica by running below commands.
 
   ```shell
   kubectl --namespace arc get pods
-  kubectl --namespace arc delete pod capi-sql-0
+  kubectl --namespace arc delete pod k3s-sql-0
   ```
 
 - On the right-side session, you can see some failures once the pod is deleted simulating a primary replica crash. In that time one of the secondary replicas is being promoted to secondary to start receiving requests from the application.
 
-  ![Screenshot showing SQL Managed Instance failover 01](./capi_bookstore12.png)
+  ![Screenshot showing SQL Managed Instance failover 01](./bookstore12.png)
 
-- It might take a few minutes for the availability group to return to an healthy state. The secondary replica and _capi-sql-1_ was promoted to primary and DB Connection App is able to insert new records in the database.
+- It might take a few minutes for the availability group to return to an healthy state. The secondary replica and _k3s-sql-1_ was promoted to primary and DB Connection App is able to insert new records in the database.
 
-  ![Screenshot showing SQL Managed Instance failover 02](./capi_bookstore13.png)
+  ![Screenshot showing SQL Managed Instance failover 02](./bookstore13.png)
 
 - Open _Azure Data Studio_ and query the _demo_ DB to review the records inserted in the database. Also,review the data inserted in App browser.
 
-  ![Screenshot showing bookstore app DB records](./capi_bookstore14.png)
+  ![Screenshot showing bookstore app DB records](./bookstore14.png)
 
-  ![Screenshot showing bookstore app](./capi_bookstore15.png)
+  ![Screenshot showing bookstore app](./bookstore15.png)
 
 ### Point-in-time restore
 
@@ -431,9 +431,9 @@ To view backups of full, differential, and transaction logs wait for more than 1
 
 ![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
 
-- Click on _ArcBoxDAG_ to connect to the **capi-sql** Arc-enabled SQL Managed Instance and view databases. Right click and select **Manage** to view databases. Alternatively you can expand _ArcBoxDAG_ connection to view databases.
+- Click on _ArcBoxDAG_ to connect to the **k3s-sql** Arc-enabled SQL Managed Instance and view databases. Right click and select **Manage** to view databases. Alternatively you can expand _ArcBoxDAG_ connection to view databases.
 
-![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-azdatastudio-capisql.png)
+![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-azdatastudio-k3s-sql.png)
 
 ![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-databases.png)
 
@@ -467,11 +467,11 @@ SELECT TOP (1000) [backup_set_id]
 
 ![Connect to Azure Arc Data Controller details](./sqlmi-pitr-connect-datacontroller-details.png)
 
-- Once connection is successful, expand Azure Arc Controllers, expand _arcbox-capi-dc_ to view Arc-enabled SQL Managed Instance
+- Once connection is successful, expand Azure Arc Controllers, expand _arcbox-k3s-data-xxxx-dc_ to view Arc-enabled SQL Managed Instance
 
 ![Azure Arc Data Controller](./sqlmi-pitr-datacontroller.png)
 
-- Right-click on the _capi-sql_ Arc-enabled SQL Managed Instance and select Manage.
+- Right-click on the _k3s-sql_ Arc-enabled SQL Managed Instance and select Manage.
 
 ![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-datacontroller-manage.png)
 
@@ -502,7 +502,7 @@ The _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deploy
 - Open PowerShell and run below commands to initiate the failover.
 
   ```shell
-  kubectx capi
+  kubectx k3s
   az sql instance-failover-group-arc update --name primarycr --role secondary --k8s-namespace arc --use-k8s
   ```
 
@@ -576,22 +576,22 @@ As part of ArcBox, a SQL Server is deployed in a nested VM on the Client VM to a
   - Copy the backup to the Azure Arc-enabled SQL Managed Instance pod
 Initiate the backup restore process
 
-  ```powershell
-  Set-Location -Path c:\temp
-  #Connecting to the nested Windows Server VM
-  $nestedWindowsUsername = "Administrator"
-  $nestedWindowsPassword = "ArcDemo123!!"
-  $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
-  $winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
-  $session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
-  #Copying the database backup to the Client VM
-  Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
-  #Copying the database to the AKS SQL Managed Instance
-  kubectx aks
-  kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
-  #Initiating restore on the AKS SQL Managed Instance
-  kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
-  ```
+```powershell
+Set-Location -Path c:\temp
+#Connecting to the nested Windows Server VM
+$nestedWindowsUsername = "Administrator"
+$nestedWindowsPassword = "JS123!!"
+$secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
+$winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
+$session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
+#Copying the database backup to the Client VM
+Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
+#Copying the database to the AKS SQL Managed Instance
+kubectx aks
+kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
+#Initiating restore on the AKS SQL Managed Instance
+kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
+```
 
   ![Screenshot showing a PowerShell command to copy and restore the database backup to SQL Managed Instance](./powershell_db_restore.png)
 
@@ -684,15 +684,18 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 The following tools are including on the _ArcBox-Client_ VM.
 
-- kubectl, kubectx, helm
-- Chocolatey
+- Azure CLI
+- Azure PowerShell
+- Git
+- PowerShell 7
 - Visual Studio Code
+- Windows Terminal
+- WinGet
+- kubectl, kubectx, helm
 - Microsoft SQL Server Management Studio
 - Azure Data Studio
 - SQL StressTest application
 - Putty
-- 7zip
-- Git
 - ZoomIt
 
 ### Next steps
@@ -730,7 +733,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
-Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_ and the _ArcBox-CAPI-MGMT_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_ and the _ArcBox-K3s-Data-xxxx_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
@@ -741,10 +744,10 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 |_C:\ArcBox\Logs\DeploySQLMIADAuth.log_ | Output from the _DeploySQLMIADAuth.ps1_ script which deploys the AD connector and the Arc-enabled SQL Managed Instances|
 | _C:\ArcBox\Logs\DataOpsAppScript.log_ | Output from the _DataOpsAppScript.ps1_ script which deploys the book store application |
 | _C:\ArcBox\Logs\NestedSqlLogonScript.log_ | Output from the ArcServersLogonScript deployment |
-| _C:\ArcBox\Logs\DataController-capi.log_ | Output from the K3s cluster's Data Controller deployment |
+| _C:\ArcBox\Logs\DataController-k3s.log_ | Output from the K3s cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks.log_ | Output from the AKS cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks-dr.log_ | Output from the AKS DR cluster's Data Controller deployment |
-| _C:\ArcBox\Logs\DataController-sqlmi-capi.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
+| _C:\ArcBox\Logs\DataController-sqlmi-k3s.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks.log_ | Output from the AKS cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks-dr.log_ | Output from the AKS DR cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
@@ -758,7 +761,7 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuK3sDeplo
 - Connect using SSH to the associated virtual machine public IP:
   - _ubuntuK3sDeployment_ - _ArcBox-K3s-MGMT_ virtual machine.
 
-    ![Screenshot showing ArcBox-K3s-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
+    ![Screenshot showing ArcBox-K3s-Data virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
 
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
