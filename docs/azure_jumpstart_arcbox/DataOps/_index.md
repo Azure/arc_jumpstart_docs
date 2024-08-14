@@ -277,7 +277,7 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
