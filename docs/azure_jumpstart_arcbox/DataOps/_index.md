@@ -275,7 +275,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 After configuring access to the Client VM, you have to connect using the UPN format whether you are connecting using RDP or Azure Bastion.
 Example:
 
-- Username: arcdemo@&#65279;jumpstart.local
+- Username: arcdemo@jumpstart.local
 
   ![Screenshot showing connecting to the VM using UPN format](./domain_login.png)
 
@@ -383,11 +383,11 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 
   ![Screenshot showing Azure Data Studio records query](./bookstore06.png)
 
-- ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
+- ArcBox deploys the Bookstore application's service, and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
   ```shell
   kubectx k3s
-  kubectl --namespace arc get ingress
+  kubectl --namespace arc get svc
   nslookup jumpstartbooks.jumpstart.local
   ```
 
