@@ -27,7 +27,7 @@ ArcBox for DataOps is a special "flavor" of ArcBox that's intended for users who
 
 ArcBox for DataOps deploys three Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
-- _**ArcBox-K3s-Data-xxxx**_ - A single-node Rancher K3s cluster running on an Azure virtual machine. Thcluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
+- _**ArcBox-K3s-Data-xxxx**_ - A single-node Rancher K3s cluster running on an Azure virtual machine. The cluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
 - _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that's connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
 - _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that's deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-K3s-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
 
