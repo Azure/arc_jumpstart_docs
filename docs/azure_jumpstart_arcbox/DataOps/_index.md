@@ -209,13 +209,13 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
 
-  ```shell
+```shell
   az login
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p  customLocationRPOID="$customLocationRPOID"
-  ```
+```
 
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
+> **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
 
@@ -275,7 +275,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 After configuring access to the Client VM, you have to connect using the UPN format whether you are connecting using RDP or Azure Bastion.
 Example:
 
-- Username: arcdemo@&#65279;jumpstart.local
+- Username: arcdemo@jumpstart.local
 
   ![Screenshot showing connecting to the VM using UPN format](./domain_login.png)
 
@@ -383,11 +383,11 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 
   ![Screenshot showing Azure Data Studio records query](./bookstore06.png)
 
-- ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
+- ArcBox deploys the Bookstore application's service, and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
   ```shell
   kubectx k3s
-  kubectl --namespace arc get ingress
+  kubectl --namespace arc get svc
   nslookup jumpstartbooks.jumpstart.local
   ```
 
