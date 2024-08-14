@@ -576,22 +576,22 @@ As part of ArcBox, a SQL Server is deployed in a nested VM on the Client VM to a
   - Copy the backup to the Azure Arc-enabled SQL Managed Instance pod
 Initiate the backup restore process
 
-  ```powershell
-  Set-Location -Path c:\temp
-  #Connecting to the nested Windows Server VM
-  $nestedWindowsUsername = "Administrator"
-  $nestedWindowsPassword = "ArcDemo123!!"
-  $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
-  $winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
-  $session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
-  #Copying the database backup to the Client VM
-  Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
-  #Copying the database to the AKS SQL Managed Instance
-  kubectx aks
-  kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
-  #Initiating restore on the AKS SQL Managed Instance
-  kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
-  ```
+```powershell
+Set-Location -Path c:\temp
+#Connecting to the nested Windows Server VM
+$nestedWindowsUsername = "Administrator"
+$nestedWindowsPassword = "ArcDemo123!!"
+$secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
+$winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
+$session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
+#Copying the database backup to the Client VM
+Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
+#Copying the database to the AKS SQL Managed Instance
+kubectx aks
+kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
+#Initiating restore on the AKS SQL Managed Instance
+kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
+```
 
   ![Screenshot showing a PowerShell command to copy and restore the database backup to SQL Managed Instance](./powershell_db_restore.png)
 

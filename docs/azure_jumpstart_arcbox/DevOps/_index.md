@@ -188,15 +188,15 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ### Option 1: Bash
 
-  ```shell
-  customLocationRPOID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
-  ```
+```shell
+customLocationRPOID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
+```
 
 ### Option 2: PowerShell
 
-  ```powershell
-  $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
-  ```
+```powershell
+$customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
+```
 
 ## Deployment Option 1: Azure portal
 
