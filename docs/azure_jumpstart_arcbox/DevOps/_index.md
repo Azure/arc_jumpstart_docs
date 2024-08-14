@@ -351,7 +351,7 @@ ArcBox deploys multiple GitOps configurations on the _ArcBox-K3s-Data_ cluster. 
 
   ![Screenshot showing Hello-Arc desktop Icon](./hello_arc_icon.png)
 
-- We have installed the “Tab Auto Refresh” extension for the browser. This will help you to show the real-time changes on the application in an automated way. Open "CAPI Hello-Arc" application to configure the “Tab Auto Refresh” extension for the browser to refresh every 3 seconds.
+- We have installed the “Tab Auto Refresh” extension for the browser. This will help you to show the real-time changes on the application in an automated way. Open "Hello-Arc" application to configure the “Tab Auto Refresh” extension for the browser to refresh every 3 seconds.
 
   ![Screenshot showing Hello-Arc app](./gitops02.png)
 
@@ -502,7 +502,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-K3s-Data_ cluster:
 
   ```shell
-  kubectx arcbox-capi
+  kubectx arcbox-k3s
   kubectl get pods --namespace=asc-alerttest-662jfi039n
   ```
 
@@ -721,17 +721,17 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 In the case of a failed deployment, pointing to a failure in either the _ubuntuRancherK3sDeployment_ or the _ubuntuRancherK3sDataSvcDeployment_ Azure deployments, an easy way to explore the deployment logs is available directly from the associated virtual machines.
 
 - Depending on which deployment failed, connect using SSH to the associated virtual machine public IP:
-  - _ubuntuRancherK3sDataSvcDeployment_ - _ArcBox-CAPI-MGMT_ virtual machine.
+  - _ubuntuRancherK3sDataSvcDeployment_ - _ArcBox-K3s-Data-xxxx_ virtual machine.
   - _ubuntuRancherK3sDeployment_ - _ArcBox-K3s_ virtual machine.
 
-    ![Screenshot showing ArcBox-CAPI-MGMT virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
+    ![Screenshot showing ArcBox-K3s-Data-xxxx virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
 
     ![Screenshot showing ArcBox-K3s virtual machine public IP](./arcbox_k3s_vm_ip.png)
 
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
-  - _ArcBox-CAPI-MGMT_ log path: _jumpstart_logs/installCAPI.log_
+  - _ArcBox-K3s-Data-xxxx_ log path: _jumpstart_logs/installk3s.log_
   - _ArcBox-K3s_ log path: _jumpstart_logs/installK3s-<vmName>.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)

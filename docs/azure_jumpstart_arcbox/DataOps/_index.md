@@ -370,7 +370,7 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 - ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
   ```shell
-  kubectx capi
+  kubectx k3s
   kubectl --namespace arc get ingress
   nslookup jumpstartbooks.jumpstart.local
   ```
@@ -402,14 +402,14 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
 
   ```shell
   kubectl --namespace arc get pods
-  kubectl --namespace arc delete pod capi-sql-0
+  kubectl --namespace arc delete pod k3s-sql-0
   ```
 
 - On the right-side session, you can see some failures once the pod is deleted simulating a primary replica crash. In that time one of the secondary replicas is being promoted to secondary to start receiving requests from the application.
 
   ![Screenshot showing SQL Managed Instance failover 01](./bookstore12.png)
 
-- It might take a few minutes for the availability group to return to an healthy state. The secondary replica and _capi-sql-1_ was promoted to primary and DB Connection App is able to insert new records in the database.
+- It might take a few minutes for the availability group to return to an healthy state. The secondary replica and _k3s-sql-1_ was promoted to primary and DB Connection App is able to insert new records in the database.
 
   ![Screenshot showing SQL Managed Instance failover 02](./bookstore13.png)
 
@@ -431,9 +431,9 @@ To view backups of full, differential, and transaction logs wait for more than 1
 
 ![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
 
-- Click on _ArcBoxDAG_ to connect to the **capi-sql** Arc-enabled SQL Managed Instance and view databases. Right click and select **Manage** to view databases. Alternatively you can expand _ArcBoxDAG_ connection to view databases.
+- Click on _ArcBoxDAG_ to connect to the **k3s-sql** Arc-enabled SQL Managed Instance and view databases. Right click and select **Manage** to view databases. Alternatively you can expand _ArcBoxDAG_ connection to view databases.
 
-![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-azdatastudio-capisql.png)
+![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-azdatastudio-k3s-sql.png)
 
 ![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-databases.png)
 
@@ -467,11 +467,11 @@ SELECT TOP (1000) [backup_set_id]
 
 ![Connect to Azure Arc Data Controller details](./sqlmi-pitr-connect-datacontroller-details.png)
 
-- Once connection is successful, expand Azure Arc Controllers, expand _arcbox-capi-dc_ to view Arc-enabled SQL Managed Instance
+- Once connection is successful, expand Azure Arc Controllers, expand _arcbox-k3s-data-xxxx-dc_ to view Arc-enabled SQL Managed Instance
 
 ![Azure Arc Data Controller](./sqlmi-pitr-datacontroller.png)
 
-- Right-click on the _capi-sql_ Arc-enabled SQL Managed Instance and select Manage.
+- Right-click on the _k3s-sql_ Arc-enabled SQL Managed Instance and select Manage.
 
 ![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-datacontroller-manage.png)
 
@@ -502,7 +502,7 @@ The _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deploy
 - Open PowerShell and run below commands to initiate the failover.
 
   ```shell
-  kubectx capi
+  kubectx k3s
   az sql instance-failover-group-arc update --name primarycr --role secondary --k8s-namespace arc --use-k8s
   ```
 
@@ -733,7 +733,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
-Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_ and the _ArcBox-CAPI-MGMT_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_ and the _ArcBox-K3s-Data-xxxx_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
@@ -744,10 +744,10 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 |_C:\ArcBox\Logs\DeploySQLMIADAuth.log_ | Output from the _DeploySQLMIADAuth.ps1_ script which deploys the AD connector and the Arc-enabled SQL Managed Instances|
 | _C:\ArcBox\Logs\DataOpsAppScript.log_ | Output from the _DataOpsAppScript.ps1_ script which deploys the book store application |
 | _C:\ArcBox\Logs\NestedSqlLogonScript.log_ | Output from the ArcServersLogonScript deployment |
-| _C:\ArcBox\Logs\DataController-capi.log_ | Output from the K3s cluster's Data Controller deployment |
+| _C:\ArcBox\Logs\DataController-k3s.log_ | Output from the K3s cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks.log_ | Output from the AKS cluster's Data Controller deployment |
 | _C:\ArcBox\Logs\DataController-aks-dr.log_ | Output from the AKS DR cluster's Data Controller deployment |
-| _C:\ArcBox\Logs\DataController-sqlmi-capi.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
+| _C:\ArcBox\Logs\DataController-sqlmi-k3s.log_ | Output from the K3s cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks.log_ | Output from the AKS cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\DataController-sqlmi-aks-dr.log_ | Output from the AKS DR cluster's Arc SQL Managed Instance deployment |
 | _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
@@ -761,7 +761,7 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuK3sDeplo
 - Connect using SSH to the associated virtual machine public IP:
   - _ubuntuK3sDeployment_ - _ArcBox-K3s-MGMT_ virtual machine.
 
-    ![Screenshot showing ArcBox-K3s-MGMT virtual machine public IP](./arcbox_capi_mgmt_vm_ip.png)
+    ![Screenshot showing ArcBox-K3s-Data virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
 
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
