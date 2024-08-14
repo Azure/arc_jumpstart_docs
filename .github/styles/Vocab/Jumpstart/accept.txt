@@ -50,3 +50,14 @@ VMs
 Entra
 Automanage
 kickstarter
+arc
+namespace
+Istio
+Namespace
+preconfigured
+config
+bookbuyer
+backend
+Bookbuyer
+motd
+VM
