@@ -27,7 +27,7 @@ ArcBox for DataOps is a special "flavor" of ArcBox that's intended for users who
 
 ArcBox for DataOps deploys three Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
-- _**ArcBox-K3s-Data-xxxx**_ - A single-node Rancher K3s cluster which is then transformed to a [Cluster API](https://cluster-api.sigs.k8s.io/user/concepts.html) management cluster using the Cluster API Provider for Azure (K3s), and a workload cluster (_ArcBox-K3s-Data_) is deployed onto the management cluster. The workload cluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
+- _**ArcBox-K3s-Data-xxxx**_ - A single-node Rancher K3s cluster running on an Azure virtual machine. Thcluster is onboarded as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
 - _**ArcBox-AKS-Data-xxxx**_ - An AKS cluster that's connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster.
 - _**ArcBox-AKS-DR-Data-xxxx**_ - An AKS cluster that's deployed in a separate virtual network, designating a disaster recovery site. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox automatically deploys an Azure Arc Data Controller, an Active Directory connector and an Azure Arc-enabled SQL Managed Instance on top of the connected cluster. This cluster is then configured with _ArcBox-K3s-Data-xxxx_ to be part of a distributed availability group for disaster recovery.
 
@@ -150,6 +150,22 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ssh-rsa o1djFhyNe5NXyYk7XVF7wOBAAABgQDO/QPJ6IZHujkGRhiI+6s1ngK8V4OK+iBAa15GRQqd7scWgQ1RUSFAAKUxHn2TJPx/Z/IU60aUVmAq/OV9w0RMrZhQkGQz8CHRXc28S156VMPxjk/gRtrVZXfoXMr86W1nRnyZdVwojy2++sqZeP/2c5GoeRbv06NfmHTHYKyXdn0lPALC6i3OLilFEnm46Wo+azmxDuxwi66RNr9iBi6WdIn/zv7tdeE34VAutmsgPMpynt1+vCgChbdZR7uxwi66RNr9iPdMR7gjx3W7dikQEo1djFhyNe5rrejrgjerggjkXyYk7XVF7wOk0t8KYdXvLlIyYyUCk1cOD2P48ArqgfRxPIwepgW78znYuwiEDss6g0qrFKBcl8vtiJE5Vog/EIZP04XpmaVKmAWNCCGFJereRKNFIl7QfSj3ZLT2ZXkXaoLoaMhA71ko6bKBuSq0G5YaMq3stCfyVVSlHs7nzhYsX6aDU6LwM/BTO1c= user@pc
   ```
 
+- You will need to get the Azure Custom Location Resource Provider (RP) Object ID (OID) and export it as an environment variable. This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your cluster.
+
+> **Note:** You need permissions to list all the service principals.
+
+### Option 1: Bash
+
+```shell
+customLocationRPOID=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
+```
+
+### Option 2: PowerShell
+
+```powershell
+$customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
+```
+
 ## Deployment Option 1: Azure portal
 
 - Click below link to deploy using Azure portal and enter values for the the ARM template parameters.
@@ -196,7 +212,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   ```shell
   az login
   az group create --name "<resource-group-name>"  --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" --parameters customLocationRPOID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+ az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p  customLocationRPOID="$customLocationRPOID"
   ```
 
   > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
@@ -273,7 +289,7 @@ Example:
 
   ![Screenshot showing ArcBox-Client](./automation.png)
 
-- Deployment is complete! Let's begin exploring the features of Azure Arc-enabled Kubernetes with ArcBox for DataOps!
+- Deployment is complete! Let's begin exploring the features of Azure Arc-enabled data services with ArcBox for DataOps!
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
