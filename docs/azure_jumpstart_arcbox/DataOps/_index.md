@@ -351,21 +351,21 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
 
 - Click on the _Bookstore_ icon on the desktop to open _Bookstore_ application.
 
-  ![Screenshot showing bookstore icon](./capi_bookstore01.png)
+  ![Screenshot showing bookstore icon](./bookstore01.png)
 
-  ![Screenshot showing bookstore app](./capi_bookstore02.png)
+  ![Screenshot showing bookstore app](./bookstore02.png)
 
 - The App creates a new Database _demo_ and inserts 4 records. Click on the books tab to review the records.
 
-  ![Screenshot showing bookstore app records](./capi_bookstore03.png)
+  ![Screenshot showing bookstore app records](./bookstore03.png)
 
 - Open _Azure Data Studio_ and query the _demo_ DB to review the records inserted in the database.
 
-  ![Screenshot showing Azure Data Studio](./capi_bookstore04.png)
+  ![Screenshot showing Azure Data Studio](./bookstore04.png)
 
-  ![Screenshot showing Azure Data Studio records](./capi_bookstore05.png)
+  ![Screenshot showing Azure Data Studio records](./bookstore05.png)
 
-  ![Screenshot showing Azure Data Studio records query](./capi_bookstore06.png)
+  ![Screenshot showing Azure Data Studio records query](./bookstore06.png)
 
 - ArcBox deploys the Bookstore application's service, creates the Ingress and creates a DNS record to resolve to K3s cluster Ingress IP. Open PowerShell and run below commands to validate.
 
@@ -375,17 +375,17 @@ ArcBox deploys bookstore application on the _ArcBox-K3s-Data_ workload cluster.
   nslookup jumpstartbooks.jumpstart.local
   ```
 
-  ![Screenshot showing bookstore app DNS record](./capi_bookstore07.png)
+  ![Screenshot showing bookstore app DNS record](./bookstore07.png)
 
 ### High availability
 
 When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical tier, up to three SQL pods replicas will be deployed to assemble an availability group. The availability group includes three Kubernetes replicas with a primary instance and two secondary instances that can be configured to be readable secondaries. This availability groups managed the failover process to achieve high availability.
 
-  ![Screenshot showing SQL Managed Instance pods](./capi_bookstore08.png)
+  ![Screenshot showing SQL Managed Instance pods](./bookstore08.png)
 
 - Right click and run the _DataOpsTestAppScript.ps1_ script placed under _C:\ArcBox\DataOps_. The script will deploy the DB Connection App.
 
-  ![Screenshot showing DB Connection App script](./capi_bookstore09.png)
+  ![Screenshot showing DB Connection App script](./bookstore09.png)
 
 - DB Connection App connects to the primary SQL Managed Instance and inserts new book every second, and logs information of server it is connected to. Open PowerShell and run the below commands and follow the logs.
 
@@ -394,9 +394,9 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
   kubectl --namespace arc logs $pod -f
   ```
 
-  ![Screenshot showing DB Connection App logs 01](./capi_bookstore10.png)
+  ![Screenshot showing DB Connection App logs 01](./bookstore10.png)
 
-  ![Screenshot showing DB Connection App logs 02](./capi_bookstore11.png)
+  ![Screenshot showing DB Connection App logs 02](./bookstore11.png)
 
 - To test failover between the replicas, we will simulate a "crash" that will trigger an HA event and will force one of the secondary replicas to get promoted to a primary replica. Open two side-by-side PowerShell sessions. On the left side session review the deployed pods. The right-side session will be used to follow the DB Connection App logs. Delete the Primary replica by running below commands.
 
@@ -407,17 +407,17 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
 
 - On the right-side session, you can see some failures once the pod is deleted simulating a primary replica crash. In that time one of the secondary replicas is being promoted to secondary to start receiving requests from the application.
 
-  ![Screenshot showing SQL Managed Instance failover 01](./capi_bookstore12.png)
+  ![Screenshot showing SQL Managed Instance failover 01](./bookstore12.png)
 
 - It might take a few minutes for the availability group to return to an healthy state. The secondary replica and _capi-sql-1_ was promoted to primary and DB Connection App is able to insert new records in the database.
 
-  ![Screenshot showing SQL Managed Instance failover 02](./capi_bookstore13.png)
+  ![Screenshot showing SQL Managed Instance failover 02](./bookstore13.png)
 
 - Open _Azure Data Studio_ and query the _demo_ DB to review the records inserted in the database. Also,review the data inserted in App browser.
 
-  ![Screenshot showing bookstore app DB records](./capi_bookstore14.png)
+  ![Screenshot showing bookstore app DB records](./bookstore14.png)
 
-  ![Screenshot showing bookstore app](./capi_bookstore15.png)
+  ![Screenshot showing bookstore app](./bookstore15.png)
 
 ### Point-in-time restore
 
