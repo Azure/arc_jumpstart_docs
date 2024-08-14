@@ -423,60 +423,46 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
 ArcBox uses a GitOps configuration on the bookstore application to split traffic to the bookstore APIs using Istio weighted load balancing. Follow these steps to explore this capability further:
 
-  ![Diagram of OSM bookstore app architecture](./osm_bookstore_architecture.png)
+  ![Diagram of Istio bookstore app architecture](./bookstore_architecture.png)
 
-  ![Diagram of OSM bookstore app traffic split](./smi_traffic_split.png)
+  ![Diagram of Istio bookstore app traffic split](./istio_traffic_split.png)
 
-- Review the [OSM Traffic Split Policy](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/osm-sample/traffic-split.yaml) applied to the _ArcBox-K3s-Data_ cluster  
+- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster  
 
-- To show Istio traffic split, open below windows.
-
-  - PowerShell running the below commands to show the bookbuyer pod logs.
-
-    ```powershell
-    $pod=kubectl --namespace bookbuyer get pods --selector=app=bookbuyer --output="jsonpath={.items..metadata.name}"
-    kubectl --namespace bookbuyer logs $pod bookbuyer -f | Select-String Identity:
-    ```
+- To show the Istio traffic split, open the below windows.
 
   - Click on the _Bookstore_ icon on the desktop to open bookstore applications.
 
-    ![Screenshot showing Bookstore desktop Icon](./capi_osm01.png)
+    ![Screenshot showing Bookstore desktop Icon](./bookstore01.png)
 
-    ![Screenshot showing Bookstore Apps](./capi_osm02.png)
-
-  - Move the browser tabs and PowerShell window, so the end result should look like this:
-
-    ![Screenshot showing Bookstore Apps and shell 01](./capi_osm03.png)
+    ![Screenshot showing Bookstore Apps](./bookstore02.png)
 
   - The count for the books sold from the bookstore-v2 browser window should remain at 0. This is because the current traffic split policy is configured as weighted 100 for bookstore as well because the bookbuyer client is sending traffic to the bookstore service and no application is sending requests to the bookstore-v2 service.
 
-    ![Screenshot showing Bookstore apps and shell 02](./capi_osm04.png)
+- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`traffic-split.yaml`_ file (_`/bookstore/osm-sample/traffic-split.yaml`_), update the bookstore weight to "75" and bookstore-v2 weight to "25" and commit the change.
-
-  ![Screenshot showing Bookstore repo Traffic split 01](./capi_osm05.png)
+  ![Screenshot showing Bookstore repo Traffic split 01](./bookstore05.png)
 
 - Wait for the changes to propagate and observe the counters increment for bookstore and bookstore-v2 as well.
 
-  We have updated the Service Mesh Interface (SMI) Traffic Split policy to direct 75 percent of the traffic sent to the root bookstore service and 25 percent to the bookstore-v2 service by modifying the weight fields for the bookstore-v2 backend. Also, observe the changes on the bookbuyer pod logs in the PowerShell window.
+  We have updated the Istio virtual service to direct 75 percent of the traffic sent to the root bookstore service and 25 percent to the bookstore-v2 service by modifying the weight fields for the bookstore-v2 backend. Also, observe the changes on the bookbuyer pod logs in the PowerShell window.
 
-  ![Screenshot showing Bookstore apps and shell GitOps and OSM 01](./capi_osm06.png)
-
-- You can verify the traffic split policy by running the below command and examine the Backends properties.
+- You can verify the traffic split running the below command and examine the Backends properties.
 
   ```shell
-  kubectl describe trafficsplit bookstore-split -n bookstore
+  kubectl get virtualservices.networking.istio.io -n bookstore bookstore-virtualservice -o yaml
+
   ```
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./capi_osm07.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`traffic-split.yaml`_ file (_`/bookstore/osm-sample/traffic-split.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
+- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualserivec.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./capi_osm08.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore08.png)
 
-- Wait for the changes to propagate and observe the counters increment for bookstore-v2 and freeze for bookstore. Also, observe pod logs to validate bookbuyer is sending all the traffic to bookstore-v2.
+- Wait for the changes to propagate and observe the counters increment for bookstore-v2 and freeze for bookstore.
 
-  ![Screenshot showing Bookstore apps and shell GitOps and OSM 02](./capi_osm09.png)
+  ![Screenshot showing Bookstore apps Istio 02](./bookstore09.png)
 
 - Optional, you may want to reset the traffic split demo to start over with the counters at zero. If so, follow the below steps to reset the bookstore counters.
 
@@ -485,17 +471,14 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
     - Deploy a Kubernetes Ingress resource for each bookstore apps reset API
     - Invoke bookstore apps reset API to reset the counter
 
-  - Before we run the reset script, did you update the Traffic split on GitHub? In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`traffic-split.yaml`_ file (_`/bookstore/osm-sample/traffic-split.yaml`_), update the bookstore weight to "100" and bookstore weight to "0" and commit the change.
+  - Before we run the reset script, did you update the Traffic split on GitHub? In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "100" and bookstore weight to "0" and commit the change.
 
-    ![Screenshot showing Bookstore repo Traffic split rest](./capi_osm10.png)
+    ![Screenshot showing Bookstore repo Traffic split rest](./bookstore10.png)
 
   - Right click _ResetBookstore.ps1_ script and select Run with PowerShell to execute the script.
 
-    ![Screenshot showing Script execution reset](./capi_osm11.png)
+    ![Screenshot showing Script execution reset](./bookstore11.png)
 
-  - Counters for Bookbuyer, Bookstore-v1, and Bookstore-v2 will reset.
-
-    ![Screenshot showing Bookstore apps and shell GitOps and OSM reset](./capi_osm12.png)
 
 ### Microsoft Defender for Cloud
 
