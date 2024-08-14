@@ -131,7 +131,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az vm list-usage --location <your location> --output table
   ```
 
-  ![Screenshot showing command list-usage](./az_vm_list_usage.png)
+  ![Screenshot showing command: list-usage](./az_vm_list_usage.png)
 
 - Some Azure subscriptions may also have SKU restrictions that prevent deployment of specific Azure VM sizes. You can check for SKU restrictions used by ArcBox by using the below command:
 
@@ -142,9 +142,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   In the screenshots below, the first screenshot shows a subscription with no SKU restrictions in West US 2. The second shows a subscription with SKU restrictions on D4s_v4 in the East US 2 region. In this case, ArcBox won't be able to deploy due to the restriction.
 
-  ![Screenshot showing command list-skus with no restrictions](./list_skus_unrestricted.png)
+  ![Screenshot showing command: list-skus with no restrictions](./list_skus_unrestricted.png)
 
-  ![Screenshot showing command list-skus with restrictions](./list_skus.png)
+  ![Screenshot showing command: list-skus with restrictions](./list_skus.png)
 
 - Register necessary Azure resource providers by running the following commands.
 
@@ -651,7 +651,7 @@ To clean up your deployment, simply delete the resource group using Azure CLI or
 az group delete -n <name of your resource group>
 ```
 
-![Screenshot showing command group delete](./az_delete.png)
+![Screenshot showing command: group delete](./az_delete.png)
 
 ![Screenshot showing group delete from Azure portal](./portal_delete.png)
 
