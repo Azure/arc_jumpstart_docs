@@ -89,7 +89,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox for IT Pros requires 16 DSv4-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox for IT Pros requires 8 DSv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -106,37 +106,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.OperationsManagement --wait
   ```
 
-- [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
-
-  ```shell
-  ssh-keygen -t rsa -b 4096
-  ```
-
-  To retrieve the SSH public key after it's been created, depending on your environment, use one of the below methods:
-  - In Linux, use the `cat ~/.ssh/id_rsa.pub` command.
-  - In Windows (CMD/PowerShell), use the SSH public key file that by default, is located in the _`C:\Users\WINUSER/.ssh/id_rsa.pub`_ folder.
-
-  SSH public key example output:
-
-  ```shell
-  ssh-rsa o1djFhyNe5NXyYk7XVF7wOBAAABgQDO/QPJ6IZHujkGRhiI+6s1ngK8V4OK+iBAa15GRQqd7scWgQ1RUSFAAKUxHn2TJPx/Z/IU60aUVmAq/OV9w0RMrZhQkGQz8CHRXc28S156VMPxjk/gRtrVZXfoXMr86W1nRnyZdVwojy2++sqZeP/2c5GoeRbv06NfmHTHYKyXdn0lPALC6i3OLilFEnm46Wo+azmxDuxwi66RNr9iBi6WdIn/zv7tdeE34VAutmsgPMpynt1+vCgChbdZR7uxwi66RNr9iPdMR7gjx3W7dikQEo1djFhyNe5rrejrgjerggjkXyYk7XVF7wOk0t8KYdXvLlIyYyUCk1cOD2P48ArqgfRxPIwepgW78znYuwiEDss6g0qrFKBcl8vtiJE5Vog/EIZP04XpmaVKmAWNCCGFJereRKNFIl7QfSj3ZLT2ZXkXaoLoaMhA71ko6bKBuSq0G5YaMq3stCfyVVSlHs7nzhYsX6aDU6LwM/BTO1c= user@pc
-  ```
-
-- ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected results or deployment errors.**
-
-  - East US
-  - East US 2
-  - Central US
-  - West US 2
-  - North Europe
-  - West Europe
-  - France Central
-  - UK South
-  - Australia East
-  - Japan East
-  - Korea Central
-  - Southeast Asia
-
 ## Deployment Option 1: Azure portal
 
 - Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
@@ -149,7 +118,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
     > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
-## Deployment Option 2: Bicep deployment via Azure CLI
+## Deployment Option 2: Bicep deployment
 
 - Clone the Azure Arc Jumpstart repository
 
@@ -163,17 +132,24 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az bicep upgrade
   ```
 
-- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply some values for your environment.
-  - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`tenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
+  - _`tenantId`_ - Your Azure tenant id.
+  - _`windowsAdminUsername`_ - Client Windows VM Administrator username.
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace
-  - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros
+  - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace.
+  - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros.
+  - _`autoShutdownEnabled`_ - Optionally, you can set this to true if you want to configure the ArcBox Client VM to automatically shutdown to save costs.
+  - _`autoShutdownTime`_ - If _autoShutdownEnabled_ is set to true, this value specifies what time of the day to shut down the VM. If not specified, the default value is 18.00.
+  - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
+  - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
+  - _`resourceTags`_ - Tags to assign for all ArcBox resources.
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
 
-  ![Screenshot showing example parameters](./parameters_bicep.png)
+  ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below commands:
+
+### Bicep deployment option 1: Azure CLI
 
   ```shell
   az login
@@ -181,15 +157,28 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
   ```
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
+### Bicep deployment option 2: Azure PowerShell
+
+  ```shell
+  Connect-AzAccount
+
+  $RGname = "<resource-group-name>"
+  $Location= "<preferred-location>"
+
+  New-AzResourceGroup -Name $RGname -Location $location
+
+  New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
+  ```
+
+  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the ArcBox resources inside your resource group. You will be using the _ArcBox-Client_ Azure virtual machine to explore various capabilities of ArcBox such as GitOps configurations and Key Vault integration. You will need to remotely access _ArcBox-Client_.
+Once your deployment is complete, you can open the Azure portal and see the ArcBox resources inside your resource group. You will be using the _ArcBox-Client_ Azure virtual machine to explore various capabilities of ArcBox such as SSH access to Arc-enabled Server and Azure Update Manager. You will need to remotely access _ArcBox-Client_.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > **Note:** For enhanced ArcBox security posture, RDP (3389) and SSH (22) ports are not open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** For enhanced ArcBox security posture, RDP (3389) port are not open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the ArcBox Client virtual machine
 
@@ -238,7 +227,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 #### The Logon scripts
 
-- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically. At this point, the deployment is complete.
+- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. Unless you have overriden the `vmAutologon` parameter in the parameters-file, the VM will automatically launch the logon scripts directly after the Azure-deployment has completed without waiting for a user to manually logon. These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically.
 
   ![Screenshot showing ArcBox-Client](./automation.png)
 
@@ -246,33 +235,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
+Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_icon.png)
-
-- A pop-up box will walk you through the target SQL Server which will be onboarded to Azure Arc, as well as provide details around the flow of the onboarding automation and how to complete the Azure authentication process when prompted.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_start.png)
-
-- The automation uses the PowerShell SDK to onboard the Azure Arc-enabled SQL Server on your behalf. To accomplish this, it will login to Azure with the _-UseDeviceAuthentication_ flag. The device code will be copied to the clipboard on your behalf, so you can simply paste the value into box when prompted.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_code.png)
-
-- You'll then need to provide your Azure credentials to complete the authentication process. The user you login as will need _'Microsoft.Authorization/roleAssignments/write'_ permissions on the ArcBox resource group to complete the onboarding process.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_login.png)
-
-- The output of each step of the onboarding process will be displayed in the PowerShell script window, so you'll be able to see where the script currently is in the process at all times.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_output.png)
-
-- Once complete, you'll receive a pop-up notification informing you that the onboarding process is complete, and to check the Azure Arc blade in the Azure portal in the next few minutes.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_complete.png)
-
-- From the Azure portal, the SQL Server should now be visible as an Azure Arc-enabled SQL Server.
-
-  ![Screenshot showing ArcBox-Client](./sql_manual_onboard_portal.png)
 
 ## Using ArcBox for IT Pros
 
@@ -285,38 +250,55 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
 
   ```text
   Username: Administrator
-  Password: ArcDemo123!!
+  Password: JS123!!
   ```
 
   Ubuntu virtual machine credentials:
 
   ```text
-  Username: arcdemo
-  Password: ArcDemo123!!
+  Username: jumpstart
+  Password: JS123!!
   ```
 
   ![Screenshot showing ArcBox Client VM with Hyper-V](./hypervterminal.png)
 
-- Alternately, you can use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Ubuntu virtual machines [using SSH](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-overview?tabs=azure-cli). Open a PowerShell session and use the below commands.
+## SSH access to Azure Arc-enabled servers
 
-    ```powershell
-    az login -u $env:SPN_CLIENT_ID -p $env:SPN_CLIENT_SECRET -t $env:SPN_TENANT_ID --service-principal
+[SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-overview) enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports. This functionality can be used interactively, automated, or with existing SSH based tooling, allowing existing management tools to have a greater impact on Azure Arc-enabled servers.
 
+You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-enabled servers using SSH. Open a PowerShell session and use the below commands.
+
+1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
+
+**Azure CLI**
+
+  ```shell
     $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "arcdemo"
+    $localUser = "jumpstart"
+
     az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-    ```
+  ```
 
-    > **Note:** Server-side SSH is being provisioned asynchronously to the VMs in the automated provisioning scripts, so it might take up to 5 minutes after the ArcBox deployment scripts is finished until the _az ssh_ commands will run successfully.
+ ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
 
-    ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
+> **Note:** You are not prompted for a password since ArcBox includes an SSH key-pair installed on ArcBox client VM and the hybrid Linux VMs.
 
-    ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_02.png)
+or
+
+**Azure PowerShell**
+
+  ```PowerShell
+  $serverName = "ArcBox-Ubuntu-01"
+  $localUser = "jumpstart"
+  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
+ ```
+
+![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_ps_01.png)
 
 - Following the previous method, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines via SSH.
 
   ```powershell
-  az login -u $env:SPN_CLIENT_ID -p $env:SPN_CLIENT_SECRET -t $env:SPN_TENANT_ID --service-principal
+  az login --identity
 
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
@@ -324,28 +306,278 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
   ```
 
-  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_03.png)
+Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
-  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_04.png)
+**Azure CLI**
 
-- In addition to SSH, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines using Remote Desktop tunneled via SSH.
-
-  ```powershell
-  az login -u $env:SPN_CLIENT_ID -p $env:SPN_CLIENT_SECRET -t $env:SPN_TENANT_ID --service-principal
-
+  ```shell
   $serverName = "ArcBox-Win2K22"
   $localUser = "Administrator"
+  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+  ```
 
+or
+
+**Azure PowerShell**
+
+  ```PowerShell
+  $serverName = "ArcBox-Win2K22"
+  $localUser = "Administrator"
+  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
+  ```
+
+  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_03.png)
+
+  ![Screenshot showing usage of SSH via Azure CLI](.//ssh_via_az_cli_04.png)
+
+In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windows Server virtual machines using **Remote Desktop** tunneled via SSH.
+
+**Azure CLI**
+
+  ```shell
+  $serverName = "ArcBox-Win2K22"
+  $localUser = "Administrator"
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
+  ```
+
+or
+
+**Azure PowerShell**
+
+  ```PowerShell
+  $serverName = "ArcBox-Win2K22"
+  $localUser = "Administrator"
+  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
   ```
 
   ![Screenshot showing usage of Remote Desktop tunnelled via SSH](./rdp_via_az_cli.png)
 
-### ArcBox Azure Monitor workbook
+### Microsoft Entra ID based SSH Login
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) and explore the visualizations and reports of hybrid cloud resources.
+1. The _Entra ID based SSH Login – Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
 
-  ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
+  ```shell
+  $serverName = "ArcBox-Ubuntu-01"
+  az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
+  ```
+
+2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal.  Two Azure roles are used to authorize VM login:
+    - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
+    - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
+
+3. After assigning one of the two roles for your personal Entra ID user account, run the following command to connect to _ArcBox-Ubuntu-01_ using SSH and AAD/Entra ID-based authentication:
+
+**Azure CLI**
+
+  ```shell
+  # Log out from the Service Principal context
+  az logout
+
+  # Log in using your personal account
+  az login
+
+  $serverName = "ArcBox-Ubuntu-01"
+
+  az ssh arc --resource-group $Env:resourceGroup --name $serverName
+  ```
+
+or
+
+**Azure PowerShell**
+
+  ```PowerShell
+  # Log out from the Service Principal context
+  Disconnect-AzAccount
+
+  # Log in using your personal account
+  Connect-AzAccount
+  $serverName = "ArcBox-Ubuntu-01"
+
+  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
+  ```
+
+### PowerShell remoting to Azure Arc-enabled servers
+
+[PowerShell remoting over SSH](https://learn.microsoft.com/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
+
+[SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-powershell-remoting) enables SSH based PowerShell remoting connections to Arc-enabled servers without requiring a public IP address or additional open ports.
+
+You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration file to one of the Azure Arc-enabled servers.
+
+1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
+
+**Azure CLI**
+
+  ```shell
+    $serverName = "ArcBox-Ubuntu-01"
+    $localUser = "jumpstart"
+    $configFile = "C:\ArcBox\$serverName"
+
+    az extension add --name ssh
+
+    az ssh config --resource-group $Env:resourceGroup --name $serverName  --local-user $localUser --resource-type Microsoft.HybridCompute --file "C:\ArcBox\$serverName"
+  ```
+
+Expected output:
+
+![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_01.png)
+
+or
+
+**Azure PowerShell**
+
+```PowerShell
+    Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
+    Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
+
+    $serverName = "ArcBox-Ubuntu-01"
+    $localUser = "jumpstart"
+    $configFile = "C:\ArcBox\$serverName"
+
+    Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
+```
+
+Expected output:
+
+  ![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_02.png)
+
+2. Next, we need to extract the values for the SSH proxy command:
+
+```PowerShell
+    # Use a regex pattern to find the ProxyCommand line and extract its value
+    $proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
+    $match = Select-String -Path $configFile -Pattern $proxyCommandPattern
+
+    $proxyCommandValue1 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[1].Value
+    $proxyCommandValue2 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[2].Value
+    $fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
+
+    $options = @{ ProxyCommand = $fullProxyCommandValue }
+```
+
+3. Lastly, we can leverage native PowerShell remoting constructs to interact with the remote machine:
+
+```PowerShell
+    # Create PowerShell Remoting session
+    New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+
+    # Run a command
+    Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
+
+    # Enter an interactive session
+    Enter-PSSession -Session $session[0]
+
+    # Disconnect
+    exit
+
+    # Clean-up
+    $session | Remove-PSSession
+```
+
+Expected output:
+
+![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+
+### ArcBox Azure Monitor workbooks
+
+Two Azure Monitor workbooks are included in ArcBox for IT Pro.
+
+One contains inventory information:
+
+![Screenshot showing Azure Monitor workbook usage](./workbook.png)
+
+The other contains performance data:
+
+![Screenshot showing Azure Monitor workbook usage](./workbook_performance.png)
+
+Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
+
+### Azure Update Manager
+
+Azure Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. Using Azure Update Manager, you can make updates in real-time or schedule them within a defined maintenance window.
+
+As part of the ArcBox deployment, Periodic Assessment is configured.
+
+Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Azure Update Manager fetches updates on your machine once every 24 hours.
+
+As part of the deployment, one on-demand assessment triggered.
+
+This means any available updates can be viewed immidiately after a successful deployment when navigating to the Updates-blade for the hybrid machines.
+
+Example from a Linux machine:
+
+  ![Screenshot showing available updates for Linux machine](./azure-update-manager-1.png)
+
+Example from a Windows machine:
+
+  ![Screenshot showing available updates for Windows machine](./azure-update-manager-2.png)
+
+### SSH Posture Control
+
+[SSH Posture Control](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distros including Ubuntu, Red Hat, Azure Linux, and more.
+
+In ArcBox, an Azure policy assignment is included for an SSH Posture Control policy in audit-only mode.
+
+To inspect the compliance status of the assigned policy, perform the following:
+
+1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we are using _Arcbox-Ubuntu-01_:
+
+![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
+
+2. Navigate to _Machine Configuration_ in the menu on the left side:
+
+![Screenshot showing Arcbox-Ubuntu-01](./ssh_posture_control_02.png)
+
+3. Click on the configuration name starting with _LinuxSshServerSecurityBaseline*_:
+
+![Screenshot showing assigned configurations](./ssh_posture_control_03.png)
+
+4. Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
+
+![Screenshot showing configuration settings](./ssh_posture_control_04.png)
+
+5. The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
+
+![Screenshot showing Azure Resource Graph Explorer](./resource_graph_explorer_01.png)
+
+6. Paste the following query into the query window and click _Run query_:
+
+```
+// SSH machine counts by compliance status
+guestconfigurationresources
+| where name contains "LinuxSshServerSecurityBaseline"
+| extend complianceStatus = tostring(properties.complianceStatus)
+| summarize machineCount = count() by complianceStatus
+```
+
+![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_05.png)
+
+7. Paste the following query into the query window and click _Run query_:
+
+```
+// SSH rule level detail
+GuestConfigurationResources
+| where name contains "LinuxSshServerSecurityBaseline"
+| project report = properties.latestAssignmentReport,
+ machine = split(properties.targetResourceId,'/')[-1],
+ lastComplianceStatusChecked=properties.lastComplianceStatusChecked
+| mv-expand report.resources
+| project machine,
+ rule = report_resources.resourceId,
+ ruleComplianceStatus = report_resources.complianceStatus,
+ ruleComplianceReason = report_resources.reasons[0].phrase,
+ lastComplianceStatusChecked
+```
+
+![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
+
+
+To learn more about how to configure the settings in audit-and-configure mode, check out the [documentation](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc).
+
+If you are interested to learn how to create your own configurations for Machine Configuration, check out the following related Jumpstart scenarios:
+
+- [Create Automanage Machine Configuration custom configurations for Linux](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux).
+- [Create Automanage Machine Configuration custom configurations for Windows](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows).
 
 ### Arc-enabled SQL Server - Best practices assessment
 
@@ -384,7 +616,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
   ![Screenshot showing Defender for SQL test scripts](./sql-defender-testing-script.png)
 
-- Open PowerShell window and change the directory to _C:\ArcBox\agentScript_ folder and run _testDefenderForSQL.ps1_ PowerShell script to generate Defender for SQL incidents and alerts.
+- Open a PowerShell window and change the directory to _C:\ArcBox_ folder and run _testDefenderForSQL.ps1_ PowerShell script to generate Defender for SQL incidents and alerts.
 
   ![Screenshot showing manual execution of the test scripts](./manual-brute-force-test.png)
 
@@ -395,11 +627,13 @@ Please note it may take some time to show this status in the Azure portal, but s
 
 The following tools are including on the _ArcBox-Client_ VM.
 
-- Chocolatey
-- Visual Studio Code
-- Putty
-- 7zip
+- Azure CLI
+- Azure PowerShell
 - Git
+- PowerShell 7
+- Visual Studio Code
+- Windows Terminal
+- WinGet
 
 ### Next steps
 
@@ -428,11 +662,6 @@ az group delete -n <name of your resource group>
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
-  - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
-
-![Screenshot showing SSH public key example](./ssh_example.png)
-
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 16 available. See the [prerequisites](#prerequisites) section for more details.
 - Target Azure region does not support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
 - "BadRequest" error message when deploying - this error returns occasionally when the Log Analytics solutions in the ARM templates are deployed. Typically, waiting a few minutes and re-running the same deployment resolves the issue. Alternatively, you can try deploying to a different Azure region.
@@ -450,6 +679,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ar
 | _C:\ArcBox\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _ArcBox-Client_. |
 | _C:\ArcBox\Logs\ArcServersLogonScript.log_ | Output of ArcServersLogonScript.ps1 which configures the Hyper-V host and guests and onboards the guests as Azure Arc-enabled servers. |
 | _C:\ArcBox\Logs\MonitorWorkbookLogonScript.log_ | Output from MonitorWorkbookLogonScript.ps1 which deploys the Azure Monitor workbook. |
+| _C:\ArcBox\Logs\WinGet-provisioning-*.log_ | Output from WinGet.ps1 which installs WinGet and applies WinGet Configuration. |
 
   ![Screenshot showing ArcBox logs folder on ArcBox-Client](./troubleshoot_logs.png)
 
