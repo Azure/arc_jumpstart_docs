@@ -27,8 +27,8 @@ ArcBox for DevOps is a special "flavor" of ArcBox that is intended for users who
 
 ArcBox for DevOps deploys two Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
-- _**ArcBox-K3s-Data**_ - A single-node Rancher K3s cluster running on an Azure virtual machine. ArcBox automatically deploys multiple [GitOps configurations](#gitops-configurations) on this cluster for you, so you have an easy way to get started exploring GitOps capabilities.
-- _**ArcBox-K3s**_ - One single-node Rancher K3s cluster running on an Azure virtual machine. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox provides the user with [PowerShell scripts](#additional-optional-scenarios-on-the-arcbox-k3s-cluster) that can be manually run to apply GitOps configurations on this cluster.
+- _**ArcBox-K3s-Data**_ - Multi-node Rancher K3s cluster running on an Azure virtual machine. ArcBox automatically deploys multiple [GitOps configurations](#gitops-configurations) on this cluster for you, so you have an easy way to get started exploring GitOps capabilities.
+- _**ArcBox-K3s**_ - Multi-node Rancher K3s cluster running on an Azure virtual machine. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox provides the user with [PowerShell scripts](#additional-optional-scenarios-on-the-arcbox-k3s-cluster) that can be manually run to apply GitOps configurations on this cluster.
 
 ### Sample applications
 
@@ -58,7 +58,7 @@ ArcBox deploys Istio service mesh by using the [Istioctl](https://istio.io/lates
 
 GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/). Flux is deployed by installing the [Flux extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2#flux-cluster-extension) on the Kubernetes cluster. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (such as Git repositories) and automating updates to the configuration when there is a new code to deploy. Flux provides support for common file sources (Git and Helm repositories, Buckets) and template types (YAML, Helm, and Kustomize).
 
-ArcBox deploys five GitOps configurations onto the _ArcBox-K3s-Data_ cluster:
+ArcBox deploys four GitOps configurations onto the _ArcBox-K3s-Data_ cluster:
 
 - Cluster scope config to deploy [NGINX-ingress controller](https://kubernetes.github.io/ingress-nginx/).
 - Cluster scope config to deploy the "Bookstore" application.
@@ -514,7 +514,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 - Deploy multiple GitOps configurations on the _ArcBox-K3s_ cluster.
 
   - Browse to the _K3sGitOps.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Log in to your Azure subscription using your previously created service principal credentials
+    - Log in to your Azure subscription using Client VM system identity
     - Connect to _ArcBox-K3s_ cluster
     - Create the GitOps configurations to install the Flux extension as well deploying the NGINX ingress controller and the “Hello Arc” application
     - Create an icon for the Hello-Arc application on the desktop
@@ -538,7 +538,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
   - To show the GitOps flow for the Hello-Arc application open two side-by-side windows.
 
-    - A browser window with the open Hello-Arc application _`https://k3sdevops.devops.com/`_ URL.
+    - A browser window with the open Hello-Arc application _`http://k3sdevops.devops.com/`_ URL.
     - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
 
         ```shell
@@ -561,13 +561,13 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 - Deploy Kubernetes RBAC configuration on the Hello-Arc application to limit access to deployed Kubernetes resources.
 
   - Browse to the _K3sRBAC.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Log in to your Azure subscription using your previously created service principal credentials
+    - Log in to your Azure subscription using Client VM system identity
     - Connect to _ArcBox-K3s_ cluster
     - Create the GitOps configurations to deploy the RBAC configurations for _hello-arc_ namespace and cluster scope
 
-  - Right click _K3sGitOps.ps1_ script and select Run with PowerShell to execute the script.
+  - Right click _K3sRBAC.ps1_ script and select Run with PowerShell to execute the script.
 
-    ![Screenshot showing Hello-Arc App](./k3s_rbac01.png)
+    ![Screenshot showing running rbac script](./k3s_rbac01.png)
 
   - You can can verify below GitOps configurations applied on the _ArcBox-K3s_ cluster.
 
@@ -654,12 +654,10 @@ The following tools are including on the _ArcBox-Client_ VM.
 
 ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
 
-- Use the included kubectx to switch contexts between the two Kubernetes clusters
 - Deploy new GitOps configurations with Azure Arc-enabled Kubernetes
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
-- Build a certificate/secret/key management strategy with your Azure Arc resources
 
 ## Clean up the deployment
 
@@ -687,13 +685,13 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
-Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_, _ArcBox-DataSvc-K3s_ or _ArcBox-K3s_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_, _ArcBox-K3s-Data_ or _ArcBox-K3s_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
 | _C:\ArcBox\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _ArcBox-Client_. |
 | _C:\ArcBox\Logs\DevOpsLogonScript.log_ | Output of _DevOpsLogonScript.ps1_ which configures the Hyper-V host and guests and onboards the guests as Azure Arc-enabled servers. |
-| _C:\ArcBox\Logs\installK3s-ArcBox-*.log_ | Output from the custom script extension which runs on _ArcBox-K3s_ and _ArcBox-DataSvc-K3s_ configures the Rancher cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuRancherK3sDeployment_ or the _ubuntuRancherK3sDataSvcDeployment_ then review the respective k3s log. |
+| _C:\ArcBox\Logs\installK3s-*.log_ | Output from the custom script extension which runs on _ArcBox-K3s_ and _ArcBox-K3s-Data_ configures the Rancher cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuRancherK3sDeployment_ or the _ubuntuRancherK3sDataSvcDeployment_ then review the respective k3s log. |
 | _C:\ArcBox\Logs\MonitorWorkbookLogonScript.log_ | Output from _MonitorWorkbookLogonScript.ps1_ which deploys the Azure Monitor workbook. |
 | _C:\ArcBox\Logs\K3sGitOps.log_ | Output from K3sGitOps.ps1 which deploys GitOps configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
 | _C:\ArcBox\Logs\K3sRBAC.log_ | Output from K3sRBAC.ps1 which deploys GitOps RBAC configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
@@ -716,8 +714,8 @@ In the case of a failed deployment, pointing to a failure in either the _ubuntuR
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
-  - _ArcBox-K3s-Data-xxxx_ log path: _jumpstart_logs/installk3s.log_
-  - _ArcBox-K3s_ log path: _jumpstart_logs/installK3s-<vmName>.log_
+  - _ArcBox-K3s-Data-xxxx_ log path: _jumpstart_logs/installk3s-*.log_
+  - _ArcBox-K3s-xxxx_ log path: _jumpstart_logs/installK3s-*.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
 
