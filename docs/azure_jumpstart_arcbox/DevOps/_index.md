@@ -551,7 +551,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
   - Right click _K3sRBAC.ps1_ script and select Run with PowerShell to execute the script.
 
-    ![Screenshot showing running rbac script](./k3s_rbac01.png)
+    ![Screenshot showing running RBAC script](./k3s_rbac01.png)
 
   - You can verify below GitOps configurations applied on the _ArcBox-K3s_ cluster.
 
