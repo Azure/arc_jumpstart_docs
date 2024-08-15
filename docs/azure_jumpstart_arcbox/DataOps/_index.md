@@ -210,9 +210,9 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
 
 ```shell
-  az login
-  az group create --name "<resource-group-name>"  --location "<preferred-location>"
- az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p  customLocationRPOID="$customLocationRPOID"
+az login
+az group create --name "<resource-group-name>"  --location "<preferred-location>"
+az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p  customLocationRPOID="$customLocationRPOID"
 ```
 
 > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
@@ -445,71 +445,69 @@ To view backups of full, differential, and transaction logs wait for more than 1
 
 - Once you login to the _ArcBox-Client_ VM using RDP or bastion host, locate Azure Data Studio icon on the desktop and open.
 
-![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
+  ![Open Azure Data Studio](./sqlmi-pitr-azdatastudio.png)
 
 - Click on _ArcBoxDAG_ to connect to the **k3s-sql** Arc-enabled SQL Managed Instance and view databases. Right click and select **Manage** to view databases. Alternatively you can expand _ArcBoxDAG_ connection to view databases.
 
-![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-azdatastudio-k3s-sql.png)
-
-![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-databases.png)
+  ![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-databases.png)
 
 - In order to restore database you need to find the last well known backup copy that you would like to restore. You can list all the available backups by running the following SQL query in **msdb** database.
 
-```sql
-SELECT TOP (1000) [backup_set_id]
-      ,[database_name]
-      ,[backup_start_date]
-      ,[backup_finish_date]
-      ,[type]
-      ,[backup_size]
-      ,[server_name]
-      ,[machine_name]
-      ,[last_valid_restore_time]
-  FROM [msdb].[dbo].[backupset]
-  WHERE database_name = 'AdventureWorks2019'
-```
+  ```sql
+  SELECT TOP (1000) [backup_set_id]
+        ,[database_name]
+        ,[backup_start_date]
+        ,[backup_finish_date]
+        ,[type]
+        ,[backup_size]
+        ,[server_name]
+        ,[machine_name]
+        ,[last_valid_restore_time]
+    FROM [msdb].[dbo].[backupset]
+    WHERE database_name = 'AdventureWorks2019'
+  ```
 
 - Run this query in Azure Data Studio to display available backups. Right click **msdb**, select New Query and copy paste above query in the query editor and click Run.
 
-![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-backuplist.png)
+  ![View Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-backuplist.png)
 
 - Identify the backup set that you would like to restore and make note of the **backup_finish_date** value to use in the restore step. Modify the date format as **2022-09-20T23:14:13.000000Z**
 
 - Connect to the Arc Data Controller to restore database using Azure Data Studio. Click on the Connect controller button under Azure Arc Controllers to connecting to an existing data controller.
 
-![Connect to Azure Arc Data Controller](./sqlmi-pitr-connect-datacontroller.png)
+  ![Connect to Azure Arc Data Controller](./sqlmi-pitr-connect-datacontroller.png)
 
 - Specify **arc** as the namespace, leave the default values (leave **Name** as empty) and click on Connect
 
-![Connect to Azure Arc Data Controller details](./sqlmi-pitr-connect-datacontroller-details.png)
+  ![Connect to Azure Arc Data Controller details](./sqlmi-pitr-connect-datacontroller-details.png)
 
 - Once connection is successful, expand Azure Arc Controllers, expand _arcbox-k3s-data-xxxx-dc_ to view Arc-enabled SQL Managed Instance
 
-![Azure Arc Data Controller](./sqlmi-pitr-datacontroller.png)
+   ![Azure Arc Data Controller](./sqlmi-pitr-datacontroller.png)
 
 - Right-click on the _k3s-sql_ Arc-enabled SQL Managed Instance and select Manage.
 
-![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-datacontroller-manage.png)
+  ![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-datacontroller-manage.png)
 
 - Click on "Connect to Server" and enter database username and password to connect to the SQL Managed Instance to view the databases. It can take about a minute to start populating the databases.
 
-![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-to-sqlmi.png)
+  ![Azure Arc Data Controller Manage SQL Managed Instance](./sqlmi-pitr-connect-to-sqlmi.png)
 
 - Click on "Backups" to view databases and available backups to restore
 
-![Azure Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-database-list.png)
+  ![Azure Arc-enabled SQL Managed Instance databases](./sqlmi-pitr-database-list.png)
 
 - Click on the "Restore" link as shown below to restore the _AdventureWorks2019_ database.
 
-![Azure Arc-enabled SQL Managed InstanceI database restore](./sqlmi-pitr-database-select-restore.png)
+  ![Azure Arc-enabled SQL Managed InstanceI database restore](./sqlmi-pitr-database-select-restore.png)
 
 - Specify target database name to restore and backup set `datetime` that's noted down in the previous steps and click on Restore.
 
-![Azure Arc-enabled SQL Managed Instance target database restore](./sqlmi-pitr-targetdb.png)
+  ![Azure Arc-enabled SQL Managed Instance target database restore](./sqlmi-pitr-targetdb.png)
 
 - Wait until database restore operation is complete and refresh the _ArcBoxDAG_ connection to refresh and view restored database.
 
-![Azure Arc-enabled SQL Managed Instance restored database](./sqlmi-pitr-restored-database.png)
+  ![Azure Arc-enabled SQL Managed Instance restored database](./sqlmi-pitr-restored-database.png)
 
 ### Disaster Recovery
 
@@ -592,22 +590,22 @@ As part of ArcBox, a SQL Server is deployed in a nested VM on the Client VM to a
   - Copy the backup to the Azure Arc-enabled SQL Managed Instance pod
 Initiate the backup restore process
 
-```powershell
-Set-Location -Path c:\temp
-#Connecting to the nested Windows Server VM
-$nestedWindowsUsername = "Administrator"
-$nestedWindowsPassword = "JS123!!"
-$secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
-$winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
-$session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
-#Copying the database backup to the Client VM
-Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
-#Copying the database to the AKS SQL Managed Instance
-kubectx aks
-kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
-#Initiating restore on the AKS SQL Managed Instance
-kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
-```
+  ```powershell
+  Set-Location -Path c:\temp
+  #Connecting to the nested Windows Server VM
+  $nestedWindowsUsername = "Administrator"
+  $nestedWindowsPassword = "JS123!!"
+  $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
+  $winCreds = New-Object System.Management.Automation.PSCredential ($nestedWindowsUsername, $secWindowsPassword)
+  $session = New-PSSession -VMName ArcBox-SQL -Credential $winCreds
+  #Copying the database backup to the Client VM
+  Copy-Item -FromSession $session -Path C:\temp\AdventureWorksLT2019.bak -Destination C:\Temp\AdventureWorksLT2019.bak
+  #Copying the database to the AKS SQL Managed Instance
+  kubectx aks
+  kubectl cp ./AdventureWorksLT2019.bak aks-sql-0:var/opt/mssql/data/AdventureWorksLT2019.bak -n arc -c arc-sqlmi
+  #Initiating restore on the AKS SQL Managed Instance
+  kubectl exec aks-sql-0 -n arc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U $Env:AZDATA_USERNAME -P $Env:AZDATA_PASSWORD -Q "RESTORE DATABASE AdventureWorksLT2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorksLT2019.bak' WITH MOVE 'AdventureWorksLT2012_Data' TO '/var/opt/mssql/data/AdventureWorksLT2012.mdf', MOVE 'AdventureWorksLT2012_Log' TO     '/var/opt/mssql/data/AdventureWorksLT2012_log.ldf'"
+  ```
 
   ![Screenshot showing a PowerShell command to copy and restore the database backup to SQL Managed Instance](./powershell_db_restore.png)
 
@@ -645,23 +643,23 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
-![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+  ![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
 
 - Click on Migration in left navigation.
 
-![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+  ![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
 
 - Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
 
-![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
 - Review migration readiness to migrate to Azure SQL Managed Instance
 
-![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
 
 - Review migration readiness to migrate to SQL Server on Virtual Machines
 
-![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
 ### Microsoft Defender for Cloud - SQL servers on machines
 
