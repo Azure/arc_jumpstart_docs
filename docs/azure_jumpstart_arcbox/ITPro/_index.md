@@ -8,7 +8,7 @@ weight: 3
 
 ## Overview
 
-ArcBox for IT Pros is a special "flavor" of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
+ArcBox for IT Pros is a special "flavor" of ArcBox that's intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
 ![Screenshot showing ArcBox architecture diagram](./arch_itpro.png)
 
@@ -37,7 +37,7 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ## ArcBox Azure Consumption Costs
 
-ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxillary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
+ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
 
 ## Deployment Options and Automation Flow
 
@@ -70,9 +70,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az --version
   ```
 
-- Login to AZ CLI using the _`az login`_ command.
+- Login to Azure CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Azure CLI (`az`), follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected results or deployment errors.**
 
@@ -89,13 +89,13 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox for IT Pros requires 8 DSv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox for IT Pros requires 8 DSv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below `az` command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
   ```
 
-  ![Screenshot showing az vm list-usage](./azvmlistusage.png)
+  ![Screenshot showing running command to list-usage](./azvmlistusage.png)
 
 - Register necessary Azure resource providers by running the following commands.
 
@@ -108,7 +108,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portaldeploy.png)
 
@@ -137,7 +137,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username.
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace.
-  - _`flavor`_ - Use the value "ITPro" to specify that you want to deploy ArcBox for IT Pros.
+  - _`flavor`_ - Use the value _"ITPro"_ to specify that you want to deploy ArcBox for IT Pros.
   - _`autoShutdownEnabled`_ - Optionally, you can set this to true if you want to configure the ArcBox Client VM to automatically shutdown to save costs.
   - _`autoShutdownTime`_ - If _autoShutdownEnabled_ is set to true, this value specifies what time of the day to shut down the VM. If not specified, the default value is 18.00.
   - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
@@ -175,7 +175,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > **Note:** For enhanced ArcBox security posture, RDP (3389) port are not open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** For enhanced ArcBox security posture, RDP (3389) port aren't open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the ArcBox Client virtual machine
 
@@ -186,7 +186,7 @@ Various options are available to connect to _ArcBox-Client_ VM, depending on the
 
 #### Connecting directly with RDP
 
-By design, ArcBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, ArcBox doesn't open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _ArcBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -208,7 +208,7 @@ By design, ArcBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
@@ -224,7 +224,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 #### The Logon scripts
 
-- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. Unless you have overriden the `vmAutologon` parameter in the parameters-file, the VM will automatically launch the logon scripts directly after the Azure-deployment has completed without waiting for a user to manually logon. These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically.
+- Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. Unless you have overwritten the `vmAutologon` parameter in the parameters-file, the VM will automatically launch the logon scripts directly after the Azure-deployment has completed without waiting for a user to manually logon. These scripts usually take 10-20 minutes to finish, and once completed, the script windows will close automatically.
 
   ![Screenshot showing ArcBox-Client](./automation.png)
 
@@ -232,13 +232,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
 ## Using ArcBox for IT Pros
 
-After deployment is complete, its time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI or similar) or from inside the _ArcBox-Client_ virtual machine. When remoted into the client VM, here are some things to try:
+After deployment is complete, its time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI or similar) or from inside the _ArcBox-Client_ virtual machine. Once established a remote connection into the client VM, here are some things to try:
 
 - Open the Hyper-V Manager to access the ArcBox nested virtual machines, that are onboarded as Azure Arc-enabled servers.
 &nbsp;
@@ -278,7 +278,7 @@ az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $
 
  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
 
-> **Note:** You are not prompted for a password since ArcBox includes an SSH key-pair installed on ArcBox client VM and the hybrid Linux VMs.
+> **Note:** You aren't prompted for a password since ArcBox includes an SSH key-pair installed on ArcBox client VM and the hybrid Linux VMs.
 
 or
 
@@ -351,14 +351,14 @@ or
 
 ### Microsoft Entra ID based SSH Login
 
-1. The _Entra ID based SSH Login – Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
+1. The _Entra ID based SSH Login - Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
 
       ```shell
       $serverName = "ArcBox-Ubuntu-01"
       az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
       ```
 
-2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal.  Two Azure roles are used to authorize VM login:
+2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
     - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
     - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
@@ -393,11 +393,11 @@ $serverName = "ArcBox-Ubuntu-01"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
 ```
 
-### PowerShell remoting to Azure Arc-enabled servers
+### Remote PowerShell to Azure Arc-enabled servers
 
-[PowerShell remoting over SSH](https://learn.microsoft.com/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
+[Remote PowerShell over SSH](https://learn.microsoft.com/powershell/scripting/security/remoting/ssh-remoting-in-powershell) is available for Windows and Linux machines.
 
-[SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-powershell-remoting) enables SSH based PowerShell remoting connections to Arc-enabled servers without requiring a public IP address or additional open ports.
+[SSH for Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/ssh-arc-powershell-remoting) enables SSH based PowerShell remote connections to Arc-enabled servers without requiring a public IP address or additional open ports.
 
 You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration file to one of the Azure Arc-enabled servers.
 
@@ -417,7 +417,7 @@ You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration
 
 Expected output:
 
-![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_01.png)
+![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_01.png)
 
 or
 
@@ -436,7 +436,7 @@ or
 
 Expected output:
 
-![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_02.png)
+![Screenshot showing usage of Remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_02.png)
 
 2. Next, we need to extract the values for the SSH proxy command:
 
@@ -452,7 +452,7 @@ Expected output:
     $options = @{ ProxyCommand = $fullProxyCommandValue }
     ```
 
-3. Lastly, we can leverage native PowerShell remoting constructs to interact with the remote machine:
+3. Lastly, we can leverage native remote PowerShell constructs to interact with the remote machine:
 
 ```powershell
 # Create PowerShell Remoting session
@@ -473,7 +473,7 @@ $session | Remove-PSSession
 
 Expected output:
 
-![Screenshot showing usage of PowerShell Remoting tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
@@ -499,7 +499,7 @@ Periodic Assessment is a setting on your machine that enables you to see the lat
 
 As part of the deployment, one on-demand assessment triggered.
 
-This means any available updates can be viewed immidiately after a successful deployment when navigating to the Updates-blade for the hybrid machines.
+This means any available updates can be viewed immediately after a successful deployment when navigating to the Updates-blade for the hybrid machines.
 
 Example from a Linux machine:
 
@@ -511,13 +511,13 @@ Example from a Windows machine:
 
 ### SSH Posture Control
 
-[SSH Posture Control](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distros including Ubuntu, Red Hat, Azure Linux, and more.
+[SSH Posture Control](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distributions including Ubuntu, Red Hat, Azure Linux, and more.
 
 In ArcBox, an Azure policy assignment is included for an SSH Posture Control policy in audit-only mode.
 
 To inspect the compliance status of the assigned policy, perform the following:
 
-1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we are using _Arcbox-Ubuntu-01_:
+1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we're using _Arcbox-Ubuntu-01_:
 
 ![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
 
@@ -579,7 +579,7 @@ If you are interested to learn how to create your own configurations for Machine
 
 As part of the ArcBox deployment, SQL Server best practices assessment is configured and run. Open _ArcBox-SQL_ Arc-enabled SQL Server resource from the resource group deployed or Azure Arc service blade to view SQL Server best practice assessment results.
 
-- The following screenshot shows the SQL Server best practices assessment page and the scheduled and previously ran assessments. If this page does not show assessment results click on the Refresh button to show assessments. Once displayed the assessments and results click on _View assessment_ results to see results.
+- The following screenshot shows the SQL Server best practices assessment page and the scheduled and previously ran assessments. If this page doesn't show assessment results click on the Refresh button to show assessments. Once displayed the assessments and results click on _View assessment_ results to see results.
 
   ![Screenshot showing SQL Server best practices assessment configuration](./sql-pba-view-results.png)
 
@@ -589,7 +589,7 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
 
 ### SQL Server migration assessment
 
-Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+Once you connect SQL Server running in on-premises or other cloud environment it's ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
 
 As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
 
@@ -627,7 +627,7 @@ This section guides you through different settings for enabling Microsoft Defend
 
   ![Screenshot showing Microsoft Defender for Cloud SQL enabled](./defender-sql-plan.png)
 
-- The below screenshots show Arc-enabled SQL Server Defender for Cloud enablement and protection status. Defender for Cloud for SQL Server is enabled at the subscription level, but the protection status is still showing as not enabled.
+- The screenshots below illustrate the configuration and protection status of Arc-enabled SQL Server Defender for Cloud.. Defender for Cloud for SQL Server is enabled at the subscription level, but the protection status is still showing as not enabled.
 Please note it may take some time to show this status in the Azure portal, but still able to detect SQL threats generated by the test scripts.
 
   ![Screenshot showing Microsoft Defender for Cloud - Arc-enabled SQL server status](./sql-defender-status.png)
@@ -636,7 +636,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
-  > **Note:** Once in a while executing Defender for SQL test script (_testDefenderForSQL.ps1_) may fail due to delays in deploying SQLAdvancedThreatProtection Log Analytics solution and may not generate security incidents and alerts. If you do not find these security incidents and alerts, log in to nested SQL server VM _ArcBox-SQL_ in Hyper-V and execute the test script manually as shown below.
+  > **Note:** Once in a while executing Defender for SQL test script (_testDefenderForSQL.ps1_) may fail due to delays in deploying SQLAdvancedThreatProtection Log Analytics solution and may not generate security incidents and alerts. If you don't find these security incidents and alerts, log in to nested SQL server VM _ArcBox-SQL_ in Hyper-V and execute the test script manually as shown below.
 
 - The below screenshot shows the test script used to generate SQL threats, detect, and alert using Defender for Cloud for SQL servers. This script is copied on the nested _ArcBox-SQL_ Hyper-V virtual machine and can be used to run additional tests to generate security incidents and alerts.
 
@@ -680,7 +680,7 @@ To clean up your deployment, simply delete the resource group using Azure CLI or
 az group delete -n <name of your resource group>
 ```
 
-![Screenshot showing az group delete](./azdelete.png)
+![Screenshot showing Azure CLI running of group delete](./azdelete.png)
 
 ![Screenshot showing group delete from Azure portal](./portaldelete.png)
 
@@ -689,10 +689,10 @@ az group delete -n <name of your resource group>
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 16 available. See the [prerequisites](#prerequisites) section for more details.
-- Target Azure region does not support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
+- The selected Azure region doesn't support all the necessary services. Ensure you are deploying ArcBox in one of the supported regions listed in the "ArcBox Azure Region Compatibility" section above.
 - "BadRequest" error message when deploying - this error returns occasionally when the Log Analytics solutions in the ARM templates are deployed. Typically, waiting a few minutes and re-running the same deployment resolves the issue. Alternatively, you can try deploying to a different Azure region.
 
-  ![Screenshot showing BadRequest errors in Az CLI](./error_badrequest.png)
+  ![Screenshot showing BadRequest errors in Azure CLI](./error_badrequest.png)
 
   ![Screenshot showing BadRequest errors in Azure portal](./error_badrequest2.png)
 

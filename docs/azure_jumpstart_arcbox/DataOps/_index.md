@@ -65,7 +65,7 @@ ArcBox provides multiple paths for deploying and configuring ArcBox resources. D
 ArcBox uses an advanced automation flow to deploy and configure all necessary resources with minimal user interaction. The previous diagrams provide an overview of the deployment flow. A high-level summary of the deployment is:
 
 - User deploys the Bicep template (_main.bicep_). These objects contain several nested objects that will run simultaneously.
-  - Client virtual machine ARM template/plan - deploys a domain-joined Client Windows VM. This is a Windows Server VM that comes preconfigured with kubeconfig files to work with the three Kubernetes clusters, as well multiple tools such as VSCode, Azure Data Studio and SQL Server Management Studio to make working with ArcBox simple and easy.
+  - Client virtual machine ARM template/plan - deploys a domain-joined Client Windows VM. This is a Windows Server VM that comes preconfigured with kubeconfig files to work with the three Kubernetes clusters, as well multiple tools such as Visual Studio Code, Azure Data Studio and SQL Server Management Studio to make working with ArcBox simple and easy.
   - Storage account template/plan - used for staging files in automation scripts.
   - Management artifacts template/plan - deploys Azure Log Analytics workspace, its required Solutions, a domain controller and two virtual networks.
 - User remotes into the Client Windows VM using domain credentials, which automatically kicks off multiple scripts that:
@@ -84,9 +84,9 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az --version
   ```
 
-- Login to AZ CLI using the _`az login`_ command.
+- Login to Azure CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy ArcBox to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Azure CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - ArcBox must be deployed to one of the following regions. **Deploying ArcBox outside of these regions may result in unexpected behavior or deployment errors.**
 
@@ -103,13 +103,13 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox DataOps requires 42 B-series vCPUs and 56 DSv5 vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox DataOps requires 42 B-series vCPUs and 56 DSv5 vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Azure CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
   ```
 
-  ![Screenshot showing az vm list-usage](./az_vm_list_usage.png)
+  ![Screenshot showing command: vm list-usage](./az_vm_list_usage.png)
 
 - Some Azure subscriptions may also have SKU restrictions that prevent deployment of specific Azure VM sizes. You can check for SKU restrictions used by ArcBox by using the below command:
 
@@ -118,11 +118,11 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az vm list-skus --location <your location> --size Standard_D4s --all --output table
   ```
 
-  In the screenshots below, the first screenshot shows a subscription with no SKU restrictions in West US 2. The second shows a subscription with SKU restrictions on D4s_v4 in the East US 2 region. In this case, ArcBox will not be able to deploy due to the restriction.
+  In the screenshots below, the first screenshot shows a subscription with no SKU restrictions in West US 2. The second shows a subscription with SKU restrictions on D4s_v4 in the East US 2 region. In this case, ArcBox won't be able to deploy due to the restriction.
 
-  ![Screenshot showing az vm list-skus with no restrictions](./list_skus_unrestricted.png)
+  ![Screenshot showing command: vm list-skus with no restrictions](./list_skus_unrestricted.png)
 
-  ![Screenshot showing az vm list-skus with restrictions](./list_skus.png)
+  ![Screenshot showing command: vm list-skus with restrictions](./list_skus.png)
 
 - Register necessary Azure resource providers by running the following commands.
 
@@ -168,7 +168,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ## Deployment Option 1: Azure portal
 
-- Click below link to deploy using Azure portal and enter values for the the ARM template parameters.
+- Click below link to deploy using Azure portal and enter values for the ARM template parameters.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_jumpstart_arcbox%2FARM%2Fazuredeploy.json)
 
@@ -223,7 +223,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > **Note:** For enhanced ArcBox security posture, RDP (3389) and SSH (22) ports are not open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** For enhanced ArcBox security posture, RDP (3389) and SSH (22) ports aren't open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the ArcBox Client virtual machine
 
@@ -234,7 +234,7 @@ Various options are available to connect to _ArcBox-Client_ VM, depending on the
 
 #### Connecting directly with RDP
 
-By design, ArcBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, ArcBox doesn't open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _ArcBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -256,7 +256,7 @@ By design, ArcBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
@@ -293,19 +293,19 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background does not indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
 ## Using ArcBox
 
-After deployment is complete, it's time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI, or similar) or from inside the _ArcBox-Client_ virtual machine using Azure Data Studio or SQL Server Management Studio. When remoted into the VM, here are some things to try:
+After deployment is complete, it's time to start exploring ArcBox. Most interactions with ArcBox will take place either from Azure itself (Azure portal, CLI, or similar) or from inside the _ArcBox-Client_ virtual machine using Azure Data Studio or SQL Server Management Studio. When establishing a remote connection into the VM, here are some things to try:
 
 ### Azure Arc-enabled SQL Managed Instance stress simulation
 
 Included in ArcBox, is a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well to highlight operational practices described in the next section.
 
-- To start with, open the SqlQueryStress desktop shortcut and connect to the K3s SQL Managed Instance primary endpoint Ip address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
+- To start with, open the SqlQueryStress desktop shortcut and connect to the K3s SQL Managed Instance primary endpoint IP address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
 
   ![Screenshot showing SQL Stress application](./sql_stress_start.png)
 
@@ -325,21 +325,21 @@ Included in ArcBox, is a dedicated SQL stress simulation tool named SqlQueryStre
 
 - As you can see from the example below, the configuration settings are 100,000 iterations, five threads per iteration, and a 1ms delay between queries. These configurations should allow you to have the stress test running for a while.
 
-  ![Screenshot showing SQLstress stored procedure](./sql_stress_sp.png)
+  ![Screenshot showing SQL stress stored procedure](./sql_stress_sp.png)
 
-  ![Screenshot showing SQLstress running](./sql_stress_running.png)
+  ![Screenshot showing SQL stress running](./sql_stress_running.png)
 
 ### Azure Arc-enabled SQL Managed Instance monitoring using Grafana
 
 When deploying Azure Arc-enabled SQL Managed Instance, a [Grafana](https://grafana.com/) instance is also automatically deployed on the same Kubernetes cluster and include built-in dashboards for both Kubernetes infrastructure as well SQL Managed Instance monitoring.
 
-- Now that you have the SqlQueryStress stored procedure running and generating load, we can look how this is shown in the the built-in Grafana dashboard. As part of the automation, a new URL desktop shortcut simply named "Grafana" was created.
+- Now that you have the SqlQueryStress stored procedure running and generating load, we can look how this is shown in the built-in Grafana dashboard. As part of the automation, a new URL desktop shortcut simply named "Grafana" was created.
 
   ![Screenshot showing Grafana desktop shortcut](./grafana_icon.png)
 
 - [Optional] The IP address for this instance represents the Kubernetes LoadBalancer external IP that was provision as part of Azure Arc-enabled data services. Use the _kubectl get svc -n arc_ command to view the _metricsui_ external service IP address.
 
-  ![Screenshot showing Grafana Ip address](./grafana_ip_address.png)
+  ![Screenshot showing Grafana IP address](./grafana_ip_address.png)
 
 - To log in, use the same username and password that's in the SQLMI Endpoints text file desktop shortcut
 
@@ -403,7 +403,7 @@ When deploying Azure Arc-enabled SQL Managed Instance in the Business Critical t
 
   ![Screenshot showing DB Connection App script](./bookstore09.png)
 
-- DB Connection App connects to the primary SQL Managed Instance and inserts new book every second, and logs information of server it is connected to. Open PowerShell and run the below commands and follow the logs.
+- DB Connection App connects to the primary SQL Managed Instance and inserts new book every second, and logs information of server it's connected to. Open PowerShell and run the below commands and follow the logs.
 
   ```shell
   $pod=kubectl --namespace arc get pods --selector=app=dbconnecttest --output="jsonpath={.items..metadata.name}"
@@ -503,7 +503,7 @@ SELECT TOP (1000) [backup_set_id]
 
 ![Azure Arc-enabled SQL Managed InstanceI database restore](./sqlmi-pitr-database-select-restore.png)
 
-- Specify target database name to restore and backup set datetime that's noted down in the previous steps and click on Restore.
+- Specify target database name to restore and backup set `datetime` that's noted down in the previous steps and click on Restore.
 
 ![Azure Arc-enabled SQL Managed Instance target database restore](./sqlmi-pitr-targetdb.png)
 
@@ -513,7 +513,7 @@ SELECT TOP (1000) [backup_set_id]
 
 ### Disaster Recovery
 
-The _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deployed into a distributed availability group to simulate two different sites. Use the _az sql instance-failover-group-arc_ command to initiate a failover from the primary SQL instance to the secondary DR instance.
+The _ArcBox-K3s-Data-xxxx_ and the _ArcBox-AKS-DR-Data-xxxx_ clusters are deployed into a distributed availability group to simulate two different sites. Use the `az sql instance-failover-group-arc` command to initiate a failover from the primary SQL instance to the secondary DR instance.
 
 - Open PowerShell and run below commands to initiate the failover.
 
@@ -625,7 +625,7 @@ Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/w
 
 As part of the ArcBox deployment, SQL Server best practices assessment is configured and run. Open _ArcBox-SQL_ Arc-enabled SQL Server resource from the resource group deployed or Azure Arc service blade to view SQL Server best practice assessment results.
 
-- The following screenshot shows the SQL Server best practices assessment page and the scheduled and previously ran assessments. If this page does not show assessment results click on the Refresh button to show assessments. Once displayed the assessments and results click on _View assessment_ results to see results.
+- The following screenshot shows the SQL Server best practices assessment page and the scheduled and previously ran assessments. If this page doesn't show assessment results click on the Refresh button to show assessments. Once displayed the assessments and results click on _View assessment_ results to see results.
 
   ![Screenshot showing SQL Server best practices assessment configuration](./sql-pba-view-results.png)
 
@@ -635,7 +635,7 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
 
 ### SQL Server migration assessment
 
-Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+Once you connect SQL Server running in on-premises or other cloud environment it's ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
 
 As part of the ArcBox DataOps deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
 
@@ -683,7 +683,7 @@ Please note it may take some time to show this status in the Azure portal, but s
 
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
-   > **Note:** Once in a while executing Defender for SQL test script (_testDefenderForSQL.ps1_) may fail due to delays in deploying SQLAdvancedThreatProtection Log Analytics solution and may not generate security incidents and alerts. If you do not find these security incidents and alerts, log in to nested SQL server VM _ArcBox-SQL_ in Hyper-V and execute the test script manually as shown below.
+   > **Note:** Once in a while executing Defender for SQL test script (_testDefenderForSQL.ps1_) may fail due to delays in deploying SQLAdvancedThreatProtection Log Analytics solution and may not generate security incidents and alerts. If you don't find these security incidents and alerts, log in to nested SQL server VM _ArcBox-SQL_ in Hyper-V and execute the test script manually as shown below.
 
 - The below screenshot shows the test script used to generate SQL threats, detect, and alert using Defender for Cloud for SQL servers. This script is copied on the nested _ArcBox-SQL_ Hyper-V virtual machine and can be used to run additional tests to generate security incidents and alerts.
 
@@ -721,7 +721,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Use the included kubectx to switch contexts between the three Kubernetes clusters
 - Explore the different visualizations in Grafana
 - Scale the SQL Managed Instance's cores and memory up and down
-- Test failover and failback  scenarios to and from the DR instance
+- Test failover and fallback  scenarios to and from the DR instance
 
 ## Clean up the deployment
 
@@ -737,7 +737,7 @@ az group delete -n <name of your resource group>
 
 Occasionally deployments of ArcBox may fail at various stages. Common reasons for failed deployments include:
 
-- Automation scripts do not start after login - this is usually caused by logging into the client VM with wrong format of the username. Login needs to be done using domain credentials in UPN format _username@jumpstart.local_.
+- Automation scripts don't start after login - this is usually caused by logging into the client VM with wrong format of the username. Login needs to be done using domain credentials in UPN format _username@jumpstart.local_.
 - "User disabled" error message appears when you try to RDP or connect using Bastion to the Client VM - this is caused by logging into the client VM with wrong format of the username. Login needs to be done using domain credentials in UPN format _username@jumpstart.local_.
 - Invalid SSH public key provided in _azuredeploy.parameters.json_ file.
   - An example SSH public key is shown here. Note that the public key includes "ssh-rsa" at the beginning. The entire value should be included in your _azuredeploy.parameters.json_ file.
@@ -745,7 +745,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
       ![Screenshot showing SSH public key example](./ssh_example.png)
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 98 available. See the [prerequisites](#prerequisites) section for more details.
-- Target Azure region does not support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
+- The selected Azure region doesn't support all the necessary services. Ensure you are deploying ArcBox in one of the supported regions listed in the "ArcBox Azure Region Compatibility" section above.
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
@@ -779,13 +779,13 @@ In the case of a failed deployment, pointing to a failure in the _ubuntuK3sDeplo
 
     ![Screenshot showing ArcBox-K3s-Data virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
 
-    > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
+    > **Note:** Port 22 isn't open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
   - _ArcBox-K3s-MGMT_ log path: _jumpstart_logs/installK3s.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
 
-- You might randomly get a similar error in the _InstallK3s.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF` - this is an issue we are currently investigating. To resolve please redeploy ArcBox.
+- You might randomly get a similar error in the _InstallK3s.log_ to `Error from server (InternalError): error when creating "template.yaml": Internal error occurred: failed calling webhook "default.azuremachinetemplate.infrastructure.cluster.x-k8s.io": failed to call webhook: Post "https://capz-webhook-service.capz-system.svc:443/mutate-infrastructure-cluster-x-k8s-io-v1beta1-azuremachinetemplate?timeout=10s": EOF` - this is an issue we're currently investigating. To resolve please redeploy ArcBox.
 
 If you are still having issues deploying ArcBox, please [submit an issue](https://aka.ms/JumpstartIssue) on GitHub and include a detailed description of your issue, the Azure region you are deploying to, the flavor of ArcBox you are trying to deploy. Inside the _C:\ArcBox\Logs_ folder you can also find instructions for uploading your logs to an Azure storage account for review by the Jumpstart team.
