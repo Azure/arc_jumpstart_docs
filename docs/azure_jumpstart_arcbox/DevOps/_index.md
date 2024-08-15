@@ -27,8 +27,8 @@ ArcBox for DevOps is a special "flavor" of ArcBox that is intended for users who
 
 ArcBox for DevOps deploys two Kubernetes clusters to give you multiple options for exploring Azure Arc-enabled Kubernetes capabilities and potential integrations.
 
-- _**ArcBox-K3s-Data**_ - A single-node Rancher K3s cluster running on an Azure virtual machine. ArcBox automatically deploys multiple [GitOps configurations](#gitops-configurations) on this cluster for you, so you have an easy way to get started exploring GitOps capabilities.
-- _**ArcBox-K3s**_ - One single-node Rancher K3s cluster running on an Azure virtual machine. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox provides the user with [PowerShell scripts](#additional-optional-scenarios-on-the-arcbox-k3s-cluster) that can be manually run to apply GitOps configurations on this cluster.
+- _**ArcBox-K3s-Data**_ - Three-node Rancher K3s cluster running on an Azure virtual machine. ArcBox automatically deploys multiple [GitOps configurations](#gitops-configurations) on this cluster for you, so you have an easy way to get started exploring GitOps capabilities.
+- _**ArcBox-K3s**_ - Three-node Rancher K3s cluster running on an Azure virtual machine. This cluster is then connected to Azure as an Azure Arc-enabled Kubernetes resource. ArcBox provides the user with [PowerShell scripts](#additional-optional-scenarios-on-the-arcbox-k3s-cluster) that can be manually run to apply GitOps configurations on this cluster.
 
 ### Sample applications
 
@@ -58,7 +58,7 @@ ArcBox deploys Istio service mesh by using the [Istioctl](https://istio.io/lates
 
 GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/). Flux is deployed by installing the [Flux extension](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2#flux-cluster-extension) on the Kubernetes cluster. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (such as Git repositories) and automating updates to the configuration when there is a new code to deploy. Flux provides support for common file sources (Git and Helm repositories, Buckets) and template types (YAML, Helm, and Kustomize).
 
-ArcBox deploys five GitOps configurations onto the _ArcBox-K3s-Data_ cluster:
+ArcBox deploys four GitOps configurations onto the _ArcBox-K3s-Data_ cluster:
 
 - Cluster scope config to deploy [NGINX-ingress controller](https://kubernetes.github.io/ingress-nginx/).
 - Cluster scope config to deploy the "Bookstore" application.
@@ -125,7 +125,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox DevOps requires 20 B-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox DevOps requires 30 B-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -441,7 +441,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
 - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
 
-  ![Screenshot showing Bookstore repo Traffic split 01](./bookstore05.png)
+  ![Screenshot showing Bookstore repo Traffic split 01](./bookstore03.png)
 
 - Wait for the changes to propagate and observe the counters increment for bookstore and bookstore-v2 as well.
 
@@ -454,38 +454,24 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ```
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore04.png)
+
+  ![Screenshot showing Bookstore Traffic split yaml](./bookstore05.png)
 
 - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore08.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
 
 - Wait for the changes to propagate and observe the counters increment for bookstore-v2 and freeze for bookstore.
 
-  ![Screenshot showing Bookstore apps Istio 02](./bookstore09.png)
-
-- Optional, you may want to reset the traffic split demo to start over with the counters at zero. If so, follow the below steps to reset the bookstore counters.
-
-  - Browse to the _ResetBookstore.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Connect to _ArcBox-K3s-Data_ cluster
-    - Deploy a Kubernetes Ingress resource for each bookstore apps reset API
-    - Invoke bookstore apps reset API to reset the counter
-
-  - Before we run the reset script, did you update the Traffic split on GitHub? In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "100" and bookstore weight to "0" and commit the change.
-
-    ![Screenshot showing Bookstore repo Traffic split rest](./bookstore10.png)
-
-  - Right click _ResetBookstore.ps1_ script and select Run with PowerShell to execute the script.
-
-    ![Screenshot showing Script execution reset](./bookstore11.png)
-
+  ![Screenshot showing Bookstore apps Istio 02](./bookstore07.png)
 
 ### Microsoft Defender for Cloud
 
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-K3s-Data_ cluster:
 
   ```shell
-  kubectx arcbox-k3s
+  kubectx arcbox-k3s-data
   kubectl get pods --namespace=asc-alerttest-662jfi039n
   ```
 
@@ -512,7 +498,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 - Deploy multiple GitOps configurations on the _ArcBox-K3s_ cluster.
 
   - Browse to the _K3sGitOps.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Log in to your Azure subscription using your previously created service principal credentials
+    - Log in to your Azure subscription using Client VM system identity
     - Connect to _ArcBox-K3s_ cluster
     - Create the GitOps configurations to install the Flux extension as well deploying the NGINX ingress controller and the “Hello Arc” application
     - Create an icon for the Hello-Arc application on the desktop
@@ -536,7 +522,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
   - To show the GitOps flow for the Hello-Arc application open two side-by-side windows.
 
-    - A browser window with the open Hello-Arc application _`https://k3sdevops.devops.com/`_ URL.
+    - A browser window with the open Hello-Arc application _`http://k3sdevops.devops.com/`_ URL.
     - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
 
         ```shell
@@ -559,13 +545,13 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 - Deploy Kubernetes RBAC configuration on the Hello-Arc application to limit access to deployed Kubernetes resources.
 
   - Browse to the _K3sRBAC.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Log in to your Azure subscription using your previously created service principal credentials
+    - Log in to your Azure subscription using Client VM system identity
     - Connect to _ArcBox-K3s_ cluster
     - Create the GitOps configurations to deploy the RBAC configurations for _hello-arc_ namespace and cluster scope
 
-  - Right click _K3sGitOps.ps1_ script and select Run with PowerShell to execute the script.
+  - Right click _K3sRBAC.ps1_ script and select Run with PowerShell to execute the script.
 
-    ![Screenshot showing Hello-Arc App](./k3s_rbac01.png)
+    ![Screenshot showing running rbac script](./k3s_rbac01.png)
 
   - You can can verify below GitOps configurations applied on the _ArcBox-K3s_ cluster.
 
@@ -652,12 +638,10 @@ The following tools are including on the _ArcBox-Client_ VM.
 
 ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
 
-- Use the included kubectx to switch contexts between the two Kubernetes clusters
 - Deploy new GitOps configurations with Azure Arc-enabled Kubernetes
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
-- Build a certificate/secret/key management strategy with your Azure Arc resources
 
 ## Clean up the deployment
 
@@ -680,18 +664,19 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
       ![Screenshot showing SSH public key example](./ssh_example.png)
 
-- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 52 available. See the [prerequisites](#prerequisites) section for more details.
+- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 30 available. See the [prerequisites](#prerequisites) section for more details.
 - Target Azure region does not support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
+- Ensure the kubeconfig context is set to the correct cluster before running any kubectl commands. For K3s-Data cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config"_ and for K3s cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config-k3s"_.
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
-Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_, _ArcBox-DataSvc-K3s_ or _ArcBox-K3s_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the _ArcBox-Client_, _ArcBox-K3s-Data_ or _ArcBox-K3s_ virtual machines in case of deployment failures. To make troubleshooting easier, the ArcBox deployment scripts collect all relevant logs in the _C:\ArcBox\Logs_ folder on _ArcBox-Client_. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
 | _C:\ArcBox\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _ArcBox-Client_. |
 | _C:\ArcBox\Logs\DevOpsLogonScript.log_ | Output of _DevOpsLogonScript.ps1_ which configures the Hyper-V host and guests and onboards the guests as Azure Arc-enabled servers. |
-| _C:\ArcBox\Logs\installK3s-ArcBox-*.log_ | Output from the custom script extension which runs on _ArcBox-K3s_ and _ArcBox-DataSvc-K3s_ configures the Rancher cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuRancherK3sDeployment_ or the _ubuntuRancherK3sDataSvcDeployment_ then review the respective k3s log. |
+| _C:\ArcBox\Logs\installK3s-*.log_ | Output from the custom script extension which runs on _ArcBox-K3s_ and _ArcBox-K3s-Data_ configures the Rancher cluster and onboards it as an Azure Arc-enabled Kubernetes cluster. If you encounter ARM deployment issues with _ubuntuRancherK3sDeployment_ or the _ubuntuRancherK3sDataSvcDeployment_ then review the respective k3s log. |
 | _C:\ArcBox\Logs\MonitorWorkbookLogonScript.log_ | Output from _MonitorWorkbookLogonScript.ps1_ which deploys the Azure Monitor workbook. |
 | _C:\ArcBox\Logs\K3sGitOps.log_ | Output from K3sGitOps.ps1 which deploys GitOps configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
 | _C:\ArcBox\Logs\K3sRBAC.log_ | Output from K3sRBAC.ps1 which deploys GitOps RBAC configurations on _ArcBox-K3s_. This script must be manually run by the user. Therefore the log is only present if the user has run the script. |
@@ -714,8 +699,8 @@ In the case of a failed deployment, pointing to a failure in either the _ubuntuR
     > **Note:** Port 22 is not open by default in ArcBox deployments. You will need to [create an NSG rule](#connecting-directly-with-rdp) to allow network access to port 22, or use Azure Bastion or JIT to connect to the VM.
 
 - As described in the message of the day (motd), depending on which virtual machine you logged into, the installation log can be found in the _jumpstart_logs_ folder. This installation logs can help determine the root cause for the failed deployment.
-  - _ArcBox-K3s-Data-xxxx_ log path: _jumpstart_logs/installk3s.log_
-  - _ArcBox-K3s_ log path: _jumpstart_logs/installK3s-<vmName>.log_
+  - _ArcBox-K3s-Data-xxxx_ log path: _jumpstart_logs/installk3s-*.log_
+  - _ArcBox-K3s-xxxx_ log path: _jumpstart_logs/installK3s-*.log_
 
       ![Screenshot showing login and the message of the day](./login_motd.png)
 
