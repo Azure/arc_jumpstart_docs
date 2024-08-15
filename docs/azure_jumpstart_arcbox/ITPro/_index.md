@@ -29,7 +29,7 @@ ArcBox for IT Pros is a special "flavor" of ArcBox that is intended for users wh
 
 ArcBox includes three Azure Arc-enabled server resources that are hosted using nested virtualization in Azure. As part of the deployment, a Hyper-V host (_ArcBox-Client_) is deployed with three guest virtual machines. These machines, _ArcBoxWin_, _ArcBoxUbuntu_, and _ArcBoxSQL_ are connected as Azure Arc-enabled servers via the ArcBox automation.
 
-### Hybrid Unified Operations
+### Unified Operations
 
 ArcBox deploys several management and operations services that work with ArcBox's Azure Arc resources. These resources include an Azure Log Analytics workspace, an Azure Monitor workbook, Azure Policy assignments for deploying Azure Monitor agents on Windows and Linux Azure Arc-enabled servers, Azure Policy assignment for adding tags to resources, and a storage account used for staging resources needed for the deployment automation.
 
@@ -586,6 +586,36 @@ As part of the ArcBox deployment, SQL Server best practices assessment is config
   ![Screenshot showing SQL Server best practices assessment results part 1](./sql-bpa-results-1.png)
 
   ![Screenshot showing SQL Server best practices assessment results part 2](./sql-bpa-results-2.png)
+
+### SQL Server migration assessment
+
+Once you connect SQL Server running in on-premises or other cloud environment it is ready to support  running migration assessment to review migration readiness to Microsoft Azure cloud. Arc-enabled [SQL Server migration assessment](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16) greatly simplifies migration assessment by eliminating any additional infrastructure to run SQL Server discovery and assessment tools.
+
+As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
+
+Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
+
+- Navigate to the resource group overview page in Azure Portal
+
+- Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
+
+![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+
+- Click on Migration in left navigation.
+
+![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+
+- Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
+
+![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+
+- Review migration readiness to migrate to Azure SQL Managed Instance
+
+![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+
+- Review migration readiness to migrate to SQL Server on Virtual Machines
+
+![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
 ### Microsoft Defender for Cloud - SQL servers on machines
 
