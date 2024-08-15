@@ -665,7 +665,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
       ![Screenshot showing SSH public key example](./ssh_example.png)
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 30 available. See the [prerequisites](#prerequisites) section for more details.
-- Target Azure region doesn't support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
+- The selected Azure region doesn't support all the necessary services. Ensure you are deploying ArcBox in one of the supported regions listed in the "ArcBox Azure Region Compatibility" section above.
 - Ensure the kubeconfig context is set to the correct cluster before running any kubectl commands. For K3s-Data cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config"_ and for K3s cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config-k3s"_.
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine

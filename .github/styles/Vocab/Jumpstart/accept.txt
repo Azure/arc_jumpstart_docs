@@ -64,3 +64,5 @@ backup_finish_date
 svc
 aks
 enablement
+MySQL
+kube
