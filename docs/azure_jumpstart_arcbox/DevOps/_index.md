@@ -125,7 +125,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - Korea Central
   - Southeast Asia
 
-- **ArcBox DevOps requires 20 B-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
+- **ArcBox DevOps requires 30 B-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy ArcBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -441,7 +441,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
 - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
 
-  ![Screenshot showing Bookstore repo Traffic split 01](./bookstore05.png)
+  ![Screenshot showing Bookstore repo Traffic split 01](./bookstore03.png)
 
 - Wait for the changes to propagate and observe the counters increment for bookstore and bookstore-v2 as well.
 
@@ -454,15 +454,17 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ```
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore04.png)
+
+  ![Screenshot showing Bookstore Traffic split yaml](./bookstore05.png)
 
 - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
 
-  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore08.png)
+  ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
 
 - Wait for the changes to propagate and observe the counters increment for bookstore-v2 and freeze for bookstore.
 
-  ![Screenshot showing Bookstore apps Istio 02](./bookstore09.png)
+  ![Screenshot showing Bookstore apps Istio 02](./bookstore07.png)
 
 - Optional, you may want to reset the traffic split demo to start over with the counters at zero. If so, follow the below steps to reset the bookstore counters.
 
@@ -473,11 +475,11 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   - Before we run the reset script, did you update the Traffic split on GitHub? In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "100" and bookstore weight to "0" and commit the change.
 
-    ![Screenshot showing Bookstore repo Traffic split rest](./bookstore10.png)
+    ![Screenshot showing Bookstore repo Traffic split rest](./bookstore08.png)
 
   - Right click _ResetBookstore.ps1_ script and select Run with PowerShell to execute the script.
 
-    ![Screenshot showing Script execution reset](./bookstore11.png)
+    ![Screenshot showing Script execution reset](./bookstore09.png)
 
 
 ### Microsoft Defender for Cloud
@@ -485,7 +487,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-K3s-Data_ cluster:
 
   ```shell
-  kubectx arcbox-k3s
+  kubectx arcbox-k3s-data
   kubectl get pods --namespace=asc-alerttest-662jfi039n
   ```
 
@@ -680,7 +682,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
       ![Screenshot showing SSH public key example](./ssh_example.png)
 
-- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 52 available. See the [prerequisites](#prerequisites) section for more details.
+- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 30 available. See the [prerequisites](#prerequisites) section for more details.
 - Target Azure region does not support all required Azure services - ensure you are running ArcBox in one of the supported regions listed in the above section "ArcBox Azure Region Compatibility".
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
