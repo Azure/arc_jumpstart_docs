@@ -34,3 +34,12 @@ Kube
 namespaces
 misconfigured
 snake_case
+namespace
+bookbuyer
+mysql
+Istio
+Istioctl
+config
+az
+vm
+VSCode
