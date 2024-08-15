@@ -294,14 +294,14 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
 
 - Following the previous method, you can also use Azure CLI to connect to one of the Azure Arc-enabled servers, Hyper-V Windows Server virtual machines via SSH.
 
-```powershell
-az login --identity
-
-$serverName = "ArcBox-Win2K22"
-$localUser = "Administrator"
-
-az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-```
+  ```powershell
+  az login --identity
+  
+  $serverName = "ArcBox-Win2K22"
+  $localUser = "Administrator"
+  
+  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+  ```
 
 Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
@@ -454,26 +454,26 @@ Expected output:
 
 3. Lastly, we can leverage native remote PowerShell constructs to interact with the remote machine:
 
-```powershell
-# Create PowerShell Remoting session
-New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+    ```powershell
+    # Create PowerShell Remoting session
+    New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+    
+    # Run a command
+    Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
+    
+    # Enter an interactive session
+    Enter-PSSession -Session $session[0]
+    
+    # Disconnect
+    exit
+    
+    # Clean-up
+    $session | Remove-PSSession
+    ```
 
-# Run a command
-Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
-
-# Enter an interactive session
-Enter-PSSession -Session $session[0]
-
-# Disconnect
-exit
-
-# Clean-up
-$session | Remove-PSSession
-```
-
-Expected output:
-
-![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+    Expected output:
+    
+    ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
@@ -519,54 +519,54 @@ To inspect the compliance status of the assigned policy, perform the following:
 
 1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we're using _Arcbox-Ubuntu-01_:
 
-![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
+    ![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
 
 2. Navigate to _Machine Configuration_ in the menu on the left side:
 
-![Screenshot showing Arcbox-Ubuntu-01](./ssh_posture_control_02.png)
+   ![Screenshot showing Arcbox-Ubuntu-01](./ssh_posture_control_02.png)
 
 3. Click on the configuration name starting with _LinuxSshServerSecurityBaseline*_:
 
-![Screenshot showing assigned configurations](./ssh_posture_control_03.png)
+    ![Screenshot showing assigned configurations](./ssh_posture_control_03.png)
 
 4. Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
 
-![Screenshot showing configuration settings](./ssh_posture_control_04.png)
+    [Screenshot showing configuration settings](./ssh_posture_control_04.png)
 
 5. The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
 
-![Screenshot showing Azure Resource Graph Explorer](./resource_graph_explorer_01.png)
+    ![Screenshot showing Azure Resource Graph Explorer](./resource_graph_explorer_01.png)
 
 6. Paste the following query into the query window and click _Run query_:
 
-```kql
-// SSH machine counts by compliance status
-guestconfigurationresources
-| where name contains "LinuxSshServerSecurityBaseline"
-| extend complianceStatus = tostring(properties.complianceStatus)
-| summarize machineCount = count() by complianceStatus
-```
+    ```kql
+    // SSH machine counts by compliance status
+    guestconfigurationresources
+    | where name contains "LinuxSshServerSecurityBaseline"
+    | extend complianceStatus = tostring(properties.complianceStatus)
+    | summarize machineCount = count() by complianceStatus
+    ```
 
-![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_05.png)
+    ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_05.png)
 
 7. Paste the following query into the query window and click _Run query_:
 
-```kql
-// SSH rule level detail
-GuestConfigurationResources
-| where name contains "LinuxSshServerSecurityBaseline"
-| project report = properties.latestAssignmentReport,
- machine = split(properties.targetResourceId,'/')[-1],
- lastComplianceStatusChecked=properties.lastComplianceStatusChecked
-| mv-expand report.resources
-| project machine,
- rule = report_resources.resourceId,
- ruleComplianceStatus = report_resources.complianceStatus,
- ruleComplianceReason = report_resources.reasons[0].phrase,
- lastComplianceStatusChecked
-```
+    ```kql
+    // SSH rule level detail
+    GuestConfigurationResources
+    | where name contains "LinuxSshServerSecurityBaseline"
+    | project report = properties.latestAssignmentReport,
+     machine = split(properties.targetResourceId,'/')[-1],
+     lastComplianceStatusChecked=properties.lastComplianceStatusChecked
+    | mv-expand report.resources
+    | project machine,
+     rule = report_resources.resourceId,
+     ruleComplianceStatus = report_resources.complianceStatus,
+     ruleComplianceReason = report_resources.reasons[0].phrase,
+     lastComplianceStatusChecked
+    ```
 
-![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
+    ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
 
 To learn more about how to configure the settings in audit-and-configure mode, check out the [documentation](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc).
 
@@ -599,23 +599,23 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
-![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
+  ![Screenshot showing Arc-enabled SQL Server overview](./sql-server-migration-overview.png)
 
 - Click on Migration in left navigation.
 
-![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
+  ![Screenshot showing Arc-enabled SQL Server migration assessment](./sql-server-migration-assessment.png)
 
 - Review migration readiness of the SQL server. For detailed information on readiness review refer product documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/migration-assessment?view=sql-server-ver16#review-readiness).
 
-![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
 - Review migration readiness to migrate to Azure SQL Managed Instance
 
-![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
 
 - Review migration readiness to migrate to SQL Server on Virtual Machines
 
-![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
+  ![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
 ### Microsoft Defender for Cloud - SQL servers on machines
 
