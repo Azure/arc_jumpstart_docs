@@ -242,26 +242,26 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ### Bicep deployment option 1: Azure CLI
 
-  ```shell
-  az login
-  az group create --name "<resource-group-name>"  --location "<preferred-location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
-  ```
+```shell
+az login
+az group create --name "<resource-group-name>"  --location "<preferred-location>"
+az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
+```
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ### Bicep deployment option 2: Azure PowerShell
 
-  ```shell
-  Connect-AzAccount
+```shell
+Connect-AzAccount
 
-  $RGname = "<resource-group-name>"
-  $Location= "<preferred-location>"
+$RGname = "<resource-group-name>"
+$Location= "<preferred-location>"
 
-  New-AzResourceGroup -Name $RGname -Location $location
+New-AzResourceGroup -Name $RGname -Location $location
 
-  New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
-  ```
+New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
+```
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -470,10 +470,10 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-K3s-Data_ cluster:
 
-  ```shell
-  kubectx arcbox-k3s-data
-  kubectl get pods --namespace=asc-alerttest-662jfi039n
-  ```
+```shell
+kubectx arcbox-k3s-data
+kubectl get pods --namespace=asc-alerttest-662jfi039n
+```
 
 After a period of time (typically less than an hour), Microsoft Defender for Cloud will detect this event and trigger a security alert that you will see in the Azure portal under Microsoft Defender for Cloud's security alerts and also on the security tab of your Azure Arc-enabled Kubernetes cluster.
 
@@ -524,11 +524,11 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
     - A browser window with the open Hello-Arc application _`http://k3sdevops.devops.com/`_ URL.
     - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
-
-        ```shell
-        kubectx arcbox-k3s
-        kubectl get pods -n hello-arc -w
-        ```
+      
+      ```shell
+      kubectx arcbox-k3s
+      kubectl get pods -n hello-arc -w
+      ```
 
       The result should look like this:
 
