@@ -214,15 +214,15 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 - Clone the Azure Arc Jumpstart repository
 
-  ```shell
+  shell
   git clone https://github.com/microsoft/azure_arc.git
-  ```
+  
 
 - Upgrade to latest Bicep version
 
-  ```shell
+  shell
   az bicep upgrade
-  ```
+  
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
@@ -242,17 +242,18 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ### Bicep deployment option 1: Azure CLI
 
-```shell
+shell
 az login
 az group create --name "<resource-group-name>"  --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
-```
+
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ### Bicep deployment option 2: Azure PowerShell
 
-```shell
+
+```powershell
 Connect-AzAccount
 
 $RGname = "<resource-group-name>"
@@ -451,7 +452,6 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ```shell
   kubectl get virtualservices.networking.istio.io -n bookstore bookstore-virtualservice -o yaml
-
   ```
 
   ![Screenshot showing Bookstore repo Traffic split 02](./bookstore04.png)
