@@ -466,22 +466,6 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Screenshot showing Bookstore apps Istio 02](./bookstore07.png)
 
-- Optional, you may want to reset the traffic split demo to start over with the counters at zero. If so, follow the below steps to reset the bookstore counters.
-
-  - Browse to the _ResetBookstore.ps1_ script placed under _C:\ArcBox\GitOps_. The script will:
-    - Connect to _ArcBox-K3s-Data_ cluster
-    - Deploy a Kubernetes Ingress resource for each bookstore apps reset API
-    - Invoke bookstore apps reset API to reset the counter
-
-  - Before we run the reset script, did you update the Traffic split on GitHub? In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "100" and bookstore weight to "0" and commit the change.
-
-    ![Screenshot showing Bookstore repo Traffic split rest](./bookstore08.png)
-
-  - Right click _ResetBookstore.ps1_ script and select Run with PowerShell to execute the script.
-
-    ![Screenshot showing Script execution reset](./bookstore09.png)
-
-
 ### Microsoft Defender for Cloud
 
 After you have finished the deployment of ArcBox, you can verify that Microsoft Defender for Cloud is working properly and alerting on security threats by running the below command to simulate an alert on the _ArcBox-K3s-Data_ cluster:
