@@ -307,21 +307,21 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 
 ### Azure CLI
 
-  ```shell
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
-  ```
+```shell
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
+```
 
 or
 
 ### Azure PowerShell
 
-  ```powershell
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
-  ```
+```powershell
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
+```
 
   ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_03.png)
 
@@ -331,21 +331,21 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 
 ### Azure CLI
 
-  ```shell
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
-  ```
+```shell
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
+az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
+```
 
 or
 
 ### Azure PowerShell
 
-  ```powershell
-  $serverName = "ArcBox-Win2K22"
-  $localUser = "Administrator"
-  Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
-  ```
+```powershell
+$serverName = "ArcBox-Win2K22"
+$localUser = "Administrator"
+Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
+```
 
   ![Screenshot showing usage of Remote Desktop tunnelled via SSH](./rdp_via_az_cli.png)
 
@@ -353,10 +353,10 @@ or
 
 1. The _Entra ID based SSH Login - Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
 
-      ```shell
-      $serverName = "ArcBox-Ubuntu-01"
-      az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
-      ```
+  ```shell
+  $serverName = "ArcBox-Ubuntu-01"
+  az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
+  ```
 
 2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
     - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
@@ -366,17 +366,17 @@ or
 
 ### Azure CLI
 
-  ```shell
-  # Log out from the Service Principal context
-  az logout
+```shell
+# Log out from the Service Principal context
+az logout
 
-  # Log in using your personal account
-  az login
+# Log in using your personal account
+az login
 
-  $serverName = "ArcBox-Ubuntu-01"
+$serverName = "ArcBox-Ubuntu-01"
 
-  az ssh arc --resource-group $Env:resourceGroup --name $serverName
-   ```
+az ssh arc --resource-group $Env:resourceGroup --name $serverName
+```
 
 or
 
@@ -405,15 +405,15 @@ You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration
 
 ### Azure CLI
 
-  ```shell
-    $serverName = "ArcBox-Ubuntu-01"
-    $localUser = "jumpstart"
-    $configFile = "C:\ArcBox\$serverName"
+```shell
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
+$configFile = "C:\ArcBox\$serverName"
 
-    az extension add --name ssh
+az extension add --name ssh
 
-    az ssh config --resource-group $Env:resourceGroup --name $serverName  --local-user $localUser --resource-type Microsoft.HybridCompute --file "C:\ArcBox\$serverName"
-  ```
+az ssh config --resource-group $Env:resourceGroup --name $serverName  --local-user $localUser --resource-type Microsoft.HybridCompute --file "C:\ArcBox\$serverName"
+```
 
 Expected output:
 
@@ -423,16 +423,16 @@ or
 
 ### Azure PowerShell
 
-  ```powershell
-  Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
-  Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
+```powershell
+Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
+Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 
-  $serverName = "ArcBox-Ubuntu-01"
-  $localUser = "jumpstart"
-  $configFile = "C:\ArcBox\$serverName"
+$serverName = "ArcBox-Ubuntu-01"
+$localUser = "jumpstart"
+$configFile = "C:\ArcBox\$serverName"
 
-  Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
-  ```
+Export-AzSshConfig -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -ResourceType Microsoft.HybridCompute/machines -ConfigFilePath "C:\ArcBox\$serverName"
+```
 
 Expected output:
 
@@ -440,40 +440,40 @@ Expected output:
 
 2. Next, we need to extract the values for the SSH proxy command:
 
-    ```powershell
-    # Use a regex pattern to find the ProxyCommand line and extract its value
-    $proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
-    $match = Select-String -Path $configFile -Pattern $proxyCommandPattern
+  ```powershell
+  # Use a regex pattern to find the ProxyCommand line and extract its value
+  $proxyCommandPattern = 'ProxyCommand\s+"([^"]+)"\s+-r\s+"([^"]+)"'
+  $match = Select-String -Path $configFile -Pattern $proxyCommandPattern
 
-    $proxyCommandValue1 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[1].Value
-    $proxyCommandValue2 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[2].Value
-    $fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
+  $proxyCommandValue1 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[1].Value
+  $proxyCommandValue2 = [regex]::Match($match.Line, $proxyCommandPattern).Groups[2].Value
+  $fullProxyCommandValue = "`"$proxyCommandValue1 -r $proxyCommandValue2`""
 
-    $options = @{ ProxyCommand = $fullProxyCommandValue }
-    ```
+  $options = @{ ProxyCommand = $fullProxyCommandValue }
+  ```
 
 3. Lastly, we can leverage native remote PowerShell constructs to interact with the remote machine:
 
-    ```powershell
-    # Create PowerShell Remoting session
-    New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
-    
-    # Run a command
-    Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
-    
-    # Enter an interactive session
-    Enter-PSSession -Session $session[0]
-    
-    # Disconnect
-    exit
-    
-    # Clean-up
-    $session | Remove-PSSession
-    ```
+  ```powershell
+  # Create PowerShell Remoting session
+  New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
+  
+  # Run a command
+  Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
+  
+  # Enter an interactive session
+  Enter-PSSession -Session $session[0]
+  
+  # Disconnect
+  exit
+  
+  # Clean-up
+  $session | Remove-PSSession
+  ```
 
-    Expected output:
-    
-    ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+  Expected output:
+  
+  ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
