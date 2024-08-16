@@ -21,7 +21,7 @@ ArcBox is a solution that provides an easy to deploy sandbox for all things Azur
 
 ## ArcBox "Flavors"
 
-ArcBox comes in multiple "flavors", or configurations, which can be selected to best suit your needs. Currently, the available flavors are:
+ArcBox comes in multiple "flavors" or configurations, which can be selected to best suit your needs. Currently, the available flavors are:
 
 - [ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro)
     This essential Azure Arc-enabled servers sandbox includes a mix of Microsoft Windows and Linux servers managed using the included capabilities such Azure Monitor, Microsoft Defender for Cloud, Azure Policy, Update Management and more.

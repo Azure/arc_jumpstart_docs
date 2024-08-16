@@ -10,7 +10,7 @@ weight: 6
 
 ArcBox is a sandbox that can be used to explore Azure Arc capabilities, build quick demo environments, support proof-of-concept projects, and even provide a testing platform for specific scenarios. Customers, partners, and community members use ArcBox to quickly get hands-on with Azure Arc technology because it's quick to deploy and has minimal requirements.
 
-## What is required to deploy ArcBox?
+## What's required to deploy ArcBox?
 
 ArcBox deployment requires an Azure service principal with a **Contributor** or **Owner** role-based access control (RBAC) on an Azure subscription and resource group. You can deploy ArcBox using the Azure portal, Azure CLI using a Bicep template.
 
