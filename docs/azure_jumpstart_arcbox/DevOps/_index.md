@@ -214,15 +214,15 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 - Clone the Azure Arc Jumpstart repository
 
-  shell
+  ```shell
   git clone https://github.com/microsoft/azure_arc.git
-  
+  ```
 
 - Upgrade to latest Bicep version
 
-  shell
+  ```shell
   az bicep upgrade
-  
+  ```
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
   - _`sshRSAPublicKey`_ - Your SSH public key
@@ -666,7 +666,7 @@ Occasionally deployments of ArcBox may fail at various stages. Common reasons fo
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 30 available. See the [prerequisites](#prerequisites) section for more details.
 - The selected Azure region doesn't support all the necessary services. Ensure you are deploying ArcBox in one of the supported regions listed in the "ArcBox Azure Region Compatibility" section above.
-- Ensure the kubeconfig context is set to the correct cluster before running any kubectl commands. For K3s-Data cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config"_ and for K3s cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config-k3s"_.
+- Ensure the kubeconfig context is set to the correct cluster before running any kubectl commands. For _ArcBox-K3s-Data-xxxx_ cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config"_ and for _ArcBox-K3s-xxxx_ cluster _$Env:KUBECONFIG="C:\Users\$Env:adminUsername\.kube\config-k3s"_.
 
 ### Exploring logs from the _ArcBox-Client_ virtual machine
 
@@ -690,7 +690,7 @@ In the case of a failed deployment, pointing to a failure in either the _ubuntuR
 
 - Depending on which deployment failed, connect using SSH to the associated virtual machine public IP:
   - _ubuntuRancherK3sDataSvcDeployment_ - _ArcBox-K3s-Data-xxxx_ virtual machine.
-  - _ubuntuRancherK3sDeployment_ - _ArcBox-K3s_ virtual machine.
+  - _ubuntuRancherK3sDeployment_ - _ArcBox-K3s-xxxx_ virtual machine.
 
     ![Screenshot showing ArcBox-K3s-Data-xxxx virtual machine public IP](./arcbox_k3s_data_vm_ip.png)
 
