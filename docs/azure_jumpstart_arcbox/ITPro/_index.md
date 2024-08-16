@@ -531,7 +531,7 @@ To inspect the compliance status of the assigned policy, perform the following:
 
 4. Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
 
-    [Screenshot showing configuration settings](./ssh_posture_control_04.png)
+    ![Screenshot showing configuration settings](./ssh_posture_control_04.png)
 
 5. The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
 
