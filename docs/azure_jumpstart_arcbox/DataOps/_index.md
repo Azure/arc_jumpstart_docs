@@ -126,13 +126,13 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 - Register necessary Azure resource providers by running the following commands.
 
-    ```shell
-    az provider register --namespace Microsoft.Kubernetes --wait
-    az provider register --namespace Microsoft.KubernetesConfiguration --wait
-    az provider register --namespace Microsoft.ExtendedLocation --wait
-    az provider register --namespace Microsoft.AzureArcData --wait
-    az provider register --namespace Microsoft.OperationsManagement --wait
-    ```
+  ```shell
+  az provider register --namespace Microsoft.Kubernetes --wait
+  az provider register --namespace Microsoft.KubernetesConfiguration --wait
+  az provider register --namespace Microsoft.ExtendedLocation --wait
+  az provider register --namespace Microsoft.AzureArcData --wait
+  az provider register --namespace Microsoft.OperationsManagement --wait
+  ```
 
 - [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
 
@@ -319,9 +319,9 @@ Included in ArcBox, is a dedicated SQL stress simulation tool named SqlQueryStre
 
 - To generate some load, we will be running a simple stored procedure. Copy the below procedure and change the number of iterations you want it to run as well as the number of threads to generate even more load on the database. In addition, change the delay between queries to 1ms for allowing the stored procedure to run for a while. Click on Go to start generating load.
 
-    ```sql
-    exec [dbo].[uspGetEmployeeManagers] @BusinessEntityID = 8
-    ```
+  ```sql
+  exec [dbo].[uspGetEmployeeManagers] @BusinessEntityID = 8
+  ```
 
 - As you can see from the example below, the configuration settings are 100,000 iterations, five threads per iteration, and a 1ms delay between queries. These configurations should allow you to have the stress test running for a while.
 
