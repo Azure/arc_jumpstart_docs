@@ -556,14 +556,14 @@ To inspect the compliance status of the assigned policy, perform the following:
     GuestConfigurationResources
     | where name contains "LinuxSshServerSecurityBaseline"
     | project report = properties.latestAssignmentReport,
-     machine = split(properties.targetResourceId,'/')[-1],
-     lastComplianceStatusChecked=properties.lastComplianceStatusChecked
+    machine = split(properties.targetResourceId,'/')[-1],
+    lastComplianceStatusChecked=properties.lastComplianceStatusChecked
     | mv-expand report.resources
     | project machine,
-     rule = report_resources.resourceId,
-     ruleComplianceStatus = report_resources.complianceStatus,
-     ruleComplianceReason = report_resources.reasons[0].phrase,
-     lastComplianceStatusChecked
+    rule = report_resources.resourceId,
+    ruleComplianceStatus = report_resources.complianceStatus,
+    ruleComplianceReason = report_resources.reasons[0].phrase,
+    lastComplianceStatusChecked
     ```
 
     ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
