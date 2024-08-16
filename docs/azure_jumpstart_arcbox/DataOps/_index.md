@@ -281,7 +281,7 @@ Example:
 
   ![Screenshot showing connecting to the VM using UPN format in Bastion](./domain_login_bastion.png)
 
-> **Note:** Logging into the Client VM without the UPN format _username@&#65279;jumpstart.local_ will prevent the automation from running automatically.
+> **Note:** Logging into the Client VM without the UPN format _username@jumpstart.local_ will prevent the automation from running automatically.
 
 #### The Logon scripts
 
