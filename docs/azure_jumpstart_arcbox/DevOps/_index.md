@@ -242,11 +242,11 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ### Bicep deployment option 1: Azure CLI
 
-shell
+```shell
 az login
 az group create --name "<resource-group-name>"  --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
-
+```
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -404,10 +404,10 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
     The "pod-reader" role only allows _get_, _watch_ and _list_ Kubernetes operations permissions in the _bookstore_ namespace but doesn't allow for _delete_ operations permissions.
 
-      ```shell
-      $pod=kubectl --namespace bookstore get pods --selector=app=bookstore --output="jsonpath={.items..metadata.name}"
-      kubectl --namespace bookstore delete pods $pod --as=jane
-      ```
+    ```shell
+    $pod=kubectl --namespace bookstore get pods --selector=app=bookstore --output="jsonpath={.items..metadata.name}"
+    kubectl --namespace bookstore delete pods $pod --as=jane
+    ```
 
       ![Screenshot showing bookstore RBAC delete pods](./rbac03.png)
 
