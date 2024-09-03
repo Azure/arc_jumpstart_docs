@@ -14,7 +14,7 @@ weight: 6
 ### Release highlights
 
 - [Jumpstart ArcBox v3.0 release](https://aka.ms/arcboxblog)
-- Critial HCIBox upstream-related bug fixes
+- Critical HCIBox upstream-related bug fixes
 
 ### Jumpstart ArcBox
 
