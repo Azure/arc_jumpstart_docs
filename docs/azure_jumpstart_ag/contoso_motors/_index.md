@@ -1,5 +1,5 @@
 ---
 type: docs
-linkTitle: "Manufacturing"
+linkTitle: "Contoso Motors"
 weight: 3
 ---
