@@ -148,7 +148,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/manufacturing/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_motors/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`spnClientId`_ - Your Azure service principal application id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnObjectId`_ - Your Azure service principal id
@@ -189,7 +189,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
   $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/manufacturing/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_motors/bicep) and run the below command:
 
   ```shell
   az login
