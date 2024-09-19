@@ -301,7 +301,7 @@ Included in this scenario, is a dedicated SQL stress simulation tool named _SqlQ
 
   ![Screenshot showing SQLMI Endpoints text file](./34.png)
 
-> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](/azure_arc_jumpstart/azure_arc_data/day2/kubeadm/azure/capi_mssql_ha/).
+> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/).
 
 - To connect, use "SQL Server Authentication" and select the deployed sample _AdventureWorks_ database (you can use the "Test" button to check the connection).
 

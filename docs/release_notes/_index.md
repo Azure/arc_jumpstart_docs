@@ -9,6 +9,40 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## August 2024
+
+### Release highlights
+
+- [Jumpstart ArcBox v3.0 release](https://aka.ms/arcboxblog)
+- Critical HCIBox upstream-related bug fixes
+
+### Jumpstart ArcBox
+
+- [Jumpstart ArcBox v3.0 release](https://aka.ms/arcboxblog)
+- [Bug: C:\ArcBox\SqlQueryStress.zip is missing #354](https://github.com/Azure/arc_jumpstart_docs/issues/354)
+- [Bug: Microsoft SQL Server Management Studio Desktop Link is broken #353](https://github.com/Azure/arc_jumpstart_docs/issues/353)
+- [Bug: Provisioning of VM extension installscript_CAPI has timed out #352](https://github.com/Azure/arc_jumpstart_docs/issues/352)
+
+### Jumpstart HCIBox
+
+- [Bug: cannot provision k8s on the hci box cluster #2628](https://github.com/microsoft/azure_arc/issues/2628)
+- [Bug: HCI deployment failing with permission error. #2631](https://github.com/microsoft/azure_arc/issues/2631)
+- [Bug: [Regression]Unable to install a new jumpstart HCIBox #2658](https://github.com/microsoft/azure_arc/issues/2658)
+- [Bug: HCIBox-Client post deployment automation issues #2671](https://github.com/microsoft/azure_arc/issues/2671)
+
+### Jumpstart Agora
+
+- [Bug: IOT_OPS_Jumpstart failing for AIO_Manufacturing with error: mq_service_type not found #2648](https://github.com/microsoft/azure_arc/issues/2648)
+- [Bug: Azure_jumpstart_ag -> Manufacturing: Aglogon script doesn't run successfully. #2655](https://github.com/microsoft/azure_arc/issues/2655)
+
+### Arc, Edge, and IoT Operations
+
+- [Bug: IOT_OPS_Jumpstart failing for AIO_Manufacturing with error: mq_service_type not found #2648](https://github.com/microsoft/azure_arc/issues/2648)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - Aug release #2678](https://github.com/microsoft/azure_arc/issues/2678)
+
 ## July 2024
 
 ### Release highlights
