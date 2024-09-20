@@ -14,7 +14,6 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
 
 - **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
 - **[AKS on Azure Stack HCI](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
-- **[Kubernetes Cluster API](/azure_arc_jumpstart/azure_arc_k8s/cluster_api/)**
 - **[Azure Red Hat OpenShift](/azure_arc_jumpstart/azure_arc_k8s/aro/)**
 - **[Amazon Elastic Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/eks/)**
 - **[Google Kubernetes Engine](/azure_arc_jumpstart/azure_arc_k8s/gke/)**
