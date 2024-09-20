@@ -640,7 +640,7 @@ As part of the ArcBox DataOps deployment on-demand SQL Server migration assessme
 
 Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
 
-- Navigate to the resource group overview page in Azure Portal
+- Navigate to the resource group overview page in Azure Portal.
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
@@ -656,11 +656,11 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
-- Review migration readiness to migrate to Azure SQL Managed Instance
+- Review migration readiness to migrate to Azure SQL Managed Instance.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
 
-- Review migration readiness to migrate to SQL Server on Virtual Machines
+- Review migration readiness to migrate to SQL Server on Virtual Machines.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
@@ -708,7 +708,7 @@ This section guides you through different settings for enabling Microsoft Defend
 
 As part of least privilege security best practice principle, [Arc-enabled SQL server supports running agent extension under least privilege access](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-least-privilege?view=sql-server-ver16). By default SQL server agent extension runs under Local System account. After enabling the least privilege access, agent extension runs under _NT Service\SQLServerExtension_. Refer [permissions required and assigned to _NT Service\SQLServerExtension_ service account](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-windows-accounts-agent?view=sql-server-ver16) for more details.
 
-- Screenshot below shows Arc-enabled SQL server extension service running under _NT Service\SQLServerExtension_ service account
+- Screenshot below shows Arc-enabled SQL server extension service running under _NT Service\SQLServerExtension_ service account.
 
 ![Screenshot showing Arc-enabled SQL server agent extension running under least privileged access](./sql-server-least-privileged-access.png)
 
@@ -742,7 +742,7 @@ Once the SQL Server backups are enabled and have the backups available to restor
 
 ![Screenshot showing _AdventurWorksLT2022_ database restore points](./sql-server-backups-restore-db.png)
 
-- Review final details and click Review + Create to start restoring the database
+- Review final details and click Review + Create to start restoring the database.
 
 ![Screenshot showing _AdventurWorksLT2022_ database restore confirmation](./sql-server-backups-confirim-restore-db.png)
 
