@@ -66,9 +66,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-- In Azure portal, validate that both HCI nodes have been created as Arc-enabled servers.
+- In Azure portal, validate that both HCI nodes(AzSHOST1 and AzSHOST2) have been created as Arc-enabled servers.
 
-- Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: TelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
+- Verify that both of the Arc-enabled servers have successfully installed the three HCI extensions: AzureEdgeTelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
