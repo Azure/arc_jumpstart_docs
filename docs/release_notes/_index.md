@@ -9,6 +9,51 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## September 2024
+
+### Release highlights
+
+- Deprecation of Cluster API (CAPI) from the Arc Jumpstart
+- Critical Jumpstart ArcBox bug fixes
+- Critical Jumpstart Agora bug fixes
+- Various documentation updates
+- Miscellaneous bug fixes and enhancements
+
+### Cross Jumpstart
+
+- [Deprecation: Deprecate CAPI from Jumpstart Scenarios #2707](https://github.com/microsoft/azure_arc/issues/2707)
+- [Enhancement: Update AKSEE schema version to 1.14 #2722](https://github.com/microsoft/azure_arc/issues/2722)
+
+### Jumpstart ArcBox
+
+- [Bug: ArcBox deployment fails due to WinGet bootstrapping issue #2724](https://github.com/microsoft/azure_arc/issues/2724)
+- [Bug: Deployment failure if no email recipient given for autoshutdown #404](https://github.com/Azure/arc_jumpstart_docs/issues/404)
+- [Feature: Support Arc-enabled SQL Server least privilege, automated backups, and performance dashboards #2733](https://github.com/microsoft/azure_arc/issues/2733)
+- [Enhancement: Update AKS templates autoupgrade channels #2699](https://github.com/microsoft/azure_arc/issues/2699)
+
+### Jumpstart HCIBox
+
+- [Documentation: Syntax within the guide for HCI #2715](https://github.com/microsoft/azure_arc/issues/2715)
+
+### Jumpstart Agora
+
+- [Bug: Bug with new version in Azure Iot Operations #2695](https://github.com/microsoft/azure_arc/issues/2695)
+- [Bug: Contoso Motors - reporting dashboard not working #2702](https://github.com/microsoft/azure_arc/issues/2702)
+- [Bug: Contoso Motors - InfluxDB login not working #2703](https://github.com/microsoft/azure_arc/issues/2703)
+- [Documentation: Update Screenshots to use newer branding for Agora #408](https://github.com/Azure/arc_jumpstart_docs/issues/408)
+
+### Arc-enabled Kubernetes
+
+- [Bug: Logon script error in AKS Edge Essentials single node deployment with Azure Arc using ARM Template #2688](https://github.com/microsoft/azure_arc/issues/2688)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - Sept release #2711](https://github.com/microsoft/azure_arc/issues/2711)
+
+### Arc, Edge, and IoT Operations
+
+- [Bug: https://github.com/Azure/arc_jumpstart_docs/issues/406](https://github.com/Azure/arc_jumpstart_docs/issues/406)
+
 ## August 2024
 
 ### Release highlights
