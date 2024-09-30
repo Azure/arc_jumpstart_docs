@@ -37,7 +37,7 @@ weight: 6
 
 ### Jumpstart Agora
 
-- [Bug: Bug with new version in Azure Iot Operations #2695](https://github.com/microsoft/azure_arc/issues/2695)
+- [Bug: Bug with new version in Azure IoT Operations #2695](https://github.com/microsoft/azure_arc/issues/2695)
 - [Bug: Contoso Motors - reporting dashboard not working #2702](https://github.com/microsoft/azure_arc/issues/2702)
 - [Bug: Contoso Motors - InfluxDB login not working #2703](https://github.com/microsoft/azure_arc/issues/2703)
 - [Documentation: Update Screenshots to use newer branding for Agora #408](https://github.com/Azure/arc_jumpstart_docs/issues/408)
@@ -70,7 +70,7 @@ weight: 6
 
 ### Jumpstart HCIBox
 
-- [Bug: cannot provision k8s on the hci box cluster #2628](https://github.com/microsoft/azure_arc/issues/2628)
+- [Bug: cannot provision k8s on the HCIBox cluster #2628](https://github.com/microsoft/azure_arc/issues/2628)
 - [Bug: HCI deployment failing with permission error. #2631](https://github.com/microsoft/azure_arc/issues/2631)
 - [Bug: [Regression]Unable to install a new jumpstart HCIBox #2658](https://github.com/microsoft/azure_arc/issues/2658)
 - [Bug: HCIBox-Client post deployment automation issues #2671](https://github.com/microsoft/azure_arc/issues/2671)
@@ -262,19 +262,19 @@ weight: 6
 
 ### Arc, Edge, and IoT Operations
 
-- [Bug: AIO scenario - error in AIO initializtion #2392](https://github.com/microsoft/azure_arc/issues/2392)
+- [Bug: AIO scenario - error in AIO initialization #2392](https://github.com/microsoft/azure_arc/issues/2392)
 - [Bug: Arc-enabled Video Indexer: update extension parameters to support release builds #2402](https://github.com/microsoft/azure_arc/issues/2402)
 
 ### Arc-enabled data services
 
 - [Feature: Azure Arc-enabled data services - February release #2397](https://github.com/microsoft/azure_arc/issues/2397)
 
-## Janurary 2024
+## January 2024
 
 ### Release highlights
 
 - [Jumpstart HCIBox 23H2 release](https://aka.ms/HCIBox23h2Blog)
-- Secuirty posture improvements
+- Security posture improvements
 
 ### Cross Jumpstart
 
