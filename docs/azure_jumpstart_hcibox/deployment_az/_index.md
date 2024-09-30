@@ -139,7 +139,7 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 ## Clean up the deployment
 
-To clean up your deployment, simply delete the resource groups using Azure CLI or Azure portal.
+To clean up your deployment, simply delete the resource group using Azure CLI or Azure portal.
 
 - Clean up Using Azure CLI
 
