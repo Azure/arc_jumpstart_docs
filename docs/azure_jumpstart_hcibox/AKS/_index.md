@@ -57,6 +57,11 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing cluster detail](./cluster_detail.png)
 
+> [!IMPORTANT]
+> Before running the following command, make sure to update the `connectedk8s` extension by running:
+> ```
+> az extension update --name connectedk8s
+> ```
 - From Azure portal, open Cloud Shell and run the following command, using the name of your HCIBox resource group.
 
   ```
