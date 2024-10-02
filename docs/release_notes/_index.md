@@ -52,7 +52,7 @@ weight: 6
 
 ### Arc, Edge, and IoT Operations
 
-- [Bug: Simulator not Transmitting Data in Edge IoT Ops Manufacturing Jumpstart](https://github.com/Azure/arc_jumpstart_docs/issues/406)
+- [Bug: Simulator not Transmitting Data in Edge IoT Ops Manufacturing Jumpstart #406](https://github.com/Azure/arc_jumpstart_docs/issues/406)
 
 ## August 2024
 
