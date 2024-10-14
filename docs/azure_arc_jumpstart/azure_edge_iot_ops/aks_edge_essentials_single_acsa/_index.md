@@ -1,27 +1,27 @@
 ---
 type: docs
-title: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
-linkTitle: "Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment"
+title: "Fault Detection with Azure Container Storage on AKS Edge Essentials single node deployment"
+linkTitle: "Fault Detection with Azure Container Storage on AKS Edge Essentials single node deployment"
 weight: 7
 description: >
 ---
 
-## Fault Detection with Edge Storage Accelerator on AKS Edge Essentials single node deployment
+## Fault Detection with Azure Container Storage on AKS Edge Essentials single node deployment
 
-The following Jumpstart scenario showcases Edge Storage Accelerator (ESA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Edge Storage Accelerator provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
+The following Jumpstart scenario showcases Azure Container Storage (ACSA), which is a storage system designed for Arc-enabled Kubernetes clusters to provide reliable, fault tolerant storage in a *ReadWriteMany* persistent volume. The Azure Container Storage provides a constantly connected conduit for edge data to be replicated to blob storage in the cloud while maintaining a local copy, as space permits, for low-latency local access.
 
-> ⚠️ **Disclaimer:** The Edge Storage Accelerator is currently in public preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Edge Storage Accelerator Documentation](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview).
+> ⚠️ **Disclaimer:** The Azure Container Storage is currently in public preview and not generally available. Access to the feature may be limited and subject to specific terms and conditions. For further details and updates on availability, please refer to the [Azure Container Storage Documentation](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview).
 
 
 ![Screenshot showing scenario architecture diagram](./01.png)
 
-> **Note:** 🧪 For access to the preview, please complete this [questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) about your environment and use-case. We want to be sure that our customers will be successful in their testing! Once you have submitted your responses, one of the ESA PMs will get back to you with an update on your request!
+> **Note:** 🧪 For access to the preview, please complete this [questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) about your environment and use-case. We want to be sure that our customers will be successful in their testing! Once you have submitted your responses, one of the ACSA PMs will get back to you with an update on your request!
 🪲 If you found a bug or have an issue, please complete the [Edge Storage Accelerator Request Support Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUOVlRSjJNOFgxNkRPN1IzQUZENFE4SjlSNy4u).
 
-In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ESA.
+In this scenario, a computer vision AI model detects defects in bolts by analyzing video from a supply line video feed streamed over RTSP. The identified defects are then stored in a container within a storage account using ACSA.
 
 
-The automation in this scenario deploys Edge Storage Accelerator on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Edge Storage Accelerator deployment. Once AKS Edge Essentials is deployed [Edge Storage Accelerator](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
+The automation in this scenario deploys Azure Container Storage on an AKS Edge Essentials single-node deployment running in an Azure virtual machine. The provided ARM template creates the Azure resources and configures the LogonScript.ps1 custom script extension which handles AKS Edge Essentials cluster creation, Azure Arc onboarding for the Azure VM and AKS Edge Essentials cluster, and Azure Container Storage deployment. Once AKS Edge Essentials is deployed [Azure Container Storage](https://learn.microsoft.com/azure/azure-arc/edge-storage-accelerator/overview) is installed as a Kubernetes service that exposes a CSI driven storage class for use by applications in the Edge Essentials Kubernetes cluster.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ The automation and deployment flow of the scenario proceeds as follows:
 
 - User edits the ARM template parameters file (1-time edit). These parameter values are used throughout the deployment.
 
-- Main [*azuredeploy* ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
+- Main [*azuredeploy* ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
 
   - *Virtual Network* - Virtual Network for Azure Windows Server VM.
   - *Network Interface* - Network Interface for Azure Windows Server VM.
@@ -79,10 +79,10 @@ The automation and deployment flow of the scenario proceeds as follows:
   - *Virtual Machine* - Azure Windows Server VM.
   - *Custom script and Azure Desired State Configuration extensions* - Configure the Azure Windows Server VM to host AKS Edge Essentials.
 
-- User remotes into client Windows VM, which automatically kicks off the [*LogonScript*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
+- User remotes into client Windows VM, which automatically kicks off the [*LogonScript*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
   - Create the AKS Edge Essentials cluster in the Windows Server VM
   - Onboard the Azure VM and AKS Edge Essentials cluster to Azure Arc
-  - Deploy ESA and Fault Detection Model
+  - Deploy ACSA and Fault Detection Model
 
 ## Deployment
 
@@ -96,7 +96,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
 
   - *`vmSize`* - Client Windows VM size.
   - *`vmName`* - Client Windows VM name.
@@ -114,28 +114,28 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - *`storageAccountName`* - Azure Storage Account Name
   - *`storageContainer`* - Container in Storage Account (Leave this unmodified for a quick deployment)
 
-- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/) and run the below command:
+- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/) and run the below command:
 
     ```shell
     az group create --name <Name of the Azure resource group> --location <Azure Region>
     az deployment group create \
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json \
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
     > **Note:** Make sure that you are using the same Azure resource group name as the one you've just used in the *azuredeploy.parameters.json* file.
     
-    > **Note:** ESA currently supports only the following Azure regions: East US, East US 2, West US 3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
+    > **Note:** ACSA currently supports only the following Azure regions: East US, East US 2, West US 3, and West Europe. Ensure that your resource group and deployment are within these Azure regions. Support for additional locations will be provided in the future.
     For example:
 
     ```shell
-    az group create --name AKS-EE-ESA-Demo --location "East US 2"
+    az group create --name AKS-EE-ACSA-Demo --location "East US 2"
     az deployment group create \
-    --resource-group AKS-EE-ESA-Demo \
+    --resource-group AKS-EE-ACSA-Demo \
     --name akseedemo \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/esa_fault_detection/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json \
     --parameters azuredeploy.parameters.json
     ```
 
@@ -149,7 +149,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 ## Windows Login & Post Deployment
 
-Various options are available to connect to *ESA-Win-Demo* Azure VM, depending on the parameters you supplied during deployment.
+Various options are available to connect to *ACSA-Win-Demo* Azure VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the *Arc-App-Client-NSG*, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
 - [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your *`deployBastion`* parameter during deployment.
@@ -158,7 +158,7 @@ Various options are available to connect to *ESA-Win-Demo* Azure VM, depending o
 
 By design, port 3389 is not allowed on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-- Open the *ESA-Win-Demo-NSG* resource in Azure portal and click "Add" to add a new rule.
+- Open the *ACSA-Win-Demo-NSG* resource in Azure portal and click "Add" to add a new rule.
 
   ![Screenshot showing AKS-EE-Demo-NSG NSG with blocked RDP](./04.png)
 
@@ -226,13 +226,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot kubectl get pod -A](./23.png)
 
-## Edge Storage Accelerator: Real-Time Defect Detection in Manufacturing
+## Azure Container Storage: Real-Time Defect Detection in Manufacturing
 
-Once installed, you will need to open a PowerShell on the *ESA-Win-Demo* server and obtain the IP and service port for the demonstration application.
+Once installed, you will need to open a PowerShell on the *ACSA-Win-Demo* server and obtain the IP and service port for the demonstration application.
 
 ![Screenshot kubectl get svc](./24.png)
 
-Use the *esa-webserver-svc* EXTERNAL-IP and PORT to reach the application web frontend.
+Use the *ACSA-webserver-svc* EXTERNAL-IP and PORT to reach the application web frontend.
 
 ![Screenshot of web application](./25.png)
 
@@ -246,12 +246,12 @@ After the application runs, you can validate that the detected objects have been
 
 ### Exploring logs from the Client VM
 
-Occasionally, you may need to review log output from scripts that run on the *ESA-Win-Demo* VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the *C:\Temp* folder on *ESA-Win-Demo* Azure VM. A short description of the logs and their purpose can be seen in the list below:
+Occasionally, you may need to review log output from scripts that run on the *ACSA-Win-Demo* VM in case of deployment failures. To make troubleshooting easier, the scenario deployment scripts collect all relevant logs in the *C:\Temp* folder on *ACSA-Win-Demo* Azure VM. A short description of the logs and their purpose can be seen in the list below:
 
 | Log file | Description |
 | ------- | ----------- |
-| *C:\Temp\Bootstrap.log* | Output from the initial *bootstrapping.ps1* script that runs on *ESA-Win-Demo* Azure VM. |
-| *C:\Temp\LogonScript.log* | Output of *LogonScript.ps1* which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Edge Storage Accelerator, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
+| *C:\Temp\Bootstrap.log* | Output from the initial *bootstrapping.ps1* script that runs on *ACSA-Win-Demo* Azure VM. |
+| *C:\Temp\LogonScript.log* | Output of *LogonScript.ps1* which creates the AKS Edge Essentials cluster, onboards it with Azure Arc and creates the necessary extensions for Azure Container Storage, storage account, storage container, and the Kubernetes deployment for running the fault detection scenario |
 
 ![Screenshot showing the Temp folder with deployment logs](./28.png)
 
