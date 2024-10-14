@@ -144,6 +144,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
+  - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
@@ -595,7 +596,7 @@ As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment
 
 Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
 
-- Navigate to the resource group overview page in Azure Portal
+- Navigate to the resource group overview page in Azure Portal.
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
@@ -609,11 +610,11 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
-- Review migration readiness to migrate to Azure SQL Managed Instance
+- Review migration readiness to migrate to Azure SQL Managed Instance.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
 
-- Review migration readiness to migrate to SQL Server on Virtual Machines
+- Review migration readiness to migrate to SQL Server on Virtual Machines.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
@@ -656,6 +657,70 @@ This section guides you through different settings for enabling Microsoft Defend
 - Microsoft Defender for Cloud generates an email and sends it to the registered email for alerts. The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
   
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
+
+### Arc-enabled SQL Server - least privilege access
+
+As part of least privilege security best practice principle, [Arc-enabled SQL server supports running agent extension under least privilege access](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-least-privilege?view=sql-server-ver16). By default SQL server agent extension runs under Local System account. After enabling the least privilege access, agent extension runs under _NT Service\SQLServerExtension_. Refer [permissions required and assigned to _NT Service\SQLServerExtension_ service account](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-windows-accounts-agent?view=sql-server-ver16) for more details.
+
+- Screenshot below shows Arc-enabled SQL server extension service running under _NT Service\SQLServerExtension_ service account.
+
+![Screenshot showing Arc-enabled SQL server agent extension running under least privileged access](./sql-server-least-privileged-access.png)
+
+- To view the status of Arc-enabled SQL server agent extension service, logon to the _ArcBox-SQL_ Hyper-V virtual machine, open Windows services from Control Panel -> System and Security -> Administrative Tools.
+
+![Screenshot showing ArcBox-SQL Hyper-V guest VM](./arcbox-sql-hyperv-guest.png)
+
+### Arc-enabled SQL Server - automated backups and restore
+
+#### Automated backups
+
+[Arc-enabled SQL Server supports automated backups](https://learn.microsoft.com/sql/sql-server/azure-arc/backup-local?view=sql-server-ver16&tabs=azure) to recover data during the disaster recovery process or when customers would like to go back to certain restore point. ArcBox deployment is now enabled to perform scheduled backups at instance level to take full database backup every 7 days,  differential backup every 12 hours, and log backup every 5 minutes to support lowest RPO. These schedules are customizable, refer documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/backup-local?view=sql-server-ver16&tabs=azure#backup-frequency-and-retention-days) for more details. These backups can be configured at database server instance level or individual database level based on the recovery needs.
+
+- Screenshot below shows automated backup schedule configured in ArcBox-SQL Arc-enabled SQL Server at the instance level.
+
+![Screenshot showing ArcBox-SQL automated backup schedule](./sql-server-automated-backups.png)
+
+- Screenshot below shows automated backup schedule inherited from the instance level backup policy.
+
+![Screenshot showing ArcBox-SQL automated backup schedule inherited from instance](./sql-server-automated-backups-database.png)
+
+#### Restore database
+
+Once the SQL Server backups are enabled and have the backups available to restore from certain restore points, customers can restore database to a new database from the specific restore point that would like to restore data from.
+
+- Screenshot below shows earliest available restore points to restore database from. Click on the _Restore_ link restore _AdventurWorksLT2022_ database from one of the restore point.
+
+![Screenshot showing ArcBox-SQL backup earliest restore points](./sql-server-backups-restore-points.png)
+
+- Screenshot below shows available restore points for _AdventurWorksLT2022_ database. To restore this database 1) Select available restore point, 2) Specify new database name, and 3) Click on Create to restore database to the desired restore points.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore points](./sql-server-backups-restore-db.png)
+
+- Review final details and click Review + Create to start restoring the database.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore confirmation](./sql-server-backups-confirim-restore-db.png)
+
+- Once the database restore request is submitted, review restore status in the Azure Portal as shown in the screenshot below. Notice new database is created on the _ArcBox-SQL_ database server.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore status](./sql-server-backups-restore-db-status.png)
+
+- You can also verify restored database on the ArcBox-SQL guest VM as shown in the screenshot below.
+
+![Screenshot showing restored database on the SQL server guest VM](./sql-server-backups-restore-db-status-guestvm.png)
+
+### Monitor SQL Server enabled by Azure Arc
+
+Arc-enabled SQL Server now supports [monitoring using the performance dashboards](https://learn.microsoft.com/sql/sql-server/azure-arc/sql-monitoring?view=sql-server-ver16) in Azure Portal. Performance dashboard feature is supported only on SQL Server Standard and Enterprise editions. ArcBox deployment now supports deploying SQL Server Standard and Enterprise editions. Choose the correct edition based on the requirement to experience performance dashboards. Refer deployment parameters documented in this document to select desired SQL Server edition using the parameter _sqlServerEdition_.
+
+- To view performance dashboards in Arc-enabled SQL Server, go to the resource group deployed in the Azure Portal, locate ArcBox-SQL Arc-enabled SQL server and open resource details.
+
+- Click on _Performance Dashboard_ under Monitoring section as shown below to view performance dashboard.
+
+![Screenshot showing SQL server performance dashboard](./sql-server-navigate-performance-dashboard.png)
+
+- Screenshot below shows SQL Server performance dashboard enabled by Azure Arc.
+
+![Screenshot showing SQL server performance dashboard](./sql-server-open-performance-dashboard.png)
 
 ### Included tools
 
