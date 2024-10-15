@@ -106,6 +106,9 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
 
   ![Screenshot showing retrieving StackHCI resource provider id](./hci_rp_id.png)
 
+
+> **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
+
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
