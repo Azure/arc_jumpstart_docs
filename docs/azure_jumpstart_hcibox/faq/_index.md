@@ -4,7 +4,7 @@ linkTitle: "HCIBox FAQ"
 weight: 7
 ---
 
-## Jumpstart HCIBox Frequently Asked Questions (FAQ)
+# Jumpstart HCIBox Frequently Asked Questions (FAQ)
 
 ## What is Jumpstart HCIBox?
 

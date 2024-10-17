@@ -3,8 +3,7 @@ type: docs
 linkTitle: "VM Management"
 weight: 7
 ---
-
-## Virtual machine provisioning with Azure Arc
+# Virtual machine provisioning with Azure Arc in your HCIBox
 
 Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Stack HCI clusters, the HCIBox cluster comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
