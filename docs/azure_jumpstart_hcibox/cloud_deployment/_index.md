@@ -8,20 +8,20 @@ weight: 5
 
 ## Start post-deployment automation
 
-Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment.
+Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, you can open the Azure portal to see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
    > **Note:** RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
-### Connecting to the HCIBox Client virtual machine
+## Connecting to the HCIBox Client virtual machine
 
 Various options are available to connect to _HCIBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
 - [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
 
-#### Connecting directly with RDP
+### Connecting directly with RDP
 
 By design, HCIBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
@@ -41,7 +41,7 @@ By design, HCIBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
-#### Connect using Azure Bastion
+### Connect using Azure Bastion
 
 - If you have chosen to deploy Azure Bastion in your deployment, use it to connect to the VM.
 
@@ -49,7 +49,7 @@ By design, HCIBox does not open port 3389 on the network security group. Therefo
 
   > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _HCIBox-Client_ with Azure Bastion.
 
-#### Connect using just-in-time access (JIT)
+### Connect using just-in-time access (JIT)
 
 If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) enabled on your subscription and would like to use JIT to access the Client VM, use the following steps:
 
@@ -61,7 +61,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing connecting to the VM using JIT](./jit_rdp_connect.png)
 
-#### The Logon scripts
+### The Logon scripts
 
 - Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 1-2 hours to finish, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
 
@@ -76,14 +76,14 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 - If everything looks good, and you did not choose to configure the `autoDeployClusterResource` parameter with the value `true` in your deployment, proceed to the next section to validate and deploy your cluster. If you did enable this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
 Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
 
-### Azure portal Azure Stack HCI cluster validation and deployment
+## Azure portal Azure Stack HCI cluster validation and deployment
 
 Azure Stack HCI uses a two-step process to create and register clusters in Azure using an ARM template.
 
   1. **Validate** - an ARM template is deployed with a "validate" flag. This begins the final cluster validation step and takes around 20 minutes.
   2. **Deploy** - the same ARM template is redeployed with the "deploy" flag. This deploys the cluster and Arc infrastructure and registers the cluster. This step takes around 2-3 hours.
 
-#### Validate cluster in Azure portal
+### Validate cluster in Azure portal
 
 - Before submitting the ARM deployment, you need to add your user account as a Key Vault Administrator on the HCIBox resource group. Navigate to the resource group then click "Access Control (IAM)" and then "Add role assignment". Select the "Key Vault Administrator role" then click on to the next screen to select your user account and assign your user the role.
 
@@ -117,7 +117,7 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
 - Monitor validation as needed until complete.
 
-#### Deploy cluster in Azure portal
+## Deploy cluster in Azure portal
 
 - When validation is complete navigate to the cluster resource in your HCIBox resource group. The banner should indicate that your cluster is validated but not yet deployed. Click the "Deploy now" link.
 
@@ -127,7 +127,7 @@ Azure Stack HCI uses a two-step process to create and register clusters in Azure
 
   ![Screenshot showing progress of deploying cluster](./cluster_deployment_progress.png)
 
-#### Deployment complete
+## Deployment complete
 
 - Once the HCIBox cluster is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_jumpstart_hcibox/using_hcibox) guide for the next steps.
 
