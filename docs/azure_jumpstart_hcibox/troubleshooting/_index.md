@@ -3,8 +3,9 @@ type: docs
 linkTitle: "Troubleshooting"
 weight: 9
 ---
+# Troubleshooting HCIBox
 
-## Troubleshooting
+## Troubleshooting Deployments
 
 Occasionally deployments of HCIBox may fail at various stages. Common reasons for failed deployments include:
 

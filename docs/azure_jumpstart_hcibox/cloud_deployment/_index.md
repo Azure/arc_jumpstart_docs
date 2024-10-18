@@ -4,6 +4,7 @@ linkTitle: "Connect to HCIBox"
 isGettingStarted: false
 weight: 5
 ---
+# Connecting to HCIBox
 
 ## Start post-deployment automation
 
