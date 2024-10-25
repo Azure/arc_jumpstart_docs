@@ -10,9 +10,9 @@ description: >-
 
 Contoso HyperMarket, an international consumer goods distributor and retailer, is at the forefront of the retail industry's digital transformation. Leveraging next-generation AI-powered shopper analytics solutions, Contoso HyperMarket utilizes advanced computer vision technologies to enhance customer experiences and optimize store operations.
 
-By integrating advanced computer vision into their retail facilities, Contoso HyperMarket can analyze shopper behavior in real-time, providing valuable insights into customer preferences and shopping patterns. These insights enable the hypermarket to tailor marketing strategies, optimize product placements, and improve inventory management, ensuring that customers find what they need quickly and efficiently.
+By integrating advanced computer vision into their retail facilities, Contoso HyperMarket can analyze shopper behavior in real-time, providing valuable insights into customer preferences and shopping patterns. These insights enable them to tailor marketing strategies, optimize product placements, and improve inventory management, ensuring that customers find what they need quickly and efficiently.
 
-The AI-powered solutions also enhance maintenance and operational efficiency. With real-time monitoring and analytics, Contoso HyperMarket can detect errors or anomalies with automated checkout activities, manage equipment and detect malfunctions. This cutting-edge approach  drives operational excellence, positioning Contoso HyperMarket as a leader in the retail sector.
+The AI-powered solutions also enhance maintenance and operational efficiency. With real-time monitoring and analytics, Contoso HyperMarket can detect errors or anomalies with automated checkout activities, manage equipment and detect malfunctions. This innovative approach drives operational excellence, positioning Contoso HyperMarket as a leader in the retail sector.
 
 ## Architecture and technology stack
 
