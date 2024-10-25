@@ -22,7 +22,7 @@ Contoso HyperMarket uses an AI technology stack, services, and processes to supp
 - **Computer vision for shopper insights** - Computer vision using tuned inferencing models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
 - **Speech to text** - Converts spoken language into written text to facilitate customer service interactions, transcribe meetings, and support voice-activated commands for in-store assistance.
 - **IoT at the Edge** - Manages IoT devices and sensors at the edge to collect and process data in real-time, enabling predictive maintenance, inventory tracking, and enhanced operational efficiency.
-- **Predictive analytics with Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
+- **Predictive inventory and operations analytics with Microsoft Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
 - **Edge-to-cloud data pipeline** - Seamless data integration between IoT devices at the edge, customer and business data, and Microsoft Fabric, aggregating real-time shopper insights, centralized data management, predictive maintenance, and enhanced decision-making capabilities and enabling advanced data insights.
 
 ## Virtual edge environment
