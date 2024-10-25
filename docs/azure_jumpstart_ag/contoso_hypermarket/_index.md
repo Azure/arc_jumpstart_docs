@@ -25,7 +25,7 @@ Contoso HyperMarket uses an AI technology stack, services, and processes to supp
 - **Predictive inventory and operations analytics with Microsoft Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
 - **Edge-to-cloud data pipeline** - Seamless data integration between IoT devices at the edge, customer and business data, and Microsoft Fabric, aggregating real-time shopper insights, centralized data management, predictive maintenance, and enhanced decision-making capabilities and enabling advanced data insights.
 
-## Virtual edge environment
+## Virtual sandbox edge environment
 
 Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso HyperMarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
 
