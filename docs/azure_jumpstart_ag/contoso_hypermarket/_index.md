@@ -42,7 +42,7 @@ To get started with the "Contoso HyperMarket" Jumpstart Agora scenario, we provi
 | [Data pipeline and reporting across cloud and edge](../contoso_hypermarket/data_pipeline/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
 | [Web UI and Computer vision](../contoso_hypermarket/ai_inferencing/) | Computer vision | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
 | [Speech-to-text](../contoso_hypermarket/speech_to_text/) | Customer service  | Azure AI Speech, Rancher K3s, Azure Arc |
-| [Predictive analytics with Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory  | Microsoft Copilot |
+| [Predictive analytics with Microsoft Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory | Microsoft Copilot |
 | [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_hypermarket/observability/) | Infrastructure | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
 | [Cleanup deployment](../contoso_hypermarket/cleanup/) | Not applicable | Not applicable |
 | [Troubleshooting](../contoso_hypermarket/troubleshooting/) | Not applicable  | Not applicable |
