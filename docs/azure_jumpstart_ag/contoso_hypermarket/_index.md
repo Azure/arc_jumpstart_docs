@@ -1,22 +1,22 @@
 ---
 type: docs
 weight: 1
-linkTitle: Contoso Hypermarket
+linkTitle: Contoso HyperMarket
 description: >-
-  Learn how Contoso Hypermarket, an international consumer goods distributor and retailer, implements an AI-enhanced cloud-to-edge strategy with computer vision, next-gen language models, data pipelines, Microsoft Fabric, and Azure Arc.
+  Learn how Contoso HyperMarket, an international consumer goods distributor and retailer, implements an AI-enhanced cloud-to-edge strategy with computer vision, next-gen language models, data pipelines, Microsoft Fabric, and Azure Arc.
 ---
 
-# Contoso Hypermarket overview
+# Contoso HyperMarket overview
 
-Contoso Hypermarket, an international consumer goods distributor and retailer, is at the forefront of the retail industry's digital transformation. Leveraging next-generation AI-powered shopper analytics solutions, Contoso Hypermarket utilizes advanced computer vision technologies to enhance customer experiences and optimize store operations.
+Contoso HyperMarket, an international consumer goods distributor and retailer, is at the forefront of the retail industry's digital transformation. Leveraging next-generation AI-powered shopper analytics solutions, Contoso HyperMarket utilizes advanced computer vision technologies to enhance customer experiences and optimize store operations.
 
-By integrating advanced computer vision into their retail facilities, Contoso Hypermarket can analyze shopper behavior in real-time, providing valuable insights into customer preferences and shopping patterns. These insights enable the hypermarket to tailor marketing strategies, optimize product placements, and improve inventory management, ensuring that customers find what they need quickly and efficiently.
+By integrating advanced computer vision into their retail facilities, Contoso HyperMarket can analyze shopper behavior in real-time, providing valuable insights into customer preferences and shopping patterns. These insights enable the hypermarket to tailor marketing strategies, optimize product placements, and improve inventory management, ensuring that customers find what they need quickly and efficiently.
 
-The AI-powered solutions also enhance maintenance and operational efficiency. With real-time monitoring and analytics, Contoso Hypermarket can detect errors or anomalies with automated checkout activities, manage equipment and detect malfunctions. This cutting-edge approach  drives operational excellence, positioning Contoso Hypermarket as a leader in the retail sector.
+The AI-powered solutions also enhance maintenance and operational efficiency. With real-time monitoring and analytics, Contoso HyperMarket can detect errors or anomalies with automated checkout activities, manage equipment and detect malfunctions. This cutting-edge approach  drives operational excellence, positioning Contoso HyperMarket as a leader in the retail sector.
 
 ## Architecture and technology stack
 
-Contoso Hypermarket uses an AI technology stack, services, and processes to support their digital transformation. A set of reference use-cases is included with the Jumpstart Agora Contoso Hypermarket scenario.
+Contoso HyperMarket uses an AI technology stack, services, and processes to support their digital transformation. A set of reference use-cases is included with the Jumpstart Agora Contoso HyperMarket scenario.
 
 - **Natural language querying with small language models** - Using SLMs at the edge for natural language query (NLQ) interaction with Contoso operations and connected systems and data to support frontline workers and corporate personnel.
 - **Computer vision for shopper analytics** - Computer vision using tuned inferencing models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
@@ -27,15 +27,15 @@ Contoso Hypermarket uses an AI technology stack, services, and processes to supp
 
 ## Virtual edge environment
 
-Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Hypermarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
+Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso HyperMarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
 
 ![Applications and technology stack architecture diagram](./img/simulation_stack.png)
 
 ## Getting started
 
-To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provided you with a dedicated guide for each step of the way. The guides are designed to be as simple as possible but also keep the detailed-oriented spirit of the Jumpstart.
+To get started with the "Contoso HyperMarket" Jumpstart Agora scenario, we provided you with a dedicated guide for each step of the way. The guides are designed to be as simple as possible but also keep the detailed-oriented spirit of the Jumpstart.
 
-| **Guide**  | **Contoso Hypermarket service or platform** | **Technology stack** |
+| **Guide**  | **Contoso HyperMarket service or platform** | **Technology stack** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_hypermarket/deployment/) | Not applicable | Not applicable |
 | [Jumpstart Cerebral](../contoso_hypermarket/cerebral/) | Natural Language Query | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
