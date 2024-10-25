@@ -19,7 +19,7 @@ The AI-powered solutions also enhance maintenance and operational efficiency. Wi
 Contoso HyperMarket uses an AI technology stack, services, and processes to support their digital transformation. A set of reference use-cases is included with the Jumpstart Agora Contoso HyperMarket scenario.
 
 - **Natural language querying with small language models** - Using SLMs at the edge for natural language query (NLQ) interaction with Contoso operations and connected systems and data to support frontline workers and corporate personnel.
-- **Computer vision for shopper analytics** - Computer vision using tuned inferencing models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
+- **Computer vision for shopper insights** - Computer vision using tuned inferencing models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
 - **Speech to text** - Converts spoken language into written text to facilitate customer service interactions, transcribe meetings, and support voice-activated commands for in-store assistance.
 - **IoT at the Edge** - Manages IoT devices and sensors at the edge to collect and process data in real-time, enabling predictive maintenance, inventory tracking, and enhanced operational efficiency.
 - **Predictive analytics with Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
