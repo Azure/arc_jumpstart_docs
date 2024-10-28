@@ -18,7 +18,7 @@ Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, yo
 > **Note:** As the subnet the HCI VMs resides on is on the second nested layer, it is necessary to connect to the AzSMGMT machine to be able to connect to those VMs:
 > The HCI VM subnet is also not routable into the Azure Virtual Network, hence it won't be possible to connect to virtual machines on the HCI cluster using Azure Bastion.
 >
-> If you are having difficulties connecting into a stack HCI vm:
+> If you are having difficulties connecting into a Stack HCI VM:
 > You can run `mstsc /v:192.168.1.11` from HCIBox-Client to connect to the AzSMGMT nested VM.
 > From there, run `mstsc /v:192.168.200.x` to connect to the HCI VMs (replace x with the IP of your deployed VM).
 
