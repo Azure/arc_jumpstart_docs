@@ -9,11 +9,11 @@ linkTitle: Deployment guide
 
 ## Overview
 
-Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso HyperMarket scenario environment, including the infrastructure, the Contoso HyperMarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
+Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
 
 ![Architecture diagram](./img/architecture_diagram.png)
 
-Deploying the "Contoso HyperMarket" scenario consists of the following steps (once prerequisites are met).
+Deploying the "Contoso Hypermarket" scenario consists of the following steps (once prerequisites are met).
 
   1. Deploy infrastructure - The user deploys a Bicep file that creates the infrastructure in an Azure resource group.
   2. Bicep template deploys multiple Azure resources including the Client virtual machine.
@@ -22,7 +22,7 @@ Deploying the "Contoso HyperMarket" scenario consists of the following steps (on
   5. User logs in to the _Agora-VM-Client_ Azure virtual machine.
   6. After login the _Agora-VM-Client_ PowerShell scripts automatically run that configure the infrastructure, applications and CI/CD. These scripts will take some time to run.
 
-Once automation is complete, users can immediately start enjoying the Contoso HyperMarket experience.
+Once automation is complete, users can immediately start enjoying the Contoso Hypermarket experience.
 
 ![Deployment flow architecture diagram](./img/deployment_workflow.png)
 
@@ -148,7 +148,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_Hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`spnClientId`_ - Your Azure service principal application id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnObjectId`_ - Your Azure service principal id
@@ -190,7 +190,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_hypermarket/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_Hypermarket/bicep) and run the below command:
 
   ```shell
   az login
@@ -257,12 +257,12 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing Agora-Client-VM](./img/automation.png)
 
-- Deployment is complete! Let's begin exploring the features of Contoso HyperMarket!
+- Deployment is complete! Let's begin exploring the features of Contoso Hypermarket!
 
-  ![Screenshot showing complete deployment](./img/contoso_hypermarket_complete.png)
+  ![Screenshot showing complete deployment](./img/contoso_Hypermarket_complete.png)
 
   ![Screenshot showing Agora resources in Azure portal](./img/rg_complete.png)
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso HyperMarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso HyperMarket”](../data_opc/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_opc/).
