@@ -14,7 +14,7 @@ Jumpstart Agora is a marketplace of various “cloud-to-edge” industry scenari
 
 ## What industry scenarios are available in Jumpstart Agora?
 
-Agora offers two industry scenarios, [Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors) and [Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
+Agora offers two industry scenarios, [Contoso Motors](/azure_jumpstart_ag/contoso_motors) and [Contoso Supermarket](/azure_jumpstart_ag/contoso_supermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
 
 ## What is required to deploy Agora?
 
@@ -40,7 +40,7 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 Agora has a dedicated pages for troubleshooting that you can review for common issues.
 
-- [Troubleshoot Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors/troubleshooting)
-- [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
+- [Troubleshoot Contoso Motors](/azure_jumpstart_ag/contoso_motors/troubleshooting)
+- [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/contoso_supermarket/troubleshooting)
 
 If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist as soon as we can..
