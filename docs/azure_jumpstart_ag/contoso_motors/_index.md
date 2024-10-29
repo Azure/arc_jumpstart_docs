@@ -1,7 +1,7 @@
 ---
 type: docs
+weight: 3
 linkTitle: "Contoso Motors"
-weight: 1
 description: >-
   Learn how Contoso Motors, a leading global automobile manufacturer, implements an AI-enhanced cloud-to-edge strategy with Azure Arc, IoT services, AKS hybrid, artificial intelligence, software distribution and data pipelines.
 ---
