@@ -16,6 +16,13 @@ Once your bicep deployment is complete with Azure CLI or Azure Developer CLI, yo
 
 ## Connecting to the HCIBox Client virtual machine
 
+> **Note:** As the subnet the HCI VMs resides on is on the second nested layer, it is necessary to connect to the AzSMGMT machine to be able to connect to those VMs:
+> The HCI VM subnet is also not routable into the Azure Virtual Network, hence it won't be possible to connect to virtual machines on the HCI cluster using Azure Bastion.
+>
+> If you are having difficulties connecting into a Stack HCI VM:
+> You can run `mstsc /v:192.168.1.11` from HCIBox-Client to connect to the AzSMGMT nested VM.
+> From there, run `mstsc /v:192.168.200.x` to connect to the HCI VMs (replace x with the IP of your deployed VM).
+
 Various options are available to connect to _HCIBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
