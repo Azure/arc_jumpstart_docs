@@ -8,7 +8,7 @@ description: >-
 
 # Contoso Hypermarket overview
 
-Contoso Hypermarket, an international consumer goods distributor and retailer, is at the forefront of the retail industry's digital transformation. Leveraging next-generation AI-powered shopper analytics solutions, Contoso Hypermarket utilizes advanced computer vision technologies to enhance customer experiences and optimize store operations.
+Contoso Hypermarket, a leading international consumer goods distributor and retailer, is leading the digital transformation in the retail industry. By leveraging next-generation AI-powered shopper analytics solutions, Contoso Hypermarket employs advanced computer vision technologies to enhance customer experiences and optimize store operations.
 
 By integrating advanced computer vision into their retail facilities, Contoso Hypermarket can analyze shopper behavior in real-time, providing valuable insights into customer preferences and shopping patterns. These insights enable them to tailor marketing strategies, optimize product placements, and improve inventory management, ensuring that customers find what they need quickly and efficiently.
 
@@ -27,7 +27,7 @@ Contoso Hypermarket uses an AI technology stack, services, and processes to supp
 
 ## Virtual sandbox edge environment
 
-Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Hypermarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated Real-Time Streaming Protocol (RTSP) feeds, data emulators, MQTT, industrial assets, and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
+Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Hypermarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. We have incorporated additional features to enhance the 'virtual industry' experience in a lab setting. These enhancements include simulated Real-Time Streaming Protocol (RTSP) feeds, data emulators, MQTT, industrial assets, and data. For more details about the virtual environment, please review the diagram and dedicated guides below.
 
 ![Applications and technology stack architecture diagram](./img/simulation_stack.png)
 
