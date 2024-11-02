@@ -70,7 +70,8 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 1-2 hours to finish, and once completed, the script window will close automatically. At this point, the infrastructure deployment is complete.
+- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any HCI updates available, we need to add 1 additional hour to the estimated deployment time. 
+At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
