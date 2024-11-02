@@ -4,7 +4,7 @@ linkTitle: "AKS on Azure Stack HCI"
 weight: 8
 ---
 
-## Azure Kubernetes Service on Azure Stack HCI
+# Azure Kubernetes Service on your Azure Stack HCI HCIBox
 
 Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/). HCIBox comes pre-configured with Azure Kubernetes Service on HCI (AKS-HCI). To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
 
@@ -62,6 +62,8 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 > ```
 > az extension update --name connectedk8s
 > ```
+
+
 - From Azure portal, open Cloud Shell and run the following command, using the name of your HCIBox resource group.
 
   ```

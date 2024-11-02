@@ -9,6 +9,34 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## October 2024
+
+### Release highlights
+
+- Critical Jumpstart ArcBox bug fixes
+- Critical Jumpstart Agora bug fixes
+- Critical Azure IoT Operations related bug fixes
+
+### Jumpstart HCIBox
+
+- [Bug: Jumpstart HCI Box: Exception encountered while adding node to cluster #2732](https://github.com/microsoft/azure_arc/issues/2732)
+- [Bug: HCIBox Step 10/11 [Build Cluster validate cluster deployment] is failing #2737](https://github.com/microsoft/azure_arc/issues/2737)
+- [Feature: HCIBox-Client VM - Infrastructure deployment #2730](https://github.com/microsoft/azure_arc/issues/2730)
+
+### Jumpstart Agora
+
+- [Bug: Manufacturing - cannot import name 'AccessTokenInfo' from 'azure.core.credentials' when deploying AIO on the cluster #2731](https://github.com/microsoft/azure_arc/issues/2731)
+- [Bug: Deploying Agora Manufacturing Scenario fails to connect AKS EE clusters to Azure Arc #2761](https://github.com/microsoft/azure_arc/issues/2761)
+- [Bug: Az cli connectedk8s regression causes failures in k3s onboarding #2763](https://github.com/microsoft/azure_arc/issues/2763)
+
+### Arc-enabled Kubernetes
+
+- [Bug: main.py in esa_fault_detection scenario has hardcoded paths causing issues with Edge Volumes #2735](https://github.com/microsoft/azure_arc/issues/2735)
+
+### Arc, Edge, and Azure IoT Operations
+
+- [Bug: no matches for kind "MqttBridgeConnector" in version "mq.iotoperations.azure.com/v1beta1" #2738](https://github.com/microsoft/azure_arc/issues/2738)
+
 ## September 2024
 
 ### Release highlights

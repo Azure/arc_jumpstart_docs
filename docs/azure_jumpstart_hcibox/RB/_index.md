@@ -3,12 +3,11 @@ type: docs
 linkTitle: "VM Management"
 weight: 7
 ---
-
-## Virtual machine provisioning with Azure Arc
+# Virtual machine provisioning with Azure Arc in your HCIBox
 
 Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Stack HCI clusters, the HCIBox cluster comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
-### Create Virtual Machine images from Azure marketplace
+## Create Virtual Machine images from Azure marketplace
 
 Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
@@ -30,7 +29,7 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
 - Monitor the image as needed until is it finished downloading. While you wait, proceed to the next section to create the logical network on the cluster.
 
-### Create a logical network on your HCI cluster
+## Create a logical network on your HCI cluster
 
 HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
@@ -49,7 +48,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
   ![Screenshot showing logical network in Azure portal](./logical_network.png)
 
-### Create a virtual machine
+## Create a virtual machine
 
 - Open the VM image resource and verify that your VM image has finished downloading.
 
