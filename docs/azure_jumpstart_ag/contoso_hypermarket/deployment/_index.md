@@ -43,10 +43,9 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - East US
   - East US 2
   - West US 2
-  - North Europe
-  - West Europe
+  - West US 3
 
-- **Agora requires 40 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
+- **Agora requires 32 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -157,7 +156,8 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
   - _`customLocationRPOID`_ - Custom location resource prodivder id.
-  
+  - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
+
 -To get the `spnObjectId`, you can use Azure CLI or Azure PowerShell.
 
   - (Option 1) Using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI.
@@ -265,4 +265,4 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso HyperMarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso HyperMarket”](../data_opc/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso HyperMarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso HyperMarket”](../data_pipeline/).
