@@ -9,7 +9,7 @@ linkTitle: Deployment guide
 
 ## Overview
 
-Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso HyperMarket scenario environment, including the infrastructure, the Contoso HyperMarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
+Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso HyperMarket scenario environment, including the infrastructure, the Contoso HyperMarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
 
 ![Architecture diagram](./img/architecture_diagram.png)
 
