@@ -18,7 +18,7 @@ Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at vari
 
     ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- Target Azure region does not support all required Azure services - ensure you are running Agora in one of the supported regions listed in the [deployment guide](../deployment/).
+- Target Azure region doesn't support all required Azure services - ensure you are running Agora in one of the supported regions listed in the [deployment guide](../deployment/).
 
 - Not enough Microsoft Entra ID quota to create additional service principals. You may receive a message stating "The directory object quota limit for the Principal has been exceeded. Please ask your administrator to increase the quota limit or delete objects to reduce the used quota."
   - If this occurs, you must delete some of your unused service principals and try the deployment again.
@@ -33,7 +33,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 | ------- | ----------- |
 | _C:\Ag\Logs\AgLogonScript.log_ | Output from the primary PowerShell script that drives most of the automation tasks. |
 | _C:\Ag\Logs\ArcConnectivity.log_ | Output from the tasks that onboard servers and Kubernetes clusters to Azure Arc. |
-| _C:\Ag\Logs\AzCLI.log_ | Output from Az CLI login. |
+| _C:\Ag\Logs\AzCLI.log_ | Output from az CLI login. |
 | _C:\Ag\Logs\AzPowerShell.log_ | Output from the installation of PowerShell modules. |
 | _C:\Ag\Logs\Bookmarks.log_ | Output from the configuration of Microsoft Edge bookmarks. |
 | _C:\Ag\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _Ag-VM-Client_. |
