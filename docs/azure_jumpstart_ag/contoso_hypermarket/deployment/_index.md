@@ -36,7 +36,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Login to Azure CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - Agora must be deployed to one of the following regions. **Deploying Agora outside of these regions may result in unexpected results or deployment errors.**
 
@@ -45,7 +45,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - West US 2
   - West US 3
 
-- **Agora requires 32 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
+- **Agora requires 32 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -107,7 +107,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
     > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret.
 
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Clone the Azure Arc Jumpstart repository
 
@@ -155,7 +155,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
-  - _`customLocationRPOID`_ - Custom location resource prodivder id.
+  - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
 
 -To get the `spnObjectId`, you can use Azure CLI or Azure PowerShell.
@@ -206,7 +206,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 
   ![Screenshot showing all deployed resources in the resource group](./img/deployed_resources.png)
 
-   > **Note:** For enhanced Agora security posture, RDP (3389) and SSH (22) ports are not open by default in Agora deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** For enhanced Agora security posture, RDP (3389) and SSH (22) ports aren't open by default in Agora deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the Agora Client virtual machine
 
@@ -217,7 +217,7 @@ Various options are available to connect to _Agora-Client-VM_, depending on the 
 
 #### Connecting directly with RDP
 
-By design, Agora does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, Agora doesn't open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _Agora-NSG-Prod_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -239,7 +239,7 @@ By design, Agora does not open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using Bastion](./img/bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Agora-Client-VM_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Agora-Client-VM_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
