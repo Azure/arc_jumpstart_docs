@@ -44,6 +44,6 @@ Agora has a dedicated pages for troubleshooting that you can review for common i
 
 - [Troubleshoot Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors/troubleshooting)
 - [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
-- - [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
+- [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
 
 If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist as soon as we can..
