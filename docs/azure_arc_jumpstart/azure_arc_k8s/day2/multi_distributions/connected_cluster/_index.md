@@ -13,7 +13,7 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
-- **[AKS on Azure Stack HCI](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
+- **[AKS on Azure Local](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
 - **[Azure Red Hat OpenShift](/azure_arc_jumpstart/azure_arc_k8s/aro/)**
 - **[Amazon Elastic Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/eks/)**
 - **[Google Kubernetes Engine](/azure_arc_jumpstart/azure_arc_k8s/gke/)**

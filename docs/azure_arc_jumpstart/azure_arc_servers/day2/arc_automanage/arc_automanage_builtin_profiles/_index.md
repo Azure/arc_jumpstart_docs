@@ -24,7 +24,7 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[Azure Stack HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
+- **[Azure Local Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
 - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
@@ -143,7 +143,7 @@ Complete the following steps to clean up your environment. To disable Azure Auto
 
 - Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-- **[Azure Stack HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
+- **[Azure Local Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
 - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**

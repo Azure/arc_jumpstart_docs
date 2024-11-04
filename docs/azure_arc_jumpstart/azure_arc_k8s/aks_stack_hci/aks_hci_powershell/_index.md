@@ -1,18 +1,18 @@
 ---
 type: docs
-title: "AKS on Azure Stack HCI PowerShell"
-linkTitle: "AKS on Azure Stack HCI PowerShell"
+title: "AKS on Azure Local PowerShell"
+linkTitle: "AKS on Azure Local PowerShell"
 weight: 1
 description: >
 ---
 
-## Deploy AKS cluster on Azure Stack HCI and connect it to Azure Arc using PowerShell
+## Deploy AKS cluster on Azure Local and connect it to Azure Arc using PowerShell
 
-The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster on [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview) and connected it as an Azure Arc cluster resource.
+The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster on [Azure Local](https://learn.microsoft.com/azure-stack/hci/overview) and connect it as an Azure Arc cluster resource.
 
-Azure Kubernetes Service on Azure Stack HCI is an implementation of AKS on-premises using hyperconverged infrastructure operating system that is delivered as an Azure service.  
+Azure Kubernetes Service on Azure Local is an implementation of AKS on-premises using hyperconverged infrastructure operating system that is delivered as an Azure service.  
 
-This guide will not provide instructions on how to deploy and set up Azure Stack HCI and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
+This guide will not provide instructions on how to deploy and set up Azure Local and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This guide will not provide instructions on how to deploy and set up Azure Stack
   
 - Create Azure service principal (SP)
 
-    To be able to complete the scenario and its related automation, an Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account using PowerShell and run the below command. To do this, you will need to run the script from a PowerShell session that has access to your AKS on the Azure Stack HCI environment.
+    To be able to complete the scenario and its related automation, an Azure service principal assigned with the “Contributor” role is required. To create it, login to your Azure account using PowerShell and run the below command. To do this, you will need to run the script from a PowerShell session that has access to your AKS on the Azure Local environment.
 
     ```powershell
     Connect-AzAccount
@@ -98,12 +98,12 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 - User is editing the PowerShell script environment variables (1-time edit). These variables values are being used throughout the deployment and Azure Arc onboarding.
 
-- User is running checks on every physical node of Azure Stack HCI to see if all the requirements are satisfied.
+- User is running checks on every physical node of Azure Local to see if all the requirements are satisfied.
 
-- User is running the PowerShell script to deploy a basic DHCP AKS cluster on Azure Stack HCI and onboard onto Azure Arc. Runtime script will:
+- User is running the PowerShell script to deploy a basic DHCP AKS cluster on Azure Local and onboard onto Azure Arc. Runtime script will:
 
   - Configure the Azure Kubernetes Service cluster management services using _Set-AksHciConfig_ cmdlet.
-  - Register Azure Kubernetes Service on Azure Stack HCI with Azure ysing _Set-AksHciRegistration_ cmdlet.
+  - Register Azure Kubernetes Service on Azure Local with Azure ysing _Set-AksHciRegistration_ cmdlet.
   - Start the deployment of the AKS cluster management services using the _Install-AksHci_ cmdlet.
   - Retrieve the Azure Kubernetes Service cluster credentials.  
   - Create a target cluster with the number of Linux and Windows nodes specified.
@@ -111,13 +111,13 @@ For you to get familiar with the automation and deployment flow, below is an exp
   
 ## Deployment
 
-- Before deploying AKS on Azure Stack HCI, you need to run checks on every physical node to see if all the requirements are satisfied. Open PowerShell as an administrator and run the following command.
+- Before deploying AKS on Azure Local, you need to run checks on every physical node to see if all the requirements are satisfied. Open PowerShell as an administrator and run the following command.
 
   ```powershell
   Initialize-AksHciNode
   ```
 
-- Now that all nodes are ready, you will deploy the AKS control management and the target cluster to your Azure Stack HCI using this [PowerShell script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/powershell/aks_hci_deploy.ps1). Edit the file to provide the environment variables that match the parameters of your environment:
+- Now that all nodes are ready, you will deploy the AKS control management and the target cluster to your Azure Local instance using this [PowerShell script](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/powershell/aks_hci_deploy.ps1). Edit the file to provide the environment variables that match the parameters of your environment:
 
   - **vnetName:** the name of the vnet to host your AKS on HCI deployment.
   - **vSwitchName:** the name of the external virtual switch to connect the virtual machines to. If you already have an external switch on the host, you should pass the name of the switch here. To get the name of your available switches run the command _Get-VMSwitch_.
@@ -128,7 +128,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - **ipAddressPrefix:** The address prefix to use for Static IP assignment.
   - **gateway:** The IP address of the default gateway of the subnet.
   - **dnsServers:**  An array of IP addresses pointing to the DNS servers to be used for the subnet, you should provide at least one.
-  - **imageDir:** path to the directory where AKS on Azure Stack HCI will store its VHD images, provide a shared path or SMB for multinode
+  - **imageDir:** path to the directory where AKS on Azure Local will store its VHD images, provide a shared path or SMB for multinode
   - **cloudConfigLocation:** path to the directory where the cloud agent will store its configuration, provide a shared path or SMB for multi-node.
   - **clusterName:** a name for your AKS cluster, **must be lowercase**.
   - **linuxNodeCount:** number of Linux node VMs for your cluster.
@@ -162,7 +162,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
   - **password:** 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX'
   - **tenant:** 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX'
 
-- Note that the script will deploy a simple static IP address based cluster on your Azure Stack HCI and there are additional optional parameters that you could use to customize the deployment to your own environment as described [here](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-walkthrough-powershell).
+- Note that the script will deploy a simple static IP address based cluster on your Azure Local instance and there are additional optional parameters that you could use to customize the deployment to your own environment as described [here](https://learn.microsoft.com/azure-stack/aks-hci/kubernetes-walkthrough-powershell).
 
 - To run the script open PowerShell as an administrator, navigate to the [script folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/aks_stack_hci/powershell/) and run:
 

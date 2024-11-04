@@ -1,18 +1,18 @@
 ---
 type: docs
-title: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
-linkTitle: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
+title: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster"
+linkTitle: "Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster"
 weight: 1
 description: >
 ---
 
-## Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster
+## Deploy GitOps configurations and perform basic GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to create GitOps configuration on an Azure Kubernetes Service (AKS) cluster that is running on Azure Stack HCI and which is projected as an Azure Arc connected cluster resource.
+The following Jumpstart scenario will guide you on how to create GitOps configuration on an Azure Kubernetes Service (AKS) cluster that is running on Azure Local and which is projected as an Azure Arc connected cluster resource.
 
 in this scenario, you will deploy & attach GitOps configuration to your cluster which will also include deploying an "Hello World" Azure Arc web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-> **Note:** This guide assumes you already deployed an AKS cluster on Azure Stack HCI and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
+> **Note:** This guide assumes you already deployed an AKS cluster on Azure Local and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ in this scenario, you will deploy & attach GitOps configuration to your cluster 
 
   * [Mozilla Firefox](https://addons.mozilla.org/firefox/addon/tab-auto-refresh/)
 
-* As mentioned, this scenario starts at the point where you already have a connected AKS cluster to Azure Arc that is running on Azure Stack HCI.
+* As mentioned, this scenario starts at the point where you already have a connected AKS cluster to Azure Arc that is running on Azure Local.
 
     ![Existing Azure Arc-enabled Kubernetes cluster](./01.png)
 
@@ -151,7 +151,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
     > **Note:** For the purpose of this guide, notice how the _git-poll-interval 3s_ is set. The 3 seconds interval is useful for demo purposes since it will make the git-poll interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (default value is 5min).
 
-* Once the script will complete it's run, you will have the GitOps configuration created and all the resources deployed in your Kubernetes cluster running on Azure Stack HCI.
+* Once the script will complete it's run, you will have the GitOps configuration created and all the resources deployed in your Kubernetes cluster running on Azure Local.
 
     > **Note:** that it takes few min for the configuration change it's Operator state status from "Pending" to Install.
 

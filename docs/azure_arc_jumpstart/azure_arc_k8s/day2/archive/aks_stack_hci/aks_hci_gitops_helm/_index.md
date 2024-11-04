@@ -1,20 +1,20 @@
 ---
 type: docs
-title: "Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
-linkTitle: "Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
+title: "Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster"
+linkTitle: "Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster"
 weight: 2
 description: >
 ---
 
-## Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Stack HCI as an Azure Arc Connected Cluster
+## Deploy GitOps configurations and perform Helm-based GitOps flow on AKS on Azure Local as an Azure Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to create [Helm](https://helm.sh/)-based GitOps configuration on an Azure Kubernetes Service (AKS) cluster running on Azure Stack HCI, which is projected as an Azure Arc connected cluster resource.
+The following Jumpstart scenario will guide you on how to create [Helm](https://helm.sh/)-based GitOps configuration on an Azure Kubernetes Service (AKS) cluster running on Azure Local, which is projected as an Azure Arc connected cluster resource.
 
 in this scenario, you will deploy & attach 2 GitOps configuration to your cluster, a cluster-level config to deploy nginx-ingress controller and a namespace-level config to deploy the "Hello Arc" web application on your Kubernetes cluster.
 
 By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-> **Note:** This guide assumes you already deployed an AKS cluster on Azure Stack HCI and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
+> **Note:** This guide assumes you already deployed an AKS cluster on Azure Local and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [PowerShell](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/aks_hci_powershell/).
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ By doing so, you will be able to make real-time changes to the application and s
   Exit
   ```
 
-* Using a web browser navigate to https://aka.ms/AKS-HCI-Evaluate, complete the registration form, download and save AKS on Azure Stack HCI. Extract the contents of the zip file.
+* Using a web browser navigate to https://aka.ms/AKS-HCI-Evaluate, complete the registration form, download and save AKS on Azure Local. Extract the contents of the zip file.
 
 * Open PowerShell as administrator, navigate to the folder where you extracted the software and run the following commands:
 
