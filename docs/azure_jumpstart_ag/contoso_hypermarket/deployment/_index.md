@@ -53,91 +53,28 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
   ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- Create Azure service principal (SP). An Azure service principal assigned with the _Owner_ Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
+- Register necessary Azure resource providers by running the following commands.
 
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
+  ```shell
+  az provider register --namespace Microsoft.Kubernetes --wait
+  az provider register --namespace Microsoft.KubernetesConfiguration --wait
+  az provider register --namespace Microsoft.ExtendedLocation --wait
+  az provider register --namespace Microsoft.HybridCompute --wait
+  az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.DeviceRegistry --wait
+  az provider register --namespace Microsoft.EventGrid --wait
+  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
+  az provider register --namespace Microsoft.IoTOperations --wait
+  az provider register --namespace Microsoft.Fabric --wait
+  ```
 
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    For example:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartAgoraSPN" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    Output should look similar to this:
-
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartAgora",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
-
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    echo "SPN tenant: $($account.Context.Tenant.Id)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "JumpstartAgoraSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./img/create_spn_powershell.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret.
-
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Clone the Azure Arc Jumpstart repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
   ```
-
-- Azure IoT Operations requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
-
-  - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
-
-    ![Screenshot showing searching for Microsoft Entra ID in the Azure portal](./img/entra_id_portal.png)
-
-  - Click on "App registrations" and search for the name of the service principal you created.
-
-    ![Screenshot showing searching for the service principal in the Entra Id portal](./img/entra_id_search.png)
-
-  - Click on "API permissions" and add a new permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_add_permission.png)
-
-  - Select "Azure Key Vault".
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_keyvault_permission.png)
-
-  - Click on "Delegated permissions" and select the "user_impersonation" permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_user_impersonation.png)
-
-    ![Screenshot showing added API permission](./img/entra_id_permission_added.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
@@ -148,29 +85,13 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   ```
 
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
-  - _`spnClientId`_ - Your Azure service principal application id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnObjectId`_ - Your Azure service principal id
-  - _`spnTenantId`_ - Your Azure tenant id
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
   - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
-
--To get the `spnObjectId`, you can use Azure CLI or Azure PowerShell.
-
-  - (Option 1) Using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI.
-
-    ```shell
-    az ad sp show --id "<Service principal application Id>" --query id -o tsv
-    ```
-
-  - (Option 2) Using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    (Get-AzADServicePrincipal -ApplicationId "<Service principal application Id>").Id
-    ```
+  - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
