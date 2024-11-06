@@ -15,8 +15,8 @@ Jumpstart Community Badges are a recognition system designed to celebrate and re
 
 | Badge         | Name          | Description   | How to earn it   | Tiers         |
 | ------------- | ------------- | ------------- | -----------------| ------------- |
-| ![Scenario_Sorcerer_level_1](./Scenario_Sorcerer_level_1.png) | Scenario Sorcerer | Jumpstart Scenario Contributor | A contirbutor of Jumpstart Scenarios. | ⭐ 1 Jumpstart Scenario contribution <br/> ⭐⭐ 3 Jumpstart Scenario contributions <br/> ⭐⭐⭐ 5 Jumpstart Scenario contributions  |
-| ![The_Giver_level_1](./The_Giver_level_1.png) | The Giver | Jumpstart Drops Contributor | A contirbutor of Jumpstart Drops. | ⭐ 1 Jumpstart Drop contribution <br/> ⭐⭐ 3 Jumpstart Drop contributions <br/> ⭐⭐⭐ 5 Jumpstart Drop contributions  |
+| ![Scenario_Sorcerer_level_1](./Scenario_Sorcerer_level_1.png) | Scenario Sorcerer | Jumpstart Scenario contributor | A contributor of Jumpstart Scenarios. | ⭐ 1 Jumpstart Scenario contribution <br/> ⭐⭐ 3 Jumpstart Scenario contributions <br/> ⭐⭐⭐ 5 Jumpstart Scenario contributions  |
+| ![The_Giver_level_1](./The_Giver_level_1.png) | The Giver | Jumpstart Drops contributor | A contributor of Jumpstart Drops. | ⭐ 1 Jumpstart Drop contribution <br/> ⭐⭐ 3 Jumpstart Drop contributions <br/> ⭐⭐⭐ 5 Jumpstart Drop contributions  |
 | ![Words_of_Wisdom_level_1](./Words_of_Wisdom_level_1.png) | Words of Wisdom | Jumpstart advocacy champion | A contributor who created a Jumpstart community advocacy asset (blog, video, webinar, presentation, etc.) | ⭐ 1 Jumpstart community contribution <br/> ⭐⭐ 3 Jumpstart community contributions <br/> ⭐⭐⭐ 5 Jumpstart community contributions  |
 | ![Sandbox_player](./Sandbox_player.png) | Sandbox Player | Jumpstart ArcBox contributor | A contributor of Jumpstart ArcBox code and / or documentation | One-time badge  |
 | ![Boxing_Champ](./Boxing_Champ.png) | Boxing Champ | Jumpstart HCIBox contributor | A contributor of Jumpstart HCIBox code and / or documentation | One-time badge  |
