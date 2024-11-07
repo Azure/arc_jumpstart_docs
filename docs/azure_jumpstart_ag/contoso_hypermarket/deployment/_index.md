@@ -263,6 +263,62 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing Agora resources in Azure portal](./img/rg_complete.png)
 
+### Setup Microsoft Fabric workspace
+
+Due to some limitations of automating Microsoft Fabric items in the Fabric workspace using managed identity, users deploying Contoso Hypermarket have to run a Microsoft Fabric workspace setup script manually using the end user credentials that are used to access Microsoft Fabric workspace.
+
+Once you log into _Agora-Client-VM_ using any of the method described above follow the steps below to run the script
+
+- Open Windows Explorer and navigate to _C:\Ag\Fabric_ folder and make sure there are two files located in the folder.
+
+  ![Screenshot showing fabric workspace setup files](./img/fabric-script-files.png)
+
+- Open Windows PowerShell command-line tool from Start menu
+
+  ![Screenshot showing PowerShell command-line tool launch](./img/ag-client-launch-powershell.png)
+
+- Change directory to _C:\Ag\Fabric_
+
+- Run the script file as shown below and follow the onscreen instructions to login to the Entra ID tenant.
+
+  ![Screenshot showing location of fabric setup PowerShell script](./img/fabric-run-script.png)
+
+- Users are prompted to complete authentication using code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
+
+  ![Screenshot showing device authentication URL and code](./img/fabric-device-authentication.png)
+
+- Open Edge browser and access the URL copied above and enter the code to complete authentication.
+
+  ![Screenshot showing device code prompt in the browser](./img/fabric-enter-device-code.png)
+
+- Select subscription when prompted to select as shown below and press enter
+
+  ![Screenshot showing subscription selection](./img/fabric-select-subsription.png)
+
+- Once the script executed successfully without any issues, output of the script looks like below. If there are any errors open the script log file to review any issues and follow troubleshooting instructions below in this document.
+
+  ![Screenshot showing results of successful script execution](./img/fabric-script-output.png)
+
+- Access Contoso Hypermarket workspace by log into [Microsoft Fabric](https://app.fabric.microsoft.com/) and complete authentication. Fabric home page will look like below
+
+  ![Screenshot showing Microsoft Fabric home page](./img/fabric-home-page.png)
+
+- Click on Power BI to view workspaces and access Contoso Hypermarket workspace
+
+  ![Screenshot showing choosing Power BI](./img/fabric-home-page.png)
+
+- Click on Workspaces to view all available workspaces. Contoso Hypermarket workspaces have created with the naming standard _contoso-hypermarket-<naming_guid>_, where _naming_guid_ can be found in the Azure Portal resource group.
+
+  ![Screenshot showing view workspaces](./img/fabric-view-workspaces.png)
+
+- Open the workspace created to view Fabric items
+
+  ![Screenshot showing open workspace](./img/fabric-open-workspace.png)
+
+- Screenshot below shows all the items created for the Contoso Hypermarket
+  
+  ![Screenshot showing workspace items](./img/fabric-workspace-items.png)
+
 ## Next steps
 
 Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_opc/).
