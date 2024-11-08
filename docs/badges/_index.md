@@ -18,18 +18,18 @@ Jumpstart Community Badges are a recognition system designed to celebrate and re
 | ![Scenario_Sorcerer_level_1](./Scenario_Sorcerer_level_1.png) | Scenario Sorcerer | Jumpstart Scenario contributor | A contributor of Jumpstart Scenarios. | ⭐ 1 Jumpstart Scenario contribution <br/> ⭐⭐ 3 Jumpstart Scenario contributions <br/> ⭐⭐⭐ 5 Jumpstart Scenario contributions  |
 | ![The_Giver_level_1](./The_Giver_level_1.png) | The Giver | Jumpstart Drops contributor | A contributor of Jumpstart Drops. | ⭐ 1 Jumpstart Drop contribution <br/> ⭐⭐ 3 Jumpstart Drop contributions <br/> ⭐⭐⭐ 5 Jumpstart Drop contributions  |
 | ![Words_of_Wisdom_level_1](./Words_of_Wisdom_level_1.png) | Words of Wisdom | Jumpstart advocacy champion | A contributor who created a Jumpstart community advocacy asset (blog, video, webinar, presentation, etc.) | ⭐ 1 Jumpstart community contribution <br/> ⭐⭐ 3 Jumpstart community contributions <br/> ⭐⭐⭐ 5 Jumpstart community contributions  |
-| ![Sandbox_player](./Sandbox_player.png) | Sandbox Player | Jumpstart ArcBox contributor | A contributor of Jumpstart ArcBox code and / or documentation | One-time badge  |
-| ![Boxing_Champ](./Boxing_Champ.png) | Boxing Champ | Jumpstart HCIBox contributor | A contributor of Jumpstart HCIBox code and / or documentation | One-time badge  |
-| ![Dream_Builder](./Dream_Builder.png) | Dream Builder | Jumpstart Agora contributor | A contributor of Jumpstart Agora code and / or documentation | One-time badge  |
-| ![Jumpstart_Wizard](./Jumpstart_Wizard.png) | Jumpstart Wizard | Jumpstart problem solver | A contributor who received an "Accepted answer" on Jumpstart issue and/or Jumpstart GitHub Discussions and/or attended research activities | One-time badge  |
-| ![Treasure_Hunter](./Treasure_Hunter.png) | Treasure Hunter | Jumpstart diagrams collaborator | A contributor who worked with the team on an existing or new published architecture diagram  | One-time badge  |
+| ![Sandbox_player](./Sandbox_player.png) | Sandbox Player | Jumpstart ArcBox contributor | A contributor of Jumpstart ArcBox code and / or documentation. | One-time badge  |
+| ![Boxing_Champ](./Boxing_Champ.png) | Boxing Champ | Jumpstart HCIBox contributor | A contributor of Jumpstart HCIBox code and / or documentation. | One-time badge  |
+| ![Dream_Builder](./Dream_Builder.png) | Dream Builder | Jumpstart Agora contributor | A contributor of Jumpstart Agora code and / or documentation. | One-time badge  |
+| ![Jumpstart_Wizard](./Jumpstart_Wizard.png) | Jumpstart Wizard | Jumpstart problem solver | A contributor who received an "Accepted answer" on Jumpstart issue and/or Jumpstart GitHub Discussions and/or attended research activities. | One-time badge  |
+| ![Treasure_Hunter](./Treasure_Hunter.png) | Treasure Hunter | Jumpstart diagrams collaborator | A contributor who worked with the team on an existing or new published architecture diagram.  | One-time badge  |
 | ![Code_Whisperer](./Code_Whisperer.png) | Code Whisperer | Jumpstart maintainer | A Jumpstart core maintainer and an official team member. | One-time badge  |
-| ![Movie_Star](./Movie_Star.png) | Movie Star | Jumpstart Lightning guest | A guest on Jumpstart Lightning | One-time badge  |
+| ![Movie_Star](./Movie_Star.png) | Movie Star | Jumpstart Lightning guest | A guest on Jumpstart Lightning. | One-time badge  |
 
 
 ### Apply for a Jumpstart Community Badge
 
-You can apply for a Jumpstart Community Badge using this for: https://aka.ms/JumpstartBadgesForm
+You can apply for a Jumpstart Community Badge using this form: https://aka.ms/JumpstartBadgesForm
 
 
 ### Frequently Asked Questions (FAQ)
@@ -40,7 +40,7 @@ Jumpstart Community Badges are a recognition system designed to celebrate and re
 
 **How can I earn a Jumpstart Community Badge?** 
 
-You can earn badges by participating in various community contributions and activities, such as contirbute code, contributing to discussions, write documentation, create diagrams, and helping other members. You can find more information about the different badges and how to earn it in the table above. You can then apply for a badge on https://aka.ms/JumpstartBadges.
+You can earn badges by participating in various community contributions and activities, such as contributing code, contributing to discussions, writing documentation, creating diagrams, and helping other members. You can find more information about the different badges and how to earn them in the table above. You can then apply for a badge on https://aka.ms/JumpstartBadges.
 
 **Where can I see the badges I’ve earned?** 
 
