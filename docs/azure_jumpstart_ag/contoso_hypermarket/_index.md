@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 4
+weight: 2
 linkTitle: Contoso Hypermarket
 description: >-
   Learn how Contoso Hypermarket, an international consumer goods distributor and retailer, implements an AI-enhanced cloud-to-edge strategy with computer vision, next-gen language models, data pipelines, Microsoft Fabric, and Azure Arc.

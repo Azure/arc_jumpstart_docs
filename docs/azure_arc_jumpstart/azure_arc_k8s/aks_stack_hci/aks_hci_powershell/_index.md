@@ -8,11 +8,11 @@ description: >
 
 ## Deploy AKS cluster on Azure Local and connect it to Azure Arc using PowerShell
 
-The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster on [Azure Local](https://learn.microsoft.com/azure-stack/hci/overview) and connect it as an Azure Arc cluster resource.
+The following Jumpstart scenario will guide you on how to use the provided PowerShell script to deploy an [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/intro-kubernetes) cluster on [Azure Local](https://learn.microsoft.com/azure-stack/hci/overview) and connected it as an Azure Arc cluster resource.
 
-Azure Kubernetes Service on Azure Local is an implementation of AKS on-premises using hyperconverged infrastructure operating system that is delivered as an Azure service.  
+Azure Kubernetes Service on Azure Local is an implementation of AKS on-premises using hyper-converged infrastructure operating system that's delivered as an Azure service.  
 
-This guide will not provide instructions on how to deploy and set up Azure Local and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
+This guide won't provide instructions on how to deploy and set up Azure Local and it assumes you already have a configured cluster. The commands described in this scenario should be run on the management computer or in a host server in a cluster.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ This guide will not provide instructions on how to deploy and set up Azure Local
 
     Copy the Service Principal ApplicationId and Secret as you will need it for later in the automation.
 
-    > **Note:** It is optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
+    > **Note:** It's optional but highly recommended to scope the SP to a specific [Azure subscription and resource group](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-5.4.0).
 
 - Enable your subscription with the two resource providers for Azure Arc-enabled Kubernetes. Registration is an asynchronous process, and registration may take approximately 10 minutes.
 
@@ -84,7 +84,7 @@ This guide will not provide instructions on how to deploy and set up Azure Local
   Exit
   ```
   
-- Once completed, close all PowerShell windows and verify the installation by tunning the following:
+- Once completed, close all PowerShell windows and verify the installation by tuning the following:
 
   ```powershell
   Get-Command -Module AksHci
@@ -103,7 +103,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 - User is running the PowerShell script to deploy a basic DHCP AKS cluster on Azure Local and onboard onto Azure Arc. Runtime script will:
 
   - Configure the Azure Kubernetes Service cluster management services using _Set-AksHciConfig_ cmdlet.
-  - Register Azure Kubernetes Service on Azure Local with Azure ysing _Set-AksHciRegistration_ cmdlet.
+  - Register Azure Kubernetes Service on Azure Local with Azure using _Set-AksHciRegistration_ cmdlet.
   - Start the deployment of the AKS cluster management services using the _Install-AksHci_ cmdlet.
   - Retrieve the Azure Kubernetes Service cluster credentials.  
   - Create a target cluster with the number of Linux and Windows nodes specified.
