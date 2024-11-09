@@ -17,7 +17,7 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 #### Configure floorplan and zones
 
-for zones of the store  and patterns using the store manager interface of the Contoso Hypermarket web application. T The manager can also configure cameras and zones for computer vision, ensuring that the system accurately captures and analyzes shopper movements. This setup allows the store manager to make data-driven decisions to enhance the shopping experience and improve store operations.
+ and patterns using the store manager interface of the Contoso Hypermarket web application. T The manager can also configure cameras and zones for computer vision, ensuring that the system accurately captures and analyzes shopper movements. This setup allows the store manager to make data-driven decisions to enhance the shopping experience and improve store operations.
 
 #### Configure cameras and regions
 
@@ -35,6 +35,12 @@ Further reading:
 ### Architecture
 
 ![A diagram depicting the shopper insights system architecture](./footfall_diagram.png)
+
+#### Video inferencing pipeling
+
+- Footfall API
+- Shopper Insights API
+- Data pipeline to MQ
 
 ### Jump to other Contoso Hypermarket guides
 
