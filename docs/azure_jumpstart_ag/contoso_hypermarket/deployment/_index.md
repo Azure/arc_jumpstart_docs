@@ -104,7 +104,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_Hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
@@ -132,7 +132,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_Hypermarket/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_hypermarket/bicep) and run the below command:
 
   ```shell
   az login
@@ -201,7 +201,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Deployment is complete! Let's begin exploring the features of Contoso Hypermarket!
 
-  ![Screenshot showing complete deployment](./img/contoso_Hypermarket_complete.png)
+  ![Screenshot showing complete deployment](./img/contoso_hypermarket_complete.png)
 
   ![Screenshot showing Agora resources in Azure portal](./img/rg_complete.png)
 
