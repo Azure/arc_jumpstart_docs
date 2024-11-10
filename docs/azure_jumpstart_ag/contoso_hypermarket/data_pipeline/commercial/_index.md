@@ -1,13 +1,13 @@
 ---
 type: docs
 weight: 6
-title: Commercial Data pipeline
-linkTitle: Commercial Data pipeline
+title: Commercial Data Pipeline
+linkTitle: Commercial Data Pipeline
 ---
 
 # Commercial data pipeline and reporting across cloud and edge
 
-One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.
+One of Contoso's primary objectives is to utilize store data for business intelligence by leveraging cloud capabilities.
 
 Contoso Hypermarket's commercial data pipeline is designed to streamline and optimize the flow of data related to store orders and inventory management. This robust pipeline integrates data from various stores across the country, ensuring that all relevant information is collected, processed, and analyzed efficiently in the cloud. By leveraging this data pipeline, Contoso Hypermarket can generate valuable commercial insights that are crucial for corporate leadership. These insights help in making informed decisions, improving operational efficiency, and enhancing overall business performance. The data pipeline ensures that the leadership team has a comprehensive view of the store operations, enabling them to identify trends, forecast demand, and manage inventory effectively.
 
@@ -76,7 +76,7 @@ The SQL Server at the edge location is responsible for storing and managing the 
 
   ![Screenshot showing SQL Server Endpoints details](./img/hypermarket-sql-endpoints-details.png)
 
-- Locate _SQL Server Management Studio_ shortcut on the Desktop and doublec click to connect SQL Server databases in _Seattle_ edge location.
+- Locate _SQL Server Management Studio_ shortcut on the Desktop and double-click to connect SQL Server databases in _Seattle_ edge location.
 
   ![Screenshot showing locating SSMS shortcut on the Desktop](./img/hypermarket-locate-ssms.png)
 
@@ -90,7 +90,7 @@ The SQL Server at the edge location is responsible for storing and managing the 
 
 ### Cerebral data simulator
 
-The Cerebral data simulator is a critical component of the Contoso Hypermarket solution, designed to generate realistic commercial and operational data. This simulator helps in testing and validating the data pipeline by creating various scenarios that mimic real-world operations. Cerebral simulator is pre-configured to generation simulation data a regular interval and can be monitored using MQTT Explorer installed on _Ag-Client-VM_.
+The Cerebral data simulator is a critical component of the Contoso Hypermarket solution, designed to generate realistic commercial and operational data. This simulator helps in testing and validating the data pipeline by creating various scenarios that mimic real-world operations. Cerebral simulator is pre-configured to generate simulation data at regular intervals and can be monitored using MQTT Explorer installed on _Ag-Client-VM_.
 
 - Use the simulator to test different scenarios and validate the data pipeline's performance.
 
@@ -213,7 +213,7 @@ Data ingested into KQL Database is used by the Power BI reports create for comme
 
 The Power BI report created for Contoso Hypermarket provides comprehensive insights and analytics on commercial data collected from various store locations. This report leverages the data ingested into the KQL Database, offering interactive visualizations and dashboards that help the leadership team monitor key performance indicators, track sales trends, and analyze inventory levels. By utilizing Power BI's robust data visualization capabilities, Contoso Hypermarket can make data-driven decisions, identify opportunities for improvement, and enhance overall business performance. The report is designed to be user-friendly, enabling stakeholders to explore the data and gain valuable insights with ease. Follow the steps below to location and view Power BI report created for Contoso Hypermarket.
 
-- In the Fabric workspace, locate Power BI report created and click on the KQL Database name to open database details view.
+- In the Fabric workspace, locate Power BI report created and click on the Power BI report name to open the report view.
 
   ![Screenshot showing locating Power BI report in the workspace](./img/hypermarket-fabric-open-powerbi-report.png)
 
