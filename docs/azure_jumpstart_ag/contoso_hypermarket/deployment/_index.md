@@ -58,7 +58,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
   ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below az CLI command to check your vCPU utilization.
+- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below az CLI command to check your vCPU utilization. **Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.**
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -88,30 +88,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- Azure IoT Operations requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
-
-  - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
-
-    ![Screenshot showing searching for Microsoft Entra ID in the Azure portal](./img/entra_id_portal.png)
-
-  - Click on "App registrations" and search for the name of the service principal you created.
-
-    ![Screenshot showing searching for the service principal in the Entra Id portal](./img/entra_id_search.png)
-
-  - Click on "API permissions" and add a new permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_add_permission.png)
-
-  - Select "Azure Key Vault".
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_keyvault_permission.png)
-
-  - Click on "Delegated permissions" and select the "user_impersonation" permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_user_impersonation.png)
-
-    ![Screenshot showing added API permission](./img/entra_id_permission_added.png)
-
 ## Deployment: Bicep deployment via Azure CLI
 
 - Upgrade to latest Bicep version
@@ -128,6 +104,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
+  - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
