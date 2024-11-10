@@ -225,4 +225,20 @@ The Power BI report created for Contoso Hypermarket provides comprehensive insig
 
 The Microsoft Fabric Notebooks are an integral part of the Contoso Hypermarket's data pipeline, specifically designed to forecast sales and assist the leadership team in making critical business decisions. These notebooks provide a collaborative environment where data scientists and analysts can develop and execute complex data models using Python and KQL. By leveraging historical sales data and advanced machine learning algorithms, the notebooks generate accurate sales forecasts that help the leadership team anticipate future demand, optimize inventory levels, and plan marketing strategies. The interactive nature of the notebooks allows for real-time data exploration and scenario analysis, enabling Contoso's leadership to make informed decisions that drive business growth and operational efficiency.
 
+- In the Microsoft Fabric workspace locate Jupyter notebook and open to view notebook in the Edge browser.
+
+  ![Screenshot showing Microsoft Fabric Jupyter Notebook](./img/hypermarket-locate-fabric-notebook.png)
+
+- Notebook is pre-configured to connect to the KQL Database within the workspace.
+
+  ![Screenshot showing Microsoft Fabric Jupyter Notebook](./img/hypermarket-fabric-notebook-overview.png)
+
+  ![Screenshot showing Jupyter Notebook with KQL Database configuration](./img/hypermarket-fabric-notebook-kql.png)
+
+- Follow instructions provided in the Notebook to run experiments and forecast sales.
+ 
+  ![Screenshot showing sales forecast for Chicago store](./img/hypermarket-fabric-notebook-sales-forecast.png)
+
+- Try changing the forecast model to use different product than the one used in the Notebook to learn more.
+ 
 ## Next steps
