@@ -22,6 +22,10 @@ Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at vari
 
 - Target Azure region doesn't support all required Azure services - ensure you are running Agora in one of the supported regions listed in the [deployment guide](../deployment/).
 
+- Not enough AI services quota in your target subscription and region - check AI services quota using the command *`az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"`*.
+
+    ![Screenshot showing ai services restrictions error](./img/aiServices_quota.png)
+
 - Not enough Microsoft Entra ID quota to create additional service principals. You may receive a message stating "The directory object quota limit for the Principal has been exceeded. Please ask your administrator to increase the quota limit or delete objects to reduce the used quota."
   - If this occurs, you must delete some of your unused service principals and try the deployment again.
 
