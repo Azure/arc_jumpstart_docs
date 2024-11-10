@@ -14,7 +14,7 @@ Jumpstart Agora is a marketplace of various “cloud-to-edge” industry scenari
 
 ## What industry scenarios are available in Jumpstart Agora?
 
-Agora offers two industry scenarios, [Contoso Motors](/azure_jumpstart_ag/contoso_motors) and [Contoso Supermarket](/azure_jumpstart_ag/contoso_supermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
+Agora offers three industry scenarios, [Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors), [Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket) and [Contoso Hypermarket](/azure_jumpstart_ag/manufacturing/contoso_hypermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
 
 ## What is required to deploy Agora?
 
@@ -28,6 +28,7 @@ Agora can be deployed to the following regions:
 | ------- | ----------- |
 | Contoso Motors | eastus, eastus2, westus2, westus3, northeurope |
 | Contoso Supermarket | eastus, eastus2, westus, westus2, northeurope, west europe |
+| Contoso Hypermarket | eastus, eastus2, westus, westus2, westus3 |
 
 ## How much does it cost to use Agora?
 
@@ -35,12 +36,14 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 - [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
 - [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
+- [Contoso Hypermarket cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
 
 ## Where can I go if I have trouble deploying or using Agora?
 
 Agora has a dedicated pages for troubleshooting that you can review for common issues.
 
-- [Troubleshoot Contoso Motors](/azure_jumpstart_ag/contoso_motors/troubleshooting)
-- [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/contoso_supermarket/troubleshooting)
+- [Troubleshoot Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors/troubleshooting)
+- [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
+- [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
 
 If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist as soon as we can..
