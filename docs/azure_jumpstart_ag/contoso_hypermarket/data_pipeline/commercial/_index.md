@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 6
-title: Data pipeline
-linkTitle: Data pipeline
+title: Commercial Data pipeline
+linkTitle: Commercial Data pipeline
 ---
 
 # Commercial data pipeline and reporting across cloud and edge
@@ -162,7 +162,7 @@ Azure Event Hubs Namespace is a key component in the Contoso Hypermarket data pi
 
   ![Screenshot showing events in the Event Hub](./img/hypermarket-eventhub-data-explorer.png)
 
-- Find any Event with Event body contains _subject="topic/sales"_ and click on the Event and review message JSON. These Events are received from MQTT broke using Azure IoT Operations Dataflow.
+- Find any Event with Event body contains _subject="topic/sales"_ and click on the Event and review message JSON. These Events are received from MQTT broker using Azure IoT Operations Dataflow.
 
   ![Screenshot showing events in the Event Hub](./img/hypermarket-eventhub-events.png)
 
