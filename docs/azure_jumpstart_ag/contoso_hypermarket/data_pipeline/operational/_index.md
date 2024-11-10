@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 6
-title: Operation Data pipeline
+title: Operational Data pipeline
 linkTitle: Operational Data pipeline
 ---
 
@@ -23,7 +23,7 @@ The edge location components of the Contoso Hypermarket solution include SQL Ser
 
 ### Cerebral data simulator
 
-The Cerebral data simulator is a critical component of the Contoso Hypermarket solution, designed to generate realistic operational and operational data. This simulator helps in testing and validating the data pipeline by creating various scenarios that mimic real-world operations. Cerebral simulator is pre-configured to generation simulation data a regular interval and can be monitored using MQTT Explorer installed on _Ag-Client-VM_.
+The Cerebral data simulator is a critical component of the Contoso Hypermarket solution, designed to generate realistic commercial and operational data. This simulator helps in testing and validating the data pipeline by creating various scenarios that mimic real-world operations. Cerebral simulator is pre-configured to generation simulation data at regular intervals and can be monitored using MQTT Explorer installed on _Ag-Client-VM_.
 
 - Use the simulator to test different scenarios and validate the data pipeline's performance.
 
@@ -65,7 +65,7 @@ The MQTT Explorer is a desktop tool included in the Contoso Hypermarket setup. I
 
   ![Screenshot showing opening MQTT explorer on the desktop](./img/hypermarket-locate-mqtt-explorer.png)
 
-- Notice pre-configured MQTT connections to connect to the MQTT listeners running in IoT operations. Select one of the edge site and click _Connect_
+- Notice pre-configured MQTT connections to connect to the MQTT listeners running in IoT operations. Select one of the edge sites and click _Connect_
 
   ![Screenshot showing MQTT explorer with connections](./img/hypermarket-mqtt-explorer-connect.png)
 
@@ -125,7 +125,7 @@ The [Fabric workspace](https://learn.microsoft.com/fabric/get-started/workspaces
 
 The KQL Database in Microsoft Fabric is a powerful tool designed for querying and analyzing large datasets. In the context of Contoso Hypermarket, the KQL Database is used to ingest operational data flowing from edge locations to Azure Event Hubs Namespace. This data includes store orders and inventory information, which is then processed and stored in the KQL Database. The database allows for efficient querying and analysis of this data, enabling the generation of real-time insights and reports. By leveraging the KQL Database, Contoso Hypermarket can quickly access and analyze critical operational data to support decision-making and operational efficiency.
 
-Data ingested into KQL Database is used by the Power BI reports create for operational data insights and analysis by the Contoso leadership team.
+Data ingested into the KQL Database is used by the Power BI reports created for operational data insights and analysis by the Contoso leadership team.
 
 - In the Fabric workspace, locate KQL Database created and click on the KQL Database name to open database details view.
 
