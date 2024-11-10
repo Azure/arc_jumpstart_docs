@@ -147,7 +147,24 @@ The MQTT Explorer is a desktop tool included in the Contoso Hypermarket setup. I
 
 ### Azure EventHub
 
-Azure EventHub is a key component in the Contoso Hypermarket data pipeline, facilitating the seamless delivery of messages from Azure IoT operations to the Event Hub. This service ensures that commercial data generated at the edge locations is securely and efficiently transmitted to the cloud. Once the data reaches the Event Hub, it is subsequently ingested into the Microsoft Fabric KQL Database for further processing and analysis. By leveraging Azure EventHub, Contoso Hypermarket can achieve real-time data streaming and maintain a robust and scalable data pipeline that supports their business intelligence and operational needs.
+Azure EventHub is a key component in the Contoso Hypermarket data pipeline, facilitating the seamless delivery of messages from Azure IoT operations to the Event Hub. This service ensures that commercial data generated at the edge locations is securely and efficiently transmitted to the cloud. Once the data reaches the Event Hub, it is subsequently ingested into the Microsoft Fabric KQL Database for further processing and analysis. By leveraging Azure EventHub, Contoso Hypermarket can achieve real-time data streaming and maintain a robust and scalable data pipeline that supports their business intelligence and operational needs. Follow the steps below to view messages received from MQTT broker through Azure IoT Operations Dataflow.
+
+- Log into [Azure Portal](https://portal.azure.com/) and go to the resource group where Contoso Hypermarket is deployed.
+- Locate Azure Event Hubs Namespace resource created in the deployment and open resource.
+
+  ![Screenshot showing the Event Hubs Namespace](./img/hypermarket-locate-eventhub-namespace.png)
+
+- Click on Event Hub name as shown in the screenshot below to open Event Hub instance.
+
+  ![Screenshot showing the Event Hubs](./img/hypermarket-eventhub-namespace-overview.png)
+
+- Click on _Data Explorer (preview)_ to view events. Select _Newest position_ option under Event position and click _View events_.
+
+  ![Screenshot showing events in the Event Hub](./img/hypermarket-eventhub-data-explorer.png)
+
+- Find any Event with Event body contains _subject="topic/sales"_ and click on the Event and review message JSON. These Events are received from MQTT broke using Azure IoT Operations Dataflow.
+
+  ![Screenshot showing events in the Event Hub](./img/hypermarket-eventhub-events.png)
 
 ### Microsoft Fabric
 
