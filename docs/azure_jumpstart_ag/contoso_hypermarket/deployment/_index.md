@@ -38,6 +38,30 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
+- Register necessary Azure resource providers by running the following commands.
+
+  ```shell
+  az provider register --namespace Microsoft.Kubernetes --wait
+  az provider register --namespace Microsoft.KubernetesConfiguration --wait
+  az provider register --namespace Microsoft.ExtendedLocation --wait
+  az provider register --namespace Microsoft.HybridCompute --wait
+  az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.DeviceRegistry --wait
+  az provider register --namespace Microsoft.EventGrid --wait
+  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
+  az provider register --namespace Microsoft.IoTOperations --wait
+  az provider register --namespace Microsoft.Fabric --wait
+  az provider register --namespace Microsoft.SecretSyncController --wait
+  ```
+
+> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+
+- Clone the Azure Arc Jumpstart repository
+
+  ```shell
+  git clone https://github.com/microsoft/azure_arc.git
+  ```
+
 ### Regions and capacity
 
 - Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
@@ -71,30 +95,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   ```
 
   ![Screenshot showing az cognitiveservices list usage](./img/check_ai_usage.png)
-
-- Register necessary Azure resource providers by running the following commands.
-
-  ```shell
-  az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az provider register --namespace Microsoft.ExtendedLocation --wait
-  az provider register --namespace Microsoft.HybridCompute --wait
-  az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.DeviceRegistry --wait
-  az provider register --namespace Microsoft.EventGrid --wait
-  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
-  az provider register --namespace Microsoft.IoTOperations --wait
-  az provider register --namespace Microsoft.Fabric --wait
-  az provider register --namespace Microsoft.SecretSyncController --wait
-  ```
-
-> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
 
 ## Deployment: Bicep deployment via Azure CLI
 
