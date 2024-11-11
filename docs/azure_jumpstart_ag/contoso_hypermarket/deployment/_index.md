@@ -40,18 +40,48 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Register necessary Azure resource providers by running the following commands.
 
-  ```shell
-  az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az provider register --namespace Microsoft.ExtendedLocation --wait
-  az provider register --namespace Microsoft.HybridCompute --wait
-  az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.DeviceRegistry --wait
-  az provider register --namespace Microsoft.EventGrid --wait
-  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
-  az provider register --namespace Microsoft.IoTOperations --wait
-  az provider register --namespace Microsoft.Fabric --wait
-  az provider register --namespace Microsoft.SecretSyncController --wait
+### Option 1: PowerShell
+
+  ```powershell
+    $providers = @(
+        "Microsoft.Kubernetes",
+        "Microsoft.KubernetesConfiguration",
+        "Microsoft.ExtendedLocation",
+        "Microsoft.HybridCompute",
+        "Microsoft.OperationsManagement",
+        "Microsoft.DeviceRegistry",
+        "Microsoft.EventGrid",
+        "Microsoft.IoTOperationsOrchestrator",
+        "Microsoft.IoTOperations",
+        "Microsoft.Fabric",
+        "Microsoft.SecretSyncController"
+    )
+
+    foreach ($provider in $providers) {
+        az provider register --namespace $provider --wait
+    }
+  ```
+
+### Option 2: Shell
+
+```shell
+    providers=(
+        "Microsoft.Kubernetes"
+        "Microsoft.KubernetesConfiguration"
+        "Microsoft.ExtendedLocation"
+        "Microsoft.HybridCompute"
+        "Microsoft.OperationsManagement"
+        "Microsoft.DeviceRegistry"
+        "Microsoft.EventGrid"
+        "Microsoft.IoTOperationsOrchestrator"
+        "Microsoft.IoTOperations"
+        "Microsoft.Fabric"
+        "Microsoft.SecretSyncController"
+    )
+
+    for provider in "${providers[@]}"; do
+        az provider register --namespace "$provider" --wait
+    done
   ```
 
 > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
