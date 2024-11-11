@@ -88,13 +88,13 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az vm list-usage --location <your location> --output table
   ```
 
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text modesl). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
   ```
 
-  ![Screenshot showing az cognitiveservices list usage](./img/check_ai_usage.png)
+  ![Screenshot showing cognitive services usage](./img/check_ai_usage.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
