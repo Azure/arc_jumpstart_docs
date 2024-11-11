@@ -209,11 +209,21 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 Due to some limitations of automating Microsoft Fabric items in the Fabric workspace using managed identity, users deploying Contoso Hypermarket have to run a Microsoft Fabric workspace setup script manually using the end user credentials that are used to access Microsoft Fabric workspace.
 
+In order to create Microsoft Fabric workspace, tenant in which workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you do not have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
+
+1. Enabled for the entire organization.
+1. User must be a member of the security group allowed to create workspace.
+1. Not a member of the excluded security groups.
+
+> **Note**: Microsoft Fabric do not support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
+
+  ![Screenshot showing Fabric tenant settings for workspace](./img/fabric-tenant-settings.png)
+
 Once you log into _Agora-Client-VM_ using any of the method described above follow the steps below to run the script
 
 - Open Windows Explorer and navigate to _C:\Ag\Fabric_ folder and make sure there are two files located in the folder.
 
-  ![Screenshot showing fabric workspace setup files](./img/fabric-script-files.png)
+  ![Screenshot showing Fabric workspace setup files](./img/fabric-script-files.png)
 
 - Open Windows PowerShell command-line tool from Start menu
 
