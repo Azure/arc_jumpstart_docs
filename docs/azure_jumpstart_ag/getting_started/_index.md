@@ -29,7 +29,7 @@ Each Agora scenario is a full-stack deployment, from the infrastructure layer al
 
 | __Scenario__                                            | __Industry__  | 
 |---------------------------------------------------------|---------------|
-| [Contoso Hypermarket](./../contoso_Hypermarket/)        | Retail and Manufacturing | 
+| [Contoso Hypermarket](./../contoso_hypermarket/)        | Retail and Manufacturing | 
 | [Contoso Supermarket](./../contoso_supermarket/)        | Retail        | 
 | [Contoso Motors](./../contoso_motors/)                  | Manufacturing |
 

@@ -9,7 +9,7 @@ linkTitle: Deployment guide
 
 ## Overview
 
-Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
+Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
 
 ![Architecture diagram](./img/architecture_diagram.png)
 
@@ -36,17 +36,21 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Login to Azure CLI using the *`az login`* command.
 
-- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
-- Agora must be deployed to one of the following regions. **Deploying Agora outside of these regions may result in unexpected results or deployment errors.**
+### Regions and capacity
+
+- Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
 
   - East US
   - East US 2
   - West US 2
-  - North Europe
+  - West US 3
   - West Europe
 
-- **Agora requires 40 Ds-series vCPUs**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
+> **Note:** Every subscription has different capacity restrictions and quotas so it is very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
+
+- **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -54,91 +58,43 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
   ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- Create Azure service principal (SP). An Azure service principal assigned with the _Owner_ Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal.
+- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below az CLI command to check your vCPU utilization. **Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.**
 
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
+  ```shell
+  az vm list-usage --location <your location> --output table
+  ```
 
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text modesl). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
 
-    For example:
+  ```shell
+  az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
+  ```
 
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartAgoraSPN" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
+  ![Screenshot showing az cognitiveservices list usage](./img/check_ai_usage.png)
 
-    Output should look similar to this:
+- Register necessary Azure resource providers by running the following commands.
 
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartAgora",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
+  ```shell
+  az provider register --namespace Microsoft.Kubernetes --wait
+  az provider register --namespace Microsoft.KubernetesConfiguration --wait
+  az provider register --namespace Microsoft.ExtendedLocation --wait
+  az provider register --namespace Microsoft.HybridCompute --wait
+  az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.DeviceRegistry --wait
+  az provider register --namespace Microsoft.EventGrid --wait
+  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
+  az provider register --namespace Microsoft.IoTOperations --wait
+  az provider register --namespace Microsoft.Fabric --wait
+  az provider register --namespace Microsoft.SecretSyncController --wait
+  ```
 
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    echo "SPN tenant: $($account.Context.Tenant.Id)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "JumpstartAgoraSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./img/create_spn_powershell.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct secret.
-
-    > **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It is optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
 
 - Clone the Azure Arc Jumpstart repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
   ```
-
-- Azure IoT Operations requires creating a "user_impersonation" delegated permission on Azure Key Vault for this service principal.
-
-  - Navigate to *Microsoft Entra Id* (previously known as Azure Active Directory) in the Azure portal.
-
-    ![Screenshot showing searching for Microsoft Entra ID in the Azure portal](./img/entra_id_portal.png)
-
-  - Click on "App registrations" and search for the name of the service principal you created.
-
-    ![Screenshot showing searching for the service principal in the Entra Id portal](./img/entra_id_search.png)
-
-  - Click on "API permissions" and add a new permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_add_permission.png)
-
-  - Select "Azure Key Vault".
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_keyvault_permission.png)
-
-  - Click on "Delegated permissions" and select the "user_impersonation" permission.
-
-    ![Screenshot showing adding a new API permission](./img/entra_id_user_impersonation.png)
-
-    ![Screenshot showing added API permission](./img/entra_id_permission_added.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
@@ -148,29 +104,15 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_Hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
-  - _`spnClientId`_ - Your Azure service principal application id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnObjectId`_ - Your Azure service principal id
-  - _`spnTenantId`_ - Your Azure tenant id
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
+  - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
-  - _`customLocationRPOID`_ - Custom location resource prodivder id.
-  
--To get the `spnObjectId`, you can use Azure CLI or Azure PowerShell.
-
-  - (Option 1) Using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI.
-
-    ```shell
-    az ad sp show --id "<Service principal application Id>" --query id -o tsv
-    ```
-
-  - (Option 2) Using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    (Get-AzADServicePrincipal -ApplicationId "<Service principal application Id>").Id
-    ```
+  - _`customLocationRPOID`_ - Custom location resource provider id.
+  - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
+  - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
+  - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
@@ -190,7 +132,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query "[?appDisplayName=='Custom Locations RP'].id" -o tsv)
   ```
 
-- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_Hypermarket/bicep) and run the below command:
+- Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_ag/contoso_hypermarket/bicep) and run the below command:
 
   ```shell
   az login
@@ -206,7 +148,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 
   ![Screenshot showing all deployed resources in the resource group](./img/deployed_resources.png)
 
-   > **Note:** For enhanced Agora security posture, RDP (3389) and SSH (22) ports are not open by default in Agora deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** For enhanced Agora security posture, RDP (3389) and SSH (22) ports aren't open by default in Agora deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
 ### Connecting to the Agora Client virtual machine
 
@@ -217,7 +159,7 @@ Various options are available to connect to _Agora-Client-VM_, depending on the 
 
 #### Connecting directly with RDP
 
-By design, Agora does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, Agora doesn't open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
 - Open the _Agora-NSG-Prod_ resource in Azure portal and click "Add" to add a new rule.
 
@@ -239,7 +181,7 @@ By design, Agora does not open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using Bastion](./img/bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Agora-Client-VM_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Agora-Client-VM_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
@@ -259,7 +201,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Deployment is complete! Let's begin exploring the features of Contoso Hypermarket!
 
-  ![Screenshot showing complete deployment](./img/contoso_Hypermarket_complete.png)
+  ![Screenshot showing complete deployment](./img/contoso_hypermarket_complete.png)
 
   ![Screenshot showing Agora resources in Azure portal](./img/rg_complete.png)
 
@@ -321,4 +263,4 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_opc/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_pipeline/).
