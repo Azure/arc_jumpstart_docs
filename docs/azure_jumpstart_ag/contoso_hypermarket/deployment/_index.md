@@ -72,7 +72,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - West US 3
   - West Europe
 
-> **Note:** Every subscription has different capacity restrictions and quotas so it is very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
+> **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
 - **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below az CLI command to check your vCPU utilization.
 
