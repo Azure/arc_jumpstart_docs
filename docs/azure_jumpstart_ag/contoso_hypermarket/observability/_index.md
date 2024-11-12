@@ -4,5 +4,3 @@ weight: 5
 title: Observability
 linkTitle: Observability
 ---
-
-# Observability
