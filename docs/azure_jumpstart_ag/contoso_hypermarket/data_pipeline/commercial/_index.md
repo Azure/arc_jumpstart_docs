@@ -1,8 +1,8 @@
 ---
 type: docs
-weight: 6
-title: Commercial Data Pipeline
-linkTitle: Commercial Data Pipeline
+weight: 7
+title: Data pipeline and reporting for commercial sales
+linkTitle: Data pipeline and reporting for commercial sales
 ---
 
 # Commercial data pipeline and reporting across cloud and edge

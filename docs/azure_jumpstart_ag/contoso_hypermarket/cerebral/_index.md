@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 6
+weight: 3
 title: AI-Powered Retail Assistant
 linkTitle: AI-Powered Retail Assistant
 ---
