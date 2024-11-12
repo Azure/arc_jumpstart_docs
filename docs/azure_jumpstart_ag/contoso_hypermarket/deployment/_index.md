@@ -38,6 +38,60 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
+- Register necessary Azure resource providers by running the following commands.
+
+### Option 1: PowerShell
+
+  ```powershell
+    $providers = @(
+        "Microsoft.Kubernetes",
+        "Microsoft.KubernetesConfiguration",
+        "Microsoft.ExtendedLocation",
+        "Microsoft.HybridCompute",
+        "Microsoft.OperationsManagement",
+        "Microsoft.DeviceRegistry",
+        "Microsoft.EventGrid",
+        "Microsoft.IoTOperationsOrchestrator",
+        "Microsoft.IoTOperations",
+        "Microsoft.Fabric",
+        "Microsoft.SecretSyncController"
+    )
+
+    foreach ($provider in $providers) {
+        az provider register --namespace $provider --wait
+    }
+  ```
+
+### Option 2: Shell
+
+```shell
+    providers=(
+        "Microsoft.Kubernetes"
+        "Microsoft.KubernetesConfiguration"
+        "Microsoft.ExtendedLocation"
+        "Microsoft.HybridCompute"
+        "Microsoft.OperationsManagement"
+        "Microsoft.DeviceRegistry"
+        "Microsoft.EventGrid"
+        "Microsoft.IoTOperationsOrchestrator"
+        "Microsoft.IoTOperations"
+        "Microsoft.Fabric"
+        "Microsoft.SecretSyncController"
+    )
+
+    for provider in "${providers[@]}"; do
+        az provider register --namespace "$provider" --wait
+    done
+  ```
+
+> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+
+- Clone the Azure Arc Jumpstart repository
+
+  ```shell
+  git clone https://github.com/microsoft/azure_arc.git
+  ```
+
 ### Regions and capacity
 
 - Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
@@ -48,7 +102,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - West US 3
   - West Europe
 
-> **Note:** Every subscription has different capacity restrictions and quotas so it is very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
+> **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
 - **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below az CLI command to check your vCPU utilization.
 
@@ -64,37 +118,13 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az vm list-usage --location <your location> --output table
   ```
 
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text modesl). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
   ```
 
-  ![Screenshot showing az cognitiveservices list usage](./img/check_ai_usage.png)
-
-- Register necessary Azure resource providers by running the following commands.
-
-  ```shell
-  az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az provider register --namespace Microsoft.ExtendedLocation --wait
-  az provider register --namespace Microsoft.HybridCompute --wait
-  az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.DeviceRegistry --wait
-  az provider register --namespace Microsoft.EventGrid --wait
-  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
-  az provider register --namespace Microsoft.IoTOperations --wait
-  az provider register --namespace Microsoft.Fabric --wait
-  az provider register --namespace Microsoft.SecretSyncController --wait
-  ```
-
-> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
+  ![Screenshot showing cognitive services usage](./img/check_ai_usage.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
