@@ -49,7 +49,7 @@ The specific region of the camera field-of-view that will be sent for inferencin
 
     The draw floor zones page allows user to draw a zone on the uploaded floor plan.
 
-- To draw a zone on a floorplan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear. 
+- To draw a zone on a floorplan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear.
 
 - Enter a zone label and select a particular camera for the new zone that is being created.
 
