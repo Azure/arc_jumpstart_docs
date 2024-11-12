@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 5
-title: Infrastructure observability
-linkTitle: Infrastructure observability
+title: Shopper Insights dashboards and monitoring
+linkTitle: Shopper Insights dashboards and monitoring
 ---
 
 # Observability
