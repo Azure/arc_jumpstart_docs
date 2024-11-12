@@ -34,7 +34,7 @@ To add new camera, click "+Add Camera" button which will open a side panel to pr
 
 ![A screenshot showing add camera step](addcamera.png)
 
-Once a new camera is added, it would be listed on the same "/cameraszones" page as shown in previous section.
+Once a new camera is added, it would be listed on the same _"/cameraszones"_ page as shown in previous section.
 
 ##### Manage zones
 
