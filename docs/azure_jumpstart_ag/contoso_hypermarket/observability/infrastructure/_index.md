@@ -1,8 +1,8 @@
 ---
 type: docs
-weight: 5
-title: Infrastructure
-linkTitle: Infrastructure
+weight: 6
+title: Kubernetes observability
+linkTitle: Kubernetes observability
 ---
 
 # Overview
