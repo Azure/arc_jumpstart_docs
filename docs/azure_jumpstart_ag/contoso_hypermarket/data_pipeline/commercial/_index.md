@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 6
+weight: 7
 title: Commercial Data Pipeline
 linkTitle: Commercial Data Pipeline
 ---

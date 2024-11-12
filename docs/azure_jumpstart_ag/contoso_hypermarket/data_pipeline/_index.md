@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 6
+weight: 8
 title: Data pipeline
 linkTitle: Data pipeline
 ---

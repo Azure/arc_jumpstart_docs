@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 8
+weight: 10
 title: Clean up environment
 linkTitle: Clean up environment
 ---

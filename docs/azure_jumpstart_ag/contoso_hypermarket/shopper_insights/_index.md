@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 3
+weight: 2
 title: Shopper Insights using computer vision
 linkTitle: Shopper Insights using computer vision
 ---
