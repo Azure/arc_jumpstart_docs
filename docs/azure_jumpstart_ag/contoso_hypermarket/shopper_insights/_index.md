@@ -38,7 +38,7 @@ Once a new camera is added, it would be listed on the same "/cameraszones" page 
 
 ##### Manage zones
 
-Zones are areas or locations in a building where the cameras would be deployed to. To manage zones, visit "/cameraszones" and clicking the "Zones" tab as shown below:
+Zones are areas or locations in a building where the cameras would be deployed to. To manage zones, visit _"/cameraszones"_ and clicking the "Zones" tab as shown below:
 
 ![A screenshot showing "Zones" tab highlighted](zonestab.png)
 
