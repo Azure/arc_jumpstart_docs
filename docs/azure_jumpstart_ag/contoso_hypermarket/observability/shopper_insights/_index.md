@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 5
-title: Infrastructure observability
-linkTitle: Infrastructure observability
+title: Shopper insights
+linkTitle: Shopper insights
 ---
 
-# Observability
+# Overview
