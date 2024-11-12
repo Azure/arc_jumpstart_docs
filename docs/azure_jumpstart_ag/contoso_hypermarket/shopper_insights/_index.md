@@ -21,7 +21,68 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 #### Configure cameras and regions
 
-The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis.
+The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis. This is setup by managing cameras, zones and camera regions. The following section explain those steps in detail.
+
+##### Manage cameras
+
+For configuring cameras, the first step is to visit "/cameraszones" page. That will bring up the following page:
+![A screenshot showing cameras that have been added](managecameras.png)
+
+###### Adding a new camera
+
+To add new camera, click "+Add Camera" button which will open a side panel to provide details about the new camera. Following image illustrates that step:
+
+![A screenshot showing add camera step](addcamera.png)
+
+Once a new camera is added, it would be listed on the same "/cameraszones" page as shown in previous section.
+
+##### Manage zones
+
+Zones are areas or locations in a building where the cameras would be deployed to. To manage zones, visit "/cameraszones" and clicking the "Zones" tab as shown below:
+
+![A screenshot showing "Zones" tab highlighted](zonestab.png)
+
+This will list all the zones that are available as shown below:
+
+![A screenshot showing "Zones" tab highlighted](zones.png)
+
+In order to create a new zone click "+Add Zone" button as shown in the above screenshot.
+
+This will start the a set up wizard for zones.
+
+The first step for the setup wizard for zones is for uploading a floor plan. Clicking the "+Add Zone" will show the page for uploading a floor plan as shown below:
+
+![A screenshot showing Upload floor plan step with "Next" button highlighted](uploadfloorplan.png)
+
+Clicking the "Next" button in the upload floor plan page, will take user to "Draw floor zones" page as shown below:
+
+![A screenshot draw floor zones page](drawfloorzones.png)
+
+The draw floor zones page allows user to draw a zone on the uploaded floor plan. To do that, click any area (any area under the toolbard in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear. This panel will allow user to enter a zone label and select a particular camera for the new zone that is being created.
+
+![A screenshot draw floor zones page showing a drawn rectangle](drawfloorzoneswithrectangle.png)
+
+Onces the zone label and desired camera for the new zone is selected, click "Done" as highlighed in the above screenshot.
+
+##### Manage camera regions
+
+After setting up the zone, the next is to setup camera region. Clicking "Done" button in the previous step will bring the user to the page that allows user to select a camera. Once a camera is selected, the video feed from that camera appears as shown below:
+
+![A screenshot a selected camera with its video feed](setupcameraregion.png)
+
+The setup camera region will allow user to create bounding box within the camera's video feed. To do that click any where on the video and then drag the mouse to draw a rectangle. Once a rectangle is drawn on the video feed, a purple bordered box with light purple tint will appear depicting the bounding box. This is show in the following screenshot:
+
+![A screenshot a selected camera with its video feed with bounding box](setupcameraregionwithrectangle.png)
+
+Click "Next" button to move to the last step:
+
+The last step for Zones and Camera region setup wizard is a review.
+
+![A screenshot showing review summary](reviewsummary.png)
+
+The review summary shows the zones that we have added and the cameras that have been setup.
+
+Click "Save" to complete the wizard.
 
 ### Regional manager / data analyst
 
