@@ -58,7 +58,7 @@ Clicking the "Next" button in the upload floor plan page, will take user to "Dra
 
 ![A screenshot draw floor zones page](drawfloorzones.png)
 
-The draw floor zones page allows user to draw a zone on the uploaded floor plan. To do that, click any area (any area under the toolbard in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear. This panel will allow user to enter a zone label and select a particular camera for the new zone that is being created.
+The draw floor zones page allows user to draw a zone on the uploaded floor plan. To do that, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear. This panel will allow user to enter a zone label and select a particular camera for the new zone that is being created.
 
 ![A screenshot draw floor zones page showing a drawn rectangle](drawfloorzoneswithrectangle.png)
 
