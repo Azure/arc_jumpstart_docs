@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 9
-title: Predictive Analytics using Copilot
-linkTitle: Predictive Analytics using Copilot
+title: Predictive analytics with Microsoft Copilot
+linkTitle: Predictive analytics with Microsoft Copilot
 ---
 
 # Predictive Analytics

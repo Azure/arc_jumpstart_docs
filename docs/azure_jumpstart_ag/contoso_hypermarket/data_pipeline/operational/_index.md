@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 6
-title: Operational Data pipeline
-linkTitle: Operational Data pipeline
+title: Data pipeline and reporting for operational technology (OT)
+linkTitle: Data pipeline and reporting for operational technology (OT)
 ---
 
 # Operational data pipeline and reporting across cloud and edge
