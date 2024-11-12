@@ -139,7 +139,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
-  - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
   - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
