@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 7
-title: Observability
+title: Infrastructure observability
 linkTitle: Observability
 ---
 

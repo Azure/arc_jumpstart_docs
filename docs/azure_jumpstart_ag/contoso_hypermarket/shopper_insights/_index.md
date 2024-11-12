@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 3
-title: Shopper Insights
+title: Shopper Insights using computer vision
 linkTitle: Shopper Insights
 ---
 

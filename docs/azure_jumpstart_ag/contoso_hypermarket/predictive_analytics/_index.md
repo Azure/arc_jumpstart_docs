@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 5
-title: Predictive Analytics
+title: Predictive Analytics using Copilot
 linkTitle: Predictive Analytics
 ---
 

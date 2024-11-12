@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 2
-title: People counting
+title: People counting using AI
 linkTitle: People counting
 ---
 
