@@ -235,7 +235,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
   ![Screenshot showing location of fabric setup PowerShell script](./img/fabric-run-script.png)
 
-- Users are prompted to complete authentication using code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
+- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
 
   ![Screenshot showing device authentication URL and code](./img/fabric-device-authentication.png)
 
