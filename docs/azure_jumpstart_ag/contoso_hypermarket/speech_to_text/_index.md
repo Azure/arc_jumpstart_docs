@@ -1,7 +1,7 @@
 ---
 type: docs
 weight: 4
-title: Speech to text
+title: Contoso Hypermarket's AI-Powered voice assistant
 linkTitle: Speech to text
 ---
 
