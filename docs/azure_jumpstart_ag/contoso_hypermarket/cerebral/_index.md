@@ -2,7 +2,7 @@
 type: docs
 weight: 6
 title: AI-Powered Retail Assistant
-linkTitle: Cerebral
+linkTitle: AI-Powered Retail Assistant
 ---
 
 

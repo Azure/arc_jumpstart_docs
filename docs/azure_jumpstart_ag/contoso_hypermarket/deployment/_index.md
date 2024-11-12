@@ -2,7 +2,7 @@
 type: docs
 weight: 1
 title: Deployment guide
-linkTitle: deployment
+linkTitle: Deployment guide
 ---
 
 # Deployment guide
