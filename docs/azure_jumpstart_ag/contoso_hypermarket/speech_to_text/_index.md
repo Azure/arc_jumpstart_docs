@@ -1,13 +1,14 @@
 ---
 type: docs
 weight: 4
-title: Speech to text
-linkTitle: Speech to text
+title: Commerical and Operations assistance with Speech-to-text
+linkTitle: Commerical and Operations assistance with Speech-to-text
 ---
 
 # Contoso Hypermarket – Jumpstart Cerebral using Speech-to-Text (STT)
 
 ## Overview
+
 This document describes the architecture of a Speech-to-Text (STT) solution implemented for **Contoso Hypermarket**. This feature enables Contoso Hypermarket shoppers and employees to ask questions through voice input, which are processed through Jumpstart Cerebral to provide real-time responses. The solution uses a combination of local and cloud-based AI services to ensure efficient processing, accuracy, and scalability.
 
 ### What is Speech to Text?

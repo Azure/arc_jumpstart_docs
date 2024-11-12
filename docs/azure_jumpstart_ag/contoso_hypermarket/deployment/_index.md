@@ -38,6 +38,60 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 - Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
+- Register necessary Azure resource providers by running the following commands.
+
+### Option 1: PowerShell
+
+  ```powershell
+    $providers = @(
+        "Microsoft.Kubernetes",
+        "Microsoft.KubernetesConfiguration",
+        "Microsoft.ExtendedLocation",
+        "Microsoft.HybridCompute",
+        "Microsoft.OperationsManagement",
+        "Microsoft.DeviceRegistry",
+        "Microsoft.EventGrid",
+        "Microsoft.IoTOperationsOrchestrator",
+        "Microsoft.IoTOperations",
+        "Microsoft.Fabric",
+        "Microsoft.SecretSyncController"
+    )
+
+    foreach ($provider in $providers) {
+        az provider register --namespace $provider --wait
+    }
+  ```
+
+### Option 2: Shell
+
+```shell
+    providers=(
+        "Microsoft.Kubernetes"
+        "Microsoft.KubernetesConfiguration"
+        "Microsoft.ExtendedLocation"
+        "Microsoft.HybridCompute"
+        "Microsoft.OperationsManagement"
+        "Microsoft.DeviceRegistry"
+        "Microsoft.EventGrid"
+        "Microsoft.IoTOperationsOrchestrator"
+        "Microsoft.IoTOperations"
+        "Microsoft.Fabric"
+        "Microsoft.SecretSyncController"
+    )
+
+    for provider in "${providers[@]}"; do
+        az provider register --namespace "$provider" --wait
+    done
+  ```
+
+> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
+
+- Clone the Azure Arc Jumpstart repository
+
+  ```shell
+  git clone https://github.com/microsoft/azure_arc.git
+  ```
+
 ### Regions and capacity
 
 - Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
@@ -48,7 +102,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - West US 3
   - West Europe
 
-> **Note:** Every subscription has different capacity restrictions and quotas so it is very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
+> **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
 - **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below az CLI command to check your vCPU utilization.
 
@@ -64,37 +118,13 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az vm list-usage --location <your location> --output table
   ```
 
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text modesl). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
   ```
 
-  ![Screenshot showing az cognitiveservices list usage](./img/check_ai_usage.png)
-
-- Register necessary Azure resource providers by running the following commands.
-
-  ```shell
-  az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az provider register --namespace Microsoft.ExtendedLocation --wait
-  az provider register --namespace Microsoft.HybridCompute --wait
-  az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.DeviceRegistry --wait
-  az provider register --namespace Microsoft.EventGrid --wait
-  az provider register --namespace Microsoft.IoTOperationsOrchestrator --wait
-  az provider register --namespace Microsoft.IoTOperations --wait
-  az provider register --namespace Microsoft.Fabric --wait
-  az provider register --namespace Microsoft.SecretSyncController --wait
-  ```
-
-> **Note:** The Jumpstart scenarios are designed with as much ease of use in mind and adhering to security-related best practices whenever possible. It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well as considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
-- Clone the Azure Arc Jumpstart repository
-
-  ```shell
-  git clone https://github.com/microsoft/azure_arc.git
-  ```
+  ![Screenshot showing cognitive services usage](./img/check_ai_usage.png)
 
 ## Deployment: Bicep deployment via Azure CLI
 
@@ -109,7 +139,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
-  - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
   - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
@@ -204,6 +233,72 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   ![Screenshot showing complete deployment](./img/contoso_hypermarket_complete.png)
 
   ![Screenshot showing Agora resources in Azure portal](./img/rg_complete.png)
+
+### Setup Microsoft Fabric workspace
+
+Due to some limitations of automating Microsoft Fabric items in the Fabric workspace using a managed identity, users deploying Contoso Hypermarket have to run a setup script manually using the end user credentials that are used to access Microsoft Fabric workspace.
+
+In order to create the Microsoft Fabric workspace, the tenant in which the workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you do not have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
+
+1. Enabled for the entire organization.
+1. User must be a member of the security group allowed to create workspace.
+1. Not a member of the excluded security groups.
+
+> **Note**: Microsoft Fabric do not support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
+
+  ![Screenshot showing Fabric tenant settings for workspace](./img/fabric-tenant-settings.png)
+
+Once you log into _Agora-Client-VM_ using any of the method described above follow the steps below to run the script
+
+- Open Windows Explorer and navigate to _C:\Ag\Fabric_ folder and make sure there are two files located in the folder.
+
+  ![Screenshot showing Fabric workspace setup files](./img/fabric-script-files.png)
+
+- Open Windows PowerShell command-line tool from Start menu
+
+  ![Screenshot showing PowerShell command-line tool launch](./img/ag-client-launch-powershell.png)
+
+- Change directory to _C:\Ag\Fabric_
+
+- Run the script file as shown below and follow the onscreen instructions to login to the Entra ID tenant.
+
+  ![Screenshot showing location of fabric setup PowerShell script](./img/fabric-run-script.png)
+
+- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
+
+  ![Screenshot showing device authentication URL and code](./img/fabric-device-authentication.png)
+
+- Open Edge browser and access the URL copied above and enter the code to complete authentication.
+
+  ![Screenshot showing device code prompt in the browser](./img/fabric-enter-device-code.png)
+
+- Select subscription when prompted to select as shown below and press enter
+
+  ![Screenshot showing subscription selection](./img/fabric-select-subsription.png)
+
+- Once the script executed successfully without any issues, output of the script looks like below. If there are any errors open the script log file to review any issues and follow troubleshooting instructions below in this document.
+
+  ![Screenshot showing results of successful script execution](./img/fabric-script-output.png)
+
+- Access Contoso Hypermarket workspace by log into [Microsoft Fabric](https://app.fabric.microsoft.com/) and complete authentication. Fabric home page will look like below
+
+  ![Screenshot showing Microsoft Fabric home page](./img/fabric-home-page.png)
+
+- Click on Power BI to view workspaces and access Contoso Hypermarket workspace
+
+  ![Screenshot showing choosing Power BI](./img/fabric-home-page.png)
+
+- Click on Workspaces to view all available workspaces. Contoso Hypermarket workspaces have created with the naming standard _contoso-hypermarket-<naming_guid>_, where _naming_guid_ can be found in the Azure Portal resource group.
+
+  ![Screenshot showing view workspaces](./img/fabric-view-workspaces.png)
+
+- Open the workspace created to view Fabric items
+
+  ![Screenshot showing open workspace](./img/fabric-open-workspace.png)
+
+- Screenshot below shows all the items created for the Contoso Hypermarket
+  
+  ![Screenshot showing workspace items](./img/fabric-workspace-items.png)
 
 ## Next steps
 

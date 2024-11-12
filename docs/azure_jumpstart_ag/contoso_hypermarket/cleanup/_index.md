@@ -1,8 +1,8 @@
 ---
 type: docs
-weight: 8
+weight: 10
 title: Clean up environment
-linkTitle: Cleanup
+linkTitle: Clean up environment
 ---
 
 # Cleanup deployment
