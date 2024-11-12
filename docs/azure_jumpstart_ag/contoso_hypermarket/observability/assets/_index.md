@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 5
+weight: 4
 title: Industrial assets health
 linkTitle: Industrial assets health
 ---
