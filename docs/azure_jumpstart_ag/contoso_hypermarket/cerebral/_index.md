@@ -7,6 +7,7 @@ linkTitle: AI-Powered Retail Assistant
 
 
 # Cerebral: AI-Powered Retail Assistant
+
 ## Executive Summary
 
 Cerebral is an advanced AI assistant designed for Contoso HyperMarket that leverages both edge computing and cloud capabilities to provide intelligent decision support across various retail operations. By combining local language models with cloud AI services, Cerebral creates a robust system that helps staff access information efficiently, automates routine tasks, and provides proactive insights for better decision-making.
