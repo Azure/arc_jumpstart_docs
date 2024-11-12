@@ -155,3 +155,5 @@ The Operational Telemetry Real-Time Dashboard Report in Microsoft Fabric provide
   ![Screenshot showing overview of Microsoft Fabric workspace](./img/fabric-ot-dashboard-report.png)
 
 ## Next steps
+
+Now that you have completed the data pipeline scenarios, it's time to continue to the next scenario, [Contoso Hypermarket Observability](../../observability/).

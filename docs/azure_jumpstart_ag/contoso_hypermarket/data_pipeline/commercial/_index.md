@@ -138,8 +138,8 @@ The MQTT Explorer is a desktop tool included in the Contoso Hypermarket setup. I
 
 - Once connected, you will start seeing simulated data being transmitted with various metrics from the plant assets.
   1. Topic for the commercial data message publication.
-  1. Message received from the Cerebral simulator.
-  1. Previous message published in the commercial topic.
+  2. Message received from the Cerebral simulator.
+  3. Previous message published in the commercial topic.
 
   ![Screenshot showing the simulated commercial data](./img/hypermarket-mqtt-explorer-commercial-events.png)
 
@@ -200,10 +200,10 @@ Data ingested into KQL Database is used by the Power BI reports create for comme
 
 - Below is the screenshot of KQL Database created in the Fabric workspace and it's details.
   1. KQL Database name
-  1. Database tables used in the Contoso Hypermarket for data ingestion and reports
-  1. Datapipeline data ingestion over the time
-  1. Database tables ingestion details
-  1. KQL Database details
+  2. Database tables used in the Contoso Hypermarket for data ingestion and reports
+  3. Datapipeline data ingestion over the time
+  4. Database tables ingestion details
+  5. KQL Database details
 
   ![Screenshot showing overview of Microsoft Fabric workspace](./img/fabric-kql-database-overview.png)
 
@@ -240,5 +240,7 @@ The Microsoft Fabric Notebooks are an integral part of the Contoso Hypermarket's
   ![Screenshot showing sales forecast for Chicago store](./img/hypermarket-fabric-notebook-sales-forecast.png)
 
 - Try changing the forecast model to use different product than the one used in the Notebook to learn more.
- 
+
 ## Next steps
+
+Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Contoso Hypermarket Operational Data pipeline](../operational/).
