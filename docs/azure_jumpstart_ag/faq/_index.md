@@ -36,7 +36,10 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 - [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
 - [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
-- [Contoso Hypermarket cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
+- Contoso Hypermarket cost estimate has multiple deployment options:
+  - [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
+    - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
+    - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
 
 ## Where can I go if I have trouble deploying or using Agora?
 
