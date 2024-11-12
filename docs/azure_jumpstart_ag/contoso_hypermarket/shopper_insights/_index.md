@@ -21,7 +21,7 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 #### Configure cameras and regions
 
-The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis. This is setup by managing cameras, zones and camera regions. The following section explain those steps in detail.
+The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis. This is setup by managing cameras, zones and camera regions. The following section explain  provides the details.
 
 ##### Manage cameras
 
