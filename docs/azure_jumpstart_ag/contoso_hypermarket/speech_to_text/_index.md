@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 4
-title: Contoso Hypermarket's AI-Powered voice assistant
-linkTitle: Speech to text
+title: AI-Powered Retail Assistant
+linkTitle: AI-Powered Retail Assistant
 ---
 
 # Contoso Hypermarket – Jumpstart Cerebral using Speech-to-Text (STT)
