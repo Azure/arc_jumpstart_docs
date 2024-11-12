@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 2
-title: People counting using AI
-linkTitle: People counting using AI
+title: Footfall inferences and shopper insights
+linkTitle: Footfall inferences and shopper insights
 ---
 
 # People Counting

@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 3
-title: AI-Powered Retail Assistant
-linkTitle: AI-Powered Retail Assistant
+title: Operations Assistance using Gen AI
+linkTitle: Operations Assistance using Gen AI
 ---
 
 
