@@ -239,8 +239,8 @@ Due to some limitations of automating Microsoft Fabric items in the Fabric works
 In order to create the Microsoft Fabric workspace, the tenant in which the workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you don't have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
 
 1. Enabled for the entire organization.
-1. User must be a member of the security group allowed to create workspace.
-1. Not a member of the excluded security groups.
+2. User must be a member of the security group allowed to create workspace.
+3. Not a member of the excluded security groups.
 
 > **Note**: Microsoft Fabric don't support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
 
