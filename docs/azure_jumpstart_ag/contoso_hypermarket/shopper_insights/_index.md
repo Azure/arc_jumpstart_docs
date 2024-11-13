@@ -23,102 +23,66 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
     ![A screenshot showing the Contoso Hypermarket homepage](./img/homepage.png)
 
-![A screenshot showing the store manager dashboard](./img/storedashboard.png)
-
 #### Configure cameras, zones and regions
 
-The specific region of the camera field-of-view that will be sent for inference can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. The following steps provides the details.
+The specific region of the camera field-of-view that will be sent for inference can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. Cameras are placed in retail store locations to monitor shopper behaviors and inventory. Cameras can be assigned a "zone" which represents a physical area of the store. Cameras also have defined "regions" which represent a defined bounding box inside the camera field of view that will be sent for inference.
 
-- For configuring cameras, the first step is to visit "./img/cameraszones" page. That will bring up the following page:
+- Configuring cameras can be done using the Cameras and zones function of the application.
 
     ![A screenshot showing cameras that have been added](./img/managecameras.png)
 
-- To add new camera, click "+Add Camera" button which will open a side panel to provide details about the new camera. Following image illustrates that step:
+- To add new camera, click "Add Camera" button which will open a side panel to provide details about the new camera. Two [simulated cameras](https://github.com/kerberos-io/virtual-rtsp) are provided as part of the deployment which display videos of a typical grocery store.
 
     ![A screenshot showing add camera step](./img/addcamera.png)
 
-    Once a new camera is added, it would be listed on the same _"/cameraszones"_ page as shown above.
-
-- Zones are areas or locations in a building where the cameras would be deployed to. To manage zones, visit _"/cameraszones"_ and clicking the "Zones" tab as shown below:
-
-    ![A screenshot showing "Zones" tab highlighted](./img/zonestab.png)
-
-    This will list all the zones that are available as shown below:
+- Zones represents a physical area of the store. To create zones, click the "Zones" tab, then click the "Add Zone" button. This will start the a set up wizard for zones.
 
     ![A screenshot showing "Zones" tab highlighted](./img/zones.png)
 
-- In order to create a new zone click "+Add Zone" button as shown in the above screenshot. This will start the a set up wizard for zones.
-
-- The first step for the setup wizard for zones is for uploading a floor plan. Clicking the "+Add Zone" will show the page for uploading a floor plan as shown below:
+- Upload a floor plan. You can find a sample floorplan in the "C:\Ag\" folder on _Ag_Client_VM_. Click next when ready to continue.
 
     ![A screenshot showing Upload floor plan step with "Next" button highlighted](./img/uploadfloorplan.png)
 
-- Clicking the "Next" button in the upload floor plan page, will take the user to "Draw floor zones" page as shown below:
+- Zones are created by clicking and dragging the mouse on the floorplan image. You can provide your own floorplan image if desired.
 
-    ![A screenshot draw floor zones page](./img/drawfloorzones.png)
+    ![A screenshot showing the draw floor zones page](./img/drawfloorzones.png)
 
-    The draw floor zones page allows user to draw a zone on the uploaded floor plan.
-
-- To draw a zone on a floorplan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear.
-
-- Enter a zone label and select a particular camera for the new zone that's being created.
+- To draw a zone on a floorplan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right lets you provide a zone label and select a particular camera for the new zone that's being created. Click done when ready.
 
     ![A screenshot draw floor zones page showing a drawn rectangle](./img/drawfloorzoneswithrectangle.png)
 
-- Once the zone label and desired camera for the new zone is selected, click "Done" as highlighted in the above screenshot.
-
-- After setting up the zone, the next is to setup camera region. Clicking "Done" button in the previous step will bring the user to the page that allows user to select a camera. Once a camera is selected, the video feed from that camera appears as shown below:
+- After setting up the zone, the next is to setup a camera region bounding box. Once a camera is selected, the video feed from that camera appears. The camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region of view sent for inference jobs.
 
     ![A screenshot a selected camera with its video feed](./img/setupcameraregion.png)
-
-    The setup camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region that inferencing will be run agains.
 
 - To create bounding box, click any where on the video and then drag the mouse to draw a rectangle. Once a rectangle is drawn on the video feed, a purple bordered box with light purple tint will appear depicting the bounding box. This is show in the following screenshot:
 
     ![A screenshot a selected camera with its video feed with bounding box](./img/setupcameraregionwithrectangle.png)
 
-- Click "Next" button to move to the Review Summary page.
+- Click "Next" button to move to the Review Summary page, then click Save to complete the camera setup wizard.
 
-    ![A screenshot showing review summary](./img/reviewsummary.png)
-
-    The review summary shows the zones that you added and the cameras that have been setup.
-
-- Click "Save" to complete the wizard.
-
-### Regional Manager / Data Analyst
-
-The regional manager will leverage the footfall and shopper insights data from various stores through aggregated dashboards in Fabric. These dashboards provide a comprehensive view of shopper behaviors and patterns across multiple locations, enabling the regional manager to identify trends and make informed decisions. By analyzing high traffic areas, peak shopping times, and customer preferences, the regional manager can optimize store layouts, improve product placement, and tailor marketing strategies to enhance the overall shopping experience. Additionally, the insights gathered from the dashboards help in identifying operational inefficiencies and areas for improvement, ensuring that each store operates at its best.
+    ![A screenshot showing review summary](./img/reviewsummary.png).
 
 ### Architecture
 
-Contoso Hypermarket uses an [adaptive cloud]() application architecture to use AI in their business and day-to-day store operations. collect and use shopper insights about their retail locations. The diagram illustrates the overall architecture of the Shopper Insights system.
+Contoso Hypermarket uses an [adaptive cloud](https://techcommunity.microsoft.com/blog/azurearcblog/a-guide-to-adaptive-cloud-at-microsoft-ignite-2024/4285028) application architecture to use AI in their business and day-to-day store operations. collect and use shopper insights about their retail locations. The diagram illustrates the overall architecture of the Shopper Insights system and the relation of the computer vision APIs relative to other solution components.
 
 ![A diagram depicting the shopper insights system architecture](./img/webarch.png)
 
 #### Video inference pipeline
 
-Video inferencing is handled by two APIs using a common pattern.
+Video inference is handled by two APIs using a common pattern.
 
-- **Footfall API**: Detects humans in a specified region of the field of view of an camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
-- **Shopper Insights API**: 
+- **Footfall API**: Detects humans in a specified region of a camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
+- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [OpenVINO]().
 
 ![A diagram depicting the footfall inference workflow](./img/footfall_diagram.png)
 
-- Footfall API
-- Shopper Insights API
-
-The Shopper Insights System is an advanced computer vision solution that provides real-time analytics about shopper behavior using video feeds. The system leverages OpenVINO™ for efficient AI model inference and provides detailed metrics about customer movements, demographics, and interactions within defined areas.
-Key Features
-
-### Real-time Person Detection
-
-- Tracks multiple people simultaneously
-- Maintains unique IDs for each detected person
-- Processes video feeds at optimized FPS rates
-
-### Person Re-identification (ReID)
-
-Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. In our system, we use the following approach:
+- Footfall API - Uses basic object detection with YOLOv8 and the COCO dataset to detect people and other objects in a retail setting
+- Shopper Insights API - Uses OpenVINO™ for efficient AI model inference and provides detailed metrics about customer movements, demographics, and interactions within defined areas
+  - Tracks multiple people simultaneously.
+  - Maintains unique IDs for each detected person.
+  - Processes video feeds at optimized FPS rates.
 
 ### Feature Extraction
 
