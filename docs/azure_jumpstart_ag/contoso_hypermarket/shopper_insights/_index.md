@@ -7,7 +7,7 @@ linkTitle: Shopper Insights using computer vision
 
 # Enhance store operations and boost sales with AI-enhanced shopper insights
 
-## Overview 
+## Overview
 
 Contoso Hypermarket uses computer vision to enhance the customer in-store experience and to provide advanced business insights that can make store operations more efficient, increase sales, and streamline operations. In-store cameras detect shopper behavior such as foot traffic, time spent in certain zones of the store, and shopper-specific identifiers that personalize the shopping experience.
 
