@@ -40,6 +40,91 @@ Further reading:
 
 - Footfall API
 - Shopper Insights API
+
+The Shopper Insights System is an advanced computer vision solution that provides real-time analytics about shopper behavior using video feeds. The system leverages OpenVINO™ for efficient AI model inference and provides detailed metrics about customer movements, demographics, and interactions within defined areas.
+Key Features
+
+### Real-time Person Detection
+
+- Tracks multiple people simultaneously
+- Maintains unique IDs for each detected person
+- Processes video feeds at optimized FPS rates
+
+### Person Re-identification (ReID) Technology
+Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. In our system, we use the following approach:
+How ReID Works
+
+### Feature Extraction
+
+When a person is detected, the system extracts a unique feature vector (embedding)
+These features capture distinctive characteristics like:
+
+- Clothing patterns and colors
+- Body shape and proportions
+- Appearance attributes
+
+### Feature Matching
+
+New detections are compared with existing tracks using cosine distance
+Distance threshold: 0.3 (configured in max_distance_threshold)
+Lower distance indicates higher similarity
+
+### Track Management
+
+Each person gets a unique hash ID (8 characters)
+Tracks are maintained for up to 60 frames (max_frames_to_track)
+System handles track creation, updates, and termination
+
+### Models Used
+1. Person Detection Model
+Model: person-detection-retail-0013
+
+Purpose: Detects people in video frames
+Architecture: MobileNetV2-like backbone with FPN and SSD head
+Input: Images of 320×320 pixels
+Output: Bounding boxes with confidence scores
+Performance:
+
+- High accuracy for retail environments
+- Minimum confidence threshold: 0.6 (min_detection_confidence)
+
+2. Person Re-identification Model
+Model: person-reidentification-retail-0287
+
+Purpose: Generates unique feature vectors for tracked individuals
+Architecture: ResNet50 backbone optimized for ReID
+Input: Cropped person images
+Output: 256-dimensional feature vector
+Features:
+
+- Optimized for retail scenarios
+- Robust to viewpoint changes
+- Handles partial occlusions
+
+3. Age Recognition Model
+Model: age-gender-recognition-retail-0013
+
+Purpose: Estimates age of detected persons
+Architecture: Based on VGG-16 architecture
+Input: Face/person crops
+Output: Age estimation (0-100 years)
+Features:
+
+- Groups ages into decades for statistics
+- Provides real-time demographic insights
+
+### Area Analytics
+
+- Supports multiple detection areas
+- Tracks entry/exit times for each area
+- Maintains current and total visitor counts
+
+### Demographics Analysis
+
+- Age detection for each detected person
+- Age group statistics and trends
+- Historical data aggregation
+
 - Data pipeline to MQ
 
 ### Jump to other Contoso Hypermarket guides
