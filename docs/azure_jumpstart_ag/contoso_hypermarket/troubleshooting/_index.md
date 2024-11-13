@@ -37,7 +37,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 | ------- | ----------- |
 | _C:\Ag\Logs\AgLogonScript.log_ | Output from the primary PowerShell script that drives most of the automation tasks. |
 | _C:\Ag\Logs\ArcConnectivity.log_ | Output from the tasks that onboard servers and Kubernetes clusters to Azure Arc. |
-| _C:\Ag\Logs\AzCLI.log_ | Output from az CLI login. |
+| _C:\Ag\Logs\AzCLI.log_ | Output from Azure CLI login. |
 | _C:\Ag\Logs\AzPowerShell.log_ | Output from the installation of PowerShell modules. |
 | _C:\Ag\Logs\Bookmarks.log_ | Output from the configuration of Microsoft Edge bookmarks. |
 | _C:\Ag\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _Ag-VM-Client_. |
