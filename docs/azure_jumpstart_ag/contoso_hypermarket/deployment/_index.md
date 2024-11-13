@@ -287,7 +287,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
 - Click on Power BI to view workspaces and access Contoso Hypermarket workspace
 
-  ![Screenshot showing choosing Power BI](./img/fabric-home-page.png)
+  ![Screenshot showing choosing Power BI](./img/fabric-select-powerbi.png)
 
 - Click on Workspaces to view all available workspaces. Contoso Hypermarket workspaces have created with the naming standard _contoso-hypermarket-<naming_guid>_, where _naming_guid_ can be found in the Azure Portal resource group.
 
@@ -297,9 +297,33 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
   ![Screenshot showing open workspace](./img/fabric-open-workspace.png)
 
-- Screenshot below shows all the items created for the Contoso Hypermarket
+- Screenshot below shows all the items created for the Contoso Hypermarket.
   
   ![Screenshot showing workspace items](./img/fabric-workspace-items.png)
+
+- Withing the workspace locate Semantic model credentials and click on ellipsis as shown below open settings.
+
+  ![Screenshot showing Semantic model](./img/fabric-semantec-model.png)
+
+- Select _Settings_ to open settings and edit credentials.
+
+  ![Screenshot showing Semantic model settings](./img/fabric-semantec-model-open-settings.png)
+
+- Under _Data Source settings_ click on _Edit credentials_
+
+  ![Screenshot showing Semantic model edit credentials](./img/fabric-semantec-model-edit-credentials.png)
+
+- Select options as shown in the screenshot below and click _Sign in_. Complete the sign in using sames credentials used to login to Microsoft Fabric.
+
+  ![Screenshot showing Semantic model sign in](./img/fabric-semantec-model-credentials-signin.png)
+
+- In the Fabric workspace click _Refresh now_ icon as shown below and wait for the model to refresh with logged in credentials.
+
+  ![Screenshot showing Semantic model refresh](./img/fabric-semantec-model-refresh.png)
+
+- After successful refresh, Semantic model status looks like as shown in the screenshot below. This will allow Contoso Hypermarket commercial dashboard report to access data source and render report.
+
+  ![Screenshot showing Semantic model refresh status](./img/fabric-semantec-model-refresh-status.png)
 
 ## Next steps
 
