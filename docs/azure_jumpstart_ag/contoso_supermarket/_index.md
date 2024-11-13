@@ -6,7 +6,7 @@ description: >-
   Learn how Contoso Supermarket, a leading global retailer implement cloud to edge strategy while leveraging Azure Arc, IoT services, AKS hybrid, AI, and software distribution and data pipelines.
 ---
 
-## Contoso Supermarket overview
+## Overview
 
 Contoso Supermarket is a leading global retailer at the forefront of the digital revolution. With a strong presence in multiple countries, Contoso Supermarket is dedicated to providing exceptional customer experiences while embracing the latest technologies. Their cloud to edge strategy, combined with a commitment to digital transformation, has positioned them as an industry leader.
 
