@@ -21,35 +21,35 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 
 - Click on the link for Store Managers
 
-    ![A screenshot showing the Contoso Hypermarket homepage](./homepage.png)
+    ![A screenshot showing the Contoso Hypermarket homepage](./img/homepage.png)
 
 - In this screen, store managers can view the status of ovens, refrigerators, and point-of-sale assets such as automated checkouts or smart shelves.
 
-    ![A screenshot showing the maintenance worker dashboard](./store_manager_dashboard.png)
+    ![A screenshot showing the maintenance worker dashboard](./img/store_manager_dashboard.png)
 
 >**Note:** The suggested prompts user interface widgets at the top of the screen are cosmetic only and aren't implemented in this release of Contoso Hypermarket.
 
 - Users can also interact with Contoso Hypermarket using natural language. Click on the [Jumpstart Cerebral](../../cerebral/) icon in the upper right to ask a question about the status of industrial assets.
 
-    ![A screenshot showing Jumpstart Cerebral location in the app](./cerebral_icon.png)
+    ![A screenshot showing Jumpstart Cerebral location in the app](./img/cerebral_icon.png)
 
-    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./placeholder_until_it_works.png)
+    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/placeholder_until_it_works.png)
 
-## View industrial assets health in a Grafana dashboard
+## View shopper and point-of-sale insights in a Grafana dashboard
 
 Users also have the ability to use [Grafana](https://grafana.com/) to build, view and customize dashboards for industrial assets telemetry.
 
 - Open Microsoft Edge and click on the Grafana bookmark.
 
-    ![A screenshot showing Microsoft Edge and the Grafana bookmark](./grafana_bookmark.png)
+    ![A screenshot showing Microsoft Edge and the Grafana bookmark](./img/grafana_bookmark.png)
 
 - Navigate to the Industrial Assets Health dashboard.
 
-    ![A screenshot showing the Industrial Assets Health menu of dashboards](./dashboard_menu.png)
+    ![A screenshot showing the Industrial Assets Health menu of dashboards](./img/dashboard_menu.png)
 
 - From this view, users can view real-time telemetry from industrial assets and filter by store and time dimension.
 
-    ![A screenshot showing the industrial assets Grafana dashboard](./grafana_dashboard.png)
+    ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_dashboard.png)
 
 ## Observability architecture components
 

@@ -17,23 +17,23 @@ Maintenance workers and equipment managers can view the status and health of Con
 
 - Open Microsoft Edge on the _Ag-Client_VM_ desktop and then click on the bookmarks toolbar and find the bookmark folder for Main UI.
 
-    ![A screenshot showing Microsoft edge and the bookmarks folder with the bookmarks for Main UI](./bookmarks.png)
+    ![A screenshot showing Microsoft edge and the bookmarks folder with the bookmarks for Main UI](./img/bookmarks.png)
 
 - Click on the link for Maintenance Workers
 
-    ![A screenshot showing the Contoso Hypermarket homepage](./homepage.png)
+    ![A screenshot showing the Contoso Hypermarket homepage](./img/homepage.png)
 
 - In this screen, maintenance workers can view the health of ovens, refrigerators, and point-of-sale assets such as automated checkouts or smart shelves.
 
-    ![A screenshot showing the maintenance worker dashboard](./maintenance_dashboard.png)
+    ![A screenshot showing the maintenance worker dashboard](./img/maintenance_dashboard.png)
 
 >**Note:** The suggested prompts user interface widgets at the top of the screen are cosmetic only and aren't implemented in this release of Contoso Hypermarket.
 
 - Users can also interact with Contoso Hypermarket using natural language. Click on the [Jumpstart Cerebral](../../cerebral/) icon in the upper right to ask a question about the status of industrial assets.
 
-    ![A screenshot showing Jumpstart Cerebral location in the app](./cerebral_icon.png)
+    ![A screenshot showing Jumpstart Cerebral location in the app](./img/cerebral_icon.png)
 
-    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./placeholder_until_it_works.png)
+    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/placeholder_until_it_works.png)
 
 ## View industrial assets health in a Grafana dashboard
 
@@ -41,15 +41,15 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
 - Open Microsoft Edge and click on the Grafana bookmark.
 
-    ![A screenshot showing Microsoft Edge and the Grafana bookmark](./grafana_bookmark.png)
+    ![A screenshot showing Microsoft Edge and the Grafana bookmark](./img/grafana_bookmark.png)
 
 - Navigate to the Industrial Assets Health dashboard.
 
-    ![A screenshot showing the Industrial Assets Health menu of dashboards](./grafana_menu.png)
+    ![A screenshot showing the Industrial Assets Health menu of dashboards](./img/grafana_menu.png)
 
 - From this view, users can view real-time telemetry from industrial assets and filter by store and time dimension.
 
-    ![A screenshot showing the industrial assets Grafana dashboard](./grafana_dashboard.png)
+    ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_dashboard.png)
 
 ## Observability architecture components
 
@@ -61,7 +61,7 @@ The Contoso Hypermarket observability architecture uses [Azure IoT Operations](h
 - [**Grafana**](https://grafana.com/): A multi-platform open-source analytics and interactive visualization web application used to create dashboards and graphs from the metrics collected by Prometheus.
 - [**Azure Arc-enabled Kubernetes**](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview): Manage and configure Kubernetes clusters running anywhere using Azure.
 
-![Screenshot of the architecture diagram for observability](./arch_diagram.png)
+![Screenshot of the architecture diagram for observability](./img/arch_diagram.png)
 
 ## Next steps
 
