@@ -236,13 +236,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 Due to some limitations of automating Microsoft Fabric items in the Fabric workspace using a managed identity, users deploying Contoso Hypermarket have to run a setup script manually using the end user credentials that are used to access Microsoft Fabric workspace.
 
-In order to create the Microsoft Fabric workspace, the tenant in which the workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you do not have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
+In order to create the Microsoft Fabric workspace, the tenant in which the workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you don't have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
 
 1. Enabled for the entire organization.
 1. User must be a member of the security group allowed to create workspace.
 1. Not a member of the excluded security groups.
 
-> **Note**: Microsoft Fabric do not support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
+> **Note**: Microsoft Fabric don't support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
 
   ![Screenshot showing Fabric tenant settings for workspace](./img/fabric-tenant-settings.png)
 
