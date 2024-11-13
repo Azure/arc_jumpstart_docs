@@ -14,7 +14,7 @@ Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at vari
 - Invalid Azure credentials such as service principal id, service principal secret, service principal Azure tenant ID, or custom location resource provider id provided in _main.parameters.json_ file.
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 32 available vCPU.
-  - You can use the command *`az vm list-usage --location <your location> --output table`* to check your available vCPU quota.
+  - You can use the command _`az vm list-usage --location <your location> --output table`_ to check your available vCPU quota.
 
     ![Screenshot showing capacity constraints error](./img/capacity_constraints.png)
 
@@ -22,7 +22,7 @@ Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at vari
 
 - Target Azure region doesn't support all required Azure services - ensure you are running Agora in one of the supported regions listed in the [deployment guide](../deployment/).
 
-- Not enough AI services quota in your target subscription and region - check AI services quota using the command *`az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"`*.
+- Not enough AI services quota in your target subscription and region - check AI services quota using the command _`az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"`_.
 
     ![Screenshot showing ai services restrictions error](./img/aiServices_quota.png)
 
