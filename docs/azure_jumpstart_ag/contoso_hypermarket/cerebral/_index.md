@@ -10,7 +10,15 @@ linkTitle: Operations Assistance using Gen AI
 
 ## Overview
 
-Contoso Hypermarket leverages Cerebral, an advanced AI assistant, to transform how store personnel interact with their operational systems and access critical information. This innovative solution combines edge computing with cloud capabilities to deliver contextual assistance while maintaining responsive performance and data security. By understanding industry-specific context and adapting to different user roles, Cerebral serves as an intelligent partner that helps staff focus on value-adding activities rather than searching for information or navigating complex systems.
+### Overview
+
+<img src="./img/logo.png" alt="Equipment monitoring" width="100"/>
+
+Contoso Hypermarket leverages Cerebral, an advanced Generative AI assistant, to transform how store personnel access and interact with critical information across diverse data sources. This innovative solution combines the power of large language models with specialized databases to provide contextual assistance and intelligent insights. Through [Retrieval Augmented Generation (RAG)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/what-is-retrieval-augmented-generation-rag/4286747), Cerebral can access and synthesize information from technical documentation, real-time operational metrics, and business data, delivering comprehensive responses tailored to each query.
+
+The system's hybrid architecture balances edge computing with cloud capabilities, enabling responsive performance while maintaining data security. Whether processing queries through [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) in the cloud or using [Small Language Models (SLM)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/small-language-models-with-phi-3-cookbook-a-guide/4149864) at the edge, Cerebral intelligently routes and processes requests based on their nature and urgency. By understanding industry-specific context and adapting to different user roles, Cerebral serves as an intelligent partner that helps staff focus on value-adding activities rather than searching across multiple systems or navigating complex interfaces.
+
+> **Learn More**: For detailed information about the Generative AI capabilities used in Cerebral, see the [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
 
 ### Business Challenges
 
@@ -20,76 +28,15 @@ Cerebral addresses these pain points by providing a unified, intelligent interfa
 
 ![Operational Challenges](./img/operational-challenges.png)
 
-## Architecture
-
-The power of Cerebral lies in its sophisticated hybrid architecture that balances local processing with cloud capabilities. At its core, Cerebral operates on an edge-located Arc-enabled Kubernetes cluster, which hosts the local language model (Microsoft Phi-3 Mini-4k) for rapid response to common queries. This edge infrastructure connects seamlessly with cloud services through Azure IoT Operations, enabling a robust and scalable system that can handle everything from simple information requests to complex analytical queries.
-
-Cerebral exposes its functionality through a comprehensive API layer that supports both REST and WebSocket connections, enabling real-time interactions and seamless integration with applications like the Contoso Hypermarket web interface.
-
-At its core, Cerebral employs a sophisticated query processing orchestrator that intelligently routes requests to appropriate data sources based on the nature of the query. For commercial data such as sales, inventory, and customer information, the system interfaces with SQL Server. Real-time device metrics and operational data are managed through InfluxDB, a specialized time-series database that captures everything from equipment performance to environmental readings. Technical documentation and operational procedures are accessed through a Chroma vector database, enabling powerful RAG (Retrieval Augmented Generation) capabilities.
-
-
-![Cerebral Solution Architecture](./img/architecture.png)
-
-The system's AI processing capabilities are designed for flexibility, with the ability to leverage either Azure OpenAI for complex cloud-based processing or Small Language Models (SLM) for edge processing. This hybrid approach ensures optimal performance while maintaining data privacy and enabling offline operations when needed.
-
-To support development, testing, and demonstrations, Cerebral includes a sophisticated data simulator that generates realistic streams of commercial transactions, device telemetry, and equipment status updates. This simulation capability is crucial for system validation and training scenarios.
-
-While currently demonstrated within Contoso Hypermarket's retail environment, the architecture is inherently designed for multi-industry adaptation. New data sources, industry verticals, and processing pipelines can be seamlessly integrated, ensuring that Cerebral can evolve to meet the needs of diverse operational contexts while maintaining consistent performance and reliability.
-
-
-### Data Integration and Query Processing
-
-At the heart of Cerebral's architecture lies a sophisticated data integration system that seamlessly connects diverse information sources through an intelligent query processing pipeline. This unified approach transforms how organizations access and utilize their operational data.
-
-#### Unified Data Sources
-
-The system orchestrates three specialized databases, each optimized for specific types of information and query patterns:
-
-**Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
-  
-* Stores and indexes technical documentation
-* Enables semantic search capabilities
-* Manages operational procedures and maintenance guides
-* Facilitates contextual information retrieval
-
-**InfluxDB** powers Cerebral's real-time operational insights by managing time-series data from store equipment and systems. This specialized database captures everything from refrigeration temperatures to checkout queue lengths, enabling rapid analysis of current conditions and historical trends. Its optimized time-series capabilities ensure swift access to performance metrics and environmental data when seconds matter.
-
-* Captures real-time metrics from store equipment
-* Monitors system performance data
-* Tracks operational status
-* Stores historical trending data
-
-**SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
-
-* Manages transaction records
-* Tracks inventory levels
-* Stores customer data
-* Handles business intelligence queries
-
-#### Intelligent Query Routing
-
-![Decision Tree Architecture](./img/decision-tree.png)
-
-When a user interacts with Cerebral, their natural language query flows through a sophisticated decision tree that determines the optimal processing path. Questions about maintenance procedures are seamlessly routed to the vector database, equipment status checks are directed to the time-series database, and sales inquiries are processed through the relational database. This intelligent routing ensures that each query is handled by the most appropriate system, delivering fast, accurate responses while maintaining system efficiency.
-
-For example, when a maintenance technician asks "How do I calibrate Scale-02?", Cerebral recognizes this as a documentation query and leverages RAG to search the vector database for relevant procedures. Conversely, a store manager asking "What were our top-selling products today?" triggers a SQL query to analyze recent transaction data.
-
-
-
 ## Interacting with Cerebral
 
 Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, you'll find the Cerebral AI assistant readily available through its distinctive icon ![Ceerebral icon](./img/cerebral-icon.png) located in the top navigation bar. Clicking this icon opens a sliding panel interface where you can seamlessly interact with Cerebral using either text or voice input.
 
+> **Note**: For more information about Cerebral's voice interaction capabilities, see our detailed guide on [Speech-to-Text Integration](../speech_to_text/_index.md).
+
 The interaction is straightforward and natural - simply type your question or click the microphone icon to speak. Cerebral understands natural language queries across a wide range of topics, for example:
 
-- Technical support: "The cash dispenser in POS-01 is stuck. How do I fix it?"
-- Sales analysis: "What are our top 5 selling products this week?"
-- Equipment monitoring: "What's the power usage for HVAC unit 02?"
-- Inventory queries: "Show me all products below reorder threshold"
 
-
-### Example Interactions
 
 | Type of Query | Example Question | Sample Response |
 |--------------|------------------|-----------------|
@@ -110,6 +57,111 @@ Based on your query, Cerebral automatically classifies the type of request and r
 This transparency helps users understand how Cerebral processes their requests while providing valuable insights into the system's decision-making process.
 
 ![Debug](./img/debug.png)
+
+> **Important**: 
+> - For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section.
+> - For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-queries).
+> - Common questions include:
+>   * Documentation: "How do I calibrate Scale-02?"
+>   * Commercial: "What are our top 5 selling products this week?"
+>   * Real-time: "What's the current temperature of HVAC unit 02?"
+
+## Architecture
+
+The power of Cerebral lies in its sophisticated hybrid architecture that balances local processing with cloud capabilities. At its core, Cerebral operates on an edge-located [Arc-enabled Kubernetes cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview), which hosts the local language model (Microsoft Phi-3 Mini-4k) for rapid response to common queries. This edge infrastructure connects seamlessly with cloud services through [Azure IoT Operations](https://azure.microsoft.com/en-us/products/iot-operations), enabling a robust and scalable system that can handle everything from simple information requests to complex analytical queries.
+
+Cerebral exposes its functionality through a comprehensive API layer that supports both REST and WebSocket connections, enabling real-time interactions and seamless integration with applications like the Contoso Hypermarket web interface.
+
+At its core, Cerebral employs a query processing orchestrator that intelligently routes requests to appropriate data sources based on the nature of the query. For commercial data such as sales, inventory, and customer information, the system interfaces with SQL Server. Real-time device metrics and operational data are managed through InfluxDB, a specialized time-series database that captures everything from equipment performance to environmental readings. Technical documentation and operational procedures are accessed through a Chroma vector database, enabling powerful RAG (Retrieval Augmented Generation) capabilities.
+
+
+![Cerebral Solution Architecture](./img/architecture.png)
+
+The system's AI processing capabilities are designed for flexibility, with the ability to leverage either Azure OpenAI for complex cloud-based processing or Small Language Models (SLM) for edge processing. This hybrid approach ensures optimal performance while maintaining data privacy and enabling offline operations when needed.
+
+To support development, testing, and demonstrations, Cerebral includes a sophisticated data simulator that generates realistic streams of commercial transactions, device telemetry, and equipment status updates. This simulation capability is crucial for system validation and training scenarios.
+
+> **Learn More**: 
+> - To understand how Cerebral integrates with Contoso Hypermarket's data infrastructure, explore [Data Pipeline Architecture](../data_pipeline/_index.md).
+
+While currently demonstrated within Contoso Hypermarket's retail environment, the architecture is inherently designed for multi-industry adaptation. New data sources, industry verticals, and processing pipelines can be seamlessly integrated, ensuring that Cerebral can evolve to meet the needs of diverse operational contexts while maintaining consistent performance and reliability.
+
+
+### Data Integration and Query Processing
+
+At the heart of Cerebral's architecture lies a sophisticated data integration system that seamlessly connects diverse information sources through an intelligent query processing pipeline. This unified approach transforms how organizations access and utilize their operational data.
+
+#### Unified Data Sources
+
+The system orchestrates three specialized databases, each optimized for specific types of information and query patterns:
+
+**InfluxDB** powers Cerebral's real-time operational insights by managing time-series data from store equipment and systems. This specialized database captures everything from refrigeration temperatures to checkout queue lengths, enabling rapid analysis of current conditions and historical trends. Its optimized time-series capabilities ensure swift access to performance metrics and environmental data when seconds matter.
+
+* Captures real-time metrics from store equipment
+* Monitors system performance data
+* Tracks operational status
+* Stores historical trending data
+
+
+The following table details the equipment types and metrics being simulated through MQTT for Contoso Hypermarket operations:
+
+| Equipment Type | Device Format | Fields Monitored | Example Metrics |
+|---------------|---------------|------------------|-----------------|
+| Refrigerator | `Refrigerator{01..XX}` | - temperature_celsius<br>- door_open<br>- power_usage_kwh | - Current temperature<br>- Door status (open/closed)<br>- Power consumption |
+| Scale | `Scale{01..XX}` | - weight_kg<br>- tare_weight_kg | - Current weight<br>- Tare weight settings |
+| POS | `POS{01..XX}` | - items_sold<br>- total_amount_usd<br>- payment_method<br>- failure_type | - Transaction volume<br>- Sales amount<br>- Payment types<br>- Error states |
+| SmartShelf | `SmartShelf{01..XX}` | - product_id<br>- stock_level<br>- threshold_stock_level<br>- last_restocked | - Current inventory<br>- Stock thresholds<br>- Restock timing |
+| HVAC | `HVAC{01..XX}` | - temperature_celsius<br>- humidity_percent<br>- power_usage_kwh<br>- operating_mode | - Air temperature<br>- Humidity levels<br>- Energy usage<br>- Mode (heating/cooling) |
+| LightingSystem | `LightingSystem{01..XX}` | - brightness_level<br>- power_usage_kwh<br>- status | - Light intensity<br>- Power consumption<br>- Operational status |
+| AutomatedCheckout | `AutomatedCheckout{01..XX}` | - items_scanned<br>- total_amount_usd<br>- payment_method<br>- errors<br>- queueLength<br>- avgWaitTime | - Scanning activity<br>- Transaction values<br>- Error states<br>- Queue metrics |
+
+> **Note**: The simulation generates realistic data streams for each device type, enabling testing, demonstrations, and development. Device IDs are formatted with sequential numbering (e.g., Refrigerator01, Refrigerator02). All metrics are published to the MQTT broker and InflixDB and can be queried through Cerebral using natural language.
+
+
+**SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
+
+* Manages transaction records
+* Tracks inventory levels
+* Stores customer data
+* Handles business intelligence queries
+
+The following table details the relational database structure used in Contoso Hypermarket for commercial and operational data:
+
+| Table Name | Description | Key Fields | Example Data |
+|------------|-------------|------------|--------------|
+| Sales | Transaction records | - sale_id VARCHAR(50)<br>- sale_date DATETIME2<br>- store_id VARCHAR(10)<br>- store_city VARCHAR(100)<br>- product_id VARCHAR(50)<br>- quantity INT<br>- item_total DECIMAL(10,2)<br>- payment_method VARCHAR(50)<br>- customer_id VARCHAR(50)<br>- register_id VARCHAR(20) | - 'SAL20240312001'<br>- '2024-03-12 14:30:00'<br>- 'SEA'<br>- 'Seattle'<br>- 'PROD001'<br>- 2<br>- 4.99<br>- 'credit_card'<br>- 'CUST123'<br>- 'REG01' |
+| Products | Product catalog | - product_id VARCHAR(50)<br>- name VARCHAR(200)<br>- category VARCHAR(100)<br>- price_min DECIMAL(10,2)<br>- price_max DECIMAL(10,2)<br>- stock INT<br>- photo_path VARCHAR(500) | - 'PROD001'<br>- 'Red Apple'<br>- 'Fruits'<br>- 0.20<br>- 0.40<br>- 1000<br>- '/img/products/apple.jpg' |
+| Inventory | Current stock levels | - id INT<br>- date_time DATETIME2<br>- store_id VARCHAR(10)<br>- product_id VARCHAR(50)<br>- retail_price DECIMAL(10,2)<br>- in_stock INT<br>- reorder_threshold INT<br>- last_restocked DATETIME2 | - 1<br>- '2024-03-12 15:00:00'<br>- 'SEA'<br>- 'PROD001'<br>- 0.35<br>- 850<br>- 200<br>- '2024-03-11 08:00:00' |
+| Stores | Store locations | - store_id VARCHAR(10)<br>- city VARCHAR(100)<br>- state VARCHAR(50)<br>- country VARCHAR(100) | - 'SEA'<br>- 'Seattle'<br>- 'WA'<br>- 'United States' |
+| DeviceMetrics | Equipment telemetry history | - id INT<br>- timestamp DATETIME2<br>- device_id VARCHAR(50)<br>- equipment_type VARCHAR(50)<br>- metric_name VARCHAR(100)<br>- metric_value DECIMAL(18,4)<br>- metric_unit VARCHAR(20) | - 1<br>- '2024-03-12 15:01:00'<br>- 'HVAC01'<br>- 'HVAC'<br>- 'temperature'<br>- 22.5<br>- 'celsius' |
+
+**Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
+  
+* Stores and indexes technical documentation
+* Enables semantic search capabilities
+* Manages operational procedures and maintenance guides
+* Facilitates contextual information retrieval
+
+#### Available Technical Manuals
+
+| System | Description | Documentation |
+|--------|-------------|---------------|
+| Automated Checkout | Complete guide for operation and maintenance of self-checkout systems | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Automated%20Checkout%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| SmartShelf | Technical documentation for electronic shelf labeling and inventory tracking | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/SmartShelf%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| Refrigeration | Maintenance and operation guides for refrigeration units | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Refrigeration%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| HVAC | Environmental control system documentation | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/HVAC%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| Scale Systems | Calibration and operation procedures for weighing equipment | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Scale%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+
+> **Note**: All technical documentation is automatically indexed and processed by Cerebral's RAG system, enabling natural language queries about any aspect of these systems. Instead of manually searching through PDFs, users can simply ask Cerebral specific questions about equipment operation, maintenance procedures, or troubleshooting steps.
+
+
+#### Intelligent Query Routing
+
+![Decision Tree Architecture](./img/decision-tree.png)
+
+When a user interacts with Cerebral, their natural language query flows through a sophisticated decision tree that determines the optimal processing path. Questions about maintenance procedures are seamlessly routed to the vector database, equipment status checks are directed to the time-series database, and sales inquiries are processed through the relational database. This intelligent routing ensures that each query is handled by the most appropriate system, delivering fast, accurate responses while maintaining system efficiency.
+
+For example, when a maintenance technician asks "How do I calibrate Scale-02?", Cerebral recognizes this as a documentation query and leverages RAG to search the vector database for relevant procedures. Conversely, a store manager asking "What were our top-selling products today?" triggers a SQL query to analyze recent transaction data.
 
 
 ## Industry and Role Adaptability
@@ -177,120 +229,3 @@ Cerebral's multi-industry architecture delivers three fundamental advantages tha
 The system maintains unwavering consistency across all implementations through standardized response formats and uniform query handling mechanisms. This consistency ensures that whether users are accessing Cerebral in a retail environment or a manufacturing facility, they experience the same reliable, intuitive interaction patterns and dependable data processing. This standardization doesn't just benefit end users; it also streamlines maintenance and updates across different industry deployments.
 
 Perhaps most importantly, Cerebral offers deep customization capabilities that allow it to speak the language of each industry it serves. From adapting to industry-specific terminology to implementing role-based access controls, each instance of Cerebral can be precisely tailored to its operational context. This customization extends to response formatting and recommendations, ensuring that each user receives information in the most relevant and actionable format for their role and industry context. Whether it's a store manager reviewing sales metrics or a maintenance engineer diagnosing equipment issues, Cerebral adapts its communication style and content depth to match the user's needs and expertise level.
-
-
-
-END
-###################
-PENDING ...
-
-
-## Key Capabilities
-
-### Natural Language Understanding
-
-Cerebral excels at understanding natural language queries across multiple domains:
-
-* Interprets retail-specific terminology
-* Processes context-aware questions
-* Handles technical and business inquiries
-* Supports various user expertise levels
-
-### Proactive Operations Support
-
-Beyond reactive query responses, Cerebral actively monitors store systems:
-
-* Tracks critical system metrics
-* Sends automated alerts
-* Monitors equipment performance
-* Predicts potential issues
-
-### Real-time Analytics and Reporting
-
-The system transforms raw data into actionable insights:
-
-* Generates instant sales analysis
-* Monitors inventory levels
-* Tracks operational metrics
-* Provides historical comparisons
-
-## Real-World Applications
-
-### Store Operations
-
-```
-Example Query: "What's our current checkout wait time?"
-Response includes:
-- Current wait time metrics
-- Historical comparison
-- Peak time analysis
-- Staffing recommendations
-```
-
-### Maintenance Support
-
-```
-Example Query: "How do I troubleshoot Refrigerator-01?"
-Response includes:
-- Step-by-step guide
-- Current temperature readings
-- Historical performance data
-- Safety precautions
-```
-
-### Inventory Management
-
-```
-Example Query: "Show me products below reorder point"
-Response includes:
-- Current stock levels
-- Historical sales data
-- Reorder recommendations
-- Supplier information
-```
-
-## Query Examples
-
-### Technical Support
-```
-Q: "How do I reset an automated checkout system when it's frozen?"
-Q: "What's the procedure for cleaning the refrigeration units?"
-Q: "Can you explain the steps for processing a customer refund?"
-```
-
-### Operational Monitoring
-```
-Q: "What's the current temperature of Refrigerator01?"
-Q: "How many people are waiting at automated checkouts?"
-Q: "Show me the power usage trend of HVAC systems"
-```
-
-### Commercial Data
-```
-Q: "What were our top 5 selling products this month?"
-Q: "Show me all items that need reordering"
-Q: "What's our average transaction value by payment method?"
-```
-
-
-## Benefits
-
-### Business Impact
-- Reduced operational costs
-- Improved decision-making
-- Faster employee onboarding
-- Enhanced maintenance efficiency
-- Better inventory management
-
-### Technical Advantages
-- Hybrid architecture combining edge and cloud
-- Scalable Kubernetes-based deployment
-- Real-time processing capabilities
-- Robust data security and privacy
-
-## Future Enhancements
-- Advanced predictive analytics
-- Enhanced multi-language support
-- Extended IoT device integration
-- Advanced visualization capabilities
-- Expanded use case coverage
