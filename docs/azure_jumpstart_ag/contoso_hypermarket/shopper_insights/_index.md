@@ -61,7 +61,7 @@ The specific region of the camera field-of-view that will be sent for inference 
 
 - Enter a zone label and select a particular camera for the new zone that's being created.
 
-    ![A screenshot draw floor zones page showing a drawn rectangle](drawfloorzoneswithrectangle.png)
+    ![A screenshot draw floor zones page showing a drawn rectangle](./img/drawfloorzoneswithrectangle.png)
 
 - Once the zone label and desired camera for the new zone is selected, click "Done" as highlighted in the above screenshot.
 
