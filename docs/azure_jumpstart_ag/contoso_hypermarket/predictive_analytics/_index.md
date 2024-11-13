@@ -5,6 +5,8 @@ title: Predictive Analytics using Microsoft 365 Copilot
 linkTitle: Predictive Analytics using Microsoft 365 Copilot
 ---
 
+# Predictive Analytics using Microsoft 365 Copilot
+
 ## Overview
 
 Contoso Hypermarket uses Microsoft 365 Copilot to analyze vast amounts of data and generate actionable insights. By integrating Copilot into their existing systems, Contoso can predict trends, optimize inventory, and improve customer satisfaction.  Copilot acts as another employee managers and staff can interact with.
@@ -27,7 +29,7 @@ Using Copilot in this way offers several benefits including:
 
 ## Prerequisites
 
-This scenario requires access to Microsoft 365 Copilot.  For information on enabling this within your organization, please refer to [this](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enable-users) document.
+This scenario requires access to Microsoft 365 Copilot.  For information on enabling this within your organization, please refer to [this](https://learn.microsoft.com/copilot/microsoft-365/microsoft-365-copilot-enable-users) document.
 
 ## Getting Started
 
@@ -106,4 +108,4 @@ The following table provides example prompts and expected results.  Note that th
 
 ## Next steps
 
-Experiment with prompts to see how Microsoft 365 Copilot can assist in analyzing inventory data or production data, like in the case with the coffee roasting spreadsheet.  Refer to the [Microsoft 365 Copilot documentation](https://learn.microsoft.com/copilot/microsoft-365/) for more information about Microsoft 365 Copilot
+Experiment with prompts to see how Microsoft 365 Copilot can assist in analyzing inventory data or production data, like in the case with the coffee roasting spreadsheet.  Refer to the [Microsoft 365 Copilot documentation](https://learn.microsoft.com/copilot/microsoft-365/) for more information about Microsoft 365 Copilot.

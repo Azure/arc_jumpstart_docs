@@ -1,11 +1,13 @@
 ---
 type: docs
 weight: 2
-title: Shopper Insights using computer vision
-linkTitle: Shopper Insights using computer vision
+title: Shopper insights using computer vision
+linkTitle: Shopper insights using computer vision
 ---
 
-## Enhance store operations and boost sales with AI-enhanced shopper insights
+# Shopper insights using computer vision
+
+## Overview
 
 Contoso Hypermarket uses computer vision to enhance the customer in-store experience and to provide advanced business insights that can make store operations more efficient, increase sales, and streamline operations. In-store cameras detect shopper behavior such as foot traffic, time spent in certain zones of the store, and shopper-specific identifiers that personalize the shopping experience.
 
@@ -19,7 +21,7 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. The following steps provides the details.
 
-- For configuring cameras, the first step is to visit "/cameraszones" page. That will bring up the following page:
+- For configuring cameras, the first step is to visit _"/cameraszones"_ page. That will bring up the following page:
 
     ![A screenshot showing cameras that have been added](./managecameras.png)
 
@@ -55,13 +57,13 @@ The specific region of the camera field-of-view that will be sent for inferencin
 
     ![A screenshot draw floor zones page showing a drawn rectangle](drawfloorzoneswithrectangle.png)
 
-- Once the zone label and desired camera for the new zone is selected, click "Done" as highlighed in the above screenshot.
+- Once the zone label and desired camera for the new zone is selected, click "Done" as highlighted in the above screenshot.
 
 - After setting up the zone, the next is to setup camera region. Clicking "Done" button in the previous step will bring the user to the page that allows user to select a camera. Once a camera is selected, the video feed from that camera appears as shown below:
 
     ![A screenshot a selected camera with its video feed](setupcameraregion.png)
 
-    The setup camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region that inferencing will be run agains.
+    The setup camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region that inferencing will be run again.
 
 - To create bounding box, click any where on the video and then drag the mouse to draw a rectangle. Once a rectangle is drawn on the video feed, a purple bordered box with light purple tint will appear depicting the bounding box. This is show in the following screenshot:
 
@@ -103,6 +105,7 @@ Key Features
 - Processes video feeds at optimized FPS rates
 
 ### Person Re-identification (ReID) Technology
+
 Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. In our system, we use the following approach:
 How ReID Works
 
@@ -128,6 +131,7 @@ Tracks are maintained for up to 60 frames (max_frames_to_track)
 System handles track creation, updates, and termination
 
 ### Models Used
+
 1. Person Detection Model
 Model: person-detection-retail-0013
 

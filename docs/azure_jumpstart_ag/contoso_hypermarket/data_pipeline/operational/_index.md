@@ -5,6 +5,8 @@ title: Data pipeline and reporting for operational technology (OT)
 linkTitle: Data pipeline and reporting for operational technology (OT)
 ---
 
+# Data pipeline and reporting for operational technology (OT)
+
 ## Overview
 
 One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.

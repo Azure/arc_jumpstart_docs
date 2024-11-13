@@ -5,6 +5,8 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
+# Deployment guide
+
 ## Overview
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
@@ -32,9 +34,9 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
     az --version
     ```
 
-- Login to Azure CLI using the *`az login`* command.
+- Login to Azure CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Azure CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy Agora to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Azure CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - Register necessary Azure resource providers by running the following commands.
 
@@ -102,21 +104,21 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 > **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
-- **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below Azure CLI command to check your vCPU utilization.
+- Contoso Hypermarket allows an option to deploy standard or GPU-enabled worker nodes for the K3s Kubernetes clusters.
+  - If you select the option to use standard SKUs in the parameters file, **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs.**
+  - If you select the option to use GPU-enabled SKUs in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas.
+
+- You can use the below Azure CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
   ```
 
-  ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
+> **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.
 
-- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below Azure CLI command to check your vCPU utilization. **Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.**
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models).
 
-  ```shell
-  az vm list-usage --location <your location> --output table
-  ```
-
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
+> **Note:** Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
@@ -136,7 +138,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
+  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
   - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
@@ -182,7 +184,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
 
 - [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -239,8 +241,8 @@ Due to some limitations of automating Microsoft Fabric items in the Fabric works
 In order to create the Microsoft Fabric workspace, the tenant in which the workspace is created must have one of the following settings enabled. Users can verify these settings in [Microsoft Fabric Admin Portal](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi). If you don't have permissions to access Microsoft Fabric Admin Portal, please contact your Entra ID tenant to confirm these settings.
 
 1. Enabled for the entire organization.
-1. User must be a member of the security group allowed to create workspace.
-1. Not a member of the excluded security groups.
+2. User must be a member of the security group allowed to create workspace.
+3. Not a member of the excluded security groups.
 
 > **Note**: Microsoft Fabric don't support access as a guest user. Users will be redirected to their home tenant upon log into Microsoft Fabric.
 
@@ -262,7 +264,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
   ![Screenshot showing location of fabric setup PowerShell script](./img/fabric-run-script.png)
 
-- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
+- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace.
 
   ![Screenshot showing device authentication URL and code](./img/fabric-device-authentication.png)
 
@@ -295,7 +297,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
   ![Screenshot showing open workspace](./img/fabric-open-workspace.png)
 
 - Screenshot below shows all the items created for the Contoso Hypermarket.
-  
+
   ![Screenshot showing workspace items](./img/fabric-workspace-items.png)
 
 - Withing the workspace locate Semantic model credentials and click on ellipsis as shown below open settings.
@@ -324,4 +326,4 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_pipeline/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the ["Shopper insights using computer vision"](../shopper_insights/).

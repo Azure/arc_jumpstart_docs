@@ -5,6 +5,8 @@ title: Commercial and Operations assistance with Speech-to-Text
 linkTitle: Commercial and Operations assistance with Speech-to-Text
 ---
 
+# Commercial and Operations assistance with Speech-to-Text
+
 ## Overview
 
 This document describes the architecture of a Speech-to-Text (STT) solution implemented for **Contoso Hypermarket**. This feature enables Contoso Hypermarket shoppers and employees to ask questions through voice input, which are processed through Jumpstart Cerebral to provide real-time responses. The solution uses a combination of local and cloud-based AI services to ensure efficient processing, accuracy, and scalability.
@@ -24,7 +26,8 @@ Below is an architecture diagram that shows how the audio data flows from the us
 > **WARNING**: Due to the lack of HTTPS in the Contoso Hypermarket Main UI deployment, some browsers may limit access to the microphone.
 >
 > To ignore the browsers secure origin policy, follow these steps:
-> 1. Navigate to `chrome://flags/#unsafely-treat-insecure-origin-as-secure` in Chrome.
+>
+> 1. Navigate to _`edge://flags/#unsafely-treat-insecure-origin-as-secure`_ in Microsoft Edge browser.
 > 2. Find and enable the "Insecure origins treated as secure" section.
 > 3. Add any addresses you want to ignore the secure origin policy for. Remember to include the port number if required.
 > 4. Save and restart Chrome.
@@ -48,6 +51,7 @@ Below is an architecture diagram that shows how the audio data flows from the us
 [OpenAI Whisper](https://github.com/openai/whisper) is a general-purpose speech recognition model that excels at various tasks, including multilingual speech recognition, speech translation, and language identification. Whisper has been trained on a large dataset of diverse audio samples, which enables it to handle different languages, accents, and speech nuances effectively.
 
 Whisper is deployed locally in the Contoso Hypermarket's STT architecture to provide quick and accurate transcription without requiring internet connectivity. This local deployment allows for:
+
 - **Reduced Latency**: Since transcription is processed on-premises, there is minimal delay in response time.
 - **Data Privacy**: By keeping data on local infrastructure, the system minimizes exposure to external networks, enhancing data security.
 - **Multilingual Support**: Whisper can automatically recognize and transcribe multiple languages, making it versatile in a multicultural retail environment.
@@ -57,6 +61,7 @@ Whisper is deployed locally in the Contoso Hypermarket's STT architecture to pro
 [Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/overview) is a cloud-based speech recognition service provided by Microsoft. When the local Whisper model is unavailable, the Contoso Hypermarket system routes audio data to Azure AI Speech for transcription. This service offers high-accuracy transcription with the added benefits of Azure's scalability and reliability.
 
 Key features of Azure AI Speech used in this architecture include:
+
 - **Scalability**: Azure Speech can handle large-scale requests and can be adjusted based on demand, making it suitable for a dynamic retail environment.
 - **Accuracy and Language Support**: Azure AI Speech provides high-accuracy transcription for numerous languages and dialects, ensuring inclusivity for a diverse customer base.
 - **Integration with Azure services**: Azure AI Speech integrates seamlessly with other Azure services, allowing for efficient deployment, monitoring, and maintenance.
@@ -97,6 +102,7 @@ This hybrid approach—using OpenAI Whisper locally and Azure AI Speech when nec
 ## Next Steps
 
 For more information on configuring and scaling this architecture, please refer to:
+
 - [Troubleshooting](./../troubleshooting/_index.md)
 - [Azure AI Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
 - [OpenAI Whisper Model](https://openai.com/whisper)
