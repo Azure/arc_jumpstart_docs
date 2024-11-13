@@ -120,7 +120,7 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
 - We need to have "Docker Desktop" running in the background. Open it from the Start menu and have it minimized.
 
-    ![Screenshot showing opening Docker Dekstop from the start menu](./img/start_docker_desktop.png)
+    ![Screenshot showing opening Docker Desktop from the start menu](./img/start_docker_desktop.png)
 
 - Open VSCode from the desktop shortcut.
 
