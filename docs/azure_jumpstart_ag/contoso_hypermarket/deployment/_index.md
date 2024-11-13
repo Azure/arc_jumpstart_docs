@@ -104,21 +104,17 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 > **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
-- **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs**. You can use the below Azure CLI command to check your vCPU utilization.
+- Contoso Hypermarket allows an option to deploy standard or GPU-enabled worker nodes for the K3s Kubernetes clusters.
+  - If you select the option to use standard SKUs in the parameters file, **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs.**
+  - If you select the option to use GPU-enabled SKUs in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas.
+
+- You can use the below Azure CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
   ```
-
-  ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
-
-- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below Azure CLI command to check your vCPU utilization.
 
 > **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.
-
-  ```shell
-  az vm list-usage --location <your location> --output table
-  ```
 
 - Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models).
 
