@@ -21,22 +21,26 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 #### Configure cameras and regions
 
-The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis.
+The specific region of the camera field-of-view that will be sent for inference can be controlled on a per-camera basis.
 
 ### Regional Manager / Data Analyst
 
 The regional manager will leverage the footfall and shopper insights data from various stores through aggregated dashboards in Fabric. These dashboards provide a comprehensive view of shopper behaviors and patterns across multiple locations, enabling the regional manager to identify trends and make informed decisions. By analyzing high traffic areas, peak shopping times, and customer preferences, the regional manager can optimize store layouts, improve product placement, and tailor marketing strategies to enhance the overall shopping experience. Additionally, the insights gathered from the dashboards help in identifying operational inefficiencies and areas for improvement, ensuring that each store operates at its best.
 
-Further reading:
-
-- [Observability](../observability/_index.md) - Visualize shopper foot traffic and behavior patterns in Grafana dashboards
-- [Contoso Hypermarket edge-to-cloud data pipeline](../data_pipeline/_index.md) - Understand how individual store data is sent from edge-to-cloud and analyzed using Microsoft Fabric.
-
 ### Architecture
 
-![A diagram depicting the shopper insights system architecture](./img/footfall_diagram.png)
+Contoso Hypermarket uses an [adaptive cloud]() application architecture to use AI in their business and day-to-day store operations. collect and use shopper insights about their retail locations. The diagram illustrates the overall architecture of the Shopper Insights system.
+
+![A diagram depicting the shopper insights system architecture](./img/webarch.png)
 
 #### Video inference pipeline
+
+Video inferencing is handled by two APIs using a common pattern.
+
+- **Footfall API**: Detects humans in a specified region of the field of view of an camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
+- **Shopper Insights API**: 
+
+![A diagram depicting the footfall inference workflow](./img/footfall_diagram.png)
 
 - Footfall API
 - Shopper Insights API
@@ -50,9 +54,9 @@ Key Features
 - Maintains unique IDs for each detected person
 - Processes video feeds at optimized FPS rates
 
-### Person Re-identification (ReID) Technology
+### Person Re-identification (ReID)
+
 Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. In our system, we use the following approach:
-How ReID Works
 
 ### Feature Extraction
 
