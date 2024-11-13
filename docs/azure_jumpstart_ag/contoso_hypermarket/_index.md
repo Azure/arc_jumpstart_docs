@@ -6,7 +6,7 @@ description: >-
   Learn how Contoso Hypermarket, an international consumer goods distributor and retailer, implements an AI-enhanced cloud-to-edge strategy with computer vision, next-gen language models, data pipelines, Microsoft Fabric, and Azure Arc.
 ---
 
-# Contoso Hypermarket overview
+## Overview
 
 Contoso Hypermarket, a leading international consumer goods distributor and retailer, is leading the digital transformation in the retail industry. By leveraging next-generation AI-powered shopper analytics solutions, Contoso Hypermarket employs advanced computer vision technologies to enhance customer experiences and optimize store operations.
 
@@ -19,8 +19,8 @@ The AI-powered solutions also enhance maintenance and operational efficiency. Wi
 Contoso Hypermarket uses an AI technology stack, services, and processes to support their digital transformation. A set of reference use-cases is included with the Jumpstart Agora Contoso Hypermarket scenario.
 
 - **Retrieval-augmented generation** - Use natural language query (NLQ) to work with Contoso industrial assets, infrastructure and data to support frontline workers and corporate personnel.
-- **Computer vision for shopper insights** - Computer vision using tuned inferencing models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
-- **Speech to text** - Converts spoken language into written text to facilitate customer service interactions, transcribe meetings, and support voice-activated commands for in-store assistance.
+- **Computer vision for shopper insights** - Computer vision using tuned inference models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
+- **Speech-to-Text** - Converts spoken language into written text to facilitate customer service interactions, transcribe meetings, and support voice-activated commands for in-store assistance.
 - **IoT at the Edge** - Manages IoT devices and sensors at the edge with [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and process data in real-time, enabling predictive maintenance, inventory tracking, and enhanced operational efficiency.
 - **Predictive inventory and operations analytics with Microsoft Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
 - **Edge-to-cloud data pipeline** - Seamless data integration between IoT devices at the edge, customer and business data, and [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric), aggregating real-time shopper insights, centralized data management, predictive maintenance, and enhanced decision-making capabilities and enabling advanced data insights.
@@ -40,7 +40,7 @@ To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provi
 | [Deployment guide](../contoso_hypermarket/deployment/) | Not applicable | Not applicable |
 | [Real-time footfall inferences and shopper insights](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
 | [Gen AI and Operations Assistance](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
-| [Commerical and Operations assistance with Speech-to-text](../contoso_hypermarket/speech_to_text/) | Speech-to-text  | Azure AI Speech, Rancher K3s, Azure Arc |
+| [Commercial and Operations assistance with Speech-to-Text](../contoso_hypermarket/speech_to_text/) | Speech-to-Text  | Azure AI Speech, Rancher K3s, Azure Arc |
 | [Shopper Insights dashboards and monitoring](../contoso_hypermarket/observability/) | Observability | Microsoft Fabric, PowerBI, Grafana  |
 | [Industrial Assets Health and Point-of-sale (PoS) Assets Health dashboards](../contoso_hypermarket/observability/) | Observability | Microsoft Fabric, PowerBI, Grafana |
 | [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_hypermarket/observability/) | Observability | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |

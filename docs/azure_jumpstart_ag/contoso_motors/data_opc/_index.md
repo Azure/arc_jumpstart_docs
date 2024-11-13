@@ -54,27 +54,27 @@ Grafana, a leading open-source platform for monitoring and observability, taps i
 
   ![Screenshot showing the simulated data](./img/mqtt_events_assembly_batteries.png)
 
-### Influxdb Dashboard Reports
+### InfluxDB Dashboard Reports
 
-Contoso supports Influxdb dashboard reports for the manufacturing analytics and monitoring at the edge. These reports are created in Influxdb to allow staff who are working locally at the manufacturing plant to view dashboards reports. These reports are generated based on live data received from the sensors directly into Influxdb database.
+Contoso supports InfluxDB dashboard reports for the manufacturing analytics and monitoring at the edge. These reports are created in InfluxDB to allow staff who are working locally at the manufacturing plant to view dashboards reports. These reports are generated based on live data received from the sensors directly into InfluxDB database.
 
 These reports are readily available to access through Edge browser. Follow the steps below to access these reports on the Client VM.
 
-- On the Client VM (_Ag-VM-Client_), open Edge browser, expand Influxdb favorite collection and chose Detroit or Monterrey plants to view dashboard reports.
+- On the Client VM (_Ag-VM-Client_), open Edge browser, expand InfluxDB favorite collection and chose Detroit or Monterrey plants to view dashboard reports.
 
-  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_open_dashboard_reports.png)
+  ![Screenshot showing how to open InfluxDB dashboard reports](./img/influxdb_open_dashboard_reports.png)
 
 - Login with the _admin_ username and password provided when you created the deployment.
 
-  ![Screenshot showing how to login to Influxdb dashboard reports](./img/influxdb_dashboard_reports_login.png)
+  ![Screenshot showing how to login to InfluxDB dashboard reports](./img/influxdb_dashboard_reports_login.png)
 
 - Click on Dashboards icon as shown in the screen below to view list of available dashboard reports. There are 3 dashboard reports created to show car assembly line, battery line, and welding energy consumption reports.
 
-  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_list_dashboard_reports.png)
+  ![Screenshot showing how to open InfluxDB dashboard reports](./img/influxdb_list_dashboard_reports.png)
 
-  ![Screenshot showing how to open Influxdb dashboard reports](./img/influxdb_dashboard_reports.png)
+  ![Screenshot showing how to open InfluxDB dashboard reports](./img/influxdb_dashboard_reports.png)
 
-- Click on _Constoso Motors - Assembly Car Line_ dashboard report to view. Contoso staff can start monitoring the car assembly production line. The most critical KPI featured is the Assembly Robot Efficiency. The Efficiency indicator is color-coded for at-a-glance status updates:
+- Click on _Contoso Motors - Assembly Car Line_ dashboard report to view. Contoso staff can start monitoring the car assembly production line. The most critical KPI featured is the Assembly Robot Efficiency. The Efficiency indicator is color-coded for at-a-glance status updates:
 
   | Color   | Indication                                                        |
   | ------- | ------------------------------------------------------------------ |
@@ -86,11 +86,11 @@ These reports are readily available to access through Edge browser. Follow the s
 
 - Additionally, the dashboard breaks down the components of Assembly Car Line report; _Availability_, _Cars produced_, and _Staff on shift_, to provide a detailed analysis. A key focus is on _Availability_, with constant monitoring of downtime to identify and classify lost time reasons, such as equipment malfunctions.
 
-- Click on _Constoso Motors - Battery Line_ dashboard report to view. Contoso staff can start monitoring the car battery assembly line KPIs featured in the dashboard report.
+- Click on _Contoso Motors - Battery Line_ dashboard report to view. Contoso staff can start monitoring the car battery assembly line KPIs featured in the dashboard report.
 
   ![Screenshot showing battery assembly line dashboard reports](./img/influxdb_dashboard_assembly_battery_line.png)
 
-- Click on _Constoso Motors - Welding Energy Consumption_ dashboard report to view. Contoso staff can start monitoring the welding enerty consumption KPIs featured in the dashboard report.
+- Click on _Contoso Motors - Welding Energy Consumption_ dashboard report to view. Contoso staff can start monitoring the welding enerty consumption KPIs featured in the dashboard report.
 
   ![Screenshot showing welding energy consumption dashboard reports](./img/influxdb_dashboard_welding_energy_consumption.png)
 
