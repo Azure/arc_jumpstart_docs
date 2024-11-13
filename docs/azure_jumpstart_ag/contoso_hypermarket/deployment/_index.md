@@ -5,6 +5,8 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
+# Deployment guide
+
 ## Overview
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
@@ -266,7 +268,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
   ![Screenshot showing location of fabric setup PowerShell script](./img/fabric-run-script.png)
 
-- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace. Copy 1) device authentication URL and 2) Code from the command-line as shown below.
+- Users are prompted to complete authentication using a device code to log into the Entra ID tenant to create fabric workspace.
 
   ![Screenshot showing device authentication URL and code](./img/fabric-device-authentication.png)
 

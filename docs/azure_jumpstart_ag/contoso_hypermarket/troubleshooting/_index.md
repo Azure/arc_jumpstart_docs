@@ -5,6 +5,8 @@ title: Troubleshooting
 linkTitle: Troubleshooting
 ---
 
+# Troubleshooting
+
 ## Basic troubleshooting
 
 Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at various stages. Common reasons for failed deployments include:
