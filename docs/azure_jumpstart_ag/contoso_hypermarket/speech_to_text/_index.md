@@ -28,7 +28,7 @@ Below is an architecture diagram that shows how the audio data flows from the us
 > 2. Find and enable the "Insecure origins treated as secure" section.
 > 3. Add any addresses you want to ignore the secure origin policy for. Remember to include the port number if required.
 > 4. Save and restart Chrome.
->
+
 > **Note**: This is for development purposes only. To avoid this limitation, the app will need to be hosted on HTTPS for users to be able to use their microphone or camera.
 
 1. **Microphone Audio Feed Captures User Questions** – The system starts by capturing audio from the user via a microphone connected to the main interface.
@@ -68,22 +68,32 @@ This hybrid approach—using OpenAI Whisper locally and Azure AI Speech when nec
 ### Key Steps
 
 1. **Access the Interface**: The users accesses the **Contoso Hypermarket** interface on a local workstation or device.
-2. **Access Jumpstart Cerebral**: The users clicks the Jumpstart Cerebral logo in the right-side part of the header to open the Cerebral chat panel.
+1. **Access Jumpstart Cerebral**: The users clicks the Jumpstart Cerebral logo in the right-side part of the header to open the Cerebral chat panel.
 
-    ![Click on Jumpstart Cerebral logo](./img/placeholder.jpg)
+    ![Click on Jumpstart Cerebral logo](./img/init_header.png)
 
-3. **Activate Recording**: The user clicks the "Record" button in the UI to begin capturing audio input. If **Microphone Access** was not granted before, the user needs to accept enabling this access.
+1. **Activate Recording**: The user clicks the "Record" button in the UI to begin capturing audio input. If **Microphone Access** was not granted before, the user needs to accept enabling this access.
 
-    ![Highlighted Record button and Browser permission enablement](./img/placeholder.jpg)
+    ![Higlihted Record button and Browser permission enablement](./img/start_recording.png)
 
-4. **STT Process**: The captured audio is processed, checked for voice content, and then sent through the STT connector.
+1. **Stop Recording**: The user clicks the "Stop" button to end the audio capture. The recorded audio is then processed for checks and transcriptions.
 
-5. The user can play the recorded audio for better understanding
+    ![Higlihted Record Stop button](./img/stop_record.png)
 
-    ![Show how to click on audio sent](./img/placeholder.jpg)
+1. **STT Process**: The captured audio is processed, checked for voice content, and then sent through the STT connector.
 
-6. **Real-time Response**: The transcribed text is displayed in the main interface for immediate feedback.
-7. **Process Question Event**: The question is submitted to the Cerebral API, triggering further analysis and response generation.
+    ![Higlihted audio created](./img/stop_record.png)
+
+1. The user can play the recorded audio for better understanding
+
+    ![Show how to click on audio sent](./img/audio_created.png)
+
+1. **Real-time Response**: The transcribed text is displayed in the main interface for immediate feedback.
+
+    ![Transcribed question](./img/transcription.png)
+
+1. **Process Question Event**: The question is submitted to the Cerebral API, triggering further analysis and response generation.
+
 
 ## Next Steps
 
