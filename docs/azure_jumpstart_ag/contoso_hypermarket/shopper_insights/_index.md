@@ -48,6 +48,6 @@ Further reading:
 [Commercial gen-AI](../cerebral/_index.md)
 [Observability](../observability/_index.md)
 [Predictive Analytics](../predictive_analytics/_index.md)
-[Speech-to-text](../speech_to_text/_index.md)
+[Speech-to-Text](../speech_to_text/_index.md)
 [Cleanup](../cleanup/_index.md)
 [Troubleshooting](../troubleshooting/_index.md)
