@@ -5,8 +5,6 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Deployment guide
-
 ## Overview
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
@@ -94,7 +92,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 ### Regions and capacity
 
-- Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
+- Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT Operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
 
   - East US
   - East US 2
@@ -139,7 +137,6 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
-  - _`customLocationRPOID`_ - Custom location resource provider id.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
   - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).

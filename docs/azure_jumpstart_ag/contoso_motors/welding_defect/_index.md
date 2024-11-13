@@ -30,28 +30,28 @@ This diagram shows the welding defect inference flow, which consists of five mai
 
 1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the welding working station (highlighted in the image above), the welding detection flow is triggered.
 
-1. **RTSP video simulation:** The welding defect flow requires a particular video of a welding to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of a real welding scenario, providing a reliable video for the AI inference process.
+2. **RTSP video simulation:** The welding defect flow requires a particular video of a welding to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of a real welding scenario, providing a reliable video for the AI inference process.
 
-1. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate welding AI inference class, which applies the required preprocessing and post process to the frame. The welding AI inference class is implemented in *[welding.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py)* and is designed to handle the specific requirements of the welding defect detection process.
+3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate welding AI inference class, which applies the required preprocessing and post process to the frame. The welding AI inference class is implemented in *[welding.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py)* and is designed to handle the specific requirements of the welding defect detection process.
 
-1. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this welding model, the image preprocessing consists of the following transformations:
-    1. Convert the color space of the input image from BGR to RGB.
-    2. Resize the input image to the specified width and height.
-    3. Convert the data type of the input image to float32
-    4. Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
-    5. Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
-    6. Flip the order of the color channels from RGB to BGR.
+4. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this welding model, the image preprocessing consists of the following transformations:
+    - Convert the color space of the input image from BGR to RGB.
+    - Resize the input image to the specified width and height.
+    - Convert the data type of the input image to float32
+    - Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
+    - Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
+    - Flip the order of the color channels from RGB to BGR.
 
     After the pre-processing step is completed, the final frame data is sent to the OpenVINO™ model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO™ toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
 
-1. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
+5. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
 
-    1. Apply the `softmax` function to the output of the model to convert it into a probability distribution.
-    2. Flatten the probability distribution into a 1D array.
-    3. Find the index of the highest probability value in the array.
-    4. Find the highest probability value in the array.
-    5. Map the index of the highest probability value to a corresponding class label.
-    6. Draw the label containing the predicted class and its corresponding probability on the input image
+    - Apply the `softmax` function to the output of the model to convert it into a probability distribution.
+    - Flatten the probability distribution into a 1D array.
+    - Find the index of the highest probability value in the array.
+    - Find the highest probability value in the array.
+    - Map the index of the highest probability value to a corresponding class label.
+    - Draw the label containing the predicted class and its corresponding probability on the input image
 
     Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the welding inference (**no weld**, **normal weld**, **porosity**) and the probability of the result.
 

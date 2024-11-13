@@ -1,8 +1,9 @@
 ---
 type: docs
-weight: 7
+weight: 5
 title: Observability
 linkTitle: Observability
+headless: true
 ---
 
 # Observability

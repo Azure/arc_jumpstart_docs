@@ -1,11 +1,9 @@
 ---
 type: docs
-weight: 9
+weight: 11
 title: Troubleshooting
 linkTitle: Troubleshooting
 ---
-
-# Contoso Motors scenario troubleshooting
 
 ## Basic troubleshooting
 
@@ -54,4 +52,4 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 
 ### Authorization errors when deploying Azure IoT Operations
 
-If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment/#prerequisites) in the deployment guide.
+If you see authorization errors during the automation, please make sure to review the [prerequisites](../deployment/#prerequisites) in the deployment guide
