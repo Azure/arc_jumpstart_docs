@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 5
+weight: 9
 title: Predictive Analytics
 linkTitle: Predictive Analytics
 ---
