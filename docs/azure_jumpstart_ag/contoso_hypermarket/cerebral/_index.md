@@ -55,6 +55,8 @@ While currently demonstrated within Contoso Hypermarket's retail environment, th
 
 Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, Cerebral is your AI-powered assistant ready to help with any query. The system provides an intuitive and seamless way to access information across all store systems and documentation.
 
+> **Note**: To learn more about using the Contoso Hypermarket web applications and how Cerebral integrates with different operational interfaces, please refer to our [Shopper Insights Guide](../shopper_insights/_index.md). 
+
 #### Getting Started with Cerebral
 
 1. **Accessing the Assistant**
@@ -62,7 +64,8 @@ Throughout the Contoso Hypermarket interface, whether you're a store manager rev
    - Click the icon to open the sliding sidebar interface
    - The sidebar will smoothly slide in from the right side of the screen
 
-<img src="./img/cerebral-location.png" alt="Cerebral location" width="500"/>
+
+![Cerebral location](./img/cerebral-location.png)
 
 
 2. **Interface Overview**
