@@ -28,25 +28,25 @@ This diagram shows the workers safety inference flow, which consists of five mai
 
 1. **Select Site UI:** The user selects a working station from the interactive UI. Each station corresponds to a specific AI flow. In particular, when the user selects the two workers walking station (highlighted in the image above), the workers safety flow is triggered.
 
-1. **RTSP video simulation:** The workers safety flow requires a particular video of two workers walking with helmets to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of two workers walking on site with the appropaite safety gear, providing a reliable video for the AI inference process.
+2. **RTSP video simulation:** The workers safety flow requires a particular video of two workers walking with helmets to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of two workers walking on site with the appropaite safety gear, providing a reliable video for the AI inference process.
 
-1. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate worker safety AI inference class, which applies the required preprocessing and post process to the frame. The worker safety AI inference class is implemented in [yolov8.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py) and is designed to handle the specific requirements of the worker safety detection process.
+3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate worker safety AI inference class, which applies the required preprocessing and post process to the frame. The worker safety AI inference class is implemented in [yolov8.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py) and is designed to handle the specific requirements of the worker safety detection process.
 
-1. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this worker safety model, the image preprocessing consists of the following transformations:
-    1. Resize the input image to the specified width and height.
-    2. Convert the color space of the input image from BGR to RGB.
-    3. Convert the data type of the input image to float32
-    4. Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
-    5. Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
+4. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this worker safety model, the image preprocessing consists of the following transformations:
+    - Resize the input image to the specified width and height.
+    - Convert the color space of the input image from BGR to RGB.
+    - Convert the data type of the input image to float32
+    - Transpose the dimensions of the input image from (height, width, channels) to (channels, height, width).
+    - Add a new dimension to the input image at the beginning of the array to create a "batch" of images.
 
     After the pre-processing step is completed, the final frame data is sent to the OpenVINO™ model server for inference. This is achieved using gRPC and the [ovmsclient](https://pypi.org/project/ovmsclient/) library, which provides a convenient and efficient way to communicate with the server. The server uses the OpenVINO™ toolkit to perform the inference process, which involves running the input data through a trained machine learning model to generate predictions or classifications. Once the inference is complete, the results are returned to the client for further processing or display.
 
-1. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
+5. **Frame post-processing/rednering:** this is the final step and involves parsing the inference reposnse and apply the required post-process. For this welding model, the post-process involves the following transformations:
 
-    1. Use the OVMS inference result and hte original frame to calculate the bounding box coordinates, scores, and class IDs for each detection in the output tensor.
-    1. Apply a non-maximum suppression function to filter out overlapping bounding boxes.
-    1. Draw each selected detection on the input image and creates a table of the detection information.
-    1. Return the frame with the detections and labels
+    - Use the OVMS inference result and hte original frame to calculate the bounding box coordinates, scores, and class IDs for each detection in the output tensor.
+    - Apply a non-maximum suppression function to filter out overlapping bounding boxes.
+    - Draw each selected detection on the input image and creates a table of the detection information.
+    - Return the frame with the detections and labels
 
     Once the image is processed, is then served to the main application to render it to the user. Final image contains the result of the worker safety inference (**helmet**, **head** and **person**) and the probability of the result.
 
