@@ -32,9 +32,9 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
     az --version
     ```
 
-- Login to Azure CLI using the *`az login`* command.
+- Login to Azure CLI using the _`az login`_ command.
 
-- Ensure that you have selected the correct subscription you want to deploy Agora to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Azure CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+- Ensure that you have selected the correct subscription you want to deploy Agora to by using the _`az account list --query "[?isDefault]"`_ command. If you need to adjust the active subscription used by Azure CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - Register necessary Azure resource providers by running the following commands.
 
@@ -110,13 +110,17 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
   ![Screenshot showing az vm list-usage](./img/az_vm_list_usage.png)
 
-- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below Azure CLI command to check your vCPU utilization. **Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.**
+- Contoso Hypermarket allows an option to deploy GPU-enabled worker nodes for the K3s Kubernetes clusters. If you select that option in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas. You can use the below Azure CLI command to check your vCPU utilization.
+
+> **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.
 
   ```shell
   az vm list-usage --location <your location> --output table
   ```
 
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). **Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.**
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models).
+
+> **Note:** Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
@@ -136,7 +140,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
+  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
   - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
   - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
@@ -182,7 +186,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
 
 - [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
-- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
+- [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
 
 #### Connecting directly with RDP
 
@@ -295,7 +299,7 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
   ![Screenshot showing open workspace](./img/fabric-open-workspace.png)
 
 - Screenshot below shows all the items created for the Contoso Hypermarket.
-  
+
   ![Screenshot showing workspace items](./img/fabric-workspace-items.png)
 
 - Withing the workspace locate Semantic model credentials and click on ellipsis as shown below open settings.
@@ -324,4 +328,4 @@ Once you log into _Agora-Client-VM_ using any of the method described above foll
 
 ## Next steps
 
-Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the [“Data pipeline and reporting across cloud and edge for Contoso Hypermarket”](../data_pipeline/).
+Once deployment is complete its time to start experimenting with the various scenarios under the “Contoso Hypermarket” experience, starting with the ["Shopper insights using computer vision"](../shopper_insights/).

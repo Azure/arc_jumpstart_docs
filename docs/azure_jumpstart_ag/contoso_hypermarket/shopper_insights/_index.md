@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 2
-title: Shopper Insights using computer vision
-linkTitle: Shopper Insights using computer vision
+title: Shopper insights using computer vision
+linkTitle: Shopper insights using computer vision
 ---
 
 ## Enhance store operations and boost sales with AI-enhanced shopper insights
