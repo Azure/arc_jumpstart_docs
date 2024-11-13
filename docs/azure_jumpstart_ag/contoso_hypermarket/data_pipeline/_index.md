@@ -3,6 +3,7 @@ type: docs
 weight: 8
 title: Data pipeline
 linkTitle: Data pipeline
+toc_hide: true
 ---
 
 # Data Pipeline
