@@ -27,7 +27,7 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 
     ![A screenshot showing the maintenance worker dashboard](./store_manager_dashboard.png)
 
->**Note:** The suggested prompts user interface widgets at the top of the screen are cosmetic only and are not implemented in this release of Contoso Hypermarket.
+>**Note:** The suggested prompts user interface widgets at the top of the screen are cosmetic only and aren't implemented in this release of Contoso Hypermarket.
 
 - Users can also interact with Contoso Hypermarket using natural language. Click on the [Jumpstart Cerebral](../../cerebral/) icon in the upper right to ask a question about the status of industrial assets.
 
@@ -67,4 +67,4 @@ The Contoso Hypermarket observability architecture uses [Azure IoT Operations](h
 
 [Shopper insights](../shopper_insights/) - Learn how Contoso Hypermarket infuses AI to enhance retail store operations and shopper experience.
 [Infrastructure Observability](../infrastructure/) - Use dashboards and other tools to monitor and manage the Kubernetes system infrastructure that powers Contoso Hypermarket.
-[Edge-to-cloud data pipeline](../../data_pipeline/) - Learn about the data pipeline that colelcts and sends valuable business data to the cloud for advanced analysis using AI tools.
+[Edge-to-cloud data pipeline](../../data_pipeline/) - Learn about the data pipeline that collects and sends valuable business data to the cloud for advanced analysis using AI tools.
