@@ -12,13 +12,13 @@ linkTitle: Operations Assistance using Gen AI
 
 ### Overview
 
-<img src="./img/logo.png" alt="Equipment monitoring" width="100"/>
+<img src="./img/logo.png" alt="Jumpstart Cerebrl logo" width="100"/>
 
 Cerebral is an advanced Generative AI assistant that revolutionizes how store personnel interact with critical information across Contoso Hypermarket's diverse data sources. By combining powerful large language models with specialized databases, Cerebral delivers contextual assistance and intelligent insights through natural language interactions. The system leverages [Retrieval Augmented Generation (RAG)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/what-is-retrieval-augmented-generation-rag/4286747) to synthesize information from technical documentation, real-time metrics, and business data into comprehensive, tailored responses.
 
-Cerebral innovative hybrid architecture optimally balances edge computing with cloud capabilities. Whether processing queries via [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) in the cloud or utilizing [Small Language Models (SLM)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/small-language-models-with-phi-3-cookbook-a-guide/4149864) at the edge, Cerebral intelligently routes and handles requests based on their complexity and urgency. Through its deep understanding of industry context and user roles, Cerebral acts as an intelligent partner that enables staff to focus on value-adding activities rather than searching through multiple systems.
+Cerebral innovative hybrid architecture optimally balances edge computing with cloud capabilities. Whether processing queries via [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) in the cloud or utilizing [Small Language Models (SLM)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/small-language-models-with-phi-3-cookbook-a-guide/4149864) at the edge, Cerebral intelligently routes and handles requests based on their complexity and urgency. Through its deep understanding of industry context and user roles, Cerebral acts as an intelligent partner that enables staff to focus on value-adding activities rather than searching through multiple systems.
 
-> **Learn More**: For detailed information about Cerebral's Generative AI capabilities, explore the [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
+> **Learn More**: For detailed information about Cerebral's Generative AI capabilities, explore the [Azure OpenAI Service documentation](https://learn.microsoft.com/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
 
 ### Business Challenges
 
@@ -30,7 +30,37 @@ Cerebral addresses these pain points by providing a unified, intelligent interfa
 
 ## Interacting with Cerebral
 
-Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, you'll find the Cerebral AI assistant readily available through its distinctive icon <img src="./img/cerebral-icon.png" alt="Cerebral icon" width="40"/>  located in the top navigation bar. Clicking this icon opens a sliding panel interface where you can seamlessly interact with Cerebral using either text or voice input.
+### Accessing Cerebral
+
+Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, Cerebral is your AI-powered assistant ready to help with any query. The system provides an intuitive and seamless way to access information across all store systems and documentation.
+
+#### Getting Started with Cerebral
+
+1. **Accessing the Assistant**
+   - Locate the Cerebral icon in the top-right corner of any page
+   - Click the icon to open the sliding sidebar interface
+   - The sidebar will smoothly slide in from the right side of the screen
+
+<img src="./img/cerebral-location.png" alt="Cerebral location" width="500"/>
+
+
+2. **Interface Overview**
+   - The sidebar presents a clean, focused chat interface
+   - You'll see a welcome message: "Hi, I'm here to help! You can ask me questions using text or voice."
+   - A text input field is available at the bottom of the panel
+   - Voice input can be activated using the microphone icon
+   - For technical users, a "Debug" checkbox is available to view backend processing details
+
+![Cerebral Interface Elements](./img/cerebral-interface.png)
+
+3. **Interaction Methods**
+   - Type your question directly into the text field and press enter or click the send button
+   - Click the microphone icon to use voice input
+   - Cerebral will process your query and provide relevant information, data, or procedures based on your request
+
+![Cerebral Interface Elements](./img/cerebral-interface-audio.png)
+
+The interface is designed to be non-intrusive while remaining easily accessible throughout your work session. You can minimize the sidebar at any time by clicking the 'X' in the top-right corner, and reopen it whenever you need assistance.
 
 > **Note**: For more information about Cerebral's voice interaction capabilities, see our detailed guide on [Speech-to-Text Integration](../speech_to_text/_index.md).
 
@@ -45,7 +75,14 @@ The interaction is straightforward and natural - simply type your question or cl
 | Equipment Monitoring | "What's the power usage for HVAC unit 02?" | <img src="./img/Equipment-monitoring.png" alt="Equipment monitoring" width="500"/> |
 | Inventory Management | "Show me all products below reorder threshold" | <img src="./img/inventory.png" alt="Inventory management" width="500"/> |
 
-> **Note**: Each response includes interpretation, analysis, and proactive recommendations tailored to the query type and context.
+> **Note**: The examples and screenshots shown in this documentation are for illustration purposes only. Actual results and responses from Cerebral may vary depending on:
+> - Current data in your systems
+> - Real-time operational status
+> - Specific store configuration
+> - Updated procedures and documentation
+> 
+> While the core functionality remains the same, Cerebral's responses are dynamic and contextual to your specific situation and the latest available information.
+
 
 Based on your query, Cerebral automatically classifies the type of request and routes it to the appropriate system (documentation, real-time data, or business intelligence) to provide relevant and contextual responses. For demonstration purposes, users can enable the "Debug" checkbox in the interface to view behind-the-scenes details such as:
 
@@ -68,11 +105,11 @@ This transparency helps users understand how Cerebral processes their requests w
 
 ## Architecture
 
-The power of Cerebral lies in its sophisticated hybrid architecture that balances local processing with cloud capabilities. At its core, Cerebral operates on an edge-located [Arc-enabled Kubernetes cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview), which hosts the local language model (Microsoft Phi-3 Mini-4k) for rapid response to common queries. This edge infrastructure connects seamlessly with cloud services through [Azure IoT Operations](https://azure.microsoft.com/en-us/products/iot-operations), enabling a robust and scalable system that can handle everything from simple information requests to complex analytical queries.
+The power of Cerebral lies in its sophisticated hybrid architecture that balances local processing with cloud capabilities. At its core, Cerebral operates on an edge-located [Arc-enabled Kubernetes cluster](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview), which hosts the local language model (Microsoft Phi-3 Mini-4k) for rapid response to common queries. This edge infrastructure connects seamlessly with cloud services through [Azure IoT Operations](https://azure.microsoft.com/products/iot-operations), enabling a robust and scalable system that can handle everything from simple information requests to complex analytical queries.
 
 Cerebral exposes its functionality through a comprehensive API layer that supports both REST and WebSocket connections, enabling real-time interactions and seamless integration with applications like the Contoso Hypermarket web interface.
 
-At its core, Cerebral employs a query processing orchestrator that intelligently routes requests to appropriate data sources based on the nature of the query. For commercial data such as sales, inventory, and customer information, the system interfaces with SQL Server. Real-time device metrics and operational data are managed through InfluxDB, a specialized time-series database that captures everything from equipment performance to environmental readings. Technical documentation and operational procedures are accessed through a Chroma vector database, enabling powerful RAG (Retrieval Augmented Generation) capabilities.
+At its core, Cerebral employs a query processing orchestrator that intelligently routes requests to appropriate data sources based on the nature of the query. For commercial data such as sales, inventory, and customer information, the system interfaces with SQL Server. Real-time device metrics and operational data are managed through InfluxDB, a specialized time-series database that captures everything from equipment performance to environmental readings. Technical documentation and operational procedures are accessed through a [Chroma vector database](https://www.trychroma.com/), enabling powerful RAG (Retrieval Augmented Generation) capabilities.
 
 
 ![Cerebral Solution Architecture](./img/architecture.png)
@@ -103,7 +140,7 @@ The system orchestrates three specialized databases, each optimized for specific
 * Stores historical trending data
 
 
-The following table details the equipment types and metrics being simulated through MQTT for Contoso Hypermarket operations:
+The following table details the equipment types and metrics being simulated through MQTT for Contoso Hypermarket's operations:
 
 | Equipment Type | Device Format | Fields Monitored | Example Metrics |
 |---------------|---------------|------------------|-----------------|
