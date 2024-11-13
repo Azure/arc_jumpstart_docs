@@ -28,7 +28,7 @@ Below is an architecture diagram that shows how the audio data flows from the us
 > 2. Find and enable the "Insecure origins treated as secure" section.
 > 3. Add any addresses you want to ignore the secure origin policy for. Remember to include the port number if required.
 > 4. Save and restart Chrome.
->
+
 > **Note**: This is for development purposes only. To avoid this limitation, the app will need to be hosted on HTTPS for users to be able to use their microphone or camera.
 
 1. **Microphone Audio Feed Captures User Questions** – The system starts by capturing audio from the user via a microphone connected to the main interface.
