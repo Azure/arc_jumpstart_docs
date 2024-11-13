@@ -5,8 +5,6 @@ title: Deployment guide
 linkTitle: Deployment guide
 ---
 
-# Deployment guide
-
 ## Overview
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
@@ -94,7 +92,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 ### Regions and capacity
 
-- Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
+- Agora deploys multiple Azure services that are available in specific regions across the globe like Azure OpenAI and Azure IoT Operations. The list of supported regions per service is always expanding as Azure grows. At the moment, Agora must be deployed to one of the following regions to make sure you have a successful deployment. **Deploying Agora outside of these regions may result in unexpected results, deployment errors as some of the services deployed might not support that region.**
 
   - East US
   - East US 2
