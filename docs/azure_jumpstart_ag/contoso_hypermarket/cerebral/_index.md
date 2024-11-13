@@ -14,11 +14,11 @@ linkTitle: Operations Assistance using Gen AI
 
 <img src="./img/logo.png" alt="Equipment monitoring" width="100"/>
 
-Contoso Hypermarket leverages Cerebral, an advanced Generative AI assistant, to transform how store personnel access and interact with critical information across diverse data sources. This innovative solution combines the power of large language models with specialized databases to provide contextual assistance and intelligent insights. Through [Retrieval Augmented Generation (RAG)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/what-is-retrieval-augmented-generation-rag/4286747), Cerebral can access and synthesize information from technical documentation, real-time operational metrics, and business data, delivering comprehensive responses tailored to each query.
+Cerebral is an advanced Generative AI assistant that revolutionizes how store personnel interact with critical information across Contoso Hypermarket's diverse data sources. By combining powerful large language models with specialized databases, Cerebral delivers contextual assistance and intelligent insights through natural language interactions. The system leverages [Retrieval Augmented Generation (RAG)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/what-is-retrieval-augmented-generation-rag/4286747) to synthesize information from technical documentation, real-time metrics, and business data into comprehensive, tailored responses.
 
-The system's hybrid architecture balances edge computing with cloud capabilities, enabling responsive performance while maintaining data security. Whether processing queries through [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) in the cloud or using [Small Language Models (SLM)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/small-language-models-with-phi-3-cookbook-a-guide/4149864) at the edge, Cerebral intelligently routes and processes requests based on their nature and urgency. By understanding industry-specific context and adapting to different user roles, Cerebral serves as an intelligent partner that helps staff focus on value-adding activities rather than searching across multiple systems or navigating complex interfaces.
+Cerebral innovative hybrid architecture optimally balances edge computing with cloud capabilities. Whether processing queries via [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) in the cloud or utilizing [Small Language Models (SLM)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/small-language-models-with-phi-3-cookbook-a-guide/4149864) at the edge, Cerebral intelligently routes and handles requests based on their complexity and urgency. Through its deep understanding of industry context and user roles, Cerebral acts as an intelligent partner that enables staff to focus on value-adding activities rather than searching through multiple systems.
 
-> **Learn More**: For detailed information about the Generative AI capabilities used in Cerebral, see the [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
+> **Learn More**: For detailed information about Cerebral's Generative AI capabilities, explore the [Azure OpenAI Service documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
 
 ### Business Challenges
 
@@ -30,7 +30,7 @@ Cerebral addresses these pain points by providing a unified, intelligent interfa
 
 ## Interacting with Cerebral
 
-Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, you'll find the Cerebral AI assistant readily available through its distinctive icon ![Ceerebral icon](./img/cerebral-icon.png) located in the top navigation bar. Clicking this icon opens a sliding panel interface where you can seamlessly interact with Cerebral using either text or voice input.
+Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, you'll find the Cerebral AI assistant readily available through its distinctive icon <img src="./img/cerebral-icon.png" alt="Cerebral icon" width="40"/>  located in the top navigation bar. Clicking this icon opens a sliding panel interface where you can seamlessly interact with Cerebral using either text or voice input.
 
 > **Note**: For more information about Cerebral's voice interaction capabilities, see our detailed guide on [Speech-to-Text Integration](../speech_to_text/_index.md).
 
@@ -56,11 +56,11 @@ Based on your query, Cerebral automatically classifies the type of request and r
 
 This transparency helps users understand how Cerebral processes their requests while providing valuable insights into the system's decision-making process.
 
-![Debug](./img/debug.png)
+<img src="./img/debug.png" alt="Enable debug" width="500"/>
 
 > **Important**: 
 > - For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section.
-> - For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-queries).
+> - For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category).
 > - Common questions include:
 >   * Documentation: "How do I calibrate Scale-02?"
 >   * Commercial: "What are our top 5 selling products this week?"
@@ -178,6 +178,28 @@ Current supported industries and roles include:
 | Manufacturing | - Maintenance Engineer<br>- Shift Supervisor<br>- Production Manager | - Machine diagnostics<br>- Production line metrics<br>- Quality control data |
 | Automotive | - Line Supervisor<br>- Quality Inspector<br>- Maintenance Technician | - Assembly line monitoring<br>- Quality assurance checks<br>- Equipment maintenance |
 | Hypermarket | - Store Manager<br>- Shopper<br>- Maintenance Worker | - Sales analytics<br>- Product location<br>- Facility maintenance |
+
+### Example Questions by Category
+
+| Category | Query Example | Expected Response Type |
+|----------|--------------|----------------------|
+| **Documentation & Procedures** | 1. "What are the steps to close the store at the end of the day?" | Step-by-step procedure with checklist |
+| | 2. "How do I perform the daily cleaning routine for the meat department?" | Detailed cleaning protocol with safety guidelines |
+| | 3. "What's the emergency shutdown procedure for the refrigeration system?" | Emergency procedure with critical steps highlighted |
+| | 4. "Show me the maintenance checklist for the automated checkout machines" | Maintenance checklist with technical specifications |
+| | 5. "What are the safety protocols for handling spills in the produce area?" | Safety guidelines and cleaning procedures |
+| **Real-time Operations** | 1. "What's the current capacity of all automated checkouts in use?" | Real-time usage metrics and availability status |
+| | 2. "Show me the temperature trends for all refrigeration units in the last hour" | Temperature graphs and anomaly indicators |
+| | 3. "Are any SmartShelves reporting low stock alerts right now?" | Current stock alerts and locations |
+| | 4. "What's the average wait time at the deli counter currently?" | Current wait times and historical comparison |
+| | 5. "How is HVAC-02 performing compared to its normal baseline?" | Performance metrics with baseline comparison |
+| **Commercial Data** | 1. "Which products in the dairy section need restocking?" | List of products below threshold with quantities |
+| | 2. "What was our busiest hour for sales yesterday?" | Sales volume analysis with peak times |
+| | 3. "Show me the performance of our seasonal products this month" | Sales trends and inventory analysis |
+| | 4. "What's the current inventory level for fresh produce?" | Current stock levels with reorder recommendations |
+| | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages |
+
+> **Note**: These examples represent common queries that Cerebral can handle. The system understands variations in phrasing and can maintain context through follow-up questions. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
 
 ### Prompt Catalog System
 
