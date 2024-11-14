@@ -51,7 +51,7 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
 ## Observability architecture components
 
-The Contoso Hypermarket observability architecture uses [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and send industrial assets telemetry using MQTT, an industry standard protocol. Assets including refrigerators, ovens, HVACs, and retail smart shelves send telemetry through the [MQTT Broker](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq)] using an [edge-to-cloud data pipeline](../../data_pipeline/operational/_index.md).
+The Contoso Hypermarket observability architecture uses [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and send industrial assets telemetry using MQTT, an industry standard protocol. Assets including refrigerators, ovens, HVACs, and retail smart shelves send telemetry through the [MQTT Broker](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq) using an [edge-to-cloud data pipeline](../../data_pipeline/operational/_index.md).
 
 - [**Azure IoT Operations**](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations): Facilitates the connection and management of IoT devices, enabling real-time monitoring and control of industrial assets.
 - [**MQTT**](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq): A lightweight messaging protocol used for efficient communication between IoT devices and the cloud.
@@ -63,6 +63,4 @@ The Contoso Hypermarket observability architecture uses [Azure IoT Operations](h
 
 ## Next steps
 
-[Shopper insights](../shopper_insights/) - Learn how Contoso Hypermarket infuses AI to enhance retail store operations and shopper experience.
-[Infrastructure Observability](../infrastructure/) - Use dashboards and other tools to monitor and manage the Kubernetes system infrastructure that powers Contoso Hypermarket.
-[Edge-to-cloud data pipeline](../../data_pipeline/) - Learn about the data pipeline that collects and sends valuable business data to the cloud for advanced analysis using AI tools.
+Now that you have completed the _Industrial assets_ scenario, it's time to continue to the next one, [Shopper insights observability](../shopper_insights/).

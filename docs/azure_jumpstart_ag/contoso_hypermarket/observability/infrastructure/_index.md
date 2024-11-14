@@ -91,6 +91,4 @@ To view the health of the Kubernetes clusters, access the Grafana dashboards by 
 
 ## Next steps
 
-- Learn how to use [Grafana to view metrics](../shopper_insights/) on shopper behavior
-- For more information on configuring Grafana dashboards, please refer to [Create a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)
-- For information on the Azure Managed Grafana service, please refer to [What is Azure Managed Grafana?](https://learn.microsoft.com/azure/managed-grafana/overview)
+Now that you have completed the _Kubernetes observability_ scenario, it's time to continue to the next one, ["Data pipeline and reporting for commercial sales"](../../data_pipeline/commercial/).

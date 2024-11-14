@@ -245,4 +245,4 @@ The Microsoft Fabric Notebooks are an integral part of the Contoso Hypermarket's
 
 ## Next steps
 
-Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, [Contoso Hypermarket Operational Data pipeline](../operational/).
+Now that you have completed the first data pipeline scenario, it's time to continue to the next scenario, ["Data pipeline and reporting for operational technology (OT)"](../operational/).

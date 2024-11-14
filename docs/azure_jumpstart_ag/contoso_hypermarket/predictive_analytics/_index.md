@@ -108,4 +108,4 @@ The following table provides example prompts and expected results.  Note that th
 
 ## Next steps
 
-Experiment with prompts to see how Microsoft 365 Copilot can assist in analyzing inventory data or production data, like in the case with the coffee roasting spreadsheet.  Refer to the [Microsoft 365 Copilot documentation](https://learn.microsoft.com/copilot/microsoft-365/) for more information about Microsoft 365 Copilot.
+Now that you have successfully completed all of the Contoso Motors scenarios, continue to the next step to learn how to [cleanup the deployment](../cleanup/).
