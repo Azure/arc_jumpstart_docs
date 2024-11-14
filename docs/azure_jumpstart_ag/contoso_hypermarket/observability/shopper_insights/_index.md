@@ -33,7 +33,7 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 
     ![A screenshot showing Jumpstart Cerebral location in the app](./img/cerebral_icon.png)
 
-    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/cerebralquestion.png)
+    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/cerebral_question.png)
 
 ## View shopper and point-of-sale insights in a Grafana dashboard
 
