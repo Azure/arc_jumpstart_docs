@@ -1,8 +1,9 @@
 ---
 type: docs
 weight: 8
-title: Data pipelines
-linkTitle: Data pipelines
+title: Data Pipelines
+linkTitle: Data Pipelines
+showOverview: false
 ---
 
 # Data Pipelines
