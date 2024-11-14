@@ -74,15 +74,15 @@ This hybrid approach—using OpenAI Whisper locally and Azure AI Speech when nec
 
 1. **Activate Recording**: The user clicks the "Record" button in the UI to begin capturing audio input. If **Microphone Access** was not granted before, the user needs to accept enabling this access.
 
-    ![Higlihted Record button and Browser permission enablement](./img/start_recording.png)
+    ![Highlighted Record button and Browser permission enablement](./img/start_recording.png)
 
 1. **Stop Recording**: The user clicks the "Stop" button to end the audio capture. The recorded audio is then processed for checks and transcriptions.
 
-    ![Higlihted Record Stop button](./img/stop_record.png)
+    ![Highlighted Record Stop button](./img/stop_record.png)
 
 1. **STT Process**: The captured audio is processed, checked for voice content, and then sent through the STT connector.
 
-    ![Higlihted audio created](./img/stop_record.png)
+    ![Highlighted audio created](./img/stop_record.png)
 
 1. The user can play the recorded audio for better understanding
 

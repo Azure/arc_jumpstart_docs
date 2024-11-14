@@ -24,11 +24,6 @@ Occasionally deployments of Jumpstart Agora Contoso Hypermarket may fail at vari
 
     ![Screenshot showing ai services restrictions error](./img/aiServices_quota.png)
 
-- Not enough Microsoft Entra ID quota to create additional service principals. You may receive a message stating "The directory object quota limit for the Principal has been exceeded. Please ask your administrator to increase the quota limit or delete objects to reduce the used quota."
-  - If this occurs, you must delete some of your unused service principals and try the deployment again.
-
-    ![Screenshot showing not enough Entra quota for new service principals](./img/aad_quota_exceeded.png)
-
 ### Exploring logs from the _Ag-VM-Client_ virtual machine
 
 Occasionally, you may need to review log output from scripts that run on the _Ag-VM-Client_ virtual machine in case of deployment failures. To make troubleshooting easier, the Agora deployment scripts collect all relevant logs in the _C:\Ag\Logs_ folder on _Ag-VM-Client_. A short description of the logs and their purpose can be seen in the list below:
@@ -37,7 +32,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 | ------- | ----------- |
 | _C:\Ag\Logs\AgLogonScript.log_ | Output from the primary PowerShell script that drives most of the automation tasks. |
 | _C:\Ag\Logs\ArcConnectivity.log_ | Output from the tasks that onboard servers and Kubernetes clusters to Azure Arc. |
-| _C:\Ag\Logs\AzCLI.log_ | Output from az CLI login. |
+| _C:\Ag\Logs\AzCLI.log_ | Output from Azure CLI login. |
 | _C:\Ag\Logs\AzPowerShell.log_ | Output from the installation of PowerShell modules. |
 | _C:\Ag\Logs\Bookmarks.log_ | Output from the configuration of Microsoft Edge bookmarks. |
 | _C:\Ag\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _Ag-VM-Client_. |

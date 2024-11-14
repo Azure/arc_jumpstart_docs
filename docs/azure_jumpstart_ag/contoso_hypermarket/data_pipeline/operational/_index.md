@@ -45,11 +45,11 @@ The IoT Operations component is responsible for managing the data flow from the 
 
   ![Screenshot showing Azure IoT Operations dashboard](./img/hypermarket-iot-operations-dashboard.png)
 
-- Click on Dataflow endpoints to view endpoints created for datapipeline.
+- Click on Dataflow endpoints to view endpoints created for data pipeline.
 
   ![Screenshot showing Azure IoT Operations dataflow endpoints](./img/hypermarket-iot-operations-dataflow-endpoints.png)
 
-- Click on Dataflows to view dataflows created for datapipeline.
+- Click on Dataflows to view dataflows created for data pipeline.
 
   ![Screenshot showing Azure IoT Operations dataflows](./img/hypermarket-iot-operations-dataflows.png)
 
@@ -134,7 +134,7 @@ Data ingested into the KQL Database is used by the Power BI reports created for 
 - Below is the screenshot of KQL Database created in the Fabric workspace and it's details.
   1. KQL Database name
   2. Database tables used in the Contoso Hypermarket for data ingestion and reports
-  3. Datapipeline data ingestion over the time
+  3. Data pipeline data ingestion over the time
   4. Database tables ingestion details
   5. KQL Database details
 
