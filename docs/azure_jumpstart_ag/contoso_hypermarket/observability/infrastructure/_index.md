@@ -35,11 +35,7 @@ Grafana's dashboards in Contoso's implementation provide a visually appealing an
 
 - **Node Exporter Full**: The Kubernetes Nodes Dashboard in Grafana provides a detailed view of node-level metrics and resources in your Kubernetes cluster. It enables you to monitor CPU and RAM usage, track pods running on each node, and identify any resource anomalies or performance issues. The dashboard also offers system-level metrics such as system load, context switches, and file descriptors, allowing for troubleshooting and optimization. Additionally, it provides insights into storage capacity, volumes, and I/O operations on the nodes, aiding in the effective management of storage resources.
 
-> **Grafana Dashboard Credits:**
-> The Kubernetes dashboards included in this guide are based on the work of publicly available dashboards. We would like to express our appreciation for authors' efforts in creating this insightful dashboard that enhances our monitoring capabilities for Kubernetes.
-> The original dashboards can be found at:
-> - [Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full)
-> - [Grafana Dashboards Kubernetes](https://github.com/dotdc/grafana-dashboards-kubernetes)
+> **Note:** The Kubernetes dashboards included in this guide are based on the work of publicly available dashboards. We would like to express our appreciation for authors' efforts in creating this insightful dashboard that enhances our monitoring capabilities for Kubernetes. The original dashboards can be found at _[Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full)_ and _[Grafana Dashboards Kubernetes](https://github.com/dotdc/grafana-dashboards-kubernetes)_.
 
 ## Accessing dashboards
 

@@ -41,11 +41,7 @@ Grafana's dashboards in Contoso's implementation provide a visually appealing an
 
 - **Freezer Monitoring**: The Freezer Monitoring dashboard in Grafana provides the current temperature of the freezers and the temperature history for the last 24 hours. You can also set up alerts to notify you when the temperature exceeds a certain threshold. This allows you to proactively monitor the freezer's health and performance and take corrective actions to prevent any issues. This would be covered in more detail in the ["Data pipeline and reporting across cloud and edge for sensor telemetry" guide.](../freezer_monitor/)
 
-> **Grafana Dashboard Credits:**
-> The Kubernetes dashboards included in this guide are based on the work of publicly available dashboards. We would like to express our appreciation for Author's efforts in creating this insightful dashboard that enhances our monitoring capabilities for Kubernetes.
-> The original dashboards can be found at:
-> - [Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full)
-> - [Grafana Dashboards Kubernetes](https://github.com/dotdc/grafana-dashboards-kubernetes)
+> **Note:** The Kubernetes dashboards included in this guide are based on the work of publicly available dashboards. We would like to express our appreciation for authors' efforts in creating this insightful dashboard that enhances our monitoring capabilities for Kubernetes. The original dashboards can be found at _[Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full)_ and _[Grafana Dashboards Kubernetes](https://github.com/dotdc/grafana-dashboards-kubernetes)_.
 
 ## Access the dashboards
 

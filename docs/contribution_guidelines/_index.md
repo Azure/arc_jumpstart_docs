@@ -13,7 +13,7 @@ We extend our heartfelt gratitude for considering a contribution to Arc Jumpstar
 
 Use these guidelines as a roadmap for crafting a successful, polished contribution that aligns with our standards. For newcomers, we encourage you to explore the raw code of existing scenarios, which offer valuable insights into the approved scenario format and encompass all the guidelines outlined here. If you have questions, our team of Arc Jumpstart project maintainers is available to help.
 
-> **Disclaimer:** Some content in this repository may have been created with the assistance of AI tools. To maintain quality, we follow [Microsoft’s principles for AI-generated content](https://learn.microsoft.com/principles-for-ai-generated-content) and have a thorough review process in place. Please refer to our [AI disclaimer](./../../AI_DISCLAIMER.MD) for more information.
+> **Disclaimer:** Some content in this repository may have been created with the assistance of AI tools. To maintain quality, we follow [Microsoft’s principles for AI-generated content](https://learn.microsoft.com/principles-for-ai-generated-content) and have a thorough review process in place. Please refer to our [AI disclaimer](https://github.com/Azure/arc_jumpstart_docs/blob/main/AI_DISCLAIMER.MD) for more information.
 
 We welcome contributions and encourage all contributors to be mindful of these guidelines when expanding or editing AI-assisted documentation.
 
