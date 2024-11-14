@@ -59,7 +59,7 @@ The specific region of the camera field-of-view that will be sent for inference 
 
 - Click the "Next" button to move to the Review Summary page, then click Save to complete the camera setup wizard.
 
-    ![A screenshot showing review summary](./img/review_summary.png).
+    ![A screenshot showing review summary](./img/review_summary.png)
 
 ### Architecture
 
