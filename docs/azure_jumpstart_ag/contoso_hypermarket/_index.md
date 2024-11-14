@@ -32,7 +32,7 @@ Contoso Hypermarket uses an AI technology stack, services, and processes to supp
 
 Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Hypermarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. We have incorporated additional features to enhance the 'virtual industry' experience in a lab setting. These enhancements include simulated Real-Time Streaming Protocol (RTSP) feeds, data emulators, MQTT, industrial assets, and data. For more details about the virtual environment, please review the diagram and dedicated guides below.
 
-![Applications and technology stack architecture diagram](./img/simulation_stack.png)
+![Applications and technology stack architecture diagram](./deployment/img/architecture_diagram.png)
 
 ## Getting started
 
@@ -44,12 +44,12 @@ To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provi
 | [Shopper insights using computer vision](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
 | [Gen AI and operations assistance](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
 | [Commercial and operations assistance with Speech-to-Text](../contoso_hypermarket/speech_to_text/) | Speech-to-Text  | Azure AI Speech, Rancher K3s, Azure Arc |
-| [Industrial assets health and Point-of-sale (PoS) assets health dashboards](../contoso_hypermarket/observability/) | Observability | Microsoft Fabric, PowerBI, Grafana |
-| [Shopper insights dashboards and monitoring](../contoso_hypermarket/observability/) | Observability | Microsoft Fabric, PowerBI, Grafana  |
-| [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_hypermarket/observability/) | Observability | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
-| [Data pipeline and reporting for commercial sales](../contoso_hypermarket/data_pipeline/commerical/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
+| [Industrial assets observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |
+| [Shopper insights observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |
+| [Kubernetes infrastructure observability](../contoso_hypermarket/observability/) | Observability | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
 | [Data pipeline and reporting for operational technology (OT)](../contoso_hypermarket/data_pipeline/operational/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
-| [Predictive analytics with Microsoft Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory | Microsoft Copilot |
+| [Data pipeline and reporting for commercial sales](../contoso_hypermarket/data_pipeline/commerical/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
+| [Predictive Analytics using Microsoft 365 Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory | Microsoft 365 Copilot |
 | [Cleanup](../contoso_hypermarket/cleanup/) | Not applicable | Not applicable |
 | [Troubleshooting](../contoso_hypermarket/troubleshooting/) | Not applicable  | Not applicable |
 | [Frequently asked questions (FAQ)](../../faq/) | Not applicable  | Not applicable |
