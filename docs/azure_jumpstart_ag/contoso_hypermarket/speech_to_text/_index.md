@@ -5,6 +5,8 @@ title: Commercial and Operations assistance with Speech-to-Text
 linkTitle: Commercial and Operations assistance with Speech-to-Text
 ---
 
+# Commercial and Operations assistance with Speech-to-Text
+
 ## Overview
 
 This document describes the architecture of a Speech-to-Text (STT) solution implemented for **Contoso Hypermarket**. This feature enables Contoso Hypermarket shoppers and employees to ask questions through voice input, which are processed through Jumpstart Cerebral to provide real-time responses. The solution uses a combination of local and cloud-based AI services to ensure efficient processing, accuracy, and scalability.
@@ -21,13 +23,11 @@ Below is an architecture diagram that shows how the audio data flows from the us
 
 ### User Flow
 
-> **WARNING**: Due to the lack of HTTPS in the Contoso Hypermarket Main UI deployment, some browsers may limit access to the microphone.
->
-> To ignore the browsers secure origin policy, follow these steps:
-> 1. Navigate to `chrome://flags/#unsafely-treat-insecure-origin-as-secure` in Chrome.
+> **WARNING**: Due to the lack of HTTPS in the Contoso Hypermarket Main UI deployment, some browsers may limit access to the microphone. To ignore the browser's secure origin policy, follow these steps:
+> 1. Navigate to `edge://flags/#unsafely-treat-insecure-origin-as-secure` in the Microsoft Edge browser.
 > 2. Find and enable the "Insecure origins treated as secure" section.
 > 3. Add any addresses you want to ignore the secure origin policy for. Remember to include the port number if required.
-> 4. Save and restart Chrome.
+> 4. Save and restart Edge.
 
 > **Note**: This is for development purposes only. To avoid this limitation, the app will need to be hosted on HTTPS for users to be able to use their microphone or camera.
 
@@ -48,6 +48,7 @@ Below is an architecture diagram that shows how the audio data flows from the us
 [OpenAI Whisper](https://github.com/openai/whisper) is a general-purpose speech recognition model that excels at various tasks, including multilingual speech recognition, speech translation, and language identification. Whisper has been trained on a large dataset of diverse audio samples, which enables it to handle different languages, accents, and speech nuances effectively.
 
 Whisper is deployed locally in the Contoso Hypermarket's STT architecture to provide quick and accurate transcription without requiring internet connectivity. This local deployment allows for:
+
 - **Reduced Latency**: Since transcription is processed on-premises, there is minimal delay in response time.
 - **Data Privacy**: By keeping data on local infrastructure, the system minimizes exposure to external networks, enhancing data security.
 - **Multilingual Support**: Whisper can automatically recognize and transcribe multiple languages, making it versatile in a multicultural retail environment.
@@ -57,6 +58,7 @@ Whisper is deployed locally in the Contoso Hypermarket's STT architecture to pro
 [Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/overview) is a cloud-based speech recognition service provided by Microsoft. When the local Whisper model is unavailable, the Contoso Hypermarket system routes audio data to Azure AI Speech for transcription. This service offers high-accuracy transcription with the added benefits of Azure's scalability and reliability.
 
 Key features of Azure AI Speech used in this architecture include:
+
 - **Scalability**: Azure Speech can handle large-scale requests and can be adjusted based on demand, making it suitable for a dynamic retail environment.
 - **Accuracy and Language Support**: Azure AI Speech provides high-accuracy transcription for numerous languages and dialects, ensuring inclusivity for a diverse customer base.
 - **Integration with Azure services**: Azure AI Speech integrates seamlessly with other Azure services, allowing for efficient deployment, monitoring, and maintenance.
@@ -68,36 +70,32 @@ This hybrid approach—using OpenAI Whisper locally and Azure AI Speech when nec
 ### Key Steps
 
 1. **Access the Interface**: The users accesses the **Contoso Hypermarket** interface on a local workstation or device.
-1. **Access Jumpstart Cerebral**: The users clicks the Jumpstart Cerebral logo in the right-side part of the header to open the Cerebral chat panel.
+2. **Access Jumpstart Cerebral**: The users clicks the Jumpstart Cerebral logo in the right-side part of the header to open the Cerebral chat panel.
 
     ![Click on Jumpstart Cerebral logo](./img/init_header.png)
 
-1. **Activate Recording**: The user clicks the "Record" button in the UI to begin capturing audio input. If **Microphone Access** was not granted before, the user needs to accept enabling this access.
+3. **Activate Recording**: The user clicks the "Record" button in the UI to begin capturing audio input. If **Microphone Access** was not granted before, the user needs to accept enabling this access.
 
     ![Highlighted Record button and Browser permission enablement](./img/start_recording.png)
 
-1. **Stop Recording**: The user clicks the "Stop" button to end the audio capture. The recorded audio is then processed for checks and transcriptions.
+4. **Stop Recording**: The user clicks the "Stop" button to end the audio capture. The recorded audio is then processed for checks and transcriptions.
 
     ![Highlighted Record Stop button](./img/stop_record.png)
 
-1. **STT Process**: The captured audio is processed, checked for voice content, and then sent through the STT connector.
+5. **STT Process**: The captured audio is processed, checked for voice content, and then sent through the STT connector.
 
     ![Highlighted audio created](./img/stop_record.png)
 
-1. The user can play the recorded audio for better understanding
+6. The user can play the recorded audio for better understanding
 
     ![Show how to click on audio sent](./img/audio_created.png)
 
-1. **Real-time Response**: The transcribed text is displayed in the main interface for immediate feedback.
+7. **Real-time Response**: The transcribed text is displayed in the main interface for immediate feedback.
 
     ![Transcribed question](./img/transcription.png)
 
-1. **Process Question Event**: The question is submitted to the Cerebral API, triggering further analysis and response generation.
+8. **Process Question Event**: The question is submitted to the Cerebral API, triggering further analysis and response generation.
 
+## Next steps
 
-## Next Steps
-
-For more information on configuring and scaling this architecture, please refer to:
-- [Troubleshooting](./../troubleshooting/_index.md)
-- [Azure AI Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
-- [OpenAI Whisper Model](https://openai.com/whisper)
+Now that you have completed the _Commercial and Operations assistance with Speech-to-Text_ scenario, it's time to continue to the next one, [Web UI and AI Inference flow](../observability/assets/).

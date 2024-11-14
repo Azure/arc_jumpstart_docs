@@ -21,4 +21,4 @@ To clean up your deployment, simply delete the resource group using Azure CLI or
 
 ## Next steps
 
-If you still having issues with the deployment, please refer to the [Troubleshooting](../troubleshooting//) section. Otherwise, if you have additional questions or feedback, please refer to the [FAQ](../../../faq/) section.
+If you still having issues with the deployment, please refer to the [Troubleshooting](../troubleshooting/) section. Otherwise, if you have additional questions or feedback, please refer to the [FAQ](../../../faq/) section.
