@@ -72,7 +72,7 @@ Contoso Hypermarket uses an [adaptive cloud](https://techcommunity.microsoft.com
 Video inference is handled by two APIs using a common pattern.
 
 - **Footfall API**: Detects humans in a specified region of a camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
-- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [OpenVINO](). It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person and providing metrics about customer movements, demographics, and interactions within defined areas.
+- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [OpenVINO](https://docs.openvino.ai). It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person and providing metrics about customer movements, demographics, and interactions within defined areas.
 
 ![A diagram depicting the footfall inference workflow](./img/footfall_diagram.png)
 
