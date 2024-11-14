@@ -13,7 +13,7 @@ Absolutely! Arc Jumpstart is a community-driven open source project, and contrib
 
 ## Are any of the Arc Jumpstart documents created with AI assistance?
 
-Yes, some of our documentation was created with the assistance of AI tools. Our team follows [Microsoft’s principles for AI-generated content](https://learn.microsoft.com/principles-for-ai-generated-content) and thoroughly reviews AI-assisted content to ensure it meets high standards for quality and accuracy. You can find more details in our [AI disclaimer](./../../AI_DISCLAIMER.MD).
+Yes, some of our documentation was created with the assistance of AI tools. Our team follows [Microsoft’s principles for AI-generated content](https://learn.microsoft.com/principles-for-ai-generated-content) and thoroughly reviews AI-assisted content to ensure it meets high standards for quality and accuracy. You can find more details in our [AI disclaimer](https://github.com/Azure/arc_jumpstart_docs/blob/main/AI_DISCLAIMER.MD).
 
 ## Can I use an Azure free trial account with Arc Jumpstart?
 

@@ -23,14 +23,11 @@ Below is an architecture diagram that shows how the audio data flows from the us
 
 ### User Flow
 
-> **WARNING**: Due to the lack of HTTPS in the Contoso Hypermarket Main UI deployment, some browsers may limit access to the microphone.
->
-> To ignore the browsers secure origin policy, follow these steps:
->
-> 1. Navigate to _`edge://flags/#unsafely-treat-insecure-origin-as-secure`_ in Microsoft Edge browser.
+> **WARNING**: Due to the lack of HTTPS in the Contoso Hypermarket Main UI deployment, some browsers may limit access to the microphone. To ignore the browser's secure origin policy, follow these steps:
+> 1. Navigate to `edge://flags/#unsafely-treat-insecure-origin-as-secure` in the Microsoft Edge browser.
 > 2. Find and enable the "Insecure origins treated as secure" section.
 > 3. Add any addresses you want to ignore the secure origin policy for. Remember to include the port number if required.
-> 4. Save and restart Chrome.
+> 4. Save and restart Edge.
 
 > **Note**: This is for development purposes only. To avoid this limitation, the app will need to be hosted on HTTPS for users to be able to use their microphone or camera.
 
