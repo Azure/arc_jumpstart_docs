@@ -33,8 +33,6 @@ Maintenance workers and equipment managers can view the status and health of Con
 
     ![A screenshot showing Jumpstart Cerebral location in the app](./img/cerebral_icon.png)
 
-    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/placeholder_until_it_works.png)
-
 ## View industrial assets health in a Grafana dashboard
 
 Users also have the ability to use [Grafana](https://grafana.com/) to build, view and customize dashboards for industrial assets telemetry.
