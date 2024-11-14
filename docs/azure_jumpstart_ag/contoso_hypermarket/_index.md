@@ -14,6 +14,10 @@ By integrating advanced computer vision into their retail facilities, Contoso Hy
 
 The AI-powered solutions also enhance maintenance and operational efficiency. With real-time monitoring and analytics, Contoso Hypermarket can detect errors or anomalies with automated checkout activities, manage equipment and detect malfunctions. This innovative approach drives operational excellence, positioning Contoso Hypermarket as a leader in the retail sector.
 
+> **Disclaimer:** This Jumpstart Agora scenario utilizes both Azure OpenAI and the Phi-3-Mini-4K-Instruct model from Microsoft to enhance its capabilities in natural language processing and instruction-based interactions. The Phi-3-Mini-4K-Instruct model is licensed under the MIT License, and users are encouraged to review the full license terms. For details, please refer to Arc Jumpstart [MIT License](../../../LICENSE) included in this repository.
+> Additionally, this project uses Intel OpenVINO models, which are distributed under the Apache License 2.0. Please refer to the [Intel OpenVINO License](https://github.com/openvinotoolkit/openvino/blob/master/LICENSE) for the applicable terms and conditions governing its usage.
+
+
 ## Architecture and technology stack
 
 Contoso Hypermarket uses an AI technology stack, services, and processes to support their digital transformation. A set of reference use-cases is included with the Jumpstart Agora Contoso Hypermarket scenario.
@@ -38,7 +42,7 @@ To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provi
 | **Guide**  | **Contoso Hypermarket service or platform** | **Technology stack** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_hypermarket/deployment/) | Not applicable | Not applicable |
-| [Real-time footfall inferences and shopper insights](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
+| [Shopper insights using computer vision](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
 | [Gen AI and operations assistance](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
 | [Commercial and operations assistance with Speech-to-Text](../contoso_hypermarket/speech_to_text/) | Speech-to-Text  | Azure AI Speech, Rancher K3s, Azure Arc |
 | [Industrial assets health and Point-of-sale (PoS) assets health dashboards](../contoso_hypermarket/observability/) | Observability | Microsoft Fabric, PowerBI, Grafana |

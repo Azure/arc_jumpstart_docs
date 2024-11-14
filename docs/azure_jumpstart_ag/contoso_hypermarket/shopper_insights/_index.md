@@ -5,7 +5,7 @@ title: Shopper insights using computer vision
 linkTitle: Shopper insights using computer vision
 ---
 
-# Shopper insights using computer vision
+# Enhance store operations and boost sales with AI-enhanced shopper insights
 
 ## Overview
 
@@ -15,173 +15,88 @@ Contoso Hypermarket uses computer vision to enhance the customer in-store experi
 
 Store managers can view foot traffic for a store using the Store Manager dashboard. This includes identifying high traffic areas within the store, which helps in optimizing store layout and product placement. In-store cameras can be mapped to specific "zones" which are then used to sort foot traffic into specific groups of shopper foot traffic.
 
-![A screenshot showing the store manager dashboard](./img/placeholder.png)
+- Open Microsoft Edge on the _Ag-Client_VM_ desktop and then click on the bookmarks toolbar and find the bookmark folder for Main UI.
 
-#### Configure cameras, zones and regions
+    ![A screenshot showing Microsoft edge and the bookmarks folder with the bookmarks for Main UI](./img/bookmarks.png)
 
-The specific region of the camera field-of-view that will be sent for inferencing can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. The following steps provides the details.
+- Click on the link for Store Managers
 
-- For configuring cameras, the first step is to visit _"/cameraszones"_ page. That will bring up the following page:
+    ![A screenshot showing the Contoso Hypermarket homepage](./img/homepage.png)
 
-    ![A screenshot showing cameras that have been added](./managecameras.png)
+#### Configure cameras
 
-- To add new camera, click "+Add Camera" button which will open a side panel to provide details about the new camera. Following image illustrates that step:
+The specific region of the camera field-of-view that will be sent for inference can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. Cameras are placed in retail store locations to monitor shopper behaviors and inventory. Cameras can be assigned a "zone" which represents a physical area of the store. Cameras also have defined "regions" which represent a defined bounding box inside the camera field of view that will be sent for inference.
 
-    ![A screenshot showing add camera step](./addcamera.png)
+![A screenshot showing cameras that have been added](./img/manage_cameras.png)
 
-    Once a new camera is added, it would be listed on the same _"/cameraszones"_ page as shown above.
+- To add new camera, click "Add Camera" button which will open a side panel to provide details about the new camera. Two [simulated cameras](https://github.com/kerberos-io/virtual-rtsp) are provided as part of the deployment which display videos of a typical grocery store.
 
-- Zones are areas or locations in a building where the cameras would be deployed to. To manage zones, visit _"/cameraszones"_ and clicking the "Zones" tab as shown below:
+    ![A screenshot showing add camera step](./img/add_camera.png)
 
-    ![A screenshot showing "Zones" tab highlighted](./zonestab.png)
+- Zones represents a physical area of the store. To create zones, click the "Zones" tab, then click the "Add Zone" button. This will start the a set up wizard for zones.
 
-    This will list all the zones that are available as shown below:
+    ![A screenshot showing "Zones" tab highlighted](./img/zones.png)
 
-    ![A screenshot showing "Zones" tab highlighted](./zones.png)
+- Upload a floor plan. You can find a sample floor plan in the "C:\Ag\" folder on _Ag_Client_VM_. Click next when ready to continue.
 
-- In order to create a new zone click "+Add Zone" button as shown in the above screenshot. This will start the a set up wizard for zones.
+    ![A screenshot showing Upload floor plan step with "Next" button highlighted](./img/upload_floor_plan.png)
 
-- The first step for the setup wizard for zones is for uploading a floor plan. Clicking the "+Add Zone" will show the page for uploading a floor plan as shown below:
+- Zones are created by clicking and dragging the mouse on the floor plan image. You can provide your own floor plan image if desired.
 
-    ![A screenshot showing Upload floor plan step with "Next" button highlighted](./uploadfloorplan.png)
+    ![A screenshot showing the draw floor zones page](./img/draw_floor_zones.png)
 
-- Clicking the "Next" button in the upload floor plan page, will take the user to "Draw floor zones" page as shown below:
+- To draw a zone on a floor plan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right lets you provide a zone label and select a particular camera for the new zone that's being created. Click done when ready.
 
-    ![A screenshot draw floor zones page](./drawfloorzones.png)
+    ![A screenshot draw floor zones page showing a drawn rectangle](./img/draw_floor_zones_with_rectangle.png)
 
-    The draw floor zones page allows user to draw a zone on the uploaded floor plan.
+- After setting up the zone, the next is to setup a camera region bounding box. Once a camera is selected, the video feed from that camera appears. The camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region of view sent for inference jobs.
 
-- To draw a zone on a floorplan, click any area (any area under the toolbar in the screenshot show above) and then drag the mouse down to create a rectangle. Once the rectangle is created, the selected area will be highlighted on the floor plan and a panel on the right would appear.
-
-- Enter a zone label and select a particular camera for the new zone that is being created.
-
-    ![A screenshot draw floor zones page showing a drawn rectangle](drawfloorzoneswithrectangle.png)
-
-- Once the zone label and desired camera for the new zone is selected, click "Done" as highlighted in the above screenshot.
-
-- After setting up the zone, the next is to setup camera region. Clicking "Done" button in the previous step will bring the user to the page that allows user to select a camera. Once a camera is selected, the video feed from that camera appears as shown below:
-
-    ![A screenshot a selected camera with its video feed](setupcameraregion.png)
-
-    The setup camera region will allow user to create bounding box within the camera's video feed. The bounding box is the region that inferencing will be run again.
+    ![A screenshot a selected camera with its video feed](./img/setup_camera_region.png)
 
 - To create bounding box, click any where on the video and then drag the mouse to draw a rectangle. Once a rectangle is drawn on the video feed, a purple bordered box with light purple tint will appear depicting the bounding box. This is show in the following screenshot:
 
-    ![A screenshot a selected camera with its video feed with bounding box](setupcameraregionwithrectangle.png)
+    ![A screenshot a selected camera with its video feed with bounding box](./img/setup_camera_region_with_rectangle.png)
 
-- Click "Next" button to move to the Review Summary page.
+- Click the "Next" button to move to the Review Summary page, then click Save to complete the camera setup wizard.
 
-    ![A screenshot showing review summary](reviewsummary.png)
-
-    The review summary shows the zones that we have added and the cameras that have been setup.
-
-- Click "Save" to complete the wizard.
-
-### Regional Manager / Data Analyst
-
-The regional manager will leverage the footfall and shopper insights data from various stores through aggregated dashboards in Fabric. These dashboards provide a comprehensive view of shopper behaviors and patterns across multiple locations, enabling the regional manager to identify trends and make informed decisions. By analyzing high traffic areas, peak shopping times, and customer preferences, the regional manager can optimize store layouts, improve product placement, and tailor marketing strategies to enhance the overall shopping experience. Additionally, the insights gathered from the dashboards help in identifying operational inefficiencies and areas for improvement, ensuring that each store operates at its best.
-
-Further reading:
-
-- [Observability](../observability/_index.md) - Visualize shopper foot traffic and behavior patterns in Grafana dashboards
-- [Contoso Hypermarket edge-to-cloud data pipeline](../data_pipeline/_index.md) - Understand how individual store data is sent from edge-to-cloud and analyzed using Microsoft Fabric.
+    ![A screenshot showing review summary](./img/review_summary.png)
 
 ### Architecture
 
-![A diagram depicting the shopper insights system architecture](./img/footfall_diagram.png)
+Contoso Hypermarket uses an [adaptive cloud](https://techcommunity.microsoft.com/blog/azurearcblog/a-guide-to-adaptive-cloud-at-microsoft-ignite-2024/4285028) application architecture to use AI in their business and day-to-day store operations. collect and use shopper insights about their retail locations. The diagram illustrates the overall architecture of the Shopper Insights system and the relation of the computer vision APIs relative to other solution components.
+
+![A diagram depicting the shopper insights system architecture](./img/app_architecture.png)
 
 #### Video inference pipeline
 
-- Footfall API
-- Shopper Insights API
+Video inference is handled by two APIs using a common pattern.
 
-The Shopper Insights System is an advanced computer vision solution that provides real-time analytics about shopper behavior using video feeds. The system leverages OpenVINO™ for efficient AI model inference and provides detailed metrics about customer movements, demographics, and interactions within defined areas.
-Key Features
+- **Footfall API**: Detects humans in a specified region of a camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
+- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [OpenVINO](https://docs.openvino.ai). It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person and providing metrics about customer movements, demographics, and interactions within defined areas.
 
-### Real-time Person Detection
+![A diagram depicting the footfall inference workflow](./img/footfall_diagram.png)
 
-- Tracks multiple people simultaneously
-- Maintains unique IDs for each detected person
-- Processes video feeds at optimized FPS rates
+- Footfall API - Uses basic object detection with YOLOv8 and the COCO dataset to detect people and other objects in a retail setting
+- Shopper Insights API - Uses OpenVINO™ to provide metrics about customer movements, demographics, and interactions within defined areas. It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person.
 
-### Person Re-identification (ReID) Technology
+#### Models Used
 
-Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. In our system, we use the following approach:
-How ReID Works
+Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. The following models are used in the footfall and shopper insights APIs.
 
-### Feature Extraction
+- Person Detection Model - [person-detection-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html)
+  - Detects people in video frames
+  - High accuracy for retail environments
 
-When a person is detected, the system extracts a unique feature vector (embedding)
-These features capture distinctive characteristics like:
+- Person Re-identification Model - [person-reidentification-retail-0287](https://docs.openvino.ai/2022.3/omz_models_model_person_reidentification_retail_0287.html)
+  - Generates unique feature vectors for tracked individuals
+  - Optimized for retail scenarios
+  - Robust to viewpoint changes
+  - Handles partial occlusions
 
-- Clothing patterns and colors
-- Body shape and proportions
-- Appearance attributes
-
-### Feature Matching
-
-New detections are compared with existing tracks using cosine distance
-Distance threshold: 0.3 (configured in max_distance_threshold)
-Lower distance indicates higher similarity
-
-### Track Management
-
-Each person gets a unique hash ID (8 characters)
-Tracks are maintained for up to 60 frames (max_frames_to_track)
-System handles track creation, updates, and termination
-
-### Models Used
-
-1. Person Detection Model
-Model: person-detection-retail-0013
-
-Purpose: Detects people in video frames
-Architecture: MobileNetV2-like backbone with FPN and SSD head
-Input: Images of 320×320 pixels
-Output: Bounding boxes with confidence scores
-Performance:
-
-- High accuracy for retail environments
-- Minimum confidence threshold: 0.6 (min_detection_confidence)
-
-2. Person Re-identification Model
-Model: person-reidentification-retail-0287
-
-Purpose: Generates unique feature vectors for tracked individuals
-Architecture: ResNet50 backbone optimized for ReID
-Input: Cropped person images
-Output: 256-dimensional feature vector
-Features:
-
-- Optimized for retail scenarios
-- Robust to viewpoint changes
-- Handles partial occlusions
-
-3. Age Recognition Model
-Model: age-gender-recognition-retail-0013
-
-Purpose: Estimates age of detected persons
-Architecture: Based on VGG-16 architecture
-Input: Face/person crops
-Output: Age estimation (0-100 years)
-Features:
-
-- Groups ages into decades for statistics
-- Provides real-time demographic insights
-
-### Area Analytics
-
-- Supports multiple detection areas
-- Tracks entry/exit times for each area
-- Maintains current and total visitor counts
-
-### Demographics Analysis
-
-- Age detection for each detected person
-- Age group statistics and trends
-- Historical data aggregation
-
-- Data pipeline to MQ
+- Age Recognition Model - [age-gender-recognition-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_age_gender_recognition_retail_0013.html)
+  - Estimates age of detected persons
+  - Groups ages into decades for statistics
+  - Provides real-time demographic insights
 
 ### Jump to other Contoso Hypermarket guides
 
