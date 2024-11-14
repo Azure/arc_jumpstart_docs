@@ -17,7 +17,7 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 
 - Open Microsoft Edge on the _Ag-Client_VM_ desktop and then click on the bookmarks toolbar and find the bookmark folder for Main UI.
 
-    ![A screenshot showing Microsoft edge and the bookmarks folder with the bookmarks for Main UI](./bookmarks.png)
+    ![A screenshot showing Microsoft edge and the bookmarks folder with the bookmarks for Main UI](./img/bookmarks.png)
 
 - Click on the link for Store Managers
 
@@ -33,7 +33,7 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 
     ![A screenshot showing Jumpstart Cerebral location in the app](./img/cerebral_icon.png)
 
-    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/placeholder_until_it_works.png)
+    ![A screenshot showing Jumpstart Cerebral answering a question about industrial assets](./img/cerebralquestion.png)
 
 ## View shopper and point-of-sale insights in a Grafana dashboard
 
@@ -55,7 +55,7 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
 The Contoso Hypermarket observability architecture uses [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and send industrial assets telemetry using MQTT, an industry standard protocol. Assets including refrigerators, ovens, HVACs, and retail smart shelves send telemetry through the [MQTT Broker](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq)] using an [edge-to-cloud data pipeline](../../data_pipeline/operational/_index.md).
 
-![Screenshot of the architecture diagram for observability](./arch_diagram.png)
+![Screenshot of the architecture diagram for observability](./img/arch_diagram.png)
 
 - [**Azure IoT Operations**](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations): Facilitates the connection and management of IoT devices, enabling real-time monitoring and control of industrial assets.
 - [**MQTT**](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq): A lightweight messaging protocol used for efficient communication between IoT devices and the cloud.
