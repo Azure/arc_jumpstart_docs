@@ -1,17 +1,19 @@
 ---
 type: docs
 weight: 5
-title: Industrial assets
-linkTitle: Industrial assets
+title: Industrial assets observability
+linkTitle: Industrial assets observability
 ---
 
-# Overview
+# Industrial assets observability
+
+## Overview
 
 Maintenance workers, equipment managers, and production engineers at Contoso Hypermarket use real-time interactive dashboards to operate, monitor, maintain, and service all aspects of industrial assets such as refrigerators, HVAC. Real-time data and insights are available through dashboards they can proactively address potential issues, perform predictive maintenance, and ensure the optimal performance of industrial assets. This lowers downtime and extends the lifespan of the equipment.
 
 Industrial assets data is collected and managed using [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) and sent through an [edge-to-cloud data pipeline](../../data_pipeline/) where it can then be visualized using [Grafana](https://grafana.com/) or other tools..
 
-## View industrial assets health in the Contoso Hypermarket app
+## View industrial assets health in the Contoso Hypermarket application
 
 Maintenance workers and equipment managers can view the status and health of Contoso Hypermarket's critical production assets such as refrigerators, ovens, and [HVAC](https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning) units. Follow the instructions below to see this experience in action.
 

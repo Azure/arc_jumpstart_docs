@@ -1,11 +1,11 @@
 ---
 type: docs
 weight: 6
-title: Kubernetes observability
-linkTitle: Kubernetes observability
+title: Kubernetes infrastructure observability
+linkTitle: Kubernetes infrastructure observability
 ---
 
-# Infrastructure observability for Arc-enabled Kubernetes
+# Kubernetes infrastructure observability
 
 ## Overview
 

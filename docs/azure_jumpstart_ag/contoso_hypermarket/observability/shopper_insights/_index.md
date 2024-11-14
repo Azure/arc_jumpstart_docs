@@ -1,19 +1,21 @@
 ---
 type: docs
 weight: 5
-title: Shopper insights
-linkTitle: Shopper insights
+title: Shopper insights observability
+linkTitle: Shopper insights observability
 ---
 
-# Overview
+# Shopper insights observability
+
+## Overview
 
 Contoso Hypermarket uses computer vision in their retail store locations to improve store sales, optimize product placements, and increase efficiency for store employees. Store managers and other users can view data collected by the [shopper insights](../../shopper_insights/) computer vision system and from point-of-sale and other retail industry assets.
 
 Retail industry assets data is collected and managed using [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) and sent through an [edge-to-cloud data pipeline](../../data_pipeline/) where it can then be visualized using [Grafana](https://grafana.com/) or other tools.
 
-## View shopper insights in the Contoso Hypermarket app
+## View shopper insights in the Contoso Hypermarket application
 
-Store managers can use the Contoso Hypermarket app to view data from the shopper insights platform.
+Store managers can use the Contoso Hypermarket application to view data from the shopper insights platform.
 
 - Open Microsoft Edge on the _Ag-Client_VM_ desktop and then click on the bookmarks toolbar and find the bookmark folder for Main UI.
 
@@ -26,8 +28,6 @@ Store managers can use the Contoso Hypermarket app to view data from the shopper
 - In this screen, store managers can view the status of ovens, refrigerators, and point-of-sale assets such as automated checkouts or smart shelves.
 
     ![A screenshot showing the maintenance worker dashboard](./img/store_manager_dashboard.png)
-
->**Note:** The suggested prompts user interface widgets at the top of the screen are cosmetic only and aren't implemented in this release of Contoso Hypermarket.
 
 - Users can also interact with Contoso Hypermarket using natural language. Click on the [Jumpstart Cerebral](../../cerebral/) icon in the upper right to ask a question about the status of industrial assets.
 
@@ -66,4 +66,3 @@ The Contoso Hypermarket observability architecture uses [Azure IoT Operations](h
 ## Next steps
 
 Now that you have completed the _Shopper insights observability_ scenario, it's time to continue to the next one, [Kubernetes observability](../infrastructure/).
-

@@ -5,7 +5,7 @@ title: Shopper insights using computer vision
 linkTitle: Shopper insights using computer vision
 ---
 
-# Enhance store operations and boost sales with AI-enhanced shopper insights
+# Shopper insights using computer vision
 
 ## Overview
 
