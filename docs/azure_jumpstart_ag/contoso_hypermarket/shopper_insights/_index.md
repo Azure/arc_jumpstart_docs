@@ -93,7 +93,7 @@ Video inference is handled by two APIs using a common pattern.
   - Robust to viewpoint changes
   - Handles partial occlusions
 
-- Age Recognition Model - age-gender-recognition-retail-0013
+- Age Recognition Model - [age-gender-recognition-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_age_gender_recognition_retail_0013.html)
   - Estimates age of detected persons
   - Groups ages into decades for statistics
   - Provides real-time demographic insights
