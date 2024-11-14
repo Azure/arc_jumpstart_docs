@@ -65,6 +65,5 @@ The Contoso Hypermarket observability architecture uses [Azure IoT Operations](h
 
 ## Next steps
 
-[Shopper insights](../shopper_insights/) - Learn how Contoso Hypermarket infuses AI to enhance retail store operations and shopper experience.
-[Infrastructure Observability](../infrastructure/) - Use dashboards and other tools to monitor and manage the Kubernetes system infrastructure that powers Contoso Hypermarket.
-[Edge-to-cloud data pipeline](../../data_pipeline/) - Learn about the data pipeline that collects and sends valuable business data to the cloud for advanced analysis using AI tools.
+Now that you have completed the _Shopper insights observability_ scenario, it's time to continue to the next one, [Kubernetes observability](../infrastructure/).
+

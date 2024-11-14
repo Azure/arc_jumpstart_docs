@@ -11,7 +11,7 @@ linkTitle: Kubernetes observability
 
 Infrastructure observability is essential for the success of Contoso Hypermarket's cloud-to-edge strategy. By using various tools for infrastructure observability, Contoso Hypermarket is able to monitor and visualize the health of their Kubernetes and Arc-enabled Kubernetes environments. This allows them to proactively oversee the health and performance of their infrastructure, identify potential issues, and make data-driven decisions to optimize their operations. With infrastructure observability, Contoso can ensure that their cloud and edge infrastructure remains reliable, efficient, and resilient.
 
-Prometheus is an efficient open-source monitoring system that collects and stores metrics from various sources in real-time. It offers a flexible query language for analyzing the collected metrics and provides robust alerting capabilities. Meanwhile, Grafana is a powerful open-source data visualization and analytics platform that allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time.
+[Prometheus](https://prometheus.io/) is an efficient open-source monitoring system that collects and stores metrics from various sources in real-time. It offers a flexible query language for analyzing the collected metrics and provides robust alerting capabilities. Meanwhile, [Grafana](https://grafana.com/) is a powerful open-source data visualization and analytics platform that allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time.
 
 By using Prometheus and Grafana for infrastructure observability, Contoso benefits in three key ways:
 
@@ -85,12 +85,10 @@ To view the health of the Kubernetes clusters, access the Grafana dashboards by 
 
     ![Screenshot showing Grafana Node Exporter dashboard panels disk](./img/grafana-node-disks.png)
 
-- Repeat the same steps to access the `Seattle` cluster by selecting this cluster from the datasource dropdown
+- Repeat the same steps to access the `Seattle` cluster by selecting this cluster from the _datasource_ dropdown.
 
     ![Screenshot showing Grafana Monterrey Dashboards](./img/grafana-datasource-cluster.png)
 
 ## Next steps
 
-- Learn how to use [Grafana to view metrics](../shopper_insights/) on shopper behavior
-- For more information on configuring Grafana dashboards, please refer to [Create a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)
-- For information on the Azure Managed Grafana service, please refer to [What is Azure Managed Grafana?](https://learn.microsoft.com/azure/managed-grafana/overview)
+Now that you have completed the _Kubernetes observability_ scenario, it's time to continue to the next one, ["Data pipeline and reporting for commercial sales"](../../data_pipeline/commercial/).

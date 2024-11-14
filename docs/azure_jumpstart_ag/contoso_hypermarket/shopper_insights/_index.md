@@ -98,12 +98,6 @@ Person re-identification is a critical computer vision task that involves recogn
   - Groups ages into decades for statistics
   - Provides real-time demographic insights
 
-### Jump to other Contoso Hypermarket guides
+## Next steps
 
-[Deployment](../deployment/_index.md)
-[Commercial gen-AI](../cerebral/_index.md)
-[Observability](../observability/_index.md)
-[Predictive Analytics](../predictive_analytics/_index.md)
-[Speech-to-Text](../speech_to_text/_index.md)
-[Cleanup](../cleanup/_index.md)
-[Troubleshooting](../troubleshooting/_index.md)
+Now that you have completed the _Shopper insights using computer vision_ scenario, it's time to continue to the next one, ["Cerebral: AI-Powered Retail Assistant"](../cerebral/).
