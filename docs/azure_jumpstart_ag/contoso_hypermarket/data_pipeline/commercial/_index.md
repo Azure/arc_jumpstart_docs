@@ -5,6 +5,8 @@ title: Data pipeline and reporting for commercial sales
 linkTitle: Data pipeline and reporting for commercial sales
 ---
 
+# Data pipeline and reporting for commercial sales
+
 ## Overview
 
 One of Contoso's primary objectives is to utilize store data for business intelligence by leveraging cloud capabilities.

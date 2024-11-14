@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 2
-title: Shopper Insights using computer vision
-linkTitle: Shopper Insights using computer vision
+title: Shopper insights using computer vision
+linkTitle: Shopper insights using computer vision
 ---
 
 # Enhance store operations and boost sales with AI-enhanced shopper insights
@@ -27,9 +27,7 @@ Store managers can view foot traffic for a store using the Store Manager dashboa
 
 The specific region of the camera field-of-view that will be sent for inference can be controlled on a per-camera basis. This is done by managing cameras, zones and camera regions. Cameras are placed in retail store locations to monitor shopper behaviors and inventory. Cameras can be assigned a "zone" which represents a physical area of the store. Cameras also have defined "regions" which represent a defined bounding box inside the camera field of view that will be sent for inference.
 
-- Configuring cameras can be done using the Cameras and zones function of the application.
-
-    ![A screenshot showing cameras that have been added](./img/managecameras.png)
+![A screenshot showing cameras that have been added](./img/managecameras.png)
 
 - To add new camera, click "Add Camera" button which will open a side panel to provide details about the new camera. Two [simulated cameras](https://github.com/kerberos-io/virtual-rtsp) are provided as part of the deployment which display videos of a typical grocery store.
 
@@ -82,6 +80,8 @@ Video inference is handled by two APIs using a common pattern.
 - Shopper Insights API - Uses OpenVINO™ to provide metrics about customer movements, demographics, and interactions within defined areas. It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person.
 
 #### Models Used
+
+Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. The following models are used in the footfall and shopper insights APIs.
 
 - Person Detection Model - [person-detection-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html)
   - Detects people in video frames
