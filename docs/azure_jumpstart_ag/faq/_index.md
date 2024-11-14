@@ -49,4 +49,35 @@ Agora has a dedicated pages for troubleshooting that you can review for common i
 - [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
 - [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
 
-If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist as soon as we can..
+## What AI models are used in Jumpstart Agora?
+
+Jumpstart Agora uses a combination of the following AI models:
+- **Azure OpenAI** for general AI tasks.
+- **Microsoft Phi-3-Mini-4K-Instruct model**, a specialized language model for advanced natural language processing.
+- **Intel OpenVINO models**, which are designed for optimized deployment of AI models on Intel hardware.
+
+## What is the license for the Microsoft Phi-3-Mini-4K-Instruct model?**
+
+The **Phi-3-Mini-4K-Instruct** model by Microsoft is licensed under the [MIT License](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/LICENSE). You can review the full details of the license in the `LICENSE` file located in the Jumpstart Agora repository.
+
+## **What license applies to Intel OpenVINO models?
+
+The **Intel OpenVINO** models are distributed under the **Apache License 2.0**. You can view the full terms of the license in the [Intel OpenVINO License file](https://github.com/openvinotoolkit/openvino/blob/master/LICENSE).
+
+## Can I use these models in my own projects?
+
+Yes, as long as you comply with the respective licenses. For the Microsoft Phi-3-Mini-4K-Instruct model, you must adhere to the terms of the MIT License. For Intel OpenVINO, the Apache License 2.0 governs the usage. Make sure to review each model’s license to understand the permissions and restrictions.
+
+## Can I modify and distribute the models used in Jumpstart Agora?
+
+- **Microsoft Phi-3-Mini-4K-Instruct model**: You are permitted to modify and distribute the model under the MIT License, as long as you include the appropriate copyright notice and disclaimers.
+- **Intel OpenVINO models**: You are allowed to modify and distribute Intel OpenVINO models under the terms of the Apache License 2.0, with the conditions outlined in the license.
+
+## Is there any support or documentation available for using these models?
+
+- For **Azure OpenAI** and **Phi-3-Mini-4K-Instruct** model, refer to the [Azure OpenAI documentation](https://learn.microsoft.com/azure/cognitive-services/openai/) and the official [Hugging Face repository for the Phi-3-Mini-4K-Instruct model](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct).
+- For **Intel OpenVINO**, you can access detailed documentation and support from the [OpenVINO GitHub repository](https://github.com/openvinotoolkit/openvino) and the official Intel documentation.
+
+## What if I am still required assistance?
+
+If you're still stuck, please [submit an issue](https://aka.ms/JumpstartIssue) on our GitHub repository and the Jumpstart team will try to assist as soon as we can.

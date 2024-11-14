@@ -85,7 +85,7 @@ To view the health of the Kubernetes clusters, access the Grafana dashboards by 
 
     ![Screenshot showing Grafana Node Exporter dashboard panels disk](./img/grafana-node-disks.png)
 
-- Repeat the same steps to access the `Seattle` cluster by selecting this cluster from the datasource dropdown
+- Repeat the same steps to access the `Seattle` cluster by selecting this cluster from the _datasource_ dropdown.
 
     ![Screenshot showing Grafana Monterrey Dashboards](./img/grafana-datasource-cluster.png)
 
