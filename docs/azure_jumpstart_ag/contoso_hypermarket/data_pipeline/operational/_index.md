@@ -158,4 +158,4 @@ The Operational Telemetry Real-Time Dashboard Report in Microsoft Fabric provide
 
 ## Next steps
 
-Now that you have completed the data pipeline scenarios, it's time to continue to the next scenario, [Contoso Hypermarket Observability](../../observability/).
+Now that you have completed the data pipeline scenarios, it's time to continue to the next scenario, ["Predictive Analytics using Microsoft 365 Copilot"](../../predictive_analytics/).

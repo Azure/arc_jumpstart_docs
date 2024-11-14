@@ -99,10 +99,6 @@ This hybrid approach—using OpenAI Whisper locally and Azure AI Speech when nec
 
 8. **Process Question Event**: The question is submitted to the Cerebral API, triggering further analysis and response generation.
 
-## Next Steps
+## Next steps
 
-For more information on configuring and scaling this architecture, please refer to:
-
-- [Troubleshooting](./../troubleshooting/_index.md)
-- [Azure AI Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
-- [OpenAI Whisper Model](https://openai.com/whisper)
+Now that you have completed the _Commercial and Operations assistance with Speech-to-Text_ scenario, it's time to continue to the next one, [Web UI and AI Inference flow](../observability/assets/).

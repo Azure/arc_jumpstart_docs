@@ -26,32 +26,33 @@ Agora can be deployed to the following regions:
 
 | Agora scenario | Region support |
 | ------- | ----------- |
+| Contoso Hypermarket | eastus, eastus2, westus2, westus3, westeurope |
 | Contoso Motors | eastus, eastus2, westus2, westus3, northeurope |
 | Contoso Supermarket | eastus, eastus2, westus, westus2, northeurope, west europe |
-| Contoso Hypermarket | eastus, eastus2, westus, westus2, westus3 |
 
 ## How much does it cost to use Agora?
 
 Agora incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. Each industry scenario in Agora may use a different combination of Azure resources and therefore costs vary depending on the industry scenario used. You can view example estimates of Agora costs in the link below.
 
-- [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
-- [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
 - Contoso Hypermarket cost estimate has multiple deployment options:
   - [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
     - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
     - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
+- [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
+- [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
 
 ## Where can I go if I have trouble deploying or using Agora?
 
 Agora has a dedicated pages for troubleshooting that you can review for common issues.
 
+- [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
 - [Troubleshoot Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors/troubleshooting)
 - [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
-- [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
 
 ## What AI models are used in Jumpstart Agora?
 
 Jumpstart Agora uses a combination of the following AI models:
+
 - **Azure OpenAI** for general AI tasks.
 - **Microsoft Phi-3-Mini-4K-Instruct model**, a specialized language model for advanced natural language processing.
 - **Intel OpenVINO models**, which are designed for optimized deployment of AI models on Intel hardware.
