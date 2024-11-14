@@ -116,15 +116,15 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 > **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.
 
-- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models).
-
-> **Note:** Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.
+- Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). You can check your utilization for Azure Open AI quotas using the following command.
 
   ```shell
   az cognitiveservices usage list -l <your location> -o table --query "[].{Name:name.value, currentValue:currentValue, limit:limit}"
   ```
 
   ![Screenshot showing cognitive services usage](./img/check_ai_usage.png)
+
+> **Note:** Depending on your Azure Subscription, you might be restricted to deploy Cognitive Services accounts and/or Azure OpenAI models. Please check your utilization and quota availability before proceeding with the deployment.
 
 ## Deployment: Bicep deployment via Azure CLI
 
