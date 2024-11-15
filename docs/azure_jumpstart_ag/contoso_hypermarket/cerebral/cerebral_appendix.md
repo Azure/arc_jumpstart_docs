@@ -76,7 +76,7 @@ The following table details the current supported industries and roles by Cerebr
 || _"Are any SmartShelves reporting low stock alerts right now?"_ | Current stock alerts and locations |
 || _"What's the average wait time at the deli counter currently?"_ | Current wait times and historical comparison |
 || _"How is HVAC-02 performing compared to its normal baseline?"_ | Performance metrics with baseline comparison |
-| Commercial Data | "Which products in the dairy section need restocking?"_ | List of products below threshold with quantities |
+| Commercial Data | _"Which products in the dairy section need restocking?"_ | List of products below threshold with quantities |
 || _"What was our busiest hour for sales yesterday?"_ | Sales volume analysis with peak times |
 || _"Show me the performance of our seasonal products this month"_ | Sales trends and inventory analysis |
 || _"What's the current inventory level for fresh produce?"_ | Current stock levels with reorder recommendations |
