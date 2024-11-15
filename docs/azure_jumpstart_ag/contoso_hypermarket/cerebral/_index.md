@@ -17,7 +17,7 @@ Cerebral innovative hybrid architecture optimally balances edge computing with c
 
 > **Note**: For detailed information about Cerebral's Generative AI capabilities, explore the [Azure OpenAI Service documentation](https://learn.microsoft.com/azure/ai-services/openai/overview) and [Microsoft Phi-3 - small language models (SLMs)](https://azure.microsoft.com/blog/introducing-phi-3-redefining-whats-possible-with-slms/)
 
-## Business Challenges
+## Business challenges
 
 In today's complex retail environment, organizations face critical operational challenges that impact efficiency and decision-making capabilities. Store managers and staff often struggle with fragmented information spread across multiple systems, leading to delayed responses to critical inventory and operational issues. New employees face steep learning curves as they attempt to navigate various platforms and documentation sources, while maintenance teams lose valuable time searching through scattered technical documentation for troubleshooting procedures.
 
@@ -49,7 +49,7 @@ Throughout the Contoso Hypermarket interface, whether you're a store manager rev
 
 > **Note**: To learn more about using the Contoso Hypermarket web applications and how Cerebral integrates with different operational interfaces, please refer to our [Shopper Insights Guide](../shopper_insights/_index.md).
 
-#### Getting Started with Cerebral
+#### Getting started with Cerebral
 
 1. **Accessing the Assistant**
    - Locate the Cerebral icon in the top-right corner of any page
@@ -108,11 +108,11 @@ To better understand how Cerebral processes their requests while providing valua
 > - Commercial: "What are our top 5 selling products this week?"
 > - Real-time: "What's the current temperature of HVAC unit 02?"
 
-### Data Integration and Query Processing
+### Data integration and query processing
 
 At the heart of Cerebral's architecture lies a sophisticated data integration system that seamlessly connects diverse information sources through an intelligent query processing pipeline. This unified approach transforms how organizations access and utilize their operational data.
 
-#### Unified Data Sources
+#### Unified data sources
 
 The system orchestrates three specialized databases, each optimized for specific types of information and query patterns:
 
@@ -141,19 +141,13 @@ The system orchestrates three specialized databases, each optimized for specific
   - Manages operational procedures and maintenance guides
   - Facilitates contextual information retrieval
 
-#### Available Technical Manuals
+#### Available technical manuals
 
-| System | Description | Documentation |
-|--------|-------------|---------------|
-| Automated Checkout | Complete guide for operation and maintenance of self-checkout systems | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Automated%20Checkout%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
-| SmartShelf | Technical documentation for electronic shelf labeling and inventory tracking | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/SmartShelf%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
-| Refrigeration | Maintenance and operation guides for refrigeration units | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Refrigeration%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
-| HVAC | Environmental control system documentation | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/HVAC%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
-| Scale Systems | Calibration and operation procedures for weighing equipment | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Scale%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+All technical documentation is automatically indexed and processed by Cerebral's RAG system, enabling natural language queries about any aspect of these systems. Instead of manually searching through PDFs, users can simply ask Cerebral specific questions about equipment operation, maintenance procedures, or troubleshooting steps.
 
-> **Note**: All technical documentation is automatically indexed and processed by Cerebral's RAG system, enabling natural language queries about any aspect of these systems. Instead of manually searching through PDFs, users can simply ask Cerebral specific questions about equipment operation, maintenance procedures, or troubleshooting steps.
+> **Note**: For a list of the various technical manuals used by Contoso Hypermarket for operational needs, please refer to the [Available technical manuals](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Available-technical-manuals) section in the Jumpstart Cerebral appendix file.
 
-#### Intelligent Query Routing
+#### Intelligent query routing
 
 When a user interacts with Cerebral, their natural language query flows through a sophisticated decision tree that determines the optimal processing path. Questions about maintenance procedures are seamlessly routed to the vector database, equipment status checks are directed to the time-series database, and sales inquiries are processed through the relational database. This intelligent routing ensures that each query is handled by the most appropriate system, delivering fast, accurate responses while maintaining system efficiency.
 
@@ -161,15 +155,15 @@ For example, when a maintenance technician asks _"How do I calibrate Scale-02?"_
 
 ![Decision Tree Architecture](./img/cerebral_decision_tree.png)
 
-## Industry and Role Adaptability
+## Industry and Role adaptability
 
 While Cerebral is currently showcased within Contoso Hypermarket's retail environment, its architecture is designed to be inherently multi-industry and role-adaptive. Through a sophisticated prompt catalog system, Cerebral can be customized to understand and respond to the unique contexts of different industries and professional roles.
 
 Cerebral is design to support various roles and industry, for example, an Inventory Manager in the retail industry, how cares about monitoring the store stock levels.
 
-> **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the [Industry and Role support](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support)
+> **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the [Industry and Role support](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support) section in the Jumpstart Cerebral appendix file.
 
-### Example Questions by Category
+### Example questions by category
 
 > **Note**: These examples represent common queries that Cerebral can handle. The system understands variations in phrasing and can maintain context through follow-up questions. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
 
@@ -191,7 +185,7 @@ Cerebral is design to support various roles and industry, for example, an Invent
 | Commercial Data | 4. "What's the current inventory level for fresh produce?" | Current stock levels with reorder recommendations |
 | Commercial Data | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages | -->
 
-### Prompt Catalog System
+### Prompt catalog system
 
 Cerebral's flexibility comes from its extensible prompt catalog, which enables:
 
@@ -207,7 +201,7 @@ Cerebral's flexibility comes from its extensible prompt catalog, which enables:
    - Relevant recommendations
    - Authorized data visibility
 
-### Example Prompt Customization
+### Example prompt customization
 
 ```json
 {
@@ -234,7 +228,7 @@ Cerebral's flexibility comes from its extensible prompt catalog, which enables:
 }
 ```
 
-### Benefits of Multi-Industry Design
+### Benefits of multi-industry design
 
 Cerebral's multi-industry architecture delivers three fundamental advantages that make it a powerful solution across different sectors and roles. At its core, the system's scalability ensures that organizations can easily expand their implementation to new industries and roles without significant restructuring. This scalability is complemented by a flexible prompt management system and an extensible knowledge base that grows with each implementation, allowing the system to continuously learn and adapt to new domains.
 
