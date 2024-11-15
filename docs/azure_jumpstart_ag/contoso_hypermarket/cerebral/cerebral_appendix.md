@@ -39,6 +39,18 @@ The following table details the relational database structure used by Contoso Hy
 | Stores         | Store locations           | - store_id VARCHAR(10) <br> - city VARCHAR(100) <br> - state VARCHAR(50) <br> - country VARCHAR(100)                       | - 'SEA' <br> - 'Seattle' <br> - 'WA' <br> - 'United States'                                           |
 | DeviceMetrics  | Equipment telemetry history | - id INT <br> - timestamp DATETIME2 <br> - device_id VARCHAR(50) <br> - equipment_type VARCHAR(50) <br> - metric_name VARCHAR(100) <br> - metric_value DECIMAL(18,4) <br> - metric_unit VARCHAR(20) | - 1 <br> - '2024-03-12 15:01:00' <br> - 'HVAC01' <br> - 'HVAC' <br> - 'temperature' <br> - 22.5 <br> - 'celsius' |
 
+## Available technical manuals
+
+The following table details the current available technical manuals used by Contoso Hypermarket for operational needs:
+
+| System | Description | Documentation |
+|--------|-------------|---------------|
+| Automated Checkout | Complete guide for operation and maintenance of self-checkout systems | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Automated%20Checkout%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| SmartShelf | Technical documentation for electronic shelf labeling and inventory tracking | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/SmartShelf%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| Refrigeration | Maintenance and operation guides for refrigeration units | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Refrigeration%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| HVAC | Environmental control system documentation | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/HVAC%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+| Scale Systems | Calibration and operation procedures for weighing equipment | [User Manual](https://download.microsoft.com/download/3ae1d7aa-a642-48cf-b848-67b4eaa81292/Scale%20System%20User%20Manual%20for%20Contoso%20Hypermarket.pdf) |
+
 ## Industry and Role support
 
 The following table details the current supported industries and roles by Cerebral:
