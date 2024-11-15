@@ -89,7 +89,7 @@ Note that the examples and screenshots shown in this documentation are for illus
 - Specific store configuration
 - Updated procedures and documentation
 
-> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md##Prompt-examples) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###Prompt-examples) section in the Jumpstart Cerebral appendix file.
 
 Based on your query, Cerebral automatically classifies the type of request and routes it to the appropriate system (documentation, real-time data, or business intelligence) to provide relevant and contextual responses. For demonstration purposes, users can enable the "Debug" checkbox in the interface to view behind-the-scenes details such as:
 
@@ -116,38 +116,30 @@ At the heart of Cerebral's architecture lies a sophisticated data integration sy
 
 The system orchestrates three specialized databases, each optimized for specific types of information and query patterns:
 
-**InfluxDB** powers Cerebral's real-time operational insights by managing time-series data from store equipment and systems. This specialized database captures everything from refrigeration temperatures to checkout queue lengths, enabling rapid analysis of current conditions and historical trends. Its optimized time-series capabilities ensure swift access to performance metrics and environmental data when seconds matter.
+- **InfluxDB** powers Cerebral's real-time operational insights by managing time-series data from store equipment and systems. This specialized database captures everything from refrigeration temperatures to checkout queue lengths, enabling rapid analysis of current conditions and historical trends. Its optimized time-series capabilities ensure swift access to performance metrics and environmental data when seconds matter.
 
-- Captures real-time metrics from store equipment
-- Monitors system performance data
-- Tracks operational status
-- Stores historical trending data
+  - Captures real-time metrics from store equipment
+  - Monitors system performance data
+  - Tracks operational status
+  - Stores historical trending data
 
-> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md##MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
 
-**SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
+- **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
 
-- Manages transaction records
-- Tracks inventory levels
-- Stores customer data
-- Handles business intelligence queries
+  - Manages transaction records
+  - Tracks inventory levels
+  - Stores customer data
+  - Handles business intelligence queries
 
-The following table details the relational database structure used in Contoso Hypermarket for commercial and operational data:
+> **Note**: For additional details on the relational database structure and how it is used by Contoso Hypermarket for commercial and operational needs, please refer to the [Relational database structure](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###Relational-database-structure) section in the Jumpstart Cerebral appendix file.
 
-<!-- | Table Name | Description | Key Fields | Example Data |
-|------------|-------------|------------|--------------|
-| Sales | Transaction records | - sale_id VARCHAR(50)<br>- sale_date DATETIME2<br>- store_id VARCHAR(10)<br>- store_city VARCHAR(100)<br>- product_id VARCHAR(50)<br>- quantity INT<br>- item_total DECIMAL(10,2)<br>- payment_method VARCHAR(50)<br>- customer_id VARCHAR(50)<br>- register_id VARCHAR(20) | - 'SAL20240312001'<br>- '2024-03-12 14:30:00'<br>- 'SEA'<br>- 'Seattle'<br>- 'PROD001'<br>- 2<br>- 4.99<br>- 'credit_card'<br>- 'CUST123'<br>- 'REG01' |
-| Products | Product catalog | - product_id VARCHAR(50)<br>- name VARCHAR(200)<br>- category VARCHAR(100)<br>- price_min DECIMAL(10,2)<br>- price_max DECIMAL(10,2)<br>- stock INT<br>- photo_path VARCHAR(500) | - 'PROD001'<br>- 'Red Apple'<br>- 'Fruits'<br>- 0.20<br>- 0.40<br>- 1000<br>- '/img/products/apple.jpg' |
-| Inventory | Current stock levels | - id INT<br>- date_time DATETIME2<br>- store_id VARCHAR(10)<br>- product_id VARCHAR(50)<br>- retail_price DECIMAL(10,2)<br>- in_stock INT<br>- reorder_threshold INT<br>- last_restocked DATETIME2 | - 1<br>- '2024-03-12 15:00:00'<br>- 'SEA'<br>- 'PROD001'<br>- 0.35<br>- 850<br>- 200<br>- '2024-03-11 08:00:00' |
-| Stores | Store locations | - store_id VARCHAR(10)<br>- city VARCHAR(100)<br>- state VARCHAR(50)<br>- country VARCHAR(100) | - 'SEA'<br>- 'Seattle'<br>- 'WA'<br>- 'United States' |
-| DeviceMetrics | Equipment telemetry history | - id INT<br>- timestamp DATETIME2<br>- device_id VARCHAR(50)<br>- equipment_type VARCHAR(50)<br>- metric_name VARCHAR(100)<br>- metric_value DECIMAL(18,4)<br>- metric_unit VARCHAR(20) | - 1<br>- '2024-03-12 15:01:00'<br>- 'HVAC01'<br>- 'HVAC'<br>- 'temperature'<br>- 22.5<br>- 'celsius' | -->
-
-**Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
+- **Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
   
-- Stores and indexes technical documentation
-- Enables semantic search capabilities
-- Manages operational procedures and maintenance guides
-- Facilitates contextual information retrieval
+  - Stores and indexes technical documentation
+  - Enables semantic search capabilities
+  - Manages operational procedures and maintenance guides
+  - Facilitates contextual information retrieval
 
 #### Available Technical Manuals
 
