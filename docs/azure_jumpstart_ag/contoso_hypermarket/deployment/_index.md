@@ -11,7 +11,7 @@ linkTitle: Deployment guide
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Hypermarket scenario environment, including the infrastructure, the Contoso Hypermarket AI applications, CI/CD artifacts, observability components, and cloud architecture. The diagram below details the high-level architecture that's deployed and configured as part of the automation.
 
-![Architecture diagram](./img/architecture_diagram.png)
+![Screenshot of Contoso Hypermarket technology stack and operations architecture diagram](./img/architecture_diagram.png)
 
 Deploying the "Contoso Hypermarket" scenario consists of the following steps (once prerequisites are met).
 
@@ -24,7 +24,7 @@ Deploying the "Contoso Hypermarket" scenario consists of the following steps (on
 
 Once automation is complete, users can immediately start enjoying the Contoso Hypermarket experience.
 
-![Deployment flow architecture diagram](./img/deployment_workflow.png)
+![Screenshot showing deployment flow architecture diagram](./img/deployment_workflow.png)
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
   ```
 
-  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/).
+> **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/).
 
 ## Start post-deployment automation
 

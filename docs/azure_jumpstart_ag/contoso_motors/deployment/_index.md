@@ -11,7 +11,7 @@ linkTitle: Deployment guide
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Motors scenario environment, including the infrastructure, the Contoso-Motors applications, CI/CD artifacts, and observability components. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
 
-![Architecture diagram](./img/architecture_diagram.png)
+![Screenshot showing Contoso Motors virtual edge environment architecture diagram](./img/architecture_diagram.png)
 
 Deploying the "Contoso Motors" scenario consists of the following steps (once prerequisites are met).
 
@@ -24,11 +24,11 @@ Deploying the "Contoso Motors" scenario consists of the following steps (once pr
 
 Once automation is complete, users can immediately start enjoying the Contoso Motors experience.
 
-![Deployment flow architecture diagram](./img/deployment_workflow.png)
+![Screenshot showing deployment flow architecture diagram](./img/deployment_workflow.png)
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.53.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
     ```shell
     az --version

@@ -19,7 +19,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.56.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version

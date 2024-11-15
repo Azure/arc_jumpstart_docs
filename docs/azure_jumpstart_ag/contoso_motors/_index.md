@@ -27,13 +27,13 @@ Contoso Motors uses an AI technology stack, services, and processes to support t
 - **Computer Vision for Object and Defect Detection** - Leveraging computer vision algorithms to detect and classify objects on the manufacturing line, as well as identifying defects with high accuracy and speed, streamlining quality control processes.
 - **IT/OT Operations and Observability** - Integrating IT and operational technology (OT) systems to enhance visibility and control over manufacturing operations, enabling real-time monitoring, analysis, and optimization for increased productivity and reliability.
 
-![Applications and technology stack architecture diagram](./img/architecture_diagram.png)
+![Screenshot showing Contoso Motors applications and technology stack architecture diagram](./img/architecture_diagram.png)
 
 ## Virtual edge environment
 
 Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Motors scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. Additional features are included to further enhance the "virtual industry" experience in a lab setting, including simulated RTSP feeds, data emulators, and MQTT and OPC UA devices and data. Review the diagram and dedicated guides below to learn more about the virtual environment.
 
-![Applications and technology stack architecture diagram](./img/simulation_stack.png)
+![Screenshot showing Contoso Motors virtual edge environment architecture diagram](./img/simulation_stack.png)
 
 ## Getting started
 

@@ -11,7 +11,7 @@ linkTitle: Deployment guide
 
 Jumpstart Agora provides a simple deployment process using Azure Bicep and PowerShell that minimizes user interaction. This automation automatically configures the Contoso Supermarket scenario environment, including the infrastructure, the Contoso-Supermarket applications, CI/CD artifacts, and observability components. The diagram below details the high-level architecture that is deployed and configured as part of the automation.
 
-![Architecture diagram](./img/architecture_diagram.png)
+![Screenshot showing Contoso Supermarket applications and technology stack architecture diagram](./img/architecture_diagram.png)
 
 Deploying the "Contoso Supermarket" scenario consists of the following steps (once prerequisites are met).
 
@@ -24,7 +24,7 @@ Deploying the "Contoso Supermarket" scenario consists of the following steps (on
 
 Once automation is complete, users can immediately start enjoying the Contoso Supermarket experience.
 
-![Deployment flow architecture diagram](./img/deployment_workflow.png)
+![Screenshot showing deployment flow architecture diagram](./img/deployment_workflow.png)
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Su
 
     > **Note:** The token shown in the above screenshot is a placeholder value for example purposes only and not a working token.
 
-- [Install or update Azure CLI to version 2.53.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
     ```shell
     az --version
