@@ -1,8 +1,8 @@
 ---
 type: docs
 weight: 9
-title: Predictive Analytics using Microsoft 365 Copilot
-linkTitle: Predictive Analytics using Microsoft 365 Copilot
+title: Predictive analytics using Microsoft 365 Copilot
+linkTitle: Predictive analytics using Microsoft 365 Copilot
 ---
 
 # Predictive Analytics using Microsoft 365 Copilot
