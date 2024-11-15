@@ -78,21 +78,9 @@ The interface is designed to be non-intrusive while remaining easily accessible 
 
 > **Note**: For more information about Cerebral's voice interaction capabilities, see our detailed guide on [Speech-to-Text Integration](../speech_to_text/_index.md).
 
-The interaction is straightforward and natural - simply type your question or click the microphone icon to speak. Cerebral understands natural language queries across a wide range of topics, for example:
+The interaction is straightforward and natural - simply type your question or click the microphone icon to speak. Cerebral understands natural language queries across a wide range of topics. Below is an example of how a Sales Analyst can ask Cerebral _"What are our top 5 selling products this week?"_:
 
-<!-- | Type of Query | Example Question | Sample Response |
-|--------------|------------------|-----------------|
-| Technical Support | "The cash dispenser in POS-01 is stuck. How do I fix it?" | <img src="./img/technical-support-example.png" alt="Technical support Example" width="500"/> |
-| Sales Analysis | "What are our top 5 selling products this week?" |  <img src="./img/sales_analysis_example.png" alt="Sales Analysis Example" width="500"/> |
-| Equipment Monitoring | "What's the power usage for HVAC unit 02?" | <img src="./img/equipment_monitoring.png" alt="Equipment monitoring" width="500"/> |
-| Inventory Management | "Show me all products below reorder threshold" | <img src="./img/inventory.png" alt="Inventory management" width="500"/> | -->
-
-| Type of Query         | Example Question                                | Sample Response                       |
-|-----------------------|-------------------------------------------------|---------------------------------------|
-| Technical Support     | "The cash dispenser in POS-01 is stuck. How do I fix it?" | ![Technical support Example](./img/technical-support-example.png) |
-| Sales Analysis        | "What are our top 5 selling products this week?" | ![Sales Analysis Example](./img/sales_analysis_example.png) |
-| Equipment Monitoring  | "What's the power usage for HVAC unit 02?"      | ![Equipment monitoring](./img/equipment_monitoring.png) |
-| Inventory Management  | "Show me all products below reorder threshold"  | ![Inventory management](./img/inventory.png) |
+![Screenshot of Sales Analyst Cerebral interaction example ](./img/sales_analyst_example.png)
 
 Note that the examples and screenshots shown in this documentation are for illustration purposes only. While the core functionality remains the same, Cerebral's responses are dynamic and contextual to your specific situation and the latest available information and actual results and responses from Cerebral may vary depending on:
 
@@ -101,6 +89,8 @@ Note that the examples and screenshots shown in this documentation are for illus
 - Specific store configuration
 - Updated procedures and documentation
 
+> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md##Prompt-examples) section in the Jumpstart Cerebral appendix file.
+
 Based on your query, Cerebral automatically classifies the type of request and routes it to the appropriate system (documentation, real-time data, or business intelligence) to provide relevant and contextual responses. For demonstration purposes, users can enable the "Debug" checkbox in the interface to view behind-the-scenes details such as:
 
 - Query classification (documentation, data, or relational)
@@ -108,7 +98,7 @@ Based on your query, Cerebral automatically classifies the type of request and r
 - Data processing steps
 - Response construction logic
 
-This transparency helps users understand how Cerebral processes their requests while providing valuable insights into the system's decision-making process.
+To better understand how Cerebral processes their requests while providing valuable insights into the system's decision-making process, a "Debug" option is available to you.
 
 ![Enable debug](./img/debug.png)
 
@@ -133,7 +123,7 @@ The system orchestrates three specialized databases, each optimized for specific
 - Tracks operational status
 - Stores historical trending data
 
-For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md##MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
 
 **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
 
