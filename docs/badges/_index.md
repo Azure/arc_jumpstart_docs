@@ -15,9 +15,9 @@ Jumpstart Community Badges are a recognition system designed to celebrate and re
 
 | Badge         | Name          | Description   | How to earn it   | Tiers         |
 | ------------- | ------------- | ------------- | -----------------| ------------- |
-| ![Scenario_Sorcerer_level_1](./Scenario_Sorcerer_level_1.png) | Scenario Sorcerer | Jumpstart Scenario contributor | A contributor of Jumpstart Scenarios. | ⭐ 1 Jumpstart Scenario contribution <br/> ⭐⭐ 3 Jumpstart Scenario contributions <br/> ⭐⭐⭐ 5 Jumpstart Scenario contributions  |
-| ![The_Giver_level_1](./The_Giver_level_1.png) | The Giver | Jumpstart Drops contributor | A contributor of Jumpstart Drops. | ⭐ 1 Jumpstart Drop contribution <br/> ⭐⭐ 3 Jumpstart Drop contributions <br/> ⭐⭐⭐ 5 Jumpstart Drop contributions  |
-| ![Words_of_Wisdom_level_1](./Words_of_Wisdom_level_1.png) | Words of Wisdom | Jumpstart advocacy champion | A contributor who created a Jumpstart community advocacy asset (blog, video, webinar, presentation, etc.). | ⭐ 1 Jumpstart community contribution <br/> ⭐⭐ 3 Jumpstart community contributions <br/> ⭐⭐⭐ 5 Jumpstart community contributions  |
+| ![Scenario_Sorcerer_level_1](./Scenario_Sorcerer_level_1.png) | Scenario Sorcerer | Jumpstart Scenario contributor | A contributor of Jumpstart Scenarios. | <span class="stars">⭐</span> <span class="text">1 Jumpstart Scenario contribution</span><br/> <span class="stars">⭐⭐</span> <span class="text">3 Jumpstart Scenario contributions</span><br/> <span class="stars">⭐⭐⭐</span> <span class="text">5+ Jumpstart Scenario contributions</span> |
+| ![The_Giver_level_1](./The_Giver_level_1.png) | The Giver | Jumpstart Drops contributor | A contributor of Jumpstart Drops. | <span class="stars">⭐</span> <span class="text">1 Jumpstart Drop contribution</span><br/> <span class="stars">⭐⭐</span> <span class="text">3 Jumpstart Drop contributions</span><br/> <span class="stars">⭐⭐⭐</span> <span class="text">5+ Jumpstart Drop contributions</span> |
+| ![Words_of_Wisdom_level_1](./Words_of_Wisdom_level_1.png) | Words of Wisdom | Jumpstart advocacy champion | A contributor who created a Jumpstart community advocacy asset (blog, video, webinar, presentation, etc.). | <span class="stars">⭐</span> <span class="text">1 Jumpstart community contribution</span><br/> <span class="stars">⭐⭐</span> <span class="text">3 Jumpstart community contributions</span><br/> <span class="stars">⭐⭐⭐</span> <span class="text">5+ Jumpstart community contributions</span> |
 | ![Sandbox_player](./Sandbox_player.png) | Sandbox Player | Jumpstart ArcBox contributor | A contributor of Jumpstart ArcBox code and/or documentation. | One-time badge  |
 | ![Boxing_Champ](./Boxing_Champ.png) | Boxing Champ | Jumpstart HCIBox contributor | A contributor of Jumpstart HCIBox code and/or documentation. | One-time badge  |
 | ![Dream_Builder](./Dream_Builder.png) | Dream Builder | Jumpstart Agora contributor | A contributor of Jumpstart Agora code and/or documentation. | One-time badge  |
@@ -25,6 +25,7 @@ Jumpstart Community Badges are a recognition system designed to celebrate and re
 | ![Treasure_Hunter](./Treasure_Hunter.png) | Treasure Hunter | Jumpstart diagrams collaborator | A contributor who worked with the team on an existing or new published architecture diagram.  | One-time badge  |
 | ![Code_Whisperer](./Code_Whisperer.png) | Code Whisperer | Jumpstart maintainer | A Jumpstart core maintainer and an official team member. | One-time badge  |
 | ![Movie_Star](./Movie_Star.png) | Movie Star | Jumpstart Lightning guest | A guest on Jumpstart Lightning. | One-time badge  |
+
 
 
 ### Apply for a Jumpstart Community Badge
