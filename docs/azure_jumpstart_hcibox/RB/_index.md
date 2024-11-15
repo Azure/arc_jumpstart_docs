@@ -5,15 +5,15 @@ weight: 7
 ---
 # Virtual machine provisioning with Azure Arc in your HCIBox
 
-Azure Stack HCI supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Stack HCI clusters, the HCIBox cluster comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
+Azure Local supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Local instances, the HCIBox instance comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
 ## Create Virtual Machine images from Azure marketplace
 
-Before you can create virtual machines on your HCI cluster from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
+Before you can create virtual machines on your Azure Local instance from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
-- Navigate to your cluster resource inside the HCIBox resource group and click it.
+- Navigate to your instance resource inside the HCIBox resource group and click it.
 
-  ![Screenshot showing cluster resource](./hcicluster_rg.png)
+  ![Screenshot showing instance resource](./hcicluster_rg.png)
 
 - Click on "VM Images" in the menu and then click the "Add VM image" dropdown and select "From Azure Marketplace."
 
@@ -23,13 +23,13 @@ Before you can create virtual machines on your HCI cluster from Azure portal, yo
 
   ![Screenshot showing create VM image details](./create_vm_detail_win11.png)
 
-- It will take some time for the VM image to download to your cluster from Azure marketplace. You can monitor progress by visiting the VM Image resource in your resource group and reviewing the resource properties.
+- It will take some time for the VM image to download to your instance from Azure marketplace. You can monitor progress by visiting the VM Image resource in your resource group and reviewing the resource properties.
 
   ![Screenshot of VM image properties](./monitor_vm_image_progress.png)
 
-- Monitor the image as needed until is it finished downloading. While you wait, proceed to the next section to create the logical network on the cluster.
+- Monitor the image as needed until is it finished downloading. While you wait, proceed to the next section to create the logical network on the instance.
 
-## Create a logical network on your HCI cluster
+## Create a logical network on your Azure Local instance
 
 HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
@@ -54,7 +54,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
   ![Screenshot showing VM image complete](./monitor_vm_image_available.png)
 
-- Open your Azure Stack HCI cluster resource and then open the Virtual machines blade, then click the "Create virtual machine" button.
+- Open your Azure Local instance resource and then open the Virtual machines blade, then click the "Create virtual machine" button.
 
   ![Screenshot showing create VM overview](./create_vm.png)
 
@@ -72,10 +72,10 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
   ![Screenshot showing final create VM step](./vm_image_review_create.png)
 
-- Open the Azure Stack HCI VM resource and see connectivity to Arc and other details.
+- Open the Azure Local VM resource and see connectivity to Arc and other details.
 
   ![Screenshot showing VM resource](./vm_resource_detail.png)
 
 ## Next steps
 
-Review the [Azure Stack HCI VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
+Review the [Azure Local VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
