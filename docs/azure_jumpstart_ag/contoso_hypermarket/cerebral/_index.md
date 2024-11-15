@@ -105,10 +105,11 @@ This transparency helps users understand how Cerebral processes their requests w
 
 ![Enable debug](./img/debug.png)
 
-> **Note**: For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section. For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category). Common questions include:
-> Documentation: "How do I calibrate Scale-02?"
-> Commercial: "What are our top 5 selling products this week?"
-> Real-time: "What's the current temperature of HVAC unit 02?"
+> **Note**: For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section. For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category). Common questions include (but not limited to):
+>
+> - Documentation: "How do I calibrate Scale-02?"
+> - Commercial: "What are our top 5 selling products this week?"
+> - Real-time: "What's the current temperature of HVAC unit 02?"
 
 ### Data Integration and Query Processing
 
