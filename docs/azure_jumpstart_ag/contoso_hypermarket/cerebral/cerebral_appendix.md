@@ -62,22 +62,22 @@ The following table details the current supported industries and roles by Cerebr
 | Automotive | - Line Supervisor<br>- Quality Inspector<br>- Maintenance Technician | - Assembly line monitoring<br>- Quality assurance checks<br>- Equipment maintenance |
 | Hypermarket | - Store Manager<br>- Shopper<br>- Maintenance Worker | - Sales analytics<br>- Product location<br>- Facility maintenance |
 
-## Examples of common prompts Cerebral can handle
+## Common prompts Cerebral can handle
 
 | Category | Prompt Example | Expected Response Type |
 |----------|--------------|----------------------|
-| Documentation & Procedures | 1. "What are the steps to close the store at the end of the day?" | Step-by-step procedure with checklist |
-| Documentation & Procedures | 2. "How do I perform the daily cleaning routine for the meat department?" | Detailed cleaning protocol with safety guidelines |
-| Documentation & Procedures | 3. "What's the emergency shutdown procedure for the refrigeration system?" | Emergency procedure with critical steps highlighted |
-| Documentation & Procedures | 4. "Show me the maintenance checklist for the automated checkout machines" | Maintenance checklist with technical specifications |
-| Documentation & Procedures | 5. "What are the safety protocols for handling spills in the produce area?" | Safety guidelines and cleaning procedures |
-| Real-time Operations | 1. "What's the current capacity of all automated checkouts in use?" | Real-time usage metrics and availability status |
-| Real-time Operations | 2. "Show me the temperature trends for all refrigeration units in the last hour" | Temperature graphs and anomaly indicators |
-| Real-time Operations | 3. "Are any SmartShelves reporting low stock alerts right now?" | Current stock alerts and locations |
-| Real-time Operations | 4. "What's the average wait time at the deli counter currently?" | Current wait times and historical comparison |
-| Real-time Operations | 5. "How is HVAC-02 performing compared to its normal baseline?" | Performance metrics with baseline comparison |
-| Commercial Data | 1. "Which products in the dairy section need restocking?" | List of products below threshold with quantities |
-| Commercial Data | 2. "What was our busiest hour for sales yesterday?" | Sales volume analysis with peak times |
-| Commercial Data | 3. "Show me the performance of our seasonal products this month" | Sales trends and inventory analysis |
-| Commercial Data | 4. "What's the current inventory level for fresh produce?" | Current stock levels with reorder recommendations |
-| Commercial Data | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages |
+| Documentation and Procedures | _"What are the steps to close the store at the end of the day?"_ | Step-by-step procedure with checklist |
+|| _"How do I perform the daily cleaning routine for the meat department?"_ | Detailed cleaning protocol with safety guidelines |
+|| _"What's the emergency shutdown procedure for the refrigeration system?"_ | Emergency procedure with critical steps highlighted |
+|| _"Show me the maintenance checklist for the automated checkout machines"_ | Maintenance checklist with technical specifications |
+|| _"What are the safety protocols for handling spills in the produce area?"_ | Safety guidelines and cleaning procedures |
+| Real-time Operations | _"What's the current capacity of all automated checkouts in use?"_ | Real-time usage metrics and availability status |
+|| _"Show me the temperature trends for all refrigeration units in the last hour"_ | Temperature graphs and anomaly indicators |
+|| _"Are any SmartShelves reporting low stock alerts right now?"_ | Current stock alerts and locations |
+|| _"What's the average wait time at the deli counter currently?"_ | Current wait times and historical comparison |
+|| _"How is HVAC-02 performing compared to its normal baseline?"_ | Performance metrics with baseline comparison |
+| Commercial Data | "Which products in the dairy section need restocking?"_ | List of products below threshold with quantities |
+|| _"What was our busiest hour for sales yesterday?"_ | Sales volume analysis with peak times |
+|| _"Show me the performance of our seasonal products this month"_ | Sales trends and inventory analysis |
+|| _"What's the current inventory level for fresh produce?"_ | Current stock levels with reorder recommendations |
+|| _"Which payment method was most used in the last week?"_ | Payment method breakdown with percentages |

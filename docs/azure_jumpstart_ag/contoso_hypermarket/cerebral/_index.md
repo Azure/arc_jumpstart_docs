@@ -89,7 +89,7 @@ Note that the examples and screenshots shown in this documentation are for illus
 - Specific store configuration
 - Updated procedures and documentation
 
-> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#prompt-examples) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional prompt examples, please refer to the ["Prompt examples"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#prompt-examples) section in the Jumpstart Cerebral appendix file.
 
 Based on your query, Cerebral automatically classifies the type of request and routes it to the appropriate system (documentation, real-time data, or business intelligence) to provide relevant and contextual responses. For demonstration purposes, users can enable the "Debug" checkbox in the interface to view behind-the-scenes details such as:
 
@@ -123,7 +123,7 @@ The system orchestrates three specialized databases, each optimized for specific
   - Tracks operational status
   - Stores historical trending data
 
-> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#mqtt-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details, please refer to the ["MQTT simulated equipment metrics"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#mqtt-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
 
 - **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
 
@@ -132,7 +132,7 @@ The system orchestrates three specialized databases, each optimized for specific
   - Stores customer data
   - Handles business intelligence queries
 
-> **Note**: For additional details on the relational database structure and how it is used by Contoso Hypermarket for commercial and operational needs, please refer to the [Relational database structure](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#relational-database-structure) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details on the relational database structure and how it is used by Contoso Hypermarket for commercial and operational needs, please refer to the ["Relational database structure"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#relational-database-structure) section in the Jumpstart Cerebral appendix file.
 
 - **Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
   
@@ -145,7 +145,7 @@ The system orchestrates three specialized databases, each optimized for specific
 
 All technical documentation is automatically indexed and processed by Cerebral's RAG system, enabling natural language queries about any aspect of these systems. Instead of manually searching through PDFs, users can simply ask Cerebral specific questions about equipment operation, maintenance procedures, or troubleshooting steps.
 
-> **Note**: For a list of the various technical manuals used by Contoso Hypermarket for operational needs, please refer to the [Available technical manuals](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Available-technical-manuals) section in the Jumpstart Cerebral appendix file.
+> **Note**: For a list of the various technical manuals used by Contoso Hypermarket for operational needs, please refer to the ["Available technical manuals"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Available-technical-manuals) section in the Jumpstart Cerebral appendix file.
 
 #### Intelligent query routing
 
@@ -161,13 +161,13 @@ While Cerebral is currently showcased within Contoso Hypermarket's retail enviro
 
 Cerebral is design to support various roles and industry, for example, an Inventory Manager in the retail industry, how cares about monitoring the store stock levels.
 
-> **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the [Industry and Role support](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the ["Industry and Role support"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support) section in the Jumpstart Cerebral appendix file.
 
 ### Example prompts by category
 
 Cerebral understands variations in phrasing and can maintain context through follow-up prompts. For example, in the "Documentation and Procedures" category, a prompt such _"What are the steps to close the store at the end of the day?"_ will lead to a step-by-step procedure with checklist. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
 
-> **Note**: For additional examples of common prompts Cerebral can handle, please refer to the [Examples of common prompts Cerebral can handle](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Examples-of-common-prompts-Cerebral-can-handle) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional examples of common prompts Cerebral can handle, please refer to the ["Common prompts Cerebral can handle"](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Common-prompts-Cerebral-can-handle) section in the Jumpstart Cerebral appendix file.
 >
 
 ### Prompt catalog system
