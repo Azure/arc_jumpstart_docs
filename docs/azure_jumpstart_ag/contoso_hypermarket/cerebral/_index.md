@@ -163,27 +163,12 @@ Cerebral is design to support various roles and industry, for example, an Invent
 
 > **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the [Industry and Role support](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support) section in the Jumpstart Cerebral appendix file.
 
-### Example questions by category
+### Example prompts by category
 
-> **Note**: These examples represent common queries that Cerebral can handle. The system understands variations in phrasing and can maintain context through follow-up questions. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
+Cerebral understands variations in phrasing and can maintain context through follow-up prompts. For example, in the "Documentation and Procedures" category, a prompt such _"What are the steps to close the store at the end of the day?"_ will lead to a step-by-step procedure with checklist. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
 
-<!-- | Category | Query Example | Expected Response Type |
-|----------|--------------|----------------------|
-| Documentation & Procedures | 1. "What are the steps to close the store at the end of the day?" | Step-by-step procedure with checklist |
-| Documentation & Procedures | 2. "How do I perform the daily cleaning routine for the meat department?" | Detailed cleaning protocol with safety guidelines |
-| Documentation & Procedures | 3. "What's the emergency shutdown procedure for the refrigeration system?" | Emergency procedure with critical steps highlighted |
-| Documentation & Procedures | 4. "Show me the maintenance checklist for the automated checkout machines" | Maintenance checklist with technical specifications |
-| Documentation & Procedures | 5. "What are the safety protocols for handling spills in the produce area?" | Safety guidelines and cleaning procedures |
-| Real-time Operations | 1. "What's the current capacity of all automated checkouts in use?" | Real-time usage metrics and availability status |
-| Real-time Operations | 2. "Show me the temperature trends for all refrigeration units in the last hour" | Temperature graphs and anomaly indicators |
-| Real-time Operations | 3. "Are any SmartShelves reporting low stock alerts right now?" | Current stock alerts and locations |
-| Real-time Operations | 4. "What's the average wait time at the deli counter currently?" | Current wait times and historical comparison |
-| Real-time Operations | 5. "How is HVAC-02 performing compared to its normal baseline?" | Performance metrics with baseline comparison |
-| Commercial Data | 1. "Which products in the dairy section need restocking?" | List of products below threshold with quantities |
-| Commercial Data | 2. "What was our busiest hour for sales yesterday?" | Sales volume analysis with peak times |
-| Commercial Data | 3. "Show me the performance of our seasonal products this month" | Sales trends and inventory analysis |
-| Commercial Data | 4. "What's the current inventory level for fresh produce?" | Current stock levels with reorder recommendations |
-| Commercial Data | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages | -->
+> **Note**: For additional examples of common prompts Cerebral can handle, please refer to the [Examples of common prompts Cerebral can handle](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Examples-of-common-prompts-Cerebral-can-handle) section in the Jumpstart Cerebral appendix file.
+>
 
 ### Prompt catalog system
 
