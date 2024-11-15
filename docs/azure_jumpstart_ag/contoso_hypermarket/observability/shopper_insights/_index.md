@@ -51,6 +51,14 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
     ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_dashboard.png)
 
+- Navigate to the Shopper Insights dashboard.
+
+    ![A screenshot showing the Industrial Assets Health menu of dashboards](./img/grafana_menu_si.png)
+
+- From this view, users can view real-time telemetry from industrial assets and filter by store and time dimension.
+
+    ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_shopper_insights_dashboard.png)
+
 ## Observability architecture components
 
 The Contoso Hypermarket observability architecture uses [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and send industrial assets telemetry using MQTT, an industry standard protocol. Assets including refrigerators, ovens, HVACs, and retail smart shelves send telemetry through the [MQTT Broker](https://learn.microsoft.com/azure/iot-operations/manage-mqtt-broker/overview-iot-mq)] using an [edge-to-cloud data pipeline](../../data_pipeline/operational/_index.md).
