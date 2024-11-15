@@ -25,14 +25,14 @@ Contoso Hypermarket uses an AI technology stack, services, and processes to supp
 - **Computer vision for shopper insights** - Computer vision using tuned inference models provides advanced shopper insights like foot traffic patterns, dwell time, product interaction, and demographic analysis.
 - **Speech-to-Text** - Converts spoken language into written text to facilitate customer service interactions, transcribe meetings, and support voice-activated commands for in-store assistance.
 - **IoT at the Edge** - Manages IoT devices and sensors at the edge with [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/overview-iot-operations) to collect and process data in real-time, enabling predictive maintenance, inventory tracking, and enhanced operational efficiency.
-- **Predictive inventory and operations analytics with Microsoft Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
+- **Predictive inventory and operations analytics with Microsoft 365 Copilot** - Analyzes sales and inventory trends and provides forecasting insights for optimizing inventory and sales.
 - **Edge-to-cloud data pipeline** - Seamless data integration between IoT devices at the edge, customer and business data, and [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric), aggregating real-time shopper insights, centralized data management, predictive maintenance, and enhanced decision-making capabilities and enabling advanced data insights.
 
 ## Virtual sandbox edge environment
 
 Jumpstart Agora provides virtual sandbox environments that simulate edge infrastructure deployments for industry solutions. The automation in the Contoso Hypermarket scenario deploys an Azure Virtual machine to support this "virtual" factory's AI technology. We have incorporated additional features to enhance the 'virtual industry' experience in a lab setting. These enhancements include simulated Real-Time Streaming Protocol (RTSP) feeds, data emulators, MQTT, industrial assets, and data. For more details about the virtual environment, please review the diagram and dedicated guides below.
 
-![Applications and technology stack architecture diagram](./deployment/img/architecture_diagram.png)
+![Screenshot of Contoso Hypermarket technology stack and operations architecture diagram](./deployment/img/architecture_diagram.png)
 
 ## Getting started
 
@@ -42,14 +42,14 @@ To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provi
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_hypermarket/deployment/) | Not applicable | Not applicable |
 | [Shopper insights using computer vision](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
-| [Operations Assistance with Gen AI](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
+| [Jumpstart Cerebral - Commercial and Operations assistance with Gen AI](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
 | [Commercial and operations assistance with Speech-to-Text](../contoso_hypermarket/speech_to_text/) | Speech-to-Text  | Azure AI Speech, Rancher K3s, Azure Arc |
 | [Industrial assets observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |
 | [Shopper insights observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |
 | [Kubernetes infrastructure observability](../contoso_hypermarket/observability/) | Observability | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
 | [Data pipeline and reporting for operational technology (OT)](../contoso_hypermarket/data_pipeline/operational/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
 | [Data pipeline and reporting for commercial sales](../contoso_hypermarket/data_pipeline/commerical/) | Operational technology (OT) | Azure IoT Operations, Microsoft Fabric, MQTT, Event Hub, Rancher K3s, InfluxDB, PostgreSQL, MQTT simulators |
-| [Predictive Analytics using Microsoft 365 Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory | Microsoft 365 Copilot |
+| [Predictive analytics using Microsoft 365 Copilot](../contoso_hypermarket/predictive_analytics/) | Predictive inventory | Microsoft 365 Copilot |
 | [Cleanup](../contoso_hypermarket/cleanup/) | Not applicable | Not applicable |
 | [Troubleshooting](../contoso_hypermarket/troubleshooting/) | Not applicable  | Not applicable |
 | [Frequently asked questions (FAQ)](../../faq/) | Not applicable  | Not applicable |
