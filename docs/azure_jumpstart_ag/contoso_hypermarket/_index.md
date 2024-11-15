@@ -42,7 +42,7 @@ To get started with the "Contoso Hypermarket" Jumpstart Agora scenario, we provi
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_hypermarket/deployment/) | Not applicable | Not applicable |
 | [Shopper insights using computer vision](../contoso_hypermarket/shopper_insights/) | Real-time footfall inferences and shopper insights | Yolo8, RTSP, OpenCV, Rancher K3s, PostgreSQL, Azure Arc  |
-| [Gen AI and operations assistance](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
+| [Operations Assistance with Gen AI](../contoso_hypermarket/cerebral/) | Natural language query with Jumpstart Cerebral | Azure OpenAI, phi3, gpt35turbo, Rancher K3s, InfluxDB, Microsoft SQL Server on Linux |
 | [Commercial and operations assistance with Speech-to-Text](../contoso_hypermarket/speech_to_text/) | Speech-to-Text  | Azure AI Speech, Rancher K3s, Azure Arc |
 | [Industrial assets observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |
 | [Shopper insights observability](../contoso_hypermarket/observability/) | Observability | Prometheus, Grafana |

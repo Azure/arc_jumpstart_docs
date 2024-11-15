@@ -1,15 +1,15 @@
 ---
 type: docs
 weight: 3
-title: Jumpstart Cerebral Operations Assistance with Gen AI
-linkTitle: Jumpstart Cerebral Operations Assistance with Gen AI
+title: Jumpstart Cerebral - Operations Assistance with Gen AI
+linkTitle: Jumpstart Cerebral - Operations Assistance with Gen AI
 ---
 
 # Jumpstart Cerebral - Gen AI Commercial and Operations assistance
 
 ## Overview
 
-<img src="./img/cerebral_logo.png" alt="Jumpstart Cerebral logo" width="100"/>
+<img src="./img/cerebral_logo.png" alt="Jumpstart Cerebral logo" width="150"/>
 
 Jumpstart Cerebral is an advanced Generative AI assistant that revolutionizes how store personnel interact with critical information across Contoso Hypermarket's diverse data sources. By combining powerful large language models with specialized databases, Cerebral delivers contextual assistance and intelligent insights through natural language interactions. The system leverages [Retrieval Augmented Generation (RAG)](https://azure.microsoft.com/products/phi) to synthesize information from technical documentation, real-time metrics, and business data into comprehensive, tailored responses.
 
@@ -31,7 +31,7 @@ Cerebral exposes its functionality through a comprehensive API layer that suppor
 
 At its core, Cerebral employs a query processing orchestrator that intelligently routes requests to appropriate data sources based on the nature of the query. For commercial data such as sales, inventory, and customer information, the system interfaces with SQL Server. Real-time device metrics and operational data are managed through InfluxDB, a specialized time-series database that captures everything from equipment performance to environmental readings. Technical documentation and operational procedures are accessed through a [Chroma vector database](https://www.trychroma.com/), enabling powerful RAG (Retrieval Augmented Generation) capabilities.
 
-![Cerebral Solution Architecture](./img/cerebral_architecture.png)
+![Screenshot of Cerebral solution architecture diagram](./img/cerebral_architecture.png)
 
 The system's AI processing capabilities are designed for flexibility, with the ability to leverage either Azure OpenAI for complex cloud-based processing or Small Language Models (SLM) for edge processing. This hybrid approach ensures optimal performance while maintaining data privacy and enabling offline operations when needed.
 
@@ -54,7 +54,7 @@ Throughout the Contoso Hypermarket interface, whether you're a store manager rev
    - Click the icon to open the sliding sidebar interface
    - The sidebar will smoothly slide in from the right side of the screen
 
-![Cerebral location](./img/cerebral_location.png)
+![Screenshot of Cerebral location in the the Contoso Hypermarket's web interface](./img/cerebral_location.png)
 
 2. **Interface Overview**
    - The sidebar presents a clean, focused chat interface
@@ -63,20 +63,20 @@ Throughout the Contoso Hypermarket interface, whether you're a store manager rev
    - Voice input can be activated using the microphone icon
    - For technical users, a "Debug" checkbox is available to view backend processing details
 
-![Cerebral Interface Elements](./img/cerebral_interface.png)
+![Screenshot of Cerebral interface](./img/cerebral_interface.png)
 
-3. **Interaction Methods**
+1. **Interaction Methods**
    - Type your question directly into the text field and press enter or click the send button
    - Click the microphone icon to use voice input
    - Cerebral will process your query and provide relevant information, data, or procedures based on your request
 
-![Cerebral Interface Elements](./img/cerebral_interface_audio.png)
+![Screenshot of Cerebral interface record button](./img/cerebral_interface_audio.png)
 
 The interface is designed to be non-intrusive while remaining easily accessible throughout your work session. You can minimize the sidebar at any time by clicking the 'X' in the top-right corner, and reopen it whenever you need assistance.
 
 The interaction is straightforward and natural - simply type your question or click the microphone icon to speak. Cerebral understands natural language queries across a wide range of topics. Below is an example of how a Sales Analyst can ask Cerebral _"What are our top 5 selling products this week?"_:
 
-![Screenshot of Sales Analyst Cerebral interaction example ](./img/sales_analyst_example.png)
+![Screenshot of Sales Analyst Cerebral interaction example](./img/sales_analyst_example.png)
 
 Note that the examples and screenshots shown in this documentation are for illustration purposes only. While the core functionality remains the same, Cerebral's responses are dynamic and contextual to your specific situation and the latest available information and actual results and responses from Cerebral may vary depending on:
 
@@ -94,9 +94,7 @@ Based on your query, Cerebral automatically classifies the type of request and r
 - Data processing steps
 - Response construction logic
 
-To better understand how Cerebral processes requests while providing valuable insights into the system's decision-making process, a "Debug" option is available to you.
-
-![Enable debug](./img/debug.png)
+![Screenshot of Cerebral interface debug toggle](./img/cerebral_debug_toggle.png)
 
 > **Note**: For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section.
 
@@ -145,7 +143,7 @@ When a user interacts with Cerebral, their natural language query flows through 
 
 For example, when a maintenance technician asks _"How do I calibrate Scale-02?"_, Cerebral recognizes this as a documentation query and leverages RAG to search the vector database for relevant procedures. Conversely, a store manager asking "What were our top-selling products today?" triggers a SQL query to analyze recent transaction data.
 
-![Decision Tree Architecture](./img/cerebral_decision_tree.png)
+![Screenshot of Cerebral decision tree architecture diagram](./img/cerebral_decision_tree.png)
 
 ## Industry and Role adaptability
 
@@ -178,7 +176,7 @@ Cerebral's flexibility comes from its extensible prompt catalog, which enables:
    - Relevant recommendations
    - Authorized data visibility
 
-### Example prompt customization
+Below is an example of how prompt customization scheme:
 
 ```json
 {
@@ -207,11 +205,15 @@ Cerebral's flexibility comes from its extensible prompt catalog, which enables:
 
 ## Benefits of multi-industry design
 
-Cerebral's multi-industry architecture delivers three fundamental advantages that make it a powerful solution across different sectors and roles. At its core, the system's scalability ensures that organizations can easily expand their implementation to new industries and roles without significant restructuring. This scalability is complemented by a flexible prompt management system and an extensible knowledge base that grows with each implementation, allowing the system to continuously learn and adapt to new domains.
+Cerebral's architecture delivers three key advantages, making it a powerful solution across industries and roles:
 
-The system maintains unwavering consistency across all implementations through standardized response formats and uniform query handling mechanisms. This consistency ensures that whether users are accessing Cerebral in a retail environment or a manufacturing facility, they experience the same reliable, intuitive interaction patterns and dependable data processing. This standardization doesn't just benefit end users; it also streamlines maintenance and updates across different industry deployments.
+1. **Scalability**: Easily expand to new industries and roles with minimal restructuring, supported by a flexible prompt management system and a growing knowledge base that adapts to new domains.  
 
-Perhaps most importantly, Cerebral offers deep customization capabilities that allow it to speak the language of each industry it serves. From adapting to industry-specific terminology to implementing role-based access controls, each instance of Cerebral can be precisely tailored to its operational context. This customization extends to response formatting and recommendations, ensuring that each user receives information in the most relevant and actionable format for their role and industry context. Whether it's a store manager reviewing sales metrics or a maintenance engineer diagnosing equipment issues, Cerebral adapts its communication style and content depth to match the user's needs and expertise level.
+2. **Consistency**: Standardized response formats and query handling ensure reliable, intuitive interactions across environments, streamlining maintenance and updates.  
+
+3. **Customization**: Tailor each implementation with industry-specific terminology, role-based access controls, and context-relevant recommendations, providing actionable insights for every user, from store managers to maintenance engineers.  
+
+This combination of scalability, consistency, and customization makes Cerebral adaptable and effective for diverse operational contexts.
 
 ## Next steps
 
