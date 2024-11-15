@@ -80,12 +80,19 @@ The interface is designed to be non-intrusive while remaining easily accessible 
 
 The interaction is straightforward and natural - simply type your question or click the microphone icon to speak. Cerebral understands natural language queries across a wide range of topics, for example:
 
-| Type of Query | Example Question | Sample Response |
+<!-- | Type of Query | Example Question | Sample Response |
 |--------------|------------------|-----------------|
 | Technical Support | "The cash dispenser in POS-01 is stuck. How do I fix it?" | <img src="./img/technical-support-example.png" alt="Technical support Example" width="500"/> |
 | Sales Analysis | "What are our top 5 selling products this week?" |  <img src="./img/sales_analysis_example.png" alt="Sales Analysis Example" width="500"/> |
 | Equipment Monitoring | "What's the power usage for HVAC unit 02?" | <img src="./img/equipment_monitoring.png" alt="Equipment monitoring" width="500"/> |
-| Inventory Management | "Show me all products below reorder threshold" | <img src="./img/inventory.png" alt="Inventory management" width="500"/> |
+| Inventory Management | "Show me all products below reorder threshold" | <img src="./img/inventory.png" alt="Inventory management" width="500"/> | -->
+
+| Type of Query         | Example Question                                | Sample Response                       |
+|-----------------------|-------------------------------------------------|---------------------------------------|
+| Technical Support     | "The cash dispenser in POS-01 is stuck. How do I fix it?" | ![Technical support Example](./img/technical-support-example.png) |
+| Sales Analysis        | "What are our top 5 selling products this week?" | ![Sales Analysis Example](./img/sales_analysis_example.png) |
+| Equipment Monitoring  | "What's the power usage for HVAC unit 02?"      | ![Equipment monitoring](./img/equipment_monitoring.png) |
+| Inventory Management  | "Show me all products below reorder threshold"  | ![Inventory management](./img/inventory.png) |
 
 Note that the examples and screenshots shown in this documentation are for illustration purposes only. While the core functionality remains the same, Cerebral's responses are dynamic and contextual to your specific situation and the latest available information and actual results and responses from Cerebral may vary depending on:
 
@@ -106,7 +113,7 @@ This transparency helps users understand how Cerebral processes their requests w
 ![Enable debug](./img/debug.png)
 
 > **Note**: For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section. For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category). Common questions include (but not limited to):
->
+> 
 > - Documentation: "How do I calibrate Scale-02?"
 > - Commercial: "What are our top 5 selling products this week?"
 > - Real-time: "What's the current temperature of HVAC unit 02?"
@@ -126,29 +133,7 @@ The system orchestrates three specialized databases, each optimized for specific
 - Tracks operational status
 - Stores historical trending data
 
-The following table details the equipment types and metrics being simulated through MQTT for Contoso Hypermarket's operations:
-
-<!-- | Equipment Type | Device Format | Fields Monitored | Example Metrics |
-|---------------|---------------|------------------|-----------------|
-| Refrigerator | `Refrigerator{01..XX}` | - temperature_celsius<br>- door_open<br>- power_usage_kwh | - Current temperature<br>- Door status (open/closed)<br>- Power consumption |
-| Scale | `Scale{01..XX}` | - weight_kg<br>- tare_weight_kg | - Current weight<br>- Tare weight settings |
-| POS | `POS{01..XX}` | - items_sold<br>- total_amount_usd<br>- payment_method<br>- failure_type | - Transaction volume<br>- Sales amount<br>- Payment types<br>- Error states |
-| SmartShelf | `SmartShelf{01..XX}` | - product_id<br>- stock_level<br>- threshold_stock_level<br>- last_restocked | - Current inventory<br>- Stock thresholds<br>- Restock timing |
-| HVAC | `HVAC{01..XX}` | - temperature_celsius<br>- humidity_percent<br>- power_usage_kwh<br>- operating_mode | - Air temperature<br>- Humidity levels<br>- Energy usage<br>- Mode (heating/cooling) |
-| LightingSystem | `LightingSystem{01..XX}` | - brightness_level<br>- power_usage_kwh<br>- status | - Light intensity<br>- Power consumption<br>- Operational status |
-| AutomatedCheckout | `AutomatedCheckout{01..XX}` | - items_scanned<br>- total_amount_usd<br>- payment_method<br>- errors<br>- queueLength<br>- avgWaitTime | - Scanning activity<br>- Transaction values<br>- Error states<br>- Queue metrics | -->
-
-<!-- | Equipment Type     | Device Format         | Fields Monitored                                                                 | Example Metrics                              |
-|--------------------|-----------------------|----------------------------------------------------------------------------------|----------------------------------------------|
-| Refrigerator       | `Refrigerator{01..XX}`| - temperature_celsius<br>- door_open<br>- power_usage_kwh                         | - Current temperature<br>- Door status (open/closed)<br>- Power consumption |
-| Scale              | `Scale{01..XX}`       | - weight_kg<br>- tare_weight_kg                                                   | - Current weight<br>- Tare weight settings   |
-| POS                | `POS{01..XX}`         | - items_sold<br>- total_amount_usd<br>- payment_method<br>- failure_type          | - Transaction volume<br>- Sales amount<br>- Payment types<br>- Error states |
-| SmartShelf         | `SmartShelf{01..XX}`  | - product_id<br>- stock_level<br>- threshold_stock_level<br>- last_restocked      | - Current inventory<br>- Stock thresholds<br>- Restock timing |
-| HVAC               | `HVAC{01..XX}`        | - temperature_celsius<br>- humidity_percent<br>- power_usage_kwh<br>- operating_mode | - Air temperature<br>- Humidity levels<br>- Energy usage<br>- Mode (heating/cooling) |
-| LightingSystem     | `LightingSystem{01..XX}` | - brightness_level<br>- power_usage_kwh<br>- status                               | - Light intensity<br>- Power consumption<br>- Operational status |
-| AutomatedCheckout  | `AutomatedCheckout{01..XX}` | - items_scanned<br>- total_amount_usd<br>- payment_method<br>- errors<br>- queueLength<br>- avgWaitTime | - Scanning activity<br>- Transaction values<br>- Error states<br>- Queue metrics | -->
-
-> **Note**: The simulation generates realistic data streams for each device type, enabling testing, demonstrations, and development. Device IDs are formatted with sequential numbering (e.g., Refrigerator01, Refrigerator02). All metrics are published to the MQTT broker and InfluxDB and can be queried through Cerebral using natural language.
+For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
 
 **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
 
