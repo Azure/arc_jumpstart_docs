@@ -1,5 +1,14 @@
 # Jumpstart Cerebral - Appendix
 
+## Prompt examples
+
+| Type of Query         | Example Question                                | Sample Response                       |
+|-----------------------|-------------------------------------------------|---------------------------------------|
+| Technical Support     | "The cash dispenser in POS-01 is stuck. How do I fix it?" | ![Technical support Example](./img/technical-support-example.png) |
+| Sales Analysis        | "What are our top 5 selling products this week?" | ![Sales Analysis Example](./img/sales_analyst_example.png) |
+| Equipment Monitoring  | "What's the power usage for HVAC unit 02?"      | ![Equipment monitoring](./img/equipment_monitoring.png) |
+| Inventory Management  | "Show me all products below reorder threshold"  | ![Inventory management](./img/inventory.png) |
+
 ## MQTT simulated equipment metrics
 
 The following table details the  types and metrics being simulated through MQTT for Contoso Hypermarket's operations:
