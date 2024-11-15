@@ -2,7 +2,7 @@
 
 ## Prompt examples
 
-The following table various Cerebral user prompt examples:
+The following table details the various Cerebral user prompt examples:
 
 | Type of Query         | Example Question                                | Sample Response                       |
 |-----------------------|-------------------------------------------------|---------------------------------------|
@@ -38,3 +38,15 @@ The following table details the relational database structure used by Contoso Hy
 | Inventory      | Current stock levels      | - id INT <br> - date_time DATETIME2 <br> - store_id VARCHAR(10) <br> - product_id VARCHAR(50) <br> - retail_price DECIMAL(10,2) <br> - in_stock INT <br> - reorder_threshold INT <br> - last_restocked DATETIME2 | - 1 <br> - '2024-03-12 15:00:00' <br> - 'SEA' <br> - 'PROD001' <br> - 0.35 <br> - 850 <br> - 200 <br> - '2024-03-11 08:00:00' |
 | Stores         | Store locations           | - store_id VARCHAR(10) <br> - city VARCHAR(100) <br> - state VARCHAR(50) <br> - country VARCHAR(100)                       | - 'SEA' <br> - 'Seattle' <br> - 'WA' <br> - 'United States'                                           |
 | DeviceMetrics  | Equipment telemetry history | - id INT <br> - timestamp DATETIME2 <br> - device_id VARCHAR(50) <br> - equipment_type VARCHAR(50) <br> - metric_name VARCHAR(100) <br> - metric_value DECIMAL(18,4) <br> - metric_unit VARCHAR(20) | - 1 <br> - '2024-03-12 15:01:00' <br> - 'HVAC01' <br> - 'HVAC' <br> - 'temperature' <br> - 22.5 <br> - 'celsius' |
+
+## Industry and Role support
+
+The following table details the current supported industries and roles by Cerebral:
+
+| Industry | Roles | Examples |
+|----------|-------|----------|
+| Retail | - Store Manager<br>- Inventory Manager<br>- Maintenance Worker | - Store performance metrics<br>- Stock level monitoring<br>- Equipment maintenance |
+| Manufacturing | - Maintenance Engineer<br>- Shift Supervisor<br>- Production Manager | - Machine diagnostics<br>- Production line metrics<br>- Quality control data |
+| Automotive | - Line Supervisor<br>- Quality Inspector<br>- Maintenance Technician | - Assembly line monitoring<br>- Quality assurance checks<br>- Equipment maintenance |
+| Hypermarket | - Store Manager<br>- Shopper<br>- Maintenance Worker | - Sales analytics<br>- Product location<br>- Facility maintenance |
+

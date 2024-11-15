@@ -89,7 +89,7 @@ Note that the examples and screenshots shown in this documentation are for illus
 - Specific store configuration
 - Updated procedures and documentation
 
-> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###Prompt-examples) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional prompt examples, please refer to the [Prompt examples](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#prompt-examples) section in the Jumpstart Cerebral appendix file.
 
 Based on your query, Cerebral automatically classifies the type of request and routes it to the appropriate system (documentation, real-time data, or business intelligence) to provide relevant and contextual responses. For demonstration purposes, users can enable the "Debug" checkbox in the interface to view behind-the-scenes details such as:
 
@@ -123,7 +123,7 @@ The system orchestrates three specialized databases, each optimized for specific
   - Tracks operational status
   - Stores historical trending data
 
-> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###MQTT-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details, please refer to the [MQTT simulated equipment metrics](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#mqtt-simulated-equipment-metrics) section in the Jumpstart Cerebral appendix file.
 
 - **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
 
@@ -132,7 +132,7 @@ The system orchestrates three specialized databases, each optimized for specific
   - Stores customer data
   - Handles business intelligence queries
 
-> **Note**: For additional details on the relational database structure and how it is used by Contoso Hypermarket for commercial and operational needs, please refer to the [Relational database structure](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md###Relational-database-structure) section in the Jumpstart Cerebral appendix file.
+> **Note**: For additional details on the relational database structure and how it is used by Contoso Hypermarket for commercial and operational needs, please refer to the [Relational database structure](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#relational-database-structure) section in the Jumpstart Cerebral appendix file.
 
 - **Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
   
@@ -155,26 +155,19 @@ The system orchestrates three specialized databases, each optimized for specific
 
 #### Intelligent Query Routing
 
-![Decision Tree Architecture](./img/cerebral_decision_tree.png)
-
 When a user interacts with Cerebral, their natural language query flows through a sophisticated decision tree that determines the optimal processing path. Questions about maintenance procedures are seamlessly routed to the vector database, equipment status checks are directed to the time-series database, and sales inquiries are processed through the relational database. This intelligent routing ensures that each query is handled by the most appropriate system, delivering fast, accurate responses while maintaining system efficiency.
 
-For example, when a maintenance technician asks "How do I calibrate Scale-02?", Cerebral recognizes this as a documentation query and leverages RAG to search the vector database for relevant procedures. Conversely, a store manager asking "What were our top-selling products today?" triggers a SQL query to analyze recent transaction data.
+For example, when a maintenance technician asks _"How do I calibrate Scale-02?"_, Cerebral recognizes this as a documentation query and leverages RAG to search the vector database for relevant procedures. Conversely, a store manager asking "What were our top-selling products today?" triggers a SQL query to analyze recent transaction data.
+
+![Decision Tree Architecture](./img/cerebral_decision_tree.png)
 
 ## Industry and Role Adaptability
 
 While Cerebral is currently showcased within Contoso Hypermarket's retail environment, its architecture is designed to be inherently multi-industry and role-adaptive. Through a sophisticated prompt catalog system, Cerebral can be customized to understand and respond to the unique contexts of different industries and professional roles.
 
-### Industry and Role Support
+Cerebral is design to support various roles and industry, for example, an Inventory Manager in the retail industry, how cares about monitoring the store stock levels.
 
-Current supported industries and roles include:
-
-<!-- | Industry | Roles | Examples |
-|----------|-------|----------|
-| Retail | - Store Manager<br>- Inventory Manager<br>- Maintenance Worker | - Store performance metrics<br>- Stock level monitoring<br>- Equipment maintenance |
-| Manufacturing | - Maintenance Engineer<br>- Shift Supervisor<br>- Production Manager | - Machine diagnostics<br>- Production line metrics<br>- Quality control data |
-| Automotive | - Line Supervisor<br>- Quality Inspector<br>- Maintenance Technician | - Assembly line monitoring<br>- Quality assurance checks<br>- Equipment maintenance |
-| Hypermarket | - Store Manager<br>- Shopper<br>- Maintenance Worker | - Sales analytics<br>- Product location<br>- Facility maintenance | -->
+> **Note**: For additional details on the the various industries and roles supported by Cerebral, please refer to the [Industry and Role support](https://github.com/fcabrera23/arc_jumpstart_docs/blob/canary/docs/azure_jumpstart_ag/contoso_hypermarket/cerebral/cerebral_appendix.md#Industry-and-Role-support)
 
 ### Example Questions by Category
 
