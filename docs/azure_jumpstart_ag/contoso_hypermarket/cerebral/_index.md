@@ -105,13 +105,10 @@ This transparency helps users understand how Cerebral processes their requests w
 
 ![Enable debug](./img/debug.png)
 
-> **Important**:
-> - For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section.
-> - For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category).
-> - Common questions include:
->   - Documentation: "How do I calibrate Scale-02?"
->   - Commercial: "What are our top 5 selling products this week?"
->   - Real-time: "What's the current temperature of HVAC unit 02?"
+> **Note**: For detailed information about data types and how Cerebral processes different sources of information, see the [Unified Data Sources](#unified-data-sources) section. For examples of how to formulate questions and understand query types, refer to our comprehensive list of [Example Queries](#example-questions-by-category). Common questions include:
+> Documentation: "How do I calibrate Scale-02?"
+> Commercial: "What are our top 5 selling products this week?"
+> Real-time: "What's the current temperature of HVAC unit 02?"
 
 ### Data Integration and Query Processing
 
@@ -150,17 +147,6 @@ The following table details the equipment types and metrics being simulated thro
 | LightingSystem     | `LightingSystem{01..XX}` | - brightness_level<br>- power_usage_kwh<br>- status                               | - Light intensity<br>- Power consumption<br>- Operational status |
 | AutomatedCheckout  | `AutomatedCheckout{01..XX}` | - items_scanned<br>- total_amount_usd<br>- payment_method<br>- errors<br>- queueLength<br>- avgWaitTime | - Scanning activity<br>- Transaction values<br>- Error states<br>- Queue metrics | -->
 
-| Equipment Type     | Device Format               | Fields Monitored                                                                                                                                         | Example Metrics                                                                                                      |
-|--------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Refrigerator       | `Refrigerator{01..XX}`      | <ul><li>temperature_celsius</li><li>door_open</li><li>power_usage_kwh</li></ul>                                                                          | <ul><li>Current temperature</li><li>Door status (open/closed)</li><li>Power consumption</li></ul>                    |
-| Scale              | `Scale{01..XX}`             | <ul><li>weight_kg</li><li>tare_weight_kg</li></ul>                                                                                                       | <ul><li>Current weight</li><li>Tare weight settings</li></ul>                                                        |
-| POS                | `POS{01..XX}`               | <ul><li>items_sold</li><li>total_amount_usd</li><li>payment_method</li><li>failure_type</li></ul>                                                        | <ul><li>Transaction volume</li><li>Sales amount</li><li>Payment types</li><li>Error states</li></ul>                 |
-| SmartShelf         | `SmartShelf{01..XX}`        | <ul><li>product_id</li><li>stock_level</li><li>threshold_stock_level</li><li>last_restocked</li></ul>                                                    | <ul><li>Current inventory</li><li>Stock thresholds</li><li>Restock timing</li></ul>                                  |
-| HVAC               | `HVAC{01..XX}`              | <ul><li>temperature_celsius</li><li>humidity_percent</li><li>power_usage_kwh</li><li>operating_mode</li></ul>                                            | <ul><li>Air temperature</li><li>Humidity levels</li><li>Energy usage</li><li>Mode (heating/cooling)</li></ul>        |
-| LightingSystem     | `LightingSystem{01..XX}`    | <ul><li>brightness_level</li><li>power_usage_kwh</li><li>status</li></ul>                                                                                | <ul><li>Light intensity</li><li>Power consumption</li><li>Operational status</li></ul>                               |
-| AutomatedCheckout  | `AutomatedCheckout{01..XX}` | <ul><li>items_scanned</li><li>total_amount_usd</li><li>payment_method</li><li>errors</li><li>queueLength</li><li>avgWaitTime</li></ul>                   | <ul><li>Scanning activity</li><li>Transaction values</li><li>Error states</li><li>Queue metrics</li></ul>            |
-
-
 > **Note**: The simulation generates realistic data streams for each device type, enabling testing, demonstrations, and development. Device IDs are formatted with sequential numbering (e.g., Refrigerator01, Refrigerator02). All metrics are published to the MQTT broker and InfluxDB and can be queried through Cerebral using natural language.
 
 **SQL Server** handles all commercial operations data, providing a robust foundation for business intelligence. From transaction processing to inventory management, this relational database ensures accurate tracking of sales patterns, stock levels, and customer interactions, enabling data-driven decision making across the organization.
@@ -179,14 +165,6 @@ The following table details the relational database structure used in Contoso Hy
 | Inventory | Current stock levels | - id INT<br>- date_time DATETIME2<br>- store_id VARCHAR(10)<br>- product_id VARCHAR(50)<br>- retail_price DECIMAL(10,2)<br>- in_stock INT<br>- reorder_threshold INT<br>- last_restocked DATETIME2 | - 1<br>- '2024-03-12 15:00:00'<br>- 'SEA'<br>- 'PROD001'<br>- 0.35<br>- 850<br>- 200<br>- '2024-03-11 08:00:00' |
 | Stores | Store locations | - store_id VARCHAR(10)<br>- city VARCHAR(100)<br>- state VARCHAR(50)<br>- country VARCHAR(100) | - 'SEA'<br>- 'Seattle'<br>- 'WA'<br>- 'United States' |
 | DeviceMetrics | Equipment telemetry history | - id INT<br>- timestamp DATETIME2<br>- device_id VARCHAR(50)<br>- equipment_type VARCHAR(50)<br>- metric_name VARCHAR(100)<br>- metric_value DECIMAL(18,4)<br>- metric_unit VARCHAR(20) | - 1<br>- '2024-03-12 15:01:00'<br>- 'HVAC01'<br>- 'HVAC'<br>- 'temperature'<br>- 22.5<br>- 'celsius' | -->
-
-| Table Name     | Description               | Key Fields                                                                                                                                                                                                                              | Example Data                                                                                                                 |
-|----------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Sales          | Transaction records       | <ul><li>sale_id VARCHAR(50)</li><li>sale_date DATETIME2</li><li>store_id VARCHAR(10)</li><li>store_city VARCHAR(100)</li><li>product_id VARCHAR(50)</li><li>quantity INT</li><li>item_total DECIMAL(10,2)</li><li>payment_method VARCHAR(50)</li><li>customer_id VARCHAR(50)</li><li>register_id VARCHAR(20)</li></ul> | <ul><li>'SAL20240312001'</li><li>'2024-03-12 14:30:00'</li><li>'SEA'</li><li>'Seattle'</li><li>'PROD001'</li><li>2</li><li>4.99</li><li>'credit_card'</li><li>'CUST123'</li><li>'REG01'</li></ul> |
-| Products       | Product catalog           | <ul><li>product_id VARCHAR(50)</li><li>name VARCHAR(200)</li><li>category VARCHAR(100)</li><li>price_min DECIMAL(10,2)</li><li>price_max DECIMAL(10,2)</li><li>stock INT</li><li>photo_path VARCHAR(500)</li></ul>                        | <ul><li>'PROD001'</li><li>'Red Apple'</li><li>'Fruits'</li><li>0.20</li><li>0.40</li><li>1000</li><li>'/img/products/apple.jpg'</li></ul>                        |
-| Inventory      | Current stock levels      | <ul><li>id INT</li><li>date_time DATETIME2</li><li>store_id VARCHAR(10)</li><li>product_id VARCHAR(50)</li><li>retail_price DECIMAL(10,2)</li><li>in_stock INT</li><li>reorder_threshold INT</li><li>last_restocked DATETIME2</li></ul> | <ul><li>1</li><li>'2024-03-12 15:00:00'</li><li>'SEA'</li><li>'PROD001'</li><li>0.35</li><li>850</li><li>200</li><li>'2024-03-11 08:00:00'</li></ul>            |
-| Stores         | Store locations           | <ul><li>store_id VARCHAR(10)</li><li>city VARCHAR(100)</li><li>state VARCHAR(50)</li><li>country VARCHAR(100)</li></ul>                                                                                                                  | <ul><li>'SEA'</li><li>'Seattle'</li><li>'WA'</li><li>'United States'</li></ul>                                              |
-| DeviceMetrics  | Equipment telemetry history | <ul><li>id INT</li><li>timestamp DATETIME2</li><li>device_id VARCHAR(50)</li><li>equipment_type VARCHAR(50)</li><li>metric_name VARCHAR(100)</li><li>metric_value DECIMAL(18,4)</li><li>metric_unit VARCHAR(20)</li></ul>                    | <ul><li>1</li><li>'2024-03-12 15:01:00'</li><li>'HVAC01'</li><li>'HVAC'</li><li>'temperature'</li><li>22.5</li><li>'celsius'</li></ul>                        |
 
 **Chroma Vector Database** serves as the foundation for Cerebral's documentation intelligence. By indexing technical manuals, maintenance procedures, and operational guides, it enables sophisticated semantic search capabilities through Retrieval Augmented Generation (RAG). This allows Cerebral to understand the context and intent behind documentation queries, delivering precise and relevant information to users.
   
@@ -230,18 +208,11 @@ Current supported industries and roles include:
 | Automotive | - Line Supervisor<br>- Quality Inspector<br>- Maintenance Technician | - Assembly line monitoring<br>- Quality assurance checks<br>- Equipment maintenance |
 | Hypermarket | - Store Manager<br>- Shopper<br>- Maintenance Worker | - Sales analytics<br>- Product location<br>- Facility maintenance | -->
 
-| Industry       | Roles                                                                                   | Examples                                           |
-|----------------|-----------------------------------------------------------------------------------------|----------------------------------------------------|
-| Retail         | <ul><li>Store Manager</li><li>Inventory Manager</li><li>Maintenance Worker</li></ul>   | <ul><li>Store performance metrics</li><li>Stock level monitoring</li><li>Equipment maintenance</li></ul> |
-| Manufacturing  | <ul><li>Maintenance Engineer</li><li>Shift Supervisor</li><li>Production Manager</li></ul> | <ul><li>Machine diagnostics</li><li>Production line metrics</li><li>Quality control data</li></ul> |
-| Automotive     | <ul><li>Line Supervisor</li><li>Quality Inspector</li><li>Maintenance Technician</li></ul> | <ul><li>Assembly line monitoring</li><li>Quality assurance checks</li><li>Equipment maintenance</li></ul> |
-| Hypermarket    | <ul><li>Store Manager</li><li>Shopper</li><li>Maintenance Worker</li></ul>             | <ul><li>Sales analytics</li><li>Product location</li><li>Facility maintenance</li></ul> |
-
 ### Example Questions by Category
 
 > **Note**: These examples represent common queries that Cerebral can handle. The system understands variations in phrasing and can maintain context through follow-up questions. For more information about data sources and query processing, see the [Unified Data Sources](#unified-data-sources) section.
 
-| Category | Query Example | Expected Response Type |
+<!-- | Category | Query Example | Expected Response Type |
 |----------|--------------|----------------------|
 | Documentation & Procedures | 1. "What are the steps to close the store at the end of the day?" | Step-by-step procedure with checklist |
 | Documentation & Procedures | 2. "How do I perform the daily cleaning routine for the meat department?" | Detailed cleaning protocol with safety guidelines |
@@ -257,7 +228,7 @@ Current supported industries and roles include:
 | Commercial Data | 2. "What was our busiest hour for sales yesterday?" | Sales volume analysis with peak times |
 | Commercial Data | 3. "Show me the performance of our seasonal products this month" | Sales trends and inventory analysis |
 | Commercial Data | 4. "What's the current inventory level for fresh produce?" | Current stock levels with reorder recommendations |
-| Commercial Data | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages |
+| Commercial Data | 5. "Which payment method was most used in the last week?" | Payment method breakdown with percentages | -->
 
 ### Prompt Catalog System
 
