@@ -72,7 +72,7 @@ Contoso Hypermarket uses an [adaptive cloud](https://techcommunity.microsoft.com
 Video inference is handled by two APIs using a common pattern.
 
 - **Footfall API**: Detects humans in a specified region of a camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and makes the inference results available via API call.
-- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [OpenVINO](https://docs.openvino.ai). It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person and providing metrics about customer movements, demographics, and interactions within defined areas.
+- **Shopper Insights API**: Detects and identifies individuals in a specified region of a camera using [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and predicts the individuals age using [OpenVINO](https://docs.openvino.ai). It has the ability to track multiple people simultaneously, maintaining unique IDs for each detected person and providing metrics about customer movements, demographics, and interactions within defined areas.
 
 ![A diagram depicting the footfall inference workflow](./img/footfall_diagram.png)
 
@@ -83,15 +83,11 @@ Video inference is handled by two APIs using a common pattern.
 
 Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. The following models are used in the footfall and shopper insights APIs.
 
-- Person Detection Model - [person-detection-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html)
+- Yolo8 Detection Model - [yolov8n.pt]([https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html](https://docs.ultralytics.com/models/yolov8/#supported-tasks-and-modes))
   - Detects people in video frames
-  - High accuracy for retail environments
-
-- Person Re-identification Model - [person-reidentification-retail-0287](https://docs.openvino.ai/2022.3/omz_models_model_person_reidentification_retail_0287.html)
   - Generates unique feature vectors for tracked individuals
-  - Optimized for retail scenarios
-  - Robust to viewpoint changes
-  - Handles partial occlusions
+  - Tracks people movement and time in zones
+  - Provides real-time demographic/footfall insights
 
 - Age Recognition Model - [age-gender-recognition-retail-0013](https://docs.openvino.ai/2022.3/omz_models_model_age_gender_recognition_retail_0013.html)
   - Estimates age of detected persons
