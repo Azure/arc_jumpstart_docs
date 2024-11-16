@@ -173,7 +173,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the Agora scenario resources inside your resource group. You will be using the _Agora-Client-VM_ Azure virtual machine to explore various capabilities of Agora. You will need to remotely access _Agora-Client-VM_.
+Once your deployment is complete, you can open the Azure portal and see the Agora scenario resources inside your resource group. You will be using the _Ag-VM-Client_ Azure virtual machine to explore various capabilities of Agora. You will need to remotely access _Ag-VM-Client_.
 
   ![Screenshot showing all deployed resources in the resource group](./img/deployed_resources.png)
 
@@ -181,7 +181,7 @@ Once your deployment is complete, you can open the Azure portal and see the Agor
 
 ### Connecting to the Agora Client virtual machine
 
-Various options are available to connect to _Agora-Client-VM_, depending on the parameters you supplied during deployment.
+Various options are available to connect to _Ag-VM-Client_, depending on the parameters you supplied during deployment.
 
 - [RDP](../deployment/#connecting-directly-with-rdp) - available after configuring access to port 3389 on the _Agora-NSG-Prod_, or by enabling [Just-in-Time access (JIT)](../deployment/#connect-using-just-in-time-access-jit).
 - [Azure Bastion](../deployment/#connect-using-azure-bastion) - available if _`true`_ was the value of your _`deployBastion`_ parameter during deployment.
@@ -210,7 +210,7 @@ By design, Agora doesn't open port 3389 on the network security group. Therefore
 
   ![Screenshot showing connecting to the VM using Bastion](./img/bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Agora-Client-VM_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _Ag-VM-Client_ with Azure Bastion.
 
 #### Connect using just-in-time access (JIT)
 
@@ -224,9 +224,9 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _Agora-Client-VM_, multiple automated scripts will open and start running. These scripts usually take around thirty minutes to finish, and once completed, the script windows will close automatically. At this point, the deployment is complete.
+- Once you log into the _Ag-VM-Client_, multiple automated scripts will open and start running. These scripts usually take around thirty minutes to finish, and once completed, the script windows will close automatically. At this point, the deployment is complete.
 
-  ![Screenshot showing Agora-Client-VM](./img/automation.png)
+  ![Screenshot showing Ag-VM-Client](./img/automation.png)
 
 - Deployment is complete! Let's begin exploring the features of Contoso Hypermarket!
 
@@ -248,7 +248,7 @@ In order to create the Microsoft Fabric workspace, the tenant in which the works
 
   ![Screenshot showing Fabric tenant settings for workspace](./img/fabric-tenant-settings.png)
 
-Once you log into _Agora-Client-VM_ using any of the method described above follow the steps below to run the script
+Once you log into _Ag-VM-Client_ using any of the method described above follow the steps below to run the script
 
 - Open Windows Explorer and navigate to _C:\Ag\Fabric_ folder and make sure there are two files located in the folder.
 
