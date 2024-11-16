@@ -104,9 +104,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 > **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
-- Contoso Hypermarket allows an option to deploy standard or GPU-enabled worker nodes for the K3s Kubernetes clusters.
-  - If you select the option to use standard SKUs in the parameters file, **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs.**
-  - If you select the option to use GPU-enabled SKUs in the parameters file, then you can select one of a pre-defined list of GPU-enabled Virtual machines based on your subscription's available quotas.
+- **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs.**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
 
 - You can use the below Azure CLI command to check your vCPU utilization.
 
@@ -114,7 +112,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az vm list-usage --location <your location> --output table
   ```
 
-> **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option.
+<!-- > **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option. -->
 
 - Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). You can check your utilization for Azure Open AI quotas using the following command.
 
@@ -140,8 +138,10 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
   - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
-  - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters.
-  - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_).
+  <!-- - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters. -->
+  - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU.
+
+  <!-- - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_). -->
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 

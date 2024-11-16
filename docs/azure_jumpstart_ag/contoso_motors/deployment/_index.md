@@ -155,9 +155,9 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
   - _`spnTenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to *`true`* or *`false`*.
+  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
 
--To get the `spnObjectId`, you can run do so using either Azure CLI or Azure PowerShell.
+- To get the `spnObjectId`, you can run do so using either Azure CLI or Azure PowerShell.
 
   - (Option 1) Using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI.
 
