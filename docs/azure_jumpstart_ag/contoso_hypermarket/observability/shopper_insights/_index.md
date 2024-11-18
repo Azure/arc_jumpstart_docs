@@ -43,11 +43,11 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
     ![A screenshot showing Microsoft Edge and the Grafana bookmark](./img/grafana_bookmark.png)
 
-- Navigate to the Industrial Assets Health dashboard.
+- Navigate to the Point-of-Sale (PoS) Assets Health dashboard.
 
     ![A screenshot showing the Industrial Assets Health menu of dashboards](./img/dashboard_menu.png)
 
-- From this view, users can view real-time telemetry from industrial assets and filter by store and time dimension.
+- From this view, users can view real-time telemetry from Point-of-Sale (PoS) Assets Health and filter by store and time dimension.
 
     ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_dashboard.png)
 
@@ -55,7 +55,7 @@ Users also have the ability to use [Grafana](https://grafana.com/) to build, vie
 
     ![A screenshot showing the Industrial Assets Health menu of dashboards](./img/grafana_menu_si.png)
 
-- From this view, users can view real-time telemetry from industrial assets and filter by store and time dimension.
+- From this view, users can view real-time telemetry from Shopper Insights zones and filter by store and time dimension.
 
     ![A screenshot showing the industrial assets Grafana dashboard](./img/grafana_shopper_insights_dashboard.png)
 
