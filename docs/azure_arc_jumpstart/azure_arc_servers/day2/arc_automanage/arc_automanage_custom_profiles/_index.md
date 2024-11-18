@@ -24,7 +24,7 @@ By the end of this scenario, you will have an Azure Arc-enabled server with Azur
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[Azure Stack HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
+- **[Azure Local HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
 - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
@@ -94,7 +94,7 @@ Read the explanation below to get familiar with the automation and deployment fl
 
 ## Deployment Option 1: Azure portal
 
-- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_servers_jumpstart%2Fautomanage_custom_profile%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton"/></a> button and enter values for the the ARM template parameters.
+- Click the <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fazure_arc%2Fmain%2Fazure_arc_servers_jumpstart%2Fautomanage_custom_profile%2Fazuredeploy.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton" alt="Deploy to Azure" title="Deploy to Azure" aria-label="Deploy to Azure"/></a> button and enter values for the the ARM template parameters.
 
   ![Screenshot showing Azure portal deployment](./03.png)
 
@@ -144,7 +144,7 @@ Complete the following steps to clean up your environment. To disable Azure Auto
 
 - Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-- **[Azure Stack HCI Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
+- **[Azure Local Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure_stack_hci/azure_stack_hci_windows/)**
 - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
 - **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
 - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**

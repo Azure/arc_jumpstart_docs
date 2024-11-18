@@ -30,7 +30,7 @@ The following Jumpstart scenario will show how to create an AKS Edge Essentials 
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.49.0 or above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0.0 or above](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the following command to check your current installed version.
 
     ```shell
     az --version

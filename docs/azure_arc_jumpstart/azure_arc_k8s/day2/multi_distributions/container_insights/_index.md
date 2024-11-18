@@ -15,7 +15,7 @@ In this scenario, you will hook the Azure Arc-enabled Kubernetes cluster to Azur
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
 - **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
-- **[AKS on Azure Stack HCI](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
+- **[AKS on Azure Local](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
 - **[Azure Red Hat OpenShift](/azure_arc_jumpstart/azure_arc_k8s/aro/)**
 - **[Amazon Elastic Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/eks/)**
 - **[Google Kubernetes Engine](/azure_arc_jumpstart/azure_arc_k8s/gke/)**
@@ -35,7 +35,7 @@ Kubernetes extensions are add-ons for Kubernetes clusters. The extensions featur
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
