@@ -41,7 +41,7 @@ Grafana's dashboards in Contoso's implementation provide a visually appealing an
 
 To view the health of the Kubernetes clusters, access the Grafana dashboards by doing the following:
 
-- Connect to the Client VM _Ag-VM-Client_ using the instruction in the [deployment guide](../deployment/)
+- Connect to the Client VM _Ag-VM-Client_ using the instruction in the [deployment guide](../../deployment)
 
 - Open the Edge browser, expand Grafana in the Favorites Bar and select **Grafana**
 
