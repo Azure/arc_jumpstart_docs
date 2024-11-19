@@ -38,7 +38,7 @@ This scenario requires access to Microsoft 365 Copilot.  For information on enab
 To begin, download the three spreadsheets:
 
 - [*retail_inventory_sample*](https://download.microsoft.com/download/0832a0b6-bf27-4a3f-bf65-b3404233f9cb/retail_inventory_sample_20241025.xlsx) - this simulates inventory and sales data for Contoso Hypermarket.
-- [*footfall_sample*](https://download.microsoft.com/download/3fe05ab3-2aa7-4c59-8260-d90a92888432/footfall_sample_20241025.xlsx) - this simulates footfall data derived from in-store cameras.  Footfall is the traffic count inside the store and is useful for store managers to understand what parts of the store get the most visitors.  Refer to the [Contoso Hypermarket footfall documentation](../footfall/) to understand how footfall is implemented in this scenario.
+- [*footfall_sample*](https://download.microsoft.com/download/3fe05ab3-2aa7-4c59-8260-d90a92888432/footfall_sample_20241025.xlsx) - this simulates footfall data derived from in-store cameras.  Footfall is the traffic count inside the store and is useful for store managers to understand what parts of the store get the most visitors.
 - [*contoso_roasters*](https://download.microsoft.com/download/3fe05ab3-2aa7-4c59-8260-d90a92888432/contoso_roasters_20241025.xlsx) - this is a production log of coffee roasting
 
 Let's explore the data contained in these spreadsheets.  The **retail inventory sample** data contains data on the stocked products, their location in the store, and the amount of product sold for each day.  The fields representing stock location (e.g. stock_location_1, stock_location_2, etc.) are intended to convey the specific location in the store where a product was placed.

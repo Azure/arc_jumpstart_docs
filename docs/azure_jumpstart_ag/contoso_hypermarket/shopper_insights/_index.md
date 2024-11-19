@@ -83,7 +83,7 @@ Video inference is handled by two APIs using a common pattern.
 
 Person re-identification is a critical computer vision task that involves recognizing and tracking the same individual across different camera views or time periods. The following models are used in the footfall and shopper insights APIs.
 
-- Yolo8 Detection Model - [yolov8n.pt]([https://docs.openvino.ai/2022.3/omz_models_model_person_detection_retail_0013.html](https://docs.ultralytics.com/models/yolov8/#supported-tasks-and-modes))
+- Yolo8 Detection Model - [yolov8n.pt](https://docs.ultralytics.com/models/yolov8)
   - Detects people in video frames
   - Generates unique feature vectors for tracked individuals
   - Tracks people movement and time in zones
