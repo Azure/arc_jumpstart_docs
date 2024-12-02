@@ -298,7 +298,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
   ```powershell
   az login --identity
   
-  $serverName = "ArcBox-Win2K22"
+  $serverName = "ArcBox-Win2K25"
   $localUser = "Administrator"
   
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
@@ -309,7 +309,7 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
 ```
@@ -319,7 +319,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
 ```
@@ -333,7 +333,7 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
 ```
@@ -343,7 +343,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
 ```
