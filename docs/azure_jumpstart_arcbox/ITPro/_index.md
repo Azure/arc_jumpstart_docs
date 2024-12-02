@@ -57,7 +57,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - User remotes into Client Windows VM, which automatically kicks off multiple scripts that:
   - Deploy and configure five (5) nested virtual machines in Hyper-V
     - Windows Server 2022 VM - onboarded as Azure Arc-enabled server
-    - Windows Server 2019 VM - onboarded as Azure Arc-enabled server
+    - Windows Server 2025 VM - onboarded as Azure Arc-enabled server
     - Windows VM running SQL Server - onboarded as Azure Arc-enabled SQL Server (as well as Azure Arc-enabled server)
     - 2 x Ubuntu VM - onboarded as Azure Arc-enabled servers
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring ArcBox components
@@ -143,7 +143,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
   - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k25`.
   - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
