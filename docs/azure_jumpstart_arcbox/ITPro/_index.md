@@ -734,6 +734,22 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Windows Terminal
 - WinGet
 
+### Windows Server Management Enabled by Azure Arc
+
+There are a host of other features enabled by [Azure Arc for Windows Server management](https://learn.microsoft.com/azure/azure-arc/servers/windows-server-management-overview?tabs=portal) such as Azure Site Recovery Configuration, Best Practices Assessment, and Windows Admin Center in Azure for Arc.  Some of these capabilities are specific to Windows Server 2025 and require the use of either Software Assurance or a pay-as-you-go (PAYG) license.  To use these features, first activate a license on _ArcBox-Win2K25_.
+
+![Screenshot showing ArcBox-Win2K25 license activation](./windows_server_license.png)
+
+If you have Software Assurance, click on the Activate Benefits and attest to having active Software Assurance.
+
+![Screenshot attesting to active Software Assurance](./windows_activate_attestation.png)
+
+In the license section of _ArcBox-Win2K25_ in the Azure Portal, the machine will now show as licensed.
+
+![Screenshot showing ArcBox-Win2K25 successfully licensed](./win2k25_licensed.png)
+
+Once the license is active, enable the features of interest from the Azure Portal.
+
 ### Next steps
 
 ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
