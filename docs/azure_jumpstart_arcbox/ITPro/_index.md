@@ -57,7 +57,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - User remotes into Client Windows VM, which automatically kicks off multiple scripts that:
   - Deploy and configure five (5) nested virtual machines in Hyper-V
     - Windows Server 2022 VM - onboarded as Azure Arc-enabled server
-    - Windows Server 2019 VM - onboarded as Azure Arc-enabled server
+    - Windows Server 2025 VM - onboarded as Azure Arc-enabled server
     - Windows VM running SQL Server - onboarded as Azure Arc-enabled SQL Server (as well as Azure Arc-enabled server)
     - 2 x Ubuntu VM - onboarded as Azure Arc-enabled servers
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring ArcBox components
@@ -143,7 +143,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
   - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k25`.
   - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
@@ -298,7 +298,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
   ```powershell
   az login --identity
   
-  $serverName = "ArcBox-Win2K22"
+  $serverName = "ArcBox-Win2K25"
   $localUser = "Administrator"
   
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
@@ -309,7 +309,7 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
 ```
@@ -319,7 +319,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
 ```
@@ -333,7 +333,7 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
 ```
@@ -343,7 +343,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
 ```
@@ -733,6 +733,22 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Visual Studio Code
 - Windows Terminal
 - WinGet
+
+### Windows Server Management Enabled by Azure Arc
+
+There are a host of other features enabled by [Azure Arc for Windows Server management](https://learn.microsoft.com/azure/azure-arc/servers/windows-server-management-overview?tabs=portal) such as Azure Site Recovery Configuration, Best Practices Assessment, and Windows Admin Center in Azure for Arc.  Some of these capabilities are specific to Windows Server 2025 and require the use of either Software Assurance or a pay-as-you-go (PAYG) license.  To use these features, first activate a license on _ArcBox-Win2K25_.
+
+![Screenshot showing ArcBox-Win2K25 license activation](./windows_server_license.png)
+
+If you have Software Assurance, click on the Activate Benefits and attest to having active Software Assurance.
+
+![Screenshot attesting to active Software Assurance](./windows_activate_attestation.png)
+
+In the license section of _ArcBox-Win2K25_ in the Azure Portal, the machine will now show as licensed.
+
+![Screenshot showing ArcBox-Win2K25 successfully licensed](./win2k25_licensed.png)
+
+Once the license is active, enable the features of interest from the Azure Portal.
 
 ### Next steps
 
