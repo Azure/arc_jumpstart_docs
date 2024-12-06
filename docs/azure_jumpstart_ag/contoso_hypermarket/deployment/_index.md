@@ -104,7 +104,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 > **Note:** Every subscription has different capacity restrictions and quotas so it's very critical to ensure you have sufficient vCPU quota available in your selected Azure subscription and the region where you plan to deploy Agora. If you encounter any capacity constraints error , please try another region from the list above.
 
-- **Agora requires 32 Ds-series vCPUs and 8 Bs-series vCPUs.**. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
+- **Contoso Hypermarket requires 40 Dsv5 -series vCPUs and 8 Bs-series vCPUs.** Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your vCPU utilization.
 
 - You can use the below Azure CLI command to check your vCPU utilization.
 
@@ -113,6 +113,14 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   ```
 
 <!-- > **Note:** Depending on your Azure Subscription, you might be restricted to deploy GPU-enabled SKUs. Please check your utilization and quota availability before using the GPU option. -->
+
+- **Contoso Hypermarket requires 33 Public IP Addresses.** Ensure you have sufficient Public IP Address available in your Azure subscription and the region where you plan to deploy Agora. You can use the below Az CLI command to check your Public IP Address utilization.
+
+- You can use the below Azure CLI command to check your Public IP Address utilization.
+
+  ```shell
+  az quota usage show --scope /subscriptions/<your subscription>/providers/Microsoft.Network/locations/<your location> --resource-name PublicIPAddresses
+  ```
 
 - Contoso Hypermarket deploys Azure AI services (OpenAI and speech-to-text models). You can check your utilization for Azure Open AI quotas using the following command.
 
