@@ -9,6 +9,34 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## November 2024
+
+### Release highlights
+* Critical Jumpstart ArcBox/HCIBox bug fixes
+* [Announcing Jumpstart Agora "Contoso Hypermarket" scenario](https://techcommunity.microsoft.com/blog/azurearcblog/announcing-jumpstart-agora-contoso-hypermarket-scenario/4289504)
+* [Jumpstart Drops Hits General Availability](https://techcommunity.microsoft.com/blog/azurearcblog/jumpstart-drops-hits-general-availability/4288629)
+* Other minor fixes 
+
+### Jumpstart HCIBox
+
+- [HCIBox - autoDeployClusterResource set to true / Enable Storage Auto IP #2780](https://github.com/microsoft/azure_arc/issues/2780)
+- [Remove WinGet pindown for ArcBox and HCIBox #2793](https://github.com/microsoft/azure_arc/issues/2793)
+- [Type 'ValidateAzureStackNetworkATCSettings' of Role 'HostNetwork' raised an exception #2861](https://github.com/microsoft/azure_arc/issues/2861)
+- [main.azd.bicep contains unsupported region #2873](https://github.com/microsoft/azure_arc/issues/2873)
+- [azd down: error deleting Azure resources: no resources found for deployment · Issue #2876](https://github.com/microsoft/azure_arc/issues/2876)
+
+### Jumpstart ArcBox
+
+- [Can't see SQL Databases using ARC box for it Pros #2782](https://github.com/microsoft/azure_arc/issues/2782)
+- [Remove WinGet pindown for ArcBox and HCIBox #2793](https://github.com/microsoft/azure_arc/issues/2793)
+
+### Jumpstart Agora
+
+- [Agora-HyperMarket Deployment Issue #2863](https://github.com/microsoft/azure_arc/issues/2863)
+
+### Arc-enabled Kubernetes
+- [AKS ARM template fails deployment due to unsupported parameter inclusion #2847](https://github.com/microsoft/azure_arc/issues/2847)
+
 ## October 2024
 
 ### Release highlights
