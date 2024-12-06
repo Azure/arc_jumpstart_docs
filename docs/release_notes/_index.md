@@ -30,10 +30,11 @@ weight: 6
 - [Can't see SQL Databases using ARC box for it Pros #2782](https://github.com/microsoft/azure_arc/issues/2782)
 - [Remove WinGet pindown for ArcBox and HCIBox #2793](https://github.com/microsoft/azure_arc/issues/2793)
 
-Jumpstart Agora
+### Jumpstart Agora
+
 - [Agora-HyperMarket Deployment Issue #2863](https://github.com/microsoft/azure_arc/issues/2863)
 
-Arc-enabled Kubernetes
+### Arc-enabled Kubernetes
 - [AKS ARM template fails deployment due to unsupported parameter inclusion #2847](https://github.com/microsoft/azure_arc/issues/2847)
 
 ## October 2024
