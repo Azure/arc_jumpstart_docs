@@ -47,6 +47,8 @@ ArcBox incurs normal Azure consumption charges for various Azure resources such 
 - [ArcBox for DevOps cost estimate](https://aka.ms/ArcBoxDevOpsCost)
 - [ArcBox for DataOps cost estimate](https://aka.ms/ArcBoxDataOpsCost)
 
+In an effort to reduce the overall cost of ArcBox, the [virtual machine auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) feature is enabled by default.  When shutdown, the compute charges for the virtual machine will stop; however, the storage costs for the disks will continue to be incurred.
+
 ## Where can I go if I have trouble deploying or using ArcBox?
 
 Each ArcBox flavor deployment guide has it's own troubleshooting section you can review for common issues.
