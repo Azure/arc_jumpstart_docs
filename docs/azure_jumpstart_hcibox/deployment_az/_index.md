@@ -5,6 +5,8 @@ isGettingStarted: false
 weight: 4
 ---
 
+# Deploy HCIBox infrastructure with Azure CLI
+
 ## Azure CLI
 
 Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI is recommended if you have been provided a service principal by your Azure administrator for use with HCIBox. If you can create application registrations in Microsoft Entra ID, then [Azure Developer CLI](/azure_jumpstart_hcibox/deployment_azd) will be the optimal deployment option that satisfies most other prerequisites. Otherwise, read on to learn how to deploy HCIBox with Azure CLI.
@@ -17,7 +19,7 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
   git clone https://github.com/microsoft/azure_arc.git
   ```
 
-- [Install or update Azure CLI to version 2.56.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 or above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -98,25 +100,28 @@ Azure CLI can be used to deploy HCIBox into your Azure subscription. Azure CLI i
   az bicep upgrade
   ```
 
-- Retrieve the object id of your directory's Azure Stack HCI resource provider.
+- Retrieve the object id of your directory's Azure Local resource provider.
 
   ```shell
   az ad sp list --display-name "Microsoft.AzureStackHCI Resource Provider"
   ```
 
-  ![Screenshot showing retrieving StackHCI resource provider id](./hci_rp_id.png)
+  ![Screenshot showing retrieving Azure Local resource provider id](./hci_rp_id.png)
+
+
+> **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
 
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
   - _`spnClientId`_ - Your Azure service principal id
   - _`spnClientSecret`_ - Your Azure service principal secret
   - _`spnTenantId`_ - Your Azure tenant id
-  - _`spnProviderId`_ - Your Azure Stack HCI resource provider id, retrieved in an earlier step
+  - _`spnProviderId`_ - Your Azure Local resource provider id, retrieved in an earlier step
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the HCIBox Log Analytics workspace
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
-  - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled HCI cluster after the client VM deployment and automation script execution is complete.
-  - _`autoUpgradeClusterResource`_ - Option to enable automatic upgrade of the Azure Arc-enabled HCI cluster after the cluster deployment is complete (only applicable if autoDeployClusterResource is set to `true`).
+  - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled Azure Local instance after the client VM deployment and automation script execution is complete.
+  - _`autoUpgradeClusterResource`_ - Option to enable automatic upgrade of the Azure Arc-enabled Azure Local instance after the instance deployment is complete (only applicable if autoDeployClusterResource is set to `true`).
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
 
@@ -139,7 +144,7 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 ## Clean up the deployment
 
-To clean up your deployment, simply delete the resource groups using Azure CLI or Azure portal.
+To clean up your deployment, simply delete the resource group using Azure CLI or Azure portal.
 
 - Clean up Using Azure CLI
 

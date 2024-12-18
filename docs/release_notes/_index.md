@@ -9,6 +9,107 @@ weight: 6
 
 > **Note:** Release notes will be released around the first week of each month and will cover the previous month.
 
+## November 2024
+
+### Release highlights
+* Critical Jumpstart ArcBox/HCIBox bug fixes
+* [Announcing Jumpstart Agora "Contoso Hypermarket" scenario](https://techcommunity.microsoft.com/blog/azurearcblog/announcing-jumpstart-agora-contoso-hypermarket-scenario/4289504)
+* [Jumpstart Drops Hits General Availability](https://techcommunity.microsoft.com/blog/azurearcblog/jumpstart-drops-hits-general-availability/4288629)
+* Other minor fixes 
+
+### Jumpstart HCIBox
+
+- [HCIBox - autoDeployClusterResource set to true / Enable Storage Auto IP #2780](https://github.com/microsoft/azure_arc/issues/2780)
+- [Remove WinGet pindown for ArcBox and HCIBox #2793](https://github.com/microsoft/azure_arc/issues/2793)
+- [Type 'ValidateAzureStackNetworkATCSettings' of Role 'HostNetwork' raised an exception #2861](https://github.com/microsoft/azure_arc/issues/2861)
+- [main.azd.bicep contains unsupported region #2873](https://github.com/microsoft/azure_arc/issues/2873)
+- [azd down: error deleting Azure resources: no resources found for deployment · Issue #2876](https://github.com/microsoft/azure_arc/issues/2876)
+
+### Jumpstart ArcBox
+
+- [Can't see SQL Databases using ARC box for it Pros #2782](https://github.com/microsoft/azure_arc/issues/2782)
+- [Remove WinGet pindown for ArcBox and HCIBox #2793](https://github.com/microsoft/azure_arc/issues/2793)
+
+### Jumpstart Agora
+
+- [Agora-HyperMarket Deployment Issue #2863](https://github.com/microsoft/azure_arc/issues/2863)
+
+### Arc-enabled Kubernetes
+- [AKS ARM template fails deployment due to unsupported parameter inclusion #2847](https://github.com/microsoft/azure_arc/issues/2847)
+
+## October 2024
+
+### Release highlights
+
+- Critical Jumpstart ArcBox bug fixes
+- Critical Jumpstart Agora bug fixes
+- Critical Azure IoT Operations related bug fixes
+
+### Jumpstart HCIBox
+
+- [Bug: Jumpstart HCI Box: Exception encountered while adding node to cluster #2732](https://github.com/microsoft/azure_arc/issues/2732)
+- [Bug: HCIBox Step 10/11 [Build Cluster validate cluster deployment] is failing #2737](https://github.com/microsoft/azure_arc/issues/2737)
+- [Feature: HCIBox-Client VM - Infrastructure deployment #2730](https://github.com/microsoft/azure_arc/issues/2730)
+
+### Jumpstart Agora
+
+- [Bug: Manufacturing - cannot import name 'AccessTokenInfo' from 'azure.core.credentials' when deploying AIO on the cluster #2731](https://github.com/microsoft/azure_arc/issues/2731)
+- [Bug: Deploying Agora Manufacturing Scenario fails to connect AKS EE clusters to Azure Arc #2761](https://github.com/microsoft/azure_arc/issues/2761)
+- [Bug: Az cli connectedk8s regression causes failures in k3s onboarding #2763](https://github.com/microsoft/azure_arc/issues/2763)
+
+### Arc-enabled Kubernetes
+
+- [Bug: main.py in esa_fault_detection scenario has hardcoded paths causing issues with Edge Volumes #2735](https://github.com/microsoft/azure_arc/issues/2735)
+
+### Arc, Edge, and Azure IoT Operations
+
+- [Bug: no matches for kind "MqttBridgeConnector" in version "mq.iotoperations.azure.com/v1beta1" #2738](https://github.com/microsoft/azure_arc/issues/2738)
+
+## September 2024
+
+### Release highlights
+
+- Deprecation of Cluster API (CAPI) from the Arc Jumpstart
+- Critical Jumpstart ArcBox bug fixes
+- Critical Jumpstart Agora bug fixes
+- Various documentation updates
+- Miscellaneous bug fixes and enhancements
+
+### Cross Jumpstart
+
+- [Deprecation: Deprecate CAPI from Jumpstart Scenarios #2707](https://github.com/microsoft/azure_arc/issues/2707)
+- [Enhancement: Update AKSEE schema version to 1.14 #2722](https://github.com/microsoft/azure_arc/issues/2722)
+
+### Jumpstart ArcBox
+
+- [Bug: ArcBox deployment fails due to WinGet bootstrapping issue #2724](https://github.com/microsoft/azure_arc/issues/2724)
+- [Bug: Deployment failure if no email recipient given for autoshutdown #404](https://github.com/Azure/arc_jumpstart_docs/issues/404)
+- [Feature: Support Arc-enabled SQL Server least privilege, automated backups, and performance dashboards #2733](https://github.com/microsoft/azure_arc/issues/2733)
+- [Enhancement: Update AKS templates autoupgrade channels #2699](https://github.com/microsoft/azure_arc/issues/2699)
+
+### Jumpstart HCIBox
+
+- [Documentation: Syntax within the guide for HCI #2715](https://github.com/microsoft/azure_arc/issues/2715)
+
+### Jumpstart Agora
+
+- [Bug: Bug with new version in Azure IoT Operations #2695](https://github.com/microsoft/azure_arc/issues/2695)
+- [Bug: Contoso Motors - reporting dashboard not working #2702](https://github.com/microsoft/azure_arc/issues/2702)
+- [Bug: Contoso Motors - InfluxDB login not working #2703](https://github.com/microsoft/azure_arc/issues/2703)
+- [Documentation: Update Screenshots to use newer branding for Agora #408](https://github.com/Azure/arc_jumpstart_docs/issues/408)
+
+### Arc-enabled Kubernetes
+
+- [Bug: Logon script error in AKS Edge Essentials single node deployment with Azure Arc using ARM Template #2688](https://github.com/microsoft/azure_arc/issues/2688)
+
+### Arc-enabled data services
+
+- [Feature: Azure Arc-enabled data services - Sept release #2711](https://github.com/microsoft/azure_arc/issues/2711)
+
+### Arc, Edge, and IoT Operations
+
+- [Bug: Simulator not Transmitting Data in Edge IoT Ops Manufacturing Jumpstart #406](https://github.com/Azure/arc_jumpstart_docs/issues/406)
+
 ## August 2024
 
 ### Release highlights
@@ -25,7 +126,7 @@ weight: 6
 
 ### Jumpstart HCIBox
 
-- [Bug: cannot provision k8s on the hci box cluster #2628](https://github.com/microsoft/azure_arc/issues/2628)
+- [Bug: cannot provision k8s on the HCIBox cluster #2628](https://github.com/microsoft/azure_arc/issues/2628)
 - [Bug: HCI deployment failing with permission error. #2631](https://github.com/microsoft/azure_arc/issues/2631)
 - [Bug: [Regression]Unable to install a new jumpstart HCIBox #2658](https://github.com/microsoft/azure_arc/issues/2658)
 - [Bug: HCIBox-Client post deployment automation issues #2671](https://github.com/microsoft/azure_arc/issues/2671)
@@ -217,19 +318,19 @@ weight: 6
 
 ### Arc, Edge, and IoT Operations
 
-- [Bug: AIO scenario - error in AIO initializtion #2392](https://github.com/microsoft/azure_arc/issues/2392)
+- [Bug: AIO scenario - error in AIO initialization #2392](https://github.com/microsoft/azure_arc/issues/2392)
 - [Bug: Arc-enabled Video Indexer: update extension parameters to support release builds #2402](https://github.com/microsoft/azure_arc/issues/2402)
 
 ### Arc-enabled data services
 
 - [Feature: Azure Arc-enabled data services - February release #2397](https://github.com/microsoft/azure_arc/issues/2397)
 
-## Janurary 2024
+## January 2024
 
 ### Release highlights
 
 - [Jumpstart HCIBox 23H2 release](https://aka.ms/HCIBox23h2Blog)
-- Secuirty posture improvements
+- Security posture improvements
 
 ### Cross Jumpstart
 

@@ -1,14 +1,14 @@
 ---
 type: docs
-title: "Integrate Azure Monitor for Containers with AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
-linkTitle: "Integrate Azure Monitor for Containers with AKS on Azure Stack HCI as an Azure Arc Connected Cluster"
+title: "Integrate Azure Monitor for Containers with AKS on Azure Local as an Azure Arc Connected Cluster"
+linkTitle: "Integrate Azure Monitor for Containers with AKS on Azure Local as an Azure Arc Connected Cluster"
 weight: 3
 description: >
 ---
 
-## Integrate Azure Monitor for Containers with AKS on Azure Stack HCI as an Azure Arc Connected Cluster
+## Integrate Azure Monitor for Containers with AKS on Azure Local as an Azure Arc Connected Cluster
 
-The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for an AKS cluster running on Azure Stack HCI that is projected as an Azure Arc connected cluster.
+The following Jumpstart scenario will guide you on how to enable [Azure Monitor for Containers](https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview) for an AKS cluster running on Azure Local that is projected as an Azure Arc connected cluster.
 
 in this scenario, you will hook the AKS cluster on HCI to Azure Monitor by deploying the [Azure Monitor agent](https://learn.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) in order to start collecting telemetry.  
 
@@ -26,7 +26,7 @@ The commands below and the script described in this scenario should be run on th
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-* [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+* [Install or update Azure CLI to version 2.65.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version

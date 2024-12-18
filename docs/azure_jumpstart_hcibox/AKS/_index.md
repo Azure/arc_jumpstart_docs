@@ -1,14 +1,14 @@
 ---
 type: docs
-linkTitle: "AKS on Azure Stack HCI"
+linkTitle: "AKS on Azure Local"
 weight: 8
 ---
 
-## Azure Kubernetes Service on Azure Stack HCI
+# Azure Kubernetes Service on your Azure Local HCIBox
 
-Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/). HCIBox comes pre-configured with Azure Kubernetes Service on HCI (AKS-HCI). To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
+Azure Local can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/). HCIBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
 
-## Explore AKS on Azure Stack HCI
+## Explore AKS on Azure Local
 
 HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
 
@@ -21,7 +21,7 @@ HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subne
 
 Before creating an AKS workload cluster, you must create a local virtual network object. HCIBox includes a script that will complete this task using the pre-configured network. The script will then create a new AKS workload cluster.
 
-- Open your HCIBox resource group and click on the _jumpstart_ custom location resource, then click "Arc-enabled services." Here you should see the hybridaksextension service available on the cluster. This is installed by default on Azure Stack HCI clusters, and is required for creating AKS workload clusters on HCI.
+- Open your HCIBox resource group and click on the _jumpstart_ custom location resource, then click "Arc-enabled services." Here you should see the hybridaksextension service available on the cluster. This is installed by default on Azure Local instance(s), and is required for creating AKS workload clusters on Azure Local.
 
   ![Screenshot showing aks extension](./custom_location_resources.png)
 
@@ -57,6 +57,13 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing cluster detail](./cluster_detail.png)
 
+> [!IMPORTANT]
+> Before running the following command, make sure to update the `connectedk8s` extension by running:
+> ```
+> az extension update --name connectedk8s
+> ```
+
+
 - From Azure portal, open Cloud Shell and run the following command, using the name of your HCIBox resource group.
 
   ```
@@ -71,4 +78,4 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
 ## Next steps
 
-Azure Kubernetes Service on Azure Stack HCI provides many more capabilities not directly covered here. Review the documentation to continue your journey with [AKS on HCI](https://learn.microsoft.com/azure-stack/aks-hci/).
+Azure Kubernetes Service on Azure Local provides many more capabilities not directly covered here. Review the documentation to continue your journey with [AKS on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/).

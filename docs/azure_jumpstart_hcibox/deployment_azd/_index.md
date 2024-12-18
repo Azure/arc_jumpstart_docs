@@ -4,12 +4,11 @@ linkTitle: "Azure Developer CLI Deployment"
 isGettingStarted: false
 weight: 3
 ---
-
-## Deploy HCIBox infrastructure with Azure Developer CLI
+# Deploy HCIBox infrastructure with Azure Developer CLI
 
 [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) automates the creation or retrieval of several HCIBox deployment requirements. It's best used when the deploying user has permission to [create applications in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 
-### Prepare environment
+## Prepare environment
 
 - Clone the Azure Arc Jumpstart repository
 
@@ -25,11 +24,11 @@ weight: 3
 
   ![Screenshot showing azd auth login](./azd_auth_login.png)
 
-- Run the *`azd init`* command from your cloned repo _*azure_jumpstart_hcibox*_ folder.
+- Run the *`azd init`* command from the _*azure_jumpstart_hcibox*_ folder within your cloned repo.
   
   ![Screenshot showing azd init](./azd_init.png)
 
-### Deploy the environment
+## Deploy the environment
 
 - Run the *`azd up`* command to deploy the environment. Azd will prompt you to enter the target subscription, region, and all required parameters. It is highly recommended to use _eastus_ as your region.
 
@@ -49,9 +48,7 @@ Once your deployment is complete, you can open the Azure portal and see the init
 
 After you are finished with your HCIBox deployment use ```azd down``` to delete your resources.
 
-- Clean up using Azure Developer CLI
-
-  ```shell
+  ```Azure Developer CLI
   azd down
   ```
 

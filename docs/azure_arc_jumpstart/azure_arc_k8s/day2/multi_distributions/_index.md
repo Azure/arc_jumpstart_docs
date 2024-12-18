@@ -2,6 +2,6 @@
 type: docs
 title: "Multiple Kubernetes distributions"
 linkTitle: "Multiple Kubernetes distributions"
-weight: 7
+weight: 6
 description: >-
 ---

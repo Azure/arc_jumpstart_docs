@@ -37,7 +37,11 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ## ArcBox Azure Consumption Costs
 
-ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
+ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the ArcBox-Client VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.
+
+![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
+
+ Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
 
 ## Deployment Options and Automation Flow
 
@@ -57,14 +61,14 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - User remotes into Client Windows VM, which automatically kicks off multiple scripts that:
   - Deploy and configure five (5) nested virtual machines in Hyper-V
     - Windows Server 2022 VM - onboarded as Azure Arc-enabled server
-    - Windows Server 2019 VM - onboarded as Azure Arc-enabled server
+    - Windows Server 2025 VM - onboarded as Azure Arc-enabled server
     - Windows VM running SQL Server - onboarded as Azure Arc-enabled SQL Server (as well as Azure Arc-enabled server)
     - 2 x Ubuntu VM - onboarded as Azure Arc-enabled servers
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring ArcBox components
 
 ## Prerequisites
 
-- [Install or update Azure CLI to version 2.53.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
+- [Install or update Azure CLI to version 2.65.0 and above](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Use the below command to check your current installed version.
 
   ```shell
   az --version
@@ -104,6 +108,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.GuestConfiguration --wait
   az provider register --namespace Microsoft.AzureArcData --wait
   az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.Insights--wait
   ```
 
 ## Deployment Option 1: Azure portal
@@ -143,7 +148,8 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
   - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k25`.
+  - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
@@ -297,7 +303,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
   ```powershell
   az login --identity
   
-  $serverName = "ArcBox-Win2K22"
+  $serverName = "ArcBox-Win2K25"
   $localUser = "Administrator"
   
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
@@ -308,7 +314,7 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
 ```
@@ -318,7 +324,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
 ```
@@ -332,7 +338,7 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
 ```
@@ -342,7 +348,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
 ```
@@ -595,7 +601,7 @@ As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment
 
 Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
 
-- Navigate to the resource group overview page in Azure Portal
+- Navigate to the resource group overview page in Azure Portal.
 
 - Locate ArcBox-SQL Arc-enabled SQL Server resources and open resource details view.
 
@@ -609,11 +615,11 @@ Follow the steps below to review migration readiness of the ArcBox-SQL server ru
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness](./sql-server-migration-readines.png)
 
-- Review migration readiness to migrate to Azure SQL Managed Instance
+- Review migration readiness to migrate to Azure SQL Managed Instance.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness not ready to SQL MI](./sql-server-migration-readines-not-ready.png)
 
-- Review migration readiness to migrate to SQL Server on Virtual Machines
+- Review migration readiness to migrate to SQL Server on Virtual Machines.
 
   ![Screenshot showing Arc-enabled SQL Server migration readiness ready to migrate to SQL Server on VM](./sql-server-migration-readines-ready.png)
 
@@ -657,6 +663,70 @@ This section guides you through different settings for enabling Microsoft Defend
   
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
 
+### Arc-enabled SQL Server - least privilege access
+
+As part of least privilege security best practice principle, [Arc-enabled SQL server supports running agent extension under least privilege access](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-least-privilege?view=sql-server-ver16). By default SQL server agent extension runs under Local System account. After enabling the least privilege access, agent extension runs under _NT Service\SQLServerExtension_. Refer [permissions required and assigned to _NT Service\SQLServerExtension_ service account](https://learn.microsoft.com/sql/sql-server/azure-arc/configure-windows-accounts-agent?view=sql-server-ver16) for more details.
+
+- Screenshot below shows Arc-enabled SQL server extension service running under _NT Service\SQLServerExtension_ service account.
+
+![Screenshot showing Arc-enabled SQL server agent extension running under least privileged access](./sql-server-least-privileged-access.png)
+
+- To view the status of Arc-enabled SQL server agent extension service, logon to the _ArcBox-SQL_ Hyper-V virtual machine, open Windows services from Control Panel -> System and Security -> Administrative Tools.
+
+![Screenshot showing ArcBox-SQL Hyper-V guest VM](./arcbox-sql-hyperv-guest.png)
+
+### Arc-enabled SQL Server - automated backups and restore
+
+#### Automated backups
+
+[Arc-enabled SQL Server supports automated backups](https://learn.microsoft.com/sql/sql-server/azure-arc/backup-local?view=sql-server-ver16&tabs=azure) to recover data during the disaster recovery process or when customers would like to go back to certain restore point. ArcBox deployment is now enabled to perform scheduled backups at instance level to take full database backup every 7 days,  differential backup every 12 hours, and log backup every 5 minutes to support lowest RPO. These schedules are customizable, refer documentation [here](https://learn.microsoft.com/sql/sql-server/azure-arc/backup-local?view=sql-server-ver16&tabs=azure#backup-frequency-and-retention-days) for more details. These backups can be configured at database server instance level or individual database level based on the recovery needs.
+
+- Screenshot below shows automated backup schedule configured in ArcBox-SQL Arc-enabled SQL Server at the instance level.
+
+![Screenshot showing ArcBox-SQL automated backup schedule](./sql-server-automated-backups.png)
+
+- Screenshot below shows automated backup schedule inherited from the instance level backup policy.
+
+![Screenshot showing ArcBox-SQL automated backup schedule inherited from instance](./sql-server-automated-backups-database.png)
+
+#### Restore database
+
+Once the SQL Server backups are enabled and have the backups available to restore from certain restore points, customers can restore database to a new database from the specific restore point that would like to restore data from.
+
+- Screenshot below shows earliest available restore points to restore database from. Click on the _Restore_ link restore _AdventurWorksLT2022_ database from one of the restore point.
+
+![Screenshot showing ArcBox-SQL backup earliest restore points](./sql-server-backups-restore-points.png)
+
+- Screenshot below shows available restore points for _AdventurWorksLT2022_ database. To restore this database 1) Select available restore point, 2) Specify new database name, and 3) Click on Create to restore database to the desired restore points.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore points](./sql-server-backups-restore-db.png)
+
+- Review final details and click Review + Create to start restoring the database.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore confirmation](./sql-server-backups-confirim-restore-db.png)
+
+- Once the database restore request is submitted, review restore status in the Azure Portal as shown in the screenshot below. Notice new database is created on the _ArcBox-SQL_ database server.
+
+![Screenshot showing _AdventurWorksLT2022_ database restore status](./sql-server-backups-restore-db-status.png)
+
+- You can also verify restored database on the ArcBox-SQL guest VM as shown in the screenshot below.
+
+![Screenshot showing restored database on the SQL server guest VM](./sql-server-backups-restore-db-status-guestvm.png)
+
+### Monitor SQL Server enabled by Azure Arc
+
+Arc-enabled SQL Server now supports [monitoring using the performance dashboards](https://learn.microsoft.com/sql/sql-server/azure-arc/sql-monitoring?view=sql-server-ver16) in Azure Portal. Performance dashboard feature is supported only on SQL Server Standard and Enterprise editions. ArcBox deployment now supports deploying SQL Server Standard and Enterprise editions. Choose the correct edition based on the requirement to experience performance dashboards. Refer deployment parameters documented in this document to select desired SQL Server edition using the parameter _sqlServerEdition_.
+
+- To view performance dashboards in Arc-enabled SQL Server, go to the resource group deployed in the Azure Portal, locate ArcBox-SQL Arc-enabled SQL server and open resource details.
+
+- Click on _Performance Dashboard_ under Monitoring section as shown below to view performance dashboard.
+
+![Screenshot showing SQL server performance dashboard](./sql-server-navigate-performance-dashboard.png)
+
+- Screenshot below shows SQL Server performance dashboard enabled by Azure Arc.
+
+![Screenshot showing SQL server performance dashboard](./sql-server-open-performance-dashboard.png)
+
 ### Included tools
 
 The following tools are including on the _ArcBox-Client_ VM.
@@ -668,6 +738,22 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Visual Studio Code
 - Windows Terminal
 - WinGet
+
+### Windows Server Management Enabled by Azure Arc
+
+There are a host of other features enabled by [Azure Arc for Windows Server management](https://learn.microsoft.com/azure/azure-arc/servers/windows-server-management-overview?tabs=portal) such as Azure Site Recovery Configuration, Best Practices Assessment, and Windows Admin Center in Azure for Arc.  Some of these capabilities are specific to Windows Server 2025 and require the use of either Software Assurance or a pay-as-you-go (PAYG) license.  To use these features, first activate a license on _ArcBox-Win2K25_.
+
+![Screenshot showing ArcBox-Win2K25 license activation](./windows_server_license.png)
+
+If you have Software Assurance, click on the Activate Benefits and attest to having active Software Assurance.
+
+![Screenshot attesting to active Software Assurance](./windows_activate_attestation.png)
+
+In the license section of _ArcBox-Win2K25_ in the Azure Portal, the machine will now show as licensed.
+
+![Screenshot showing ArcBox-Win2K25 successfully licensed](./win2k25_licensed.png)
+
+Once the license is active, enable the features of interest from the Azure Portal.
 
 ### Next steps
 
