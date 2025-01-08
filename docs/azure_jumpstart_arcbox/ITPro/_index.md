@@ -37,7 +37,7 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ## ArcBox Azure Consumption Costs
 
-ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the ArcBox-Client VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.
+ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the ArcBox-Client VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.  In addition, [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) can be used to reduce the compute costs of ArcBox.  Using this option may result in the _ArcBox-Client_ being evicted when Azure needs the capacity and the VM will no longer be available.
 
 ![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
 
@@ -153,6 +153,8 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
+- (optional) to use Spot VM instance for the _ArcBox Client VM_, add a parameter called _`enableAzureSpotPricing`_ set to true.
+
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below commands:
 
 ### Bicep deployment option 1: Azure CLI
@@ -163,6 +165,8 @@ az group create --name "<resource-group-name>" --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
 ```
 
+To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
+
 ### Bicep deployment option 2: Azure PowerShell
 
 ```powershell
@@ -172,6 +176,8 @@ $Location= "<preferred-location>"
 New-AzResourceGroup -Name $RGname -Location $location
 New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
 ```
+
+To use a Spot instance, replace the last command with `New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam" -enableAzureSpotPricing $true`
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
