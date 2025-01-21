@@ -73,9 +73,13 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ArcBox deploys several management and operations services that work with ArcBox's Azure Arc resources. These resources include an Azure Automation account, an Azure Log Analytics workspace, an Azure Monitor workbook, Azure Policy assignments for deploying Kubernetes cluster monitoring and security extensions on the included clusters, Azure Policy assignment for adding tags to resources, and a storage account used for staging resources needed for the deployment automation.
 
-## ArcBox Azure Consumption Costs
+## ArcBox Azure Costs
 
-ArcBox resources generate Azure consumption charges from the underlying Azure resources including core compute, storage, networking, and auxiliary services. Note that Azure consumption costs vary depending on the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
+
+![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
+
+Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
 
 ## Deployment Options and Automation Flow
 
@@ -238,6 +242,8 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
   ![Screenshot showing example parameters](./parameters_devops_bicep.png)
 
+- (optional) to use Spot VM instance for the _ArcBox-Client_ VM, add a parameter called _`enableAzureSpotPricing`_ set to true.
+
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
 
 ### Bicep deployment option 1: Azure CLI
@@ -247,6 +253,8 @@ az login
 az group create --name "<resource-group-name>"  --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
 ```
+
+To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -264,6 +272,8 @@ New-AzResourceGroup -Name $RGname -Location $location
 New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
 ```
 
+To use a Spot instance, replace the last command with `New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam" -enableAzureSpotPricing $true`
+
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
@@ -274,7 +284,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
    > **Note:** For enhanced ArcBox security posture, RDP (3389) and SSH (22) ports aren't open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
-### Connecting to the ArcBox Client virtual machine
+### Connecting to the _ArcBox-Client_ virtual machine
 
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
@@ -428,7 +438,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Diagram of Istio bookstore app traffic split](./smi_traffic_split.png)
 
-- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster  
+- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
 
 - To show the Istio traffic split, open the below windows.
 
@@ -524,7 +534,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
     - A browser window with the open Hello-Arc application _`http://k3sdevops.devops.com/`_ URL.
     - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
-      
+
       ```shell
       kubectx arcbox-k3s
       kubectl get pods -n hello-arc -w
@@ -642,6 +652,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
+- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
 
 ## Clean up the deployment
 

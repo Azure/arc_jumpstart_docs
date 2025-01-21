@@ -35,9 +35,13 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ![ArcBox unified operations diagram](./unifiedops.png)
 
-## ArcBox Azure Consumption Costs
+## ArcBox Azure Costs
 
-ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
+
+![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
+
+ Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
 
 ## Deployment Options and Automation Flow
 
@@ -57,7 +61,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - User remotes into Client Windows VM, which automatically kicks off multiple scripts that:
   - Deploy and configure five (5) nested virtual machines in Hyper-V
     - Windows Server 2022 VM - onboarded as Azure Arc-enabled server
-    - Windows Server 2019 VM - onboarded as Azure Arc-enabled server
+    - Windows Server 2025 VM - onboarded as Azure Arc-enabled server
     - Windows VM running SQL Server - onboarded as Azure Arc-enabled SQL Server (as well as Azure Arc-enabled server)
     - 2 x Ubuntu VM - onboarded as Azure Arc-enabled servers
   - Deploy an Azure Monitor workbook that provides example reports and metrics for monitoring ArcBox components
@@ -104,6 +108,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.GuestConfiguration --wait
   az provider register --namespace Microsoft.AzureArcData --wait
   az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.Insights--wait
   ```
 
 ## Deployment Option 1: Azure portal
@@ -138,15 +143,17 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace.
   - _`flavor`_ - Use the value _"ITPro"_ to specify that you want to deploy ArcBox for IT Pros.
-  - _`autoShutdownEnabled`_ - Optionally, you can set this to true if you want to configure the ArcBox Client VM to automatically shutdown to save costs.
+  - _`autoShutdownEnabled`_ - Optionally, you can set this to true if you want to configure the _ArcBox-Client_ VM to automatically shutdown to save costs.
   - _`autoShutdownTime`_ - If _autoShutdownEnabled_ is set to true, this value specifies what time of the day to shut down the VM. If not specified, the default value is 18.00.
   - _`autoShutdownTimezone`_ - If _autoShutdownEnabled_ is set to true, this value specifies what timezone will be used on conjunction with the value specified for _autoShutdownTime_ to shut down the VM. If not specified, the default value is _UTC_.
   - _`autoShutdownEmailRecipient`_ - If _autoShutdownEnabled_ is set to true, this value specifies what e-mail address to notify 30 minutes prior to the scheduled shutdown.
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`.
+  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k25`.
   - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
+
+- (optional) to use Spot VM instance for the _ArcBox-Client VM_, add a parameter called _`enableAzureSpotPricing`_ set to true.
 
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below commands:
 
@@ -158,6 +165,8 @@ az group create --name "<resource-group-name>" --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
 ```
 
+To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
+
 ### Bicep deployment option 2: Azure PowerShell
 
 ```powershell
@@ -167,6 +176,8 @@ $Location= "<preferred-location>"
 New-AzResourceGroup -Name $RGname -Location $location
 New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam"
 ```
+
+To use a Spot instance, replace the last command with `New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam" -enableAzureSpotPricing $true`
 
   > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -178,7 +189,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
    > **Note:** For enhanced ArcBox security posture, RDP (3389) port aren't open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
-### Connecting to the ArcBox Client virtual machine
+### Connecting to the _ArcBox-Client_ virtual machine
 
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
@@ -258,7 +269,7 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
   Password: JS123!!
   ```
 
-  ![Screenshot showing ArcBox Client VM with Hyper-V](./hypervterminal.png)
+  ![Screenshot showing ArcBox-Client VM with Hyper-V](./hypervterminal.png)
 
 ## SSH access to Azure Arc-enabled servers
 
@@ -279,7 +290,7 @@ az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $
 
  ![Screenshot showing usage of SSH via Azure CLI](./ssh_via_az_cli_01.png)
 
-> **Note:** You aren't prompted for a password since ArcBox includes an SSH key-pair installed on ArcBox client VM and the hybrid Linux VMs.
+> **Note:** You aren't prompted for a password since ArcBox includes an SSH key-pair installed on _ArcBox-Client_ VM and the hybrid Linux VMs.
 
 or
 
@@ -297,10 +308,10 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
 
   ```powershell
   az login --identity
-  
-  $serverName = "ArcBox-Win2K22"
+
+  $serverName = "ArcBox-Win2K25"
   $localUser = "Administrator"
-  
+
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
   ```
 
@@ -309,7 +320,7 @@ Following the previous method, connect to _ArcBox-Win2K22_ via SSH.
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
 ```
@@ -319,7 +330,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser
 ```
@@ -333,7 +344,7 @@ In addition to SSH, you can also connect to the Azure Arc-enabled servers, Windo
 ### Azure CLI
 
 ```shell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser --rdp
 ```
@@ -343,7 +354,7 @@ or
 ### Azure PowerShell
 
 ```powershell
-$serverName = "ArcBox-Win2K22"
+$serverName = "ArcBox-Win2K25"
 $localUser = "Administrator"
 Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $localUser -Rdp
 ```
@@ -458,22 +469,22 @@ Expected output:
   ```powershell
   # Create PowerShell Remoting session
   New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
-  
+
   # Run a command
   Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
-  
+
   # Enter an interactive session
   Enter-PSSession -Session $session[0]
-  
+
   # Disconnect
   exit
-  
+
   # Clean-up
   $session | Remove-PSSession
   ```
 
   Expected output:
-  
+
   ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
@@ -594,7 +605,7 @@ Once you connect SQL Server running in on-premises or other cloud environment it
 
 As part of the ArcBox ITPro deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
 
-Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
+Follow the steps below to review migration readiness of the ArcBox-SQL server running on the _ArcBox-Client_ as a guest VM.
 
 - Navigate to the resource group overview page in Azure Portal.
 
@@ -655,7 +666,7 @@ This section guides you through different settings for enabling Microsoft Defend
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
 - Microsoft Defender for Cloud generates an email and sends it to the registered email for alerts. The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
-  
+
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
 
 ### Arc-enabled SQL Server - least privilege access
@@ -734,6 +745,22 @@ The following tools are including on the _ArcBox-Client_ VM.
 - Windows Terminal
 - WinGet
 
+### Windows Server Management Enabled by Azure Arc
+
+There are a host of other features enabled by [Azure Arc for Windows Server management](https://learn.microsoft.com/azure/azure-arc/servers/windows-server-management-overview?tabs=portal) such as Azure Site Recovery Configuration, Best Practices Assessment, and Windows Admin Center in Azure for Arc.  Some of these capabilities are specific to Windows Server 2025 and require the use of either Software Assurance or a pay-as-you-go (PAYG) license.  To use these features, first activate a license on _ArcBox-Win2K25_.
+
+![Screenshot showing ArcBox-Win2K25 license activation](./windows_server_license.png)
+
+If you have Software Assurance, click on the Activate Benefits and attest to having active Software Assurance.
+
+![Screenshot attesting to active Software Assurance](./windows_activate_attestation.png)
+
+In the license section of _ArcBox-Win2K25_ in the Azure Portal, the machine will now show as licensed.
+
+![Screenshot showing ArcBox-Win2K25 successfully licensed](./win2k25_licensed.png)
+
+Once the license is active, enable the features of interest from the Azure Portal.
+
 ### Next steps
 
 ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
@@ -742,6 +769,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
 - Build a certificate/secret/key management strategy with your Azure Arc resources
+- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
 
 Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
 

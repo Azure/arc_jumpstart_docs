@@ -49,9 +49,13 @@ ArcBox deploys metrics and logs upload to Azure Monitor for the deployed data se
 
 ArcBox allows you to experience various Azure Arc-enabled SQL Managed Instance unified operations like Point-in-Time restore, disaster recovery, high availability, monitoring and migration. Once deployed, you will be able to connect to the SQL instances deployed on the three clusters and test different operations with the aid of a bookstore application.
 
-## ArcBox Azure Consumption Costs
+## ArcBox Azure Costs
 
-ArcBox resources generate Azure consumption charges from the underlying Azure resources including core compute, storage, networking, and auxiliary services. Note that Azure consumption costs vary depending on the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
+
+![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
+
+Please see the [Jumpstart FAQ](../../faq/) for more information on consumption costs.
 
 ## Deployment Options and Automation Flow
 
@@ -208,6 +212,8 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
   ![Screenshot showing example parameters](./parameters_dataops_bicep.png)
 
+- (optional) to use Spot VM instance for the _ArcBox-Client VM_, add a parameter called _`enableAzureSpotPricing`_ set to true.
+
 - Now you will deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox/bicep) and run the below command:
 
 ```shell
@@ -215,6 +221,8 @@ az login
 az group create --name "<resource-group-name>"  --location "<preferred-location>"
 az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p  customLocationRPOID="$customLocationRPOID"
 ```
+
+To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
 
 > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
 
@@ -226,7 +234,7 @@ Once your deployment is complete, you can open the Azure portal and see the ArcB
 
    > **Note:** For enhanced ArcBox security posture, RDP (3389) and SSH (22) ports aren't open by default in ArcBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
-### Connecting to the ArcBox Client virtual machine
+### Connecting to the _ArcBox-Client_ virtual machine
 
 Various options are available to connect to _ArcBox-Client_ VM, depending on the parameters you supplied during deployment.
 
@@ -638,7 +646,7 @@ Once you connect SQL Server running in on-premises or other cloud environment it
 
 As part of the ArcBox DataOps deployment on-demand SQL Server migration assessment is ran show case the SQL Server migration readiness, which includes server level and database level compatibilities to migrate to different target SQL Servers such as Azure SQL Server, SQL Server Managed Instance, and SQL Server on Azure VMs.
 
-Follow the steps below to review migration readiness of the ArcBox-SQL server running on the ArcBox-Client as a guest VM.
+Follow the steps below to review migration readiness of the ArcBox-SQL server running on the _ArcBox-Client_ as a guest VM.
 
 - Navigate to the resource group overview page in Azure Portal.
 
@@ -701,7 +709,7 @@ This section guides you through different settings for enabling Microsoft Defend
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
 - Microsoft Defender for Cloud generates an email and sends it to the registered email for alerts. The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
-  
+
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
 
 ### Arc-enabled SQL Server - least privilege access
