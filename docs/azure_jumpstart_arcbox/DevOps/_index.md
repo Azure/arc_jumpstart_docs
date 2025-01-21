@@ -75,7 +75,7 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ## ArcBox Azure Costs
 
-ArcBox resources generate Azure consumption charges from the underlying Azure resources including core compute, storage, networking, and auxiliary services. Note that Azure consumption costs vary depending on the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges.  In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the _ArcBox-Client_ VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.  In addition, [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) can be used to reduce the compute costs of ArcBox.  Using this option may result in the _ArcBox-Client_ being evicted when Azure needs the capacity and the VM will no longer be available.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
 
 ![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
 
@@ -438,7 +438,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Diagram of Istio bookstore app traffic split](./smi_traffic_split.png)
 
-- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster  
+- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
 
 - To show the Istio traffic split, open the below windows.
 
@@ -534,7 +534,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
     - A browser window with the open Hello-Arc application _`http://k3sdevops.devops.com/`_ URL.
     - PowerShell running the command _`kubectl get pods -n hello-arc -w`_ command.
-      
+
       ```shell
       kubectx arcbox-k3s
       kubectl get pods -n hello-arc -w
@@ -652,7 +652,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Build policy initiatives that apply to your Azure Arc-enabled resources
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
-- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems) 
+- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
 
 ## Clean up the deployment
 
