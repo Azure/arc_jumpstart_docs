@@ -37,7 +37,7 @@ ArcBox deploys several management and operations services that work with ArcBox'
 
 ## ArcBox Azure Costs
 
-ArcBox resources generate Azure consumption charges from the underlying Azure resources including core compute, storage, networking and auxiliary services. Note that Azure consumption costs vary depending the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges. In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the _ArcBox-Client_ VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.  In addition, [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) can be used to reduce the compute costs of ArcBox.  Using this option may result in the _ArcBox-Client_ being evicted when Azure needs the capacity and the VM will no longer be available.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
 
 ![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
 
@@ -308,10 +308,10 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
 
   ```powershell
   az login --identity
-  
+
   $serverName = "ArcBox-Win2K25"
   $localUser = "Administrator"
-  
+
   az ssh arc --resource-group $Env:resourceGroup --name $serverName --local-user $localUser
   ```
 
@@ -469,22 +469,22 @@ Expected output:
   ```powershell
   # Create PowerShell Remoting session
   New-PSSession -HostName $serverName -UserName $localUser -Options $options -OutVariable session
-  
+
   # Run a command
   Invoke-Command -Session $session -ScriptBlock {Write-Output "Hello $(whoami) from $(hostname)"}
-  
+
   # Enter an interactive session
   Enter-PSSession -Session $session[0]
-  
+
   # Disconnect
   exit
-  
+
   # Clean-up
   $session | Remove-PSSession
   ```
 
   Expected output:
-  
+
   ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
@@ -666,7 +666,7 @@ This section guides you through different settings for enabling Microsoft Defend
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
 - Microsoft Defender for Cloud generates an email and sends it to the registered email for alerts. The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
-  
+
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
 
 ### Arc-enabled SQL Server - least privilege access
@@ -769,7 +769,7 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 - Write and test custom policies that apply to your Azure Arc-enabled resources
 - Incorporate your own tooling and automation into the existing automation framework
 - Build a certificate/secret/key management strategy with your Azure Arc resources
-- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems) 
+- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
 
 Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
 

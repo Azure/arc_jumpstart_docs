@@ -51,7 +51,7 @@ ArcBox allows you to experience various Azure Arc-enabled SQL Managed Instance u
 
 ## ArcBox Azure Costs
 
-ArcBox resources generate Azure consumption charges from the underlying Azure resources including core compute, storage, networking, and auxiliary services. Note that Azure consumption costs vary depending on the region where ArcBox is deployed. Be mindful of your ArcBox deployments and ensure that you disable or delete ArcBox resources when not in use to avoid unwanted charges.  In an effort to reduce the costs, by default the client VM will auto-shutdown at 1800 UTC.  This can be changed either during the deployment by altering the parameters for autoShutdownEnabled, autoShutdownTime, and autoShutdownTimezone within the Bicep template or after deployment by changing the [auto-shutdown](https://learn.microsoft.com/azure/virtual-machines/auto-shutdown-vm?tabs=portal) parameters from the Azure Portal.  When the _ArcBox-Client_ VM is stopped, there will be no compute charges; however, there will still be charges for the storage components.  In addition, [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) can be used to reduce the compute costs of ArcBox.  Using this option may result in the _ArcBox-Client_ being evicted when Azure needs the capacity and the VM will no longer be available.
+ArcBox resources incur Azure charges for compute, storage, networking, and auxiliary services. Costs vary by region. Disable or delete ArcBox resources when not in use to avoid charges. By default, the client VM auto-shuts down at 1800 UTC to reduce costs. This can be changed during deployment via the Bicep template or later in the Azure Portal. When the _ArcBox-Client_ VM is stopped, compute charges cease, but storage charges remain. Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
 
 ![screenshot showing the auto-shutdown parameters in the Azure Portal](./arcbox-client-auto-shutdown.png)
 
@@ -709,7 +709,7 @@ This section guides you through different settings for enabling Microsoft Defend
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-incidents.png)
 
 - Microsoft Defender for Cloud generates an email and sends it to the registered email for alerts. The below screenshot shows an email alert sent by Defender for Cloud when a SQL threat is detected. By default, this email is sent to the registered contact email at the subscription level.
-  
+
   ![Screenshot showing Defender for SQL security incidents and alerts](./sql-defender-brute-force-attack-alert.png)
 
 ### Arc-enabled SQL Server - least privilege access
