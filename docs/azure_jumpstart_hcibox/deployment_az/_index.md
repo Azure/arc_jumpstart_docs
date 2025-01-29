@@ -9,7 +9,7 @@ weight: 4
 
 ## Azure CLI
 
-Azure CLI is used to deploy HCIBox into your Azure subscription. Read on to learn how to deploy HCIBox with Azure CLI.
+Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you require a service principal by your Azure administrator for use with HCIBox. Read on to learn how to deploy HCIBox with Azure CLI.
 
 ### Prepare the environment
 
