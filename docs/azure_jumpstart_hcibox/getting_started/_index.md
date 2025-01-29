@@ -57,8 +57,7 @@ Deploying HCIBox is a multi-step process that includes:
 ![Screenshot showing deployment flow diagram for Bicep-based deployments](./deployment_flow.png)
 
 ## Deploy HCIBox
--	[Deploy HCIBox with Azure Developer CLI](/azure_jumpstart_hcibox/deployment_azd) : Best for those with access to Microsoft Entra ID
--	[Deploy HCIBox with Azure CLI](/azure_jumpstart_hcibox/deployment_az) : Alternative to Microsoft Entra ID, requires pre-configured service principle.
+-	[Deploy HCIBox with Azure CLI](/azure_jumpstart_hcibox/deployment_az) : Requires pre-configured service principle.
 
 Looking for something else related to HCIBox?
 
