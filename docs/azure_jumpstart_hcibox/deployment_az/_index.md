@@ -109,6 +109,8 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
   ![Screenshot showing retrieving Azure Local resource provider id](./hci_rp_id.png)
 
 
+> **Note:** If the ```az ad sp list --display-name "Microsoft.AzureStackHCI Resource Provider"``` command returns an empty array, you should first register the provider with this command : ```az provider register --namespace Microsoft.AzureStackHCI```
+
 > **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
 
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
