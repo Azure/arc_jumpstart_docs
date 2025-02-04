@@ -82,7 +82,7 @@ To discover a Jumpstart Drop tailored to your needs, leverage the filters and so
 
 ### How do I use a Jumpstart Drop?
 
-Using Jumpstart Drop is straightforward. Simply download the Jumpstart Drop by clicking the Download button on the Jumpstart Drop's page. After downloading, you will have a .zip file containing all the necessary source code to run the Jumpstart Drop. Depending on the Jumpstart Drop, you may need to configure some prerequisites, but all instructions should be included in the *index.md* file of the Jumpstart Drop.
+Using Jumpstart Drop is straightforward. Simply download the Jumpstart Drop by clicking the Download button on the Jumpstart Drop's page. After downloading, you will have a *.zip* file containing all the necessary source code to run the Jumpstart Drop. Depending on the Jumpstart Drop, you may need to configure some prerequisites, but all instructions should be included in the *index.md* file of the Jumpstart Drop.
 
 ### How do I submit a Jumpstart Drop?
 
