@@ -9,7 +9,7 @@ weight: 1
 
 Our core mission at Arc Jumpstart is to provide "the missing link" between traditional product documentation and "real-world" applied solutions of Microsoft technology and the adaptive cloud portfolio that bring value to Microsoft customers and partners. Our commitment to this mission is rooted in the principles that drive us forward:
 
-1. **Enabling immediate engagement:** Arc Jumpstart is designed to offer a seamless "zero to hero" experience. We understand the value of your time, and our goal is to enable you to dive right into the Azure adaptive cloud product portfolio, eliminating barriers and complexities.
+1. **Time-to-value** Arc Jumpstart is designed to offer a seamless "zero to hero" experience. We understand the value of your time, and our goal is to let you to dive right into the Azure adaptive cloud product portfolio, eliminating barriers and complexities to adoption of your planned solution.
 
 2. **Comprehensive guidance:** We provide more than just guides; we offer comprehensive, step-by-step instructions tailored for various independent user stories and scenarios. Our content is meticulously detailed, incorporating extensive automation, clear screenshots, and comprehensive code samples. This ensures that your learning journey is not just informative but also visually enriching and deeply engaging.
 
