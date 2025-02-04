@@ -13,7 +13,7 @@ Our core mission at Arc Jumpstart is to provide "the missing link" between tradi
 
 2. **Comprehensive guidance:** We provide more than just guides; we offer comprehensive, step-by-step instructions tailored for real-world use cases and scenarios. Our content is meticulously detailed, with concise instructions, clear screenshots, and comprehensive code samples that use automation to reduce setup time and complexity.
 
-3. **Unparalleled user experience:** Our dedication lies in delivering a rich and immersive experience. We go beyond the basics, curating a user-centric environment that resonates with both beginners and seasoned professionals. Whether you're setting up your environment on-premises or in the cloud, our guides empower you to focus on the product evaluation, without being bogged down by unforced technical hardships.
+3. **Unparalleled user experience:** We want to deliver a rich experience, so we go beyond the basics by offering content that resonates with both beginners and seasoned professionals. Whether you're setting up your environment on-premises or in the cloud, our guides let you to focus on the product evaluation, without being bogged down by unforced technical hardships.
 
 4. **Embracing platform flexibility:** We recognize the diversity of your infrastructure, and our mission is to provide a platform-agnostic approach. Arc Jumpstart accommodates your infrastructure, whether it resides on-premises or in the cloud. Our focus is to ensure that regardless of your setup, you can harness the true potential of the adaptive cloud approach and product portfolio effortlessly.
 
