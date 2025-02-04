@@ -23,7 +23,7 @@ Our core mission at Arc Jumpstart is to provide "the missing link" between tradi
 
 At Arc Jumpstart, we don't just create documents and guides; we craft immersive experiences that we hope resonate with you on a personal level. Our philosophy is deeply rooted in these core design principles, with the goal of making every interaction you have with our materials enriching and relatable:
 
-1. **“User never fails” mentality:** Your success is our top priority. We aim to provide foolproof, easy-to-use instructions in every guide.
+1. **“User never fails” mentality:** Your success is our top priority. We aim to provide foolproof, easy-to-use instructions in every guide. We also have an active community on GitHub for user issues and discussion.
 
 2. **Automation excellence:** If it can or should be automated, rest assured, it will be automated. We believe in the power of automation, streamlining processes, and simplifying complex tasks to make your journey smooth and efficient.
 
