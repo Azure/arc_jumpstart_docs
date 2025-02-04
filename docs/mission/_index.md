@@ -11,7 +11,7 @@ Our core mission at Arc Jumpstart is to provide "the missing link" between tradi
 
 1. **Time-to-value** Arc Jumpstart is designed to offer a seamless "zero to hero" experience. We understand the value of your time, and our goal is to let you to dive right into the Azure adaptive cloud product portfolio, eliminating barriers and complexities to adoption of your planned solution.
 
-2. **Comprehensive guidance:** We provide more than just guides; we offer comprehensive, step-by-step instructions tailored for various independent user stories and scenarios. Our content is meticulously detailed, incorporating extensive automation, clear screenshots, and comprehensive code samples. This ensures that your learning journey is not just informative but also visually enriching and deeply engaging.
+2. **Comprehensive guidance:** We provide more than just guides; we offer comprehensive, step-by-step instructions tailored for real-world use cases and scenarios. Our content is meticulously detailed, with concise instructions, clear screenshots, and comprehensive code samples that use automation to reduce setup time and complexity.
 
 3. **Unparalleled user experience:** Our dedication lies in delivering a rich and immersive experience. We go beyond the basics, curating a user-centric environment that resonates with both beginners and seasoned professionals. Whether you're setting up your environment on-premises or in the cloud, our guides empower you to focus on the product evaluation, without being bogged down by unforced technical hardships.
 
