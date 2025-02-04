@@ -7,7 +7,7 @@ weight: 1
 
 ## Our mission and principles: Empowering seamless Azure adaptive cloud adoption
 
-Welcome to the heart of our mission at Arc Jumpstart, where we strive to transform your learning experience into a smooth and empowering journey. Our commitment is rooted in the principles that drive us forward:
+Our core mission at Arc Jumpstart is to provide "the missing link" between traditional product documentation and "real-world" applied solutions of Microsoft technology and the adaptive cloud portfolio that bring value to Microsoft customers and partners. Our commitment to this mission is rooted in the principles that drive us forward:
 
 1. **Enabling immediate engagement:** Arc Jumpstart is designed to offer a seamless "zero to hero" experience. We understand the value of your time, and our goal is to enable you to dive right into the Azure adaptive cloud product portfolio, eliminating barriers and complexities.
 
