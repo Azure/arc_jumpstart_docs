@@ -113,7 +113,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing opening a folder in a dev container](./img/vscode_dev_container.png)
 
-- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-agora-apps_.
+- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-apps_.
 
     ![Screenshot showing the cloned repository on the client VM](./img/vscode_dev_container_open_folder.png)
 
@@ -133,7 +133,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the cloned repository opened in the dev container](./img/vscode_dev_container_pos_app.png)
 
-- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_ and select the _jumpstart-agora-apps_ repository to add it to the allow list.
+- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_ and select the _jumpstart-apps_ repository to add it to the allow list.
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
 
@@ -162,7 +162,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the added pushing code to remote](./img/vscode_dev_push_changes.png)
 
-- After the code has been pushed, navigate to your GitHub fork of the _jumpstart-agora-apps_, you will see a notification about changes in the _feature-checkout-cart_branch_. Click _Compare & Pull request_.
+- After the code has been pushed, navigate to your GitHub fork of the _jumpstart-apps_, you will see a notification about changes in the _feature-checkout-cart_branch_. Click _Compare & Pull request_.
 
     ![Screenshot showing new changes message](./img/github_create_pr_dev.png)
 

@@ -134,7 +134,7 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing opening a folder in a dev container](./img/vscode_dev_container.png)
 
-- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-agora-apps_.
+- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-apps_.
 
     ![Screenshot showing the cloned repository on the client VM](./img/vscode_dev_container_open_folder.png)
 
@@ -154,7 +154,7 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing the trust folder prompt in VSCode](./img/vscode_dev_container_pos_app.png)
 
-- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_, and select the _jumpstart-agora-apps_ repository to include the repository to the allow list.
+- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_, and select the _jumpstart-apps_ repository to include the repository to the allow list.
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
 
