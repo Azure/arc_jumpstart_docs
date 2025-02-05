@@ -57,7 +57,7 @@ Jumpstart Agora uses a combination of the following AI models:
 - **Microsoft _Phi-3-Mini-4K-Instruct_ model**, a specialized language model for advanced natural language processing.
 - **Intel OpenVINO models**, which are designed for optimized deployment of AI models on Intel hardware.
 
-## What is the license for the Microsoft Phi-3-Mini-4K-Instruct model?**
+## What is the license for the Microsoft Phi-3-Mini-4K-Instruct model?
 
 The **_Phi-3-Mini-4K-Instruct_** model by Microsoft is licensed under the [MIT License](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/LICENSE). You can review the full details of the license in the `LICENSE` file located in the Jumpstart Agora repository.
 
