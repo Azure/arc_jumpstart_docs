@@ -135,6 +135,12 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
 
+- After the repository is loaded, discard any tracked files that appear in VSCode.
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes.png)
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes_confirm.png)
+
 - To add this new checkout functionality, you will have to create a new feature branch and edit the _navbar.html_ file in the _pos_ application.
 - Create a new branch from VSCode called _feature-checkout-cart_ and publish this branch to the remote repository.
 
@@ -142,7 +148,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing publishing the new branch](./img/vscode_dev_publish_branch.png)
 
-- Navigate to the file _contoso_supermarket/developer/PoS/src/templates/navbar.html_.
+- Navigate to the file _agora/point_of_sale/src/templates/navbar.html_.
 
     ![Screenshot showing the navbar.html file](./img/vscode_dev_navbar_file.png)
 

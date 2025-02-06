@@ -156,6 +156,12 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
 
+- After the repository is loaded, discard any tracked files that appear in VSCode.
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes.png)
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes_confirm.png)
+
 - Switch to the _canary_ branch to enable the "Live View" feature on the _Chicago_ Kubernetes cluster.
 
     ![Screenshot showing switching to the canary branch](./img/vscode_canary_branch.png)
