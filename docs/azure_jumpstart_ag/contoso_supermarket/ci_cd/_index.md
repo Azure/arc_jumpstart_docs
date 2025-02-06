@@ -68,11 +68,9 @@ Contoso has implemented a CI/CD workflow to make it easier for their developers 
 
 - The GitOps configuration is located Within the _operations_ folder. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
 
-    ![Screenshot showing the operations folder structure](./img/repo_operations_structure.png)
+    ![Screenshot showing the operations folder structure](./img/repo_operations_helm_structure.png)
 
 - Each application has a folder for [Helm](https://helm.sh/docs/) _charts_ where the Kubernetes manifests for each application are located and a folder for _releases_ where the Helm Releases for each application and each environment is located. This way the DevOps team can control the promotion of each version of the applications across the CI/CD workflow on different environments and also enable/disable features created by the developers as needed.
-
-    ![Screenshot showing the helm folder structure](./img/repo_operations_helm_structure.png)
 
     ![Screenshot showing the helm releases folder structure](./img/repo_operations_helmreleases_structure.png)
 
