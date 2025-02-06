@@ -16,7 +16,7 @@ Furthermore, Contoso Motors leverages the power of Artificial Intelligence (AI) 
 
 Additionally, Kubernetes plays a vital role in Contoso Motors' infrastructure, streamlining the deployment and management of containerized applications. With Kubernetes, Contoso Motors ensures smooth manufacturing operations while maintaining scalability to adapt to changing demands, solidifying their position as an industry leader.
 
-Looking ahead, Contoso Motors embraces Microsoft's Adaptive cloud approach, with Azure Arc serving as the foundation. This strategic move unifies teams, sites, and systems into a cohesive operational framework, enabling the harnessing of cloud-native and AI technologies across hybrid, multicloud, edge, and IoT environments. With Azure Arc, Contoso Motors embarks on a journey towards operational agility, security, and innovation, setting new standards in the automotive industry.
+Looking ahead, Contoso Motors embraces Microsoft's adaptive cloud approach, with Azure Arc serving as the foundation. This strategic move unifies teams, sites, and systems into a cohesive operational framework, enabling the harnessing of cloud-native and AI technologies across hybrid, multicloud, edge, and IoT environments. With Azure Arc, Contoso Motors embarks on a journey towards operational agility, security, and innovation, setting new standards in the automotive industry.
 
 ## Architecture and technology stack
 
