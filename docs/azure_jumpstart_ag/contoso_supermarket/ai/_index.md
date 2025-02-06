@@ -162,7 +162,7 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing switching to the canary branch](./img/vscode_canary_branch.png)
 
-- Navigate to the file _contoso_supermarket/operations/contoso_supermarket/releases/queue-monitoring-frontend/canary/chicago.yaml_. You can see that "Live View" is disabled.
+- Navigate to the file _store_queue_monitoring_frontend/operations/releases/canary/chicago.yaml_. You can see that "Live View" is disabled.
 
     ![Screenshot showing the navbar.html file](./img/vscode_canary_live_view_disabled.png)
 

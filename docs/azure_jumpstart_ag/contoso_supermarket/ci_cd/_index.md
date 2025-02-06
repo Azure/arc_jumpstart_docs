@@ -58,15 +58,15 @@ Contoso has implemented a CI/CD workflow to make it easier for their developers 
 
     ![Screenshot showing the GitHub repository branches](./img/repo_branches.png)
 
-- The repository has two main folders to separate the development team applications' code (developer) and the DevOps team operations GitOps configurations (operations).
+- The repository has two main folders per application to separate the development team applications' code (src) and the DevOps team operations GitOps configurations (operations).
 
     ![Screenshot showing the GitHub repository main folder structure](./img/repo_folder_structure.png)
 
-- Within the _developer_ folder there is a folder for each application's source code. This is where Contoso Supermarket's developers develop new features.
+- The application's source code is located Within the _src_ folder. This is where Contoso Supermarket's developers develop new features.
 
     ![Screenshot showing the developer folder structure](./img/repo_developer_structure.png)
 
-- Within the _operations_ folder there is also a folder for each application's GitOps configuration. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
+- The GitOps configuration is located Within the _operations_ folder. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
 
     ![Screenshot showing the operations folder structure](./img/repo_operations_structure.png)
 
