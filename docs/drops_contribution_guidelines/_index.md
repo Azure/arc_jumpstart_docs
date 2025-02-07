@@ -80,19 +80,19 @@ As you fill in the parameters, you'll see that the top bar will show the status 
 
 ![Side panel preview](./side_panel_preview.png)
 
-  8. Once all the content is submitted and reviewed, you will notice that the two sections of the progress bar will turn green, indicating that all required information has been provided. At this point, you can proceed by clicking the **Create Drop** button. If there are any missing inputs or parameters, the progress bar will turn red, and the Drop creation process will be halted. In such cases, please review the content and ensure that all errors are fixed.
-
-![Progress bar with errors](./header_wrong.png)
-
-<p style="text-indent: 20px;">If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission followed by redirection to the final page, where you can view the status of submission.</p>
+  8. Once all the content is submitted and reviewed, you will notice that the two sections of the progress bar will turn green, indicating that all required information has been provided. At this point, you can proceed by clicking the **Create Drop** button. If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission followed by redirection to the final page, where you can view the status of submission.
 
 ![Progress bar with successful submission](./header_correct.png)
+
+> **Note:** If there are any missing inputs or parameters, the progress bar will turn red, and the Drop creation process will be halted. In such cases, please review the content and ensure that all errors are fixed.
+
+![Progress bar with errors](./header_wrong.png)
 
   9. Complete the submission and wait for the content to be processed. The Drop Creation Wizard will automate the creation of a GitHub pull request. Once the pull request is created, a link to the public PR will be provided for the contributor to track the status of the Drop. If any additional content or comments need to be added, they can be done by commenting directly on the GitHub PR or by creating an [issue](https://github.com/Azure/arc_jumpstart_drops/issues).
 
 ![Create a Drop wait](./drop_wait.png)
 
-&nbsp; &nbsp; &nbsp; &nbsp; Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
+&nbsp;&nbsp;&nbsp;&nbsp;Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
 
 ![Successful Drop](./successful_drop.png)
 
