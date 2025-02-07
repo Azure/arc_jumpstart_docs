@@ -18,7 +18,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
 
 - Create a Google Cloud Platform (GCP) project, IAM Role & Service Account
 - Download GCP credentials file
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 - Create the .tfvars file with your variables values
 - Export the *TF_VAR_CL_OID* variable
 - *terraform init*
@@ -30,7 +30,7 @@ By the end of this scenario, you will have a GKE cluster deployed with an Azure 
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git

@@ -37,15 +37,15 @@ At Arc Jumpstart, we don't just create documents and guides; we craft immersive 
 
 ![Image of the Jumpstart core design principles](/img/about/principles.png)
 
-## Our commitment to the open source community: elevating excellence together
+## Our commitment to the open-source community: elevating excellence together
 
 At Arc Jumpstart, we consider high code quality not just a priority, but a fundamental principle. Our extensive automation and scripting for scenarios and features undergo rigorous code reviews and testing, ensuring a standard of excellence that our users can rely on. We believe that quality is not just about meticulous craftsmanship, but also about selecting and integrating the right tools effectively.
 
 In the spirit of open-source collaboration, we are deeply committed to supporting the wider community. We recognize the remarkable contributions of others and actively seek opportunities to build upon their work. With many popular open-source projects integrated into Jumpstart, our commitment extends beyond mere usage. We pledge to support, advocate, and contribute to these projects, fostering an environment of mutual growth and innovation.
 
-By embracing this ethos, we are dedicated to providing you with an unparalleled open source experience. Together, let's elevate the standards of open source excellence and create a vibrant community where innovation knows no bounds.
+By embracing this ethos, we are dedicated to providing you with an unparalleled open-source experience. Together, let's elevate the standards of open-source excellence and create a vibrant community where innovation knows no bounds.
 
-![Image showing open source projects logos](/img/about/oss.png)
+![Image showing open-source projects logos](/img/about/oss.png)
 
 ## Getting started with the Jumpstart universe
 
@@ -63,7 +63,7 @@ This website has been curated to ensure you have everything you need to begin yo
 
 - **Visual learning:** Visual cues enhance comprehension. Detailed screenshots provide visual context, enhancing your learning experience and making complex topics more accessible.
 
-> **Disclaimer:** Arc Jumpstart focuses on the adaptive cloud product portfolio and capabilities, deployment scenarios, and practical use-cases. While we provide extensive support, please note that Azure best-practices and the integration of various technologies and open source projects within the scenarios and code are outside our primary scope. The scenarios, including ArcBox, HCIBox, and Agora, are designed for evaluation, training, and demo purposes exclusively and are not intended for production use cases.
+> **Disclaimer:** Arc Jumpstart focuses on the adaptive cloud product portfolio and capabilities, deployment scenarios, and practical use-cases. While we provide extensive support, please note that Azure best-practices and the integration of various technologies and open-source projects within the scenarios and code are outside our primary scope. The scenarios, including ArcBox, HCIBox, and Agora, are designed for evaluation, training, and demo purposes exclusively and are not intended for production use cases.
 
 ## Jumpstart public roadmap
 

@@ -33,7 +33,7 @@ Contoso Supermarket is researching a number of additional health and safety syst
 
 The local collection and visualization of sensor data uses the same infrastructure as the [Infrastructure Observability](../k8s_infra_observability/) stack, namely Prometheus and Grafana. This provides the store manager with a single pane of glass for monitoring both the infrastructure and the sensors, and minimizes the number of new technologies that the manager needs to learn and that Contoso must support.
 
-[Prometheus](https://prometheus.io/) is a highly efficient open source monitoring system that collects and stores metrics from various sources in real-time. It provides a flexible query language for analyzing the collected metrics and offers robust alerting capabilities. On the other hand, [Grafana](https://grafana.com/) is a powerful open source data visualization and analytics platform. It allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time and also offers its own alerting capabilities.
+[Prometheus](https://prometheus.io/) is a highly efficient open-source monitoring system that collects and stores metrics from various sources in real-time. It provides a flexible query language for analyzing the collected metrics and offers robust alerting capabilities. On the other hand, [Grafana](https://grafana.com/) is a powerful open-source data visualization and analytics platform. It allows users to create interactive and customizable dashboards to visualize the collected metrics in real-time and also offers its own alerting capabilities.
 
 ### Architecture
 
@@ -41,7 +41,7 @@ The local collection and visualization of sensor data uses the same infrastructu
 
 The environmental observability architecture for _Dev_, _Staging_, and _Prod_ environments leverage the same Kube Prometheus Stack as Infrastructure Observability, which includes Kubernetes manifests, Grafana dashboards, and Prometheus rules. Added to that are the IoT sensors (simulated in the scenario), [Mosquitto MQTT broker](https://mosquitto.org/), Azure IoT Hub, ADX, and a service that exposes IoT data to be scraped by Prometheus called [MQTT2PROM](https://github.com/hikhvar/mqtt2prometheus).
 
-Mosquitto open source MQTT broker was chosen due to its popularity, lightweight implementation, and efficiency, making it a good fit for handling the sensors' messaging flow. Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. It also provides a device registry that stores information about the devices and their capabilities.
+Mosquitto open-source MQTT broker was chosen due to its popularity, lightweight implementation, and efficiency, making it a good fit for handling the sensors' messaging flow. Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. It also provides a device registry that stores information about the devices and their capabilities.
 
 The _Dev_ and _Staging_ environments are configured with individual Prometheus and Grafana instances, while the _Prod_ environment is configured with a central Grafana instance. This architecture allows for more granular monitoring and troubleshooting in the _Dev_ and _Staging_ environments, while still providing a centralized view of the infrastructure's health and performance in the _Prod_ environment.
 
