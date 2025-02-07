@@ -84,11 +84,11 @@ As you fill in the parameters, you'll see that the top bar will show the status 
 
 ![Progress bar with errors](./header_wrong.png)
 
-&nbsp; &nbsp; &nbsp; &nbsp; If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission. &nbsp; &nbsp; &nbsp; &nbsp; You will then be redirected to the final page, where you can view the status of submission.
+&nbsp; &nbsp; &nbsp; &nbsp; If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission followed by redirection to the final page, where you can view the status of submission.
 
 ![Progress bar with successful submission](./header_correct.png)
 
-  9. Complete the submission and wait for the content to be processed. The Drop Creation Wizard will automate the creation of a GitHub pull request. Once the pull request is created, a link to the public PR will be provided for the contributor to track the status of the Drop. If any additional content or comments need to be added, they can be done by commenting directly on the GitHub PR or by creating an [issue](https://github.com/Azure/arc_jumpstart_drops/issues).
+  1. Complete the submission and wait for the content to be processed. The Drop Creation Wizard will automate the creation of a GitHub pull request. Once the pull request is created, a link to the public PR will be provided for the contributor to track the status of the Drop. If any additional content or comments need to be added, they can be done by commenting directly on the GitHub PR or by creating an [issue](https://github.com/Azure/arc_jumpstart_drops/issues).
 
 ![Create a Drop wait](./drop_wait.png)
 
