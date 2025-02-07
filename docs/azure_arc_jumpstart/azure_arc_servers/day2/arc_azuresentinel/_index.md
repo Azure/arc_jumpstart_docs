@@ -98,7 +98,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 Microsoft Sentinel uses the Log Analytics agent to collect Windows and Linux server's log files and forwards them to Microsoft Sentinel, the data collected is stored in a Log Analytics workspace. Since you cannot use the default workspace created by Microsoft Defender for Cloud, a custom one is required and you could have raw events and alerts for Defender within the same custom workspace as Sentinel.
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

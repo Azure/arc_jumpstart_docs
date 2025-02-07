@@ -125,7 +125,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Deployment Option 2: Bicep deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git

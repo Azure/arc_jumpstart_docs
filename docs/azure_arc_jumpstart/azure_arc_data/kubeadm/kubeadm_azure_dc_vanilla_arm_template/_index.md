@@ -16,7 +16,7 @@ By the end of this scenario, you will have a Kubeadm Kubernetes cluster deployed
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

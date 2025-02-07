@@ -30,7 +30,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

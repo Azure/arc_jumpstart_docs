@@ -18,7 +18,7 @@ GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a p
 
 ## Prerequisites
 
-- Fork the ["Azure Arc Jumpstart Apps"](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -205,7 +205,7 @@ With Namespace-level GitOps config, the goal is to have Kubernetes resources dep
   
     ![kubectl get pods -n hello-arc -w](./16.png)
 
-  - In **Your fork** of the "Azure Arc Jumpstart" repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
+  - In **Your fork** of the Arc Jumpstart GitHub repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
 
   - The external IP address of the Kubernetes Service seen using the _`kubectl get svc -n hello-arc`_ command.
 

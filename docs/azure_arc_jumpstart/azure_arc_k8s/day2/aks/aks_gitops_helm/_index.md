@@ -18,7 +18,7 @@ GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a p
 
 ## Prerequisites
 
-- Fork the ["Azure Arc Jumpstart Apps"](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -109,15 +109,15 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 ### Deployment Flow
 
-For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart Apps" repository; one for nginx and one for the Hello-Arc application as well as an Helm Release for each.
+For our scenario, notice we have two Helm charts in the Arc Jumpstart Apps GitHub repository; one for nginx and one for the Hello-Arc application as well as an Helm Release for each.
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./04.png)
+![Arc Jumpstart Apps GitHub repository](./04.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./05.png)
+![Arc Jumpstart Apps GitHub repository](./05.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./06.png)
+![Arc Jumpstart Apps GitHub repository](./06.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./07.png)
+![Arc Jumpstart Apps GitHub repository](./07.png)
 
 - The nginx-ingress controller (a Cluster-level component) will be deployed with 2 replicas to the *ingress-nginx* namespace.
 
@@ -224,7 +224,7 @@ For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart App
   
     ![kubectl get pods -n hello-arc -w](./20.png)
 
-  - In **your fork** of the "Azure Arc Jumpstart App" repository, open the *hello-arc.yaml* file (/hello-arc/releases/app/hello-arc.yaml).
+  - In **your fork** of the Arc Jumpstart Apps GitHub repository, open the *hello-arc.yaml* file (/hello-arc/releases/app/hello-arc.yaml).
 
   - The external IP address of the Kubernetes Service is seen using the _`kubectl get svc -n ingress-nginx`_ command.
 

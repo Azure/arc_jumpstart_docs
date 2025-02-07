@@ -186,7 +186,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ## Deployment Option 2: Azure Bicep deployment via Azure CLI
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git

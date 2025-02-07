@@ -121,7 +121,7 @@ In this scenario, you will create a new Release pipeline to deploy the environme
 
     ![Screenshot of resource group and location config](./10.jpg)
 
-- As mentioned, the task will use the existing ARM template for deploying Azure Arc-enabled data services with SQL Managed Instance that in the Azure Arc Jumpstart GitHub repository.
+- As mentioned, the task will use the existing ARM template for deploying Azure Arc-enabled data services with SQL Managed Instance that in the Arc Jumpstart GitHub repository.
 
   - Change the Template location to "URL of the file"
 

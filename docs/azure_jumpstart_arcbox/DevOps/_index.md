@@ -216,7 +216,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ## Deployment Option 2: Bicep deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
@@ -377,7 +377,7 @@ ArcBox deploys multiple GitOps configurations on the _ArcBox-K3s-Data_ cluster. 
 
     ![Screenshot showing Hello-Arc app and shell](./gitops04.png)
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_), change the text under the “MESSAGE” section and commit the change.
+- In your fork of the Arc Jumpstart Apps GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_), change the text under the “MESSAGE” section and commit the change.
 
     ![Screenshot showing hello-arc repo](./gitops05.png)
 
@@ -450,7 +450,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   - The count for the books sold from the bookstore-v2 browser window should remain at 0. This is because the current traffic split policy is configured as weighted 100 for bookstore as well because the bookbuyer client is sending traffic to the bookstore service and no application is sending requests to the bookstore-v2 service.
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
+- In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
 
   ![Screenshot showing Bookstore repo Traffic split 01](./bookstore03.png)
 
@@ -468,7 +468,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Screenshot showing Bookstore Traffic split YAML](./bookstore05.png)
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
+- In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
 
   ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
 
@@ -544,7 +544,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
       ![Screenshot showing Hello-Arc app and shell](./k3s_gitops10.png)
 
-    - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_). Change the replica to 2 and text under the “MESSAGE” section and commit the change.
+    - In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_). Change the replica to 2 and text under the “MESSAGE” section and commit the change.
 
       ![Screenshot showing hello-arc repo](./k3s_gitops11.png)
 
