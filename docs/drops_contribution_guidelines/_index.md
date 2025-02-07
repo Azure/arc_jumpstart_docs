@@ -21,6 +21,7 @@ The **"Create Drop"** wizard simplifies the contribution process by guiding cont
 
 For video instructions on how to use the wizard, see the Jumpstart Drops Wizard [video series](https://aka.ms/JumpstartDropsWizard).
 
+
 [![Jumpstart Drops Wizard video series](./video_series.png)](https://aka.ms/JumpstartDropsWizard)
 
 To submit a Drop using this method, follow the step-by-step guide below:
@@ -87,7 +88,7 @@ As you fill in the parameters, you'll see that the top bar will show the status 
 
 ![Progress bar with errors](./header_wrong.png)
 
-  If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission. You will then be redirected to the final page, where you can view the status of submission.
+&nbsp; &nbsp; &nbsp; &nbsp; If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission. You will then be redirected to the final page, where you can view the status of submission.
 
 ![Progress bar with successful submission](./header_correct.png)
 
@@ -95,7 +96,7 @@ As you fill in the parameters, you'll see that the top bar will show the status 
 
 ![Create a Drop wait](./drop_wait.png)
 
-  Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
+&nbsp; &nbsp; &nbsp; &nbsp; Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
 
 ![Successful Drop](./successful_drop.png)
 
