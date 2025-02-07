@@ -18,7 +18,7 @@ GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a p
 
 ## Prerequisites
 
-- Fork the ["Azure Arc Jumpstart Apps"](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -171,11 +171,11 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 ### Deployment Flow
 
-For our scenario, notice we have Helm chart in the "Azure Arc Jumpstart Apps" repository for the Hello-Arc application as well as the Helm Release.
+For our scenario, notice we have Helm chart in the Arc Jumpstart Apps GitHub repository for the Hello-Arc application as well as the Helm Release.
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./09.png)
+![Arc Jumpstart Apps GitHub repository](./09.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./10.png)
+![Arc Jumpstart Apps GitHub repository](./10.png)
 
 - The "Hello Arc" application (a Namespace-level component) will be deployed with 3 replica to the _hello-arc_ namespace.
 
@@ -267,7 +267,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
   
     ![kubectl get pods -n hello-arc -w](./18.png)
 
-  - In **your fork** of the "Azure Arc Jumpstart Apps" repository, open the _hello-arc.yaml_ file (/hello-arc/releases/app/hello-arc.yaml).
+  - In **your fork** of the Arc Jumpstart Apps GitHub repository, open the _hello-arc.yaml_ file (/hello-arc/releases/app/hello-arc.yaml).
 
   - Another browser window that has the webpage *http://172.19.174.107:32046* open **(replace with your own values)**.
 

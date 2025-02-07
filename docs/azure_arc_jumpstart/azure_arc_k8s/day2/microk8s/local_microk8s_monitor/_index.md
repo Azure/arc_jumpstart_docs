@@ -16,7 +16,7 @@ in this scenario, you will hook the microK8s cluster to Azure Monitor by deployi
 
 ## Prerequisites
 
-* Clone the Azure Arc Jumpstart repository
+* Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
