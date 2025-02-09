@@ -17,9 +17,9 @@ The following Jumpstart scenario will guide you how to use Azure Policy [Azure P
 - [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
 - [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
 
-  > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open source or Calico Cloud.
+  > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open-source or Calico Cloud.
 
-- [Deploy Calico open source in your managed public cluster](https://projectcalico.docs.tigera.io/getting-started/kubernetes/managed-public-cloud/)
+- [Deploy Calico open-source in your managed public cluster](https://projectcalico.docs.tigera.io/getting-started/kubernetes/managed-public-cloud/)
 - [Sign up for a Calico Cloud trial](https://www.calicocloud.io/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft)
 
 Calico Network Policy uses labels to select pods in Kubernetes for applying ingress/egress rules.
@@ -30,7 +30,7 @@ The Azure Policy will be set to “Audit” mode to check the configuration of e
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

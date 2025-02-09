@@ -19,7 +19,7 @@ Yes, some of our documentation was created with the assistance of AI tools. Our 
 
 Yes, you can use an Azure [free trial account](https://azure.microsoft.com/free). However, some Jumpstart features may require additional Azure consumption isn’t provided in a free trial.
 
-## Does Azure Arc Jumpstart provide free credit to Azure or other cloud providers?
+## Does the Arc Jumpstart provide free credit to Azure or other cloud providers?
 
 Arc Jumpstart does not provide free credit to Azure or any other cloud providers. To use the Jumpstart you must provide your own environments to run any of the scenarios or solutions.
 
@@ -47,7 +47,7 @@ Of course! For any suggestion, please [open a GitHub feature](https://aka.ms/Jum
 
 We’d love to hear it! Fill out the [submission form](https://aka.ms/LightningGuest) and we’ll get back to you soon.
 
-## Is there a public Azure Arc Jumpstart Roadmap?
+## Is there a public Arc Jumpstart Roadmap?
 
 An up-to-date roadmap for Arc Jumpstart scenarios can be found under [the repository GitHub Project](https://aka.ms/JumpstartRoadmap).
 

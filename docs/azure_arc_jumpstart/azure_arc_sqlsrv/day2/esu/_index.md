@@ -66,7 +66,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 ## Bicep template deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

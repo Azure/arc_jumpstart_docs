@@ -37,7 +37,7 @@ To demonstrate the various architecture components, the ML pipeline we deploy is
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git

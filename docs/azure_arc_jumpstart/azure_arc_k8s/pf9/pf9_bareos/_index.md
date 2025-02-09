@@ -127,7 +127,7 @@ This deployment consists of 3 sections.
 
 ### Connect the cluster to Microsoft Azure Arc
 
-- Clone the [Azure Arc Jumpstart repository](https://github.com/microsoft/azure_arc) and change to the pf9 script directory.
+- Clone the [Arc Jumpstart GitHub repository](https://github.com/microsoft/azure_arc) and change to the pf9 script directory.
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
