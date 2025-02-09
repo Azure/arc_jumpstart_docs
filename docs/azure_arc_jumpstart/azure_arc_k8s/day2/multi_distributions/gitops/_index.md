@@ -28,7 +28,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

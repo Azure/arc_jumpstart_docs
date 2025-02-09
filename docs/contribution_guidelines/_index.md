@@ -25,7 +25,7 @@ Before anything gets published, a code review process will be done by one of the
 
 ## Issues, pull requests, and discussions
 
-Before diving into your contribution, it's crucial to establish clear communication within our open source community. To streamline collaboration and maintain transparency, we ask that contributors [open an issue](https://aka.ms/JumpstartIssue) and start a discussion or [pull request (PR)](https://aka.ms/JumpstartFeature) before initiating work on their proposed changes. Opening an issue allows for discussion and consensus-building around the proposed idea, ensuring that it aligns with the project's goals and existing work.
+Before diving into your contribution, it's crucial to establish clear communication within our open-source community. To streamline collaboration and maintain transparency, we ask that contributors [open an issue](https://aka.ms/JumpstartIssue) and start a discussion or [pull request (PR)](https://aka.ms/JumpstartFeature) before initiating work on their proposed changes. Opening an issue allows for discussion and consensus-building around the proposed idea, ensuring that it aligns with the project's goals and existing work.
 
 [GitHub Discussions](https://aka.ms/JumpstartDiscussions), an additional avenue, provides an interactive platform for community members to engage in conversations, ask questions, and share ideas. A pull request serves as a tangible proposal, demonstrating the changes you wish to implement. By following this process and utilizing GitHub Discussions, we foster a collaborative environment where ideas are shared, reviewed, and refined collectively, ensuring the continuous improvement of our project. Your active participation and adherence to these guidelines are essential to the success of our collaborative efforts.
 
@@ -39,11 +39,11 @@ When submitting your PR, make sure to associate the issue the PR is solving, so 
 
 ## Code placement
 
-Before submitting a pull request (PR), we encourage you to consult with one of the project maintainers regarding the placement of your code and documentation within the folder structure. Maintainers have a deep understanding of the project's architecture and organization, ensuring that your contribution seamlessly integrates with the existing codebase. By seeking their guidance, you can make informed decisions about where your changes best fit. Collaboration with maintainers not only ensures that your efforts align with the project's vision but also fosters a collaborative spirit that is vital to the success of our open source community. Reach out to us; we're here to help you make meaningful contributions that positively impact our project.
+Before submitting a pull request (PR), we encourage you to consult with one of the project maintainers regarding the placement of your code and documentation within the folder structure. Maintainers have a deep understanding of the project's architecture and organization, ensuring that your contribution seamlessly integrates with the existing codebase. By seeking their guidance, you can make informed decisions about where your changes best fit. Collaboration with maintainers not only ensures that your efforts align with the project's vision but also fosters a collaborative spirit that is vital to the success of our open-source community. Reach out to us; we're here to help you make meaningful contributions that positively impact our project.
 
 ## Relying on existing documents and code
 
-In our collaborative open source environment, we value consistency and adherence to established guidelines. To ensure that your contributions align with our project's goals and maintain the project's integrity, we strongly encourage you to rely on existing documents and code, which embody years of collective knowledge, encompassing nuanced best practices, coding standards, and project-specific conventions.
+In our collaborative open-source environment, we value consistency and adherence to established guidelines. To ensure that your contributions align with our project's goals and maintain the project's integrity, we strongly encourage you to rely on existing documents and code, which embody years of collective knowledge, encompassing nuanced best practices, coding standards, and project-specific conventions.
 
 Guidelines for relying on existing resources:
 

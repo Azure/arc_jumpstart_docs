@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

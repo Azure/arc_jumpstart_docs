@@ -106,7 +106,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
   ![Screenshot showing Azure Cloud Shell](./05.png)
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

@@ -86,7 +86,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 ## Datadog VM extension deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

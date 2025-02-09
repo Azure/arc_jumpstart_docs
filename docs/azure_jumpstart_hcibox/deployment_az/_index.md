@@ -13,7 +13,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
 ### Prepare the environment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git

@@ -12,123 +12,123 @@ weight: 7
 We welcome contributions following the guidelines described in the Arc Jumpstart [contribution guidelines](./../contribution_guidelines).
 Our goal is to create a simplified contribution process for our users that ensures high-quality standards for all submissions. There are two ways to contribute to Jumpstart Drops:
 
-1. Manual approach with a GitHub pull request
-2. Using the Drop [Creation Wizard](https://aka.ms/JumpstartDropsWizard)
+  1. Manual approach with a GitHub pull request
+  2. Using the Drop [Creation Wizard](https://aka.ms/JumpstartDropsWizard)
 
 ### Using the Drop Creation Wizard
 The **"Create Drop"** wizard simplifies the contribution process by guiding contributors through each step, making it easy to submit a new Drop. With the wizard, contributors can also use the live preview option to see how the Drop will appear on the website before finalizing the submission. This ensures that everything is perfect before sharing it with the community.
 
-For video instructions on how to use the wizard, see the Jumpstart Drops Wizard [video series](https://aka.ms/JumpstartDropsWizard).
-
-
-[![Jumpstart Drops Wizard video series](./video_series.png)](https://aka.ms/JumpstartDropsWizard)
+> **Note:** For video instructions on how to use the wizard, see the Jumpstart Drops Wizard [video series](https://aka.ms/JumpstartDropsWizard).
 
 To submit a Drop using this method, follow the step-by-step guide below:
 
 #### Step 1: Access the Jumpstart Drop Creation Wizard
 
-1. Open your preferred web browser.
-1. Go to the Jumpstart Drops [site](https://arcjumpstart.com/azure_jumpstart_drops).
-1. Select the **Create a Drop** button.
-    ![Create Drop button](./create_drop_button.png)
+  1. Open your preferred web browser.
+  2. Go to the Jumpstart Drops [site](https://arcjumpstart.com/azure_jumpstart_drops).
+  3. Select the **Create a Drop** button.
+
+![Create Drop button](./create_drop_button.png)
 
 #### Step 2: Start the Wizard
 
 When the page loads, you will be greeted with a welcome screen that introduces the Jumpstart Drop creation process. The wizard consists of three main components:
 
-1. Top bar: It displays the progress of the two steps (Card details and Side panel details) and includes the **Create** button to submit the Drop.
-2. Left-side preview bar: This allows you to preview how the content will be rendered once the Drop is approved and published.
-3. Right-side content bar: This is where you input all the required information for the Drop submission.
+  1. Top bar: It displays the progress of the two steps (Card details and Side panel details) and includes the **Create** button to submit the Drop.
+  2. Left-side preview bar: This allows you to preview how the content will be rendered once the Drop is approved and published.
+  3. Right-side content bar: This is where you input all the required information for the Drop submission.
 
-    ![Overrall Drop wizard](./overall_wizard.png)
+  ![Overall Drop wizard](./overall_wizard.png)
 
 #### Step 3: Define the Card Details
 
-In this step, you will need to input the data used to fill the [Drop JSON scheme](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). This data will be used to create the Drop definition file under the [drops](https://github.com/Azure/arc_jumpstart_drops/blob/main/drops) folder. 
+In this step, you will need to input the data used to fill the [Drop JSON scheme](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). This data will be used to create the Drop definition file under the [drops](https://github.com/Azure/arc_jumpstart_drops/blob/main/drops) folder.
 
-1. Choose the GitHub hosting repository:
-    - **Create in Jumpstart Drops GitHub repository**: In this case, all the source code and documentation of the Drop will be hosted inside the Jumpstart Drops [repo](https://github.com/Azure/arc_jumpstart_drops). Contributors will be able to use the **Side panel details** section to create the documentation of the Drop.
-    - **Create in personal GitHub repository**: In this case, the source code and documentation of the Drop will be hosted in the contributor's GitHub repo, and the Drop schema will have a reference to the external repository. If you choose this option, the **Side panel details** section will preview the content from the GitHub repo, but the documentation wizard creator will not be available.
+  1. Choose the GitHub hosting repository:
 
-    For more information, see [Define source code hosting](#step-3-define-the-card-details).
+     - **Create in Jumpstart Drops GitHub repository**: In this case, all the source code and documentation of the Drop will be hosted inside the Jumpstart Drops [repo](https://github.com/Azure/arc_jumpstart_drops). Contributors will be able to use the **Side panel details** section to create the documentation of the Drop.
+     - **Create in personal GitHub repository**: In this case, the source code and documentation of the Drop will be hosted in the contributor's GitHub repo, and the Drop schema will have a reference to the external repository. If you choose this option, the **Side panel details** section will preview the content from the GitHub repo, but the documentation wizard creator will not be available.
 
-1. Choose the creation process:
-    1. **Create with step-by-step guidance:** In this case, you will be guided through the Wizard fields to complete all the required information.
+     For more information, see [Define source code hosting](#step-3-define-the-card-details).
 
-    2. **Create with existing JSON schema**: Alternatively, you can upload a previously completed JSON definition. This option offers more flexibility but may be more prone to errors. If the JSON is uploaded, some checks will run to ensure the correct definition, and if it's correct, all the Wizard fields will be autopopulated.
+  2. Choose the creation process:
 
-1. Input and review all parameters. For more information about each input, refer to the [Drops definition](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). Each input has a tooltip with further details and validation to ensure accurate inputs.
+     - **Create with step-by-step guidance:** In this case, you will be guided through the Wizard fields to complete all the required information.
+     - **Create with existing JSON schema**: Alternatively, you can upload a previously completed JSON definition. This option offers more flexibility but may be more prone to errors. If the JSON is uploaded, some checks will run to ensure the correct definition, and if it's correct, all the Wizard fields will be auto populated.
+
+  3. Input and review all parameters. For more information about each input, refer to the [Drops definition](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). Each input has a tooltip with further details and validation to ensure accurate inputs.
 As you fill in the parameters, you'll see that the top bar will show the status (In Progress or Completed).
 
-    ![Progress Bar](./progress_bar.png)
+![Progress Bar](./progress_bar.png)
 
-1. Preview Card details: Validate that the Drop Card is rendering correctly and that the provided information is clear and informative. Note that the action buttons such as Downloads or Share will not work in this preview.
+  4. Preview Card details: Validate that the Drop Card is rendering correctly and that the provided information is clear and informative. Note that the action buttons such as Downloads or Share will not work in this preview.
 
-    ![Card Preview check](./card_preview.png)
+![Card Preview check](./card_preview.png)
 
-1. After completing the **Card details** section, you can proceed to the **Side panel details** section. If you are hosting the Drop in the Jumpstart Drops GitHub repository, this section will provide a Wizard to create the documentation. However, if you are using an external repository, the section will render the content from the submitted repository as the source for the Drop.
+  5. After completing the **Card details** section, you can proceed to the **Side panel details** section. If you are hosting the Drop in the Jumpstart Drops GitHub repository, this section will provide a Wizard to create the documentation. However, if you are using an external repository, the section will render the content from the submitted repository as the source for the Drop.
 
-    ![Side panel wizard](./side_panel_wizard.png)
+![Side panel wizard](./side_panel_wizard.png)
 
-1. Choose the creation process for the side panel content:
-    1. **Create with step-by-step guidance**: This option will guide you through the process of creating the side panel content by providing step-by-step instructions.
-    2. **Upload Existing asset**: If you already have the side panel content prepared, you can upload it directly using this option.
+  6. Choose the creation process for the side panel content:
 
-1. The **Side panel details** creation process follows a similar approach to the **Card details** creation process. As you input all the information or submit pre-created files, you can preview the content in the right-side preview bar. The step-by-step guide aims to simplify the documentation creation process by suggesting certain sections for contributors. However, please note that this documentation can always be modified after the Drop is submitted and published. For more flexibility, you can also create an **_index.md** markdown file locally and upload it for the final submission.
+     - **Create with step-by-step guidance**: This option will guide you through the process of creating the side panel content by providing step-by-step instructions.
+     - **Upload Existing asset**: If you already have the side panel content prepared, you can upload it directly using this option.
 
-    As you submit all content, you'll notice that the top bar will indicate that the section is **In progress**. 
+  7. The **Side panel details** creation process follows a similar approach to the **Card details** creation process. As you input all the information or submit pre-created files, you can preview the content in the right-side preview bar. The step-by-step guide aims to simplify the documentation creation process by suggesting certain sections for contributors. However, please note that this documentation can always be modified after the Drop is submitted and published. For more flexibility, you can also create an **_index.md** markdown file locally and upload it for the final submission.
 
-    ![Side panel preview](./side_panel_preview.png)
+        As you submit all content, you'll notice that the top bar will indicate that the section is **In progress**.
 
-1. Once all the content is submitted and reviewed, you will notice that the two sections of the progress bar will turn green, indicating that all required information has been provided. At this point, you can proceed by clicking the **Create Drop** button. If there are any missing inputs or parameters, the progress bar will turn red, and the Drop creation process will be halted. In such cases, please review the content and ensure that all errors are fixed.
+![Side panel preview](./side_panel_preview.png)
 
-    ![Progress bar with errors](./header_wrong.png)
+  8. Once all the content is submitted and reviewed, you will notice that the two sections of the progress bar will turn green, indicating that all required information has been provided. At this point, you can proceed by clicking the **Create Drop** button. If everything is correct, both sections of the progress bar will turn green, indicating successful data for submission followed by redirection to the final page, where you can view the status of submission.
 
-    On the other hand, if everything is correct, both sections of the progress bar will turn green, indicating successful data for submission. You will then be redirected to the final page, where you can view the status of submission.
+![Progress bar with successful submission](./header_correct.png)
 
-    ![Progress bar with successful submission](./header_correct.png)
+> **Note:** If there are any missing inputs or parameters, the progress bar will turn red, and the Drop creation process will be halted. In such cases, please review the content and ensure that all errors are fixed.
 
-1. Complete the submission and wait for the content to be processed. The Drop Creation Wizard will automate the creation of a GitHub pull request. Once the pull request is created, a link to the public PR will be provided for the contributor to track the status of the Drop. If any additional content or comments need to be added, they can be done by commenting directly on the GitHub PR or by creating an [issue](https://github.com/Azure/arc_jumpstart_drops/issues).
+![Progress bar with errors](./header_wrong.png)
 
-    ![Create a Drop wait](./drop_wait.png)
+  9. Complete the submission and wait for the content to be processed. The Drop Creation Wizard will automate the creation of a GitHub pull request. Once the pull request is created, a link to the public PR will be provided for the contributor to track the status of the Drop. If any additional content or comments need to be added, they can be done by commenting directly on the GitHub PR or by creating an [issue](https://github.com/Azure/arc_jumpstart_drops/issues).
 
-    Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
+![Create a Drop wait](./drop_wait.png)
 
-    ![Successful Drop](./successful_drop.png)
-    
-Once the pull request is created, the review and submission process is the same as the process discussed below for the **Manual PR creation approach**. The appropriate checks and review process will take place by the Jumpstart team, and after the review feedback loop, the Drop will be published. For more information, check the **Contribution process flow** below.
+&nbsp;&nbsp;&nbsp;&nbsp;Once the process is complete and the pull request is created, you will receive a successful message along with a link to review the PR.
 
+![Successful Drop](./successful_drop.png)
+
+  10. Once the pull request is created, the review and submission process is the same as the process discussed below for the **Manual PR creation approach**. The appropriate checks and review process will take place by the Jumpstart team, and after the review feedback loop, the Drop will be published. For more information, check the **Contribution process flow** below.
 
 ### Manual approach with a GitHub Pull Request
 
-The first is by opening a GitHub Pull Request following a simple [JSON scheme](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md). 
+The first is by opening a GitHub Pull Request following a simple [JSON scheme](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md).
 
 The contribution process consists of the following steps:
 
  ![Contribution flow](./contribution_flow.png)
 
-1. **Define source code hosting:** There are two alternatives to host the source code:
+  1. **Define source code hosting:** There are two alternatives to host the source code:
 
-    - **Include Code in Pull Request:** Include the code/artifacts in the pull request and host all the content as part of the [Arc Jumpstart Drops repository](https://github.com/Azure/arc_jumpstart_drops).
-    - **Reference to Author's Repository:** Keep the code in the author's repository and provide a reference URL under the _"Source"_ in the Drop definition file (check [Drops schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md)). Ensure that the repository is publicly available.
+      - **Include Code in Pull Request:** Include the code/artifacts in the pull request and host all the content as part of the [Arc Jumpstart Drops repository](https://github.com/Azure/arc_jumpstart_drops).
+      - **Reference to Author's Repository:** Keep the code in the author's repository and provide a reference URL under the _"Source"_ in the Drop definition file (check [Drops schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md)). Ensure that the repository is publicly available.
 
-2. **Artifacts creation and uploading:** Develop and validate the source code of your Jumpstart Drop and the JSON schema file. Before submitting your pull request, ensure to check the following:
-    1. Test your Drop end-to-end in a new, unmodified environment to ensure it works as expected.
-    2. Choose a descriptive and actionable title that accurately represents your Drop's purpose. Remember that users will see this title when browsing the Drops gallery and should have a good idea of your Drop just by seeing the Drop's card.
-    3. Provide clear documentation that includes screenshots or videos demonstrating the steps involved and potential outcomes.
-    4. Have someone else review your code before submitting it. Don't include any credentials as part of your submission.
-    5. Ensure checking the spelling, grammar, and wording of your submission. To help validation, use [Vale](https://vale.sh/), already configured as part of the project. Ensure to use `vale sync` before starting linting, to get the latest configurations.
+  2. **Artifacts creation and uploading:** Develop and validate the source code of your Jumpstart Drop and the JSON schema file. Before submitting your pull request, ensure to check the following:
 
-    The final submission should contain the following files:
+      - Test your Drop end-to-end in a new, unmodified environment to ensure it works as expected.
+      - Choose a descriptive and actionable title that accurately represents your Drop's purpose. Remember that users will see this title when browsing the Drops gallery and should have a good idea of your Drop just by seeing the Drop's card.
+      - Provide clear documentation that includes screenshots or videos demonstrating the steps involved and potential outcomes.
+      - Have someone else review your code before submitting it. Don't include any credentials as part of your submission.
+      - Ensure checking the spelling, grammar, and wording of your submission. To help validation, use [Vale](https://vale.sh/), already configured as part of the project. Ensure to use `vale sync` before starting linting, to get the latest configurations.
 
-    - **Source Code**: Include all the code files you've created, along with any necessary documentation (README, images, videos, etc.). Ensure these files follow the correct structure defined in the [folder structure](#folder-structure) section.
+The final submission should contain the following files:
 
-    - **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as you can see in the following image.
+- **Source Code**: Include all the code files you've created, along with any necessary documentation (README, images, videos, etc.). Ensure these files follow the correct structure defined in the [folder structure](#folder-structure) section.
+
+- **Drop Definition**: Provide a JSON file with all the required fields as described in the [Drops Schema](https://github.com/Azure/arc_jumpstart_drops/blob/main/SCHEMA.md) definition. This file will be used by the Arc Jumpstart Drops page to create a Drop card with all the necessary information, as you can see in the following image.
 
     ![Drop card](./drop_definition.png)
 
     1. Drop card created for each *JSON* definition schema file placed under the [drops](https://github.com/Azure/arc_jumpstart_drops/tree/main/drops) folder, with a unique *Title* and *Authors*. The name should be unique, have a proper description, and use **snake_case**.
-    2. Description of the Drop
+    2. Description of the Drop.
     3. Filter bar to filter Drops based on the metadata of the Drop, like tags, products, creation date, and topics.
     4. Tags and action buttons: _Download_ and _Share_.
 
@@ -139,24 +139,25 @@ The contribution process consists of the following steps:
     ![Pull request example](./drop_submission.png)
 
 4. **GitHub Checks**: As part of the validation process, there are multiple [GitHub Actions](https://github.com/Azure/arc_jumpstart_drops/actions) that run during the pull request review process to ensure:
-    - Drop JSON schema definition and folder structure.
-    - [MIT licensing](https://github.com/Azure/arc_jumpstart_drops?tab=MIT-1-ov-file#readme) and Microsoft CLA license check.
-    - CodeQL for vulnerabilities.
-    - [Vale.sh](https://vale.sh/) linter for documentation grammar and styling.
+
+      - Drop JSON schema definition and folder structure.
+      - [MIT licensing](https://github.com/Azure/arc_jumpstart_drops?tab=MIT-1-ov-file#readme) and Microsoft CLA license check.
+      - CodeQL for vulnerabilities.
+      - [Vale.sh](https://vale.sh/) linter for documentation grammar and styling.
 
     When creating a pull request, you'll see your checks running for ~2-3 minutes. Carefully review the result of the checks, and fix any errors found on your submission.
 
      ![Pull request checks](./checks.png)
 
-5. **Manual review from Jumpstart Core maintainers**: Reviewers will be added based on the products and type of Drop submitted. The PR can only be merged if all GitHub checks pass and at least 2 reviewers approve the submission.
+   - **Manual review from Jumpstart Core maintainers**: Reviewers will be added based on the products and type of Drop submitted. The PR can only be merged if all GitHub checks pass and at least 2 reviewers approve the submission.
 
-6. **Merge to Canary**: If everything is correct, the PR will be merged to the **canary** branch, and the new Drop will be part of the approved Drops curated list.
+   - **Merge to Canary**: If everything is correct, the PR will be merged to the **canary** branch, and the new Drop will be part of the approved Drops curated list.
 
-7. **Validation with Preview Site**: Validate the changes using the [Preview Azure Arc Jumpstart site](https://preview.arcjumpstart.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
+   - **Validation with Preview Site**: Validate the changes using the [Preview Arc Jumpstart site](https://preview.arcjumpstart.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
 
     ![Preview site](./preview_site.png)
 
-8. **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Azure Arc Jumpstart Drops](https://arcjumpstart.com/azure_jumpstart_drops).
+   - **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Jumpstart Drops](https://arcjumpstart.com/azure_jumpstart_drops).
 
 ## Drop Index
 
@@ -166,10 +167,10 @@ When you select a Drop for more information, a right-sidebar will appear, displa
 
 When accessing the right-sidebar, you'll be presented with the following sections:
 
-1. **Metadata header**: This section will display important information from the Drop JSON schema file, allowing you to quickly and easily access key details about your Drop data.
-2. **Section selector**: A dropdown menu will enable you to choose from different sections of the Drop Index file, making it easy to navigate through the Drop documentation.
-3. **Selected content**: Once you've chosen a section, the content will be displayed, allowing you to view the information you need without having to navigate away from the page.
-4. **Full-screen mode**: If you need more space to work with, you can switch to full-screen mode with the click of a button, giving you a larger view of your data and making it easier to work with.
+  1. **Metadata header**: This section will display important information from the Drop JSON schema file, allowing you to quickly and easily access key details about your Drop data.
+  2. **Section selector**: A dropdown menu will enable you to choose from different sections of the Drop Index file, making it easy to navigate through the Drop documentation.
+  3. **Selected content**: Once you've chosen a section, the content will be displayed, allowing you to view the information you need without having to navigate away from the page.
+  4. **Full-screen mode**: If you need more space to work with, you can switch to full-screen mode with the click of a button, giving you a larger view of your data and making it easier to work with.
 
 To help contributors write effective documentation for their Drop Index page, we recommend including the following sections:
 
