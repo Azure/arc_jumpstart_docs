@@ -58,21 +58,19 @@ Contoso has implemented a CI/CD workflow to make it easier for their developers 
 
     ![Screenshot showing the GitHub repository branches](./img/repo_branches.png)
 
-- The repository has two main folders to separate the development team applications' code (developer) and the DevOps team operations GitOps configurations (operations).
+- The repository has two main folders per application to separate the development team applications' code (src) and the DevOps team operations GitOps configurations (operations).
 
     ![Screenshot showing the GitHub repository main folder structure](./img/repo_folder_structure.png)
 
-- Within the _developer_ folder there is a folder for each application's source code. This is where Contoso Supermarket's developers develop new features.
+- The application's source code is located Within the _src_ folder. This is where Contoso Supermarket's developers develop new features.
 
     ![Screenshot showing the developer folder structure](./img/repo_developer_structure.png)
 
-- Within the _operations_ folder there is also a folder for each application's GitOps configuration. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
+- The GitOps configuration is located Within the _operations_ folder. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
 
-    ![Screenshot showing the operations folder structure](./img/repo_operations_structure.png)
+    ![Screenshot showing the operations folder structure](./img/repo_operations_helm_structure.png)
 
 - Each application has a folder for [Helm](https://helm.sh/docs/) _charts_ where the Kubernetes manifests for each application are located and a folder for _releases_ where the Helm Releases for each application and each environment is located. This way the DevOps team can control the promotion of each version of the applications across the CI/CD workflow on different environments and also enable/disable features created by the developers as needed.
-
-    ![Screenshot showing the helm folder structure](./img/repo_operations_helm_structure.png)
 
     ![Screenshot showing the helm releases folder structure](./img/repo_operations_helmreleases_structure.png)
 
@@ -113,7 +111,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing opening a folder in a dev container](./img/vscode_dev_container.png)
 
-- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-agora-apps_.
+- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-apps_.
 
     ![Screenshot showing the cloned repository on the client VM](./img/vscode_dev_container_open_folder.png)
 
@@ -133,9 +131,15 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the cloned repository opened in the dev container](./img/vscode_dev_container_pos_app.png)
 
-- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_ and select the _jumpstart-agora-apps_ repository to add it to the allow list.
+- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_ and select the _jumpstart-apps_ repository to add it to the allow list.
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
+
+- After the repository is loaded, discard any tracked files that appear in VSCode.
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes.png)
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes_confirm.png)
 
 - To add this new checkout functionality, you will have to create a new feature branch and edit the _navbar.html_ file in the _pos_ application.
 - Create a new branch from VSCode called _feature-checkout-cart_ and publish this branch to the remote repository.
@@ -144,7 +148,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing publishing the new branch](./img/vscode_dev_publish_branch.png)
 
-- Navigate to the file _contoso_supermarket/developer/PoS/src/templates/navbar.html_.
+- Navigate to the file _agora/point_of_sale/src/templates/navbar.html_.
 
     ![Screenshot showing the navbar.html file](./img/vscode_dev_navbar_file.png)
 
@@ -162,7 +166,7 @@ The development process will start from the local _dev_ cluster, where as a deve
 
     ![Screenshot showing the added pushing code to remote](./img/vscode_dev_push_changes.png)
 
-- After the code has been pushed, navigate to your GitHub fork of the _jumpstart-agora-apps_, you will see a notification about changes in the _feature-checkout-cart_branch_. Click _Compare & Pull request_.
+- After the code has been pushed, navigate to your GitHub fork of the _jumpstart-apps_, you will see a notification about changes in the _feature-checkout-cart_branch_. Click _Compare & Pull request_.
 
     ![Screenshot showing new changes message](./img/github_create_pr_dev.png)
 
