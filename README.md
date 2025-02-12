@@ -1,3 +1,5 @@
+[![Stale Issues and PRs](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml) [![Stale Branches](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml/badge.svg)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml)
+
 # Arc Jumpstart documentation
 
 Welcome to the Arc Jumpstart documentation repository! This repository is your go-to resource for in-depth guides, best practices, and detailed documentation related to Azure Arc. Whether you're a beginner exploring the basics or an experienced user optimizing your deployment, you'll find valuable insights tailored to your needs. This repository complements our [source code repository](https://aka.ms/JumpstartGitHubCode) and acts has the documentation source repository which populates the [Arc Jumpstart](https://aka.ms/arcjumpstart) website.
