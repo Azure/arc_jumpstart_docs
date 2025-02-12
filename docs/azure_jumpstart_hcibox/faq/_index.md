@@ -22,6 +22,7 @@ HCIBox has been tested in the following regions. Some HCIBox resources are deplo
 
 - East US
 - Australia East
+- Canada Central
 - West Europe
 
 ## How much will it cost to use HCIBox?

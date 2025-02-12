@@ -136,7 +136,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
   ![Screenshot showing bicep deploying](./bicep_deploying.png)
 
-    > **Note:** HCIBox can be deployed in East US, Australia East, and West Europe. Deploying in other regions will result in unexpected behavior or failures.
+    > **Note:** HCIBox can be deployed in East US, Australia East, Canada Central and West Europe. Deploying in other regions will result in unexpected behavior or failures.
 
 ## Start post-deployment automation
 
