@@ -14,16 +14,16 @@ The following Jumpstart scenario will guide you on how to use the Run command on
 
 > **NOTE: This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion:**
 
-- **[GCP Ubuntu instance](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
+- **[Vagrant Ubuntu box](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+- **[Vagrant Windows box](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
 
 ## Prerequisites
 
