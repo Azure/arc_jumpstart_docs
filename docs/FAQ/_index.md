@@ -78,7 +78,7 @@ For more information, see [contribution process](../contribution_guidelines/).
 
 ### How can I discover a Jumpstart Drop?
 
-To discover a Jumpstart Drop tailored to your needs, leverage the filters and sorting options available on the Arc Jumpstart Drops main page. Start by visiting [Arc Jumpstart Drops](https://arcjumpstart.com/arc_jumpstart_drops) and then use the panel on the right-hand side to filter by criteria such as *Programming* *Language*, *Product*, *Difficulty*, *Industry*, *Topic*, and more. Additionally, you can always use the search bar at the top to search across all Jumpstart content, including Jumpstart Drops.
+To discover a Jumpstart Drop tailored to your needs, leverage the filters and sorting options available on the Arc Jumpstart Drops main page. Start by visiting [Arc Jumpstart Drops](https://jumpstart.azure.com/arc_jumpstart_drops) and then use the panel on the right-hand side to filter by criteria such as *Programming* *Language*, *Product*, *Difficulty*, *Industry*, *Topic*, and more. Additionally, you can always use the search bar at the top to search across all Jumpstart content, including Jumpstart Drops.
 
 ### How do I use a Jumpstart Drop?
 
@@ -87,7 +87,7 @@ Using Jumpstart Drop is straightforward. Simply download the Jumpstart Drop by c
 ### How do I submit a Jumpstart Drop?
 
 Submitting a Jumpstart Drop is easy, upload your content and create a pull request directly in the Arc Jumpstart Drops repository.
-<!-- You can choose to create a pull request directly in the Arc Jumpstart Drops repository or use the [Submit Jumpstart Drop](https://arcjumpstart.com/arc_jumpstart_drops) form for a streamlined process.  -->
+<!-- You can choose to create a pull request directly in the Arc Jumpstart Drops repository or use the [Submit Jumpstart Drop](https://jumpstart.azure.com/arc_jumpstart_drops) form for a streamlined process.  -->
 Refer to the Jumpstart Drops [contribution process](../contribution_guidelines/) guide for detailed instructions.
 
 ### How's support and maintenance handled for Jumpstart Drops?

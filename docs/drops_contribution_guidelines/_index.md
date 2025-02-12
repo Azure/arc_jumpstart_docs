@@ -25,7 +25,7 @@ To submit a Drop using this method, follow the step-by-step guide below:
 #### Step 1: Access the Jumpstart Drop Creation Wizard
 
   1. Open your preferred web browser.
-  2. Go to the Jumpstart Drops [site](https://arcjumpstart.com/azure_jumpstart_drops).
+  2. Go to the Jumpstart Drops [site](https://jumpstart.azure.com/azure_jumpstart_drops).
   3. Select the **Create a Drop** button.
 
 ![Create Drop button](./create_drop_button.png)
@@ -153,11 +153,11 @@ The final submission should contain the following files:
 
    - **Merge to Canary**: If everything is correct, the PR will be merged to the **canary** branch, and the new Drop will be part of the approved Drops curated list.
 
-   - **Validation with Preview Site**: Validate the changes using the [Preview Arc Jumpstart site](https://preview.arcjumpstart.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
+   - **Validation with Preview Site**: Validate the changes using the [Preview Arc Jumpstart site](https://preview.jumpstart.azure.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
 
     ![Preview site](./preview_site.png)
 
-   - **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Jumpstart Drops](https://arcjumpstart.com/azure_jumpstart_drops).
+   - **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Jumpstart Drops](https://jumpstart.azure.com/azure_jumpstart_drops).
 
 ## Drop Index
 
