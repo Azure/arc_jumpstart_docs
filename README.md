@@ -34,8 +34,8 @@ The following branches are currently maintained:
 
 | Branch                                                       | Website                    | Description                                                                                      |
 | ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------ |
-| [main](https://github.com/Azure/arc_jumpstart_docs) (primary)               | https://arcjumpstart.com/       | Latest Arc Jumpstart release documentation. This is the latest documentation available in the deployed to the production slot. |
-| [canary](https://github.com/Azure/arc_jumpstart_docs/tree/canary) (canary) | https://preview.arcjumpstart.com/ | Pre-release documentation. Doc updates should be merged to the canary branch for preview validation before merging to the main branch. |
+| [main](https://github.com/Azure/arc_jumpstart_docs) (primary)               | https://jumpstart.azure.com/       | Latest Arc Jumpstart release documentation. This is the latest documentation available in the deployed to the production slot. |
+| [canary](https://github.com/Azure/arc_jumpstart_docs/tree/canary) (canary) | https://preview.jumpstart.azure.com/ | Pre-release documentation. Doc updates should be merged to the canary branch for preview validation before merging to the main branch. |
 
 ## Cloning the repositories
 
