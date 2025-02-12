@@ -208,7 +208,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   - _`resourceTags`_ - Tags to assign for all ArcBox resources
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
   - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
-  - _`windowsAdminPassword`_ - [*Optional*] Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
+  - _`windowsAdminPassword`_ - (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
 
   ![Screenshot showing example parameters](./parameters_dataops_bicep.png)
 
@@ -266,6 +266,10 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
   > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
+
+- If the _`windowsAdminPassword`_ parameter is not specified during deployment, the password is automatically generated and stored in the Key Vault. Select "Password from Azure Key Vault" as the authentication type and use "windowsAdminPassword" as the Azure Key Vault secret name.
+
+  ![Screenshot showing connecting to the VM using Bastion and Key Vault](./bastion_connect_password.png)
 
 #### Connect using just-in-time access (JIT)
 
