@@ -309,6 +309,8 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
+  > **Note:** If the _`windowsAdminPassword`_ parameter is not specified during deployment, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
+
 #### Connect using Azure Bastion
 
 - If you have chosen to deploy Azure Bastion in your deployment, use it to connect to the VM.

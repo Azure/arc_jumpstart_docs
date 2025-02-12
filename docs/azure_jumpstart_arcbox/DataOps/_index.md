@@ -296,6 +296,8 @@ Example:
 
 > **Note:** Logging into the Client VM without the UPN format _username@jumpstart.local_ will prevent the automation from running automatically.
 
+- If the _`windowsAdminPassword`_ parameter is not specified during deployment, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
+
 #### The Logon scripts
 
 - Once you log into the _ArcBox-Client_ VM, multiple automated scripts will open and start running. These scripts usually take up to 60 minutes to finish, and once completed, the script windows will close automatically. At this point, the deployment is complete.
