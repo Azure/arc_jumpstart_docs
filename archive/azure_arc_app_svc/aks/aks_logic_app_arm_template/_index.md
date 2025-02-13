@@ -1,10 +1,10 @@
----
+<!-- ---
 type: docs
 title: "Azure Logic App ARM Template"
 linkTitle: "Azure Logic App ARM Template"
 weight: 4
 description: >
----
+--- -->
 
 ## Deploy Azure Logic App on AKS using an ARM Template
 
