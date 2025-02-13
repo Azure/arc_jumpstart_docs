@@ -1,10 +1,10 @@
----
+<!-- ---
 type: docs
 title: "Azure Function ARM Template"
 linkTitle: "Azure Function ARM Template"
 weight: 3
 description: >
----
+--- -->
 
 ## Deploy Azure Function application on AKS using an ARM Template
 
