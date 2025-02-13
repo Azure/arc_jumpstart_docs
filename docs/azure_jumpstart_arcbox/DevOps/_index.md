@@ -309,7 +309,7 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
-  > **Note:** If the _`windowsAdminPassword`_ parameter is not specified during deployment, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
+  > **Note:** If the _`windowsAdminPassword`_ parameter is specified during deployment, use the provided password to log in. If not specified, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
 
 #### Connect using Azure Bastion
 
@@ -319,7 +319,7 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
 
   > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
 
-- If the _`windowsAdminPassword`_ parameter is not specified during deployment, the password is automatically generated and stored in the Key Vault. Select "Password from Azure Key Vault" as the authentication type and use "windowsAdminPassword" as the Azure Key Vault secret name.
+- Select "Password from Azure Key Vault" as the authentication type and use "windowsAdminPassword" as the Azure Key Vault secret name.
 
   ![Screenshot showing connecting to the VM using Bastion and Key Vault](./bastion_connect_password.png)
 
