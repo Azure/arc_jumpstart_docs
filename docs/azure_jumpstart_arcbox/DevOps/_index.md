@@ -32,13 +32,13 @@ ArcBox for DevOps deploys two Kubernetes clusters to give you multiple options f
 
 ### Sample applications
 
-ArcBox for DevOps deploys two sample applications on the _ArcBox-K3s-Data_ cluster. The cluster has multiple [GitOps configurations](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2) that deploy and configure the sample apps. You can use your own fork of the [sample applications GitHub repo](https://github.com/microsoft/azure-arc-jumpstart-apps) to experiment with GitOps configuration flows.
+ArcBox for DevOps deploys two sample applications on the _ArcBox-K3s-Data_ cluster. The cluster has multiple [GitOps configurations](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2) that deploy and configure the sample apps. You can use your own fork of the [sample applications GitHub repo](https://github.com/Azure/jumpstart-apps) to experiment with GitOps configuration flows.
 
 The sample applications included in ArcBox are:
 
-- [Hello-Arc](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc) - A simple Node.js web application. ArcBox will deploy **three Kubernetes pod replicas** of the _Hello-Arc_ application in the _hello-arc_ namespace onto the _ArcBox-K3s-Data_ cluster.
+- [Hello-Arc](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) - A simple Node.js web application. ArcBox will deploy **three Kubernetes pod replicas** of the _Hello-Arc_ application in the _hello-arc_ namespace onto the _ArcBox-K3s-Data_ cluster.
 
-- [Bookstore](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/bookstore/yaml) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
+- [Bookstore](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/bookstore/yaml) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
 
   - `bookbuyer` is an HTTP client making requests to bookstore.
   - `bookstore` is a server, which responds to HTTP requests. It's also a client making requests to the _bookwarehouse_ service.
@@ -160,7 +160,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.AzureArcData --wait
   ```
 
-- Fork the [sample applications GitHub repo](https://github.com/microsoft/azure-arc-jumpstart-apps) to your own GitHub account. You will use this forked repo to make changes to the sample apps that will be applied using GitOps configurations. The name of your GitHub account is passed as a parameter to the template files so take note of your GitHub user name.
+- Fork the [sample applications GitHub repo](https://github.com/Azure/jumpstart-apps) to your own GitHub account. You will use this forked repo to make changes to the sample apps that will be applied using GitOps configurations. The name of your GitHub account is passed as a parameter to the template files so take note of your GitHub user name.
 
   ![Screenshot showing forking sample apps repo](./apps_fork01.png)
 
@@ -397,7 +397,7 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
 - Show Kubernetes RBAC Role and Role binding applied using GitOps Configuration.
 
-  - Review the [RBAC configuration](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/k8s-rbac-sample/namespace/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.
+  - Review the [RBAC configuration](https://github.com/Azure/jumpstart-apps/blob/main/arcbox/bookstore/rbac-sample/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.
 
   - Show the bookstore namespace Role and Role Binding.
 
@@ -444,7 +444,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Diagram of Istio bookstore app traffic split](./smi_traffic_split.png)
 
-- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
+- Review the [Istio Traffic Split manifest](https://github.com/Azure/jumpstart-apps/blob/main/arcbox/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
 
 - To show the Istio traffic split, open the below windows.
 
