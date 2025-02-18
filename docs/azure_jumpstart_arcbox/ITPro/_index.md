@@ -2,22 +2,6 @@
 type: docs
 linkTitle: "ArcBox for IT Pros"
 weight: 3
-Videos:
- - title: 'Azure Arc Jumpstart - Accelerate your Azure Arc learning and experimentation!'
-   url: "https://www.youtube.com/watch?v=VvoZp69NiRk&t=242s"
-   description: "A dive into the Azure Arc Jumpstart and all its resources to help you learn and experiment with the many Azure Arc solutions."
-   author: "John Savill"
- - title: "Introducing Jumpstart ArcBox 3.0"
-   url: https://www.youtube.com/watch?v=PvzKleYwJoc&t=93s
-   description: "ArcBox 3.0 is getting a facelift, and we are excited to share with the community all the new goodies we have in store"
-   author: "Jumpstart Lightening"
-Type: Sandbox enviornment
-Technologies:
- - Arc-enabled servers
- - Arc-enabled SQL Servers
- - Defender for Cloud
- - Azure Policy
- - Azure Update Manager
 ---
 
 # Jumpstart ArcBox for IT Pros
