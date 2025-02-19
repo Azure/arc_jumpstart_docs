@@ -7,10 +7,9 @@ summary: |
     The enabling AI at the edge to enhance workers safety page provides an overview of how Contoso Motors uses AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
-  - AKS
   - OpenVINO™
   - AI
-  - AKS EDGE ESSENTIALS
+  - Rancher K3s
   - RTSP
 ---
 
