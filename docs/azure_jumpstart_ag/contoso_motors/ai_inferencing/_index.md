@@ -9,7 +9,7 @@ serviceOrPlatform: INFRASTRUCTURE
 technologyStack:
   - AI
   - OpenVINO™
-  - K3s
+  - Rancher K3s
   - OpenVINO™ MODEL SERVER
   - RTSP
 ---

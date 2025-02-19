@@ -9,7 +9,7 @@ serviceOrPlatform: Manufacturing
 technologyStack:
   - OpenVINO™
   - AI
-  - K3s
+  - Rancher K3s
   - RTSP
 ---
 
