@@ -7,10 +7,9 @@ summary: |
     The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
-  - AKS
   - OpenVINO™
   - AI
-  - AKS EDGE ESSENTIALS
+  - Rancher K3s
   - RTSP
 ---
 
