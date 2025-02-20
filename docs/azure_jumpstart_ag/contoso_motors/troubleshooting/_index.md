@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 9
+weight: 8
 title: Troubleshooting
 linkTitle: Troubleshooting
 ---
