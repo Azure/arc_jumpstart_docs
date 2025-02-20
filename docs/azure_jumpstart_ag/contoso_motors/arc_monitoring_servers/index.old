@@ -1,4 +1,4 @@
-<!-- ---
+---
 type: docs
 weight: 7
 title: Infrastructure observability for Arc-enabled servers using Azure Monitor
@@ -9,7 +9,7 @@ serviceOrPlatform: INFRASTRUCTURE
 technologyStack:
   - AZURE ARC
   - AZURE MONITOR
---- -->
+---
 
 # Infrastructure observability for Arc-enabled servers using Azure Monitor
 
@@ -101,7 +101,7 @@ The second Azure Workbook functions as an inventory report detailing the various
 
 - The second and third inventories list your **Arc-enabled servers** and your **Arc-enabled Kubernetes clusters**. It provides information about the status, Arc agent version, the operating system, location, and the number of compliant and non-compliant policies.
 
-  ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/arcserverskubernetesclusters_inventoryworkbook.png)
+  ![Screenshot of inventory workbook arc servers and Kubernetes clusters](./img/arcserverskubernetesclusters_inventoryworkbook.png)
 
 - There is also an inventory for checking the **Updates Data** of the servers:
 
@@ -109,7 +109,7 @@ The second Azure Workbook functions as an inventory report detailing the various
 
 - The last inventory will list any **Defender for Cloud active alerts**:
 
-  ![Screenshot of inventory workbook arc servers and kubernetes clusters](./img/defenderalerts_inventoryworkbook.png)
+  ![Screenshot of inventory workbook arc servers and Kubernetes clusters](./img/defenderalerts_inventoryworkbook.png)
 
 ## Next steps
 

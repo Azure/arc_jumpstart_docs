@@ -47,7 +47,6 @@ To get started with the "Contoso Motors" Jumpstart Agora scenario, we provided y
 | [Welding defect scenario using OpenVINO™ and Kubernetes](../contoso_motors/welding_defect/)  | Welding monitoring  | RTSP simulator, OpenVINO™ Model Server (OVMS), Rancher K3s, Flask, OpenCV  |
 | [Enabling AI at the edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | RTSP simulator, OpenVINO™ Model Server (OVMS), Rancher K3s, Flask, OpenCV |
 | [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_motors/k8s_infra_observability/) | Infrastructure | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
-<!-- | [Infrastructure observability for Arc-enabled servers using Azure Monitor](../contoso_motors/arc_monitoring_servers/) |Infrastructure   | Arc-enabled servers, Azure Monitor | -->
 | [Cleanup deployment](../contoso_motors/cleanup/) | Not applicable | Not applicable |
 | [Troubleshooting](../contoso_motors/troubleshooting/) | Not applicable  | Not applicable |
 | [Frequently asked questions (FAQ)](../../faq/) | Not applicable  | Not applicable  |
