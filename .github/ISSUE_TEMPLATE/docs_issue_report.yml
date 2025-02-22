@@ -2,7 +2,7 @@ name: Docs Bug Report
 description: File a bug report or an issue in our documentation.
 title: "[Bug / Issue]: "
 labels: ["docs", "triage needed"]
-projects: ["microsoft/162"]
+projects: ["azure/638"]
 body:
   - type: markdown
     attributes:
