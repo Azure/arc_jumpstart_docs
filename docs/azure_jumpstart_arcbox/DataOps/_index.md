@@ -630,7 +630,7 @@ Initiate the backup restore process
 
 ### ArcBox Azure Monitor workbook
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 
