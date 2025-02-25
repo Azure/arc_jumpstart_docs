@@ -82,7 +82,7 @@ At this point, the infrastructure deployment is complete.
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
 - If everything looks good, and you did not choose to configure the `autoDeployClusterResource` parameter with the value `true` in your deployment, proceed to the next section to validate and deploy your instance. If you did enable this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
-Visit [troubleshooting](/azure_jumpstart_hcibox/troubleshooting/) if needed for deployment issues.
+Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ## Azure portal Azure Local instance validation and deployment
 
@@ -137,6 +137,6 @@ Azure Local uses a two-step process to create and register instances in Azure us
 
 ## Deployment complete
 
-- Once the HCIBox instance is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](/azure_jumpstart_hcibox/using_hcibox) guide for the next steps.
+- Once the HCIBox instance is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](../using_hcibox/) guide for the next steps.
 
   ![screenshot showing deployed instance](./cluster_detail.png)

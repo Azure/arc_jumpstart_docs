@@ -140,7 +140,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment. [Continue in Cloud Deployment guide](/azure_jumpstart_hcibox/cloud_deployment) for the next steps.
+Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the *HCIBox-Client* VM to continue the next phase of the deployment. [Continue in Cloud Deployment guide](../cloud_deployment/) for the next steps.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
@@ -153,4 +153,3 @@ To clean up your deployment, simply delete the resource group using Azure CLI or
   ```shell
   az group delete -n <name of your resource group>
   ```
-

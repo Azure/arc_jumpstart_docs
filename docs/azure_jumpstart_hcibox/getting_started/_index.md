@@ -57,10 +57,11 @@ Deploying HCIBox is a multi-step process that includes:
 ![Screenshot showing deployment flow diagram for Bicep-based deployments](./deployment_flow.png)
 
 ## Deploy HCIBox
--	[Deploy HCIBox with Azure CLI](/azure_jumpstart_hcibox/deployment_az) : Requires pre-configured service principle.
+
+- [Deploy HCIBox with Azure CLI](../deployment_az/) : Requires pre-configured service principle.
 
 Looking for something else related to HCIBox?
 
-- [Connect to HCIBox](/azure_jumpstart_hcibox/cloud_deployment)
+- [Connect to HCIBox](../cloud_deployment/)
 
-- [HCIBox FAQ](/azure_jumpstart_hcibox/faq)
+- [HCIBox FAQ](../faq/)

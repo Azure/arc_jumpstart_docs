@@ -491,7 +491,7 @@ Expected output:
 
   Expected output:
 
-  ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+  ![Screenshot showing usage of remote PowerShell tunneled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
