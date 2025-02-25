@@ -9,7 +9,7 @@ body:
       value: |
         Thanks for taking the time to fill out this issue!
 
-        If your bug report is related to something that is not working, we kindly ask you to open both an issue in our [source code repository](https://github.com/microsoft/azure_arc).
+        If your bug report is related to something that is not working, we kindly ask you to open an issue in our [source code repository](https://github.com/microsoft/azure_arc).
 
         The intent of this "Bug report" template is to address feature requests related to the various Arc Jumpstart solutions. The Arc Jumpstart team does not handle and/or support Azure Arc upstream core product related issues, bugs and feature requests and will try to assist on a best effort basis. For a core product issue or feature request/feedback, please create an official [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) or [general feedback request](https://feedback.azure.com).
   - type: checkboxes

@@ -64,13 +64,13 @@ See the [product documentation](https://learn.microsoft.com/azure-stack/hci/upda
 
 ## Virtual machine management through Azure portal
 
-Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](/azure_jumpstart_hcibox/RB/) to get started.
+Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](../azure_jumpstart_hcibox/RB/) to get started.
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 
 ## Azure Kubernetes Service (AKS)
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](/azure_jumpstart_hcibox/AKS/) to explore currently available features.
+HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](../azure_jumpstart_hcibox/AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Local](./cluster_detail.png)
 
