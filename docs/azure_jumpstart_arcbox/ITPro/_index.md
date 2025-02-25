@@ -505,7 +505,7 @@ The other contains performance data:
 
 ![Screenshot showing Azure Monitor workbook usage](./workbook_performance.png)
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
 
 ### Azure Update Manager
 
