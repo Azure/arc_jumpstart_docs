@@ -212,7 +212,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](./#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Deployment Option 2: Bicep deployment
 
@@ -256,7 +256,7 @@ az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.p
 
 To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
 
-  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](./#basic-troubleshooting).
+  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ### Bicep deployment option 2: Azure PowerShell
 
@@ -274,7 +274,7 @@ New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateF
 
 To use a Spot instance, replace the last command with `New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam" -enableAzureSpotPricing $true`
 
-  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](./#basic-troubleshooting).
+  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
 
 ## Start post-deployment automation
 
@@ -345,7 +345,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](./#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
 
 ## Using ArcBox
 

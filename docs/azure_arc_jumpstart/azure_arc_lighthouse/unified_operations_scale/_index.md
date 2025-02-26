@@ -100,8 +100,8 @@ The extension management feature for [Azure Arc-enabled servers](https://learn.m
 
 To work with Azure Arc extension management check out these Jumpstart scenarios:
 
-- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_azuremonitoragent/_index.md/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
-- [Deploy Custom Script Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_vm_extension_customscript_arm/_index.md/#deploy-custom-script-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
+- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_azuremonitoragent/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
+- [Deploy Custom Script Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_vm_extension_customscript_arm/#deploy-custom-script-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
 - [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](../../azure_arc_servers/day2/arc_policies_mma/)
 - [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](../../azure_arc_k8s/day2/gke/gke_monitor_extension/)
 
