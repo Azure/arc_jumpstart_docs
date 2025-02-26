@@ -124,7 +124,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
-  > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["Perform database failover with SQL Managed Instance Availability Groups"](../../day2/aks/aks_mssql_ha/_index.md) Jumpstart scenario as well as the ["High Availability with Azure Arc-enabled SQL Managed Instance"] product documentation.
+  > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["Perform database failover with SQL Managed Instance Availability Groups"](../../day2/aks/aks_mssql_ha/) Jumpstart scenario as well as the ["High Availability with Azure Arc-enabled SQL Managed Instance"] product documentation.
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/ARM) and run the below command:
 

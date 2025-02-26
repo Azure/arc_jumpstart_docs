@@ -14,7 +14,7 @@ Jumpstart Agora is a marketplace of various “cloud-to-edge” industry scenari
 
 ## What industry scenarios are available in Jumpstart Agora?
 
-Agora offers three industry scenarios, [Contoso Motors](../contoso_motors/), [Contoso Supermarket](../contoso_supermarket) and [Contoso Hypermarket](../contoso_hypermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
+Agora offers three industry scenarios, [Contoso Motors](../contoso_motors/), [Contoso Supermarket](../contoso_supermarket/) and [Contoso Hypermarket](../contoso_hypermarket/). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
 
 ## What is required to deploy Agora?
 
