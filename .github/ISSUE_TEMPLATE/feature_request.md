@@ -4,7 +4,6 @@ about: Suggest an idea for Arc Jumpstart
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
-
 ---
 
 **Is your feature request related to a problem?**
