@@ -182,7 +182,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
 
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](./#basic-troubleshooting).
 
 ## Deployment Option 2: Azure Bicep deployment via Azure CLI
 
@@ -224,7 +224,7 @@ az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.p
 
 To use a Spot instance, replace the last command with `az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam" -p enableAzureSpotPricing=true`
 
-> **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](#basic-troubleshooting).
+> **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](./#basic-troubleshooting).
 
 ## Start post-deployment automation
 
@@ -308,7 +308,7 @@ Example:
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-- Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+- Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut _Logs_. For more information about troubleshooting, please check the [troubleshooting guide](./#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 
