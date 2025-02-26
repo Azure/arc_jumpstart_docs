@@ -45,9 +45,9 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 Agora has a dedicated pages for troubleshooting that you can review for common issues.
 
-- [Troubleshoot Contoso Hypermarket](../contoso_hypermarket/troubleshooting)
-- [Troubleshoot Contoso Motors](../contoso_motors/troubleshooting)
-- [Troubleshoot Contoso Supermarket](../contoso_supermarket/troubleshooting)
+- [Troubleshoot Contoso Hypermarket](./../contoso_hypermarket/troubleshooting)
+- [Troubleshoot Contoso Motors](./../contoso_motors/troubleshooting)
+- [Troubleshoot Contoso Supermarket](./../contoso_supermarket/troubleshooting)
 
 ## What AI models are used in Jumpstart Agora?
 
