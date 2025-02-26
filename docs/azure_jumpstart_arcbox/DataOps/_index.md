@@ -182,7 +182,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portal_deploy03.png)
 
-  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](././#basic-troubleshooting).
+  > **Note:** The deployment can take up to 45 minutes. If it keeps running for more than that, please check the [troubleshooting guide](./#basic-troubleshooting).
 
 ## Deployment Option 2: Azure Bicep deployment via Azure CLI
 
