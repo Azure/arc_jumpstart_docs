@@ -14,7 +14,7 @@ In this scenario, you will deploy [nginx-ingress controller](https://kubernetes.
 
 GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open-source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declaratively manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This _HelmRelease_ points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
 
-> **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).
+> **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](../../../microk8s/local_microk8s/).
 
 ## Prerequisites
 
@@ -313,4 +313,4 @@ To delete the GitOps configuration and it's respective Kubernetes resources, we'
 
     ![Cleanup script in terminal](./24.png)
 
-- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/#delete-the-deployment) in the onboarding guide.
+- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](../../../microk8s/local_microk8s/#delete-the-deployment) in the onboarding guide.
