@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
-    > **Note:** This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/) scenario.
+    > **Note:** This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](../aks_mssql_ha/) scenario.
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/DR/ARM) and run the below command:
 
@@ -288,7 +288,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 In this scenario, two Azure Arc-enabled Kubernetes cluster extensions were installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](../../../../azure_arc_k8s/day2/aks/aks_monitor/) scenario.
 
 - _arc-data-services_ - The Azure Arc-enabled data services cluster extension that was used throughout this scenario in order to deploy the data services infrastructure.
 
