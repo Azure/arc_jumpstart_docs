@@ -121,7 +121,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
   ![Screenshot showing Azure portal deployment of ArcBox](./portaldeploymentcomplete.png)
 
-    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
+    > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](./#basic-troubleshooting).
 
 ## Deployment Option 2: Bicep deployment
 
@@ -179,7 +179,7 @@ New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateF
 
 To use a Spot instance, replace the last command with `New-AzResourceGroupDeployment -Name arcbox -ResourceGroupName $RGname -TemplateFile "./main.bicep" -TemplateParameterFile "./main.bicepparam" -enableAzureSpotPricing $true`
 
-  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](#basic-troubleshooting).
+  > **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](./#basic-troubleshooting).
 
 ## Start post-deployment automation
 
@@ -250,7 +250,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing complete deployment](./arcbox_complete.png)
 
-Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](#basic-troubleshooting)
+Before you move on, make sure to verify that the deployment status shown on the desktop background doesn't indicate any failures. If so, inspect the log files in the ArcBox logs-directory by navigating to the desktop shortcut *Logs*. For more information about troubleshooting, please check the [troubleshooting guide](./#basic-troubleshooting)
 
   ![Screenshot showing ArcBox resources in Azure portal](./rg_arc.png)
 

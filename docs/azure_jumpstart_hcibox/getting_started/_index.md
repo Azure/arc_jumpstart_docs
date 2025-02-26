@@ -11,8 +11,6 @@ HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azu
 
   > **Note:** [Azure Stack HCI OS, version 23H2](https://learn.microsoft.com/azure-stack/hci/whats-new) is now generally available. 23H2 simplifies configuration and deployment of Azure Local instances and related workloads like [VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. HCIBox has also been updated and now offers instances built on the new 23H2 OS, and prior Azure Local releases are no longer part of HCIBox or supported by the Jumpstart team. If you have used earlier versions of HCIBox you should read this guide thoroughly to understand the new HCIBox deployment process.
 
-<img src="/img/logo/hcibox.png" alt="Jumpstart HCIBox logo" width="250">
-
 ## Use cases
 
 - Sandbox environment for getting hands-on with Azure Local and Azure Arc technologies
