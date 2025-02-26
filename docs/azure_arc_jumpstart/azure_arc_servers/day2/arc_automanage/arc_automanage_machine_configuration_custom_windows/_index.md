@@ -32,7 +32,7 @@ Operating system:
 
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring.
 
-You can [connect to the ArcBox machine as described in the documentation](../../../../../azure_jumpstart_arcbox/ITPro/_index.md/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
+You can [connect to the ArcBox machine as described in the documentation](../../../../../azure_jumpstart_arcbox/ITPro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
 
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.3).
   - Run ```$PSVersionTable``` to check your currently installed version.

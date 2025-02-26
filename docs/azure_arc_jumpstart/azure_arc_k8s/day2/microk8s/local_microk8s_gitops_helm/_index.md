@@ -313,4 +313,4 @@ To delete the GitOps configuration and it's respective Kubernetes resources, we'
 
     ![Cleanup script in terminal](./24.png)
 
-- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](../../../microk8s/local_microk8s/_index.md#delete-the-deployment) in the onboarding guide.
+- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](../../../microk8s/local_microk8s/#delete-the-deployment) in the onboarding guide.
