@@ -177,7 +177,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json" -p customLocationRPOID="$customLocationRPOID"
   ```
 
-> **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting/).
+> **Note:** If you see any failure in the deployment, please check the [troubleshooting guide](../troubleshooting).
 
 ## Start post-deployment automation
 

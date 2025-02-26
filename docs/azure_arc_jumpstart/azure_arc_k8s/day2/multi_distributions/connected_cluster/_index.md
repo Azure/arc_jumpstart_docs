@@ -12,16 +12,14 @@ The following Jumpstart scenario will guide you through how to use the [Cluster 
 
   > **Note:** This scenario assumes you already deployed a Kubernetes cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[Azure Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/aks/)**
-- **[AKS on Azure Local](/azure_arc_jumpstart/azure_arc_k8s/aks_stack_hci/)**
-- **[Azure Red Hat OpenShift](/azure_arc_jumpstart/azure_arc_k8s/aro/)**
-- **[Amazon Elastic Kubernetes Service](/azure_arc_jumpstart/azure_arc_k8s/eks/)**
-- **[Google Kubernetes Engine](/azure_arc_jumpstart/azure_arc_k8s/gke/)**
-- **[Alibaba Cloud Container Service for Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/alibaba/)**
-- **[Rancher K3s](/azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/)**
-- **[Kind](/azure_arc_jumpstart/azure_arc_k8s/kind/)**
-- **[MicroK8s](/azure_arc_jumpstart/azure_arc_k8s/microk8s/)**
-- **[Platform9 Managed Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/pf9/)**
+- **[Azure Kubernetes Service](../../../aks/)**
+- **[Azure Red Hat OpenShift](../../../aro/)**
+- **[Amazon Elastic Kubernetes Service](../../../eks/)**
+- **[Google Kubernetes Engine](../../../gke/)**
+- **[Alibaba Cloud Container Service for Kubernetes](../../../alibaba/)**
+- **[Rancher K3s](../../../rancher_k3s/)**
+- **[Kind](../../../kind/)**
+- **[MicroK8s](../../../microk8s/)**
 
 ## Prerequisites
 

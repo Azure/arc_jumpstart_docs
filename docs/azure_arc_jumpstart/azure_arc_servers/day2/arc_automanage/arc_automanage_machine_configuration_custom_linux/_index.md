@@ -14,7 +14,7 @@ While the use of custom configurations in Automanage Machine Configuration featu
 
 By the end of this scenario, you will have both Linux and Windows Azure Arc-enabled servers with Automanage Machine Configuration custom configurations assigned.
 
-This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
+This scenario starts at the point where you already deployed **[Jumpstart ArcBox for IT Pros](../../../../../azure_jumpstart_arcbox/ITPro/)** and have 5 Azure Arc-enabled servers in the resource group is deployed to visible as resources in Azure.
 
 ![Screenshot of Azure portal showing Azure Arc-enabled servers](./01.png)
 
@@ -32,7 +32,7 @@ Operating system:
 
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring - and connect to a nested Linux VM.
 
-You can [connect to the ArcBox machine as described in the documentation](/azure_jumpstart_arcbox/ITPro/#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
+You can [connect to the ArcBox machine as described in the documentation](../../../../../azure_jumpstart_arcbox/ITPro/_index.md#connecting-to-the-arcbox-client-virtual-machine) and perform the following:
 
 - Open Visual Studio Code from the desktop shortcut.
 - Install the [Remote SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).

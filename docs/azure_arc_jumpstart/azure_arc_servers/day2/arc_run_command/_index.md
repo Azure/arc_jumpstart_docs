@@ -22,8 +22,6 @@ The following Jumpstart scenario will guide you on how to use the Run command on
 - **[Azure Windows VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
 - **[VMware vSphere Ubuntu VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
 - **[VMware vSphere Windows Server VM](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
 
 ## Prerequisites
 
@@ -166,13 +164,11 @@ Complete the following steps to clean up your environment.
 
 Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](../../gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](../../aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](../../azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](../../vmware/vmware_terraform_winsrv/)**
