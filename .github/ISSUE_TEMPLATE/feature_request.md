@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for Arc Jumpstart
-title: "[FEATURE] "
-labels: ''
+title: '[FEATURE] '
+labels: enhancement
 assignees: ''
 
 ---
