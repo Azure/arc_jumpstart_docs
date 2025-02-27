@@ -29,19 +29,19 @@ jobs:
 
     - name: Run URL checker
       run: python url-checker.py
-      working-directory: scripts/python/url-checker
+      working-directory: $(pwd)/scripts/python/url-checker
 
     - name: Upload log file
       uses: actions/upload-artifact@v4
       with:
         name: url-checker-log
-        path: scripts/python/url-checker/url-checker.log
+        path: $(pwd)/scripts/python/url-checker/url-checker.log
 
     - name: Display summary
-      run: cat scripts/python/url-checker/url-checker.log
+      run: cat $(pwd)/scripts/python/url-checker/url-checker.log
 
     - name: Clean up environment
-      run: rm -rf scripts/python/url-checker/__pycache__
+      run: rm -rf $(pwd)/scripts/python/url-checker/__pycache__
 
     - name: Notify on failure
       if: failure()
