@@ -16,16 +16,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        ref: canary
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-
-    - name: Debug - List files
-      run: ls -R
 
     - name: Install dependencies
       run: |
