@@ -27,6 +27,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests colorama
 
+    - name: List root directory contents
+      run: ls -la
+
     - name: List directory contents
       run: ls -la scripts/python/url-checker/
 
