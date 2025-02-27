@@ -71,7 +71,7 @@ The automation and deployment flow of the scenario proceeds as follows:
 
 - User edits the ARM template parameters file (1-time edit). These parameter values are used throughout the deployment.
 
-- Main [*azuredeploy* ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
+- Main [*azuredeploy* ARM template](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/azuredeploy.json) will initiate the deployment of the following resources:
 
   - *Virtual Network* - Virtual Network for Azure Windows Server VM.
   - *Network Interface* - Network Interface for Azure Windows Server VM.
@@ -79,7 +79,7 @@ The automation and deployment flow of the scenario proceeds as follows:
   - *Virtual Machine* - Azure Windows Server VM.
   - *Custom script and Azure Desired State Configuration extensions* - Configure the Azure Windows Server VM to host AKS Edge Essentials.
 
-- User remotes into client Windows VM, which automatically kicks off the [*LogonScript*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
+- User remotes into client Windows VM, which automatically kicks off the [*LogonScript*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/artifacts/LogonScript.ps1) PowerShell script to:
   - Create the AKS Edge Essentials cluster in the Windows Server VM
   - Onboard the Azure VM and AKS Edge Essentials cluster to Azure Arc
   - Deploy ACSA and Fault Detection Model
@@ -96,7 +96,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
 
 - Before deploying the ARM template, login to Azure using Azure CLI with the *`az login`* command.
 
-- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
+- The deployment uses the ARM template parameters file. Before initiating the deployment, edit the [*azuredeploy.parameters.json*](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/azuredeploy.parameters.json) file located in your local cloned repository folder.
 
   - *`vmSize`* - Client Windows VM size.
   - *`vmName`* - Client Windows VM name.
@@ -114,14 +114,14 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - *`storageAccountName`* - Azure Storage Account Name
   - *`storageContainer`* - Container in Storage Account (Leave this unmodified for a quick deployment)
 
-- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/) and run the below command:
+- To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/) and run the below command:
 
     ```shell
     az group create --name <Name of the Azure resource group> --location <Azure Region>
     az deployment group create \
     --resource-group <Name of the Azure resource group> \
     --name <The name of this deployment> \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/refs/heads/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/azuredeploy.json \
     --parameters <The _azuredeploy.parameters.json_ parameters file location>
     ```
 
@@ -135,7 +135,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
     az deployment group create \
     --resource-group AKS-EE-ACSA-Demo \
     --name akseedemo \
-    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_edge_iot_ops_jumpstart/ACSA_fault_detection/azuredeploy.json \
+    --template-uri https://raw.githubusercontent.com/microsoft/azure_arc/refs/heads/main/azure_edge_iot_ops_jumpstart/acsa_fault_detection/azuredeploy.json \
     --parameters azuredeploy.parameters.json
     ```
 

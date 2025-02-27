@@ -64,19 +64,19 @@ See the [product documentation](https://learn.microsoft.com/azure-stack/hci/upda
 
 ## Virtual machine management through Azure portal
 
-Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](../azure_jumpstart_hcibox/RB/) to get started.
+Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [HCIBox VM provisioning documentation](../RB/) to get started.
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 
 ## Azure Kubernetes Service (AKS)
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](../azure_jumpstart_hcibox/AKS/) to explore currently available features.
+HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](../AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Local](./cluster_detail.png)
 
 ## Advanced Configurations
 
-Some users may be interested in changing HCIBox's default configuration. Many settings can be configured by modifying the values in the [_HCIBox-Config.psd1_](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_jumpstart_hcibox/artifacts/HCIBox-Config.psd1) PowerShell file. If you wish to make changes to this file, you must fork the Jumpstart repo and make the changes in your fork, then set the optional _githubAccount_ and _githubBranch_ deployment template parameters to point to your fork.
+Some users may be interested in changing HCIBox's default configuration. Many settings can be configured by modifying the values in the [_HCIBox-Config.psd1_](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/artifacts/PowerShell/HCIBox-Config.psd1) PowerShell file. If you wish to make changes to this file, you must fork the Jumpstart repo and make the changes in your fork, then set the optional _githubAccount_ and _githubBranch_ deployment template parameters to point to your fork.
 
   > **Note:** Advanced configuration deployments are not supported by the Jumpstart team. Changes made to the _HCIBox-Config.psd1_ file may result in failures at any point in HCIBox deployment. Make changes to this file only if you understand the implications of the change.
 

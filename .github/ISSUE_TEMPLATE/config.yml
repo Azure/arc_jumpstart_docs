@@ -4,13 +4,13 @@ contact_links:
   #   url: https://jumpstart.azure.com/getting-started/
   #   about: Get started with Azure Arc using Jumpstart
   # - name: ArcBox for IT Pros Troubleshooting
-  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/ITPro/./#basic-troubleshooting
+  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting
   #   about: Troubleshooting guide for ArcBox IT Pro scenarios
   # - name: ArcBox for DevOps Troubleshooting
-  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/DevOps/./#basic-troubleshooting
+  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting
   #   about: Troubleshooting guide for ArcBox DevOps scenarios
   # - name: ArcBox for DataOps Troubleshooting
-  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/DataOps/./#basic-troubleshooting
+  #   url: https://jumpstart.azure.com/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting
   #   about: Troubleshooting guide for ArcBox DataOps scenarios
   # - name: HCIBox Troubleshooting
   #   url: https://jumpstart.azure.com/azure_jumpstart_hcibox/troubleshooting
