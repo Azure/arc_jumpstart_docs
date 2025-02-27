@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - canary
+      - main
   workflow_dispatch:
 
 jobs:
@@ -15,6 +16,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        ref: canary
 
     - name: Set up Python
       uses: actions/setup-python@v4
