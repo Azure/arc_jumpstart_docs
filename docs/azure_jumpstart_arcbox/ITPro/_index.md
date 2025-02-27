@@ -377,6 +377,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
   ```
 
 2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
+
     - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
     - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
