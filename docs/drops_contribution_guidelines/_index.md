@@ -153,9 +153,7 @@ The final submission should contain the following files:
 
    - **Merge to Canary**: If everything is correct, the PR will be merged to the **canary** branch, and the new Drop will be part of the approved Drops curated list.
 
-   - **Validation with Preview Site**: Validate the changes using the [Preview Arc Jumpstart site](https://preview.jumpstart.azure.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
-
-    ![Preview site](./preview_site.png)
+   - **Validation with Preview Site**: Validate the changes using the [Preview Arc Jumpstart site](https://bvt.test.arcjumpstart.azure.com/azure_jumpstart_drops). Ensure to check that your Drop is rendering correctly. Take some time to review the Drop card, and once finished, review the right-sidebar with all the context from your _README.md_ or _Index.md_.
 
    - **Merge to Main**: Finally, once the **Canary** branch is merged to **Main** and published to Production, the Drop will be available as part of [Jumpstart Drops](https://jumpstart.azure.com/azure_jumpstart_drops).
 
