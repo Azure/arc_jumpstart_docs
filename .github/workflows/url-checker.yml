@@ -30,7 +30,7 @@ jobs:
     - name: Run URL checker
       run: python scripts/python/url-checker/url-checker.py
       env:
-        FORCE_COLOR: "1"
+        PY_COLORS: '1'
 
     - name: Upload log file
       uses: actions/upload-artifact@v4
