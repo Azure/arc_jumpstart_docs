@@ -44,9 +44,9 @@ jobs:
       run: |
         python scripts/python/url-checker/url-checker.py
         EXIT_CODE=$?
-        echo "LINK_CHECK_EXIT_CODE=${EXIT_CODE}" >> $GITHUB_ENV
         echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
+        # Always display the summary clearly
         echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
         if [ $EXIT_CODE -eq 0 ]; then
           echo "✅ All links are valid!" >> $GITHUB_STEP_SUMMARY
