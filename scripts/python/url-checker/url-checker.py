@@ -6,24 +6,16 @@ from urllib.parse import urljoin, urlparse
 from datetime import datetime
 import ipaddress
 from colorama import init
+import sys
 
-# Initialize colorama for Windows compatibility
-init()
+# Initialize colorama for Windows compatibility and force color output in GitHub Actions
+init(strip=False, convert=False)
 
+# ANSI escape codes
 class Colors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-    @staticmethod
-    def color_text(text, color):
-        return f"{color}{text}{Colors.ENDC}"
 
 # Configuration
 
@@ -63,7 +55,6 @@ def find_markdown_files():
                 md_files.append(os.path.join(root, file))
     return md_files
 
-
 def extract_urls(md_file):
     """Extract all URLs from a markdown file."""
     urls = []
@@ -72,7 +63,6 @@ def extract_urls(md_file):
             matches = MD_URL_REGEX.findall(line)
             urls.extend(matches)
     return urls
-
 
 def is_ip_based_url(url):
     """Check if a URL is IP-based."""
@@ -83,12 +73,12 @@ def is_ip_based_url(url):
     except ValueError:
         return False
 
-
 def check_absolute_url(url, retries=3):
     """Check if an absolute URL is reachable, always using GET requests."""
     if url in KNOWN_VALID_URLS:
-        print(Colors.color_text(f"[OK] {url} (known valid URL)", Colors.OKGREEN))
-        return True
+        log_entry = f"{Colors.OKGREEN}[OK] {url} (known valid URL){Colors.ENDC}"
+        print(log_entry)
+        return log_entry
 
     print(f"Checking absolute URL: {url}")
     attempt = 0
@@ -97,36 +87,38 @@ def check_absolute_url(url, retries=3):
             response = requests.get(url, headers=HEADERS, allow_redirects=True, timeout=TIMEOUT, stream=True)
             
             if response.status_code < 400:
-                print(Colors.color_text(f"[OK] {url}", Colors.OKGREEN))
-                return True
+                log_entry = f"{Colors.OKGREEN}[OK] {url}{Colors.ENDC}"
+                print(log_entry)
+                return log_entry
             else:
-                print(Colors.color_text(f"[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}", Colors.FAIL))
-                return False
+                log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}{Colors.ENDC}"
+                print(log_entry)
+                return log_entry
         except requests.RequestException as e:
-            print(Colors.color_text(f"[BROKEN ABSOLUTE] {url} - Error: {e}", Colors.FAIL))
+            log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Error: {e}{Colors.ENDC}"
+            print(log_entry)
             attempt += 1
             if attempt < retries:
                 print(f"Retrying... ({attempt}/{retries})")
             else:
-                return False
-
+                return log_entry
 
 def check_relative_url(url, md_file):
     """Check if a relative file exists."""
     file_path = os.path.join(os.path.dirname(md_file), url)
     print(f"Checking relative URL: {file_path}")
     if os.path.exists(file_path):
-        print(Colors.color_text(f"[OK] {file_path}", Colors.OKGREEN))
-        return True
+        log_entry = f"{Colors.OKGREEN}[OK] {file_path}{Colors.ENDC}"
+        print(log_entry)
+        return log_entry
     else:
-        print(Colors.color_text(f"[BROKEN RELATIVE] {file_path} (relative path in {md_file})", Colors.FAIL))
-        return False
-
+        log_entry = f"{Colors.FAIL}[BROKEN RELATIVE] {file_path} (relative path in {md_file}){Colors.ENDC}"
+        print(log_entry)
+        return log_entry
 
 def strip_ansi_escape_codes(text):
     """Remove ANSI escape codes from the text."""
     return ANSI_ESCAPE_REGEX.sub('', text)
-
 
 def main():
     broken_absolute_urls = []
@@ -139,36 +131,42 @@ def main():
     
     print("Starting URL check...")
     start_time = datetime.now()
-    for md_file in markdown_files:
-        print(f"Processing file: {md_file}")
-        urls = extract_urls(md_file)
-        for url in urls:
-            if EMAIL_REGEX.match(url):
-                print(f"Skipping email URL: {url}")
-                continue
-            
-            if url.startswith("http://localhost") or is_ip_based_url(url):
-                print(f"Skipping localhost or IP-based URL: {url}")
-                continue
-            
-            parsed_url = urlparse(url)
-            if parsed_url.scheme in ('http', 'https'):
-                if check_absolute_url(url):
-                    ok_absolute_urls.append(Colors.color_text(f"[OK ABSOLUTE] {url} (found in {md_file})", Colors.OKGREEN))
+    with open(log_file_with_timestamp, 'a', encoding='utf-8') as log:
+        log.write(f"Log generated on: {timestamp}\n")
+        log.flush()
+        for md_file in markdown_files:
+            print(f"Processing file: {md_file}")
+            urls = extract_urls(md_file)
+            for url in urls:
+                if EMAIL_REGEX.match(url):
+                    print(f"Skipping email URL: {url}")
+                    continue
+                
+                if url.startswith("http://localhost") or is_ip_based_url(url):
+                    print(f"Skipping localhost or IP-based URL: {url}")
+                    continue
+                
+                parsed_url = urlparse(url)
+                if parsed_url.scheme in ('http', 'https'):
+                    log_entry = check_absolute_url(url)
+                    if "[OK]" in log_entry:
+                        ok_absolute_urls.append(log_entry)
+                    else:
+                        broken_absolute_urls.append(log_entry)
                 else:
-                    broken_absolute_urls.append(Colors.color_text(f"[BROKEN ABSOLUTE] {url} (found in {md_file})", Colors.FAIL))
-            else:
-                if check_relative_url(url, md_file):
-                    ok_relative_urls.append(Colors.color_text(f"[OK RELATIVE] {url} (found in {md_file})", Colors.OKGREEN))
-                else:
-                    broken_relative_urls.append(Colors.color_text(f"[BROKEN RELATIVE] {url} (relative path in {md_file})", Colors.FAIL))
+                    log_entry = check_relative_url(url, md_file)
+                    if "[OK]" in log_entry:
+                        ok_relative_urls.append(log_entry)
+                    else:
+                        broken_relative_urls.append(log_entry)
+                log.write(strip_ansi_escape_codes(log_entry) + "\n")
+                log.flush()
     
     end_time = datetime.now()
     runtime_duration = end_time - start_time
     
-    with open(log_file_with_timestamp, 'w', encoding='utf-8') as log:
-        log.write(f"Log generated on: {timestamp}\n")
-        log.write(f"Runtime duration: {runtime_duration}\n")
+    with open(log_file_with_timestamp, 'a', encoding='utf-8') as log:
+        log.write(f"\nRuntime duration: {runtime_duration}\n")
         log.write(f"Total broken absolute URLs: {len(broken_absolute_urls)}\n")
         log.write(f"Total OK absolute URLs: {len(ok_absolute_urls)}\n")
         log.write(f"Total broken relative URLs: {len(broken_relative_urls)}\n")
@@ -194,24 +192,32 @@ def main():
     print(f"Total OK relative URLs: {len(ok_relative_urls)}")
     print("\n=== Broken Absolute URLs ===")
     for url in broken_absolute_urls:
-        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.FAIL))
+        print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
     print("\n=== Broken Relative URLs ===")
     for url in broken_relative_urls:
-        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.FAIL))
+        print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
     print("\n=== OK Absolute URLs ===")
     for url in ok_absolute_urls:
-        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.OKGREEN))
+        print(f"{Colors.OKGREEN}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
     print("\n=== OK Relative URLs ===")
     for url in ok_relative_urls:
-        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.OKGREEN))
+        print(f"{Colors.OKGREEN}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
 
     # Print summary table
     print("\nSummary:")
-    print(Colors.color_text(f"Total broken absolute URLs: {len(broken_absolute_urls)}", Colors.FAIL))
-    print(Colors.color_text(f"Total OK absolute URLs: {len(ok_absolute_urls)}", Colors.OKGREEN))
-    print(Colors.color_text(f"Total broken relative URLs: {len(broken_relative_urls)}", Colors.FAIL))
-    print(Colors.color_text(f"Total OK relative URLs: {len(ok_relative_urls)}", Colors.OKGREEN))
+    print(f"{Colors.FAIL}Total broken absolute URLs: {len(broken_absolute_urls)}{Colors.ENDC}")
+    print(f"{Colors.OKGREEN}Total OK absolute URLs: {len(ok_absolute_urls)}{Colors.ENDC}")
+    print(f"{Colors.FAIL}Total broken relative URLs: {len(broken_relative_urls)}{Colors.ENDC}")
+    print(f"{Colors.OKGREEN}Total OK relative URLs: {len(ok_relative_urls)}{Colors.ENDC}")
 
+    broken_links_found = bool(broken_absolute_urls or broken_relative_urls)
+
+    if broken_links_found:
+        print("❌ Broken links were found. Check the logs for details.")
+        sys.exit(1)  # Exit with error code, will cause the GitHub Action to fail
+    else:
+        print("✅ All links are valid!")
+        sys.exit(0)  # Exit with success code
 
 if __name__ == "__main__":
     main()

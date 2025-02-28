@@ -2,12 +2,21 @@ name: Check Broken Links
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
+    - cron: '0 0 * * *'
   push:
     branches:
       - canary
       - main
   workflow_dispatch:
+    inputs:
+      fail-on-broken-links:
+        description: 'Fail workflow if broken links are found'
+        required: true
+        type: choice
+        default: 'true'
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   url-check:
@@ -27,21 +36,54 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests colorama
 
-    - name: Run URL checker
-      run: python scripts/python/url-checker/url-checker.py
+    - name: Enable Color Output
+      run: echo "FORCE_COLOR=1" >> $GITHUB_ENV
+
+    - name: Check for broken links
+      id: check_links
+      continue-on-error: true
+      run: |
+        python scripts/python/url-checker/url-checker.py
+        EXIT_CODE=$?
+        echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
+
+        # Always display the summary clearly
+        echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
+        if [ $EXIT_CODE -eq 0 ]; then
+          echo "✅ All links are valid!" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "⚠️ Some broken links were found. Check the logs for details." >> $GITHUB_STEP_SUMMARY
+          echo "Download the log artifacts for the complete report." >> $GITHUB_STEP_SUMMARY
+        fi
 
     - name: Upload log file
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: url-checker-log
         path: scripts/python/url-checker/logs/*.log
 
-    - name: Display summary
-      run: cat scripts/python/url-checker/logs/*.log
-
     - name: Clean up environment
+      if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
 
-    - name: Notify on failure
-      if: failure()
-      run: echo "URL Checker failed. Please check the log file for details."
+    - name: Determine if workflow should fail
+      id: determine_fail
+      run: |
+        if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          echo "should_fail=false" >> $GITHUB_OUTPUT
+        else
+          echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Debug workflow info
+      if: steps.check_links.outputs.link_check_exit_code != '0'
+      run: |
+        echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
+
+    - name: Report final status
+      if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
+      run: |
+        echo "::error::Broken links were found in the documentation. See uploaded logs for details."
+        exit 1
