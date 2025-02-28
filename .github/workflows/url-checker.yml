@@ -41,28 +41,34 @@ jobs:
       
     - name: Check for broken links
       id: check-links
-      continue-on-error: true
       run: |
         python scripts/python/url-checker/url-checker.py
-        EXIT_CODE=$?
-        echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
-        if [ $EXIT_CODE -ne 0 ]; then
-          echo "::warning::Broken links were found in the repository!"
-        else
-          echo "✅ No broken links found!"
-        fi
-
+        echo "script_exit_code=$?" >> $GITHUB_OUTPUT
+    
     - name: Upload log file
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: url-checker-log
         path: scripts/python/url-checker/logs/*.log
 
     - name: Clean up environment
+      if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
       
-    - name: Fail if broken links were found and failure is requested
-      if: steps.check-links.outputs.exit_code != '0' && (github.event.inputs.fail-on-broken-links != 'false' || github.event_name != 'workflow_dispatch')
+    - name: Check results
+      if: always()
       run: |
-        echo "::error::Broken links were found! See the logs for details."
-        exit 1
+        if [ "${{ steps.check-links.outputs.script_exit_code }}" == "1" ]; then
+          echo "::warning::Broken links were found in the repository!"
+          
+          # Only fail if this wasn't a manual run with the option set to false
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ github.event.inputs.fail-on-broken-links }}" != "false" ]; then
+            echo "::error::Failing workflow because broken links were found!"
+            exit 1
+          else
+            echo "::warning::Not failing workflow because 'fail-on-broken-links' was set to false."
+          fi
+        else
+          echo "✅ No broken links found!"
+        fi
