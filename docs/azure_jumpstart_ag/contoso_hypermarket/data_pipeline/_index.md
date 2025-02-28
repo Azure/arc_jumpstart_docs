@@ -14,5 +14,5 @@ The **operational** data pipeline focuses on optimizing store orders and invento
 
 Together, these pipelines give Contoso's leadership a comprehensive view of store operations, helping identify trends and meet customer demand effectively.
 
-- [Data pipeline and reporting for operational technology (OT)](operational/_index.md)
-- [Data pipeline and reporting for commercial sales](commercial/_index.md)
+- [Data pipeline and reporting for operational technology (OT)](../data_pipeline/operational/)
+- [Data pipeline and reporting for commercial sales](../data_pipeline/commercial/)
