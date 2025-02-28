@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        path: scripts/python/url-checker
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
