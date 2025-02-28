@@ -13,7 +13,7 @@ on:
         description: 'Fail workflow if broken links are found'
         required: true
         type: choice
-        default: 'false'
+        default: 'true'
         options:
           - 'true'
           - 'false'
