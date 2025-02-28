@@ -68,7 +68,6 @@ jobs:
 
     - name: Determine if workflow should fail
       id: determine_fail
-      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
         if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
           echo "should_fail=true" >> $GITHUB_OUTPUT
@@ -77,7 +76,6 @@ jobs:
         fi
 
     - name: Debug workflow info
-      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
         echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
         echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
