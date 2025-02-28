@@ -139,14 +139,14 @@ def main():
             parsed_url = urlparse(url)
             if parsed_url.scheme in ('http', 'https'):
                 if check_absolute_url(url):
-                    ok_absolute_urls.append(Fore.GREEN + f"[OK ABSOLUTE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    ok_absolute_urls.append(f"\033[32m[OK ABSOLUTE] {url} (found in {md_file})\033[0m")
                 else:
-                    broken_absolute_urls.append(Fore.RED + f"[BROKEN ABSOLUTE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    broken_absolute_urls.append(f"\033[31m[BROKEN ABSOLUTE] {url} (found in {md_file})\033[0m")
             else:
                 if check_relative_url(url, md_file):
-                    ok_relative_urls.append(Fore.GREEN + f"[OK RELATIVE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    ok_relative_urls.append(f"\033[32m[OK RELATIVE] {url} (found in {md_file})\033[0m")
                 else:
-                    broken_relative_urls.append(Fore.RED + f"[BROKEN RELATIVE] {url} (relative path in {md_file})" + Style.RESET_ALL)
+                    broken_relative_urls.append(f"\033[31m[BROKEN RELATIVE] {url} (relative path in {md_file})\033[0m")
     
     end_time = datetime.now()
     runtime_duration = end_time - start_time
