@@ -17,8 +17,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        path: ./scripts/python/url-checker
-
+        path: github/scripts/python/url-checker
+        
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
