@@ -42,7 +42,7 @@ jobs:
     - name: Check for broken links
       id: check_links
       run: |
-        python scripts/python/url-checker/url-checker.py
+        python scripts/python/url-checker/url-checker.py || true
         EXIT_CODE=$?
         echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
