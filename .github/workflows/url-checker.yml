@@ -67,20 +67,35 @@ jobs:
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
 
+    - name: Debug workflow inputs
+      run: |
+        echo "Event name: ${{ github.event_name }}"
+        echo "Input fail-on-broken-links: ${{ github.event.inputs.fail-on-broken-links }}"
+        echo "Link check exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+
     - name: Determine if workflow should fail
       id: determine_fail
       run: |
-        if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-          echo "should_fail=false" >> $GITHUB_OUTPUT
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "${{ github.event.inputs.fail-on-broken-links }}" == "true" ]]; then
+            echo "should_fail=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_fail=false" >> $GITHUB_OUTPUT
+          fi
         else
-          echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
+          echo "should_fail=false" >> $GITHUB_OUTPUT
         fi
 
-    - name: Debug workflow info
-      if: steps.check_links.outputs.link_check_exit_code != '0'
+    - name: Debug failure decision
       run: |
         echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
         echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
+        
+        if [[ "${{ steps.check_links.outputs.link_check_exit_code }}" != "0" && "${{ steps.determine_fail.outputs.should_fail }}" == "true" ]]; then
+          echo "Workflow will fail based on current conditions"
+        else
+          echo "Workflow will succeed based on current conditions"
+        fi
 
     - name: Report final status
       if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
