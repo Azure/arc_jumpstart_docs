@@ -8,12 +8,19 @@ on:
       - canary
       - main
   workflow_dispatch:
+    inputs:
+      fail-on-broken-links:
+        description: 'Fail workflow if broken links are found'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   url-check:
     runs-on: ubuntu-latest
-    outputs:
-      status: ${{ steps.check-links.outputs.status }}
 
     steps:
     - name: Checkout repository
@@ -34,16 +41,16 @@ jobs:
       
     - name: Check for broken links
       id: check-links
+      continue-on-error: true
       run: |
         python scripts/python/url-checker/url-checker.py
-        if [ $? -eq 0 ]; then
-          echo "status=success" >> $GITHUB_OUTPUT
-          echo "No broken links found!"
+        EXIT_CODE=$?
+        echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+        if [ $EXIT_CODE -ne 0 ]; then
+          echo "::warning::Broken links were found in the repository!"
         else
-          echo "status=failure" >> $GITHUB_OUTPUT
-          echo "Broken links were found!"
+          echo "✅ No broken links found!"
         fi
-      continue-on-error: true
 
     - name: Upload log file
       uses: actions/upload-artifact@v4
@@ -53,23 +60,9 @@ jobs:
 
     - name: Clean up environment
       run: rm -rf scripts/python/url-checker/__pycache__
-
-    - name: Create status badge
+      
+    - name: Fail if broken links were found and failure is requested
+      if: steps.check-links.outputs.exit_code != '0' && (github.event.inputs.fail-on-broken-links != 'false' || github.event_name != 'workflow_dispatch')
       run: |
-        if [ "${{ steps.check-links.outputs.status }}" == "success" ]; then
-          echo "STATUS_BADGE=passing" >> $GITHUB_ENV
-          echo "STATUS_COLOR=brightgreen" >> $GITHUB_ENV
-        else
-          echo "STATUS_BADGE=failing" >> $GITHUB_ENV
-          echo "STATUS_COLOR=red" >> $GITHUB_ENV
-        fi
-        
-    - name: Update status badge
-      uses: schneegans/dynamic-badges-action@v1.6.0
-      with:
-        auth: ${{ secrets.GIST_SECRET }}
-        gistID: GIST_ID_FOR_BADGE
-        filename: url-checker-status.json
-        label: links
-        message: ${{ env.STATUS_BADGE }}
-        color: ${{ env.STATUS_COLOR }}
+        echo "::error::Broken links were found! See the logs for details."
+        exit 1
