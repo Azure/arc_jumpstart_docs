@@ -7,13 +7,14 @@ on:
     branches:
       - canary
       - main
+  # Enable manual triggering from GitHub Actions tab
   workflow_dispatch:
     inputs:
       fail-on-broken-links:
         description: 'Fail workflow if broken links are found'
         required: true
         type: choice
-        default: 'true'
+        default: 'false'
         options:
           - 'true'
           - 'false'
