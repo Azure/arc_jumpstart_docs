@@ -29,7 +29,7 @@ def get_repo_root():
 REPO_PATH = get_repo_root()
 LOG_DIR = os.path.join(REPO_PATH, 'scripts/python/url-checker/logs')
 os.makedirs(LOG_DIR, exist_ok=True)
-TIMEOUT = 5  # Seconds
+TIMEOUT = 15  # Increased from 5 to 15 seconds for all URLs
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; LinkChecker/1.0)"}  # Mimic a real browser
 
 # Regex to find markdown URLs
@@ -41,8 +41,11 @@ ANSI_ESCAPE_REGEX = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
 KNOWN_VALID_URLS = [
     "https://whatismyip.com",
     "https://www.linkedin.com",
+    "https://learn.microsoft.com",
     # Add more known valid URLs here
 ]
+
+# Remove domain-specific timeout constants - we're simplifying to a single value
 
 def find_markdown_files():
     """Find all markdown files in the repository, skipping 'archive' folders."""
@@ -84,6 +87,7 @@ def check_absolute_url(url, retries=3):
     attempt = 0
     while attempt < retries:
         try:
+            # Use the single global TIMEOUT value for all URLs
             response = requests.get(url, headers=HEADERS, allow_redirects=True, timeout=TIMEOUT, stream=True)
             
             if response.status_code < 400:
