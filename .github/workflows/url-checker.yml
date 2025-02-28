@@ -30,7 +30,7 @@ jobs:
     - name: Enable Color Output
       run: echo "FORCE_COLOR=1" >> $GITHUB_ENV
       
-    - name: Run URL checker
+    - name: Check for broken links
       run: python scripts/python/url-checker/url-checker.py
 
     - name: Upload log file
@@ -39,12 +39,5 @@ jobs:
         name: url-checker-log
         path: scripts/python/url-checker/logs/*.log
 
-    - name: Display summary
-      run: cat scripts/python/url-checker/logs/*.log
-
     - name: Clean up environment
       run: rm -rf scripts/python/url-checker/__pycache__
-
-    - name: Notify on failure
-      if: failure()
-      run: echo "URL Checker failed. Please check the log file for details."
