@@ -3,12 +3,27 @@ import re
 import requests
 import subprocess
 from urllib.parse import urljoin, urlparse
-from colorama import Fore, Style, init
 from datetime import datetime
 import ipaddress
+from colorama import init
 
 # Initialize colorama for Windows compatibility
 init()
+
+class Colors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+    @staticmethod
+    def color_text(text, color):
+        return f"{color}{text}{Colors.ENDC}"
 
 # Configuration
 
@@ -72,7 +87,7 @@ def is_ip_based_url(url):
 def check_absolute_url(url, retries=3):
     """Check if an absolute URL is reachable, always using GET requests."""
     if url in KNOWN_VALID_URLS:
-        print(Fore.GREEN + f"[OK] {url} (known valid URL)" + Style.RESET_ALL)
+        print(Colors.color_text(f"[OK] {url} (known valid URL)", Colors.OKGREEN))
         return True
 
     print(f"Checking absolute URL: {url}")
@@ -82,13 +97,13 @@ def check_absolute_url(url, retries=3):
             response = requests.get(url, headers=HEADERS, allow_redirects=True, timeout=TIMEOUT, stream=True)
             
             if response.status_code < 400:
-                print(Fore.GREEN + f"[OK] {url}" + Style.RESET_ALL)
+                print(Colors.color_text(f"[OK] {url}", Colors.OKGREEN))
                 return True
             else:
-                print(Fore.RED + f"[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}" + Style.RESET_ALL)
+                print(Colors.color_text(f"[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}", Colors.FAIL))
                 return False
         except requests.RequestException as e:
-            print(Fore.RED + f"[BROKEN ABSOLUTE] {url} - Error: {e}" + Style.RESET_ALL)
+            print(Colors.color_text(f"[BROKEN ABSOLUTE] {url} - Error: {e}", Colors.FAIL))
             attempt += 1
             if attempt < retries:
                 print(f"Retrying... ({attempt}/{retries})")
@@ -101,10 +116,10 @@ def check_relative_url(url, md_file):
     file_path = os.path.join(os.path.dirname(md_file), url)
     print(f"Checking relative URL: {file_path}")
     if os.path.exists(file_path):
-        print(Fore.GREEN + f"[OK] {file_path}" + Style.RESET_ALL)
+        print(Colors.color_text(f"[OK] {file_path}", Colors.OKGREEN))
         return True
     else:
-        print(Fore.RED + f"[BROKEN RELATIVE] {file_path} (relative path in {md_file})" + Style.RESET_ALL)
+        print(Colors.color_text(f"[BROKEN RELATIVE] {file_path} (relative path in {md_file})", Colors.FAIL))
         return False
 
 
@@ -139,14 +154,14 @@ def main():
             parsed_url = urlparse(url)
             if parsed_url.scheme in ('http', 'https'):
                 if check_absolute_url(url):
-                    ok_absolute_urls.append(Fore.GREEN + f"[OK ABSOLUTE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    ok_absolute_urls.append(Colors.color_text(f"[OK ABSOLUTE] {url} (found in {md_file})", Colors.OKGREEN))
                 else:
-                    broken_absolute_urls.append(Fore.RED + f"[BROKEN ABSOLUTE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    broken_absolute_urls.append(Colors.color_text(f"[BROKEN ABSOLUTE] {url} (found in {md_file})", Colors.FAIL))
             else:
                 if check_relative_url(url, md_file):
-                    ok_relative_urls.append(Fore.GREEN + f"[OK RELATIVE] {url} (found in {md_file})" + Style.RESET_ALL)
+                    ok_relative_urls.append(Colors.color_text(f"[OK RELATIVE] {url} (found in {md_file})", Colors.OKGREEN))
                 else:
-                    broken_relative_urls.append(Fore.RED + f"[BROKEN RELATIVE] {url} (relative path in {md_file})" + Style.RESET_ALL)
+                    broken_relative_urls.append(Colors.color_text(f"[BROKEN RELATIVE] {url} (relative path in {md_file})", Colors.FAIL))
     
     end_time = datetime.now()
     runtime_duration = end_time - start_time
@@ -179,23 +194,23 @@ def main():
     print(f"Total OK relative URLs: {len(ok_relative_urls)}")
     print("\n=== Broken Absolute URLs ===")
     for url in broken_absolute_urls:
-        print(Fore.RED + strip_ansi_escape_codes(url) + Style.RESET_ALL)
+        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.FAIL))
     print("\n=== Broken Relative URLs ===")
     for url in broken_relative_urls:
-        print(Fore.RED + strip_ansi_escape_codes(url) + Style.RESET_ALL)
+        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.FAIL))
     print("\n=== OK Absolute URLs ===")
     for url in ok_absolute_urls:
-        print(Fore.GREEN + strip_ansi_escape_codes(url) + Style.RESET_ALL)
+        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.OKGREEN))
     print("\n=== OK Relative URLs ===")
     for url in ok_relative_urls:
-        print(Fore.GREEN + strip_ansi_escape_codes(url) + Style.RESET_ALL)
+        print(Colors.color_text(strip_ansi_escape_codes(url), Colors.OKGREEN))
 
     # Print summary table
     print("\nSummary:")
-    print(Fore.RED + f"Total broken absolute URLs: {len(broken_absolute_urls)}" + Style.RESET_ALL)
-    print(Fore.GREEN + f"Total OK absolute URLs: {len(ok_absolute_urls)}" + Style.RESET_ALL)
-    print(Fore.RED + f"Total broken relative URLs: {len(broken_relative_urls)}" + Style.RESET_ALL)
-    print(Fore.GREEN + f"Total OK relative URLs: {len(ok_relative_urls)}" + Style.RESET_ALL)
+    print(Colors.color_text(f"Total broken absolute URLs: {len(broken_absolute_urls)}", Colors.FAIL))
+    print(Colors.color_text(f"Total OK absolute URLs: {len(ok_absolute_urls)}", Colors.OKGREEN))
+    print(Colors.color_text(f"Total broken relative URLs: {len(broken_relative_urls)}", Colors.FAIL))
+    print(Colors.color_text(f"Total OK relative URLs: {len(ok_relative_urls)}", Colors.OKGREEN))
 
 
 if __name__ == "__main__":
