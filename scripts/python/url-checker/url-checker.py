@@ -7,8 +7,8 @@ from datetime import datetime
 import ipaddress
 from colorama import init
 
-# Initialize colorama for Windows compatibility
-init()
+# Initialize colorama for Windows compatibility and force color output in GitHub Actions
+init(strip=False, convert=False)
 
 # ANSI escape codes
 class Colors:
