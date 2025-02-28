@@ -74,6 +74,7 @@ jobs:
         else
           echo "SHOULD_FAIL=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_ENV
         fi
+        echo "SHOULD_FAIL=${SHOULD_FAIL}"
 
     - name: Debug workflow info
       if: env.LINK_CHECK_EXIT_CODE != '0'
