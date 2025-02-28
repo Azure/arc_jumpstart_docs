@@ -42,25 +42,46 @@ jobs:
     - name: Check for broken links
       id: check-links
       run: |
-        python scripts/python/url-checker/url-checker.py
-        echo "script_exit_code=$?" >> $GITHUB_OUTPUT
+        # Run the script and capture both the output and exit code
+        OUTPUT=$(python scripts/python/url-checker/url-checker.py 2>&1)
+        EXIT_CODE=$?
+        
+        echo "$OUTPUT"
+        
+        # Count broken links by grep-ing the output
+        BROKEN_ABSOLUTE=$(echo "$OUTPUT" | grep -c '\[BROKEN ABSOLUTE\]' || true)
+        BROKEN_RELATIVE=$(echo "$OUTPUT" | grep -c '\[BROKEN RELATIVE\]' || true)
+        TOTAL_BROKEN=$((BROKEN_ABSOLUTE + BROKEN_RELATIVE))
+        
+        echo "broken_absolute=$BROKEN_ABSOLUTE" >> $GITHUB_OUTPUT
+        echo "broken_relative=$BROKEN_RELATIVE" >> $GITHUB_OUTPUT
+        echo "total_broken=$TOTAL_BROKEN" >> $GITHUB_OUTPUT
+        echo "script_exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+        
+        # Save output to a file for artifact
+        mkdir -p /tmp/url-checker-output
+        echo "$OUTPUT" > /tmp/url-checker-output/output.log
     
-    - name: Upload log file
+    - name: Upload logs
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: url-checker-log
-        path: scripts/python/url-checker/logs/*.log
+        name: url-checker-logs
+        path: |
+          scripts/python/url-checker/logs/*.log
+          /tmp/url-checker-output/output.log
 
     - name: Clean up environment
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
       
-    - name: Check results
+    - name: Determine status and fail if needed
       if: always()
       run: |
-        if [ "${{ steps.check-links.outputs.script_exit_code }}" == "1" ]; then
-          echo "::warning::Broken links were found in the repository!"
+        BROKEN_LINKS=${{ steps.check-links.outputs.total_broken }}
+        
+        if [ "$BROKEN_LINKS" -gt "0" ]; then
+          echo "::warning::Found $BROKEN_LINKS broken links (${{ steps.check-links.outputs.broken_absolute }} absolute, ${{ steps.check-links.outputs.broken_relative }} relative)."
           
           # Only fail if this wasn't a manual run with the option set to false
           if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ github.event.inputs.fail-on-broken-links }}" != "false" ]; then
