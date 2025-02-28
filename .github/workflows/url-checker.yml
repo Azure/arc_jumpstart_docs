@@ -13,11 +13,13 @@ on:
         description: 'Fail workflow if broken links are found'
         required: false
         type: boolean
-        default: false
+        default: true
 
 jobs:
   url-check:
     runs-on: ubuntu-latest
+    env:
+      SHOULD_FAIL: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.fail-on-broken-links == 'true' }}
 
     steps:
     - name: Checkout repository
@@ -35,6 +37,12 @@ jobs:
 
     - name: Enable Color Output
       run: echo "FORCE_COLOR=1" >> $GITHUB_ENV
+      
+    - name: Print debug info before run
+      run: |
+        echo "Event name: ${{ github.event_name }}"
+        echo "Input parameter: ${{ github.event.inputs.fail-on-broken-links }}"
+        echo "SHOULD_FAIL: ${{ env.SHOULD_FAIL }}"
       
     - name: Check for broken links
       id: check_links
@@ -57,11 +65,12 @@ jobs:
       if: env.LINK_CHECK_EXIT_CODE != '0'
       run: |
         echo "Exit code: ${{ env.LINK_CHECK_EXIT_CODE }}"
-        echo "Input parameter: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "Trigger event: ${{ github.event_name }}"
+        echo "Input parameter value: '${{ github.event.inputs.fail-on-broken-links }}'"
+        echo "Event name: ${{ github.event_name }}"
+        echo "SHOULD_FAIL: ${{ env.SHOULD_FAIL }}"
     
     - name: Report final status
-      if: env.LINK_CHECK_EXIT_CODE != '0' && (github.event_name != 'workflow_dispatch' || github.event.inputs.fail-on-broken-links == 'true')
+      if: env.LINK_CHECK_EXIT_CODE != '0' && env.SHOULD_FAIL == 'true'
       run: |
         echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
