@@ -31,7 +31,6 @@ jobs:
 
     - name: Run URL checker
       run: python url-checker.py
-      working-directory: scripts/python/url-checker
 
     - name: Upload log file
       uses: actions/upload-artifact@v4
