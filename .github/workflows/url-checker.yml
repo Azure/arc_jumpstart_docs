@@ -53,8 +53,15 @@ jobs:
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
       
+    - name: Debug workflow info
+      if: env.LINK_CHECK_EXIT_CODE != '0'
+      run: |
+        echo "Exit code: ${{ env.LINK_CHECK_EXIT_CODE }}"
+        echo "Input parameter: ${{ github.event.inputs.fail-on-broken-links }}"
+        echo "Trigger event: ${{ github.event_name }}"
+    
     - name: Report final status
-      if: env.LINK_CHECK_EXIT_CODE != '0' && (github.event.inputs.fail-on-broken-links != 'false')
+      if: env.LINK_CHECK_EXIT_CODE != '0' && (github.event_name != 'workflow_dispatch' || github.event.inputs.fail-on-broken-links == 'true')
       run: |
         echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
