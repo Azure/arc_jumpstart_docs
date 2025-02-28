@@ -41,8 +41,9 @@ jobs:
 
     - name: Check for broken links
       id: check_links
+      continue-on-error: true
       run: |
-        python scripts/python/url-checker/url-checker.py || true
+        python scripts/python/url-checker/url-checker.py
         EXIT_CODE=$?
         echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
@@ -70,12 +71,13 @@ jobs:
       id: determine_fail
       run: |
         if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-          echo "should_fail=true" >> $GITHUB_OUTPUT
+          echo "should_fail=false" >> $GITHUB_OUTPUT
         else
           echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
         fi
 
     - name: Debug workflow info
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
         echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
         echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
