@@ -6,6 +6,7 @@ from urllib.parse import urljoin, urlparse
 from datetime import datetime
 import ipaddress
 from colorama import init
+import sys
 
 # Initialize colorama for Windows compatibility and force color output in GitHub Actions
 init(strip=False, convert=False)
@@ -208,6 +209,11 @@ def main():
     print(f"{Colors.OKGREEN}Total OK absolute URLs: {len(ok_absolute_urls)}{Colors.ENDC}")
     print(f"{Colors.FAIL}Total broken relative URLs: {len(broken_relative_urls)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK relative URLs: {len(ok_relative_urls)}{Colors.ENDC}")
+
+    if broken_absolute_urls or broken_relative_urls:
+        sys.exit(1)  # Exit with non-zero status to indicate failure
+    else:
+        sys.exit(0)  # Exit with zero status to indicate success
 
 if __name__ == "__main__":
     main()
