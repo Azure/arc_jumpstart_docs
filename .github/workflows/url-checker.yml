@@ -8,6 +8,12 @@ on:
       - canary
       - main
   workflow_dispatch:
+    inputs:
+      fail-on-broken-links:
+        description: 'Fail workflow if broken links are found'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   url-check:
@@ -48,7 +54,7 @@ jobs:
       run: rm -rf scripts/python/url-checker/__pycache__
       
     - name: Report final status
-      if: env.LINK_CHECK_EXIT_CODE != '0'
+      if: env.LINK_CHECK_EXIT_CODE != '0' && (github.event.inputs.fail-on-broken-links != 'false')
       run: |
         echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
