@@ -20,7 +20,8 @@ def get_repo_root():
         return '.'  # Default to current directory if not in a Git repo
 
 REPO_PATH = get_repo_root()
-LOG_FILE = 'broken_urls.log'
+LOG_DIR = os.path.join(REPO_PATH, 'scripts/python/url-checker/logs')
+os.makedirs(LOG_DIR, exist_ok=True)
 TIMEOUT = 5  # Seconds
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; LinkChecker/1.0)"}  # Mimic a real browser
 
@@ -119,7 +120,7 @@ def main():
     ok_relative_urls = []
     markdown_files = find_markdown_files()
     timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    log_file_with_timestamp = f'broken_urls_{timestamp}.log'
+    log_file_with_timestamp = os.path.join(LOG_DIR, f'broken_urls_{timestamp}.log')
     
     print("Starting URL check...")
     start_time = datetime.now()
