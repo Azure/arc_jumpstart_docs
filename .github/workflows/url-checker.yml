@@ -67,37 +67,14 @@ jobs:
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
 
-    - name: Debug workflow inputs
+    - name: Debug values
       run: |
         echo "Event name: ${{ github.event_name }}"
         echo "Input fail-on-broken-links: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "Link check exit code from output: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "Link check exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
 
-    - name: Make failure decision
-      id: failure_decision
+    - name: Force workflow failure
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.fail-on-broken-links == 'true' && steps.check_links.outputs.link_check_exit_code != '0' }}
       run: |
-        EXIT_CODE="${{ steps.check_links.outputs.link_check_exit_code }}"
-        EVENT_NAME="${{ github.event_name }}"
-        FAIL_ON_BROKEN="${{ github.event.inputs.fail-on-broken-links }}"
-        
-        echo "Input values:"
-        echo "- Exit code: $EXIT_CODE"
-        echo "- Event name: $EVENT_NAME"
-        echo "- Fail on broken links: $FAIL_ON_BROKEN"
-        
-        SHOULD_FAIL="false"
-        if [[ "$EVENT_NAME" == "workflow_dispatch" && "$FAIL_ON_BROKEN" == "true" && "$EXIT_CODE" != "0" ]]; then
-          echo "Conditions met for workflow failure"
-          SHOULD_FAIL="true"
-        else
-          echo "Conditions NOT met for workflow failure"
-        fi
-        
-        echo "should_fail=$SHOULD_FAIL" >> $GITHUB_OUTPUT
-        echo "Final decision: should_fail=$SHOULD_FAIL"
-
-    - name: Fail workflow if needed
-      if: steps.failure_decision.outputs.should_fail == 'true'
-      run: |
-        echo "::error::Broken links were found in the documentation. See uploaded logs for details."
+        echo "::error::Broken links were found in the documentation and fail-on-broken-links is set to true."
         exit 1
