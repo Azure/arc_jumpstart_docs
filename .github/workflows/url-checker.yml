@@ -2,7 +2,7 @@ name: Check Broken Links
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
+    - cron: '0 0 * * *'
   push:
     branches:
       - canary
@@ -38,17 +38,17 @@ jobs:
 
     - name: Enable Color Output
       run: echo "FORCE_COLOR=1" >> $GITHUB_ENV
-      
+
     - name: Check for broken links
       id: check_links
       run: |
         python scripts/python/url-checker/url-checker.py
-        LINK_CHECK_EXIT_CODE=$?
-        echo "LINK_CHECK_EXIT_CODE=${LINK_CHECK_EXIT_CODE}" >> $GITHUB_ENV
-        
-        # Always display the summary regardless of exit code
+        EXIT_CODE=$?
+        echo "LINK_CHECK_EXIT_CODE=${EXIT_CODE}" >> $GITHUB_ENV
+        echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
+
         echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
-        if [ $LINK_CHECK_EXIT_CODE -eq 0 ]; then
+        if [ $EXIT_CODE -eq 0 ]; then
           echo "✅ All links are valid!" >> $GITHUB_STEP_SUMMARY
         else
           echo "⚠️ Some broken links were found. Check the logs for details." >> $GITHUB_STEP_SUMMARY
@@ -65,24 +65,25 @@ jobs:
     - name: Clean up environment
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
-      
+
     - name: Determine if workflow should fail
-      if: env.LINK_CHECK_EXIT_CODE != '0'
+      id: determine_fail
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
         if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
-          echo "SHOULD_FAIL=true" >> $GITHUB_ENV
+          echo "should_fail=true" >> $GITHUB_OUTPUT
         else
-          echo "SHOULD_FAIL=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_ENV
+          echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
         fi
 
     - name: Debug workflow info
-      if: env.LINK_CHECK_EXIT_CODE != '0'
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
-        echo "Exit code: ${{ env.LINK_CHECK_EXIT_CODE }}"
-        echo "SHOULD_FAIL: ${{ env.SHOULD_FAIL }}"
+        echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
 
     - name: Report final status
-      if: env.LINK_CHECK_EXIT_CODE != '0' && env.SHOULD_FAIL == 'true'
+      if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
       run: |
         echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
