@@ -45,6 +45,9 @@ jobs:
       run: |
         python scripts/python/url-checker/url-checker.py
         EXIT_CODE=$?
+        
+        # Write exit code to file and output
+        echo "$EXIT_CODE" > exit_code.txt
         echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
         # Always display the summary clearly
@@ -71,34 +74,31 @@ jobs:
       run: |
         echo "Event name: ${{ github.event_name }}"
         echo "Input fail-on-broken-links: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "Link check exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "Link check exit code from output: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "Link check exit code from file: $(cat exit_code.txt)"
 
-    - name: Determine if workflow should fail
-      id: determine_fail
+    - name: Make failure decision
+      id: failure_decision
       run: |
-        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-          if [[ "${{ github.event.inputs.fail-on-broken-links }}" == "true" ]]; then
-            echo "should_fail=true" >> $GITHUB_OUTPUT
-          else
-            echo "should_fail=false" >> $GITHUB_OUTPUT
-          fi
+        # Read exit code from file for reliability
+        EXIT_CODE=$(cat exit_code.txt)
+        
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.fail-on-broken-links }}" == "true" && "$EXIT_CODE" != "0" ]]; then
+          echo "Conditions met for workflow failure:"
+          echo "- Workflow dispatch: Yes"
+          echo "- Fail on broken links: True"
+          echo "- Broken links found: Yes (exit code $EXIT_CODE)"
+          echo "should_fail=true" >> $GITHUB_OUTPUT
         else
+          echo "Conditions NOT met for workflow failure:"
+          echo "- Workflow dispatch: ${{ github.event_name == 'workflow_dispatch' && 'Yes' || 'No' }}"
+          echo "- Fail on broken links: ${{ github.event.inputs.fail-on-broken-links }}"
+          echo "- Broken links found: $([ $EXIT_CODE != 0 ] && echo 'Yes' || echo 'No') (exit code $EXIT_CODE)"
           echo "should_fail=false" >> $GITHUB_OUTPUT
         fi
 
-    - name: Debug failure decision
-      run: |
-        echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
-        echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
-        
-        if [[ "${{ steps.check_links.outputs.link_check_exit_code }}" != "0" && "${{ steps.determine_fail.outputs.should_fail }}" == "true" ]]; then
-          echo "Workflow will fail based on current conditions"
-        else
-          echo "Workflow will succeed based on current conditions"
-        fi
-
-    - name: Report final status
-      if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
+    - name: Fail workflow if needed
+      if: steps.failure_decision.outputs.should_fail == 'true'
       run: |
         echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
