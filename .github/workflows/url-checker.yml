@@ -7,7 +7,6 @@ on:
     branches:
       - canary
       - main
-  # Enable manual triggering from GitHub Actions tab
   workflow_dispatch:
     inputs:
       fail-on-broken-links:
@@ -42,11 +41,11 @@ jobs:
 
     - name: Check for broken links
       id: check_links
-      continue-on-error: true
       run: |
-        python scripts/python/url-checker/url-checker.py
+        # Use -u flag for unbuffered output to ensure summary is displayed
+        python -u scripts/python/url-checker/url-checker.py
         EXIT_CODE=$?
-        echo "link_check_exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+        echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
         # Always display the summary clearly
         echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
@@ -68,63 +67,24 @@ jobs:
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
 
-    - name: Extreme debugging
+    - name: Determine if workflow should fail
+      id: determine_fail
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
-        echo "EVENT NAME: ${{ github.event_name }}"
-        echo "INPUTS: ${{ toJSON(github.event.inputs) }}"
-        echo "FAIL ON BROKEN LINKS: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "EXIT CODE: ${{ steps.check_links.outputs.link_check_exit_code }}"
-        
-        # Create a shell script to evaluate the condition
-        cat > test_condition.sh << 'EOF'
-        #!/bin/bash
-        EVENT_NAME="${1}"
-        FAIL_ON_BROKEN="${2}"
-        EXIT_CODE="${3}"
-        
-        echo "Evaluating:"
-        echo "- EVENT_NAME: ${EVENT_NAME}"
-        echo "- FAIL_ON_BROKEN: ${FAIL_ON_BROKEN}"
-        echo "- EXIT_CODE: ${EXIT_CODE}"
-        
-        if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
-          echo "✓ Event is workflow_dispatch"
+        if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          echo "should_fail=true" >> $GITHUB_OUTPUT
         else
-          echo "✗ Event is NOT workflow_dispatch"
+          echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
         fi
-        
-        if [[ "${FAIL_ON_BROKEN}" == "true" ]]; then
-          echo "✓ fail-on-broken-links is true"
-        else
-          echo "✗ fail-on-broken-links is NOT true"
-        fi
-        
-        if [[ "${EXIT_CODE}" != "0" ]]; then
-          echo "✓ EXIT_CODE is non-zero (links broken)"
-        else
-          echo "✗ EXIT_CODE is zero (no broken links)"
-        fi
-        
-        if [[ "${EVENT_NAME}" == "workflow_dispatch" && "${FAIL_ON_BROKEN}" == "true" && "${EXIT_CODE}" != "0" ]]; then
-          echo "✓✓✓ ALL CONDITIONS MET - WORKFLOW SHOULD FAIL"
-          exit 1
-        else
-          echo "✗✗✗ NOT ALL CONDITIONS MET - WORKFLOW SHOULD SUCCEED"
-          exit 0
-        fi
-        EOF
-        
-        chmod +x test_condition.sh
-        
-        # Run the script with our values
-        ./test_condition.sh "${{ github.event_name }}" "${{ github.event.inputs.fail-on-broken-links }}" "${{ steps.check_links.outputs.link_check_exit_code }}"
-        SHOULD_FAIL=$?
-        echo "SHOULD_FAIL: ${SHOULD_FAIL}"
-        echo "should_fail=${SHOULD_FAIL}" >> $GITHUB_OUTPUT
-      id: extreme_debug
 
-    - name: Fail workflow conditionally
-      if: steps.extreme_debug.outputs.should_fail == '1'
+    - name: Debug workflow info
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
-        echo "::error::Broken links were found in the documentation and fail-on-broken-links is set to true."
+        echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
+
+    - name: Report final status
+      if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
+      run: |
+        echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
