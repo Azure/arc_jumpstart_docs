@@ -43,12 +43,12 @@ jobs:
       id: check_links
       run: |
         python scripts/python/url-checker/url-checker.py
-        EXIT_CODE=$?
-        echo "LINK_CHECK_EXIT_CODE=${EXIT_CODE}" >> $GITHUB_ENV
+        LINK_CHECK_EXIT_CODE=$?
+        echo "LINK_CHECK_EXIT_CODE=${LINK_CHECK_EXIT_CODE}" >> $GITHUB_ENV
         
         # Always display the summary regardless of exit code
         echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
-        if [ $EXIT_CODE -eq 0 ]; then
+        if [ $LINK_CHECK_EXIT_CODE -eq 0 ]; then
           echo "✅ All links are valid!" >> $GITHUB_STEP_SUMMARY
         else
           echo "⚠️ Some broken links were found. Check the logs for details." >> $GITHUB_STEP_SUMMARY
@@ -74,7 +74,6 @@ jobs:
         else
           echo "SHOULD_FAIL=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_ENV
         fi
-        echo "SHOULD_FAIL=${SHOULD_FAIL}"
 
     - name: Debug workflow info
       if: env.LINK_CHECK_EXIT_CODE != '0'
