@@ -7,7 +7,6 @@ on:
     branches:
       - canary
       - main
-  # Enable manual triggering from GitHub Actions tab
   workflow_dispatch:
     inputs:
       fail-on-broken-links:
@@ -42,12 +41,16 @@ jobs:
 
     - name: Check for broken links
       id: check_links
-      continue-on-error: true
       run: |
-        python scripts/python/url-checker/url-checker.py
-        EXIT_CODE=$?
-        echo "link_check_exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
-
+        # Run the script and capture summary
+        python scripts/python/url-checker/url-checker.py | tee output.txt
+        EXIT_CODE=${PIPESTATUS[0]}
+        echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
+        
+        # Extract and display the summary specifically
+        echo "==== URL Checker Summary ====" 
+        grep -A 6 "Summary:" output.txt || echo "Summary section not found in output"
+        
         # Always display the summary clearly
         echo "### URL Check Results" >> $GITHUB_STEP_SUMMARY
         if [ $EXIT_CODE -eq 0 ]; then
@@ -68,14 +71,24 @@ jobs:
       if: always()
       run: rm -rf scripts/python/url-checker/__pycache__
 
-    - name: Debug values
+    - name: Determine if workflow should fail
+      id: determine_fail
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
-        echo "Event name: ${{ github.event_name }}"
-        echo "Input fail-on-broken-links: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "Link check exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          echo "should_fail=true" >> $GITHUB_OUTPUT
+        else
+          echo "should_fail=${{ github.event.inputs.fail-on-broken-links }}" >> $GITHUB_OUTPUT
+        fi
 
-    - name: Force workflow failure
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.fail-on-broken-links == 'true' && steps.check_links.outputs.link_check_exit_code != '0' }}
+    - name: Debug workflow info
+      if: steps.check_links.outputs.link_check_exit_code != '0'
       run: |
-        echo "::error::Broken links were found in the documentation and fail-on-broken-links is set to true."
+        echo "Exit code: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "SHOULD_FAIL: ${{ steps.determine_fail.outputs.should_fail }}"
+
+    - name: Report final status
+      if: steps.check_links.outputs.link_check_exit_code != '0' && steps.determine_fail.outputs.should_fail == 'true'
+      run: |
+        echo "::error::Broken links were found in the documentation. See uploaded logs for details."
         exit 1
