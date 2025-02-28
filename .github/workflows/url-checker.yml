@@ -42,8 +42,7 @@ jobs:
     - name: Check for broken links
       id: check_links
       run: |
-        # Use -u flag for unbuffered output to ensure summary is displayed
-        python -u scripts/python/url-checker/url-checker.py
+        python scripts/python/url-checker/url-checker.py
         EXIT_CODE=$?
         echo "link_check_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
 
