@@ -1,16 +1,20 @@
 # Jumpstart Markdown URL Checker
 
-This tool checks for broken URLs in all Markdown files within the repository. It can be run both manually or as part of an automated GitHub Actions workflow.
+This tool checks for broken URLs in all Markdown files within the repository. It can be run manually or as part of an automated GitHub Actions workflow.
 
 ## Features
 
-- Checks both absolute and relative URLs
-- Skips email URLs, localhost/IP-based URLs
-- Logs results to a timestamped log file
-- Provides a summary of broken and valid URLs
-- Integrated with GitHub Actions workflow
-- Option to fail CI checks when broken links are found
-- Supports short URLs
+- Validates both absolute URLs (http/https) and relative file paths
+- Improved link type detection:
+  - Regular relative links
+  - Root-relative links (starting with `/`)
+  - Image links
+  - SVG image links
+  - Markdown header links (`#header-name`)
+- Detailed output with categorization by link type
+- Colorized console output (including in GitHub Actions)
+- Comprehensive log files with summary tables
+- Exit code support for CI/CD workflows
 
 ## Requirements
 
@@ -18,29 +22,19 @@ This tool checks for broken URLs in all Markdown files within the repository. It
 - `requests` library
 - `colorama` library
 
-You can install the required libraries using pip:
+Install dependencies with:
 
-```sh
+```bash
 pip install requests colorama
 ```
 
 ## Manual Usage
 
-To run the URL checker manually:
+Run from the repository root:
 
-1. Navigate to the repository root:
-
-```sh
-cd arc_jumpstart_docs
-```
-
-2. Run the script:
-
-```sh
+```bash
 python scripts/python/url-checker/url-checker.py
 ```
-
-The script will scan all files in the repository, check URLs, and log the results.
 
 ## Automated GitHub Actions Workflow
 
@@ -91,50 +85,54 @@ After the workflow completes:
 
 ## Output
 
-The script generates a log file with a timestamp in the format `broken_urls_YYYY-MM-DD_HH-MM-SS.log`. The log file contains:
+The script generates a log file with timestamp and provides detailed output including:
 
-- Total broken absolute URLs
-- Total OK absolute URLs
-- Total broken relative URLs
-- Total OK relative URLs
-- Detailed lists of broken and valid URLs
+### Summary Table
 
-## Example Output
+```text
+===== LINK VALIDATION SUMMARY (189 LINKS CHECKED) =====
 
-```console
-Starting URL check...
-Processing markdown file: /path/to/file.md
-Checking absolute URL: https://example.com
-[OK] https://example.com
-...
-Check complete. See broken_urls_2023-10-01_12-00-00.log for details.
-
-Summary:
-Total broken absolute URLs: 2
-Total OK absolute URLs: 10
+Total broken absolute URLs: 3
+Total OK absolute URLs: 122
 Total broken relative URLs: 1
-Total OK relative URLs: 5
+Total OK relative URLs: 38
+Total broken root-relative URLs: 1
+Total OK root-relative URLs: 5
+Total broken image URLs: 1
+Total OK image URLs: 12
+Total broken SVG URLs: 1
+Total OK SVG URLs: 4
+Total broken header links: 1
+Total OK header links: 4
+
+===== CONCLUSION: 8 BROKEN LINKS FOUND =====
 ```
 
-## Notes
+## Configuration
 
-- The script skips URLs that start with `mailto:` and `http://localhost`
-- The script also skips IP-based URLs (e.g., http://192.168.1.1)
-- You can add known valid URLs to the `KNOWN_VALID_URLS` list in the script
-- When run in GitHub Actions, the logs are uploaded as workflow artifacts
-- The script exit code is 0 if no broken links are found, 1 if broken links are found
+The following can be customized in the script:
+
+- `KNOWN_VALID_URLS`: URLs to skip checking (e.g., frequently timing out sites)
+- `IMAGE_EXTENSIONS`: File extensions to treat as images
+- `SVG_EXTENSIONS`: SVG file extensions
+- `TIMEOUT`: Request timeout settings (default: 15 seconds)
+
+### Using KNOWN_VALID_URLS
+
+Add URLs that should be considered valid without checking:
+
+```python
+KNOWN_VALID_URLS = [
+    "https://learn.microsoft.com",  # Will skip all Microsoft Learn URLs
+    "https://icanhazip.com"
+]
+```
 
 ## Troubleshooting
 
-### Timeouts
+### Root-Relative URLs
 
-By default, the script has a 15-second timeout when checking URLs. If a URL takes longer to respond, it will be marked as broken with a "Read timeout" error. Common causes include:
-
-- Slow-responding servers
-- Network latency
-- Complex pages that take time to load
-
-You can modify this by changing the `timeout` parameter in the requests.get() calls in the script.
+URLs that start with `/` (like `/img/logo.png`) are now properly handled as relative to the repository root rather than the current document's directory.
 
 ### False Positives
 
@@ -144,21 +142,4 @@ Some URLs may be incorrectly marked as broken due to:
 - Server-side rate limiting
 - Temporary server issues
 
-### Using KNOWN_VALID_URLS
-
-The `KNOWN_VALID_URLS` list lets you specify URLs that should be considered valid without checking them. This is useful for:
-
-- URLs that often timeout but you know are valid
-- URLs behind authentication that the script can't access
-- Reducing the total check time
-
-To add a URL domain to the skip list, edit the script and add it to the `KNOWN_VALID_URLS` list:
-
-```python
-KNOWN_VALID_URLS = [
-    "https://learn.microsoft.com",  # Will skip all Microsoft Learn URLs
-    "https://example.com/specific-path"  # Will only skip this specific path
-]
-```
-
-Adding a base URL like `https://learn.microsoft.com` will cause the script to skip checking any URL that starts with this string.
+Add these to the `KNOWN_VALID_URLS` list to skip checking them.
