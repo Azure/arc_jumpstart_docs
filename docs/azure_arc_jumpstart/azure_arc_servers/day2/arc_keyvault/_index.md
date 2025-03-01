@@ -14,11 +14,10 @@ in this scenario, we will focus on securing an Ubuntu web server. The only prere
 
 > **Note:** This guide assumes you already deployed an Ubuntu server that is running on-premises or in other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+- **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+- **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+- **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+- **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**
 
 ## Prerequisites
 
@@ -181,8 +180,7 @@ Complete the following steps to clean up your environment.
 
 - Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-  - **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-  - **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-  - **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-  - **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-  - **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
+  - **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+  - **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+  - **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+  - **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**

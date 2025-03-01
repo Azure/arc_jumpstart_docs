@@ -377,6 +377,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
   ```
 
 2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
+
     - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
     - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
@@ -491,7 +492,7 @@ Expected output:
 
   Expected output:
 
-  ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+  ![Screenshot showing usage of remote PowerShell tunneled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
@@ -505,7 +506,7 @@ The other contains performance data:
 
 ![Screenshot showing Azure Monitor workbook usage](./workbook_performance.png)
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
 
 ### Azure Update Manager
 

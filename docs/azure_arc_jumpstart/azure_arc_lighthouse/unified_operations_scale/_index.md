@@ -53,9 +53,9 @@ With Azure Arc you can even take it a step further as now Azure Policies can be 
 
 Your Azure Arc-enabled resources should be registered on a managed tenant so you can centrally manage compliance from the Azure Lighthouse-powered tenant. To work with Azure Arc and Azure Policies check out these Jumpstart scenarios:
 
-- [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/)
-- [Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_policy/#apply-gitops-configurations-on-aks-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
-- [Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_policy/#apply-gitops-configurations-on-gke-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
+- [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](../../azure_arc_servers/day2/arc_policies_mma/)
+- [Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](../../azure_arc_k8s/day2/aks/aks_policy/#apply-gitops-configurations-on-aks-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
+- [Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](../..//azure_arc_k8s/day2/gke/gke_policy/#apply-gitops-configurations-on-gke-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
 
 ### Inventory Management
 
@@ -67,7 +67,7 @@ For multi-tenant organizations, this service also supports Azure Lighthouse to a
 
 To explore this use case, use this Jumpstart scenario to work with tagged Azure Arc-enabled servers in your managed tenants:
 
-- [Azure Arc-enabled servers inventory management using Resource Graph Explorer](/azure_arc_jumpstart/azure_arc_servers/day2/arc_inventory_management/#apply-resource-tags-to-azure-arc-enabled-servers)
+- [Azure Arc-enabled servers inventory management using Resource Graph Explorer](../../azure_arc_servers/day2/arc_inventory_management/#apply-resource-tags-to-azure-arc-enabled-servers)
 
 ### Monitoring and Alerting
 
@@ -81,10 +81,10 @@ By enabling a resource in Azure Arc it gives you the ability to perform configur
 
 Use these Jumpstart scenarios to integrate Azure Monitor and Azure Arc in your managed tenants:
 
-- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/)
-- [Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor/)
-- [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor/)
-- [Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_monitor/)
+- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_azuremonitoragent/)
+- [Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/aks/aks_monitor/)
+- [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/gke/gke_monitor/)
+- [Integrate Azure Monitor for Containers with MicroK8s as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/microk8s/local_microk8s_monitor/)
 
 ### Hybrid Services Onboarding at Scale
 
@@ -100,10 +100,10 @@ The extension management feature for [Azure Arc-enabled servers](https://learn.m
 
 To work with Azure Arc extension management check out these Jumpstart scenarios:
 
-- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
-- [Deploy Custom Script Extension on Azure Arc Linux and Windows servers using Extension Management](/azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_customscript_arm/#deploy-custom-script-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
-- [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](/azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma/)
-- [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension/)
+- [Deploy Monitoring Agent Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_azuremonitoragent/#deploy-monitoring-agent-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
+- [Deploy Custom Script Extension on Azure Arc Linux and Windows servers using Extension Management](../../azure_arc_servers/day2/arc_vm_extension_customscript_arm/#deploy-custom-script-extension-on-azure-arc-linux-and-windows-servers-using-extension-management)
+- [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](../../azure_arc_servers/day2/arc_policies_mma/)
+- [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](../../azure_arc_k8s/day2/gke/gke_monitor_extension/)
 
 ### Access Management
 
@@ -131,11 +131,11 @@ All of these data and application deployments can be done across organizations b
 
 To work with Azure Arc-enabled data services and Azure Arc-enabled Kubernetes check out these Jumpstart scenarios:
 
-- [Deploy GitOps configurations and perform basic GitOps flow on GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_basic/)
-- [Deploy GitOps configurations and perform Helm-based GitOps flow on GKE as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm/)
--[Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/kind/local_kind_gitops_helm/)
-- [Deploy GitOps configurations and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm/)
-- [Azure Arc-enabled data services](/azure_arc_jumpstart/azure_arc_data/)
+- [Deploy GitOps configurations and perform basic GitOps flow on GKE as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/gke/gke_gitops_basic/)
+- [Deploy GitOps configurations and perform Helm-based GitOps flow on GKE as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/gke/gke_gitops_helm/)
+- [Deploy GitOps configurations and perform Helm-based GitOps flow on kind as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/kind/local_kind_gitops_helm/)
+- [Deploy GitOps configurations and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](../../azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm/)
+- [Azure Arc-enabled data services](../../azure_arc_data/)
 
 ### Summary
 

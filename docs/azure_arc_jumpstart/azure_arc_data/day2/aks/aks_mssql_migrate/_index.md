@@ -8,7 +8,7 @@ description: >
 
 ## Migrate to Azure Arc-enabled SQL Managed Instance on AKS using an ARM Template
 
-The following Jumpstart scenario will guide you on how to deploy a "Ready to Go" environment so you can [migrate a SQL database](https://learn.microsoft.com/azure/azure-arc/data/migrate-to-managed-instance) using [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) and [SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) deployed on [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/dr/intro-kubernetes) cluster using an [Azure ARM Template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
+The following Jumpstart scenario will guide you on how to deploy a "Ready to Go" environment so you can [migrate a SQL database](https://learn.microsoft.com/azure/azure-arc/data/migrate-to-managed-instance) using [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) and [SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) deployed on [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/ha-dr-overview) cluster using an [Azure ARM Template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
 
 By the end of this scenario, you will have an AKS cluster deployed with an Azure Arc Data Controller, SQL Managed Instance, and a Microsoft Windows Server 2022 (Datacenter) Azure client VM, installed & pre-configured with all the required tools needed to work with Azure Arc-enabled data services. The Azure client VM will host a nested VM with SQL Server installed and configured where you will be migrating the _AdventureWorks_ sample database from:
 
@@ -266,7 +266,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 In this scenario, two Azure Arc-enabled Kubernetes cluster extensions were installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](../../../../azure_arc_k8s/day2/aks/aks_monitor/) scenario.
 
 - _arc-data-services_ - The Azure Arc-enabled data services cluster extension that was used throughout this scenario in order to deploy the data services infrastructure.
 
