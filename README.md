@@ -1,4 +1,4 @@
-[![Stale Issues and PRs](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml) [![Stale Branches](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml/badge.svg)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml)
+[![Stale Issues and PRs](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml) [![Stale Branches](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml/badge.svg)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml) [![Check Broken Links](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/url-checker.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/url-checker.yml)
 
 # Arc Jumpstart documentation
 

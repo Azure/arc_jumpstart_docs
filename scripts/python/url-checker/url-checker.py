@@ -1,3 +1,11 @@
+# =============================================================================
+# URL Checker for Markdown Files
+# =============================================================================
+# This script scans all Markdown files in a repository for URLs and checks
+# whether they are valid. It handles both absolute URLs (http/https) and
+# relative file paths, providing a detailed report of broken links.
+# =============================================================================
+
 import os
 import re
 import requests
@@ -11,13 +19,15 @@ import sys
 # Initialize colorama for Windows compatibility and force color output in GitHub Actions
 init(strip=False, convert=False)
 
-# ANSI escape codes
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# ANSI color codes for terminal output
 class Colors:
     OKGREEN = '\033[92m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
-
-# Configuration
 
 def get_repo_root():
     """Find the root directory of the Git repository."""
@@ -26,23 +36,29 @@ def get_repo_root():
     except subprocess.CalledProcessError:
         return '.'  # Default to current directory if not in a Git repo
 
+# Script configuration settings
 REPO_PATH = get_repo_root()
 LOG_DIR = os.path.join(REPO_PATH, 'scripts/python/url-checker/logs')
 os.makedirs(LOG_DIR, exist_ok=True)
-TIMEOUT = 5  # Seconds
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; LinkChecker/1.0)"}  # Mimic a real browser
+TIMEOUT = 15  # Request timeout in seconds - increase this if you get many timeout errors
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; LinkChecker/1.0)"}  # Browser-like user agent
 
-# Regex to find markdown URLs
-MD_URL_REGEX = re.compile(r'\[.*?\]\((.*?)\)')
-EMAIL_REGEX = re.compile(r'^mailto:')
-ANSI_ESCAPE_REGEX = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
+# Regular expressions for URL detection and processing
+MD_URL_REGEX = re.compile(r'\[.*?\]\((.*?)\)')  # Finds markdown links: [text](url)
+EMAIL_REGEX = re.compile(r'^mailto:')  # Detects email links
+ANSI_ESCAPE_REGEX = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')  # For stripping color codes
 
-# List of known valid URLs to skip checking
+# URLs to skip checking - add frequently timing out domains here
 KNOWN_VALID_URLS = [
     "https://whatismyip.com",
     "https://www.linkedin.com",
-    # Add more known valid URLs here
+    "https://learn.microsoft.com",  # Add this to skip checking Microsoft docs (common timeout issue)
+    # Add more URLs to skip here as needed
 ]
+
+# =============================================================================
+# FILE & URL PROCESSING FUNCTIONS
+# =============================================================================
 
 def find_markdown_files():
     """Find all markdown files in the repository, skipping 'archive' folders."""
@@ -56,7 +72,7 @@ def find_markdown_files():
     return md_files
 
 def extract_urls(md_file):
-    """Extract all URLs from a markdown file."""
+    """Extract all URLs from a markdown file using regex."""
     urls = []
     with open(md_file, 'r', encoding='utf-8') as f:
         for line in f:
@@ -65,7 +81,7 @@ def extract_urls(md_file):
     return urls
 
 def is_ip_based_url(url):
-    """Check if a URL is IP-based."""
+    """Check if a URL uses an IP address instead of a domain name."""
     try:
         host = urlparse(url).hostname
         ipaddress.ip_address(host)
@@ -74,7 +90,17 @@ def is_ip_based_url(url):
         return False
 
 def check_absolute_url(url, retries=3):
-    """Check if an absolute URL is reachable, always using GET requests."""
+    """
+    Check if an absolute URL (http/https) is reachable.
+    
+    Args:
+        url: The URL to check
+        retries: Number of attempts before giving up
+        
+    Returns:
+        Log entry string with result
+    """
+    # Skip checking for known valid URLs
     if url in KNOWN_VALID_URLS:
         log_entry = f"{Colors.OKGREEN}[OK] {url} (known valid URL){Colors.ENDC}"
         print(log_entry)
@@ -84,6 +110,7 @@ def check_absolute_url(url, retries=3):
     attempt = 0
     while attempt < retries:
         try:
+            # Make the request with configured timeout
             response = requests.get(url, headers=HEADERS, allow_redirects=True, timeout=TIMEOUT, stream=True)
             
             if response.status_code < 400:
@@ -104,7 +131,16 @@ def check_absolute_url(url, retries=3):
                 return log_entry
 
 def check_relative_url(url, md_file):
-    """Check if a relative file exists."""
+    """
+    Check if a relative file path exists in the filesystem.
+    
+    Args:
+        url: Relative path to check
+        md_file: Source markdown file containing this path
+        
+    Returns:
+        Log entry string with result
+    """
     file_path = os.path.join(os.path.dirname(md_file), url)
     print(f"Checking relative URL: {file_path}")
     if os.path.exists(file_path):
@@ -117,60 +153,83 @@ def check_relative_url(url, md_file):
         return log_entry
 
 def strip_ansi_escape_codes(text):
-    """Remove ANSI escape codes from the text."""
+    """Remove ANSI color codes from text (for clean log files)."""
     return ANSI_ESCAPE_REGEX.sub('', text)
 
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
 def main():
+    # Lists to track results
     broken_absolute_urls = []
     ok_absolute_urls = []
     broken_relative_urls = []
     ok_relative_urls = []
+    
+    # Get all markdown files
     markdown_files = find_markdown_files()
+    
+    # Create log file with timestamp
     timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     log_file_with_timestamp = os.path.join(LOG_DIR, f'broken_urls_{timestamp}.log')
     
     print("Starting URL check...")
     start_time = datetime.now()
+    
+    # Process all files and URLs
     with open(log_file_with_timestamp, 'a', encoding='utf-8') as log:
         log.write(f"Log generated on: {timestamp}\n")
         log.flush()
+        
         for md_file in markdown_files:
             print(f"Processing file: {md_file}")
             urls = extract_urls(md_file)
+            
             for url in urls:
+                # Skip email links
                 if EMAIL_REGEX.match(url):
                     print(f"Skipping email URL: {url}")
                     continue
                 
+                # Skip localhost and IP-based URLs
                 if url.startswith("http://localhost") or is_ip_based_url(url):
                     print(f"Skipping localhost or IP-based URL: {url}")
                     continue
                 
+                # Check URL based on whether it's absolute or relative
                 parsed_url = urlparse(url)
                 if parsed_url.scheme in ('http', 'https'):
+                    # It's an absolute URL
                     log_entry = check_absolute_url(url)
                     if "[OK]" in log_entry:
                         ok_absolute_urls.append(log_entry)
                     else:
                         broken_absolute_urls.append(log_entry)
                 else:
+                    # It's a relative URL
                     log_entry = check_relative_url(url, md_file)
                     if "[OK]" in log_entry:
                         ok_relative_urls.append(log_entry)
                     else:
                         broken_relative_urls.append(log_entry)
+                
+                # Write to log file
                 log.write(strip_ansi_escape_codes(log_entry) + "\n")
                 log.flush()
     
+    # Calculate runtime
     end_time = datetime.now()
     runtime_duration = end_time - start_time
     
+    # Write detailed results to log file
     with open(log_file_with_timestamp, 'a', encoding='utf-8') as log:
         log.write(f"\nRuntime duration: {runtime_duration}\n")
         log.write(f"Total broken absolute URLs: {len(broken_absolute_urls)}\n")
         log.write(f"Total OK absolute URLs: {len(ok_absolute_urls)}\n")
         log.write(f"Total broken relative URLs: {len(broken_relative_urls)}\n")
         log.write(f"Total OK relative URLs: {len(ok_relative_urls)}\n")
+        
         log.write("\n=== Broken Absolute URLs ===\n")
         log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_absolute_urls) + "\n\n")
         
@@ -183,6 +242,7 @@ def main():
         log.write("\n=== OK Relative URLs ===\n")
         log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_relative_urls) + "\n\n")
     
+    # Print results to console
     print(f"Check complete. See {log_file_with_timestamp} for details.")
     print(f"\nLog generated on: {timestamp}")
     print(f"Runtime duration: {runtime_duration}")
@@ -190,6 +250,7 @@ def main():
     print(f"Total OK absolute URLs: {len(ok_absolute_urls)}")
     print(f"Total broken relative URLs: {len(broken_relative_urls)}")
     print(f"Total OK relative URLs: {len(ok_relative_urls)}")
+    
     print("\n=== Broken Absolute URLs ===")
     for url in broken_absolute_urls:
         print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
@@ -203,21 +264,23 @@ def main():
     for url in ok_relative_urls:
         print(f"{Colors.OKGREEN}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
 
-    # Print summary table
+    # Print summary table - this section is important for GitHub Actions output
     print("\nSummary:")
     print(f"{Colors.FAIL}Total broken absolute URLs: {len(broken_absolute_urls)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK absolute URLs: {len(ok_absolute_urls)}{Colors.ENDC}")
     print(f"{Colors.FAIL}Total broken relative URLs: {len(broken_relative_urls)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK relative URLs: {len(ok_relative_urls)}{Colors.ENDC}")
 
+    # Determine if any broken links were found
     broken_links_found = bool(broken_absolute_urls or broken_relative_urls)
 
+    # Exit with appropriate code
     if broken_links_found:
         print("❌ Broken links were found. Check the logs for details.")
-        sys.exit(1)  # Exit with error code, will cause the GitHub Action to fail
+        sys.exit(1)  # Exit code 1 signals that broken links were found
     else:
         print("✅ All links are valid!")
-        sys.exit(0)  # Exit with success code
+        sys.exit(0)  # Exit code 0 signals that all links are valid
 
 if __name__ == "__main__":
     main()
