@@ -53,6 +53,6 @@ In an effort to reduce the overall cost of ArcBox, the [virtual machine auto-shu
 
 Each ArcBox flavor deployment guide has it's own troubleshooting section you can review for common issues.
 
-- [Troubleshooting ArcBox for IT Pros](/azure_jumpstart_arcbox/ITPro/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DevOps](/azure_jumpstart_arcbox/DevOps/#basic-troubleshooting)
-- [Troubleshooting ArcBox for DataOps](/azure_jumpstart_arcbox/DataOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox for IT Pros](../ITPro/_index.md/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DevOps](../DevOps/#basic-troubleshooting)
+- [Troubleshooting ArcBox for DataOps](../DataOps/_index.md#basic-troubleshooting)
