@@ -55,7 +55,7 @@ Your Azure Arc-enabled resources should be registered on a managed tenant so you
 
 - [Deploy Monitoring Agent Extension to Azure Arc Linux and Windows servers using Azure Policy](../../azure_arc_servers/day2/arc_policies_mma/)
 - [Apply GitOps configurations on AKS as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](../../azure_arc_k8s/day2/aks/aks_policy/#apply-gitops-configurations-on-aks-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
-- [Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](../..//azure_arc_k8s/day2/gke/gke_policy/#apply-gitops-configurations-on-gke-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
+- [Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](../../azure_arc_k8s/day2/gke/gke_policy/#apply-gitops-configurations-on-gke-as-an-azure-arc-connected-cluster-using-azure-policy-for-kubernetes)
 
 ### Inventory Management
 

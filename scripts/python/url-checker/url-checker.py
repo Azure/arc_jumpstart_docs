@@ -179,43 +179,49 @@ def check_relative_url(url, md_file):
         md_file: Source markdown file containing this path
         
     Returns:
-        Log entry string with result and type indicators
+        Tuple containing: (log_entry, is_image, is_svg, is_root_relative, has_anchor)
     """
+    # Flag to track if URL has an anchor
+    has_anchor = '#' in url
+    anchor_text = None
+    
     # Handle header links (e.g., #section-name or file.md#section-name)
-    if '#' in url and md_file.lower().endswith('.md'):
-        base_url, header = url.split('#', 1)
+    if has_anchor and md_file.lower().endswith('.md'):
+        base_url, anchor = url.split('#', 1)
+        anchor_text = anchor
         # If it's a same-page link (just #header)
         if not base_url:
             headers = extract_headers(md_file)
-            if header in headers:
-                log_entry = f"{Colors.OKGREEN}[OK] #{header} (header in {md_file}){Colors.ENDC}"
+            if anchor in headers:
+                log_entry = f"{Colors.OKGREEN}[OK] #{anchor} (header in {md_file}){Colors.ENDC}"
                 print(log_entry)
-                return log_entry, False, False, False
+                return log_entry, False, False, False, has_anchor
             else:
-                log_entry = f"{Colors.FAIL}[BROKEN HEADER] #{header} (header not found in {md_file}){Colors.ENDC}"
+                log_entry = f"{Colors.FAIL}[BROKEN HEADER] #{anchor} (header not found in {md_file}){Colors.ENDC}"
                 print(f"Available headers in {md_file}: {', '.join(headers)}")
                 print(log_entry)
-                return log_entry, False, False, False
+                return log_entry, False, False, False, has_anchor
                 
     # Handle hash in URL for non-markdown source files
-    elif '#' in url:
+    elif has_anchor:
         base_url, anchor = url.split('#', 1)
+        anchor_text = anchor
         # For non-markdown file links with anchors, we just check if the file exists
         if not base_url:
             # Same-file anchor in non-markdown file, we can't validate this
             log_entry = f"{Colors.OKGREEN}[OK] #{anchor} (in non-markdown file {md_file}){Colors.ENDC}"
             print(log_entry)
-            return log_entry, False, False, False
+            return log_entry, False, False, False, has_anchor
         else:
             target_file = os.path.join(os.path.dirname(md_file), base_url)
             if os.path.exists(target_file):
                 log_entry = f"{Colors.OKGREEN}[OK] {target_file}#{anchor} (file exists, anchor not validated){Colors.ENDC}"
                 print(log_entry)
-                return log_entry, False, False, False
+                return log_entry, False, False, False, has_anchor
             else:
                 log_entry = f"{Colors.FAIL}[BROKEN RELATIVE] {target_file}#{anchor} (file not found){Colors.ENDC}"
                 print(log_entry)
-                return log_entry, False, False, False
+                return log_entry, False, False, False, has_anchor
 
     # Check if it's an SVG file
     is_svg = any(url.lower().endswith(ext) for ext in SVG_EXTENSIONS)
@@ -245,7 +251,7 @@ def check_relative_url(url, md_file):
         else:
             log_entry = f"{Colors.OKGREEN}[OK] {file_path}{Colors.ENDC}"
         print(log_entry)
-        return log_entry, is_image, is_svg, is_root_relative
+        return log_entry, is_image, is_svg, is_root_relative, has_anchor
     else:
         if is_svg:
             log_entry = f"{Colors.FAIL}[BROKEN SVG] {file_path} (SVG in {md_file}){Colors.ENDC}"
@@ -254,9 +260,9 @@ def check_relative_url(url, md_file):
         elif is_root_relative:
             log_entry = f"{Colors.FAIL}[BROKEN ROOT-RELATIVE] {file_path} (root-relative path: {url} in {md_file}){Colors.ENDC}"
         else:
-            log_entry = f"{Colors.FAIL}[BROKEN RELATIVE] {file_path} (relative path in {md_file}){Colors.ENDC}"
+            log_entry = f"{Colors.FAIL}[BROKEN RELATIVE] {url} (relative path in {md_file}){Colors.ENDC}"
         print(log_entry)
-        return log_entry, is_image, is_svg, is_root_relative
+        return log_entry, is_image, is_svg, is_root_relative, has_anchor
 
 def strip_ansi_escape_codes(text):
     """Remove ANSI color codes from text (for clean log files)."""
@@ -270,7 +276,8 @@ def main():
     # Lists to track results
     broken_absolute_urls = []
     ok_absolute_urls = []
-    broken_relative_urls = []
+    broken_relative_urls_with_anchor = []
+    broken_relative_urls_without_anchor = []
     ok_relative_urls = []
     broken_image_urls = []
     ok_image_urls = []
@@ -293,6 +300,7 @@ def main():
     
     # Process all files and URLs - write to log in real-time for monitoring
     with open(log_file_with_timestamp, 'w', encoding='utf-8') as log:
+        log.write(f"URL Checker Results\n\n")
         log.write(f"Log generated on: {timestamp}\n")
         log.write("Processing URLs in real-time...\n\n")
         log.flush()
@@ -323,7 +331,8 @@ def main():
                         broken_absolute_urls.append(log_entry)
                 else:
                     # It's a relative URL, image, SVG, root-relative, or header link
-                    log_entry, is_image, is_svg, is_root_relative = check_relative_url(url, md_file)
+                    log_entry, is_image, is_svg, is_root_relative, has_anchor = check_relative_url(url, md_file)
+                    
                     if "[BROKEN HEADER]" in log_entry:
                         broken_header_urls.append(log_entry)
                     elif "header in" in log_entry:
@@ -347,7 +356,11 @@ def main():
                         if "[OK]" in log_entry:
                             ok_relative_urls.append(log_entry)
                         else:
-                            broken_relative_urls.append(log_entry)
+                            # Separate broken relative URLs by whether they have anchors
+                            if has_anchor:
+                                broken_relative_urls_with_anchor.append(log_entry)
+                            else:
+                                broken_relative_urls_without_anchor.append(log_entry)
                 
                 # Write to log file (real-time monitoring)
                 log.write(strip_ansi_escape_codes(log_entry) + "\n")
@@ -368,7 +381,15 @@ def main():
         log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_absolute_urls) + "\n\n")
         
         log.write("=== Broken Relative URLs ===\n\n")
-        log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_relative_urls) + "\n\n")
+        # Combine both types of broken relative URLs for backward compatibility
+        all_broken_relative_urls = broken_relative_urls_without_anchor + broken_relative_urls_with_anchor
+        log.write("\n".join(strip_ansi_escape_codes(url) for url in all_broken_relative_urls) + "\n\n")
+        
+        log.write("=== Broken Relative URLs Without Anchors ===\n\n")
+        log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_relative_urls_without_anchor) + "\n\n")
+        
+        log.write("=== Broken Relative URLs With Anchors ===\n\n")
+        log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_relative_urls_with_anchor) + "\n\n")
         
         log.write("=== Broken Root-Relative URLs ===\n\n")
         log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_root_relative_urls) + "\n\n")
@@ -401,14 +422,22 @@ def main():
         log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_header_urls) + "\n\n")
         
         # Add summary with improved informative title
-        total_broken = len(broken_absolute_urls) + len(broken_relative_urls) + len(broken_root_relative_urls) + len(broken_image_urls) + len(broken_svg_urls) + len(broken_header_urls)
+        total_broken = (len(broken_absolute_urls) + 
+                        len(broken_relative_urls_with_anchor) + 
+                        len(broken_relative_urls_without_anchor) + 
+                        len(broken_root_relative_urls) + 
+                        len(broken_image_urls) + 
+                        len(broken_svg_urls) + 
+                        len(broken_header_urls))
+        
         total_ok = len(ok_absolute_urls) + len(ok_relative_urls) + len(ok_root_relative_urls) + len(ok_image_urls) + len(ok_svg_urls) + len(ok_header_urls)
         total_links = total_broken + total_ok
         
         log.write(f"===== LINK VALIDATION SUMMARY ({total_links} LINKS CHECKED) =====\n\n")
         log.write(f"Total broken absolute URLs: {len(broken_absolute_urls)}\n")
+        log.write(f"Total broken relative URLs (without anchors): {len(broken_relative_urls_without_anchor)}\n")
+        log.write(f"Total broken relative URLs (with anchors): {len(broken_relative_urls_with_anchor)}\n")
         log.write(f"Total OK absolute URLs: {len(ok_absolute_urls)}\n")
-        log.write(f"Total broken relative URLs: {len(broken_relative_urls)}\n")
         log.write(f"Total OK relative URLs: {len(ok_relative_urls)}\n")
         log.write(f"Total broken root-relative URLs: {len(broken_root_relative_urls)}\n")
         log.write(f"Total OK root-relative URLs: {len(ok_root_relative_urls)}\n")
@@ -421,7 +450,8 @@ def main():
         
         # Update the conclusion title as well for consistency
         log.write(f"===== CONCLUSION: {total_broken} BROKEN LINKS FOUND =====\n\n")
-        broken_links_found = bool(broken_absolute_urls or broken_relative_urls or broken_image_urls or broken_svg_urls or broken_header_urls)
+        broken_links_found = bool(broken_absolute_urls or broken_relative_urls_without_anchor or broken_relative_urls_with_anchor or
+                                 broken_root_relative_urls or broken_image_urls or broken_svg_urls or broken_header_urls)
         if broken_links_found:
             log.write("❌ Broken links were found. Check the details above.\n")
         else:
@@ -433,8 +463,9 @@ def main():
     print(f"\nLog generated on: {timestamp}")
     print(f"Runtime duration: {runtime_duration}")
     print(f"Total broken absolute URLs: {len(broken_absolute_urls)}")
+    print(f"Total broken relative URLs (without anchors): {len(broken_relative_urls_without_anchor)}")
+    print(f"Total broken relative URLs (with anchors): {len(broken_relative_urls_with_anchor)}")
     print(f"Total OK absolute URLs: {len(ok_absolute_urls)}")
-    print(f"Total broken relative URLs: {len(broken_relative_urls)}")
     print(f"Total OK relative URLs: {len(ok_relative_urls)}")
     print(f"Total broken root-relative URLs: {len(broken_root_relative_urls)}")
     print(f"Total OK root-relative URLs: {len(ok_root_relative_urls)}")
@@ -448,9 +479,15 @@ def main():
     print("\n=== Broken Absolute URLs ===")
     for url in broken_absolute_urls:
         print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
-    print("\n=== Broken Relative URLs ===")
-    for url in broken_relative_urls:
+    
+    print("\n=== Broken Relative URLs Without Anchors ===")
+    for url in broken_relative_urls_without_anchor:
         print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
+        
+    print("\n=== Broken Relative URLs With Anchors ===")
+    for url in broken_relative_urls_with_anchor:
+        print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
+        
     print("\n=== Broken Root-Relative URLs ===")
     for url in broken_root_relative_urls:
         print(f"{Colors.FAIL}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
@@ -483,14 +520,22 @@ def main():
         print(f"{Colors.OKGREEN}{strip_ansi_escape_codes(url)}{Colors.ENDC}")
 
     # Print summary table with improved title
-    total_broken = len(broken_absolute_urls) + len(broken_relative_urls) + len(broken_root_relative_urls) + len(broken_image_urls) + len(broken_svg_urls) + len(broken_header_urls)
+    total_broken = (len(broken_absolute_urls) + 
+                    len(broken_relative_urls_with_anchor) + 
+                    len(broken_relative_urls_without_anchor) + 
+                    len(broken_root_relative_urls) + 
+                    len(broken_image_urls) + 
+                    len(broken_svg_urls) + 
+                    len(broken_header_urls))
+    
     total_ok = len(ok_absolute_urls) + len(ok_relative_urls) + len(ok_root_relative_urls) + len(ok_image_urls) + len(ok_svg_urls) + len(ok_header_urls)
     total_links = total_broken + total_ok
     
     print(f"\nLink Validation Summary ({total_links} links checked):")
     print(f"{Colors.FAIL}Total broken absolute URLs: {len(broken_absolute_urls)}{Colors.ENDC}")
+    print(f"{Colors.FAIL}Total broken relative URLs (without anchors): {len(broken_relative_urls_without_anchor)}{Colors.ENDC}")
+    print(f"{Colors.FAIL}Total broken relative URLs (with anchors): {len(broken_relative_urls_with_anchor)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK absolute URLs: {len(ok_absolute_urls)}{Colors.ENDC}")
-    print(f"{Colors.FAIL}Total broken relative URLs: {len(broken_relative_urls)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK relative URLs: {len(ok_relative_urls)}{Colors.ENDC}")
     print(f"{Colors.FAIL}Total broken root-relative URLs: {len(broken_root_relative_urls)}{Colors.ENDC}")
     print(f"{Colors.OKGREEN}Total OK root-relative URLs: {len(ok_root_relative_urls)}{Colors.ENDC}")
@@ -502,7 +547,7 @@ def main():
     print(f"{Colors.OKGREEN}Total OK header links: {len(ok_header_urls)}{Colors.ENDC}")
 
     # Determine if any broken links were found
-    broken_links_found = bool(broken_absolute_urls or broken_relative_urls or broken_root_relative_urls or broken_image_urls or broken_svg_urls or broken_header_urls)
+    broken_links_found = bool(broken_absolute_urls or broken_relative_urls_with_anchor or broken_relative_urls_without_anchor or broken_root_relative_urls or broken_image_urls or broken_svg_urls or broken_header_urls)
 
     # Exit with appropriate code
     if broken_links_found:
