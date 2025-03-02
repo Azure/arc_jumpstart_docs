@@ -35,7 +35,7 @@ At Arc Jumpstart, we don't just create documents and guides; we craft immersive 
 
 6. **Embracing innovation:** We focus exclusively on Public Preview and General Availability (GA) services and features, ensuring that you have access to the latest innovations and capabilities.
 
-![Image of the Jumpstart core design principles](../../img/about/principles.png)
+![Image of the Jumpstart core design principles](/img/about/principles.png)
 
 ## Our commitment to the open-source community: elevating excellence together
 
@@ -45,13 +45,13 @@ In the spirit of open-source collaboration, we are deeply committed to supportin
 
 By embracing this ethos, we are dedicated to providing you with an unparalleled open-source experience. Together, let's elevate the standards of open-source excellence and create a vibrant community where innovation knows no bounds.
 
-![Image showing open-source projects logos](../../img/about/oss.png)
+![Image showing open-source projects logos](/img/about/oss.png)
 
 ## Getting started with the Jumpstart universe
 
 This website has been curated to ensure you have everything you need to begin your adaptive cloud experience. It offers a comprehensive platform with detailed guides, automation tools, code samples, screenshots, and diagrams to explore.
 
-![Image showing the Jumpstart universe](../../img/about/universe.png)
+![Image showing the Jumpstart universe](/img/about/universe.png)
 
 **What you can expect:**
 
