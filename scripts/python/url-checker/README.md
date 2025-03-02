@@ -2,11 +2,11 @@
 
 This tool checks for broken URLs in all Markdown files within the repository. It can be run manually or as part of an automated GitHub Actions workflow.
 
-## Features
+## ✨ Features
 
 - Validates both absolute URLs (http/https) and relative file paths
-- Improved link type detection:
-  - Regular relative links
+- Improved link type detection and classification:
+  - Regular relative links (with and without anchors)
   - Root-relative links (starting with `/`)
   - Image links
   - SVG image links
@@ -15,8 +15,9 @@ This tool checks for broken URLs in all Markdown files within the repository. It
 - Colorized console output (including in GitHub Actions)
 - Comprehensive log files with summary tables
 - Exit code support for CI/CD workflows
+- File location information for all discovered links (absolute and relative)
 
-## Requirements
+## 🧰 Requirements
 
 - Python 3.x
 - `requests` library
@@ -28,7 +29,7 @@ Install dependencies with:
 pip install requests colorama
 ```
 
-## Manual Usage
+## 🛠️ Manual Usage
 
 Run from the repository root:
 
@@ -36,7 +37,7 @@ Run from the repository root:
 python scripts/python/url-checker/url-checker.py
 ```
 
-## Automated GitHub Actions Workflow
+## 🚀 Automated GitHub Actions Workflow
 
 This tool is integrated with GitHub Actions as the `Check Broken Links` workflow, which:
 
@@ -83,32 +84,73 @@ After the workflow completes:
 2. Detailed logs are available as workflow artifacts
 3. If configured, the workflow will fail when broken links are found
 
-## Output
+## 📊 Output
 
 The script generates a log file with timestamp and provides detailed output including:
 
 ### Summary Table
 
 ```text
-===== LINK VALIDATION SUMMARY (189 LINKS CHECKED) =====
-
-Total broken absolute URLs: 3
-Total OK absolute URLs: 122
-Total broken relative URLs: 1
-Total OK relative URLs: 38
-Total broken root-relative URLs: 1
-Total OK root-relative URLs: 5
-Total broken image URLs: 1
-Total OK image URLs: 12
-Total broken SVG URLs: 1
-Total OK SVG URLs: 4
-Total broken header links: 1
-Total OK header links: 4
-
-===== CONCLUSION: 8 BROKEN LINKS FOUND =====
+Link Validation Summary (6122 links checked):
+- Broken links: 42
+  - Absolute URLs: 8
+  - Relative URLs without anchors: 0
+  - Relative URLs with anchors: 34
+  - Root-relative URLs: 0
+  - Image URLs: 0
+  - SVG URLs: 0
+  - Header links: 0
+- OK links: 6080
+❌ Broken links were found. Check the logs for details.
 ```
 
-## Configuration
+### Sample Log File Structure
+
+The log file is organized in sections, making it easy to review different types of issues:
+
+```text
+URL Checker Results
+
+Log generated on: 2023-07-21_15-22-45
+Runtime duration: 0:05:24.123456
+
+=== Broken Absolute URLs ===
+
+[BROKEN ABSOLUTE] https://example.com/missing-page - Status Code: 404 (in file: /docs/example/file.md)
+[BROKEN ABSOLUTE] https://site.com/broken-link - Error: ConnectionError (in file: /docs/another/example.md)
+
+=== Broken Relative URLs Without Anchors ===
+
+✅ No broken relative URLs without anchors found.
+
+=== Broken Relative URLs With Anchors ===
+
+[BROKEN RELATIVE WITH ANCHOR] ../reference/file.md#section (relative path in /docs/guide/tutorial.md)
+
+=== Broken Root-Relative URLs ===
+
+✅ No broken root-relative URLs found.
+
+// ... sections for other link types ...
+
+===== LINK VALIDATION SUMMARY (6122 LINKS CHECKED) =====
+
+- Broken links: 42
+  - Absolute URLs: 8
+  - Relative URLs without anchors: 0
+  - Relative URLs with anchors: 34
+  - Root-relative URLs: 0
+  - Image URLs: 0
+  - SVG URLs: 0
+  - Header links: 0
+- OK links: 6080
+
+===== CONCLUSION: 42 BROKEN LINKS FOUND =====
+
+❌ Broken links were found. Check the details above.
+```
+
+## ⚙️ Configuration
 
 The following can be customized in the script:
 
@@ -128,7 +170,7 @@ KNOWN_VALID_URLS = [
 ]
 ```
 
-## Troubleshooting
+## 🔍 Troubleshooting
 
 ### Root-Relative URLs
 
@@ -143,3 +185,7 @@ Some URLs may be incorrectly marked as broken due to:
 - Temporary server issues
 
 Add these to the `KNOWN_VALID_URLS` list to skip checking them.
+
+## 👋 Contributing
+
+We'd love your help to make this tool even better! Whether you're fixing bugs, adding features, or improving documentation, your contributions are warmly welcomed.

@@ -104,7 +104,7 @@ The steps below will help you get familiar with the automation and deployment fl
   - _`Resource Group`_: Azure Resource Group where your Azure Arc-enabled server is registered
   - _`Location`_: Azure region where your Azure Arc-enabled server is connected to
   - _`VM Name`_: name of your Azure Arc-enabled server
-  - _`File Uris`_: for Linux use the following [Shell script]("https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh").
+  - _`File Uris`_: for Linux use the following [Shell script](https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_servers_jumpstart/scripts/custom_script_linux.sh).
   - _`Command to execute`_: provide ./custom_script_linux.sh
 
   ![Screenshot showing Azure portal deployment](./05.png)
