@@ -26,6 +26,7 @@ weight: 6
   - Arc-enabled app services (Azure Functions) with AKS
   - Arc-enabled app services (Azure Logic Apps) with AKS
   - Arc-enabled SQL Managed Instance with Azure DevOps
+  - Arc-enabled PostgreSQL Instance with Azure DevOps
 
 ### Jumpstart ArcBox
 
