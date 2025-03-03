@@ -11,6 +11,14 @@ This tool checks for broken URLs in all Markdown files within the repository. It
   - Image links
   - SVG image links
   - Markdown header links (`#header-name`)
+- Advanced header link validation:
+  - Extracts actual headers from markdown files
+  - Validates in-page links (`#header-name`)
+  - Cross-file header links (`file.md#header-name`)
+- Smart directory link handling:
+  - Detects links ending with `/`
+  - Looks for default files (`_index.md`, `index.md`, `README.md`)
+  - Fallback to any markdown file in the directory
 - Detailed output with categorization by link type
 - Colorized console output (including in GitHub Actions)
 - Comprehensive log files with summary tables
@@ -100,6 +108,9 @@ Link Validation Summary (6122 links checked):
   - Image URLs: 0
   - SVG URLs: 0
   - Header links: 0
+- No links found: 2 categories
+  - Root-relative URLs
+  - SVG URLs
 - OK links: 6080
 ❌ Broken links were found. Check the logs for details.
 ```
@@ -133,8 +144,7 @@ Runtime duration: 0:05:24.123456
 
 // ... sections for other link types ...
 
-===== LINK VALIDATION SUMMARY (6122 LINKS CHECKED) =====
-
+Link Validation Summary (6122 links checked):
 - Broken links: 42
   - Absolute URLs: 8
   - Relative URLs without anchors: 0
@@ -143,11 +153,11 @@ Runtime duration: 0:05:24.123456
   - Image URLs: 0
   - SVG URLs: 0
   - Header links: 0
+- No links found: 2 categories
+  - Root-relative URLs
+  - SVG URLs
 - OK links: 6080
-
-===== CONCLUSION: 42 BROKEN LINKS FOUND =====
-
-❌ Broken links were found. Check the details above.
+❌ Broken links were found. Check the logs for details.
 ```
 
 ## ⚙️ Configuration
