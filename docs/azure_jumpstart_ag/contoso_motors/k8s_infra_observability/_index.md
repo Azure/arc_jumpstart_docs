@@ -90,6 +90,4 @@ As an Operations team member at Contoso, you will have access to the Grafana das
 
 ## Next steps
 
-<!-- Continuing with the next Contoso Motors scenario, you can now proceed to the next guide to learn about [infrastructure observability for Arc-enabled servers using Azure Monitor](../arc_monitoring_servers/). -->
-
 Now that you have successfully completed all of the Contoso Motors scenarios, continue to the next step to learn how to [cleanup the deployment](../cleanup/).
