@@ -113,19 +113,28 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
 > **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.parameters.json) template parameters file and supply some values for your environment.
-  - _`spnClientId`_ - Your Azure service principal id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnTenantId`_ - Your Azure tenant id
-  - _`spnProviderId`_ - Your Azure Local resource provider id, retrieved in an earlier step
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`logAnalyticsWorkspaceName`_ - Unique name for the HCIBox Log Analytics workspace
-  - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
-  - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled Azure Local instance after the client VM deployment and automation script execution is complete.
-  - _`autoUpgradeClusterResource`_ - Option to enable automatic upgrade of the Azure Arc-enabled Azure Local instance after the instance deployment is complete (only applicable if autoDeployClusterResource is set to `true`).
-  - _`tags`_ - Tags to be added to the deployed resources. Default value: Project: 'jumpstart_HCIBox'
-  - _`governResourceTags`_ - Specifies whether governance-tags will be added to the deployed resources.
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.bicepparam) template parameters file and supply values for your environment.
+
+| Name | Type | Description | Default |
+| --- | --- | --- | --- |
+| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Default is false. | false |
+| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. Default is false. | false |
+| `deployBastion` | bool | Choice to deploy Bastion to connect to the client VM | false |
+| `githubAccount` | string | Target GitHub account | "microsoft" |
+| `githubBranch` | string | Target GitHub branch | "main" |
+| `governResourceTags` | bool | Setting this parameter to `true` will add the `CostControl` and `SecurityControl` tags to the provisioned resources. These tags are applicable to ONLY Microsoft-internal Azure lab tenants and designed for managing automated governance processes related to cost optimization and security controls | true |
+| `location` | string | Location to deploy resources | Resource group`s location |
+| `logAnalyticsWorkspaceName` | string | Name for your log analytics workspace |  |
+| `natDNS` | string | Public DNS to use for the domain | "8.8.8.8" |
+| `rdpPort` | string | Override default RDP port using this parameter. Default is 3389. No changes will be made to the client VM. | "3389" |
+| `spnClientId` | string | Azure service principal client id |  |
+| `spnClientSecret` | securestring | Azure service principal client secret |  |
+| `spnProviderId` | string | Azure AD object id for your Microsoft.AzureStackHCI resource provider |  |
+| `spnTenantId` | string | Azure AD tenant id for your service principal |  |
+| `tags` | object | Tags to be added to all resources | {"Project": "jumpstart_HCIBox"} |
+| `vmAutologon` | bool | Enable automatic logon into HCIBox Virtual Machine | true |
+| `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |
+| `windowsAdminUsername` | string | Username for Windows account |  |
 
       > **Disclaimer:** The `governResourceTags` parameter is optional and set to true by default. If not specified, the following tag values will be added:
 
