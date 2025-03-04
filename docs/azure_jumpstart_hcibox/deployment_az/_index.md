@@ -128,7 +128,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
 
-    > **Note:** The `resourceTags` parameter is optional. If not specified, the following default value will be added:
+    > **Disclaimer:** The `governResourceTags` parameter is optional. If not specified, the following default value will be added:
 
   ```
   Project: 'jumpstart_HCIBox'
