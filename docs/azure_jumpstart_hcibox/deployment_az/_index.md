@@ -124,19 +124,21 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
   - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled Azure Local instance after the client VM deployment and automation script execution is complete.
   - _`autoUpgradeClusterResource`_ - Option to enable automatic upgrade of the Azure Arc-enabled Azure Local instance after the instance deployment is complete (only applicable if autoDeployClusterResource is set to `true`).
-  - _`resourceTags`_ - Tags to be added to the deployed resources.
+  - _`tags`_ - Tags to be added to the deployed resources. Default value: Project: 'jumpstart_HCIBox'
+  - _`governResourceTags`_ - Specifies whether governance-tags will be added to the deployed resources.
 
-  ![Screenshot showing example parameters](./parameters_bicep.png)
-
-    > **Disclaimer:** The `governResourceTags` parameter is optional. If not specified, the following default value will be added:
+      > **Disclaimer:** The `governResourceTags` parameter is optional and set to true by default. If not specified, the following tag values will be added:
 
   ```
-  Project: 'jumpstart_HCIBox'
   CostControl: 'Ignore'
   SecurityControl: 'Ignore'
   ```
 
      > Both the `CostControl` and `SecurityControl` tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the `governResourceTags` parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failed to do so will cause your deployment to have issues and most likely to fail.
+
+Example parameter-file:
+
+![Screenshot showing example parameters](./parameters_bicep.png)
 
 - Create a new resource group and then deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the following command:
 
