@@ -124,9 +124,19 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
   - _`deployBastion`_ - Option to deploy Azure Bastion which used to connect to the _HCIBox-Client_ VM instead of normal RDP.
   - _`autoDeployClusterResource`_ - Option to enable automatic deployment of the Azure Arc-enabled Azure Local instance after the client VM deployment and automation script execution is complete.
   - _`autoUpgradeClusterResource`_ - Option to enable automatic upgrade of the Azure Arc-enabled Azure Local instance after the instance deployment is complete (only applicable if autoDeployClusterResource is set to `true`).
-  - _`resourceTags`_ - Tags to be added to the deployed resources. The default key:value pairs is applicable to internal Microsoft lab-tenants for managing automated governance processes related to cost optimization and security controls.
+  - _`resourceTags`_ - Tags to be added to the deployed resources.
 
   ![Screenshot showing example parameters](./parameters_bicep.png)
+
+    > **Note:** The `resourceTags` parameter is optional. If not specified, the following default value will be added:
+
+  ```
+  Project: 'jumpstart_HCIBox'
+  CostControl: 'Ignore'
+  SecurityControl: 'Ignore'
+  ```
+
+     > `CostControl` and `SecurityControl` are applicable to internal Microsoft lab-tenants for managing automated governance processes related to cost optimization and security controls.
 
 - Create a new resource group and then deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the following command:
 
