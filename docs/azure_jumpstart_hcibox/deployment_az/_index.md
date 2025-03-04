@@ -136,7 +136,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
   SecurityControl: 'Ignore'
   ```
 
-     > `CostControl` and `SecurityControl` are applicable to internal Microsoft lab-tenants for managing automated governance processes related to cost optimization and security controls.
+     > Both the `CostControl` and `SecurityControl` tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the `governResourceTags` parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failed to do so will cause your deployment to have issues and most likely to fail.
 
 - Create a new resource group and then deploy the Bicep file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_hcibox/bicep) and run the following command:
 
