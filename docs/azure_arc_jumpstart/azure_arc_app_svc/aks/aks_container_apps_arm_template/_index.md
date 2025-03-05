@@ -18,9 +18,9 @@ The following Jumpstart scenario will guide you on how to run cloud-native appli
 
 In this scenario, you will deploy a [Container Apps environment](https://learn.microsoft.com/azure/container-apps/environment) and a 3-node container app running in Azure. The app leverages [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) to simplify service to service invocation.
 
-- Store - The store app is the store's frontend app, running a [Blazor Server project](https://learn.microsoft.com/dotnet/architecture/blazor-for-web-forms-developers/introduction) that reaches out to the backend APIs.
-- Products API - This API is a [Swagger UI-enabled API](https://swagger.io/tools/swagger-ui/) that hands back product names and IDs to callers.
-- Inventory API - A simple API that provides a random number for a given product ID string. The values of each string/integer pair are stored in a memory cache so they are consistent between API calls.
+- Store - The store app is simulating  the store's frontend app by running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
+- Products API - This is simulating an API application  by running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
+- Inventory API - A simulation of an API application running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
 
 ## Prerequisites
 
@@ -240,13 +240,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   
   ![Screenshot showing additional Azure resources in the resource group](./20.png)
 
-- In this scenario, **ASP.NET Core Front-end and 2 Back-end APIs on Azure Container Apps** was deployed. To open the deployed web application in your web browser, simply click the Container App resource and the Application URL.
+- In this scenario, a **[Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started)** was deployed to simulate **Front-end and 2 Back-end APIs on Azure Container Apps**. To open the deployed [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in your web browser, simply click the Container App resource and the Application URL.
 
   ![Screenshot showing Store Container App in a resource group](./21.png)
 
   ![Screenshot showing the web application URL](./22.png)
 
-  ![Screenshot showing the web application open in a web browser](./23.png)
+  ![Screenshot showing the web application open in a web browser](./231.png)
 
 - Optionally, you can review the [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) configuration for the Container apps by navigating to the Dapr setting.
 
