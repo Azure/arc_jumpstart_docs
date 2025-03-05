@@ -143,7 +143,7 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
   SecurityControl: 'Ignore'
   ```
 
-     > Both the `CostControl` and `SecurityControl` tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the `governResourceTags` parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failed to do so will cause your deployment to have issues and most likely to fail.
+     > Both the `CostControl` and `SecurityControl` tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the `governResourceTags` parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
 
 Example parameter-file:
 
