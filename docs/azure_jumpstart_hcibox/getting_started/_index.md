@@ -43,7 +43,7 @@ HCIBox resources generate Azure Consumption charges from the underlying Azure re
 
 ## Deployment Options and Flow
 
-HCIBox supports [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) templates for both Azure CLI and [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) to deploy and configure necessary Azure resources.
+HCIBox supports [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) templates to deploy and configure necessary Azure resources.
 
 Deploying HCIBox is a multi-step process that includes:
 
