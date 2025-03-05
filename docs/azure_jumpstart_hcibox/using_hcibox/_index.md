@@ -18,9 +18,9 @@ HCIBox simulates a 2-node physical deployment of Azure Local by using [nested vi
 
 | Computer Name    | Role                                | Domain Joined | Parent Host     | OS                  |
 | ---------------- | ----------------------------------- | ------------- | --------------- | ------------------- |
-| _HCIBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2022 |
-| _AzSHOST1_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Local     |
-| _AzSHOST2_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Local     |
+| _HCIBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2025 |
+| _AzSHOST1_       | Azure Local node                            | Yes           | _HCIBox-Client_ | Azure Local     |
+| _AzSHOST2_       | Azure Local node                            | Yes           | _HCIBox-Client_ | Azure Local     |
 | _AzSMGMT_        | Nested hypervisor                   | No            | _HCIBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
 | _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
