@@ -12,7 +12,7 @@ Azure Local can provide host infrastructure for [Azure Kubernetes Service cluste
 
 HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
 
-  | Network details |                  |
+  | Network detail |        Value          |
   | ---------- | --------------------- |
   | Subnet     | 10.10.0.0/24          |
   | Gateway    | 10.10.0.1             |

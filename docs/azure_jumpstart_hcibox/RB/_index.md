@@ -33,7 +33,7 @@ Before you can create virtual machines on your Azure Local instance from Azure p
 
 HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
-  | Network details |                  |
+  | Network detail |        Value          |
   | ---------- | --------------------- |
   | Subnet     | 192.168.200.0/24      |
   | Gateway    | 192.168.200.1         |
