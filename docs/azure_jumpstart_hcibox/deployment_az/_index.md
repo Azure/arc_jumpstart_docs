@@ -1,15 +1,15 @@
 ---
 type: docs
-linkTitle: "Azure CLI Deployment"
+linkTitle: "Azure Bicep Deployment"
 isGettingStarted: false
 weight: 4
 ---
 
-# Deploy HCIBox infrastructure with Azure CLI
+# Deploy HCIBox infrastructure with Azure Bicep
 
-## Azure CLI
+## Azure Bicep
 
-Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you require a service principal by your Azure administrator for use with HCIBox. Read on to learn how to deploy HCIBox with Azure CLI.
+Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, you require a service principal by your Azure administrator for use with HCIBox. Read on to learn how to deploy HCIBox with Azure CLI.
 
 ### Prepare the environment
 
