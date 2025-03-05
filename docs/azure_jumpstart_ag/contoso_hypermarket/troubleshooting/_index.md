@@ -5,7 +5,7 @@ title: Troubleshooting
 linkTitle: Troubleshooting
 ---
 
-# Troubleshooting
+# Contoso Hypermarket scenario troubleshooting
 
 ## Basic troubleshooting
 
