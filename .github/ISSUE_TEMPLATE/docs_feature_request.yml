@@ -1,7 +1,7 @@
 name: Documentation Feature Request
 description: Suggest an improvement for Arc Jumpstart documentation
-title: "[Doc Feature]: "
-labels: ["documentation", "enhancement", "triage needed"]
+title: "[Docs Feature]: "
+labels: ["docs", "triage needed"]
 projects: ["Azure/638"]
 body:
   - type: markdown
