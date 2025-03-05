@@ -12,8 +12,6 @@ The following Jumpstart scenario will guide you on how to deploy a "Ready to Go"
 
 By the end of this scenario, you will have an AKS cluster deployed with an Azure Arc Data Controller, SQL Managed Instance, and a Microsoft Windows Server 2022 (Datacenter) Azure client VM, installed & pre-configured with all the required tools needed to work with Azure Arc-enabled data services:
 
-![Screenshot showing the deployed architecture](./diagram.png)
-
 ## Prerequisites
 
 - Clone the Azure Arc Jumpstart repository
