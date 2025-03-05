@@ -117,8 +117,8 @@ Azure CLI is used to deploy HCIBox into your Azure subscription. To deploy, you 
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Default is false. | false |
-| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. Default is false. | false |
+| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. | true |
+| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. | false |
 | `deployBastion` | bool | Choice to deploy Bastion to connect to the client VM | false |
 | `githubAccount` | string | Target GitHub account | "microsoft" |
 | `githubBranch` | string | Target GitHub branch | "main" |

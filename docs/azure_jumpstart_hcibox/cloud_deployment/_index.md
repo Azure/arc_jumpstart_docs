@@ -75,14 +75,11 @@ At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _HCIBox-Client_](./automation.png)
 
-- In Azure portal, validate that both Azure Local machines (AzSHOST1 and AzSHOST2) have been created as Arc-enabled servers.
+- In the Azure portal, validate that both Azure Local machines (AzSHOST1 and AzSHOST2) have been created as Arc-enabled servers.
 
 - Verify that both of the Arc-enabled servers have successfully installed the three Azure Local extensions: AzureEdgeTelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
-
-- If everything looks good, and you did not choose to configure the `autoDeployClusterResource` parameter with the value `true` in your deployment, proceed to the next section to validate and deploy your instance. If you did enable this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
-Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ## Azure portal Azure Local instance validation and deployment
 
@@ -90,6 +87,10 @@ Azure Local uses a two-step process to create and register instances in Azure us
 
   1. **Validate** - an ARM template is deployed with a "validate" flag. This begins the final instance validation step and takes around 20 minutes.
   2. **Deploy** - the same ARM template is redeployed with the "deploy" flag. This deploys the instance and Arc infrastructure and registers the instance. This step takes around 2-3 hours.
+
+If you chose to configure the `autoDeployClusterResource` parameter with the value `false` in your deployment, proceed to the next section to validate and deploy your instance. If you did not override this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
+
+Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ### Validate instance in Azure portal
 
@@ -137,6 +138,10 @@ Azure Local uses a two-step process to create and register instances in Azure us
 
 ## Deployment complete
 
-- Once the HCIBox instance is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](../using_hcibox/) guide for the next steps.
+In your HCIBox resource group, open the cluster resource `hciboxcluster`, navigate to `Settings` -> `Deployments` and verify that all steps has completed successfully.
+
+  ![Screenshot showing progress of deploying instance](./cluster_deployment_complete.png)
+
+Once the HCIBox instance is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](../using_hcibox/) guide for the next steps.
 
   ![screenshot showing deployed instance](./cluster_detail.png)
