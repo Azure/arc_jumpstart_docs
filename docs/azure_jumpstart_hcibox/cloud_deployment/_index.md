@@ -88,7 +88,7 @@ Azure Local uses a two-step process to create and register instances in Azure us
   1. **Validate** - an ARM template is deployed with a "validate" flag. This begins the final instance validation step and takes around 20 minutes.
   2. **Deploy** - the same ARM template is redeployed with the "deploy" flag. This deploys the instance and Arc infrastructure and registers the instance. This step takes around 2-3 hours.
 
-If you chose to configure the `autoDeployClusterResource` parameter with the value `false` in your deployment, proceed to the next section to validate and deploy your instance. If you did not override this parameter, you may proceed to the section _Deployment complete_ at the end of this page.
+If you chose to configure the `autoDeployClusterResource` parameter with the value `false` in your deployment, proceed to the next section to validate and deploy your instance. If you did not override this parameter, you may proceed to the section [_Deployment complete_](#deployment-complete) at the end of this page.
 
 Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
