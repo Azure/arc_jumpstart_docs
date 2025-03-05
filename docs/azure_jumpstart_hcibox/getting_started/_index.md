@@ -56,7 +56,7 @@ Deploying HCIBox is a multi-step process that includes:
 
 ## Deploy HCIBox
 
-- [Deploy HCIBox with Azure CLI](../deployment_az/) : Requires pre-configured service principle.
+- [Deploy HCIBox with Azure Bicep](../deployment_az/) : Requires pre-configured service principal.
 
 Looking for something else related to HCIBox?
 
