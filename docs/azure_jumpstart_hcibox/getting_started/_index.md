@@ -5,6 +5,7 @@ isGettingStarted: false
 weight: 2
 ---
 # Evaluating Azure Local with HCIBox
+
 ## Getting started
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Local](https://learn.microsoft.com/azure-stack/hci/whats-new) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Local and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.

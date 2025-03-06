@@ -14,7 +14,7 @@ Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for expl
 
 ## What is required to deploy HCIBox?
 
-HCIBox deployment requires an Azure service principal with Owner role-based access control (RBAC) on an Azure subscription and resource group. You can deploy HCIBox using Azure Bicep or the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). A service principal is required to run the automation scripts that deploy and configure HCIBox features. You can view how the service principal is used by exploring the HCIBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
+HCIBox deployment requires an Azure service principal with Owner role-based access control (RBAC) on an Azure subscription and resource group and can be deployed using Azure Bicep. A service principal is required to run the automation scripts that deploy and configure HCIBox features. You can view how the service principal is used by exploring the HCIBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
 
 ## What Azure regions can HCIBox be deployed to?
 
