@@ -1,6 +1,6 @@
 ---
 type: docs
-linkTitle: "Azure Bicep"
+linkTitle: "Azure Bicep Deployment"
 isGettingStarted: false
 weight: 4
 ---
@@ -136,7 +136,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
 | `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |
 | `windowsAdminUsername` | string | Username for Windows account |  |
 
-  > **Disclaimer:** The *governResourceTags* parameter is optional and set to true by default. If not specified, both "*CostControl: 'Ignore'*" and "*SecurityControl: 'Ignore'*" tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the *governResourceTags* parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
+  > **Disclaimer:** The *governResourceTags* parameter is optional and set to true by default. If not specified, both *CostControl: 'Ignore'* and *SecurityControl: 'Ignore'* tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the *governResourceTags* parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
 
 Example parameter-file:
 
