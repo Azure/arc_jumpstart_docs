@@ -113,7 +113,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
 
 > **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.bicepparam) template parameters file and supply values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_hcibox/bicep/main.bicepparam) template parameters file and supply values for your environment.
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -136,14 +136,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
 | `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |
 | `windowsAdminUsername` | string | Username for Windows account |  |
 
-      > **Disclaimer:** The `governResourceTags` parameter is optional and set to true by default. If not specified, the following tag values will be added:
-
-  ```
-  CostControl: 'Ignore'
-  SecurityControl: 'Ignore'
-  ```
-
-     > Both the `CostControl` and `SecurityControl` tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the `governResourceTags` parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
+  > **Disclaimer:** The *governResourceTags* parameter is optional and set to true by default. If not specified, both *CostControl: 'Ignore'* and *SecurityControl: 'Ignore'* tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the *governResourceTags* parameter was set to true. If you are deploying HCIBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
 
 Example parameter-file:
 
@@ -153,7 +146,7 @@ Example parameter-file:
 
   ```shell
   az group create --name "<resource-group-name>"  --location "<location>"
-  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.parameters.json"
+  az deployment group create -g "<resource-group-name>" -f "main.bicep" -p "main.bicepparam"
   ```
 
   ![Screenshot showing bicep deploying](./bicep_deploying.png)

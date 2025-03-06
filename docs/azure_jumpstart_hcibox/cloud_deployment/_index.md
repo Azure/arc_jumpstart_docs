@@ -32,8 +32,6 @@ Various options are available to connect to _HCIBox-Client_ VM, depending on the
 
 By design, HCIBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-  > **Note:** If you deployed with Azure Developer CLI then this step is automatically done for you as part of the automation.
-
 - Open the _HCIBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
   ![Screenshot showing HCIBox-Client NSG with blocked RDP](./rdp_nsg_blocked.png)
