@@ -37,7 +37,7 @@ The system's AI processing capabilities are designed for flexibility, with the a
 
 To support development, testing, and demonstrations, Cerebral includes a sophisticated data simulator that generates realistic streams of commercial transactions, device telemetry, and equipment status updates. This simulation capability is crucial for system validation and training scenarios.
 
-> **Note**: To understand how Cerebral integrates with Contoso Hypermarket's data infrastructure, explore both the [Data pipeline and reporting for commercial sales](../data_pipeline/commercial/_index.md) and the [Data pipeline and reporting for operational technology (OT)](../data_pipeline/operational/_index.md) guides.
+> **Note**: To understand how Cerebral integrates with Contoso Hypermarket's data infrastructure, explore both the [Data pipeline and reporting for commercial sales](../data_pipeline/commercial/) and the [Data pipeline and reporting for operational technology (OT)](../data_pipeline/operational/) guides.
 
 While currently demonstrated within Contoso Hypermarket's retail environment, the architecture is inherently designed for multi-industry adaptation. New data sources, industry verticals, and processing pipelines can be seamlessly integrated, ensuring that Cerebral can evolve to meet the needs of diverse operational contexts while maintaining consistent performance and reliability.
 
@@ -45,7 +45,7 @@ While currently demonstrated within Contoso Hypermarket's retail environment, th
 
 Throughout the Contoso Hypermarket interface, whether you're a store manager reviewing sales data, a maintenance technician checking equipment status, or a shopper seeking assistance, Cerebral is your AI-powered assistant ready to help with any query. The system provides an intuitive and seamless way to access information across all store systems and documentation.
 
-> **Note**: To learn more about using the Contoso Hypermarket web applications and how Cerebral integrates with different operational interfaces, please refer to our [Shopper Insights Guide](../shopper_insights/_index.md).
+> **Note**: To learn more about using the Contoso Hypermarket web applications and how Cerebral integrates with different operational interfaces, please refer to our [Shopper Insights Guide](../shopper_insights/).
 
 ### Getting started with Cerebral
 
@@ -217,4 +217,4 @@ This combination of scalability, consistency, and customization makes Cerebral a
 
 ## Next steps
 
-Now that you have completed the _Jumpstart Cerebral - Gen AI Commercial and Operations assistance_ scenario, it's time to continue to the next one, [Commercial and Operations assistance with Speech-to-Text](../speech_to_text/_index.md).
+Now that you have completed the _Jumpstart Cerebral - Gen AI Commercial and Operations assistance_ scenario, it's time to continue to the next one, [Commercial and Operations assistance with Speech-to-Text](../speech_to_text/).

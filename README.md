@@ -1,4 +1,6 @@
-# Azure Arc Jumpstart documentation
+[![Stale Issues and PRs](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-issues-pr.yml) [![Stale Branches](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml/badge.svg)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/stale-branches.yml) [![Check Broken Links](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/url-checker.yml/badge.svg?branch=main)](https://github.com/Azure/arc_jumpstart_docs/actions/workflows/url-checker.yml)
+
+# Arc Jumpstart documentation
 
 Welcome to the Arc Jumpstart documentation repository! This repository is your go-to resource for in-depth guides, best practices, and detailed documentation related to Azure Arc. Whether you're a beginner exploring the basics or an experienced user optimizing your deployment, you'll find valuable insights tailored to your needs. This repository complements our [source code repository](https://aka.ms/JumpstartGitHubCode) and acts has the documentation source repository which populates the [Arc Jumpstart](https://aka.ms/arcjumpstart) website.
 
@@ -32,8 +34,8 @@ The following branches are currently maintained:
 
 | Branch                                                       | Website                    | Description                                                                                      |
 | ------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------ |
-| [main](https://github.com/Azure/arc_jumpstart_docs) (primary)               | https://arcjumpstart.com/       | Latest Arc Jumpstart release documentation. This is the latest documentation available in the deployed to the production slot. |
-| [canary](https://github.com/Azure/arc_jumpstart_docs/tree/canary) (canary) | https://preview.arcjumpstart.com/ | Pre-release documentation. Doc updates should be merged to the canary branch for preview validation before merging to the main branch. |
+| [main](https://github.com/Azure/arc_jumpstart_docs) (primary)               | https://jumpstart.azure.com/       | Latest Arc Jumpstart release documentation. This is the latest documentation available in the deployed to the production slot. |
+| [canary](https://github.com/Azure/arc_jumpstart_docs/tree/canary) (canary) | https://bvt.test.arcjumpstart.azure.com/ | Pre-release documentation. Doc updates should be merged to the canary branch for preview validation before merging to the main branch. |
 
 ## Cloning the repositories
 

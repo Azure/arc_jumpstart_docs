@@ -108,7 +108,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.GuestConfiguration --wait
   az provider register --namespace Microsoft.AzureArcData --wait
   az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.Insights--wait
+  az provider register --namespace Microsoft.Insights --wait
   ```
 
 ## Deployment Option 1: Azure portal
@@ -125,7 +125,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 
 ## Deployment Option 2: Bicep deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
@@ -140,7 +140,6 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
   - _`tenantId`_ - Your Azure tenant id.
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username.
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the ArcBox Log Analytics workspace.
   - _`flavor`_ - Use the value _"ITPro"_ to specify that you want to deploy ArcBox for IT Pros.
   - _`autoShutdownEnabled`_ - Optionally, you can set this to true if you want to configure the _ArcBox-Client_ VM to automatically shutdown to save costs.
@@ -150,6 +149,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   - _`resourceTags`_ - Tags to assign for all ArcBox resources.
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources.deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k25`.
   - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
+  - _`windowsAdminPassword`_ - (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
@@ -214,6 +214,8 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
+  > **Note:** - If the _`windowsAdminPassword`_ parameter is specified during deployment, use the provided password to log in. If not specified, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
+
 #### Connect using Azure Bastion
 
 - If you have chosen to deploy Azure Bastion in your deployment, use it to connect to the VM.
@@ -221,6 +223,10 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
   > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
+
+- Select "Password from Azure Key Vault" as the authentication type and use "windowsAdminPassword" as the Azure Key Vault secret name.
+
+  ![Screenshot showing connecting to the VM using Bastion and Key Vault](./bastion_connect_password.png)
 
 #### Connect using just-in-time access (JIT)
 
@@ -277,7 +283,7 @@ After deployment is complete, its time to start exploring ArcBox. Most interacti
 
 You can use Azure CLI or Azure PowerShell to connect to one of the Azure Arc-enabled servers using SSH. Open a PowerShell session and use the below commands.
 
-1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
+- From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
 
 ### Azure CLI
 
@@ -363,18 +369,19 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName -LocalUser $l
 
 ### Microsoft Entra ID based SSH Login
 
-1. The _Entra ID based SSH Login - Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
+- The _Entra ID based SSH Login - Azure Arc VM extension_ can be added from the extensions menu of the Arc server in the Azure portal. The Azure AD login extension can also be installed locally via a package manager via `apt-get install aadsshlogin` or the following command:
 
   ```shell
   $serverName = "ArcBox-Ubuntu-01"
   az connectedmachine extension create --machine-name $serverName --resource-group $Env:resourceGroup --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location $env:azureLocation
   ```
 
-2. Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
-    - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
-    - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
+- Configure role assignments for the Arc-enabled server _ArcBox-Ubuntu-01_ using the Azure portal. Two Azure roles are used to authorize VM login:
 
-3. After assigning one of the two roles for your personal Entra ID user account, run the following command to connect to _ArcBox-Ubuntu-01_ using SSH and AAD/Entra ID-based authentication:
+  - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
+  - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
+
+- After assigning one of the two roles for your personal Entra ID user account, run the following command to connect to _ArcBox-Ubuntu-01_ using SSH and AAD/Entra ID-based authentication:
 
 ### Azure CLI
 
@@ -413,7 +420,7 @@ Enter-AzVM -ResourceGroupName $Env:resourceGroup -Name $serverName
 
 You can use Azure CLI or Azure PowerShell to generate an SSH proxy configuration file to one of the Azure Arc-enabled servers.
 
-1. From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
+- From the _ArcBox-Client_ VM, open a PowerShell session in Windows Terminal and use the below commands to connect to **ArcBox-Ubuntu-01** using SSH:
 
 ### Azure CLI
 
@@ -450,7 +457,7 @@ Expected output:
 
 ![Screenshot showing usage of Remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_02.png)
 
-2. Next, we need to extract the values for the SSH proxy command:
+- Next, we need to extract the values for the SSH proxy command:
 
   ```powershell
   # Use a regex pattern to find the ProxyCommand line and extract its value
@@ -464,7 +471,7 @@ Expected output:
   $options = @{ ProxyCommand = $fullProxyCommandValue }
   ```
 
-3. Lastly, we can leverage native remote PowerShell constructs to interact with the remote machine:
+- Lastly, we can leverage native remote PowerShell constructs to interact with the remote machine:
 
   ```powershell
   # Create PowerShell Remoting session
@@ -485,7 +492,7 @@ Expected output:
 
   Expected output:
 
-  ![Screenshot showing usage of remote PowerShell tunnelled via SSH](./ps_remoting_via_ssh_03.png)
+  ![Screenshot showing usage of remote PowerShell tunneled via SSH](./ps_remoting_via_ssh_03.png)
 
 ### ArcBox Azure Monitor workbooks
 
@@ -499,7 +506,7 @@ The other contains performance data:
 
 ![Screenshot showing Azure Monitor workbook usage](./workbook_performance.png)
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/ITPro/) to get more information and explore the included visualizations and reports of hybrid cloud resources.
 
 ### Azure Update Manager
 
@@ -529,27 +536,27 @@ In ArcBox, an Azure policy assignment is included for an SSH Posture Control pol
 
 To inspect the compliance status of the assigned policy, perform the following:
 
-1. Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we're using _Arcbox-Ubuntu-01_:
+- Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we're using _Arcbox-Ubuntu-01_:
 
     ![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
 
-2. Navigate to _Machine Configuration_ in the menu on the left side:
+- Navigate to _Machine Configuration_ in the menu on the left side:
 
    ![Screenshot showing Arcbox-Ubuntu-01](./ssh_posture_control_02.png)
 
-3. Click on the configuration name starting with _LinuxSshServerSecurityBaseline*_:
+- Click on the configuration name starting with _LinuxSshServerSecurityBaseline*_:
 
     ![Screenshot showing assigned configurations](./ssh_posture_control_03.png)
 
-4. Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
+- Click on the highlighted dropdown menu and select the checkbox _Compliant_. Now you should see all settings included in the SSH Posture Control policy:
 
     ![Screenshot showing configuration settings](./ssh_posture_control_04.png)
 
-5. The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
+- The compliance information is also available via Azure Resource Graph for reporting at scale across multiple machines. Navigate to "Azure Resource Graph Explorer" in the Azure portal:
 
     ![Screenshot showing Azure Resource Graph Explorer](./resource_graph_explorer_01.png)
 
-6. Paste the following query into the query window and click _Run query_:
+- Paste the following query into the query window and click _Run query_:
 
    ```kql
    // SSH machine counts by compliance status
@@ -561,7 +568,7 @@ To inspect the compliance status of the assigned policy, perform the following:
 
     ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_05.png)
 
-7. Paste the following query into the query window and click _Run query_:
+- Paste the following query into the query window and click _Run query_:
 
    ```kql
    // SSH rule level detail

@@ -14,7 +14,7 @@ By the end of this scenario, you will have an EKS cluster deployed with an Azure
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
@@ -197,7 +197,7 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
 
   > **Note:** Any variables in bold are required. If any optional parameters are not provided, defaults will be used.
 
-  > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["Perform database failover with SQL Managed Instance Availability Groups"](../../day2/aks/aks_mssql_ha/_index.md) Jumpstart scenario as well as the ["High Availability with Azure Arc-enabled SQL Managed Instance"](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-high-availability) product documentation.
+  > **Note:** In case you decided to deploy SQL Managed Instance in an highly-available fashion, refer to the ["Perform database failover with SQL Managed Instance Availability Groups"](../../day2/aks/aks_mssql_ha/) Jumpstart scenario as well as the ["High Availability with Azure Arc-enabled SQL Managed Instance"](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-high-availability) product documentation.
 
 - Now you will deploy the Terraform file. Navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/tree/main/azure_arc_data_jumpstart/eks/terraform) and run the commands below:
 
@@ -298,7 +298,7 @@ As mentioned, the Terraform plan will deploy an EKS cluster, the Azure Arc Data 
 
 In this scenario, two Azure Arc-enabled Kubernetes cluster extensions were installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](../../../azure_arc_k8s/day2/gke/gke_monitor_extension/) scenario.
 
 - _arc-data-services_ - The Azure Arc-enabled data services cluster extension that was used throughout this scenario in order to deploy the data services infrastructure.
 
@@ -312,7 +312,7 @@ In order to view these cluster extensions, click on the Azure Arc-enabled Kubern
 
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application and uses kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration.
 
-For showcasing and testing SQL Managed Instance with [Always On availability groups](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-high-availability#deploy-with-always-on-availability-groups), a dedicated [Jumpstart scenario](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/) is available to help you simulate failures and get hands-on experience with this deployment model.
+For showcasing and testing SQL Managed Instance with [Always On availability groups](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-high-availability#deploy-with-always-on-availability-groups), a dedicated [Jumpstart scenario](../../day2/aks/aks_mssql_ha/) is available to help you simulate failures and get hands-on experience with this deployment model.
 
 ## Operations
 
@@ -326,7 +326,7 @@ Included in this scenario, is a dedicated SQL stress simulation tool named _SqlQ
 
   ![Screenshot showing SQLMI Endpoints text file](./44.png)
 
-> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/).
+> **Note:** Secondary SQL Managed Instance endpoint will be available only when using the [HA deployment model ("Business Critical")](../../day2/aks/aks_mssql_ha/).
 
 - To connect, use "SQL Server Authentication" and select the deployed sample _AdventureWorks_ database (you can use the "Test" button to check the connection).
 

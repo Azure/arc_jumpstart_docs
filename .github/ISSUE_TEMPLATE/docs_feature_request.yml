@@ -1,0 +1,73 @@
+name: Documentation Feature Request
+description: Suggest an improvement for Arc Jumpstart documentation
+title: "[Docs Feature]: "
+labels: ["docs", "triage needed"]
+projects: ["Azure/638"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a documentation improvement!
+
+        If your feature request is related to code and/or functionality of a Jumpstart solution, we kindly ask you to submit it in our [source code repository](https://github.com/microsoft/azure_arc).
+
+        The intent of this "Feature Request" template is to address feature requests related to the various Arc Jumpstart solutions. The Arc Jumpstart team does not handle and/or support Azure Arc upstream core product related features and will try to assist on a best effort basis. For a core product feature request/feedback, please submit through [general feedback](https://feedback.azure.com).
+  - type: checkboxes
+    id: doc-category
+    attributes:
+      label: Documentation Category
+      description: Which area of documentation does this request relate to?
+      options:
+        - label: Getting Started Guide
+        - label: Deployment Guides
+        - label: Troubleshooting Guides
+        - label: Architecture Documentation
+        - label: Tutorials
+        - label: API Documentation
+        - label: Other
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Documentation Need
+      description: Describe what documentation you'd like to see added or improved
+      placeholder: Example - "We need better documentation about configuring custom settings in ArcBox deployments"
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why is this needed?
+      description: What problems would this documentation solve? Who would benefit?
+      placeholder: Example - "New users struggle to understand this feature because..."
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-content
+    attributes:
+      label: Suggested Content
+      description: Do you have specific suggestions for what should be included?
+      placeholder: List any specific topics, examples, or scenarios that should be covered
+    validations:
+      required: false
+  - type: input
+    id: related-page
+    attributes:
+      label: Related Documentation Page
+      description: If this relates to an existing page, please provide the URL
+      placeholder: ex. https://jumpstart.azure.com/azure_jumpstart_arcbox/
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might help us understand your documentation request
+      placeholder: Include any examples, screenshots, or related resources
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/Azure/arc_jumpstart_docs/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

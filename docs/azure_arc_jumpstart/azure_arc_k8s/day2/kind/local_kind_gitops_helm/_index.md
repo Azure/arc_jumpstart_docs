@@ -14,11 +14,11 @@ in this scenario, you will first deploy a nginx ingress controller to your clust
 
 By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-> **Note:** This guide assumes you already deployed a kind and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [kind onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/kind/local_kind/). Furthermore, kind should be deployed with [_kind_cluster_ingress.yaml_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/kind_cluster_ingress.yaml) instead of _kind_cluster.yaml_.
+> **Note:** This guide assumes you already deployed a kind and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [kind onboarding guide](../../../kind/local_kind/). Furthermore, kind should be deployed with [_kind_cluster_ingress.yaml_](https://github.com/microsoft/azure_arc/blob/main/azure_arc_k8s_jumpstart/kind/kind_cluster_ingress.yaml) instead of _kind_cluster.yaml_.
 
 ## Prerequisites
 
-* Clone the Azure Arc Jumpstart repository
+* Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
@@ -109,7 +109,7 @@ The demo application that will be deployed later in this scenario relies on an i
 
 With Cluster-level GitOps config, the goal is to have "horizontal components" or "management components" deployed on your Kubernetes cluster which will then be used by your applications. Good examples are Service Meshes, Security products, Monitoring solutions, etc.
 
-> **Note:** You will not be creating a cluster-level config in this scenario. For an example of a cluster-level configuration please refer to either the [Helm-based GitOps on AKS scenario](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm/) or the [GKE one](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm/).
+> **Note:** You will not be creating a cluster-level config in this scenario. For an example of a cluster-level configuration please refer to either the [Helm-based GitOps on AKS scenario](../local_kind_gitops_helm/) or the [GKE one](../../gke/gke_gitops_helm/).
 
 ### Namespace-level Config
 

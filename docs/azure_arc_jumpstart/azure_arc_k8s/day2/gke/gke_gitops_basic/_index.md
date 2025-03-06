@@ -12,13 +12,13 @@ The following Jumpstart scenario will guide you on how to create GitOps configur
 
 In this scenario, you will deploy & attach GitOps configuration to your cluster which will also include deploying an "Hello Arc" web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy.
+GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open-source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy.
 
-> **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
+> **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](../../../gke/gke_terraform/).
 
 ## Prerequisites
 
-- Fork the ["Azure Arc Jumpstart Apps"](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/Azure/jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -135,7 +135,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
   - Retrieve the cluster credentials (KUBECONFIG)
   - Use Helm to deploy NGINX ingress controller
   - Create the GitOps configurations and deploy the Flux controllers on the Azure Arc connected cluster
-  - Deploy the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc/yaml) application alongside an Ingress rule to make it available from outside the cluster
+  - Deploy the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc/yaml) application alongside an Ingress rule to make it available from outside the cluster
 
     > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval to rapidly track changes on the repository but it is recommended to have longer interval in your production environment (the default value is 5min).
 
@@ -189,7 +189,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 - The GitOps flow works as follow:
 
-    1. The Flux controller holds the "desired state" of the "Hello Arc" application, this is the configuration we deployed against the Azure Arc connected cluster. The controllers "polls" the state of the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc/yaml) application repository.
+    1. The Flux controller holds the "desired state" of the "Hello Arc" application, this is the configuration we deployed against the Azure Arc connected cluster. The controllers "polls" the state of the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc/yaml) application repository.
 
     2. Changing the application, which is considered to be a new version of it, will trigger the Flux controllers to kick in the GitOps flow.
 
@@ -205,7 +205,7 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
   
     ![kubectl get pods -n hello-arc -w](./19.png)
 
-  - In **your fork** of the "Azure Arc Jumpstart" repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
+  - In **your fork** of the Arc Jumpstart" repository, open the *hello_arc.yaml* file (/hello-arc/yaml/hello_arc.yaml).
 
   - The external IP address of the Kubernetes Service seen using the _`kubectl get svc -n hello-arc`_ command.
 

@@ -104,11 +104,9 @@ Before starting to code this new feature, it is useful to take a look at how Con
 
 - Within the _operations_ folder there is also a folder for each application's GitOps configuration. This is where Contoso Supermarket's DevOps team manages how the applications are deployed to the different environments.
 
-    ![Screenshot showing the operations folder structure](./img/repo_operations_structure.png)
+    ![Screenshot showing the operations folder structure](./img/repo_operations_helm_structure.png)
 
 - Each application has a folder for [Helm](https://helm.sh/docs/) _charts_ where the Kubernetes manifests for each application are located and a folder for _releases_ where the Helm Releases for each application and each environment is located. This way the DevOps team can control the promotion of each version of the applications across the GitOps workflow on different environments and also enable/disable features created by the developers as needed.
-
-    ![Screenshot showing the helm folder structure](./img/repo_operations_helm_structure.png)
 
     ![Screenshot showing the helm releases folder structure](./img/repo_operations_helmreleases_structure.png)
 
@@ -134,7 +132,7 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing opening a folder in a dev container](./img/vscode_dev_container.png)
 
-- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-agora-apps_.
+- Browse to the cloned repository on the Client VM located at _C:\Ag\AppsRepo\jumpstart-apps_.
 
     ![Screenshot showing the cloned repository on the client VM](./img/vscode_dev_container_open_folder.png)
 
@@ -154,15 +152,21 @@ Contoso's DevOps team has received a request from the _Chicago_ store managers t
 
     ![Screenshot showing the trust folder prompt in VSCode](./img/vscode_dev_container_pos_app.png)
 
-- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_, and select the _jumpstart-agora-apps_ repository to include the repository to the allow list.
+- Click on the _Source Control_ icon in the VSCode toolbar, click on _Manage Unsafe Repositories_, and select the _jumpstart-apps_ repository to include the repository to the allow list.
 
     ![Screenshot showing the trust repository prompt in VSCode](./img/vscode_dev_container_trust_repository.png)
+
+- After the repository is loaded, discard any tracked files that appear in VSCode.
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes.png)
+
+    ![Screenshot showing the trust repository prompt in VSCode](./img/repo_discard_changes_confirm.png)
 
 - Switch to the _canary_ branch to enable the "Live View" feature on the _Chicago_ Kubernetes cluster.
 
     ![Screenshot showing switching to the canary branch](./img/vscode_canary_branch.png)
 
-- Navigate to the file _contoso_supermarket/operations/contoso_supermarket/releases/queue-monitoring-frontend/canary/chicago.yaml_. You can see that "Live View" is disabled.
+- Navigate to the file _store_queue_monitoring_frontend/operations/releases/canary/chicago.yaml_. You can see that "Live View" is disabled.
 
     ![Screenshot showing the navbar.html file](./img/vscode_canary_live_view_disabled.png)
 
@@ -200,7 +204,7 @@ Contoso's DevOps team has also received a request from the _Seattle_ store manag
 
     ![Screenshot showing switching to the production branch](./img/vscode_production_branch.png)
 
-- Navigate to the _contoso_supermarket/operations/contoso_supermarket/releases/contosopos/production/seattle.yaml_ file. You can see that the "Holiday Banner" feature is disabled.
+- Navigate to the _point_of_sale/operations/releases/production/seattle.yaml_ file. You can see that the "Holiday Banner" feature is disabled.
 
     ![Screenshot showing the navbar.html file](./img/vscode_production_holiday_banner_disabled.png)
 

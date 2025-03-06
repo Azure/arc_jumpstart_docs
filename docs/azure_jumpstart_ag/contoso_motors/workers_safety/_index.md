@@ -7,10 +7,9 @@ summary: |
     The enabling AI at the edge to enhance workers safety page provides an overview of how Contoso Motors uses AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
-  - AKS
   - OpenVINO™
   - AI
-  - AKS EDGE ESSENTIALS
+  - Rancher K3s
   - RTSP
 ---
 
@@ -30,7 +29,7 @@ This diagram shows the workers safety inference flow, which consists of five mai
 
 2. **RTSP video simulation:** The workers safety flow requires a particular video of two workers walking with helmets to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of two workers walking on site with the appropaite safety gear, providing a reliable video for the AI inference process.
 
-3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate worker safety AI inference class, which applies the required preprocessing and post process to the frame. The worker safety AI inference class is implemented in [yolov8.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py) and is designed to handle the specific requirements of the worker safety detection process.
+3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate worker safety AI inference class, which applies the required preprocessing and post process to the frame. The worker safety AI inference class is implemented in [yolov8.py](https://github.com/Azure/jumpstart-apps/blob/main/agora/contoso_motors/src/webapp-decode/yolov8.py) and is designed to handle the specific requirements of the worker safety detection process.
 
 4. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this worker safety model, the image preprocessing consists of the following transformations:
     - Resize the input image to the specified width and height.

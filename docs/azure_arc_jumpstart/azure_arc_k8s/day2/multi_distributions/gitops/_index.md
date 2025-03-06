@@ -14,12 +14,12 @@ The following Jumpstart scenario will guide you how to use GitOps [GitOps for Az
 
   > **Note:** This guide assumes you already deployed an Amazon Elastic Kubernetes Service (EKS) or Google Kubernetes Engine (GKE) cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using these Jumpstart scenarios.
 
-- [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
-- [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
+- [Deploy EKS cluster and connect it to Azure Arc using Terraform](../../../eks/eks_terraform/)
+- [Deploy GKE cluster and connect it to Azure Arc using Terraform](../../../gke/gke_terraform/)
 
-  > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open source or Calico Cloud.
+  > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open-source or Calico Cloud.
 
-- [Deploy Calico open source in your managed public cluster](https://projectcalico.docs.tigera.io/getting-started/kubernetes/managed-public-cloud/)
+- [Deploy Calico open-source in your managed public cluster](https://docs.tigera.io/calico/latest/getting-started/#installing-on-cloud-infrastructure)
 - [Sign up for a Calico Cloud trial](https://www.calicocloud.io/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft)
 
 Calico Network Policy provides the [Network Set](https://projectcalico.docs.tigera.io/archive/v3.21/reference/resources/networkset) resource to label an arbitrary set of IP subnetworks/CIDRs, allowing it to be matched by Calico policy.
@@ -28,7 +28,7 @@ In this scenario, we will be using GitOps in an Azure Arc connected Kubernetes c
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
@@ -133,5 +133,5 @@ Complete the following steps to clean up your environment.
 
 - You can use follow these Jumpstart scenarios below for deleting the clusters:
 
-  - [Deploy EKS cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform/)
-  - [Deploy GKE cluster and connect it to Azure Arc using Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/)
+  - [Deploy EKS cluster and connect it to Azure Arc using Terraform](../../../eks/eks_terraform/)
+  - [Deploy GKE cluster and connect it to Azure Arc using Terraform](../../../gke/gke_terraform/)

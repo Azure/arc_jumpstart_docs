@@ -18,7 +18,7 @@ By the end of this scenario, you will have an AKS cluster deployed with an Azure
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
@@ -265,7 +265,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 In this scenario, two Azure Arc-enabled Kubernetes cluster extensions were installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions](../../../azure_arc_k8s/day2/gke/gke_monitor_extension/) scenario.
 
 - _arc-data-services_ - The Azure Arc-enabled data services cluster extension that was used throughout this scenario in order to deploy the data services infrastructure.
 
