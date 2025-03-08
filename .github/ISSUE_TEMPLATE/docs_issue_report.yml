@@ -1,4 +1,4 @@
-name: Docs Report
+name: Docs Issue Report
 description: File a bug report or an issue in our documentation.
 title: "[Bug / Issue]: "
 labels: ["docs", "triage needed"]
