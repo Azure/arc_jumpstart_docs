@@ -1,7 +1,7 @@
 name: Documentation Feature Request
 description: Suggest an improvement for Arc Jumpstart documentation
 title: "[Docs Feature]: "
-labels: ["docs", "triage needed"]
+labels: ["Feature-Request", "Documentation", "Needs-Triage"]
 projects: ["Azure/638"]
 body:
   - type: markdown
@@ -11,7 +11,7 @@ body:
 
         If your feature request is related to code and/or functionality of a Jumpstart solution, we kindly ask you to submit it in our [source code repository](https://github.com/microsoft/azure_arc).
 
-        The intent of this "Feature Request" template is to address feature requests related to the various Arc Jumpstart solutions. The Arc Jumpstart team does not handle and/or support Azure Arc upstream core product related features and will try to assist on a best effort basis. For a core product feature request/feedback, please submit through [general feedback](https://feedback.azure.com).
+        The intent of this "Feature Request" template is to address feature requests related to the Arc Jumpstart documents. The Arc Jumpstart team does not handle and/or support Azure Arc upstream core product related features and will try to assist on a best effort basis. For a core product feature request/feedback, please submit through [general feedback](https://feedback.azure.com).
   - type: checkboxes
     id: doc-category
     attributes:
@@ -66,8 +66,8 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/Azure/arc_jumpstart_docs/blob/main/CODE_OF_CONDUCT.md)
+      label: Code of Conduct and Licensing
+      description: By submitting this feature request, you agree to follow our [Code of Conduct](https://github.com/Azure/arc_jumpstart_docs/blob/main/CODE_OF_CONDUCT.md) and the project's [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE).
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's Code of Conduct and Licensing terms.
           required: true
