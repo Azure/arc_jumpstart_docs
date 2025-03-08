@@ -117,7 +117,6 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployAPIMgmt`_ - Boolean that sets whether or not to deploy a self-hosted Azure API Management gateway.  For this scenario, we leave it set to *`false`*.
   - _`deployLogicApp`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to *`false`*.
   - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
-  - _`adminEmail`_ - an email address that will be used on the Azure API Management deployment to receive all system notifications.
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
