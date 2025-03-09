@@ -14,16 +14,14 @@ The Azure Monitor agent (AMA) collects monitoring data from the guest operating 
 
 > **Note:** This scenario assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](../../gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](../../aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](../../azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](../../vmware/vmware_terraform_winsrv/)**
 
 Please review the [Azure Monitor Agent (AMA) supported OS documentation](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and ensure that the VMs you will use for this exercise are supported. For Linux VMs, check both the Linux distribution and kernel to ensure you are using a supported configuration.
 
@@ -82,7 +80,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 As mentioned, this deployment will leverage ARM templates.
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git

@@ -12,13 +12,13 @@ The following Jumpstart scenario will guide you on how to create [Helm](https://
 
 In this scenario, you will deploy & attach two GitOps configurations to your cluster, a cluster-level config to deploy [nginx-ingress controller](https://kubernetes.github.io/ingress-nginx/) and a namespace-level config to deploy the "Hello Arc" web application on your Kubernetes cluster. By doing so, you will be able to make real-time changes to the application and show how the GitOps flow takes effect.
 
-GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declaratively manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This HelmRelease points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
+GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open-source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declaratively manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This HelmRelease points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
 
-> **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform/).
+> **Note:** This guide assumes you already deployed a GKE cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using [Terraform](../../../gke/gke_terraform/).
 
 ## Prerequisites
 
-- Fork the ["Azure Arc Jumpstart Apps"](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/Azure/jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -109,15 +109,15 @@ To create the GitOps Configuration, we will use the _k8s-configuration flux crea
 
 ### Deployment Flow
 
-For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart Apps" repository; one for nginx and one for the Hello-Arc application as well as an Helm Release for each.
+For our scenario, notice we have two Helm charts in the Arc Jumpstart Apps GitHub repository; one for nginx and one for the Hello-Arc application as well as an Helm Release for each.
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./04.png)
+![Arc Jumpstart Apps GitHub repository](./04.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./05.png)
+![Arc Jumpstart Apps GitHub repository](./05.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./06.png)
+![Arc Jumpstart Apps GitHub repository](./06.png)
 
-!["Azure Arc Jumpstart Apps" GitHub repository](./07.png)
+![Arc Jumpstart Apps GitHub repository](./07.png)
 
 - The nginx-ingress controller (a Cluster-level component) will be deployed with 2 replicas to the *ingress-nginx* namespace.
 
@@ -153,7 +153,7 @@ For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart App
   - Install Azure CLI & Azure Arc extensions
   - Login to your Azure subscription using the SPN credentials
   - Create the GitOps configuration to deploy the Flux controllers and NGINX ingress controller on the Azure Arc-connected cluster
-  - Create the GitOps configuration to deploy the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
+  - Create the GitOps configuration to deploy the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) application alongside an Ingress rule to make it available from outside the cluster
 
     > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval rapidly track changes on the repository but it is recommended to have a longer interval in your production environment (the default value is 5min).
 
@@ -209,7 +209,7 @@ For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart App
 
 - The GitOps flow works as follow:
 
-    1. The Flux operator holds the "desired state" for both the NGINX Ingress Controller and the "Hello Arc" Helm releases, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/hello-arc) application repository.
+    1. The Flux operator holds the "desired state" for both the NGINX Ingress Controller and the "Hello Arc" Helm releases, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) application repository.
 
     2. Changing the application, which is considered to be a new version of it, will trigger the Flux operator to kick in the GitOps flow.
 
@@ -226,7 +226,7 @@ For our scenario, notice we have two Helm charts in the "Azure Arc Jumpstart App
   
     ![kubectl get pods -n hello-arc -w](./23.png)
 
-  - In **your fork** of the "Azure Arc Jumpstart App" repository, open the *hello-arc.yaml* file (/hello-arc/releases/app/hello-arc.yaml).
+  - In **your fork** of the Arc Jumpstart Apps GitHub repository, open the *hello-arc.yaml* file (/hello-arc/releases/app/hello-arc.yaml).
 
   - The external IP address of the Kubernetes Service is seen using the _`kubectl get svc -n ingress-nginx`_ command.
 

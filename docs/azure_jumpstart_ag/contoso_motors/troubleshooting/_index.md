@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 9
+weight: 8
 title: Troubleshooting
 linkTitle: Troubleshooting
 ---
@@ -39,7 +39,7 @@ Occasionally, you may need to review log output from scripts that run on the _Ag
 | _C:\Ag\Logs\Bootstrap.log_ | Output from the initial bootstrapping script that runs on _Ag-VM-Client_. |
 | _C:\Ag\Logs\ClusterSecrets.log_ | Output of secret creation on Kubernetes clusters. |
 | _C:\Ag\Logs\GitOps-Ag-*.log_ | Output of scripts that collect GitOps logs on the remote Kubernetes clusters. |
-| _C:\Ag\Logs\L1AKSInfra.log_ | Output of scripts that configure AKS Edge Essentials clusters on the nested virtual machines. |
+| _C:\Ag\Logs\installK3s-Ag-K3s*.log_ | Output of scripts that configure the Rancher K3s clusters. |
 | _C:\Ag\Logs\Observability.log_ | Output from the script that configures observability components of the solution. |
 | _C:\Ag\Logs\Tools.log_ | Output from the tasks that set up developer tools on _Ag-VM-Client_. |
 

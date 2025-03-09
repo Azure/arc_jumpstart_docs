@@ -77,7 +77,7 @@ For you to get familiar with the automation and deployment flow, below is an exp
 
 As mentioned, this deployment will leverage Azure Bicep templates. You will deploy a single template, responsible for creating all the Azure resources in a single resource group as well onboarding the created VM to Azure Arc.
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
@@ -216,7 +216,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 In this scenario, Azure Arc-enabled Kubernetes cluster Azure Monitor extension was installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions"](/azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster using Kubernetes extensions"](../../azure_arc_k8s/day2/gke/gke_monitor_extension/)) scenario.
 
 To view these cluster extensions, click on the Azure Arc-enabled Kubernetes resource Extensions settings.
 

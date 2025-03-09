@@ -12,7 +12,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
 ## Prerequisites
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
     ```shell
     git clone https://github.com/microsoft/azure_arc.git
@@ -98,7 +98,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
   
     Download the [MicroK8s installer for Windows](https://microk8s.io/docs/install-windows) and follow the instructions.
 
-    ![MicroK8s installer for Windows](https://global.discourse-cdn.com/business6/uploads/kubernetes/original/2X/7/748b76ed4495ee1958fd88d701b0b3c391aa8f85.png)
+    ![MicroK8s installer for Windows](https://us1.discourse-cdn.com/flex016/uploads/kubernetes/original/2X/7/748b76ed4495ee1958fd88d701b0b3c391aa8f85.png)
 
     Once installed, enable MicroK8s with:
 
@@ -199,7 +199,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
 
 Now that your Kubernetes cluster is connected to Azure Arc, you might want to explore the following Day 2 scenarios:
 
-- [Deploy GitOps configurations and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](/azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm/)
+- [Deploy GitOps configurations and perform Helm-based GitOps flow on MicroK8s as an Azure Arc Connected Cluster](../../day2/microk8s/local_microk8s_gitops_helm/)
 
 ## Delete the deployment
 

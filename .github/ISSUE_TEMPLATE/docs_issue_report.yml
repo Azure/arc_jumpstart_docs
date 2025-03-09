@@ -1,0 +1,63 @@
+name: Docs Issue Report
+description: File a bug report or an issue in our documentation.
+title: "[Bug / Issue]: "
+labels: ["docs", "triage needed"]
+projects: ["Azure/638"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this issue!
+
+        If your bug report is related to something that is not working, we kindly ask you to open an issue in our [source code repository](https://github.com/microsoft/azure_arc).
+
+        The intent of this "Bug report" template is to address feature requests related to the various Arc Jumpstart solutions. The Arc Jumpstart team does not handle and/or support Azure Arc upstream core product related issues, bugs and feature requests and will try to assist on a best effort basis. For a core product issue or feature request/feedback, please create an official [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) or [general feedback request](https://feedback.azure.com).
+  - type: checkboxes
+    id: solution
+    attributes:
+      label: Jumpstart Solution
+      description: What Jumpstart solution you are running?
+      options:
+        - label: Jumpstart ArcBox
+        - label: Jumpstart HCIBox
+        - label: Jumpstart Agora
+        - label: A specific Jumpstart scenario
+        - label: Jumpstart Drops
+        - label: Other
+  - type: checkboxes
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What type of issue are you experiencing?
+      options:
+        - label: Technical inaccuracy
+        - label: Missing information
+        - label: Unclear instructions
+        - label: Broken link
+        - label: Code sample error
+        - label: Outdated content
+        - label: Other
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell us what is wrong with the document?
+      placeholder: Tell us what you see! If applicable, add screenshots to help explain your problem.
+    validations:
+      required: true
+  - type: input
+    id: solution-url
+    attributes:
+      label: We need a URL
+      description: Share with us the URL to the Jumpstart solution you are having issues with.
+      placeholder: ex. https://jumpstart.azure.com/azure_jumpstart_arcbox/ITPro
+    validations:
+      required: true   
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/Azure/arc_jumpstart_docs/blob/main/CODE_OF_CONDUCT.md). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true 

@@ -3,10 +3,10 @@ type: docs
 weight: 3
 linkTitle: "Contoso Motors"
 description: >-
-  Learn how Contoso Motors, a leading global automobile manufacturer, implements an AI-enhanced cloud-to-edge strategy with Azure Arc, IoT services, AKS hybrid, artificial intelligence, software distribution and data pipelines.
+  Learn how Contoso Motors, a leading global automobile manufacturer, implements an AI-enhanced cloud-to-edge strategy with Azure Arc, IoT services, Rancher K3s, artificial intelligence, software distribution and data pipelines.
 ---
 
-## Overview
+# Overview
 
 Contoso Motors continues to lead the automotive industry with its unwavering commitment to innovation and employee safety. Positioned at the forefront of the industrial revolution, Contoso Motors seamlessly integrates cutting-edge technologies into every aspect of their operations, embodying the essence of Industrial IoT (Industry 4.0).
 
@@ -16,7 +16,7 @@ Furthermore, Contoso Motors leverages the power of Artificial Intelligence (AI) 
 
 Additionally, Kubernetes plays a vital role in Contoso Motors' infrastructure, streamlining the deployment and management of containerized applications. With Kubernetes, Contoso Motors ensures smooth manufacturing operations while maintaining scalability to adapt to changing demands, solidifying their position as an industry leader.
 
-Looking ahead, Contoso Motors embraces Microsoft's Adaptive cloud approach, with Azure Arc serving as the foundation. This strategic move unifies teams, sites, and systems into a cohesive operational framework, enabling the harnessing of cloud-native and AI technologies across hybrid, multicloud, edge, and IoT environments. With Azure Arc, Contoso Motors embarks on a journey towards operational agility, security, and innovation, setting new standards in the automotive industry.
+Looking ahead, Contoso Motors embraces Microsoft's adaptive cloud approach, with Azure Arc serving as the foundation. This strategic move unifies teams, sites, and systems into a cohesive operational framework, enabling the harnessing of cloud-native and AI technologies across hybrid, multicloud, edge, and IoT environments. With Azure Arc, Contoso Motors embarks on a journey towards operational agility, security, and innovation, setting new standards in the automotive industry.
 
 ## Architecture and technology stack
 
@@ -42,12 +42,11 @@ To get started with the "Contoso Motors" Jumpstart Agora scenario, we provided y
 | **Guide**  | **Contoso Motors service or platform** | **Technology stack** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Deployment guide](../contoso_motors/deployment/) | Not applicable | Not applicable |
-| [Data pipeline and reporting across cloud and edge](../contoso_motors/data_opc/) | Operational technology (OT) | Azure IoT Operations, Azure Data Explorer, MQTT, Event Grid, Event Hub, AKS Edge Essentials, InfluxDB, MQTT simulators |
-| [Web UI and AI Inference flow](../contoso_motors/ai_inferencing/) | Operational technology (OT) | OpenVINO™ Open Model Zoo,Yolo8, OpenVINO™ Model Server (OVMS), AKS Edge Essentials, RTSP, Flask, OpenCV  |
-| [Welding defect scenario using OpenVINO™ and Kubernetes](../contoso_motors/welding_defect/)  | Welding monitoring  | RTSP simulator, OpenVINO™ Model Server (OVMS), AKS Edge Essentials, Flask, OpenCV  |
-| [Enabling AI at the edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | RTSP simulator, OpenVINO™ Model Server (OVMS), AKS Edge Essentials, Flask, OpenCV |
-| [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_motors/k8s_infra_observability/) | Infrastructure | Arc-enabled Kubernetes, AKS Edge Essentials, Prometheus, Grafana  |
-| [Infrastructure observability for Arc-enabled servers using Azure Monitor](../contoso_motors/arc_monitoring_servers/) |Infrastructure   | Arc-enabled servers, Azure Monitor |
+| [Data pipeline and reporting across cloud and edge](../contoso_motors/data_opc/) | Operational technology (OT) | Azure IoT Operations, Azure Data Explorer, MQTT, Event Grid, Event Hub, Rancher K3s, InfluxDB, MQTT simulators |
+| [Web UI and AI Inference flow](../contoso_motors/ai_inferencing/) | Operational technology (OT) | OpenVINO™ Open Model Zoo,Yolo8, OpenVINO™ Model Server (OVMS), Rancher K3s, RTSP, Flask, OpenCV  |
+| [Welding defect scenario using OpenVINO™ and Kubernetes](../contoso_motors/welding_defect/)  | Welding monitoring  | RTSP simulator, OpenVINO™ Model Server (OVMS), Rancher K3s, Flask, OpenCV  |
+| [Enabling AI at the edge to enhance workers safety](../contoso_motors/workers_safety/) | Workers safety  | RTSP simulator, OpenVINO™ Model Server (OVMS), Rancher K3s, Flask, OpenCV |
+| [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../contoso_motors/k8s_infra_observability/) | Infrastructure | Arc-enabled Kubernetes, Rancher K3s, Prometheus, Grafana  |
 | [Cleanup deployment](../contoso_motors/cleanup/) | Not applicable | Not applicable |
 | [Troubleshooting](../contoso_motors/troubleshooting/) | Not applicable  | Not applicable |
 | [Frequently asked questions (FAQ)](../../faq/) | Not applicable  | Not applicable  |

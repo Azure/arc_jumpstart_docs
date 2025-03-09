@@ -10,11 +10,11 @@ weight: 5
 
 Jumpstart Agora is a marketplace of various “cloud-to-edge” industry scenarios, designed to provide an end-to-end user experience. The word "agora" comes from the ancient Greek term for a public gathering place or assembly, and it has come to be used more broadly to refer to any place or forum where people come together for discussion or exchange. Our mission is to create a rich marketplace of applications that can leverage Hybrid Cloud, Internet of Things (IoT), and artificial intelligence (AI) technologies and make those accessible for enablement and educational purposes via the Jumpstart automation mechanisms.
 
-> **Note:** For general questions about Azure Arc Jumpstart please see the [Jumpstart FAQ](../../faq/).
+> **Note:** For general questions about Arc Jumpstart please see the [Jumpstart FAQ](../../faq/).
 
 ## What industry scenarios are available in Jumpstart Agora?
 
-Agora offers three industry scenarios, [Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors), [Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket) and [Contoso Hypermarket](/azure_jumpstart_ag/manufacturing/contoso_hypermarket). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
+Agora offers three industry scenarios, [Contoso Motors](../contoso_motors/), [Contoso Supermarket](../contoso_supermarket/) and [Contoso Hypermarket](../contoso_hypermarket/). Each industry scenario includes everything needed to deploy, configure, and use a real-world including CI/CD, observability, security, and more.
 
 ## What is required to deploy Agora?
 
@@ -24,7 +24,7 @@ Agora deployment requires an Azure service principal with **Contributor** or **O
 
 Agora can be deployed to the following regions:
 
-| Agora scenario | Region support |
+| Agora scenario | Azure supported region |
 | ------- | ----------- |
 | Contoso Hypermarket | eastus, eastus2, westus2, westus3, westeurope |
 | Contoso Motors | eastus, eastus2, westus2, westus3, northeurope |
@@ -34,10 +34,9 @@ Agora can be deployed to the following regions:
 
 Agora incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. Each industry scenario in Agora may use a different combination of Azure resources and therefore costs vary depending on the industry scenario used. You can view example estimates of Agora costs in the link below.
 
-- Contoso Hypermarket cost estimate has multiple deployment options:
-  - [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
-    - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
-    - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
+- [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
+  - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
+  - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
 - [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
 - [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
 
@@ -45,9 +44,9 @@ Agora incurs normal Azure consumption charges for various Azure resources such a
 
 Agora has a dedicated pages for troubleshooting that you can review for common issues.
 
-- [Troubleshoot Contoso Hypermarket](/azure_jumpstart_ag/retail/contoso_hypermarket/troubleshooting)
-- [Troubleshoot Contoso Motors](/azure_jumpstart_ag/manufacturing/contoso_motors/troubleshooting)
-- [Troubleshoot Contoso Supermarket](/azure_jumpstart_ag/retail/contoso_supermarket/troubleshooting)
+- [Troubleshoot Contoso Hypermarket](./../contoso_hypermarket/troubleshooting)
+- [Troubleshoot Contoso Motors](./../contoso_motors/troubleshooting)
+- [Troubleshoot Contoso Supermarket](./../contoso_supermarket/troubleshooting)
 
 ## What AI models are used in Jumpstart Agora?
 
@@ -57,7 +56,7 @@ Jumpstart Agora uses a combination of the following AI models:
 - **Microsoft _Phi-3-Mini-4K-Instruct_ model**, a specialized language model for advanced natural language processing.
 - **Intel OpenVINO models**, which are designed for optimized deployment of AI models on Intel hardware.
 
-## What is the license for the Microsoft Phi-3-Mini-4K-Instruct model?**
+## What is the license for the Microsoft Phi-3-Mini-4K-Instruct model?
 
 The **_Phi-3-Mini-4K-Instruct_** model by Microsoft is licensed under the [MIT License](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/blob/main/LICENSE). You can review the full details of the license in the `LICENSE` file located in the Jumpstart Agora repository.
 

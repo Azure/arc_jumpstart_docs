@@ -32,13 +32,13 @@ ArcBox for DevOps deploys two Kubernetes clusters to give you multiple options f
 
 ### Sample applications
 
-ArcBox for DevOps deploys two sample applications on the _ArcBox-K3s-Data_ cluster. The cluster has multiple [GitOps configurations](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2) that deploy and configure the sample apps. You can use your own fork of the [sample applications GitHub repo](https://github.com/microsoft/azure-arc-jumpstart-apps) to experiment with GitOps configuration flows.
+ArcBox for DevOps deploys two sample applications on the _ArcBox-K3s-Data_ cluster. The cluster has multiple [GitOps configurations](https://learn.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-flux2) that deploy and configure the sample apps. You can use your own fork of the [sample applications GitHub repo](https://github.com/Azure/jumpstart-apps) to experiment with GitOps configuration flows.
 
 The sample applications included in ArcBox are:
 
-- [Hello-Arc](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/hello-arc) - A simple Node.js web application. ArcBox will deploy **three Kubernetes pod replicas** of the _Hello-Arc_ application in the _hello-arc_ namespace onto the _ArcBox-K3s-Data_ cluster.
+- [Hello-Arc](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) - A simple Node.js web application. ArcBox will deploy **three Kubernetes pod replicas** of the _Hello-Arc_ application in the _hello-arc_ namespace onto the _ArcBox-K3s-Data_ cluster.
 
-- [Bookstore](https://github.com/microsoft/azure-arc-jumpstart-apps/tree/main/bookstore/yaml) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
+- [Bookstore](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/bookstore/yaml) - A sample microservices Golang (Go) application. ArcBox will deploy the following **five different Kubernetes pods** as part of the Bookstore app.
 
   - `bookbuyer` is an HTTP client making requests to bookstore.
   - `bookstore` is a server, which responds to HTTP requests. It's also a client making requests to the _bookwarehouse_ service.
@@ -160,7 +160,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.AzureArcData --wait
   ```
 
-- Fork the [sample applications GitHub repo](https://github.com/microsoft/azure-arc-jumpstart-apps) to your own GitHub account. You will use this forked repo to make changes to the sample apps that will be applied using GitOps configurations. The name of your GitHub account is passed as a parameter to the template files so take note of your GitHub user name.
+- Fork the [sample applications GitHub repo](https://github.com/Azure/jumpstart-apps) to your own GitHub account. You will use this forked repo to make changes to the sample apps that will be applied using GitOps configurations. The name of your GitHub account is passed as a parameter to the template files so take note of your GitHub user name.
 
   ![Screenshot showing forking sample apps repo](./apps_fork01.png)
 
@@ -216,7 +216,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
 
 ## Deployment Option 2: Bicep deployment
 
-- Clone the Azure Arc Jumpstart repository
+- Clone the Arc Jumpstart GitHub repository
 
   ```shell
   git clone https://github.com/microsoft/azure_arc.git
@@ -232,13 +232,13 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   - _`sshRSAPublicKey`_ - Your SSH public key
   - _`tenantId`_ - Your Azure tenant id
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace
   - _`flavor`_ - Use the value _"DevOps"_ to specify that you want to deploy this specific flavor of ArcBox
   - _`resourceTags`_ - Tags to assign for all ArcBox resources
   - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
   - _`deployBastion`_ - Set to _`true`_ if you want to use Azure Bastion to connect to _ArcBox-Client_
   - _`githubUser`_ - Specify the name of your GitHub account where you cloned the Sample Apps repo
+  - _`windowsAdminPassword`_ - (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
 
   ![Screenshot showing example parameters](./parameters_devops_bicep.png)
 
@@ -309,6 +309,8 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
 
   ![Screenshot showing connecting to the VM using RDP](./rdp_connect.png)
 
+  > **Note:** If the _`windowsAdminPassword`_ parameter is specified during deployment, use the provided password to log in. If not specified, the password is automatically generated and stored in the Key Vault. Copy the "windowsAdminPassword" secret value from the Key Vault to log in.
+
 #### Connect using Azure Bastion
 
 - If you have chosen to deploy Azure Bastion in your deployment, use it to connect to the VM.
@@ -316,6 +318,10 @@ By design, ArcBox doesn't open port 3389 on the network security group. Therefor
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
   > **Note:** When using Azure Bastion, the desktop background image isn't visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _ArcBox-Client_ with Azure Bastion.
+
+- Select "Password from Azure Key Vault" as the authentication type and use "windowsAdminPassword" as the Azure Key Vault secret name.
+
+  ![Screenshot showing connecting to the VM using Bastion and Key Vault](./bastion_connect_password.png)
 
 #### Connect using just-in-time access (JIT)
 
@@ -377,7 +383,7 @@ ArcBox deploys multiple GitOps configurations on the _ArcBox-K3s-Data_ cluster. 
 
     ![Screenshot showing Hello-Arc app and shell](./gitops04.png)
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_), change the text under the “MESSAGE” section and commit the change.
+- In your fork of the Arc Jumpstart Apps GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_), change the text under the “MESSAGE” section and commit the change.
 
     ![Screenshot showing hello-arc repo](./gitops05.png)
 
@@ -391,7 +397,7 @@ ArcBox deploys Kubernetes RBAC configuration on the bookstore application for li
 
 - Show Kubernetes RBAC Role and Role binding applied using GitOps Configuration.
 
-  - Review the [RBAC configuration](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/k8s-rbac-sample/namespace/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.
+  - Review the [RBAC configuration](https://github.com/Azure/jumpstart-apps/blob/main/arcbox/bookstore/rbac-sample/namespacerole.yaml) applied to the _ArcBox-K3s-Data_ cluster.
 
   - Show the bookstore namespace Role and Role Binding.
 
@@ -438,7 +444,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Diagram of Istio bookstore app traffic split](./smi_traffic_split.png)
 
-- Review the [Istio Traffic Split manifest](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
+- Review the [Istio Traffic Split manifest](https://github.com/Azure/jumpstart-apps/blob/main/arcbox/bookstore/yaml/istio-virtualservice.yaml) applied to the _ArcBox-K3s-Data_ cluster
 
 - To show the Istio traffic split, open the below windows.
 
@@ -450,7 +456,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   - The count for the books sold from the bookstore-v2 browser window should remain at 0. This is because the current traffic split policy is configured as weighted 100 for bookstore as well because the bookbuyer client is sending traffic to the bookstore service and no application is sending requests to the bookstore-v2 service.
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
+- In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the weight to "75" and bookstore-v2 weight to "25" and commit the change.
 
   ![Screenshot showing Bookstore repo Traffic split 01](./bookstore03.png)
 
@@ -468,7 +474,7 @@ ArcBox uses a GitOps configuration on the bookstore application to split traffic
 
   ![Screenshot showing Bookstore Traffic split YAML](./bookstore05.png)
 
-- In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
+- In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`istio-virtualservice.yaml`_ file (_`/bookstore/yaml/istio-virtualservice.yaml`_), update the bookstore weight to "0" and bookstore weight to "100" and commit the change.
 
   ![Screenshot showing Bookstore repo Traffic split 02](./bookstore06.png)
 
@@ -544,7 +550,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
       ![Screenshot showing Hello-Arc app and shell](./k3s_gitops10.png)
 
-    - In your fork of the “Azure Arc Jumpstart Apps” GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_). Change the replica to 2 and text under the “MESSAGE” section and commit the change.
+    - In your fork of the  Arc Jumpstart Apps GitHub repository, open the _`hello_arc.yaml`_ file (_`/hello-arc/yaml/hello_arc.yaml`_). Change the replica to 2 and text under the “MESSAGE” section and commit the change.
 
       ![Screenshot showing hello-arc repo](./k3s_gitops11.png)
 
@@ -625,7 +631,7 @@ Optionally, you can explore additional GitOps and RBAC scenarios in a manual fas
 
 ### ArcBox Azure Monitor workbook
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/DevOps) and explore the visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/DevOps/) and explore the visualizations and reports of hybrid cloud resources.
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 
