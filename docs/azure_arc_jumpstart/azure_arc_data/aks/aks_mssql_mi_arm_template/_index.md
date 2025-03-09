@@ -315,40 +315,8 @@ Included in this scenario, is a dedicated SQL stress simulation tool named _SqlQ
 
   ![Screenshot showing SqlQueryStress running](./39.png)
 
-### Azure Arc-enabled SQL Managed Instance monitoring using Grafana
-
-When deploying Azure Arc-enabled data services, a [Grafana](https://grafana.com/) instance is also automatically deployed on the same Kubernetes cluster and include built-in dashboards for both Kubernetes infrastructure as well SQL Managed Instance monitoring (PostgreSQL dashboards are included as well but we will not be covering these in this section).
-
-- Now that you have the _SqlQueryStress_ stored procedure running and generating load, we can look how this is shown in the the built-in Grafana dashboard. As part of the automation, a new URL desktop shortcut simply named "Grafana" was created.
-
-  ![Screenshot showing Grafana desktop shortcut](./40.png)
-
-- [Optional] The IP address for this instance represents the Kubernetes _LoadBalancer_ external IP that was provision as part of Azure Arc-enabled data services. Use the _`kubectl get svc -n arc`_ command to view the _metricsui_ external service IP address.
-
-  ![Screenshot showing metricsui Kubernetes service](./41.png)
-
-- To log in, use the same username and password that is in the _SQLMI Endpoints_ text file desktop shortcut.
-
-  ![Screenshot showing Grafana username and password](./42.png)
-
-- Navigate to the built-in "SQL Managed Instance Metrics" dashboard.
-
-  ![Screenshot showing Grafana dashboards](./43.png)
-
-  ![Screenshot showing Grafana "SQL Managed Instance Metrics" dashboard](./44.png)
-
-- Change the dashboard time range to "Last 5 minutes" and re-run the stress test using _`SqlQueryStress`_ (in case it was already finished).
-
-  ![Screenshot showing "Last 5 minutes" time range](./45.png)
-
-- You can now see how the SQL graphs are starting to show increased activity and load on the database instance.
-
-  ![Screenshot showing increased load activity](./46.png)
-
-  ![Screenshot showing increased load activity](./47.png)
-
 ## Cleanup
 
 - If you want to delete the entire environment, simply delete the deployment resource group from the Azure portal.
 
-    ![Screenshot showing Azure resource group deletion](./48.png)
+    ![Screenshot showing Azure resource group deletion](./40.png)
