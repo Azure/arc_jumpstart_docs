@@ -151,6 +151,12 @@ def check_absolute_url(url, md_file=None, retries=3):
         print(log_entry)
         return log_entry
 
+    # Skip URLs containing 'archive' in their path
+    if 'archive' in url:
+        log_entry = f"{Colors.INFO}[SKIPPED] {url} (contains 'archive' in path){Colors.ENDC}"
+        print(log_entry)
+        return log_entry
+
     print(f"Checking absolute URL: {url}")
     attempt = 0
     while attempt < retries:
@@ -188,6 +194,12 @@ def check_relative_url(url, md_file):
     Returns:
         Tuple containing: (log_entry, is_image, is_svg, is_root_relative, has_anchor)
     """
+    # Skip URLs containing 'archive' in their path
+    if 'archive' in url:
+        log_entry = f"{Colors.INFO}[SKIPPED] {url} (contains 'archive' in path){Colors.ENDC}"
+        print(log_entry)
+        return log_entry, False, False, False, False
+
     # Flag to track if URL has an anchor
     has_anchor = '#' in url
     anchor_text = None
