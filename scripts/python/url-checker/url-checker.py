@@ -52,13 +52,14 @@ ANSI_ESCAPE_REGEX = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')  # For stripping colo
 HEADER_LINK_REGEX = re.compile(r'#[-\w]+$')  # Matches markdown header links like #header-name
 
 # URLs to skip checking - add frequently timing out domains here
-KNOWN_VALID_URLS = [
-    "https://whatismyip.com",
-    "https://www.linkedin.com",
-    "https://learn.microsoft.com",
-    "https://icanhazip.com",
-    "https://shell.azure.com",
-    # Add more URLs to skip here as needed
+KNOWN_VALID_DOMAINS = [
+    "learn.microsoft.com",
+    "whatismyip.com",
+    "www.linkedin.com",
+    "linkedin.com",
+    "icanhazip.com",
+    "shell.azure.com",
+    # Add more domains to skip here as needed
 ]
 
 # Image file extensions to identify image links
@@ -145,18 +146,19 @@ def check_absolute_url(url, md_file=None, retries=3):
     Returns:
         Log entry string with result
     """
-    # Skip checking for known valid URLs
-    if url in KNOWN_VALID_URLS:
-        log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (known valid URL){Colors.ENDC}"
+    # Extract domain from URL for domain-based matching
+    parsed_url = urlparse(url)
+    domain = parsed_url.netloc
+    
+    # Skip checking for known valid domains
+    if domain in KNOWN_VALID_DOMAINS:
+        log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (known valid domain: {domain}){Colors.ENDC}"
         print(log_entry)
         return log_entry
 
-    # Skip URLs containing 'archive' in their path
-    if 'archive' in url:
-        log_entry = f"{Colors.INFO}[SKIPPED] {url} (contains 'archive' in path){Colors.ENDC}"
-        print(log_entry)
-        return log_entry
-
+    # List of status codes that might be temporary issues
+    temporary_error_codes = [502, 503, 504]
+    
     print(f"Checking absolute URL: {url}")
     attempt = 0
     while attempt < retries:
@@ -168,6 +170,15 @@ def check_absolute_url(url, md_file=None, retries=3):
                 log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url}{Colors.ENDC}"
                 print(log_entry)
                 return log_entry
+            elif response.status_code in temporary_error_codes:
+                # Handle temporary error codes separately with more retries
+                print(f"Status Code {response.status_code} for {url}. Retrying... ({attempt + 1}/{retries})")
+                attempt += 1
+                if attempt >= retries:
+                    file_info = f" (in file: {md_file})" if md_file else ""
+                    log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (temporarily unavailable: {response.status_code}){file_info}{Colors.ENDC}"
+                    print(log_entry)
+                    return log_entry
             else:
                 file_info = f" (in file: {md_file})" if md_file else ""
                 log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}{file_info}{Colors.ENDC}"
@@ -194,12 +205,6 @@ def check_relative_url(url, md_file):
     Returns:
         Tuple containing: (log_entry, is_image, is_svg, is_root_relative, has_anchor)
     """
-    # Skip URLs containing 'archive' in their path
-    if 'archive' in url:
-        log_entry = f"{Colors.INFO}[SKIPPED] {url} (contains 'archive' in path){Colors.ENDC}"
-        print(log_entry)
-        return log_entry, False, False, False, False
-
     # Flag to track if URL has an anchor
     has_anchor = '#' in url
     anchor_text = None
