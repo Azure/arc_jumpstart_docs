@@ -39,7 +39,7 @@ body:
       description: If this relates to an existing page, please provide the URL
       placeholder: ex. https://jumpstart.azure.com/azure_jumpstart_arcbox/
     validations:
-      required: false
+      required: true
   - type: textarea
     id: additional-context
     attributes:
