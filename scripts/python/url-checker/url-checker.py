@@ -52,13 +52,14 @@ ANSI_ESCAPE_REGEX = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')  # For stripping colo
 HEADER_LINK_REGEX = re.compile(r'#[-\w]+$')  # Matches markdown header links like #header-name
 
 # URLs to skip checking - add frequently timing out domains here
-KNOWN_VALID_URLS = [
-    "https://whatismyip.com",
-    "https://www.linkedin.com",
-    "https://learn.microsoft.com",
-    "https://icanhazip.com",
-    "https://shell.azure.com",
-    # Add more URLs to skip here as needed
+KNOWN_VALID_DOMAINS = [
+    "learn.microsoft.com",
+    "whatismyip.com",
+    "www.linkedin.com",
+    "linkedin.com",
+    "icanhazip.com",
+    "shell.azure.com",
+    # Add more domains to skip here as needed
 ]
 
 # Image file extensions to identify image links
@@ -133,6 +134,9 @@ def is_ip_based_url(url):
     except ValueError:
         return False
 
+# Define a list of temporary error status codes
+TEMPORARY_ERROR_CODES = [502, 503, 504, 429]  # Added 429 (Too Many Requests)
+
 def check_absolute_url(url, md_file=None, retries=3):
     """
     Check if an absolute URL (http/https) is reachable.
@@ -145,13 +149,14 @@ def check_absolute_url(url, md_file=None, retries=3):
     Returns:
         Log entry string with result
     """
-    # Skip checking for known valid URLs
-    if url in KNOWN_VALID_URLS:
-        log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (known valid URL){Colors.ENDC}"
-        print(log_entry)
-        return log_entry
-
+    # Extract domain from URL for domain-based verification
+    parsed_url = urlparse(url)
+    domain = parsed_url.netloc
+    is_trusted_domain = domain in KNOWN_VALID_DOMAINS
+    
     print(f"Checking absolute URL: {url}")
+    print(f"Domain: {domain}, Trusted: {is_trusted_domain}")
+    
     attempt = 0
     while attempt < retries:
         try:
@@ -162,13 +167,46 @@ def check_absolute_url(url, md_file=None, retries=3):
                 log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url}{Colors.ENDC}"
                 print(log_entry)
                 return log_entry
+            elif response.status_code in TEMPORARY_ERROR_CODES:
+                # For temporary errors, handle differently based on trusted status
+                print(f"Status Code {response.status_code} for {url}. Retrying... ({attempt + 1}/{retries})")
+                attempt += 1
+                
+                if attempt >= retries:
+                    file_info = f" (in file: {md_file})" if md_file else ""
+                    
+                    if is_trusted_domain:
+                        # For trusted domains, mark as OK even with temporary errors
+                        log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (trusted domain with temporary status code: {response.status_code}){file_info}{Colors.ENDC}"
+                        print(log_entry)
+                        return log_entry
+                    else:
+                        # For non-trusted domains, still mark as broken but note it might be temporary
+                        log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Temporary error: {response.status_code}{file_info}{Colors.ENDC}"
+                        print(log_entry)
+                        return log_entry
             else:
                 file_info = f" (in file: {md_file})" if md_file else ""
+                # For non-temporary errors, mark as broken even for trusted domains
                 log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Status Code: {response.status_code}{file_info}{Colors.ENDC}"
                 print(log_entry)
                 return log_entry
+                
         except requests.RequestException as e:
             file_info = f" (in file: {md_file})" if md_file else ""
+            
+            # For connection errors on trusted domains, consider as temporarily unavailable
+            if is_trusted_domain and isinstance(e, (
+                requests.Timeout, 
+                requests.ConnectionError,
+                requests.TooManyRedirects
+            )):
+                # Last retry and it's a trusted domain with connection issues
+                if attempt >= retries - 1:
+                    log_entry = f"{Colors.OKGREEN}[OK ABSOLUTE] {url} (trusted domain, connection issue: {type(e).__name__}){file_info}{Colors.ENDC}"
+                    print(log_entry)
+                    return log_entry
+            
             log_entry = f"{Colors.FAIL}[BROKEN ABSOLUTE] {url} - Error: {e}{file_info}{Colors.ENDC}"
             print(log_entry)
             attempt += 1
