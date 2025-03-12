@@ -29,8 +29,6 @@ configuration:
 
                 This pull request does not update any files. Please review your commit history and resubmit.
 
-                We will closing this PR now.
-
           - closePullRequest
 
       - description: Add Needs-Triage to new issues
