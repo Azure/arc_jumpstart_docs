@@ -27,11 +27,8 @@ configuration:
               reply: >-
                 Hello @${issueAuthor},
 
-
                 This pull request does not update any files. Please review your commit history and resubmit.
 
-
-                Template: msftbot/validationError/pullRequest/noContent
           - closePullRequest
 
       - description: Add Needs-Triage to new issues
