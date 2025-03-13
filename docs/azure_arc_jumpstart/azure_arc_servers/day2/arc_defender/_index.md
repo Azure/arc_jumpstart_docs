@@ -26,16 +26,14 @@ in this scenario, you will enable and configure Microsoft Defender for Cloud on 
 
 > **Note:** This guide assumes you already deployed VMs or servers that are running on-premises or other clouds and you have connected them to Azure Arc but If you haven't, this repository offers you a way to do so in an automated fashion.
 
-- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](../../gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](../../aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](../../azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](../../vmware/vmware_terraform_winsrv/)**
 
 ## Prerequisites
 
@@ -146,7 +144,7 @@ The steps below will help you get familiar with the automation and deployment fl
 
 Now that you have successfully onboarded Microsoft Defender for Cloud, you will get recommendations to help you protect your resources, including your Azure Arc-enabled servers. Microsoft Defender for Cloud will then periodically analyze the security state of your Azure resources to identify potential security vulnerabilities.
 
-Microsoft Defender for Cloud will collect data from your Arc-enabled servers to monitor for security vulnerabilities and threats. The data collection will allow greater visibility into missing updates, non-secure OS settings, endpoint protection status, health and threat protection. You will get recommendations even if you do not provision an agent, however to fully benefit it is recommended to install the Log Analytics agent. The agent will read security-related configurations and event logs from the Arc-enabled server and send the data to the corresponding Log Analytics workspace where you enabled Microsoft Defender for Cloud. To install the agent on your Arc-enabled server you can use the extension management feature as it is described [here](/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent/) or by configuring policies as shown [here](/day2/arc_azuremonitoragent/arc_policies_mma/)
+Microsoft Defender for Cloud will collect data from your Arc-enabled servers to monitor for security vulnerabilities and threats. The data collection will allow greater visibility into missing updates, non-secure OS settings, endpoint protection status, health and threat protection. You will get recommendations even if you do not provision an agent, however to fully benefit it is recommended to install the Log Analytics agent. The agent will read security-related configurations and event logs from the Arc-enabled server and send the data to the corresponding Log Analytics workspace where you enabled Microsoft Defender for Cloud. To install the agent on your Arc-enabled server you can use the extension management feature as it is described [here](../arc_azuremonitoragent/) or by configuring policies as shown [here](../arc_policies_mma/)
 
 > **Note:** it may take up to 30 minutes for your Azure Arc-enabled server to be shown in Microsoft Defender for Cloud Dashboard.
 
@@ -181,16 +179,14 @@ Complete the following steps to clean up your environment.
 
 - Remove the virtual machines from each environment by following the teardown instructions from each guide.
 
-- **[GCP Ubuntu instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu/)**
-- **[GCP Windows instance](/azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows/)**
-- **[AWS Ubuntu EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu/)**
-- **[AWS Amazon Linux 2 EC2 instance](/azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2/)**
-- **[Azure Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux/)**
-- **[Azure Windows VM](/azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win/)**
-- **[VMware vSphere Ubuntu VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/)**
-- **[VMware vSphere Windows Server VM](/azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/)**
-- **[Vagrant Ubuntu box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_ubuntu/)**
-- **[Vagrant Windows box](/azure_arc_jumpstart/azure_arc_servers/vagrant/local_vagrant_windows/)**
+- **[GCP Ubuntu instance](../../gcp/gcp_terraform_ubuntu/)**
+- **[GCP Windows instance](../../gcp/gcp_terraform_windows/)**
+- **[AWS Ubuntu EC2 instance](../../aws/aws_terraform_ubuntu/)**
+- **[AWS Amazon Linux 2 EC2 instance](../../aws/aws_terraform_al2/)**
+- **[Azure Ubuntu VM](../../azure/azure_arm_template_linux/)**
+- **[Azure Windows VM](../../azure/azure_arm_template_win/)**
+- **[VMware vSphere Ubuntu VM](../../vmware/vmware_terraform_ubuntu/)**
+- **[VMware vSphere Windows Server VM](../../vmware/vmware_terraform_winsrv/)**
 
 - Remove the Log Analytics workspace by executing the following script in AZ CLI. Provide the workspace name you used when creating the Log Analytics Workspace.
 

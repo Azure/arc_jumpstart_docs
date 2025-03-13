@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 8
+weight: 7
 title: Cleanup
 linkTitle: Cleanup
 ---

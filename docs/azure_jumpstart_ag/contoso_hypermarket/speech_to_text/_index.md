@@ -39,7 +39,7 @@ Below is an architecture diagram that shows how the audio data flows from the us
    - **No Local Model**: If a local model is not present or available, the audio is sent to [Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/overview) for transcription. This is a service of the [Azure AI Services](https://azure.microsoft.com/products/ai-services) family that provides high-accuracy transcription with a scalable cloud-based model.
 5. **Transcription Processing** – Once the transcription is received, it is verified for accuracy and returned to the main user interface.
 6. **UI Rendering** – The transcription result is displayed in the user interface, allowing the user to view the text representation of their question.
-7. **Question Processing** – The transcribed question is then sent to the **Jumpstart Cerebral API**, which triggers a **"Process Question"** event. This event initiates further processing to deliver the appropriate response, following the [Jumpstart Cerebral processing](./../cerebral/_index.md) flow.
+7. **Question Processing** – The transcribed question is then sent to the **Jumpstart Cerebral API**, which triggers a **"Process Question"** event. This event initiates further processing to deliver the appropriate response, following the [Jumpstart Cerebral processing](../cerebral/) flow.
 
 ## Comparing Cloud vs Edge STT
 

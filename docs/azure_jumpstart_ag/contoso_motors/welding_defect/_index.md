@@ -7,10 +7,9 @@ summary: |
     The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.
 serviceOrPlatform: Manufacturing
 technologyStack:
-  - AKS
   - OpenVINO™
   - AI
-  - AKS EDGE ESSENTIALS
+  - Rancher K3s
   - RTSP
 ---
 
@@ -32,7 +31,7 @@ This diagram shows the welding defect inference flow, which consists of five mai
 
 2. **RTSP video simulation:** The welding defect flow requires a particular video of a welding to apply the AI inference. In this scenario, due to the lack of a real video camera, an RTSP simulated feed is used. The simulated feed is designed to closely mimic the behavior of a real welding scenario, providing a reliable video for the AI inference process.
 
-3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate welding AI inference class, which applies the required preprocessing and post process to the frame. The welding AI inference class is implemented in *[welding.py](https://github.com/microsoft/jumpstart-agora-apps/blob/main/contoso_manufacturing/developer/webapp-decode/welding.py)* and is designed to handle the specific requirements of the welding defect detection process.
+3. **Frame capturing:** This step involves using **OpenCV** to establish a connection with the RTSP video feed and retrieve the welding video frames. Each frame is then passed to the appropriate welding AI inference class, which applies the required preprocessing and post process to the frame. The welding AI inference class is implemented in *[welding.py](https://github.com/Azure/jumpstart-apps/blob/main/agora/contoso_motors/src/webapp-decode/welding.py)* and is designed to handle the specific requirements of the welding defect detection process.
 
 4. **Frame pre-processing/inferencing:** This step involves applying various techniques to enhance, transform and normalize the captured frames. For this welding model, the image preprocessing consists of the following transformations:
     - Convert the color space of the input image from BGR to RGB.
@@ -61,7 +60,7 @@ If you're interested in learning more about the AI inference flow, check out the
 
 ### Model
 
-The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://docs.openvino.ai/2024/omz_models_model_weld_porosity_detection_0001.html).
+The model used was created by Intel, and can be downloaded from [weld-porosity-detection-0001](https://www.intel.com/content/www/us/en/developer/articles/reference-implementation/weld-porosity-detection.html).
 
 #### Inputs
 
