@@ -29,8 +29,8 @@ jobs:
       - name: Sync docs to storage account
         uses: azure/powershell@v2
         env:
-          storageAccountName: 'stgjscopilotdocs'
-          containerName: 'docs'
+          storageAccountName: 'stgjscopilotdocs' # Add as repo secret
+          containerName: 'docs' # Add as repo secret
         with:
           azPSVersion: "latest"
           inlineScript: |
