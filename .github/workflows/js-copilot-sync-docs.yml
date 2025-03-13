@@ -18,12 +18,13 @@ jobs:
         with:
           ref: copilot-docs-metadata
 
-      - name: 'Az CLI login'
+      - name: 'Az powershell login'
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.CLIENT_ID }}
           tenant-id: ${{ secrets.TENANT_ID }}
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
 
       - name: Sync docs to storage account
         uses: azure/powershell@v2
@@ -34,3 +35,4 @@ jobs:
           azPSVersion: "latest"
           inlineScript: |
             Get-AzStorageAccount
+            .gtihub/scripts/copy-JumpstartDocs.ps1 -sourcePath 
