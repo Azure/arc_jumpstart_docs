@@ -86,7 +86,7 @@ try {
             # Get the path relative to the source directory
             $relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
             #$targetPath = Join-Path $using:tempDir $relativePath
-            $targetPath =$using:tempDir + 
+            $targetPath =$using:tempDir
             $targetDir = Split-Path $targetPath -Parent
 
             if (-not (Test-Path $targetDir)) {
