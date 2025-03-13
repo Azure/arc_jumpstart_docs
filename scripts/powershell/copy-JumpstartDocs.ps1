@@ -88,8 +88,10 @@ try {
             $relativePath = $_.FullName.Replace('home/runner/work/arc_jumpstart_docs/arc_jumpstart_docs/docs','').TrimStart('/').TrimStart('\')
             $targetPath = Join-Path $using:tempDir $relativePath
             "***********************"
-            $targetPath
-            $relativePath
+            "RelativePath: ${relativePath}"
+            "TempDir: ${using:tempDir}"
+            "SourcePath: ${using:SourcePath}"
+            "TargetPath: ${targetPath}"
             "**********************"
             $targetDir = Split-Path $targetPath -Parent
 
