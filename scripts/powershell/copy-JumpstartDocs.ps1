@@ -127,8 +127,7 @@ try {
 
     "***********************"
     "cleanTempDir: ${cleanTempDir}"
-    "tempDir: ${tempDir}"
-    "destUrl: ${destUrl}"
+    ls $cleanTempDir
     "**********************"
 
     $azcopyOutput = azcopy sync $cleanTempDir $destUrl --delete-destination=true `
