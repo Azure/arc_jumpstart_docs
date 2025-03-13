@@ -84,12 +84,15 @@ try {
                 New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
             }
 
-            # Extract path starting from the last 'docs' directory
-            $sourcePath = if ($_.FullName -match "(?i)docs\\(?:docs\\)?(.*$)") {
-                "docs\" + $matches[1]
+            # Extract path starting from docs
+            $sourcePath = if ($_.FullName -match "(?i)docs[/\\](.*)") {
+                "docs/" + $matches[1]
             } else {
                 $_.FullName
             }
+
+            # Replace Windows backslashes with forward slashes for consistency
+            $sourcePath = $sourcePath.Replace('\', '/')
 
             # Update content with modified source path and write to destination
             $updatedContent = Update-FrontMatter -content $content -sourcePath $sourcePath
