@@ -130,7 +130,7 @@ try {
     ls $cleanTempDir
     "**********************"
 
-    $azcopyOutput = azcopy sync $cleanTempDir $destUrl --delete-destination=true `
+    $azcopyOutput = azcopy sync "$cleanTempDir" "$destUrl" --delete-destination=true `
                                                 --log-level=ERROR `
                                                 --recursive=true `
                                                 --cap-mbps=0 `
