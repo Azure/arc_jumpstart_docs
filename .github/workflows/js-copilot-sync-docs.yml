@@ -36,4 +36,4 @@ jobs:
           inlineScript: |
             Get-AzStorageAccount
             dir
-            .github/scripts/copy-JumpstartDocs.ps1 -sourcePath -StorageAccountName ${env:storageAccountName} -ContainerName ${containerName}
+            . /scripts/copy-JumpstartDocs.ps1 -sourcePath -StorageAccountName ${env:storageAccountName} -ContainerName ${containerName}
