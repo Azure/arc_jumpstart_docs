@@ -87,24 +87,11 @@ try {
             #$relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
             $relativePath = $_.FullName.Replace('home/runner/work/arc_jumpstart_docs/arc_jumpstart_docs/docs','').TrimStart('/').TrimStart('\')
             $targetPath = Join-Path $using:tempDir $relativePath
-            "***********************"
-            "RelativePath: ${relativePath}"
-            "TempDir: ${using:tempDir}"
-            "SourcePath: ${using:SourcePath}"
-            "TargetPath: ${targetPath}"
-            "**********************"
             $targetDir = Split-Path $targetPath -Parent
 
             if (-not (Test-Path $targetDir)) {
                 New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
             }
-
-            ## Extract path starting from docs for the source_path in front matter
-            #$sourcePath = if ($_.FullName -match "(?i)docs[/\\](.*)") {
-            #    "docs/" + (Get-CleanPath $matches[1])
-            #} else {
-            #    Get-CleanPath $_.FullName
-            #}
 
             # Update content with modified source path and write to destination
             $updatedContent = Update-FrontMatter -content $content -sourcePath $relativePath
