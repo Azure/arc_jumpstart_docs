@@ -84,7 +84,8 @@ try {
         $content = Get-Content -Path $_.FullName -Raw -Encoding UTF8
         if (Test-HasContentBeyondFrontMatter -content $content) {
             # Get the path relative to the source directory
-            $relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
+            #$relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
+            $relativePath = $_.FullName
             $targetPath = Join-Path $using:tempDir $relativePath
             "***********************"
             $targetPath
