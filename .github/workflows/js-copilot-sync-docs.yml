@@ -33,4 +33,6 @@ jobs:
           containerName: 'docs'
         with:
           azPSVersion: "latest"
-          inlineScript: ./scripts/copy-JumpstartDocs.ps1 -sourcePath . -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
+          inlineScript: |
+            dir
+            ./.github/scripts/copy-JumpstartDocs.ps1 -sourcePath . -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
