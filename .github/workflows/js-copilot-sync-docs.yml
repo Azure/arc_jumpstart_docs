@@ -1,0 +1,31 @@
+name: Copilot - Sync docs
+on:
+  push:
+    branches:
+      - copilot-docs-metadata
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: copilot-docs-metadata
+
+      - name: 'Az CLI login'
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+
+      - name: 'Run az commands'
+        run: |
+          az account show
+          az group list
