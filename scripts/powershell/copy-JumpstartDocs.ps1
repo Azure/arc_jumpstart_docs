@@ -123,7 +123,8 @@ try {
     # Use AzCopy sync
     Write-Host "Syncing content to Azure Storage..."
     $destUrl = "https://$StorageAccountName.blob.core.windows.net/$ContainerName"
-    $cleanTempDir = (Get-Item $tempDir).FullName + "/*"
+    #$cleanTempDir = (Get-Item $tempDir).FullName + "/*"
+    $cleanTempDir = (Get-Item $tempDir).FullName
 
     $azcopyOutput = azcopy sync $cleanTempDir $destUrl --delete-destination=true --log-level=ERROR --recursive=true --cap-mbps=0 --block-size-mb=8
 
