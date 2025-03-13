@@ -39,6 +39,11 @@ function Update-FrontMatter {
     return $content
 }
 
+function Get-CleanPath {
+    param([string]$path)
+    return $path.TrimStart('/').TrimStart('\').Replace('\', '/')
+}
+
 # Ensure user is logged in to Azure
 try {
     $context = Get-AzContext
@@ -67,16 +72,19 @@ try {
     # Create scriptblocks for the functions
     $testFunctionBlock = ${function:Test-HasContentBeyondFrontMatter}.ToString()
     $updateFunctionBlock = ${function:Update-FrontMatter}.ToString()
+    $cleanPathBlock = ${function:Get-CleanPath}.ToString()
 
     # Process files in parallel
     $allFiles | ForEach-Object -ThrottleLimit 16 -Parallel {
         # Import functions into parallel scope
         ${function:Test-HasContentBeyondFrontMatter} = $using:testFunctionBlock
         ${function:Update-FrontMatter} = $using:updateFunctionBlock
+        ${function:Get-CleanPath} = $using:cleanPathBlock
 
         $content = Get-Content -Path $_.FullName -Raw -Encoding UTF8
         if (Test-HasContentBeyondFrontMatter -content $content) {
-            $relativePath = $_.FullName.Substring($using:SourcePath.Length).TrimStart('\')
+            # Get the path relative to the source directory
+            $relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
             $targetPath = Join-Path $using:tempDir $relativePath
             $targetDir = Split-Path $targetPath -Parent
 
@@ -84,15 +92,12 @@ try {
                 New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
             }
 
-            # Extract path starting from docs
+            # Extract path starting from docs for the source_path in front matter
             $sourcePath = if ($_.FullName -match "(?i)docs[/\\](.*)") {
-                "docs/" + $matches[1]
+                "docs/" + (Get-CleanPath $matches[1])
             } else {
-                $_.FullName
+                Get-CleanPath $_.FullName
             }
-
-            # Replace Windows backslashes with forward slashes for consistency
-            $sourcePath = $sourcePath.Replace('\', '/')
 
             # Update content with modified source path and write to destination
             $updatedContent = Update-FrontMatter -content $content -sourcePath $sourcePath
@@ -111,8 +116,9 @@ try {
     # Use AzCopy sync
     Write-Host "Syncing content to Azure Storage..."
     $destUrl = "https://$StorageAccountName.blob.core.windows.net/$ContainerName"
+    $cleanTempDir = (Get-Item $tempDir).FullName + "/*"
 
-    $azcopyOutput = azcopy sync $tempDir $destUrl --delete-destination=true `
+    $azcopyOutput = azcopy sync $cleanTempDir $destUrl --delete-destination=true `
                                                 --log-level=ERROR `
                                                 --recursive=true `
                                                 --cap-mbps=0 `
