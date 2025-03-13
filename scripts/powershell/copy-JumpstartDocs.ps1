@@ -107,7 +107,7 @@ try {
             #}
 
             # Update content with modified source path and write to destination
-            $updatedContent = Update-FrontMatter -content $content -sourcePath $sourcePath
+            $updatedContent = Update-FrontMatter -content $content -sourcePath $using:sourcePath
             Set-Content -Path $targetPath -Value $updatedContent -Encoding UTF8 -Force
         }
 
