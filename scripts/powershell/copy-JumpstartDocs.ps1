@@ -85,7 +85,7 @@ try {
         if (Test-HasContentBeyondFrontMatter -content $content) {
             # Get the path relative to the source directory
             #$relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
-            $relativePath = $_.FullName
+            $relativePath = $_.FullName.Replace('/home/runner/work/arc_jumpstart_docs/arc_jumpstart_docs/docs','')
             $targetPath = Join-Path $using:tempDir $relativePath
             "***********************"
             $targetPath
