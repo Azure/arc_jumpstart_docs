@@ -85,8 +85,11 @@ try {
         if (Test-HasContentBeyondFrontMatter -content $content) {
             # Get the path relative to the source directory
             $relativePath = $_.FullName.Replace($using:SourcePath, '').TrimStart('/').TrimStart('\')
-            #$targetPath = Join-Path $using:tempDir $relativePath
-            $targetPath =$using:tempDir
+            $targetPath = Join-Path $using:tempDir $relativePath
+            "***********************"
+            $targetPath
+            $relativePath
+            "**********************"
             $targetDir = Split-Path $targetPath -Parent
 
             if (-not (Test-Path $targetDir)) {
