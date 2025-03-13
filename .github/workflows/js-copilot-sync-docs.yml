@@ -31,6 +31,7 @@ jobs:
         env:
           storageAccountName: 'stgjscopilotdocs'
           containerName: 'docs'
+        working-directory: ${{ github.repository }}
         run: |
             Get-AzStorageAccount
             dir
