@@ -53,7 +53,8 @@ catch {
 }
 
 # Create a temporary directory for filtered content
-$tempDir = Join-Path $env:TEMP "JumpstartDocs_$(Get-Random)"
+# $tempDir = Join-Path $env:TEMP "JumpstartDocs_$(Get-Random)"
+$tempDir = "JumpstartDocs_$(Get-Random)"
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
 
 try {
