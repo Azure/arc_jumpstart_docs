@@ -35,4 +35,6 @@ jobs:
           azPSVersion: "latest"
           inlineScript: |
             dir
-            ./scripts/copy-JumpstartDocs.ps1 -sourcePath . -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
+            ./scripts/powershell/copy-JumpstartDocs.ps1 -sourcePath . -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
+            Write-Host "Second attempt"
+            .\scripts\powershell\copy-JumpstartDocs.ps1 -sourcePath . -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
