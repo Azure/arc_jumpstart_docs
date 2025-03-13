@@ -34,4 +34,4 @@ jobs:
         with:
           azPSVersion: "latest"
           inlineScript: |
-            ./scripts/powershell/test.ps1
+            ./scripts/powershell/copy-JumpstartDocs.ps1 -SourcePath docs/ -StorageAccountName $($env:storageAccountName) -ContainerName $($env:storageAccountName)
