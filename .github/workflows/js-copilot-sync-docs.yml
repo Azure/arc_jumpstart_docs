@@ -25,7 +25,12 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
 
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
+      - name: Sync docs to storage account
+        uses: azure/powershell@v2
+        env:
+          storageAccountName: 'stgjscopilotdocs'
+          containerName: 'docs'
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
+            Get-AzContext
