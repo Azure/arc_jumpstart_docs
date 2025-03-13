@@ -34,7 +34,6 @@ jobs:
         with:
           azPSVersion: "latest"
           inlineScript: |
-            dir
-            $PWD
+            $scriptPath = Join-Path -Path $PWD -ChildPath "scripts/powershell/copy-JumpstartDocs.ps1"
             $docsPath = Join-Path -Path $PWD -ChildPath "docs"
-            ./scripts/powershell/copy-JumpstartDocs.ps1 -sourcePath $docsPath -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
+            & $scriptPath -sourcePath $docsPath -StorageAccountName ${env:storageAccountName} -ContainerName ${env:containerName}
