@@ -99,12 +99,12 @@ try {
                 New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
             }
 
-            # Extract path starting from docs for the source_path in front matter
-            $sourcePath = if ($_.FullName -match "(?i)docs[/\\](.*)") {
-                "docs/" + (Get-CleanPath $matches[1])
-            } else {
-                Get-CleanPath $_.FullName
-            }
+            ## Extract path starting from docs for the source_path in front matter
+            #$sourcePath = if ($_.FullName -match "(?i)docs[/\\](.*)") {
+            #    "docs/" + (Get-CleanPath $matches[1])
+            #} else {
+            #    Get-CleanPath $_.FullName
+            #}
 
             # Update content with modified source path and write to destination
             $updatedContent = Update-FrontMatter -content $content -sourcePath $sourcePath
@@ -124,6 +124,12 @@ try {
     Write-Host "Syncing content to Azure Storage..."
     $destUrl = "https://$StorageAccountName.blob.core.windows.net/$ContainerName"
     $cleanTempDir = (Get-Item $tempDir).FullName + "/*"
+
+    "***********************"
+    "cleanTempDir: ${cleanTempDir}"
+    "tempDir: ${tempDir}"
+    "destUrl: ${destUrl}"
+    "**********************"
 
     $azcopyOutput = azcopy sync $cleanTempDir $destUrl --delete-destination=true `
                                                 --log-level=ERROR `
