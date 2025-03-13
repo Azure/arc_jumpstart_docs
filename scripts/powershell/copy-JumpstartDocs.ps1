@@ -153,8 +153,4 @@ finally {
     if (Test-Path $tempDir) {
         Remove-Item -Path $tempDir -Recurse -Force
     }
-    # Clear AzCopy environment variables
-    $env:AZCOPY_CRED_TYPE = $null
-    $env:AZCOPY_CONCURRENCY_VALUE = $null
-    $env:AZCOPY_BUFFER_GB = $null
 }
