@@ -27,12 +27,13 @@ jobs:
           enable-AzPSSession: true
 
       - name: Sync docs to storage account
-        shell: pwsh
+        uses: azure/powershell@v2
         env:
           storageAccountName: 'stgjscopilotdocs'
           containerName: 'docs'
-        working-directory: ${{ github.repository }}
-        run: |
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
             Get-AzStorageAccount
             dir
             .github/scripts/copy-JumpstartDocs.ps1 -sourcePath -StorageAccountName ${env:storageAccountName} -ContainerName ${containerName}
