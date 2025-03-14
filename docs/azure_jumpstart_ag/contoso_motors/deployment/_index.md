@@ -148,14 +148,18 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
   az bicep upgrade
   ```
 
-- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_motors/bicep/main.parameters.json) template parameters file and supply some values for your environment.
-  - _`spnClientId`_ - Your Azure service principal application id
-  - _`spnClientSecret`_ - Your Azure service principal secret
-  - _`spnObjectId`_ - Your Azure service principal id
-  - _`spnTenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
+- Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_motors/bicep/main.parameters.json) template parameters file and supply values for your environment.
+
+  | Name                | Type     | Description                                                                                                           | Default |
+  |---------------------|----------|-----------------------------------------------------------------------------------------------------------------------|---------|
+  | _`spnClientId`_          | string  | Your Azure service principal application id                                                                           |         |
+  | _`spnClientSecret`_      | securestring  | Your Azure service principal secret                                                                                   |         |
+  | _`spnObjectId`_          | string  | Your Azure service principal id                                                                                       |         |
+  | _`spnTenantId`_          | string  | Your Azure tenant id                                                                                                  |         |
+  | _`windowsAdminUsername`_ | string  | Client Windows VM Administrator username                                                                              |         |
+  | _`windowsAdminPassword`_ | securestring  | Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. |         |
+  | _`deployBastion`_        | boolean | Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.                        |   false    |
+  | _`sshRSAPublicKey`_      | string  | Your SSH Public Key                                                                                                   |         |
 
 - To get the `spnObjectId`, you can run do so using either Azure CLI or Azure PowerShell.
 
