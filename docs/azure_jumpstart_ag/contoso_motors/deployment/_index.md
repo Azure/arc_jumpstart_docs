@@ -160,6 +160,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Mo
   | _`windowsAdminPassword`_ | securestring  | Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. |         |
   | _`deployBastion`_        | boolean | Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.                        |   false    |
   | _`sshRSAPublicKey`_      | string  | Your SSH Public Key                                                                                                   |         |
+  | _`customLocationRPOID`   | string  | The Azure Custom Location Resource Provider Object ID                                                                 |         |
 
 - To get the `spnObjectId`, you can run do so using either Azure CLI or Azure PowerShell.
 
