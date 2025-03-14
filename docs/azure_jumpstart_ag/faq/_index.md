@@ -24,7 +24,7 @@ Agora deployment requires an Azure service principal with **Contributor** or **O
 
 Agora can be deployed to the following regions:
 
-| Agora scenario | Region support |
+| Agora scenario | Azure supported region |
 | ------- | ----------- |
 | Contoso Hypermarket | eastus, eastus2, westus2, westus3, westeurope |
 | Contoso Motors | eastus, eastus2, westus2, westus3, northeurope |
@@ -34,10 +34,9 @@ Agora can be deployed to the following regions:
 
 Agora incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. Each industry scenario in Agora may use a different combination of Azure resources and therefore costs vary depending on the industry scenario used. You can view example estimates of Agora costs in the link below.
 
-- Contoso Hypermarket cost estimate has multiple deployment options:
-  - [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
-    - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
-    - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
+- [Contoso Hypermarket standard deployment cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimate)
+  - [Contoso Hypermarket with GPU-enabled SKUs option 1 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU1)
+  - [Contoso Hypermarket with GPU-enabled SKUs option 2 cost estimate](https://aka.ms/AgoraContosoHypermarketCostEstimateGPU2)
 - [Contoso Motors cost estimate](https://aka.ms/AgoraContosoMotorsCostEstimate)
 - [Contoso Supermarket cost estimate](https://aka.ms/AgoraContosoSupermarketCostEstimate)
 

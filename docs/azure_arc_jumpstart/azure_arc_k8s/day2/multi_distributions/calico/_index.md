@@ -19,7 +19,7 @@ The following Jumpstart scenario will guide you how to use Azure Policy [Azure P
 
   > **Note:** This guide assumes you already have deployed Calico network policy in your cluster. If you haven't, you can use our installation guides for Calico open-source or Calico Cloud.
 
-- [Deploy Calico open-source in your managed public cluster](https://projectcalico.docs.tigera.io/getting-started/kubernetes/managed-public-cloud/)
+- [Deploy Calico open-source in your managed public cluster](https://docs.tigera.io/calico/latest/getting-started/#installing-on-cloud-infrastructure)
 - [Sign up for a Calico Cloud trial](https://www.calicocloud.io/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft)
 
 Calico Network Policy uses labels to select pods in Kubernetes for applying ingress/egress rules.

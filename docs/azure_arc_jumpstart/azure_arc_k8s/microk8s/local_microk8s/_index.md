@@ -98,7 +98,7 @@ The following Jumpstart scenario will guide you on how to use [MicroK8s](https:/
   
     Download the [MicroK8s installer for Windows](https://microk8s.io/docs/install-windows) and follow the instructions.
 
-    ![MicroK8s installer for Windows](https://global.discourse-cdn.com/business6/uploads/kubernetes/original/2X/7/748b76ed4495ee1958fd88d701b0b3c391aa8f85.png)
+    ![MicroK8s installer for Windows](https://us1.discourse-cdn.com/flex016/uploads/kubernetes/original/2X/7/748b76ed4495ee1958fd88d701b0b3c391aa8f85.png)
 
     Once installed, enable MicroK8s with:
 

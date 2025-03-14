@@ -24,7 +24,7 @@ ArcBox offers three different “flavors” (configurations) that let users choo
 
 ## What Azure regions can ArcBox be deployed to?
 
-ArcBox can be deployed to the following regions:
+ArcBox can be deployed to the following Azure regions:
 
 - East US
 - East US 2
