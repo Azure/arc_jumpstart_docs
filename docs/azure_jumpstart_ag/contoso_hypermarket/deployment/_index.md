@@ -150,9 +150,9 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   | _`deployBastion`_       | boolean  | Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.                        |  false   |
   | _`fabricCapacityAdmin`_ | string   | Microsoft Fabric capacity admin (admin user in the same Entra ID tenant).                                             |         |
   | _`k8sWorkerNodesSku`_   | string   | The K3s worker nodes VM SKU.                                                                                          |  Standard_D8s_v5    |
-  | _`customLocationRPOID`_ | string   | the Azure Custom Location Resource Provider Object ID                                                                                       |         |
+  | _`customLocationRPOID`_ | string   | The Azure Custom Location Resource Provider Object ID                                                                                       |         |
   | _`sshRSAPublicKey`_     | string   | Your SSH Public Key                                                                                                   |         |
-  | _`deployGPUNodes`_      | boolean  | whether or not to deploy K3s worker nodes with GPUs. Set to _`true`_ or _`false`_.                                                                     | false   |
+  | _`deployGPUNodes`_      | boolean  | Whether or not to deploy K3s worker nodes with GPUs. Set to _`true`_ or _`false`_.                                                                     | false   |
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 
