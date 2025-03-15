@@ -30,7 +30,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
 - Ensure that you have selected the correct subscription you want to deploy HCIBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 - **HCIBox requires 32 ESv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy HCIBox. You can use the below Az CLI command to check your vCPU utilization.
-
+    > **Note:** HCIBox can be deployed in East US, Australia East, Canada Central and West Europe. Deploying in other regions will result in unexpected behavior or failures.
   ```shell
   az vm list-usage --location <your location> --output table
   ```
