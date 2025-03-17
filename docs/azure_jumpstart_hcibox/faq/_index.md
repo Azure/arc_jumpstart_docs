@@ -8,7 +8,7 @@ weight: 7
 
 ## What is Jumpstart HCIBox?
 
-Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for exploring Azure Stack HCI capabilities and hybrid cloud integration in a virtual environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which makes it easy for users to get hands-on with Azure Stack HCI and Azure Arc technology without the need for physical hardware.
+Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for exploring Azure Local capabilities and hybrid cloud integration in a virtual environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which makes it easy for users to get hands-on with Azure Local and Azure Arc technology without the need for physical hardware.
 
 > **Note:** For general questions about Arc Jumpstart please see the [Jumpstart FAQ](../../faq/).
 
@@ -31,7 +31,7 @@ HCIBox incurs normal Azure consumption charges for various Azure resources such 
 
 - [HCIBox cost estimate](https://aka.ms/HCIBoxCost)
 
-## Which versions of Azure Stack HCI does HCIBox support?
+## Which versions of Azure Local does HCIBox support?
 
 HCIBox uses the 23H2 build of the Azure Stack HCI OS.
 
