@@ -5,9 +5,9 @@ weight: 10
 toc_hide: true
 ---
 
-## Arc-enabled SQL Managed Instance on Azure Stack HCI
+## Arc-enabled SQL Managed Instance on Azure Local
 
-Azure Stack HCI can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/) which can be used to deploy Azure Arc-enabled SQL Managed Instance. HCIBox comes pre-configured with Azure Kubernetes Service on HCI (AKS-HCI) and an Azure Arc-enabled SQL Managed Instance. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
+Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview) which can be used to deploy Azure Arc-enabled SQL Managed Instance. HCIBox comes pre-configured with Azure AKS enabled by Azure Arc cluster and an Arc-enabled SQL Managed Instance. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
 
 - You will first need to get the Azure Custom Location Resource Provider (RP) Object ID (OID). This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your Arc-enabled Kubernetes cluster.
 

@@ -34,9 +34,9 @@ HCIBox automatically creates and configures a two-node Azure Local instance usin
 
 HCIBox comes with [guest VM management in Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview). The HCIBox documentation will walk you through how to use this feature, including configuring VM images from Azure marketplace and creating VMs on your instance.
 
-### Azure Kubernetes Service on Azure Stack HCI
+### AKS enabled by Azure Arc on Azure Local
 
-Azure Stack HCI includes [Azure Kubernetes Services on Azure Local (AKS hybrid)](https://learn.microsoft.com/azure/aks/hybrid/) as part of the default configuration. A user script is provided that can be used to create a workload instance.
+Azure Local includes [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview) as part of the default configuration. A user script is provided that can be used to create a workload instance.
 
 ## HCIBox Azure Consumption Costs
 

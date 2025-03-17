@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Azure Bicep Deployment"
 isGettingStarted: false
-weight: 4
+weight: 3
 ---
 
 # Deploy HCIBox infrastructure with Azure Bicep
@@ -155,7 +155,7 @@ Example parameter-file:
 
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the *HCIBox-Client* VM to continue the next phase of the deployment. [Continue in Cloud Deployment guide](../cloud_deployment/) for the next steps.
+Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the *HCIBox-Client* VM to continue the next phase of the deployment. [Continue to learn how to deploy instance in Azure portal](../cloud_deployment/#azure-local-instance-validation-and-deployment-from-the-azure-portal) for the next steps.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
