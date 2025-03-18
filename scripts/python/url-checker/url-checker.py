@@ -215,6 +215,104 @@ def check_absolute_url(url, md_file=None, retries=3):
             else:
                 return log_entry
 
+def find_case_insensitive_path(path):
+    """
+    Tries to find an existing path with case-insensitive matching.
+    Useful for systems where the filesystem is case-sensitive but the URLs might not match case.
+    
+    Args:
+        path: The path to check
+        
+    Returns:
+        The correct path if found with different case, None otherwise
+    """
+    # If the path exists exactly as provided, no need to search
+    if os.path.exists(path):
+        return path
+    
+    # Not found, try to match case-insensitively
+    dirname, basename = os.path.split(path)
+    
+    # If the directory doesn't exist, we can't check its contents
+    if not os.path.isdir(dirname):
+        return None
+
+    try:
+        # Check if a case-insensitive match exists in the parent directory
+        for entry in os.listdir(dirname):
+            if entry.lower() == basename.lower():
+                return os.path.join(dirname, entry)
+    except (PermissionError, FileNotFoundError):
+        pass
+            
+    return None
+
+def find_path_case_insensitive(base_path, rel_path):
+    """
+    Find a path with case-insensitive matching, handling multi-level paths.
+    
+    Args:
+        base_path: Starting directory for the search
+        rel_path: Relative path to find (can include multiple directories)
+        
+    Returns:
+        Full corrected path if found, None otherwise
+    """
+    # Handle empty path
+    if not rel_path:
+        return base_path
+    
+    # Split the path into components, handling both forward and back slashes
+    path_parts = re.split(r'[/\\]', rel_path)
+    path_parts = [part for part in path_parts if part]  # Remove empty parts
+    
+    current_path = base_path
+    print(f"Starting case-insensitive path search from: {current_path}")
+    print(f"Looking for path components: {path_parts}")
+    
+    # Process each path component
+    for i, part in enumerate(path_parts):
+        # Skip if the component is '.' (current directory)
+        if part == '.':
+            continue
+        
+        # Handle '..' (parent directory) - just use it directly as it doesn't need case correction
+        if part == '..':
+            current_path = os.path.dirname(current_path)
+            print(f"Going up to parent directory: {current_path}")
+            continue
+        
+        # Try to find a case-insensitive match for this component
+        found = False
+        try:
+            if os.path.exists(os.path.join(current_path, part)):
+                # Exact match exists, use it directly
+                current_path = os.path.join(current_path, part)
+                found = True
+                print(f"Exact match found for '{part}': {current_path}")
+            else:
+                # Try case-insensitive match
+                for entry in os.listdir(current_path):
+                    if entry.lower() == part.lower():
+                        current_path = os.path.join(current_path, entry)
+                        found = True
+                        print(f"Case-insensitive match found for '{part}': {entry} at {current_path}")
+                        break
+        except (PermissionError, FileNotFoundError, NotADirectoryError) as e:
+            print(f"Error accessing {current_path}: {str(e)}")
+            return None
+        
+        if not found:
+            print(f"No match found for component '{part}' in {current_path}")
+            return None
+    
+    # Add trailing slash if the original path had one
+    if rel_path.endswith('/') and not current_path.endswith(os.sep):
+        current_path += os.sep
+    
+    print(f"Final resolved path: {current_path}")
+    return current_path
+
 def check_relative_url(url, md_file):
     """
     Check if a relative file path exists in the filesystem.
@@ -244,6 +342,55 @@ def check_relative_url(url, md_file):
             else:
                 log_entry = f"{Colors.FAIL}[BROKEN HEADER] #{anchor} (header not found in {md_file}){Colors.ENDC}"
                 print(f"Available headers in {md_file}: {', '.join(headers)}")
+                print(log_entry)
+                return log_entry, False, False, False, has_anchor
+        else:
+            # Construct the target path based on the base_url
+            target_file = os.path.join(os.path.dirname(md_file), base_url)
+            
+            # Handle the case where the base_url points to a directory
+            if os.path.isdir(target_file):
+                print(f"Base URL {base_url} points to a directory: {target_file}")
+                # Check if an _index.md file exists in the directory
+                index_file = os.path.join(target_file, "_index.md")
+                if os.path.exists(index_file):
+                    log_entry = f"{Colors.OKGREEN}[OK RELATIVE] {index_file}#{anchor} (directory with _index.md, anchor not validated){Colors.ENDC}"
+                    print(log_entry)
+                    return log_entry, False, False, False, has_anchor
+                
+                # Also check for other common index files
+                for index_name in ["index.md", "README.md"]:
+                    index_file = os.path.join(target_file, index_name)
+                    if os.path.exists(index_file):
+                        log_entry = f"{Colors.OKGREEN}[OK RELATIVE] {index_file}#{anchor} (directory with {index_name}, anchor not validated){Colors.ENDC}"
+                        print(log_entry)
+                        return log_entry, False, False, False, has_anchor
+            
+            # Check if file exists without case sensitivity
+            case_insensitive_path = find_path_case_insensitive(os.path.dirname(md_file), base_url)
+            if case_insensitive_path and os.path.exists(case_insensitive_path):
+                # Found with case-insensitive match
+                if os.path.isdir(case_insensitive_path):
+                    # It's a directory, check for index files
+                    for index_name in ["_index.md", "index.md", "README.md"]:
+                        index_file = os.path.join(case_insensitive_path, index_name)
+                        if os.path.exists(index_file):
+                            log_entry = f"{Colors.OKGREEN}[OK RELATIVE] {index_file}#{anchor} (directory with {index_name}, case-insensitive match, anchor not validated){Colors.ENDC}"
+                            print(log_entry)
+                            return log_entry, False, False, False, has_anchor
+                else:
+                    # It's a file
+                    log_entry = f"{Colors.OKGREEN}[OK RELATIVE] {case_insensitive_path}#{anchor} (file exists, case-insensitive match, anchor not validated){Colors.ENDC}"
+                    print(log_entry)
+                    return log_entry, False, False, False, has_anchor
+            
+            # Original check if file exists (case sensitive)
+            if os.path.exists(target_file):
+                log_entry = f"{Colors.OKGREEN}[OK RELATIVE] {target_file}#{anchor} (file exists, anchor not validated){Colors.ENDC}"
+                print(log_entry)
+                return log_entry, False, False, False, has_anchor
+            else:
+                log_entry = f"{Colors.FAIL}[BROKEN RELATIVE WITH ANCHOR] {target_file}#{anchor} (file not found){Colors.ENDC}"
                 print(log_entry)
                 return log_entry, False, False, False, has_anchor
                 
@@ -286,45 +433,89 @@ def check_relative_url(url, md_file):
     file_type = "SVG" if is_svg else "image" if is_image else "root-relative" if is_root_relative else "relative"
     print(f"Checking {file_type} URL: {file_path}")
     
-    # Add enhanced debugging for directory paths
-    if url.endswith('/'):
-        print(f"Directory path detected: {url}")
-        print(f"Resolved path: {file_path}")
-        print(f"Does path exist? {os.path.exists(file_path)}")
-        print(f"Is it a directory? {os.path.isdir(file_path) if os.path.exists(file_path) else 'N/A'}")
-        if os.path.exists(file_path) and os.path.isdir(file_path):
-            print(f"Directory contents: {os.listdir(file_path)}")
-    
-    # Check if the path exists directly
+    # -- New Approach: Handle case sensitivity more robustly --
+    # Check if path exists directly
     path_exists = os.path.exists(file_path)
     
-    # If path doesn't exist and ends with '/', try to look for markdown files in that directory
-    if not path_exists and url.endswith('/'):
-        # First try common default files
-        for default_file in ['_index.md', 'index.md', 'README.md']:
-            index_path = os.path.join(file_path, default_file)
-            print(f"Looking for default file: {index_path}")
-            if os.path.exists(index_path):
-                path_exists = True
-                file_path = index_path
-                print(f"Found default file: {index_path}")
-                break
+    # If path doesn't exist, try case-insensitive matching
+    if not path_exists:
+        print(f"Path not found: {file_path}")
+        print(f"Trying case-insensitive path resolution...")
         
-        # If still not found, check if directory exists and contains any markdown files
-        if not path_exists and os.path.isdir(file_path):
-            # Look for any markdown file in the directory
-            try:
-                md_files = [f for f in os.listdir(file_path) if f.endswith('.md')]
-                if md_files:
-                    path_exists = True
-                    file_path = os.path.join(file_path, md_files[0])  # Use the first markdown file found
-                    print(f"Directory contains markdown files: {', '.join(md_files)}")
+        # For directory URLs (ending with /)
+        if url.endswith('/'):
+            # Split the file_path into components
+            path_parts = os.path.normpath(file_path).split(os.sep)
+            
+            # Start from an existing directory
+            current = os.path.dirname(md_file) if not is_root_relative else REPO_PATH
+            built_path = current
+            
+            # Process each segment of the relative path
+            rel_segments = url.rstrip('/').split('/')
+            print(f"Processing relative segments: {rel_segments}")
+            
+            for segment in rel_segments:
+                if segment == '..':
+                    # Go up one directory
+                    current = os.path.dirname(current)
+                    built_path = current
+                    print(f"Going up to parent: {current}")
+                elif segment == '.':
+                    # Stay in current directory
+                    continue
                 else:
-                    print(f"Directory exists but contains no markdown files")
-            except PermissionError:
-                print(f"Permission error accessing directory: {file_path}")
-            except FileNotFoundError:
-                print(f"Directory doesn't exist: {file_path}")
+                    # Try to find a case-insensitive match for this segment
+                    if os.path.exists(os.path.join(current, segment)):
+                        # Exact case match
+                        current = os.path.join(current, segment)
+                        built_path = current
+                        print(f"Exact match found: {segment}")
+                    else:
+                        found = False
+                        try:
+                            for item in os.listdir(current):
+                                if item.lower() == segment.lower():
+                                    current = os.path.join(current, item)
+                                    built_path = current
+                                    print(f"Case-insensitive match found: {segment} -> {item}")
+                                    found = True
+                                    break
+                        except (PermissionError, FileNotFoundError, NotADirectoryError) as e:
+                            print(f"Error accessing {current}: {str(e)}")
+                        
+                        if not found:
+                            print(f"No match found for segment: {segment} in {current}")
+                            break
+            
+            if os.path.exists(built_path):
+                file_path = built_path
+                path_exists = True
+                print(f"Successfully resolved case-insensitive path: {built_path}")
+                
+                # Check for default files in the directory
+                if os.path.isdir(built_path):
+                    for default_file in ['_index.md', 'index.md', 'README.md']:
+                        default_path = os.path.join(built_path, default_file)
+                        if os.path.exists(default_path):
+                            file_path = default_path
+                            print(f"Found default file: {default_path}")
+                            break
+    
+    # If path still doesn't exist and it's a directory URL, try to check for markdown files
+    if not path_exists and url.endswith('/') and os.path.isdir(os.path.dirname(file_path)):
+        try:
+            md_files = [f for f in os.listdir(file_path) if f.endswith('.md')]
+            if md_files:
+                path_exists = True
+                file_path = os.path.join(file_path, md_files[0])  # Use the first markdown file found
+                print(f"Directory contains markdown files: {', '.join(md_files)}")
+            else:
+                print(f"Directory exists but contains no markdown files")
+        except PermissionError:
+            print(f"Permission error accessing directory: {file_path}")
+        except FileNotFoundError:
+            print(f"Directory doesn't exist: {file_path}")
     
     if path_exists:
         if is_svg:
@@ -481,79 +672,79 @@ def main():
         log.write(f"Runtime duration: {runtime_duration}\n\n")
         
         # Write broken sections first (most important)
-        log.write("=== Broken Absolute URLs ===\n\n")
+        log.write(f"=== Broken Absolute URLs ({len(broken_absolute_urls)} links found) ===\n\n")
         if broken_absolute_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_absolute_urls) + "\n\n")
         else:
             log.write("No broken absolute URLs found.\n\n")
         
-        log.write("=== Broken Relative URLs Without Anchors ===\n\n")
+        log.write(f"=== Broken Relative URLs Without Anchors ({len(broken_relative_urls_without_anchor)} links found) ===\n\n")
         if broken_relative_urls_without_anchor:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_relative_urls_without_anchor) + "\n\n")
         else:
             log.write("No broken relative URLs without anchors found.\n\n")
         
-        log.write("=== Broken Relative URLs With Anchors ===\n\n")
+        log.write(f"=== Broken Relative URLs With Anchors ({len(broken_relative_urls_with_anchor)} links found) ===\n\n")
         if broken_relative_urls_with_anchor:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_relative_urls_with_anchor) + "\n\n")
         else:
             log.write("No broken relative URLs with anchors found.\n\n")
         
-        log.write("=== Broken Root-Relative URLs ===\n\n")
+        log.write(f"=== Broken Root-Relative URLs ({len(broken_root_relative_urls)} links found) ===\n\n")
         if broken_root_relative_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_root_relative_urls) + "\n\n")
         else:
             log.write("No broken root-relative URLs found.\n\n")
         
-        log.write("=== Broken Image URLs ===\n\n")
+        log.write(f"=== Broken Image URLs ({len(broken_image_urls)} links found) ===\n\n")
         if broken_image_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_image_urls) + "\n\n")
         else:
             log.write("No broken image URLs found.\n\n")
         
-        log.write("=== Broken SVG URLs ===\n\n")
+        log.write(f"=== Broken SVG URLs ({len(broken_svg_urls)} links found) ===\n\n")
         if broken_svg_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_svg_urls) + "\n\n")
         else:
             log.write("No broken SVG URLs found.\n\n")
         
-        log.write("=== Broken Header Links ===\n\n")
+        log.write(f"=== Broken Header Links ({len(broken_header_urls)} links found) ===\n\n")
         if broken_header_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in broken_header_urls) + "\n\n")
         else:
             log.write("No broken header links found.\n\n")
         
-        log.write("=== OK Absolute URLs ===\n\n")
+        log.write(f"=== OK Absolute URLs ({len(ok_absolute_urls)} links found) ===\n\n")
         if ok_absolute_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_absolute_urls) + "\n\n")
         else:
             log.write("No absolute URLs found.\n\n")
         
-        log.write("=== OK Relative URLs ===\n\n")
+        log.write(f"=== OK Relative URLs ({len(ok_relative_urls)} links found) ===\n\n")
         if ok_relative_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_relative_urls) + "\n\n")
         else:
             log.write("No relative URLs found.\n\n")
         
-        log.write("=== OK Root-Relative URLs ===\n\n")
+        log.write(f"=== OK Root-Relative URLs ({len(ok_root_relative_urls)} links found) ===\n\n")
         if ok_root_relative_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_root_relative_urls) + "\n\n")
         else:
             log.write("No root-relative URLs found.\n\n")
         
-        log.write("=== OK Image URLs ===\n\n")
+        log.write(f"=== OK Image URLs ({len(ok_image_urls)} links found) ===\n\n")
         if ok_image_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_image_urls) + "\n\n")
         else:
             log.write("No image URLs found.\n\n")
         
-        log.write("=== OK SVG URLs ===\n\n")
+        log.write(f"=== OK SVG URLs ({len(ok_svg_urls)} links found) ===\n\n")
         if ok_svg_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_svg_urls) + "\n\n")
         else:
             log.write("No SVG URLs found.\n\n")
         
-        log.write("=== OK Header Links ===\n\n")
+        log.write(f"=== OK Header Links ({len(ok_header_urls)} links found) ===\n\n")
         if ok_header_urls:
             log.write("\n".join(strip_ansi_escape_codes(url) for url in ok_header_urls) + "\n\n")
         else:
