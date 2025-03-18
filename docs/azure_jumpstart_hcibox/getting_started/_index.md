@@ -5,6 +5,7 @@ isGettingStarted: false
 weight: 2
 ---
 # Evaluating Azure Local with HCIBox
+
 ## Getting started
 
 HCIBox is a turnkey solution that provides a complete sandbox for exploring [Azure Local](https://learn.microsoft.com/azure-stack/hci/whats-new) capabilities and hybrid cloud integration in a virtualized environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Local and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
@@ -33,9 +34,9 @@ HCIBox automatically creates and configures a two-node Azure Local instance usin
 
 HCIBox comes with [guest VM management in Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview). The HCIBox documentation will walk you through how to use this feature, including configuring VM images from Azure marketplace and creating VMs on your instance.
 
-### Azure Kubernetes Service on Azure Stack HCI
+### AKS enabled by Azure Arc on Azure Local
 
-Azure Stack HCI includes [Azure Kubernetes Services on Azure Local (AKS hybrid)](https://learn.microsoft.com/azure/aks/hybrid/) as part of the default configuration. A user script is provided that can be used to create a workload instance.
+Azure Local includes [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview) as part of the default configuration. A user script is provided that can be used to create a workload instance.
 
 ## HCIBox Azure Consumption Costs
 
@@ -43,7 +44,7 @@ HCIBox resources generate Azure Consumption charges from the underlying Azure re
 
 ## Deployment Options and Flow
 
-HCIBox supports [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) templates for both Azure CLI and [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) to deploy and configure necessary Azure resources.
+HCIBox supports [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) templates to deploy and configure necessary Azure resources.
 
 Deploying HCIBox is a multi-step process that includes:
 
@@ -56,7 +57,7 @@ Deploying HCIBox is a multi-step process that includes:
 
 ## Deploy HCIBox
 
-- [Deploy HCIBox with Azure CLI](../deployment_az/) : Requires pre-configured service principle.
+- [Deploy HCIBox with Azure Bicep](../deployment_az/) : Requires pre-configured service principal.
 
 Looking for something else related to HCIBox?
 

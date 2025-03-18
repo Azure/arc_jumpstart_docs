@@ -141,15 +141,18 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
   ```
 
 - Edit the [main.parameters.json](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_ag/contoso_hypermarket/bicep/main.parameters.json) template parameters file and supply some values for your environment.
-  - _`tenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
-  - _`deployBastion`_ - Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.
-  - _`fabricCapacityAdmin`_ - Microsoft Fabric capacity admin (admin user ins the same Entra ID tenant).
-  <!-- - _`deployGPUNodes`_ - Option to deploy GPU-enabled worker nodes for the K3s clusters. -->
-  - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU.
 
-  <!-- - _`k8sWorkerNodesSku`_ The K3s worker nodes VM SKU. If _`deployGPUNodes`_ is set to true, a GPU-enabled VM SKU needs to be provided in this parameter (Example: _`Standard_NV6ads_A10_v5`_). -->
+  | Name                    | Type     | Description                                                                                                           | Default |
+  |-------------------------|----------|-----------------------------------------------------------------------------------------------------------------------|---------|
+  | _`tenantId`_            | string   | Your Azure tenant id                                                                                                  |         |
+  | _`windowsAdminUsername`_| string   | Client Windows VM Administrator username                                                                              |  agora |
+  | _`windowsAdminPassword`_| string   | Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. |         |
+  | _`deployBastion`_       | boolean  | Option to deploy using Azure Bastion instead of traditional RDP. Set to _`true`_ or _`false`_.                        |  false   |
+  | _`fabricCapacityAdmin`_ | string   | Microsoft Fabric capacity admin (admin user in the same Entra ID tenant).                                             |         |
+  | _`k8sWorkerNodesSku`_   | string   | The K3s worker nodes VM SKU.                                                                                          |  Standard_D8s_v5    |
+  | _`customLocationRPOID`_ | string   | The Azure Custom Location Resource Provider Object ID                                                                                       |         |
+  | _`sshRSAPublicKey`_     | string   | Your SSH Public Key                                                                                                   |         |
+  | _`deployGPUNodes`_      | boolean  | Whether or not to deploy K3s worker nodes with GPUs. Set to _`true`_ or _`false`_.                                                                     | false   |
 
   ![Screenshot showing example parameters](./img/parameters_bicep.png)
 

@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Using HCIBox"
 isGettingStarted: false
-weight: 6
+weight: 5
 ---
 # Evaluating the HCIBox
 
@@ -18,9 +18,9 @@ HCIBox simulates a 2-node physical deployment of Azure Local by using [nested vi
 
 | Computer Name    | Role                                | Domain Joined | Parent Host     | OS                  |
 | ---------------- | ----------------------------------- | ------------- | --------------- | ------------------- |
-| _HCIBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2022 |
-| _AzSHOST1_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Local     |
-| _AzSHOST2_       | HCI node                            | Yes           | _HCIBox-Client_ | Azure Local     |
+| _HCIBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2025 |
+| _AzSHOST1_       | Azure Local machine                            | Yes           | _HCIBox-Client_ | Azure Local     |
+| _AzSHOST2_       | Azure Local machine                            | Yes           | _HCIBox-Client_ | Azure Local     |
 | _AzSMGMT_        | Nested hypervisor                   | No            | _HCIBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
 | _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
@@ -70,7 +70,7 @@ Azure Local supports [VM management through the Azure portal](https://learn.micr
 
 ## Azure Kubernetes Service (AKS)
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](../AKS/) to explore currently available features.
+HCIBox comes pre-configured with [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). Open the [Azure Kubernetes Service on your Azure Local HCIBox documentation](../AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Local](./cluster_detail.png)
 

@@ -8,13 +8,13 @@ weight: 7
 
 ## What is Jumpstart HCIBox?
 
-Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for exploring Azure Stack HCI capabilities and hybrid cloud integration in a virtual environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which makes it easy for users to get hands-on with Azure Stack HCI and Azure Arc technology without the need for physical hardware.
+Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for exploring Azure Local capabilities and hybrid cloud integration in a virtual environment. HCIBox is designed to be completely self-contained within a single Azure subscription and resource group, which makes it easy for users to get hands-on with Azure Local and Azure Arc technology without the need for physical hardware.
 
 > **Note:** For general questions about Arc Jumpstart please see the [Jumpstart FAQ](../../faq/).
 
 ## What is required to deploy HCIBox?
 
-HCIBox deployment requires an Azure service principal with Owner role-based access control (RBAC) on an Azure subscription and resource group. You can deploy HCIBox using Azure Bicep or the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview). A service principal is required to run the automation scripts that deploy and configure HCIBox features. You can view how the service principal is used by exploring the HCIBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
+HCIBox deployment requires an Azure service principal with Owner role-based access control (RBAC) on an Azure subscription and resource group and can be deployed using Azure Bicep. A service principal is required to run the automation scripts that deploy and configure HCIBox features. You can view how the service principal is used by exploring the HCIBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
 
 ## What Azure regions can HCIBox be deployed to?
 
@@ -31,7 +31,7 @@ HCIBox incurs normal Azure consumption charges for various Azure resources such 
 
 - [HCIBox cost estimate](https://aka.ms/HCIBoxCost)
 
-## Which versions of Azure Stack HCI does HCIBox support?
+## Which versions of Azure Local does HCIBox support?
 
 HCIBox uses the 23H2 build of the Azure Stack HCI OS.
 
