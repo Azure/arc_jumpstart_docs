@@ -211,10 +211,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot showing PowerShell logon script run](./16.png)
 
-    ![Screenshot showing PowerShell logon script run](./17.png)
-
-    ![Screenshot showing PowerShell logon script run](./18.png)
-
   Once the script finishes it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change, and the Azure Container Apps deployed on the cluster will be ready.
 
     ![Screenshot showing desktop wallpaper change](./19.png)
@@ -233,7 +229,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - In this scenario, a **[Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started)** was deployed to simulate **Front-end and 2 Back-end APIs on Azure Container Apps**. To open the deployed [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in your web browser, simply click the Container App resource and the Application URL.
 
-  ![Screenshot showing Store Container App in a resource group](./21.png)
+  ![Screenshot showing Hello World Container App in a resource group](./21.png)
 
   ![Screenshot showing the web application URL](./22.png)
 
@@ -241,7 +237,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 - Optionally, you can review the [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) configuration for the Container apps by navigating to the Dapr setting.
 
-  ![Screenshot showing Store Container App Dapr](./24.png)
+  ![Screenshot showing Hello World Container App Dapr](./24.png)
 
 ## Cluster extensions
 
@@ -268,7 +264,7 @@ In this scenario, the Log Analytics was configured with the Container Apps exten
     let EndTime = now();
     ContainerAppConsoleLogs_CL
     | where TimeGenerated between (StartTime .. EndTime)
-    | where ContainerAppName_s =~ "store"
+    | where ContainerAppName_s =~ "helloworld"
     ```
 
   ![Screenshot showing showing the Log Analytics workspace logs](./28.png)
