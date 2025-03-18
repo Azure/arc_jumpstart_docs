@@ -121,7 +121,7 @@ As mentioned, this deployment will leverage ARM templates.
     git clone https://github.com/microsoft/azure_arc.git
     ```
 
-- Edit the extensions parameters file for [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/archive/extensions/arm/customscript-templatewindows.parameters.json) or for [*Linux*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/archive/extensions/arm/customscript-templatelinux.parameters.json)
+- Edit the extensions parameters file for [*Windows*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/extensions/arm/customscript-templatewindows.parameters.json) or for [*Linux*](https://github.com/microsoft/azure_arc/blob/main/azure_arc_servers_jumpstart/extensions/arm/customscript-templatelinux.parameters.json)
 
    ![Screenshot parameters file](./07.png)
 
