@@ -762,46 +762,90 @@ def main():
         total_ok = len(ok_absolute_urls) + len(ok_relative_urls) + len(ok_root_relative_urls) + len(ok_image_urls) + len(ok_svg_urls) + len(ok_header_urls)
         total_links = total_broken + total_ok
         
-        # Calculate no links types BEFORE writing to log file
-        no_links_types = []
-        if len(broken_absolute_urls) == 0 and len(ok_absolute_urls) == 0:
-            no_links_types.append("Absolute URLs")
-        if len(broken_relative_urls_without_anchor) == 0 and len(broken_relative_urls_with_anchor) == 0 and len(ok_relative_urls) == 0:
-            no_links_types.append("Relative URLs")
-        if len(broken_root_relative_urls) == 0 and len(ok_root_relative_urls) == 0:
-            no_links_types.append("Root-relative URLs")
-        if len(broken_image_urls) == 0 and len(ok_image_urls) == 0:
-            no_links_types.append("Image URLs")
-        if len(broken_svg_urls) == 0 and len(ok_svg_urls) == 0:
-            no_links_types.append("SVG URLs")
-        if len(broken_header_urls) == 0 and len(ok_header_urls) == 0:
-            no_links_types.append("Header links")
+        # Updated categorization logic
+        no_links_types = []  # Categories with no links at all (neither broken nor OK)
+        zero_broken_types = []  # Categories with OK links but no broken links
+        broken_types = []  # Categories with broken links
         
+        # Absolute URLs
+        if len(broken_absolute_urls) == 0 and len(ok_absolute_urls) == 0:
+            no_links_types.append(("Absolute URLs", 0))
+        elif len(broken_absolute_urls) == 0:
+            zero_broken_types.append(("Absolute URLs", len(ok_absolute_urls)))
+        else:
+            broken_types.append(("Absolute URLs", len(broken_absolute_urls)))
+            
+        # Relative URLs without anchors and with anchors combined
+        if len(broken_relative_urls_without_anchor) == 0 and len(broken_relative_urls_with_anchor) == 0 and len(ok_relative_urls) == 0:
+            no_links_types.append(("Relative URLs", 0))
+        elif len(broken_relative_urls_without_anchor) == 0 and len(broken_relative_urls_with_anchor) == 0:
+            zero_broken_types.append(("Relative URLs", len(ok_relative_urls)))
+        else:
+            # Count broken relative URLs with and without anchors separately
+            if len(broken_relative_urls_without_anchor) > 0:
+                broken_types.append(("Relative URLs without anchors", len(broken_relative_urls_without_anchor)))
+            if len(broken_relative_urls_with_anchor) > 0:
+                broken_types.append(("Relative URLs with anchors", len(broken_relative_urls_with_anchor)))
+                
+        # Root-relative URLs
+        if len(broken_root_relative_urls) == 0 and len(ok_root_relative_urls) == 0:
+            no_links_types.append(("Root-relative URLs", 0))
+        elif len(broken_root_relative_urls) == 0:
+            zero_broken_types.append(("Root-relative URLs", len(ok_root_relative_urls)))
+        else:
+            broken_types.append(("Root-relative URLs", len(broken_root_relative_urls)))
+            
+        # Image URLs
+        if len(broken_image_urls) == 0 and len(ok_image_urls) == 0:
+            no_links_types.append(("Image URLs", 0))
+        elif len(broken_image_urls) == 0:
+            zero_broken_types.append(("Image URLs", len(ok_image_urls)))
+        else:
+            broken_types.append(("Image URLs", len(broken_image_urls)))
+            
+        # SVG URLs
+        if len(broken_svg_urls) == 0 and len(ok_svg_urls) == 0:
+            no_links_types.append(("SVG URLs", 0))
+        elif len(broken_svg_urls) == 0:
+            zero_broken_types.append(("SVG URLs", len(ok_svg_urls)))
+        else:
+            broken_types.append(("SVG URLs", len(broken_svg_urls)))
+            
+        # Header links
+        if len(broken_header_urls) == 0 and len(ok_header_urls) == 0:
+            no_links_types.append(("Header links", 0))
+        elif len(broken_header_urls) == 0:
+            zero_broken_types.append(("Header links", len(ok_header_urls)))
+        else:
+            broken_types.append(("Header links", len(broken_header_urls)))
+        
+        # Write summary to log file
         log.write(f"Link Validation Summary ({total_links} links checked):\n")
         
+        # Always show broken links section if there are any broken links
         if total_broken > 0:
             log.write(f"- Broken links: {total_broken}\n")
-            
-            # Always show all categories, not just those with broken links
-            log.write(f"  - Absolute URLs: {len(broken_absolute_urls)}\n")
-            log.write(f"  - Relative URLs without anchors: {len(broken_relative_urls_without_anchor)}\n")
-            log.write(f"  - Relative URLs with anchors: {len(broken_relative_urls_with_anchor)}\n")
-            log.write(f"  - Root-relative URLs: {len(broken_root_relative_urls)}\n")
-            log.write(f"  - Image URLs: {len(broken_image_urls)}\n")
-            log.write(f"  - SVG URLs: {len(broken_svg_urls)}\n")
-            log.write(f"  - Header links: {len(broken_header_urls)}\n")
+            # Only show categories that actually have broken links
+            for category, count in broken_types:
+                log.write(f"  - {category}: {count}\n")
         else:
             log.write("- Broken links: 0\n")
         
-        # Add no links found section to log file - same as console output
+        # Show categories with no links found
         if no_links_types:
             log.write(f"- No links found: {len(no_links_types)} categories\n")
-            for category in no_links_types:
+            for category, _ in no_links_types:
                 log.write(f"  - {category}\n")
+            
+        # Show categories with no broken links (but have OK links)
+        if zero_broken_types:
+            log.write(f"- Categories with no broken links: {len(zero_broken_types)}\n")
+            for category, count in zero_broken_types:
+                log.write(f"  - {category}: {count} OK links\n")
             
         log.write(f"- OK links: {total_ok}\n")
         
-        # Add final conclusion with emoji - same as console output
+        # Add final conclusion with emoji
         broken_links_found = bool(broken_absolute_urls or broken_relative_urls_without_anchor or broken_relative_urls_with_anchor or
                                  broken_root_relative_urls or broken_image_urls or broken_svg_urls or broken_header_urls)
         if broken_links_found:
@@ -886,41 +930,27 @@ def main():
     # Title in cyan (INFO color)
     print(f"\n{Colors.INFO}Link Validation Summary ({total_links} links checked):{Colors.ENDC}")
     
-    # Add categories with no links found to the no_links_types list
-    no_links_types = []
-    if len(broken_absolute_urls) == 0 and len(ok_absolute_urls) == 0:
-        no_links_types.append("Absolute URLs")
-    if len(broken_relative_urls_without_anchor) == 0 and len(broken_relative_urls_with_anchor) == 0 and len(ok_relative_urls) == 0:
-        no_links_types.append("Relative URLs")
-    if len(broken_root_relative_urls) == 0 and len(ok_root_relative_urls) == 0:
-        no_links_types.append("Root-relative URLs")
-    if len(broken_image_urls) == 0 and len(ok_image_urls) == 0:
-        no_links_types.append("Image URLs")
-    if len(broken_svg_urls) == 0 and len(ok_svg_urls) == 0:
-        no_links_types.append("SVG URLs")
-    if len(broken_header_urls) == 0 and len(ok_header_urls) == 0:
-        no_links_types.append("Header links")
-    
+    # Always show broken links section if there are any broken links
     if total_broken > 0:
         print(f"{Colors.FAIL}- Broken links: {total_broken}{Colors.ENDC}")
-        
-        # Always show all categories of broken links, even if count is 0
-        print(f"{Colors.FAIL if len(broken_absolute_urls) > 0 else Colors.INFO}  - Absolute URLs: {len(broken_absolute_urls)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_relative_urls_without_anchor) > 0 else Colors.INFO}  - Relative URLs without anchors: {len(broken_relative_urls_without_anchor)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_relative_urls_with_anchor) > 0 else Colors.INFO}  - Relative URLs with anchors: {len(broken_relative_urls_with_anchor)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_root_relative_urls) > 0 else Colors.INFO}  - Root-relative URLs: {len(broken_root_relative_urls)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_image_urls) > 0 else Colors.INFO}  - Image URLs: {len(broken_image_urls)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_svg_urls) > 0 else Colors.INFO}  - SVG URLs: {len(broken_svg_urls)}{Colors.ENDC}")
-        print(f"{Colors.FAIL if len(broken_header_urls) > 0 else Colors.INFO}  - Header links: {len(broken_header_urls)}{Colors.ENDC}")
+        # Only show categories that actually have broken links
+        for category, count in broken_types:
+            print(f"{Colors.FAIL}  - {category}: {count}{Colors.ENDC}")
     else:
         print(f"{Colors.INFO}- Broken links: 0{Colors.ENDC}")
         
-    # Display categories with no links found
+    # Show categories with no links found
     if no_links_types:
         print(f"{Colors.NEUTRAL}- No links found: {len(no_links_types)} categories{Colors.ENDC}")
-        for category in no_links_types:
+        for category, _ in no_links_types:
             print(f"{Colors.NEUTRAL}  - {category}{Colors.ENDC}")
-        
+    
+    # Show categories with no broken links (but have OK links)
+    if zero_broken_types:
+        print(f"{Colors.INFO}- Categories with no broken links: {len(zero_broken_types)}{Colors.ENDC}")
+        for category, count in zero_broken_types:
+            print(f"{Colors.INFO}  - {category}: {count} OK links{Colors.ENDC}")
+            
     print(f"{Colors.OKGREEN}- OK links: {total_ok}{Colors.ENDC}")
 
     # Determine if any broken links were found
