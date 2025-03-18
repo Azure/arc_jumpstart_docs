@@ -50,20 +50,63 @@ Or using the requirements file:
 pip install -r requirements.txt
 ```
 
+## 🐍 Python 3 Installation
+
+If you don't have Python 3 installed, here's how to install it on different operating systems:
+
+### Windows
+
+1. Download the latest Python installer from the [official Python website](https://www.python.org/downloads/windows/)
+2. Run the installer
+3. Make sure to check "Add Python to PATH" during installation
+4. Verify the installation by opening Command Prompt and typing:
+   ```
+   python --version
+   ```
+
+### macOS
+
+Using Homebrew (recommended):
+```bash
+brew install python
+```
+
+Or download the installer from the [official Python website](https://www.python.org/downloads/macos/)
+
+Verify the installation:
+```bash
+python3 --version
+```
+
+### Linux (Ubuntu/Debian)
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+Verify the installation:
+```bash
+python3 --version
+```
+
+### Linux (RHEL/CentOS/Fedora)
+
+```bash
+sudo dnf install python3 python3-pip
+```
+
+Verify the installation:
+```bash
+python3 --version
+```
+
 ## 🛠️ Manual Usage
 
 Run from the repository root:
 
 ```bash
-python scripts/python/url-checker/url-checker.py
-```
-
-Optional arguments:
-```
---verbose          Show more detailed output
---paths [PATH...]  Specify specific paths to check
---skip-external    Skip checking external URLs (faster)
---format [FORMAT]  Output format (text, json, csv)
+python3 scripts/python/url-checker/url-checker.py
 ```
 
 ## 🚂 Performance Optimization
