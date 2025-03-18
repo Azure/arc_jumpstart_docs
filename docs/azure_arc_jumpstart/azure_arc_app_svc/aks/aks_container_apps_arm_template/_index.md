@@ -235,10 +235,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
   ![Screenshot showing the web application open in a web browser](./23.png)
 
-- Optionally, you can review the [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) configuration for the Container apps by navigating to the Dapr setting.
-
-  ![Screenshot showing Hello World Container App Dapr](./24.png)
-
 ## Cluster extensions
 
 In this scenario, the Azure Container Apps extension was deployed and used throughout this scenario in order to deploy the Azure Container Apps infrastructure.
