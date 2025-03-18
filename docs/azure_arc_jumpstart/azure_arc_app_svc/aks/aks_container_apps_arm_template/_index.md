@@ -16,11 +16,7 @@ By the end of this scenario, you will have an Azure Kubernetes Service (AKS) clu
 
 The following Jumpstart scenario will guide you on how to run cloud-native application on [Azure Container Apps](https://azure.microsoft.com/products/container-apps/). The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps.
 
-In this scenario, you will deploy a [Container Apps environment](https://learn.microsoft.com/azure/container-apps/environment) and a 3-node container app running in Azure. The app leverages [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) to simplify service to service invocation.
-
-- Store - The store app is simulating  the store's frontend app by running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
-- Products API - This is simulating an API application  by running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
-- Inventory API - A simulation of an API application running the [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in a container.
+In this scenario, you will deploy a [Container Apps environment](https://learn.microsoft.com/azure/container-apps/environment) and a 'Hello World' container [app](https://learn.microsoft.com/azure/container-apps/get-started) running in Azure.
 
 ## Prerequisites
 
