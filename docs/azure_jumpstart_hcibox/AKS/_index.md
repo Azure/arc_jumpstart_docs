@@ -1,18 +1,18 @@
 ---
 type: docs
 linkTitle: "AKS on Azure Local"
-weight: 8
+weight: 7
 ---
 
 # Azure Kubernetes Service on your Azure Local HCIBox
 
-Azure Local can provide host infrastructure for [Azure Kubernetes Service clusters](https://learn.microsoft.com/azure-stack/aks-hci/). HCIBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
+Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). HCIBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
 
 ## Explore AKS on Azure Local
 
 HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
 
-  | Network details |                  |
+  | Network detail |        Value          |
   | ---------- | --------------------- |
   | Subnet     | 10.10.0.0/24          |
   | Gateway    | 10.10.0.1             |
@@ -78,4 +78,4 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
 ## Next steps
 
-Azure Kubernetes Service on Azure Local provides many more capabilities not directly covered here. Review the documentation to continue your journey with [AKS on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/).
+Azure Kubernetes Service on Azure Local provides many more capabilities not directly covered here. Review the documentation to continue your journey with [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview).

@@ -3,7 +3,7 @@ type: docs
 linkTitle: "Contoso Supermarket"
 weight: 4
 description: >-
-  Learn how Contoso Supermarket, a leading global retailer implement cloud to edge strategy while leveraging Azure Arc, IoT services, AKS hybrid, AI, and software distribution and data pipelines.
+  Learn how Contoso Supermarket, a leading global retailer implement cloud to edge strategy while leveraging Azure Arc, IoT services, AKS enabled by Azure Arc, AI, and software distribution and data pipelines.
 ---
 
 # Overview
