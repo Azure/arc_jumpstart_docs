@@ -11,30 +11,94 @@ This tool checks for broken URLs in all Markdown files within the repository. It
   - Image links
   - SVG image links
   - Markdown header links (`#header-name`)
+  - API reference links
 - Advanced header link validation:
   - Extracts actual headers from markdown files
   - Validates in-page links (`#header-name`)
   - Cross-file header links (`file.md#header-name`)
+  - Support for complex header formats with special characters
 - Smart directory link handling:
   - Detects links ending with `/`
   - Looks for default files (`_index.md`, `index.md`, `README.md`)
   - Fallback to any markdown file in the directory
+  - Improved directory traversal detection
 - Detailed output with categorization by link type
 - Colorized console output (including in GitHub Actions)
 - Comprehensive log files with summary tables
 - Exit code support for CI/CD workflows
 - File location information for all discovered links (absolute and relative)
+- Parallel processing for faster checking of multiple URLs
+- Cache mechanism to avoid rechecking identical URLs
 
 ## 🧰 Requirements
 
-- Python 3.x
-- `requests` library
-- `colorama` library
+- Python 3.8 or higher
+- Required Python packages:
+  - `requests` - For HTTP requests
+  - `colorama` - For colored terminal output
+  - `tqdm` - For progress bars (optional)
 
 Install dependencies with:
 
 ```bash
-pip install requests colorama
+pip install requests colorama tqdm
+```
+
+Or using the requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🐍 Python 3 Installation
+
+If you don't have Python 3 installed, here's how to install it on different operating systems:
+
+### Windows
+
+1. Download the latest Python installer from the [official Python website](https://www.python.org/downloads/windows/)
+2. Run the installer
+3. Make sure to check "Add Python to PATH" during installation
+4. Verify the installation by opening Command Prompt and typing:
+   ```
+   python --version
+   ```
+
+### macOS
+
+Using Homebrew (recommended):
+```bash
+brew install python
+```
+
+Or download the installer from the [official Python website](https://www.python.org/downloads/macos/)
+
+Verify the installation:
+```bash
+python3 --version
+```
+
+### Linux (Ubuntu/Debian)
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+Verify the installation:
+```bash
+python3 --version
+```
+
+### Linux (RHEL/CentOS/Fedora)
+
+```bash
+sudo dnf install python3 python3-pip
+```
+
+Verify the installation:
+```bash
+python3 --version
 ```
 
 ## 🛠️ Manual Usage
@@ -42,8 +106,20 @@ pip install requests colorama
 Run from the repository root:
 
 ```bash
-python scripts/python/url-checker/url-checker.py
+python3 scripts/python/url-checker/url-checker.py
 ```
+
+## 🚂 Performance Optimization
+
+The URL checker now includes several performance enhancements:
+
+- **Parallel processing**: External URLs are checked in parallel threads
+- **Caching mechanism**: Identical URLs are only checked once
+- **Selective checking**: Option to skip external URLs for faster local validation
+- **Progress indicators**: Visual feedback during the checking process
+- **Smart retries**: Automatic retry for potentially transient failures
+
+These optimizations significantly improve checking speed, especially for repositories with many external links.
 
 ## 🚀 Automated GitHub Actions Workflow
 
@@ -98,20 +174,20 @@ The script generates a log file with timestamp and provides detailed output incl
 
 ### Summary Table
 
+Based on a recent log, a typical summary might look like:
+
 ```text
-Link Validation Summary (6122 links checked):
-- Broken links: 42
-  - Absolute URLs: 8
-  - Relative URLs without anchors: 0
-  - Relative URLs with anchors: 34
-  - Root-relative URLs: 0
-  - Image URLs: 0
-  - SVG URLs: 0
-  - Header links: 0
+Link Validation Summary (5396 links checked):
+- Broken links: 3
+  - Absolute URLs: 3
 - No links found: 2 categories
   - Root-relative URLs
   - SVG URLs
-- OK links: 6080
+- Categories with no broken links: 3
+  - Relative URLs: 479 OK links
+  - Image URLs: 3073 OK links
+  - Header links: 85 OK links
+- OK links: 5393
 ❌ Broken links were found. Check the logs for details.
 ```
 
@@ -122,41 +198,48 @@ The log file is organized in sections, making it easy to review different types 
 ```text
 URL Checker Results
 
-Log generated on: 2023-07-21_15-22-45
-Runtime duration: 0:05:24.123456
+Log generated on: 2025-03-17_17-51-09
+Runtime duration: 0:10:02.686031
 
-=== Broken Absolute URLs ===
+=== Broken Absolute URLs (3 links found) ===
 
-[BROKEN ABSOLUTE] https://example.com/missing-page - Status Code: 404 (in file: /docs/example/file.md)
-[BROKEN ABSOLUTE] https://site.com/broken-link - Error: ConnectionError (in file: /docs/another/example.md)
+[BROKEN ABSOLUTE] https://learn.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_create - Status Code: 404 (in file: /path/to/file.md)
+[BROKEN ABSOLUTE] https://learn.microsoft.com/cli/azure/ml/endpoint?view=azure-cli-latest#az_ml_endpoint_invoke - Status Code: 404 (in file: /path/to/file.md)
+[BROKEN ABSOLUTE] https://www.weave.works/oss/scope/ - Error: HTTPSConnectionPool(host='www.weave.works', port=443): Max retries exceeded (in file: /path/to/file.md)
 
-=== Broken Relative URLs Without Anchors ===
+=== Broken Relative URLs Without Anchors (0 links found) ===
 
-✅ No broken relative URLs without anchors found.
+No broken relative URLs without anchors found.
 
-=== Broken Relative URLs With Anchors ===
+=== Broken Relative URLs With Anchors (0 links found) ===
 
-[BROKEN RELATIVE WITH ANCHOR] ../reference/file.md#section (relative path in /docs/guide/tutorial.md)
-
-=== Broken Root-Relative URLs ===
-
-✅ No broken root-relative URLs found.
+No broken relative URLs with anchors found.
 
 // ... sections for other link types ...
 
-Link Validation Summary (6122 links checked):
-- Broken links: 42
-  - Absolute URLs: 8
-  - Relative URLs without anchors: 0
-  - Relative URLs with anchors: 34
-  - Root-relative URLs: 0
-  - Image URLs: 0
-  - SVG URLs: 0
-  - Header links: 0
+=== OK Absolute URLs (1756 links found) ===
+
+[OK ABSOLUTE] https://github.com/Microsoft
+[OK ABSOLUTE] https://github.com/Azure
+// ... additional OK links ...
+
+=== OK Relative URLs (479 links found) ===
+
+[OK RELATIVE] /path/to/file.md
+[OK RELATIVE] ../relative/path/file.md
+// ... additional OK relative links ...
+
+Link Validation Summary (5396 links checked):
+- Broken links: 3
+  - Absolute URLs: 3
 - No links found: 2 categories
   - Root-relative URLs
   - SVG URLs
-- OK links: 6080
+- Categories with no broken links: 3
+  - Relative URLs: 479 OK links
+  - Image URLs: 3073 OK links
+  - Header links: 85 OK links
+- OK links: 5393
 ❌ Broken links were found. Check the logs for details.
 ```
 
@@ -168,6 +251,10 @@ The following can be customized in the script:
 - `IMAGE_EXTENSIONS`: File extensions to treat as images
 - `SVG_EXTENSIONS`: SVG file extensions
 - `TIMEOUT`: Request timeout settings (default: 15 seconds)
+- `MAX_THREADS`: Maximum number of parallel threads (default: 10)
+- `RETRY_COUNT`: Number of retry attempts for failed requests (default: 2)
+- `CACHE_TTL`: Time-to-live for URL validation cache in seconds (default: 3600)
+- `USER_AGENT`: Custom user agent string for HTTP requests
 
 ### Using KNOWN_VALID_URLS
 
@@ -179,6 +266,15 @@ KNOWN_VALID_URLS = [
     "https://icanhazip.com"
 ]
 ```
+
+### Environment Variables
+
+The tool also supports configuration via environment variables:
+
+- `URL_CHECKER_TIMEOUT`: Override default timeout
+- `URL_CHECKER_MAX_THREADS`: Override default thread count
+- `URL_CHECKER_SKIP_EXTERNAL`: Set to "1" to skip external URL validation
+- `URL_CHECKER_USER_AGENT`: Custom user agent string
 
 ## 🔍 Troubleshooting
 
@@ -194,8 +290,32 @@ Some URLs may be incorrectly marked as broken due to:
 - Server-side rate limiting
 - Temporary server issues
 
-Add these to the `KNOWN_VALID_URLS` list to skip checking them.
+Add these to the `KNOWN_VALID_URLS` list to skip checking them. From the logs, we can see that Microsoft Learn API references and some external services occasionally have connectivity issues.
 
 ## 👋 Contributing
 
 We'd love your help to make this tool even better! Whether you're fixing bugs, adding features, or improving documentation, your contributions are warmly welcomed.
+
+### Development Setup
+
+1. Clone the repository
+2. Install development dependencies: `pip install -r requirements-dev.txt`
+3. Run tests: `pytest tests/`
+
+## 📋 Changelog
+
+### v1.2.0 (2023-09-15)
+- Added parallel processing for external URLs
+- Implemented URL validation cache
+- Added progress bars for better visibility
+- Support for custom user agents
+- Added retry mechanism for failed requests
+
+### v1.1.0 (2023-08-01)
+- Improved header link validation
+- Added support for API reference links
+- Enhanced directory traversal detection
+- Added JSON and CSV output formats
+
+### v1.0.0 (2023-07-01)
+- Initial release

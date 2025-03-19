@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "VM Management"
-weight: 7
+weight: 6
 ---
 # Virtual machine provisioning with Azure Arc in your HCIBox
 

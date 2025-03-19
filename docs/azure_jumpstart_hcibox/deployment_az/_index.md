@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Azure Bicep Deployment"
 isGettingStarted: false
-weight: 4
+weight: 3
 ---
 
 # Deploy HCIBox infrastructure with Azure Bicep
@@ -12,6 +12,8 @@ weight: 4
 Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, you require a service principal by your Azure administrator for use with HCIBox. Read on to learn how to deploy HCIBox with Azure CLI.
 
 ### Prepare the environment
+
+> **Note:** HCIBox can be deployed in the East US, Australia East, Canada Central and West Europe Azure regions. Deploying in other regions will result in unexpected behavior or failures. It requires 32 ESv5-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy HCIBox. You can use the below Az CLI command to check your vCPU utilization.
 
 - Clone the Arc Jumpstart GitHub repository
 
@@ -28,8 +30,6 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
 - Login to AZ CLI using the *`az login`* command.
 
 - Ensure that you have selected the correct subscription you want to deploy HCIBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
-
-- **HCIBox requires 32 ESv5-series vCPUs** when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy HCIBox. You can use the below Az CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table
@@ -151,11 +151,9 @@ Example parameter-file:
 
   ![Screenshot showing bicep deploying](./bicep_deploying.png)
 
-    > **Note:** HCIBox can be deployed in East US, Australia East, Canada Central and West Europe. Deploying in other regions will result in unexpected behavior or failures.
-
 ## Start post-deployment automation
 
-Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the *HCIBox-Client* VM to continue the next phase of the deployment. [Continue in Cloud Deployment guide](../cloud_deployment/) for the next steps.
+Once your deployment is complete, you can open the Azure portal and see the initial HCIBox resources inside your resource group. Now you must remote into the *HCIBox-Client* VM to continue the next phase of the deployment. [Continue to learn how to deploy instance in Azure portal](../cloud_deployment/#azure-local-instance-validation-and-deployment-from-the-azure-portal) for the next steps.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
