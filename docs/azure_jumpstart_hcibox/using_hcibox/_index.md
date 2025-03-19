@@ -2,7 +2,7 @@
 type: docs
 linkTitle: "Using HCIBox"
 isGettingStarted: false
-weight: 6
+weight: 5
 ---
 # Evaluating the HCIBox
 
@@ -70,7 +70,7 @@ Azure Local supports [VM management through the Azure portal](https://learn.micr
 
 ## Azure Kubernetes Service (AKS)
 
-HCIBox comes pre-configured with [Azure Kubernetes Service on Azure Local](https://learn.microsoft.com/azure-stack/aks-hci/). Open the [HCIBox AKS-HCI documentation](../AKS/) to explore currently available features.
+HCIBox comes pre-configured with [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). Open the [Azure Kubernetes Service on your Azure Local HCIBox documentation](../AKS/) to explore currently available features.
 
 ![Screenshot showing AKS on Azure Local](./cluster_detail.png)
 

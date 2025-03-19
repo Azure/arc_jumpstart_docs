@@ -2,9 +2,9 @@
 type: docs
 linkTitle: "Connect to HCIBox"
 isGettingStarted: false
-weight: 5
+weight: 4
 ---
-# Connecting to HCIBox
+# Connect to HCIBox
 
 ## Start post-deployment automation
 
@@ -79,7 +79,7 @@ At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
-## Azure portal Azure Local instance validation and deployment
+## Azure Local instance validation and deployment from the Azure portal
 
 Azure Local uses a two-step process to create and register instances in Azure using an ARM template.
 
