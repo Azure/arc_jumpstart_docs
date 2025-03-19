@@ -3,7 +3,29 @@ type: docs
 title: "Microsoft Defender for Cloud"
 linkTitle: "Microsoft Defender for Cloud"
 weight: 6
-description: >
+category: "Jumpstart Scenario"
+websitesub_category: "Unified Operations"
+hero_product: "Azure Arc-enabled servers"
+products:
+ - "Azure Arc-enabled servers"
+ - "Defender for Cloud"
+description: "This document demonstrates how to connect Azure Arc-enabled servers to Microsoft Defender for Cloud to protect and secure on-premises and muti-cloud servers using Azure services."
+Videos:
+ - title: 'Azure Defender integration with Azure Arc enabled servers'
+   url: "https://youtu.be/PS5YLEOenik?si=b50zlfAsUDUucsD6"
+   description: "In this demo, we will show how to improve your security posture and get advanced threat protection for your Azure Arc enabled servers using Azure Defender"
+   author: "Jumpstart Lightening"
+date_created: "18/02/2022"
+date_updated: "18/02/2025"
+locale: "en-us"
+automation_url: "https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox"
+architecture_diagram: ""
+reading_time: "15 minutes"
+relate_documents:
+ - title: "Connect on-premises machines"
+ - url: "https://learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-machines"
+ - description: "Learn how to connect your non-Azure machines to Microsoft Defender for Cloud."
+ - author: "Microsoft Learn"
 ---
 
 ## Connect Azure Arc-enabled servers to Microsoft Defender for Cloud

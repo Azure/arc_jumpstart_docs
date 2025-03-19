@@ -2,6 +2,51 @@
 type: docs
 linkTitle: "ArcBox for IT Pros"
 weight: 3
+category: "Jumpstart Arcbox"
+websitesub_category: "Unified Operations"
+hero_product: "Azure Arc-enabled servers"
+products:
+ - "Azure Arc-enabled servers"
+ - "Azure Arc-enabled SQL Servers"
+ - "SSH for Arc-enabled servers"
+ - "Azure Monitor"
+ - "Defender for Cloud"
+ - "SSH Posture Control"
+ - "Arc-enabled SQL Server - Best practices assessment"
+ - "Arc-enabled SQL Server migration assessment"
+ - "Arc-enabled SQL Server - least privilege access"
+ - "Windows Server Management Enabled by Azure Arc"
+ - "Automanage Machine Configuration"
+ - "Azure Policy"
+description: "ArcBox for IT Pros is a special "flavor" of ArcBox that's intended for users who want to experience Azure Arc-enabled servers and Arc-enabled SQL Servers capabilities in a sandbox environment."
+Videos:
+ - title: 'Azure Arc Jumpstart - Accelerate your Azure Arc learning and experimentation!'
+   url: "https://www.youtube.com/watch?v=VvoZp69NiRk&t=242s"
+   description: "A dive into the Azure Arc Jumpstart and all its resources to help you learn and experiment with the many Azure Arc solutions"
+   author: "John Savill"
+ - title: 'Jumpstart ArcBox | PAY LESS, DO MORE!'
+   url: "https://www.youtube.com/watch?v=6zRk5I7c3k0&t=75s"
+   description: "New features and quality in this first 2025 release of Jumpstart ArcBox!"
+   author: "Jumpstart Lightening"
+ - title: 'Announcing ArcBox 2.0'
+   url: "https://www.youtube.com/watch?v=uGkFoZXRRnw&t=251s"
+   description: "In this special episode of Jumpstart Lightning, Dale and Lior talk about the newly announced Azure Arc Jumpstart ArcBox 2.0"
+   author: "Jumpstart Lightening"
+ - title: 'Introducing Jumpstart ArcBox 3.0'
+   url: "https://www.youtube.com/watch?v=PvzKleYwJoc&t=92s"
+   description: "ArcBox 3.0 is getting a facelift, and we are excited to share with the community all the new goodies we have in store"
+   author: "Jumpstart Lightening"
+date_created: "18/02/2022"
+date_updated: "18/02/2025"
+locale: "en-us"
+automation_url: "https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_arcbox"
+architecture_diagram: ""
+reading_time: "15 minutes"
+relate_documents:
+ - title: "Introducing ArcBox 3.0 General Availability"
+ - url: "https://techcommunity.microsoft.com/blog/azurearcblog/introducing-arcbox-3-0-general-availability/4217103"
+ - description: "Announcement of the general availability of ArcBox 3.0"
+ - author: "Techcommunity"
 ---
 
 # Jumpstart ArcBox for IT Pros
