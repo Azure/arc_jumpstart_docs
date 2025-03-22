@@ -226,7 +226,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   
   ![Screenshot showing additional Azure resources in the resource group](./20.png)
 
-- In this scenario, a **[Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started)** was deployed to simulate **Front-end and 2 Back-end APIs on Azure Container Apps**. To open the deployed [Quickstart sample application](https://learn.microsoft.com/azure/container-apps/get-started) in your web browser, simply click the Container App resource and the Application URL.
+- In this scenario, a 'Hello World' **[app](https://learn.microsoft.com/azure/container-apps/get-started)** was deployed as a container app. To open the deployed 'Hello World' [app](https://learn.microsoft.com/azure/container-apps/get-started) in your web browser, simply click the Container App resource and the Application URL.
 
   ![Screenshot showing Hello World Container App in a resource group](./21.png)
 
