@@ -240,9 +240,11 @@ In this scenario, the Azure Container Apps extension was deployed and used throu
 
 - In order to view cluster extensions, click on the Azure Arc-enabled Kubernetes resource Extensions settings.
 
-  ![Screenshot showing the Azure Arc-enabled Kubernetes resource](./25.png)
+  ![Screenshot showing the Azure Arc-enabled Kubernetes resource](./24.png)
 
-  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions settings](./26.png)
+  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions settings](./25.png)
+
+  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions](./26.png)
 
 ## View your application's diagnostics
 
@@ -262,9 +264,7 @@ In this scenario, the Log Analytics was configured with the Container Apps exten
     | where ContainerAppName_s =~ "helloworld"
     ```
 
-  ![Screenshot showing showing the Log Analytics workspace logs](./28.png)
-
-  ![Screenshot showing showing the Log Analytics workspace logs query](./29.png)
+  ![Screenshot showing showing the Log Analytics workspace logs query](./28.png)
 
     > **Note:** If there's an error when running a query, try again in 10-15 minutes. There may be a delay for Log Analytics to start receiving logs from the application.
 
@@ -272,4 +272,4 @@ In this scenario, the Log Analytics was configured with the Container Apps exten
 
 - If you want to delete the entire environment, simply delete the deployed resource group from the Azure portal.
 
-  ![Screenshot showing the Delete Azure resource group button](./30.png)
+  ![Screenshot showing the Delete Azure resource group button](./29.png)
