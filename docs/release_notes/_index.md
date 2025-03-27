@@ -7,6 +7,66 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## March 2025
+
+### Release highlights
+
+- [Jumpstart Agora - Contoso Motors v2 release](https://techcommunity.microsoft.com/blog/azurearcblog/jumpstart-agora---contoso-motors-v2/4397985)
+- [Jumpstart Gems March release](https://www.linkedin.com/posts/liorkamrat_azure-msftadvocate-mvpbuzz-activity-7310788209955721219-kHmm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAGRRdoBb4Olf2HriygmIqHP4lnX1xJe_hc)
+- HCIBox Client VM Windows Server 2025 support
+- ArcBox ARM APIs vBump
+- [Refactored "Deploy Azure Container Apps on AKS using an ARM Template" scenario](https://jumpstart.azure.com/azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template)
+- Numerous bug fixes for ArcBox, HCIBox, and Agora
+- 3 new Jumpstart Drops
+- 6 new Jumpstart Lightning videos
+- Several deprecated scenarios to streamline offerings
+  - All of Arc-enabled data services data controller vanilla scenarios 
+  - Arc-enabled SQL Managed Instance with Kubeadm using ARM Template
+  - Arc-enabled SQL Managed Instance with MicroK8s using ARM Template
+
+### Jumpstart ArcBox
+
+- [Feature Request: Migrate container images to MCR](https://github.com/microsoft/azure_arc/issues/2997)
+- [Bug / Issue: Remote Desktop hang when logging in to ArcBox and HCIBox Client VMs #3035](https://github.com/microsoft/azure_arc/issues/3035)
+- [Feature Request: Update NSG priorities #3048](https://github.com/microsoft/azure_arc/issues/3048)
+- [Feature Request: ArcBox - Update ARM API versions for ARM template and Bicep #3111](https://github.com/microsoft/azure_arc/issues/3111)
+
+### Jumpstart HCIBox
+
+- [Enhancement: HCIBox - Update Windows Server 2022 vhdx image to Windows Server 2025 #2709](https://github.com/microsoft/azure_arc/issues/2709)
+- [Feature Request: Internal governance automation potentially breaking HCIBox #2998](https://github.com/microsoft/azure_arc/issues/2998)
+- [Bug / Issue: Cant deploy Logical Network - error while running script #3002](https://github.com/microsoft/azure_arc/issues/3002)
+- [Bug / Issue: Remote Desktop hang when logging in to ArcBox and HCIBox Client VMs #3035](https://github.com/microsoft/azure_arc/issues/3035)
+- [Docs Feature: Make the regional and quote HCIBox disclaimer more visable #625](https://github.com/Azure/arc_jumpstart_docs/issues/625)
+
+### Jumpstart Agora
+
+- [Bug / Issue: Version '0.5.1b1' not found for extension 'azure-iot-ops' #2908](https://github.com/microsoft/azure_arc/issues/2908)
+- [Bug / Issue: Hypermarket Deployment Mistakenly Uses Motors Configuration #3001](https://github.com/microsoft/azure_arc/issues/3001)
+- [Feature Request: Update NSG priorities #3048](https://github.com/microsoft/azure_arc/issues/3048)
+
+### Jumpstart Scenarios
+
+- [Bug / Issue: Deploy container apps on AKS using an ARM Template #2906](https://github.com/microsoft/azure_arc/issues/2906)
+- [Bug / Issue: The system cannot find the file specified - Deploy a vanilla Azure Arc Data Controller in a directly connected mode on AKS using an ARM Template #2923](https://github.com/microsoft/azure_arc/issues/2923)
+- [Feature Request: Azure Arc-enabled data services - March Release #3125](https://github.com/microsoft/azure_arc/issues/3125)
+- [Docs Feature: Deprecate Arc-enabled data services Data Controller scenarios #595](https://github.com/Azure/arc_jumpstart_docs/issues/595)
+
+### Jumpstart Drops
+
+- [New: Azure Local Releases Tool](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Local%20Releases%20Tool)
+- [New: Azure Quick Review Tutorial](https://jumpstart.azure.com/azure_jumpstart_drops?drop=%20Azure%20Quick%20Review%20Tutorial)
+- [New: Azure Local Endpoints Codified](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Local%20Endpoints%20Codified)
+
+### Jumpstart Lightning
+
+- [Azure Device Registry and Storage | But can it HA?](https://youtu.be/NceN83tjaL4)
+- [Arc-enabled servers | Is it secured?](https://youtu.be/wqN57-_i1yY)
+- [I didn't know CloudCasa can do that](https://youtu.be/rsbmXajcmd0)
+- [Arc and Azure Benefits | Old servers?! DO IT!](https://youtu.be/L49XxTwutNw)
+- [SSH Posture Control | Not JUST Port 22](https://youtu.be/ddiHeWVo7kA)
+- [Litmus Edge with Azure IoT Operations | IT'S THE DATA!](https://youtu.be/RdS9GUPrZj0)
+
 ## February 2025
 
 ### Release highlights
@@ -38,6 +98,7 @@ weight: 6
 
 - [Enhancement: HCIBox - Add more location #2903](https://github.com/microsoft/azure_arc/issues/2903)
 - [Enhancement: Add resource provider registration prerequisite for HCIBox #480](https://github.com/Azure/arc_jumpstart_docs/issues/480)
+- [Bug / Issue: HCI autoDeployClusterResource validate fails with LcmController latest version #3133](https://github.com/microsoft/azure_arc/issues/3133)
 
 ### Jumpstart Agora
 
@@ -45,7 +106,8 @@ weight: 6
 
 ### Jumpstart Scenarios
 
-- [Feature: Azure Arc-enabled data services - Nov/Jan Release #2915](https://github.com/microsoft/azure_arc/issues/2915)
+- [Feature Request: Azure Arc-enabled data services - Feb Release #3003](https://github.com/microsoft/azure_arc/issues/3003)
+- [Feature Request: Azure Arc-enabled data services - Nov/Jan Release #2915](https://github.com/microsoft/azure_arc/issues/2915)
 - [Depreciation: Remove majority of Arc-enabled app services scenarios #507](https://github.com/Azure/arc_jumpstart_docs/issues/507)
 
 ### Jumpstart Drops
