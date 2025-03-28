@@ -44,6 +44,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
   ```powershell
     $providers = @(
+        "Microsoft.Compute",
         "Microsoft.Kubernetes",
         "Microsoft.KubernetesConfiguration",
         "Microsoft.ExtendedLocation",
@@ -66,6 +67,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
 
 ```shell
     providers=(
+        "Microsoft.Compute",
         "Microsoft.Kubernetes"
         "Microsoft.KubernetesConfiguration"
         "Microsoft.ExtendedLocation"
