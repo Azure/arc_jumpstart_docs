@@ -38,6 +38,8 @@ weight: 6
 - [Bug / Issue: Cant deploy Logical Network - error while running script #3002](https://github.com/microsoft/azure_arc/issues/3002)
 - [Bug / Issue: Remote Desktop hang when logging in to ArcBox and HCIBox Client VMs #3035](https://github.com/microsoft/azure_arc/issues/3035)
 - [Docs Feature: Make the regional and quote HCIBox disclaimer more visable #625](https://github.com/Azure/arc_jumpstart_docs/issues/625)
+- [Feature Request: Missing provider requirement](https://github.com/microsoft/azure_arc/issues/3138)
+- [Docs Feature: Missing provider requirement](https://github.com/Azure/arc_jumpstart_docs/issues/638)
 
 ### Jumpstart Agora
 
