@@ -68,7 +68,7 @@ configuration:
                     reply: |
                       Hello ${issueAuthor},
 
-                      Thank you for reporting this issue, A team member will review and triage it soon. All issues and pull requests are evaluated by the Arc Jumpstart team to determine next steps.
+                      Thank you for reporting this issue, a team member will review and triage it soon. All issues and pull requests are evaluated by the Arc Jumpstart team to determine next steps.
                       By submitting this issue request, you agree that your contributions will be licensed under the project's [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE) and you confirm that you've read and will abide by our [Code of Conduct](https://github.com/microsoft/azure_arc/blob/main/CODE_OF_CONDUCT.md).          
           - if:
               # Identifiy if the issue title contains the word "feature"
@@ -84,7 +84,7 @@ configuration:
                     reply: |
                       Hello ${issueAuthor},
 
-                      Thank you for your feature request, A team member will review it soon. All issues and pull requests are validated by the Arc Jumpstart team and must pass all validation checks before being merged.
+                      Thank you for your feature request, a team member will review it soon. All issues and pull requests are validated by the Arc Jumpstart team and must pass all validation checks before being merged.
                       By submitting this pull request, you agree that your contributions will be licensed under the [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE) license and you confirm that you've read and will abide by our [Code of Conduct](https://github.com/microsoft/azure_arc/blob/main/CODE_OF_CONDUCT.md).
 
       # ---------------------------------------------------------------------------
@@ -137,7 +137,7 @@ configuration:
             reply: |
                 Hello ${issueAuthor},
 
-                We've reopened this issue because you marked it as unresolved. We need more information from you or we identified it is not completely resolved.
+                We've reopened this issue because you marked it as unresolved. We need more information from you or we identified it is not completely resolved. 
 
                 Thank you for your collaboration!
 
@@ -264,39 +264,34 @@ configuration:
           reply: |
                 Hello ${issueAuthor},
 
-                We are sending you this friendly reminder because we haven't heard back from you in a while and we need more information about this issue to help address it. Please be sure to give us your input within the next **7 days**. If we don't hear back from you within **7 days** of this comment the issue will be automatically closed.
+                We're sending this friendly reminder because we haven't heard back from you in a while and we need more information about this issue to help address it. Please be sure to give us your input within the next **7 days**. If we don't hear back from you within **7 days** of this comment the issue will be automatically closed.
 
                 Thank you for your collaboration!
 
-    # ---------------------------------------------------------------------------
-    # AUTOMATED CLOSURE OF RESOLVED ISSUES
-    # After issues are marked as addressed, we wait 7 days before final closure
-    # to allow for any follow-up concerns from the author
-    # ---------------------------------------------------------------------------
     - description: Close issues that have not had any activity for 7 days and are labeled with Issue-Addressed
       # Auto-close resolved issues after waiting period for any objections
       frequencies:
       - hourly:
-          hour: 6  # Run daily at 6:00 UTC
+          hour: 6
       filters:
-      - isIssue    # Only target issues, not PRs
-      - isOpen     # Only consider open issues
+      - isIssue
+      - isOpen
       - hasLabel:
-          label: Issue-Addressed  # Issues marked as resolved by maintainers
+          label: Issue-Addressed
       - noActivitySince:
-          days: 7  # One week grace period for any objections
+          days: 7
       actions:
-      # Final notification before closure - lets author know they can still reopen if needed
+      # Final notification before closure
       - addReply:
           reply: |
                 Hello ${issueAuthor},
                 
-                Since you haven't asked that we "`/unresolve`" the issue, we'll close this out. If you believe further discussion is needed, please add a comment "`/unresolve`" to reopen the issue.
+                Since you haven’t asked that we "`/unresolve`" the issue, we’ll close this out. If you believe further discussion is needed, please add a comment "`/unresolve`" to reopen the issue.
 
                 Thank you for your collaboration!
 
       # Close the issue after waiting period
-      - closeIssue  # Final action in the issue lifecycle
+      - closeIssue
 
 # ---------------------------------------------------------------------------
 # ERROR HANDLING CONFIGURATION
