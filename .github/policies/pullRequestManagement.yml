@@ -76,7 +76,7 @@ configuration:
 
                 This pull request was made directly against the repository `main` branch, which we do not allow. We kindly ask you to update or open a new pull request against the [`canary`](https://github.com/Azure/arc_jumpstart_docs/tree/canary) branch instead. Please note that the `canary` branch serves as our integration environment where documentation changes are first reviewed, tested, and refined before being promoted to the main branch for official publication. This workflow ensures our documentation maintains high quality and consistency.
                 
-                We will be closing this pull request now. Thank you for your collaboration!
+                We will be closing this pull request now, thank you for your collaboration!
 
           - closePullRequest
 
