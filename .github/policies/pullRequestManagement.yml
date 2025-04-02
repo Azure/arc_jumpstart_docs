@@ -45,7 +45,7 @@ configuration:
 
                 This pull request does not update any files. Please review your commit history and resubmit.
 
-                We will be closing this pull request now!
+                We will be closing this pull request now, thank you for your collaboration!
 
           - closePullRequest
 
@@ -74,9 +74,11 @@ configuration:
               reply: |
                 Hello ${issueAuthor},
 
-                This pull request was made directly against the repository `main` branch, which we do not allow. We kindly ask you to update or open a new pull request against the [`canary`](https://github.com/Azure/arc_jumpstart_docs/tree/canary) branch instead. Please note that the `canary` branch serves as our integration environment where documentation changes are first reviewed, tested, and refined before being promoted to the main branch for official publication. This workflow ensures our documentation maintains high quality and consistency.
+                This pull request was made directly against the repository `main` branch, which we do not allow. We kindly ask you to update or open a new pull request against the [`canary`](https://github.com/Azure/arc_jumpstart_docs/tree/canary/docs) branch instead. Please note that the `canary` branch serves as our integration environment where documentation changes are first reviewed, tested, and refined before being promoted to the main branch for official publication. This workflow ensures our documentation maintains high quality and consistency.
                 
-                We will be closing this pull request now. Thank you for your collaboration!
+                We will be closing this pull request now.
+                
+                Thank you for your collaboration!
 
           - closePullRequest
 
@@ -105,7 +107,7 @@ configuration:
               reply: |
                 Hello ${issueAuthor},
 
-                Thank you for your pull request, a team member will review it soon. All pull requests are validated by the Arc Jumpstart team and must pass all validation checks before being merged.
+                Thank you for your pull request, a team member will review it soon. All issues and pull requests are validated by the Arc Jumpstart team and must pass all validation checks before being merged.
                 By submitting this pull request, you agree that your contributions will be licensed under the [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE) license and you confirm that you've read and will abide by our [Code of Conduct](https://github.com/microsoft/azure_arc/blob/main/CODE_OF_CONDUCT.md).
 
 # ---------------------------------------------------------------------------
