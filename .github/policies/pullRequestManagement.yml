@@ -40,7 +40,7 @@ configuration:
                 pattern: ^$
         then:
           - addReply:
-              reply: >-
+              reply: |
                 Hello ${issueAuthor},
 
                 This pull request does not update any files. Please review your commit history and resubmit.
