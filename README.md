@@ -8,7 +8,7 @@ Welcome to the Arc Jumpstart documentation repository! This repository is your g
   <img src="/img/logo/jumpstart.png" alt="Arc Jumpstart logo" width="320">
 </p>
 
-**Note:** This repository doesn't contain the source code for the automation scripts and tools of the Arc Jumpstart. The source code for Arc Jumpstart can be found in another [dedicated repository](https://aka.ms/JumpstartGitHubCode).
+**Note:** Test. This repository doesn't contain the source code for the automation scripts and tools of the Arc Jumpstart. The source code for Arc Jumpstart can be found in another [dedicated repository](https://aka.ms/JumpstartGitHubCode).
 
 ## What you'll find here
 
