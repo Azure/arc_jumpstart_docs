@@ -131,6 +131,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - Register necessary Azure resource providers by running the following commands.
 
   ```shell
+  az provider register --namespace Microsoft.Compute --wait
   az provider register --namespace Microsoft.Kubernetes --wait
   az provider register --namespace Microsoft.KubernetesConfiguration --wait
   az provider register --namespace Microsoft.ExtendedLocation --wait
@@ -630,7 +631,7 @@ Initiate the backup restore process
 
 ### ArcBox Azure Monitor workbook
 
-Open the [ArcBox Azure Monitor workbook documentation](/azure_jumpstart_arcbox/workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
+Open the [ArcBox Azure Monitor workbook documentation](../workbook/flavors/DataOps) and explore the visualizations and reports of hybrid cloud resources.
 
   ![Screenshot showing Azure Monitor workbook usage](./workbook.png)
 

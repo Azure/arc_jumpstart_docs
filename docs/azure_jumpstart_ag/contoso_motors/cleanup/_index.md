@@ -1,6 +1,6 @@
 ---
 type: docs
-weight: 8
+weight: 7
 title: Cleanup
 linkTitle: Cleanup
 ---
@@ -16,8 +16,6 @@ To clean up your deployment, simply delete the resource group using Azure CLI or
   ![Screenshot showing az group delete](./img/az_group_delete.png)
 
   ![Screenshot showing group delete from Azure portal](./img/portal_delete.png)
-
-  > **Note:** If you have manually configured Defender for Cloud, please refer to the [dedicated page](../arc_defender_servers/#cleanup) to clean up Defender for Cloud resources.
 
 ## Next steps
 

@@ -12,6 +12,6 @@ Contoso Hypermarket uses advanced monitoring and visualization tools, including 
 
 In-store, computer vision and point-of-sale data optimize product placement and employee efficiency, while customizable dashboards support data-driven decisions and trend analysis. This framework enhances resource optimization, ensures reliable system health, and delivers a seamless retail experience.
 
-- [Industrial assets health and Point-of-sale (PoS) assets health dashboards](assets/_index.md)
-- [Shopper insights dashboards and monitoring](shopper_insights/_index.md)
-- [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](infrastructure/_index.md)
+- [Industrial assets health and Point-of-sale (PoS) assets health dashboards](../observability/assets/)
+- [Shopper insights dashboards and monitoring](../observability/shopper_insights/)
+- [Infrastructure observability for Kubernetes and Arc-enabled Kubernetes](../observability/infrastructure/)

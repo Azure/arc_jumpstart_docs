@@ -10,7 +10,7 @@ description: >
 
 The following Jumpstart scenario will guide you on how to enable [Azure Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#:~:text=Azure%20Policy%20extends%20Gatekeeper%20v3,Kubernetes%20clusters%20from%20one%20place.) on an Azure Kubernetes Service (AKS) cluster that is projected as an Azure Arc connected cluster as well as how to create GitOps policy to apply on the cluster.
 
-> **Note:** This guide assumes you already deployed an AKS cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using either [ARM Template](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or [Terraform](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).**
+> **Note:** This guide assumes you already deployed an AKS cluster and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in an automated fashion using either [ARM Template](../../../../azure_arc_k8s/aks/aks_arm_template/) or [Terraform](../../../../azure_arc_k8s/aks/aks_terraform/).**
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ After few seconds, by running the the *`kubectl get pods -A`* command, you will 
 
 ## Deploy GitOps to Azure Arc Kubernetes cluster using Azure Policy
 
-Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm/) on each of your Azure Arc connected clusters, Azure Policy for Kubernetes allows to do the same on a broader scope (i.e subscription or resource group). That way, you can guarantee existing and newly added Azure Arc connected clusters to all have the same GitOps configuration and as a result, the same cluster baseline and/or application version deployed.
+Although you can [deploy GitOps configuration individually](../aks_gitops_helm/) on each of your Azure Arc connected clusters, Azure Policy for Kubernetes allows to do the same on a broader scope (i.e subscription or resource group). That way, you can guarantee existing and newly added Azure Arc connected clusters to all have the same GitOps configuration and as a result, the same cluster baseline and/or application version deployed.
 
 * Before assigning the policy, in the Azure portal, click the *Configuration* setting in your AKS connected cluster. Notice how no GitOps configurations are deployed.
 
@@ -206,7 +206,7 @@ Although you can [deploy GitOps configuration individually](/azure_arc_jumpstart
 
 Complete the following steps to clean up your environment.
 
-* Delete the AKS cluster as described in the [ARM Template teardown instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template/) or the [Terraform teardown instructions](/azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform/).
+* Delete the AKS cluster as described in the [ARM Template teardown instructions](../../../aks/aks_arm_template/) or the [Terraform teardown instructions](../../../aks/aks_terraform/).
 
 * From the Policy page in the Azure portal, remove the "[Preview]: Deploy GitOps to Kubernetes cluster" policy assignment from the cluster.
 

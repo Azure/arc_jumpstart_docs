@@ -8,7 +8,7 @@ description: >
 
 ## Configure disaster recovery in Azure Arc-enabled SQL Managed Instance on AKS using an ARM Template
 
-The following Jumpstart scenario will guide you on how to deply a "Ready to Go" environment so you can configure [disaster recovery](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-disaster-recovery) using [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) and [SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) deployed on [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/dr/intro-kubernetes) cluster using an [Azure ARM Template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
+The following Jumpstart scenario will guide you on how to deply a "Ready to Go" environment so you can configure [disaster recovery](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-disaster-recovery) using [Azure Arc-enabled data services](https://learn.microsoft.com/azure/azure-arc/data/overview) and [SQL Managed Instance](https://learn.microsoft.com/azure/azure-arc/data/managed-instance-overview) deployed on [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/ha-dr-overview) cluster using an [Azure ARM Template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview).
 
 By the end of this guide, you will have two Azure Kubernetes Service (AKS) clusters deployed in two separate Azure virtual networks with two Azure Arc-enabled SQL Managed Instances deployed on both clusters, disaster recovery architecture configured between the two sites, and a Microsoft Windows Server 2022 (Datacenter) Azure client VM, installed & pre-configured with all the required tools needed to work with Azure Arc-enabled data services:
 
@@ -123,7 +123,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
-    > **Note:** This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](/azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha/) scenario.
+    > **Note:** This scenario goes through the capability to failover one Azure Arc-enabled SQL Managed Instance to another instance on a different cluster. If you would like to learn about high availability within the same cluster, you can check our Jumpstart [SQL Managed Instance Availability Groups Failover](../aks_mssql_ha/) scenario.
 
 - To deploy the ARM template, navigate to the local cloned [deployment folder](https://github.com/microsoft/azure_arc/blob/main/azure_arc_data_jumpstart/aks/DR/ARM) and run the below command:
 
@@ -288,7 +288,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 In this scenario, two Azure Arc-enabled Kubernetes cluster extensions were installed:
 
-- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](/azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor/) scenario.
+- _azuremonitor-containers_ - The Azure Monitor Container Insights cluster extension. To learn more about it, you can check our Jumpstart ["Integrate Azure Monitor for Containers with AKS as an Azure Arc Connected Cluster using Kubernetes extensions](../../../../azure_arc_k8s/day2/aks/aks_monitor/) scenario.
 
 - _arc-data-services_ - The Azure Arc-enabled data services cluster extension that was used throughout this scenario in order to deploy the data services infrastructure.
 

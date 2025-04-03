@@ -7,10 +7,9 @@ summary: |
     Infrastructure observability plays a crucial role in the success of Contoso Motors' cloud to edge strategy. By implementing infrastructure observability, Contoso gains comprehensive monitoring and visualization capabilities for their Kubernetes and Arc-enabled Kubernetes environments. This empowers them to proactively monitor the health and performance of their infrastructure, identify potential issues, and make data-driven decisions to optimize their operations. With infrastructure observability, Contoso can ensure that their cloud and edge infrastructure remain reliable, efficient, and resilient, enabling them to deliver exceptional customer experiences.
 serviceOrPlatform: INFRASTRUCTURE
 technologyStack:
-  - AKS
   - PROMETHEUS
   - GRAFANA
-  - AKS EDGE ESSENTIALS
+  - Rancher K3s
 ---
 
 # Kubernetes infrastructure observability
@@ -27,7 +26,7 @@ By leveraging Prometheus and Grafana for infrastructure observability, Contoso e
 
 The observability infrastructure stack architecture leverages the [Kube Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack). This stack is a collection of Kubernetes manifests, Grafana dashboards, and Prometheus rules that are used to set up and configure monitoring for Kubernetes clusters.
 
-The manufacturing plants deploy Prometheus instances, which periodically scrape metrics from the AKS edge essentials cluster. A Grafana instance is set up separately to centralize monitoring and visualization. The Prometheus instances send their metrics data to this central Grafana instance. Grafana dashboards are configured to display relevant metrics, allowing operators and administrators to monitor the health and performance of the entire infrastructure.
+The manufacturing plants deploy Prometheus instances, which periodically scrape metrics from the Rancher K3s cluster. A Grafana instance is set up separately to centralize monitoring and visualization. The Prometheus instances send their metrics data to this central Grafana instance. Grafana dashboards are configured to display relevant metrics, allowing operators and administrators to monitor the health and performance of the entire infrastructure.
 
 ![Screenshot showing Observability infrastructure stack architecture](./img/observability_technology_stack.png)
 
@@ -91,4 +90,4 @@ As an Operations team member at Contoso, you will have access to the Grafana das
 
 ## Next steps
 
-Continuing with the next Contoso Motors scenario, you can now proceed to the next guide to learn about [infrastructure observability for Arc-enabled servers using Azure Monitor](../arc_monitoring_servers/).
+Now that you have successfully completed all of the Contoso Motors scenarios, continue to the next step to learn how to [cleanup the deployment](../cleanup/).

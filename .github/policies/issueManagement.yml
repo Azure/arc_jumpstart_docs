@@ -1,0 +1,303 @@
+# ===========================================================================
+# GitHub Repository Issue Management Policy
+# ===========================================================================
+id: 
+name: GitOps.PullRequestIssueManagement
+description: Handlers for when an issue is first opened
+owner: Arc Jumpstart
+resource: repository
+disabled: false
+where:
+configuration:
+  resourceManagementConfiguration:
+    # ===========================================================================
+    # EVENT RESPONDER TASKS
+    # Defines automated actions triggered by specific GitHub events
+    # ===========================================================================
+    eventResponderTasks:
+      # ---------------------------------------------------------------------------
+      # NEW ISSUE MANAGEMENT
+      # Handles initial triage and labeling of new issues
+      # ---------------------------------------------------------------------------
+      - description: When an issue is opened, Identifiy if the issue title contains the word "bug" or "feature" and post a message to the author
+        if:
+          - payloadType: Issues
+          - isAction:
+              action: Opened
+        then:
+          # Add Needs-Triage label to new issues
+          - addLabel:
+              label: Needs-Triage
+          # Apply project-specific labels based on issue title keywords
+          - if:
+              # Identifiy if the issue title contains the word "arcbox"
+              - titleContains:
+                    pattern: "(?i)arcbox"
+                    isRegex: true
+            then:
+                - addLabel:
+                    label: ArcBox
+          - if:
+              # Identifiy if the issue title contains the word "hcibox"
+              - titleContains:
+                    pattern: "(?i)hcibox"
+                    isRegex: true
+            then:
+                - addLabel:
+                    label: HCIBox
+          - if:
+              # Identifiy if the issue title contains the word "agora"
+              - titleContains:
+                    pattern: "(?i)agora"
+                    isRegex: true
+            then:
+                - addLabel:
+                    label: Agora
+          
+          - if: 
+              # Identifiy if the issue title contains the word "bug"
+              - titleContains:
+                    pattern: "(?i)bug"
+                    isRegex: true
+            then:
+                # Add Bug-Issue label to issues with the word "bug" in the title
+                - addLabel:
+                    label: Bug-Issue
+                # Add a reply to the issue author
+                - addReply:
+                    reply: |
+                      Hello ${issueAuthor},
+
+                      Thank you for reporting this issue, a team member will review and triage it soon. All issues and pull requests are evaluated by the Arc Jumpstart team to determine next steps.
+                      By submitting this issue request, you agree that your contributions will be licensed under the project's [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE) and you confirm that you've read and will abide by our [Code of Conduct](https://github.com/microsoft/azure_arc/blob/main/CODE_OF_CONDUCT.md).          
+          - if:
+              # Identifiy if the issue title contains the word "feature"
+              - titleContains:
+                    pattern: "(?i)feature"
+                    isRegex: true
+            then:
+                # Add Feature-Request label to issues with the word "feature" in the title
+                - addLabel:
+                    label: Feature-Request
+                # Add a reply to the feature request author    
+                - addReply:
+                    reply: |
+                      Hello ${issueAuthor},
+
+                      Thank you for your feature request, a team member will review it soon. All issues and pull requests are validated by the Arc Jumpstart team and must pass all validation checks before being merged.
+                      By submitting this pull request, you agree that your contributions will be licensed under the [MIT license](https://github.com/microsoft/azure_arc/blob/main/LICENSE-CODE) license and you confirm that you've read and will abide by our [Code of Conduct](https://github.com/microsoft/azure_arc/blob/main/CODE_OF_CONDUCT.md).
+
+      # ---------------------------------------------------------------------------
+      # ISSUE LIFECYCLE MANAGEMENT
+      # Handles issue closing, reopening, and duplicate detection
+      # ---------------------------------------------------------------------------
+      - description: Clear labels when an issue is closed
+        # Auto-cleanup - removes working labels and adds resolution label
+        triggerOnOwnActions: false
+        if:
+        - payloadType: Issues
+        - isAction:
+            action: Closed
+        then:
+        - removeLabel:
+            label: Needs-Triage
+        - removeLabel:
+            label: Needs-Attention
+        - removeLabel: 
+            label: Needs-Author-Feedback    
+        - addLabel:
+            label: Issue-Addressed
+        - addReply:
+            reply: |
+                Hello ${issueAuthor},
+
+                We've closed this issue because it has been addressed. If you believe further discussion is needed, please add a comment "`/unresolve`" to reopen the issue.
+
+                Thank you for your collaboration!
+
+      - description: Reopen unresolved issues
+        # Triggered by the keyword "/unresolve" in comments
+        triggerOnOwnActions: false
+        if:
+        - payloadType: Issue_Comment
+        - and:
+            - commentContains:
+                pattern: "(?i)unresolve"
+                isRegex: True
+        then:
+        - removeLabel:
+            label: Issue-Addressed
+        - removeLabel:
+            label: Resolution-Duplicate
+        - removeLabel:
+            label: No-Recent-Activity
+        - addLabel:
+            label: Needs-Author-Feedback
+        - addReply:
+            reply: |
+                Hello ${issueAuthor},
+
+                We've reopened this issue because you marked it as unresolved. We need more information from you or we identified it is not completely resolved. 
+
+                Thank you for your collaboration!
+
+        - reopenIssue
+
+      - description: Add needs attention label to reopened issues
+        # Ensures reopened issues get proper attention from maintainers
+        triggerOnOwnActions: false
+        if:
+        - payloadType: Issues
+        - isAction:
+            action: Reopened
+        then:
+        # Clear resolution labels when an issue is reopened
+        - removeLabel:
+            label: Issue-Addressed
+        - removeLabel:
+            label: Resolution-Duplicate            
+        # Mark for team attention
+        - addLabel:
+            label: Needs-Attention
+        - addReply:
+            reply: |
+                Hello ${issueAuthor},
+
+                We've reopened this issue because we need more information from you or we identified it is not completely resolved.
+
+                Thank you for your collaboration!
+
+      # ---------------------------------------------------------------------------
+      # DUPLICATE ISSUE HANDLING
+      # Manages issues identified as duplicates in comments
+      # ---------------------------------------------------------------------------
+      - description: Add Resolution-Duplicate label to issues or PRs that are identified as duplicates
+        triggerOnOwnActions: false
+        if:
+        - payloadType: Issue_Comment
+        - and:
+            # Look for various forms of "duplicate" in comments
+            - commentContains:
+                pattern: "(?i)duplicat(e|ed|ing)?"
+                isRegex: True
+        then:
+        - addReply:
+            reply: |
+                Hello ${issueAuthor},
+
+                We've identified this as a duplicate of another issue or PR that already exists. This specific instance is being closed in favor of the linked issue. Please add your 👍 to the other issue to raise its priority.
+
+                Thank you for your collaboration!
+
+        - closeIssue
+        # Remove all working labels
+        - removeLabel:
+            label: Needs-Triage
+        - removeLabel:
+            label: Needs-Attention
+        - removeLabel:
+            label: Needs-Feedback-Hub
+        - removeLabel:
+            label: Needs-Author-Feedback
+        # Add resolution label
+        - addLabel:
+            label: Resolution-Duplicate
+ 
+    # ===========================================================================
+    # SCHEDULED SEARCHES
+    # Periodic tasks that run on defined schedules to maintain repository hygiene
+    # ===========================================================================
+    scheduledSearches:
+    # ---------------------------------------------------------------------------
+    # STALE ISSUE MANAGEMENT
+    # Automatically closes issues that need feedback but have no activity
+    # ---------------------------------------------------------------------------
+    - description: Close stale issues. Issues that have not had any activity for 7 days and are labeled with Needs-Author-Feedback and No-Recent-Activity will be closed.
+      frequencies:
+      - hourly:
+          hour: 6
+      filters:
+      # Only target issues that are open and need author feedback
+      # Exclude issues that are labeled with Feature-Request or Upstream-Bug-Issue    
+      - isIssue
+      - isOpen
+      - hasLabel:
+          label: Needs-Author-Feedback
+      - hasLabel:
+          label: No-Recent-Activity
+      # Exclude issues that may need longer response times
+      - isNotLabeledWith:
+          label: Feature-Request
+      - isNotLabeledWith:
+          label: Upstream-Bug-Issue             
+      - noActivitySince:
+          days: 7
+      actions:
+      - closeIssue
+      # Add closure label for tracking
+      - addLabel:
+          label: Close-Stale
+      # Remove triage label as it's no longer needed
+      - removeLabel:
+          label: Needs-Triage
+
+    - description: Add No-Recent-Activity label to issues that have not had any activity for 7 days
+      # First warning stage before closing stale issues
+      frequencies:
+      - hourly:
+          hour: 6
+      filters:
+      - isIssue
+      - isOpen
+      - hasLabel:
+          label: Needs-Author-Feedback
+      - noActivitySince:
+          days: 7
+      - isNotLabeledWith:
+          label: No-Recent-Activity
+      actions:
+      # Mark as inactive
+      - addLabel:
+          label: No-Recent-Activity
+      # Notify author with clear timeline for resolution
+      - addReply:
+          reply: |
+                Hello ${issueAuthor},
+
+                We're sending this friendly reminder because we haven't heard back from you in a while and we need more information about this issue to help address it. Please be sure to give us your input within the next **7 days**. If we don't hear back from you within **7 days** of this comment the issue will be automatically closed.
+
+                Thank you for your collaboration!
+
+    - description: Close issues that have not had any activity for 7 days and are labeled with Issue-Addressed
+      # Auto-close resolved issues after waiting period for any objections
+      frequencies:
+      - hourly:
+          hour: 6
+      filters:
+      - isIssue
+      - isOpen
+      - hasLabel:
+          label: Issue-Addressed
+      - noActivitySince:
+          days: 7
+      actions:
+      # Final notification before closure
+      - addReply:
+          reply: |
+                Hello ${issueAuthor},
+                
+                Since you haven’t asked that we "`/unresolve`" the issue, we’ll close this out. If you believe further discussion is needed, please add a comment "`/unresolve`" to reopen the issue.
+
+                Thank you for your collaboration!
+
+      # Close the issue after waiting period
+      - closeIssue
+
+# ---------------------------------------------------------------------------
+# ERROR HANDLING CONFIGURATION
+# Defines what happens when policy execution succeeds or fails
+# ---------------------------------------------------------------------------
+onFailure:
+  # Can be configured to notify admins or log errors
+onSuccess:
+  # Can be configured to perform actions upon successful execution

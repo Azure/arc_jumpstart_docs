@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Troubleshooting"
-weight: 9
+weight: 8
 ---
 # Troubleshooting HCIBox
 
@@ -9,11 +9,11 @@ weight: 9
 
 Occasionally deployments of HCIBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid service principal id, service principal secret, or service principal Azure tenant ID provided in _main.parameters.json_ file. This can cause failures when running automation that requires logging into Azure, such as the scripts that register the Azure Local instance, deploy AKS Hybrid, or configure Arc Resource Bridge.
-- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 32 available. See the [prerequisites](/azure_jumpstart_hcibox/getting_started/#prerequisites) section for more details.
+- Invalid service principal id, service principal secret, or service principal Azure tenant ID provided in the _main.bicepparam_ Bicep template file. This can cause failures when running automation that requires logging into Azure, such as the scripts that register the Azure Local instance, deploy AKS enabled by Azure Arc cluster, or configure Arc Resource Bridge.
+- Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 32 available. See the [prerequisites](../getting_started/#prerequisites) section for more details.
 - Corruption when downloading HCIBox VHD files can interrupt deployments. HCIBox should automatically halt if this occurs. Re-running the PowerShell script at _C:\HCIBox\HCIBoxLogonScript.ps1_ can often repair this issue.
 
-If you have issues that you cannot resolve when deploying HCIBox please submit an issue on the [Github repo](https://github.com/microsoft/azure_arc/issues)
+If you have issues that you cannot resolve when deploying HCIBox please submit an issue on the [GitHub repo](https://github.com/microsoft/azure_arc/issues)
 
 ### Exploring logs from the _HCIBox-Client_ virtual machine
 

@@ -14,11 +14,11 @@ In this scenario, you will deploy [nginx-ingress controller](https://kubernetes.
 
 GitOps on Azure Arc-enabled Kubernetes uses [Flux](https://fluxcd.io/docs/), a popular open-source toolset. Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories) and automating updates to the configuration when there is new code to deploy. The Flux toolkit component Helm Controller is a Kubernetes operator, allowing one to declaratively manage Helm chart releases with Kubernetes manifests. The Operator is aware of the “HelmRelease” Custom Resource Definition (CRD). This _HelmRelease_ points to a helm chart in a git repo and can optionally contain specific values to input into the helm chart.
 
-> **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/).
+> **Note:** This guide assumes you already deployed MicroK8s and connected it to Azure Arc. If you haven't, this repository offers you a way to do so in the [MicroK8s onboarding guide](../../../microk8s/local_microk8s/).
 
 ## Prerequisites
 
-- Fork the [Arc Jumpstart Apps](https://github.com/microsoft/azure-arc-jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
+- Fork the [Arc Jumpstart Apps](https://github.com/Azure/jumpstart-apps) repository. In this scenario, you will be making changes on your own forked repository to initiate the GitOps flow.
 
 - (Optional) Install the "Tab Auto Refresh" extension for your browser. This will help you to show the real-time changes on the application in an automated way.
 
@@ -205,7 +205,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
   - Login to your Azure subscription using the SPN credentials
   - Retrieve the cluster credentials (KUBECONFIG)
-  - Create the GitOps configuration to deploy the Flux controllers and the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/hello-arc) application alongside an Ingress rule to make it available from outside the cluster
+  - Create the GitOps configuration to deploy the Flux controllers and the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) application alongside an Ingress rule to make it available from outside the cluster
 
     > **Disclaimer:** For the purpose of this guide, notice how the "_sync-interval 3s_" is set. The 3 seconds interval is useful for demo purposes since it will make the sync interval rapidly track changes on the repository but it is recommended to have a longer interval in your production environment (the default value is 5min).
 
@@ -251,7 +251,7 @@ To create the GitOps configuration and it's respective Kubernetes resources, we'
 
 - The GitOps flow works as follow:
 
-    1. The Flux operator holds the "desired state" for the "Hello Arc" Helm release, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/microsoft/azure-arc-jumpstart-apps/blob/main/hello-arc) application repository.
+    1. The Flux operator holds the "desired state" for the "Hello Arc" Helm release, this is the configuration we deployed against the Azure Arc connected cluster. The operator "polls" the state of the ["Hello Arc"](https://github.com/Azure/jumpstart-apps/tree/main/arcbox/hello_arc) application repository.
 
     2. Changing the application, which is considered to be a new version of it, will trigger the Flux operator to kick in the GitOps flow.
 
@@ -313,4 +313,4 @@ To delete the GitOps configuration and it's respective Kubernetes resources, we'
 
     ![Cleanup script in terminal](./24.png)
 
-- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](/azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s/#delete-the-deployment) in the onboarding guide.
+- If you also wish to remove the local MicroK8s cluster and the Arc connected cluster from Azure, please refer to the [Delete the Deployment section](../../../microk8s/local_microk8s/#delete-the-deployment) in the onboarding guide.

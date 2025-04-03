@@ -16,11 +16,7 @@ By the end of this scenario, you will have an Azure Kubernetes Service (AKS) clu
 
 The following Jumpstart scenario will guide you on how to run cloud-native application on [Azure Container Apps](https://azure.microsoft.com/products/container-apps/). The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps.
 
-In this scenario, you will deploy a [Container Apps environment](https://learn.microsoft.com/azure/container-apps/environment) and a 3-node container app running in Azure. The app leverages [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) to simplify service to service invocation.
-
-- Store - The store app is the store's frontend app, running a [Blazor Server project](https://learn.microsoft.com/dotnet/architecture/blazor-for-web-forms-developers/introduction) that reaches out to the backend APIs.
-- Products API - This API is a [Swagger UI-enabled API](https://swagger.io/tools/swagger-ui/) that hands back product names and IDs to callers.
-- Inventory API - A simple API that provides a random number for a given product ID string. The values of each string/integer pair are stored in a memory cache so they are consistent between API calls.
+In this scenario, you will deploy a [Container Apps environment](https://learn.microsoft.com/azure/container-apps/environment) and a 'Hello World' container [app](https://learn.microsoft.com/azure/container-apps/get-started) running in Azure.
 
 ## Prerequisites
 
@@ -111,13 +107,7 @@ As mentioned, this deployment will leverage ARM templates. You will deploy a sin
   - _`windowsAdminUsername`_ - Client Windows VM Administrator username
   - _`windowsAdminPassword`_ - Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long.
   - _`logAnalyticsWorkspaceName`_ - Unique name for the deployment log analytics workspace.
-  - _`deployContainerApps`_ - Boolean that sets whether or not to deploy Azure Container Apps environment and a Web App. For this scenario, we leave it set to *`true`*.
-  - _`deployAppService`_ - Boolean that sets whether or not to deploy App Service plan and a Web App. For this scenario, we leave it set to *`false`*.
-  - _`deployFunction`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Function application. For this scenario, we leave it set to *`false`*.
-  - _`deployAPIMgmt`_ - Boolean that sets whether or not to deploy a self-hosted Azure API Management gateway.  For this scenario, we leave it set to *`false`*.
-  - _`deployLogicApp`_ - Boolean that sets whether or not to deploy App Service plan and an Azure Logic App. For this scenario, we leave it set to *`false`*.
   - _`templateBaseUrl`_ - GitHub URL to the deployment template - filled in by default to point to [Microsoft/Azure Arc](https://aka.ms/JumpstartGitHubCode) repository, but you can point this to your forked repo as well.
-  - _`adminEmail`_ - an email address that will be used on the Azure API Management deployment to receive all system notifications.
   - _`deployBastion`_ - Choice (true | false) to deploy [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or not to connect to the client VM.
   - _`bastionHostName`_ - Azure Bastion host name.
 
@@ -220,10 +210,6 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
     ![Screenshot showing PowerShell logon script run](./16.png)
 
-    ![Screenshot showing PowerShell logon script run](./17.png)
-
-    ![Screenshot showing PowerShell logon script run](./18.png)
-
   Once the script finishes it's run, the logon script PowerShell session will be closed, the Windows wallpaper will change, and the Azure Container Apps deployed on the cluster will be ready.
 
     ![Screenshot showing desktop wallpaper change](./19.png)
@@ -240,17 +226,13 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
   
   ![Screenshot showing additional Azure resources in the resource group](./20.png)
 
-- In this scenario, **ASP.NET Core Front-end and 2 Back-end APIs on Azure Container Apps** was deployed. To open the deployed web application in your web browser, simply click the Container App resource and the Application URL.
+- In this scenario, a 'Hello World' **[app](https://learn.microsoft.com/azure/container-apps/get-started)** was deployed as a container app. To open the deployed 'Hello World' [app](https://learn.microsoft.com/azure/container-apps/get-started) in your web browser, simply click the Container App resource and the Application URL.
 
-  ![Screenshot showing Store Container App in a resource group](./21.png)
+  ![Screenshot showing Hello World Container App in a resource group](./21.png)
 
   ![Screenshot showing the web application URL](./22.png)
 
   ![Screenshot showing the web application open in a web browser](./23.png)
-
-- Optionally, you can review the [Dapr](https://learn.microsoft.com/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml) configuration for the Container apps by navigating to the Dapr setting.
-
-  ![Screenshot showing Store Container App Dapr](./24.png)
 
 ## Cluster extensions
 
@@ -258,9 +240,11 @@ In this scenario, the Azure Container Apps extension was deployed and used throu
 
 - In order to view cluster extensions, click on the Azure Arc-enabled Kubernetes resource Extensions settings.
 
-  ![Screenshot showing the Azure Arc-enabled Kubernetes resource](./25.png)
+  ![Screenshot showing the Azure Arc-enabled Kubernetes resource](./24.png)
 
-  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions settings](./26.png)
+  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions settings](./25.png)
+
+  ![Screenshot showing Azure Arc-enabled Kubernetes cluster extensions](./26.png)
 
 ## View your application's diagnostics
 
@@ -277,12 +261,10 @@ In this scenario, the Log Analytics was configured with the Container Apps exten
     let EndTime = now();
     ContainerAppConsoleLogs_CL
     | where TimeGenerated between (StartTime .. EndTime)
-    | where ContainerAppName_s =~ "store"
+    | where ContainerAppName_s =~ "helloworld"
     ```
 
-  ![Screenshot showing showing the Log Analytics workspace logs](./28.png)
-
-  ![Screenshot showing showing the Log Analytics workspace logs query](./29.png)
+  ![Screenshot showing showing the Log Analytics workspace logs query](./28.png)
 
     > **Note:** If there's an error when running a query, try again in 10-15 minutes. There may be a delay for Log Analytics to start receiving logs from the application.
 
@@ -290,4 +272,4 @@ In this scenario, the Log Analytics was configured with the Container Apps exten
 
 - If you want to delete the entire environment, simply delete the deployed resource group from the Azure portal.
 
-  ![Screenshot showing the Delete Azure resource group button](./30.png)
+  ![Screenshot showing the Delete Azure resource group button](./29.png)
