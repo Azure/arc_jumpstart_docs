@@ -122,6 +122,12 @@ configuration:
                 Thank you for your collaboration!
                 
         - closeIssue
+        # Remove all working labels
+        - removeLabel:
+            label: Needs-Triage
+        # Add abandoned label to track automatically closed non-form GitHub issues
+        - addLabel:
+            label: Abandoned
 
       # ---------------------------------------------------------------------------
       # ISSUE LIFECYCLE MANAGEMENT
