@@ -41,14 +41,14 @@ You can [connect to the ArcBox machine as described in the documentation](../../
 - Create C:\ArcBox\MachineConfiguration.ps1, then paste and run the following commands to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.15.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.4
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.15.1
-Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 6.1.1
+Install-Module -Name Az.Accounts -Force -RequiredVersion 4.1.0
+Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.7.1
+Install-Module -Name Az.Resources -Force -RequiredVersion 7.10.0
+Install-Module -Name Az.Ssh -Force -RequiredVersion 0.2.3
+Install-Module -Name Az.Storage -Force -RequiredVersion 8.3.0
 Install-Module -Name MSI -Force -RequiredVersion 3.3.4
 
-Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.5.0
+Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.7.0
 
 Install-Module PSDesiredStateConfiguration -Force -RequiredVersion 2.0.7
 Install-Module PSDscResources -Force -RequiredVersion 2.12.0.0
@@ -90,9 +90,9 @@ $Location = "<insert-location-name>"
 Create storage account for storing DSC artifacts
 
 ```powershell
-$storageaccountsuffix = -join ((97..122) | Get-Random -Count 5 | % {[char]$_})
+storageaccountsuffix = -join ((97..122) | Get-Random -Count 5 | % {[char]$_})
 
-New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name "arcboxmachineconfig$storageaccountsuffix" -SkuName 'Standard_LRS' -Location $Location -OutVariable storageaccount | New-AzStorageContainer -Name machineconfiguration -Permission Blob
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name "arcboxmachineconfig$storageaccountsuffix" -SkuName 'Standard_LRS' -Location $Location -AllowBlobPublicAccess $true -OutVariable storageaccount | New-AzStorageContainer -Name machineconfiguration -Permission Blob
 ```
 
 > *Make a note of the storage account name, as this will be needed in later steps.*
@@ -164,7 +164,6 @@ $OutputPath = "$HOME/arc_automanage_machine_configuration_custom_windows"
 New-Item $OutputPath -Force -ItemType Directory
 
 AzureArcJumpstart_Windows -PasswordCredential $winCreds -ConfigurationData $ConfigurationData -OutputPath $OutputPath
-
 ```
 
 Create a package that will audit and apply the configuration (Set)
@@ -198,8 +197,17 @@ Set-AzStorageBlobContent -Container "machineconfiguration" -File  "$OutputPath/A
 $contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container machineconfiguration -Blob "AzureArcJumpstart_Windows.zip" -Permission r
 ```
 
-Create an Azure Policy definition
+Next we need to create an Azure Policy definition. Note that we need subscription-level permissions to create Azure Policy definitions. If you are logged into the machine with the ArcBox-Client machine Managed Identity then you need to logout and then login with the account that has the required permissions. Otherwise move directly to the policy definition creation step. 
 
+```powershell
+# Disconnect from Managed Idenity 
+Clear-AzContext -Force
+
+# Connect using your own account
+Connect-AzAccount -Tenant $env:spnTenantId -UseDeviceAuthentication
+```
+
+Create policy definition
 ```powershell
 $PolicyId = (New-Guid).Guid
 
@@ -235,24 +243,24 @@ In order for the newly assigned policy to remediate existing resources, the poli
 See the [documentation](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
 
 ```powershell
-$PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.PolicyDefinitionId | Where-Object Name -eq '(AzureArcJumpstart) [Windows] Custom configuration'
+$PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.Id | Where-Object Name -eq '(AzureArcJumpstart) [Windows] Custom configuration'
 
-$roleDefinitionIds =  $PolicyDefinition.Properties.policyRule.then.details.roleDefinitionIds
+$roleDefinitionIds =  $PolicyDefinition.policyRule.then.details.roleDefinitionIds
 
 # Wait for eventual consistency
 Start-Sleep 20
 
 if ($roleDefinitionIds.Count -gt 0)
- {
-     $roleDefinitionIds | ForEach-Object {
-         $roleDefId = $_.Split("/") | Select-Object -Last 1
-         New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $PolicyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
-     }
- }
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $PolicyAssignment.IdentityPrincipalId -RoleDefinitionId $roleDefId
+    }
+}
 
- $job = Start-AzPolicyRemediation -AsJob -Name ($PolicyAssignment.PolicyAssignmentId -split '/')[-1] -PolicyAssignmentId $PolicyAssignment.PolicyAssignmentId -ResourceGroupName $ResourceGroup.ResourceGroupName -ResourceDiscoveryMode ReEvaluateCompliance
+$job = Start-AzPolicyRemediation -AsJob -Name ($PolicyAssignment.Id -split '/')[-1] -PolicyAssignmentId $PolicyAssignment.Id -ResourceGroupName $ResourceGroup.ResourceGroupName -ResourceDiscoveryMode ReEvaluateCompliance 
 
- $job | Wait-Job | Receive-Job
+$job | Wait-Job | Receive-Job
 ```
 
 Check policy compliance by following these steps:
