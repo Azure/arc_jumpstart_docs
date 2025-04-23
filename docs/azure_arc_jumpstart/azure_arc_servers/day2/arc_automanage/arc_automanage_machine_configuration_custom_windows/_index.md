@@ -197,7 +197,7 @@ Set-AzStorageBlobContent -Container "machineconfiguration" -File  "$OutputPath/A
 $contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container machineconfiguration -Blob "AzureArcJumpstart_Windows.zip" -Permission r
 ```
 
-Create an Azure Policy definition. Note that we need subscription-level permissions to create Azure Policy definitions. If you are logged into the machine with the ArcBox-Client machine Managed Idenity then you need to logout and then login with the account that has the required permissions
+Next we need to create an Azure Policy definition. Note that we need subscription-level permissions to create Azure Policy definitions. If you are logged into the machine with the ArcBox-Client machine Managed Identity then you need to logout and then login with the account that has the required permissions. Otherwise move directly to the policy definition creation step. 
 
 ```powershell
 # Disconnect from Managed Idenity 
@@ -207,6 +207,7 @@ Clear-AzContext -Force
 Connect-AzAccount -Tenant $env:spnTenantId -UseDeviceAuthentication
 ```
 
+Create policy definition
 ```powershell
 $PolicyId = (New-Guid).Guid
 
