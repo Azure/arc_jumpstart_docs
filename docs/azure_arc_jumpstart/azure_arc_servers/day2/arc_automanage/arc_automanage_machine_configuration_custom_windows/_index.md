@@ -145,7 +145,7 @@ Configuration AzureArcJumpstart_Windows
 
 Write-Host "Creating credentials for arcbox user 1"
 $nestedWindowsUsername = "arcboxuser1"
-$nestedWindowsPassword = "ArcDemo123!!"  # In real-world scenarios this could be retrieved from an Azure Key Vault
+$nestedWindowsPassword = "JS123!!"  # In real-world scenarios this could be retrieved from an Azure Key Vault
 
 # Create Windows credential object
 $secWindowsPassword = ConvertTo-SecureString $nestedWindowsPassword -AsPlainText -Force
@@ -363,11 +363,9 @@ You might also want to have a look at the following resources if you have been u
 Complete the following steps to clean up your environment. To disable Azure Automanage you will use the Azure portal. Go to the Automanage page that lists all of your auto-managed VMs. Select the checkbox next to the Azure Arc-enabled Server you want to disable from Automanage, then click on the *Disable* button.
 
 ```powershell
-$PolicyDefinition = Get-AzPolicyDefinition -Name '(AzureArcJumpstart) [Windows] Custom configuration'
+Remove-AzPolicyAssignment -Name '(AzureArcJumpstart) [Windows] Custom configuration'
 
-Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.PolicyDefinitionId | Remove-AzPolicyAssignment
-
-$PolicyDefinition  | Remove-AzPolicyDefinition
+Remove-AzPolicyDefinition -Name '(AzureArcJumpstart) [Windows] Custom configuration'
 
 Get-AzStorageAccount -Name <insert-storage-account-name> -ResourceGroupName $ResourceGroupName | Remove-AzStorageAccount
 ```
