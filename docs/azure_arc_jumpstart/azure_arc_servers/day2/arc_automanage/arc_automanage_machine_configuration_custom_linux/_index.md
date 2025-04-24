@@ -28,7 +28,7 @@ This scenario will assign it to the resource group ArcBox is deployed to.
 
 Operating system:
 
-- Ubuntu 18 (required by the GuestConfiguration module)
+- Ubuntu 18 or newer (required by the GuestConfiguration module)
 
 In this scenario, we will be using the ArcBox Client virtual machine for the configuration authoring - and connect to a nested Linux VM.
 
@@ -46,7 +46,7 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 ![Screenshot of adding a new remote SSH target](./04.png)
 
 - Open VS Code and add a new Remote SSH target:
-  - Enter the value *`ssh arcdemo@10.10.1.103 -A`* and press Enter two times
+  - Enter the value *`ssh jumpstart@10.10.1.103 -A`* and press Enter two times
 
 ![Screenshot of adding SSH connection command](./05.png)
 
@@ -58,7 +58,7 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 
 ![Screenshot of platform selection](./07.png)
 
-- When prompted for password, enter *`ArcDemo123!!`*
+- If prompted for password, enter *`JS123!!`*
 
 - As indicated in the lower left corner, VS Code should now be connected to the remote machine:
 
@@ -67,9 +67,14 @@ Open Hyper-V Manager and determine the IP address of the *ArcBox-Ubuntu-01* VM:
 - In the VS Code menu, click Terminal -> New
 - Install [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/install-ubuntu?view=powershell-7.3#installation-via-direct-download) by running the following in the terminal window:
 
-```shell
-wget https://github.com/PowerShell/PowerShell/releases/download/v7.3.9/powershell_7.3.9-1.deb_amd64.deb
-sudo dpkg -i /home/arcdemo/powershell_7.3.9-1.deb_amd64.deb
+```powershell
+$PS7Url = "https://github.com/PowerShell/PowerShell/releases/latest"
+$PS7LatestVersion = (Invoke-WebRequest -Uri $PS7url).Content | Select-String -Pattern "[0-9]+\.[0-9]+\.[0-9]+" | Select-Object -ExpandProperty Matches | Select-Object -ExpandProperty Value
+$PS7DownloadUrl = "https://github.com/PowerShell/PowerShell/releases/download/v$PS7LatestVersion/powershell_$PS7LatestVersion-1.deb_amd64.deb"
+
+Invoke-WebRequest -Uri $PS7DownloadUrl -OutFile ./powershell.deb_amd64.deb
+
+sudo dpkg -i ./powershell.deb_amd64.deb
 ```
 
 - Followed by *`pwsh`* to ensure PowerShell is available.
@@ -90,23 +95,23 @@ Install-WSMan
 
 ![Screenshot of PowerShell extension](./11.png)
 
-- Click *File -> New Text File*, click Ctrl + S and specify ```/home/arcdemo/MachineConfiguration.ps1``` as the path for the new file.
+- Click *File -> New Text File*, click Ctrl + S and specify ```/home/jumpstart/MachineConfiguration.ps1``` as the path for the new file.
 
 ![Screenshot of PowerShell script Save As dialogue](./12.png)
 
 - Paste and run the following commands by pressing F5 in order to install the required PowerShell modules for this scenario:
 
 ```powershell
-Install-Module -Name Az.Accounts -Force -RequiredVersion 2.13.1
-Install-Module -Name Az.PolicyInsights -Force -RequiredVersion 1.6.3
-Install-Module -Name Az.Resources -Force -RequiredVersion 6.11.2
-Install-Module -Name Az.Ssh -Force -RequiredVersion 0.1.1
-Install-Module -Name Az.Storage -Force -RequiredVersion 5.10.1
+Install-PSResource -Name Az.Accounts -TrustRepository -Version 4.1.0
+Install-PSResource -Name Az.PolicyInsights -TrustRepository -Version 1.7.1
+Install-PSResource -Name Az.Resources -TrustRepository -Version  7.10.0
+Install-PSResource -Name Az.Ssh -TrustRepository -Version 0.2.3
+Install-PSResource -Name Az.Storage -TrustRepository -Version  8.3.0
 
-Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.5.0
+Install-PSResource -Name GuestConfiguration -TrustRepository -Version  4.7.0
 
 Install-Module PSDesiredStateConfiguration -AllowPreRelease -Force -RequiredVersion 3.0.0-beta1
-Install-Module nxtools -Force -RequiredVersion 1.3.0
+Install-PSResource nxtools -TrustRepository -Version 1.5.0
 ```
 
 The GuestConfiguration module automates the process of creating custom content including:
@@ -149,7 +154,7 @@ Create storage account for storing DSC artifacts
 ```powershell
 $storageaccountsuffix = -join ((97..122) | Get-Random -Count 5 | % {[char]$_})
 
-New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name "arcboxmachineconfig$storageaccountsuffix" -SkuName 'Standard_LRS' -Location $Location -OutVariable storageaccount | New-AzStorageContainer -Name machineconfiguration -Permission Blob
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name "arcboxmachineconfig$storageaccountsuffix" -SkuName 'Standard_LRS' -Location $Location -AllowBlobPublicAccess $true -OutVariable storageaccount | New-AzStorageContainer -Name machineconfiguration -Permission Blob
 ```
 
 > *Make a note of the storage account name, as this will be needed in later steps.*
@@ -168,7 +173,7 @@ Configuration AzureArcJumpstart_Linux
         $FileContent = "Hello Arc!"
     )
 
-    Import-DscResource -ModuleName nxtools -ModuleVersion 1.3.0
+    Import-DscResource -ModuleName nxtools -ModuleVersion 1.5.0
 
     Node localhost
     {
@@ -254,7 +259,7 @@ Optionally, test applying the configuration to the local machine by copying and 
 # Need to run with elevated credentials since the configuration is performing system wide operations
 sudo pwsh
 
-Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.4.0
+Install-Module -Name GuestConfiguration -Force -RequiredVersion 4.7.0
 
 Start-GuestConfigurationPackageRemediation -Path /home/arcdemo/arc_automanage_machine_configuration_custom_linux/AzureArcJumpstart_Linux.zip -Verbose
 
@@ -312,9 +317,9 @@ In order for the newly assigned policy to remediate existing resources, the poli
 See the [documentation](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information.
 
 ```powershell
-$PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.PolicyDefinitionId | Where-Object Name -eq '(AzureArcJumpstart) [Linux] Custom configuration'
+$PolicyAssignment = Get-AzPolicyAssignment -PolicyDefinitionId $PolicyDefinition.Id | Where-Object Name -eq '(AzureArcJumpstart) [Linux] Custom configuration'
 
-$roleDefinitionIds =  $PolicyDefinition.Properties.policyRule.then.details.roleDefinitionIds
+$roleDefinitionIds =  $PolicyDefinition.policyRule.then.details.roleDefinitionIds
 
 # Wait for eventual consistency
 Start-Sleep 20
@@ -323,11 +328,11 @@ if ($roleDefinitionIds.Count -gt 0)
  {
      $roleDefinitionIds | ForEach-Object {
          $roleDefId = $_.Split("/") | Select-Object -Last 1
-         New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $PolicyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+         New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $PolicyAssignment.IdentityPrincipalId -RoleDefinitionId $roleDefId
      }
  }
 
- $job = Start-AzPolicyRemediation -AsJob -Name ($PolicyAssignment.PolicyAssignmentId -split '/')[-1] -PolicyAssignmentId $PolicyAssignment.PolicyAssignmentId -ResourceGroupName $ResourceGroup.ResourceGroupName -ResourceDiscoveryMode ReEvaluateCompliance
+ $job = Start-AzPolicyRemediation -AsJob -Name ($PolicyAssignment.Id -split '/')[-1] -PolicyAssignmentId $PolicyAssignment.Id -ResourceGroupName $ResourceGroup.ResourceGroupName -ResourceDiscoveryMode ReEvaluateCompliance
 
  $job | Wait-Job | Receive-Job
 ```
@@ -358,7 +363,7 @@ Click on *ArcBox-Ubuntu-01/AzureArcJumpstart_Linux* to get a per-resource view o
 
 Login to *ArcBox-Ubuntu-01* by running the below command
 
-- Enter the password **ArcDemo123!!** when prompted
+- Enter the password **JS123!!** if prompted
 
 ```powershell
 Enter-AzVM -ResourceGroupName $ResourceGroupName -Name ArcBox-Ubuntu-01 -LocalUser arcdemo
