@@ -242,7 +242,7 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   | _`resourceTags`_ | object   | Tags to assign for all ArcBox resources                                             |    Solution: 'jumpstart_arcbox'   |
   | _`namingPrefix`_   | string   | The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`                                                                                          |  ArcBox    |
   | _`githubUser`_ | string   | Specify the name of your GitHub account where you cloned the Sample Apps repo                                                                                       |   Azure   |
-  | _`windowsAdminPassword`_      | string  | (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
+  | _`windowsAdminPassword`_ | string   | (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.                                                                                       |         |
 
   ![Screenshot showing example parameters](./parameters_devops_bicep.png)
 
