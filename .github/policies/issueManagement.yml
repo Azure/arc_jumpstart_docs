@@ -390,7 +390,7 @@ configuration:
             milestone: INVALID
             # This intentionally represents a milestone that does not exist and will never be matched.
       actions:
-      # Remove the "Missing-Milestone" label to highlight missing milestone.
+      # Remove the "Missing-Milestone" label from issues that have a milestone.
       - removeLabel:
           label: Missing-Milestone
 
