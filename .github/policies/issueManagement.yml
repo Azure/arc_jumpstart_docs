@@ -382,7 +382,7 @@ configuration:
       # This runs daily at 6:00 and helps ensure all closed issues are properly tracked with milestones by removing the "Missing-Milestone" label.
       frequencies:
       - hourly:
-          hour: 6
+          hour: 1
       filters:
       # Only target issues that have a milestone.
       - isIssue
@@ -390,7 +390,7 @@ configuration:
             milestone: INVALID
             # This intentionally represents a milestone that does not exist and will never be matched.
       actions:
-      # Remove the "Missing-Milestone" label to highlight missing milestone.
+      # Remove the "Missing-Milestone" label from issues that have a milestone.
       - removeLabel:
           label: Missing-Milestone
 
