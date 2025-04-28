@@ -7,7 +7,7 @@ toc_hide: true
 
 ## Arc-enabled SQL Managed Instance on Azure Local
 
-Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview) which can be used to deploy Azure Arc-enabled SQL Managed Instance. HCIBox comes pre-configured with Azure AKS enabled by Azure Arc cluster and an Arc-enabled SQL Managed Instance. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
+Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview) which can be used to deploy Azure Arc-enabled SQL Managed Instance. LocalBox comes pre-configured with Azure AKS enabled by Azure Arc cluster and an Arc-enabled SQL Managed Instance. To see this in action, navigate to the resource group where you deployed LocalBox and follow these steps.
 
 - You will first need to get the Azure Custom Location Resource Provider (RP) Object ID (OID). This is required to enable [Custom Location](https://learn.microsoft.com/azure/azure-arc/platform/conceptual-custom-locations) on your Arc-enabled Kubernetes cluster.
 
@@ -19,7 +19,7 @@ Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https
 
   ![Screenshot showing running a cli command to get custom location objectId](./objectid_script.png)
 
-- Open up Windows Explorer on the _HCIBox-Client_ VM and navigate to the C:\HCIBox folder. From here, right click on the _Deploy-SQLMI.ps1_ file and run with PowerShell.
+- Open up Windows Explorer on the _LocalBox-Client_ VM and navigate to the C:\LocalBox folder. From here, right click on the _Deploy-SQLMI.ps1_ file and run with PowerShell.
 
   ![Screenshot showing running a cli command to get custom location objectId](./deploy_sqlmi_script.png)
 
@@ -31,7 +31,7 @@ Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https
 
   ![Screenshot showing the deploy-sqlmi script running](./deploy_sqlmi_script_running.png)
 
-- Once this script completes, open the resource group and group by type to see the Azure Arc-enabled SQL Managed Instance deployed with HCIBox.
+- Once this script completes, open the resource group and group by type to see the Azure Arc-enabled SQL Managed Instance deployed with LocalBox.
 
   ![Screenshot showing clusters in resource group](./rg_sqlmi.png)
 
@@ -53,7 +53,7 @@ Azure Data Studio is installed and pre-configured on the AdminCenter computer to
 
 ## Azure Arc-enabled SQL Managed Instance stress simulation
 
-HCIBox includes a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well as the HCI cluster.
+LocalBox includes a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well as the HCI cluster.
 
 - To start with, open the SqlQueryStress desktop shortcut and connect to the Arc-enabled SQL Managed Instance primary endpoint Ip address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
 

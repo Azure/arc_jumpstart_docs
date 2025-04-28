@@ -7,13 +7,13 @@ toc_hide: true
 
 ## Windows Admin Center operations
 
-Windows Admin Center (preview) is available from inside the Azure portal and can be used with HCIBox.
+Windows Admin Center (preview) is available from inside the Azure portal and can be used with LocalBox.
 
 ## Windows Admin Center in Azure portal
 
-Windows Admin Center can be used directly from the Azure portal. To set this up for your HCIBox cluster, follow these steps:
+Windows Admin Center can be used directly from the Azure portal. To set this up for your LocalBox cluster, follow these steps:
 
-- Navigate to the _HCIBox-Cluster_ resource and select the Windows Admin Center blade.
+- Navigate to the _LocalBox-Cluster_ resource and select the Windows Admin Center blade.
 
   ![Screenshot showing opening WAC in portal](./wac_portal_setup_1.png)
 

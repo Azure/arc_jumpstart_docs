@@ -1,6 +1,6 @@
 ---
 type: docs
-title: "Jumpstart HCIBox"
-linkTitle: "Jumpstart HCIBox"
+title: "Jumpstart LocalBox"
+linkTitle: "Jumpstart LocalBox"
 weight: 5
 ---

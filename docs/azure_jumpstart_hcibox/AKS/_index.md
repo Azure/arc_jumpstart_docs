@@ -4,13 +4,13 @@ linkTitle: "AKS on Azure Local"
 weight: 7
 ---
 
-# Azure Kubernetes Service on your Azure Local HCIBox
+# Azure Kubernetes Service on your Azure Local LocalBox
 
-Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). HCIBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed HCIBox and follow these steps.
+Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). LocalBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed LocalBox and follow these steps.
 
 ## Explore AKS on Azure Local
 
-HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
+LocalBox is preconfigured with a network subnet dedicated to AKS deployment. Subnet details are as follows:
 
   | Network detail |        Value          |
   | ---------- | --------------------- |
@@ -19,9 +19,9 @@ HCIBox is preconfigured with a network subnet dedicated to AKS deployment. Subne
   | VLAN Id    | 110                   |
   | DNS Server | 192.168.1.254         |
 
-Before creating an AKS workload cluster, you must create a local virtual network object. HCIBox includes a script that will complete this task using the pre-configured network. The script will then create a new AKS workload cluster.
+Before creating an AKS workload cluster, you must create a local virtual network object. LocalBox includes a script that will complete this task using the pre-configured network. The script will then create a new AKS workload cluster.
 
-- Open your HCIBox resource group and click on the _jumpstart_ custom location resource, then click "Arc-enabled services." Here you should see the hybridaksextension service available on the cluster. This is installed by default on Azure Local instance(s), and is required for creating AKS workload clusters on Azure Local.
+- Open your LocalBox resource group and click on the _jumpstart_ custom location resource, then click "Arc-enabled services." Here you should see the hybridaksextension service available on the cluster. This is installed by default on Azure Local instance(s), and is required for creating AKS workload clusters on Azure Local.
 
   ![Screenshot showing aks extension](./custom_location_resources.png)
 
@@ -33,7 +33,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing Entra group id](./entra_group_id.png)
 
-- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the _C:\HCIBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select Open with Code
+- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the _C:\LocalBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select Open with Code
 
   ![Screenshot showing edit with VSCode](./open_with_code.png)
 
@@ -41,7 +41,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing editing script](./edit_script.png)
 
-- From the _HCIBox-Client_ virtual machine, open File Explorer and navigate to the "C:\HCIBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
+- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the "C:\LocalBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
 
   ![Screenshot showing clusters in resource group](./run_with_powershell.png)
 
@@ -49,7 +49,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing script running](./run_configure_aks.png)
 
-- Once complete, you should have an AKS workload cluster called _hcibox-aks_ in your HCIBox resource group.
+- Once complete, you should have an AKS workload cluster called _Localbox-aks_ in your LocalBox resource group.
 
   ![Screenshot showing AKS in resource group](./aks_in_resource_group.png)
 
@@ -64,10 +64,10 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 > ```
 
 
-- From Azure portal, open Cloud Shell and run the following command, using the name of your HCIBox resource group.
+- From Azure portal, open Cloud Shell and run the following command, using the name of your LocalBox resource group.
 
   ```
-  az connectedk8s proxy -n hcibox-aks -g <name of your resource group>
+  az connectedk8s proxy -n Localbox-aks -g <name of your resource group>
   ```
 
   ![Screenshot showing run connectedk8s](./cloud_shell_proxy.png)

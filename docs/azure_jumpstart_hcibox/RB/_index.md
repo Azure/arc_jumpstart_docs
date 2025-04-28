@@ -3,15 +3,15 @@ type: docs
 linkTitle: "VM Management"
 weight: 6
 ---
-# Virtual machine provisioning with Azure Arc in your HCIBox
+# Virtual machine provisioning with Azure Arc in your LocalBox
 
-Azure Local supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Local instances, the HCIBox instance comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
+Azure Local supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Local instances, the LocalBox instance comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
 ## Create Virtual Machine images from Azure marketplace
 
 Before you can create virtual machines on your Azure Local instance from Azure portal, you must create some VM images that can be used as a base. These images can be imported from Azure marketplace or provided directly by the user. In this use case, you will create an image from Azure marketplace.
 
-- Navigate to your instance resource inside the HCIBox resource group and click it.
+- Navigate to your instance resource inside the LocalBox resource group and click it.
 
   ![Screenshot showing instance resource](./hcicluster_rg.png)
 
@@ -31,7 +31,7 @@ Before you can create virtual machines on your Azure Local instance from Azure p
 
 ## Create a logical network on your Azure Local instance
 
-HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on HCIBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
+LocalBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This network is designed for use with Arc-enabled VMs on LocalBox. To use this preconfigured network, you must create a logical network resource that maps to this subnet.
 
   | Network detail |        Value          |
   | ---------- | --------------------- |
@@ -40,7 +40,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
   | VLAN Id    | 200                   |
   | DNS Server | 192.168.1.254         |
 
-- From inside the _HCIBox-Client_ VM, open File Explorer and navigate to _C:\HCIBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
+- From inside the _LocalBox-Client_ VM, open File Explorer and navigate to _C:\LocalBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
   ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
 
@@ -58,7 +58,7 @@ HCIBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This net
 
   ![Screenshot showing create VM overview](./create_vm.png)
 
-- Choose your HCIBox resource group, give your VM a name, select "Standard" for security type, and select the VM image you created earlier for the image. Set processor count to 2 and memory to 8192. Click next, and then next again to continue to the network tab.
+- Choose your LocalBox resource group, give your VM a name, select "Standard" for security type, and select the VM image you created earlier for the image. Set processor count to 2 and memory to 8192. Click next, and then next again to continue to the network tab.
 
   ![Screenshot showing create VM detail](./create_vm_detail_win11.png)
 

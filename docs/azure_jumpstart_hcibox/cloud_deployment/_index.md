@@ -1,40 +1,40 @@
 ---
 type: docs
-linkTitle: "Connect to HCIBox"
+linkTitle: "Connect to LocalBox"
 isGettingStarted: false
 weight: 4
 ---
-# Connect to HCIBox
+# Connect to LocalBox
 
 ## Start post-deployment automation
 
-Once your Bicep deployment is complete, you can open the Azure portal to see the initial HCIBox resources inside your resource group. Now you must remote into the _HCIBox-Client_ VM to continue the next phase of the deployment.
+Once your Bicep deployment is complete, you can open the Azure portal to see the initial LocalBox resources inside your resource group. Now you must remote into the _LocalBox-Client_ VM to continue the next phase of the deployment.
 
   ![Screenshot showing all deployed resources in the resource group](./deployed_resources.png)
 
-   > **Note:** RDP (3389) and SSH (22) ports are not open by default in HCIBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
+   > **Note:** RDP (3389) and SSH (22) ports are not open by default in LocalBox deployments. You will need to create a network security group (NSG) rule to allow network access to port 3389, or use [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview) or [Just-in-Time (JIT)](https://learn.microsoft.com/azure/defender-for-cloud/just-in-time-access-usage?tabs=jit-config-asc%2Cjit-request-asc) access to connect to the VM.
 
-## Connecting to the HCIBox Client virtual machine
+## Connecting to the LocalBox Client virtual machine
 
 > **Note:** As the subnet the Azure Local VMs resides on is on the second nested layer, it is necessary to connect to the AzSMGMT machine to be able to connect to those VMs:
 > The Azure Local VM subnet is also not routable into the Azure Virtual Network, hence it won't be possible to connect to virtual machines on the Azure Local instance using Azure Bastion.
 >
 > If you are having difficulties connecting into a Azure Local VM:
-> You can run `mstsc /v:192.168.1.11` from HCIBox-Client to connect to the AzSMGMT nested VM.
+> You can run `mstsc /v:192.168.1.11` from LocalBox-Client to connect to the AzSMGMT nested VM.
 > From there, run `mstsc /v:192.168.200.x` to connect to the Azure Local VMs (replace x with the IP of your deployed VM).
 
-Various options are available to connect to _HCIBox-Client_ VM, depending on the parameters you supplied during deployment.
+Various options are available to connect to _LocalBox-Client_ VM, depending on the parameters you supplied during deployment.
 
 - [RDP](#connecting-directly-using-rdp) - available after configuring access to port 3389 on the _Arc-App-Client-NSG_, or by enabling [Just-in-Time access (JIT)](#connect-using-just-in-time-access-jit).
 - [Azure Bastion](#connect-using-azure-bastion) - available if *`true`* was the value of your _`deployBastion`_ parameter during deployment.
 
 ### Connecting directly using RDP
 
-By design, HCIBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
+By design, LocalBox does not open port 3389 on the network security group. Therefore, you must create an NSG rule to allow inbound 3389.
 
-- Open the _HCIBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
+- Open the _LocalBox-NSG_ resource in Azure portal and click "Add" to add a new rule.
 
-  ![Screenshot showing HCIBox-Client NSG with blocked RDP](./rdp_nsg_blocked.png)
+  ![Screenshot showing LocalBox-Client NSG with blocked RDP](./rdp_nsg_blocked.png)
 
   ![Screenshot showing adding a new inbound security rule](./nsg_add_rule.png)
 
@@ -52,7 +52,7 @@ By design, HCIBox does not open port 3389 on the network security group. Therefo
 
   ![Screenshot showing connecting to the VM using Bastion](./bastion_connect.png)
 
-  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _HCIBox-Client_ with Azure Bastion.
+  > **Note:** When using Azure Bastion, the desktop background image is not visible. Therefore some screenshots in this guide may not exactly match your experience if you are connecting to _LocalBox-Client_ with Azure Bastion.
 
 ### Connect using just-in-time access (JIT)
 
@@ -68,10 +68,10 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _HCIBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any HCI updates available, we need to add 1 additional hour to the estimated deployment time.
+- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any HCI updates available, we need to add 1 additional hour to the estimated deployment time.
 At this point, the infrastructure deployment is complete.
 
-  ![Screenshot showing _HCIBox-Client_](./automation.png)
+  ![Screenshot showing _LocalBox-Client_](./automation.png)
 
 - In the Azure portal, validate that both Azure Local machines (AzSHOST1 and AzSHOST2) have been created as Arc-enabled servers.
 
@@ -92,13 +92,13 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ### Validate instance in Azure portal
 
-- Before submitting the ARM deployment, you need to add your user account as a Key Vault Administrator on the HCIBox resource group. Navigate to the resource group then click "Access Control (IAM)" and then "Add role assignment". Select the "Key Vault Administrator role" then click on to the next screen to select your user account and assign your user the role.
+- Before submitting the ARM deployment, you need to add your user account as a Key Vault Administrator on the LocalBox resource group. Navigate to the resource group then click "Access Control (IAM)" and then "Add role assignment". Select the "Key Vault Administrator role" then click on to the next screen to select your user account and assign your user the role.
 
   ![Screenshot showing key vault assignment](./key_vault_rbac.png)
 
-- Repeat this process to add your user account as a "Storage Account Contributor" on the HCIBox resource group.
+- Repeat this process to add your user account as a "Storage Account Contributor" on the LocalBox resource group.
 
-- Now you will use the generated ARM template to validate the Azure Local instance in Azure portal. Open File Explorer on _HCIBox-Client_ and navigate to the _C:\HCIBox_ folder. Right-click on the folder and open it in VSCode.
+- Now you will use the generated ARM template to validate the Azure Local instance in Azure portal. Open File Explorer on _LocalBox-Client_ and navigate to the _C:\LocalBox_ folder. Right-click on the folder and open it in VSCode.
 
 - Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the hci.parameters.json file looks correct without "_-staging_" placeholder parameter values.
 
@@ -126,7 +126,7 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ## Deploy instance in Azure portal
 
-- When validation is complete navigate to the instance resource in your HCIBox resource group. The banner should indicate that your instance is validated but not yet deployed. Click the "Deploy now" link.
+- When validation is complete navigate to the instance resource in your LocalBox resource group. The banner should indicate that your instance is validated but not yet deployed. Click the "Deploy now" link.
 
   ![Screenshot showing validated instance resource in Azure portal](./validated_cluster_resource.png)
 
@@ -136,10 +136,10 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ## Deployment complete
 
-In your HCIBox resource group, open the cluster resource `hciboxcluster`, navigate to `Settings` -> `Deployments` and verify that all steps has completed successfully.
+In your LocalBox resource group, open the cluster resource `Localboxcluster`, navigate to `Settings` -> `Deployments` and verify that all steps has completed successfully.
 
   ![Screenshot showing progress of deploying instance](./cluster_deployment_complete.png)
 
-Once the HCIBox instance is deployed it's time to start exploring various HCIBox features. Head on to the [Using HCIBox](../using_hcibox/) guide for the next steps.
+Once the LocalBox instance is deployed it's time to start exploring various LocalBox features. Head on to the [Using LocalBox](../using_Localbox/) guide for the next steps.
 
   ![screenshot showing deployed instance](./cluster_detail.png)
