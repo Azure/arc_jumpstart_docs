@@ -29,7 +29,7 @@ LocalBox has been tested in the following Azure regions. Some LocalBox resources
 
 LocalBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. You can view example estimates of LocalBox costs in the links below.
 
-- [LocalBox cost estimate](https://aka.ms/HCIBoxCost)
+- [LocalBox cost estimate](https://aka.ms/LocalBoxCost)
 
 ## Which versions of Azure Local does LocalBox support?
 
