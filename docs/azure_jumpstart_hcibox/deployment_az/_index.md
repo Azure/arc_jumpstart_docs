@@ -42,7 +42,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
   - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
 
     ```shell
-    az login
+    az login --scope https://graph.microsoft.com//.default
     subscriptionId=$(az account show --query id --output tsv)
     az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
     ```
@@ -50,7 +50,7 @@ Azure Bicep is used to deploy HCIBox into your Azure subscription. To deploy, yo
     For example:
 
     ```shell
-    az login
+    az login --scope https://graph.microsoft.com//.default
     subscriptionId=$(az account show --query id --output tsv)
     az ad sp create-for-rbac -n "JumpstartHCIBox" --role "Owner" --scopes /subscriptions/$subscriptionId
     ```
