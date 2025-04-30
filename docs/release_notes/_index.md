@@ -35,7 +35,6 @@ weight: 6
 
 ### Jumpstart Agora
 
-
 - [Bug / Issue: Contoso Supermarket Scenario Uses Unsupported Kubernetes Version #3174](https://github.com/microsoft/azure_arc/issues/3174)
 - [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
 - [Bug / Issue: Contoso Motors - define InfluxDB Admin password & comment deployGPUNodes #3180](https://github.com/microsoft/azure_arc/pull/3180)
