@@ -7,7 +7,7 @@ weight: 6
 
 # Arc Jumpstart release notes
 
-# April 2025
+
 
 ### Release highlights
 
