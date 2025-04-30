@@ -7,6 +7,62 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## April 2025
+
+### Release highlights
+
+- Jumpstart and the new *Azure.Arc.Jumpstart.Common* PowerShell module is now part the [PowerShell Gallery](https://www.powershellgallery.com/profiles/jumpstart). See [announcment](https://www.linkedin.com/posts/janegilring_azurearc-powershell-devops-activity-7321568402370641920-07JR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAGRRdoBb4Olf2HriygmIqHP4lnX1xJe_hc) from the team.
+- New Jumpstart Drop: [Arc Insights PBI Dashboards Powered by Jumpstart](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Arc%20Insights%20PBI%20Dashboards%20Powered%20by%20Jumpstart&fs=true)
+- Total of 4 new Jumpstart Drops in the release
+- All ArcBox OS images updated with latest patch level
+- ArcBox bug fixes and documents update
+- HCIBox improvements for VM lifecycle
+- Telemetry enhancements
+- [New Arc Jumpstart video training series](https://www.youtube.com/playlist?list=PLZuSmETs0xIZybQBZo1x8PP_dbD9FD0BE)
+
+### Jumpstart ArcBox
+
+- [Bug / Issue: Unable to start ArcBox-Client HyperV servers - ARC Jumpstart ITPro install #3143](https://github.com/microsoft/azure_arc/issues/3143)
+- [Bug / Issue: SQLQueryStress broken URL #3145](https://github.com/microsoft/azure_arc/issues/3145)
+- [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
+- [Docs Feature: Move ArcBox parameters into table #679](https://github.com/Azure/arc_jumpstart_docs/issues/679)
+
+### Jumpstart HCIBox
+
+- [Feature Request: Missing provider requirement #3138](https://github.com/microsoft/azure_arc/issues/3138)
+- [Feature Request: Support Standard_E32s_v6 in HCIBox #3140](https://github.com/microsoft/azure_arc/issues/3140)
+- [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
+
+### Jumpstart Agora
+
+
+- [Bug / Issue: Contoso Supermarket Scenario Uses Unsupported Kubernetes Version #3174](https://github.com/microsoft/azure_arc/issues/3174)
+- [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
+- [Bug / Issue: Contoso Motors - define InfluxDB Admin password & comment deployGPUNodes #3180](https://github.com/microsoft/azure_arc/pull/3180)
+- [Bug / Issue: Agora base image credentials not aligned to the JS OS images baseline #3191](https://github.com/microsoft/azure_arc/issues/3191)
+
+### Jumpstart Scenarios
+
+- [Bug / Issue: StorageProfile is not accepted value for agentPoolProfiles in AKS under Jumpstart ML Scenario #3170](https://github.com/microsoft/azure_arc/issues/3170)
+- [Feature Request: Azure Arc-enabled data services - April release #3181](https://github.com/microsoft/azure_arc/issues/3181)
+- [Docs Feature: Update PowerShell version and PowerShell module versions in the Automanage Machine Configuration custom configuration scenarios #678](https://github.com/Azure/arc_jumpstart_docs/issues/678)
+
+### Jumpstart Drops
+
+- [New: Arc Insights PBI Dashboards Powered by Jumpstart](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Arc%20Insights%20PBI%20Dashboards%20Powered%20by%20Jumpstart&fs=true)
+- [New: Azure Arc Connectivity Check](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20Connectivity%20Check)
+- [New: Azure Arc SQL Tags Inheritance](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20SQL%20Tags%20Inheritance)
+- [New: Graph User Photo Sync Automation](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Graph%20User%20Photo%20Sync%20Automation)
+
+### Jumpstart SDK
+
+- [Feature Request: Add Azure.Arc.Jumpstart.Common module #66](https://github.com/Azure/jumpstart-sdk/issues/66)
+
+### Jumpstart Lightning
+
+- [Arc Jumpstart video training series](https://www.youtube.com/playlist?list=PLZuSmETs0xIZybQBZo1x8PP_dbD9FD0BE)
+- [Arc SQL Best Practices Assessment | SHOULD YOU?](https://youtu.be/yPlzP0XVLz0)
+
 ## March 2025
 
 ### Release highlights
