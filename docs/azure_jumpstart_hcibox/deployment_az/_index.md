@@ -13,7 +13,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
 ### Prepare the environment
 
-> **Note:** LocalBox can be deployed in the East US, Australia East, Canada Central and West Europe Azure regions. Deploying in other regions will result in unexpected behavior or failures. It requires 32 ESv5-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Az CLI command to check your vCPU utilization.
+> **Note:** LocalBox can be deployed in the East US, Australia East, Canada Central and West Europe Azure regions. Deploying in other regions will result in unexpected behavior or failures. It requires 32 ESv5-series or 32 ESv6-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Az CLI command to check your vCPU utilization.
 
 - Clone the Arc Jumpstart GitHub repository
 
@@ -135,6 +135,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 | `vmAutologon` | bool | Enable automatic logon into LocalBox Virtual Machine | true |
 | `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |
 | `windowsAdminUsername` | string | Username for Windows account |  |
+| `vmSize` | string | The size of the Virtual Machine | Standard_E32s_v6 |
 
   > **Disclaimer:** The *governResourceTags* parameter is optional and set to true by default. If not specified, both *CostControl: 'Ignore'* and *SecurityControl: 'Ignore'* tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the *governResourceTags* parameter was set to true. If you are deploying LocalBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
 
