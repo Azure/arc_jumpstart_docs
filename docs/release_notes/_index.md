@@ -7,7 +7,7 @@ weight: 6
 
 # Arc Jumpstart release notes
 
-
+## April 2025
 
 ### Release highlights
 
@@ -34,7 +34,6 @@ weight: 6
 - [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
 
 ### Jumpstart Agora
-
 
 - [Bug / Issue: Contoso Supermarket Scenario Uses Unsupported Kubernetes Version #3174](https://github.com/microsoft/azure_arc/issues/3174)
 - [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
