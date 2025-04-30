@@ -136,10 +136,10 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 ## Deployment complete
 
-In your LocalBox resource group, open the cluster resource `Localboxcluster`, navigate to `Settings` -> `Deployments` and verify that all steps has completed successfully.
+In your LocalBox resource group, open the cluster resource `localboxcluster`, navigate to `Settings` -> `Deployments` and verify that all steps has completed successfully.
 
   ![Screenshot showing progress of deploying instance](./cluster_deployment_complete.png)
 
-Once the LocalBox instance is deployed it's time to start exploring various LocalBox features. Head on to the [Using LocalBox](../using_Localbox/) guide for the next steps.
+Once the LocalBox instance is deployed it's time to start exploring various LocalBox features. Head on to the [Using LocalBox](../using_localbox/) guide for the next steps.
 
   ![screenshot showing deployed instance](./cluster_detail.png)

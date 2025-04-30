@@ -33,7 +33,7 @@ Once you are logged into the _LocalBox-Client_ VM using the local admin credenti
 
 ## Monitoring Azure Local
 
-Azure Local integrates with [Azure Monitor](https://learn.microsoft.com/azure-stack/hci/manage/monitor-hci-single) to support monitoring Azure Local instance insights through the Azure portal. Follow these steps to configure monitoring on your LocalBox instance.
+Azure Local integrates with [Azure Monitor](https://learn.microsoft.com/azure/azure-local/manage/monitor-hci-single) to support monitoring Azure Local instance insights through the Azure portal. Follow these steps to configure monitoring on your LocalBox instance.
 
 - Open the Overview blade of your instance and see that platform monitoring is available by default.
 
@@ -60,11 +60,11 @@ If not, we recommend you to check whether there are any updates available.
 
 If the _Status_-column does not indicate _Up to date_, you can trigger the update process by clicking _One-time update_.
 
-See the [product documentation](https://learn.microsoft.com/azure-stack/hci/update/about-updates-23h2) for more information about HCI updates.
+See the [product documentation](https://learn.microsoft.com/azure/azure-local/update/about-updates-23h2) for more information about HCI updates.
 
 ## Virtual machine management through Azure portal
 
-Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines). Open the [LocalBox VM provisioning documentation](../RB/) to get started.
+Azure Local supports [VM management through the Azure portal](https://learn.microsoft.com/azure/azure-local/manage/azure-arc-vm-management-overview). Open the [LocalBox VM provisioning documentation](../RB/) to get started.
 
 ![Screenshot showing VM provisioning blade](./vm_provisioning.png)
 

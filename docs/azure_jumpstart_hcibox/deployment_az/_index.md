@@ -113,7 +113,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
 > **Note:** Please avoid using the $ symbol in the `windowsAdminPassword`. Using this symbol can cause the LogonScript to fail.
 
-- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_Localbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
+- Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_localbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |

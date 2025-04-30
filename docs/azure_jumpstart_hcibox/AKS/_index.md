@@ -49,7 +49,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing script running](./run_configure_aks.png)
 
-- Once complete, you should have an AKS workload cluster called _Localbox-aks_ in your LocalBox resource group.
+- Once complete, you should have an AKS workload cluster called _localbox-aks_ in your LocalBox resource group.
 
   ![Screenshot showing AKS in resource group](./aks_in_resource_group.png)
 
@@ -67,7 +67,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 - From Azure portal, open Cloud Shell and run the following command, using the name of your LocalBox resource group.
 
   ```
-  az connectedk8s proxy -n Localbox-aks -g <name of your resource group>
+  az connectedk8s proxy -n localbox-aks -g <name of your resource group>
   ```
 
   ![Screenshot showing run connectedk8s](./cloud_shell_proxy.png)

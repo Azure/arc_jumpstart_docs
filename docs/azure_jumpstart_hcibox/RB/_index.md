@@ -5,7 +5,7 @@ weight: 6
 ---
 # Virtual machine provisioning with Azure Arc in your LocalBox
 
-Azure Local supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/manage-arc-virtual-machines). Like all Azure Local instances, the LocalBox instance comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
+Azure Local supports [VM provisioning the Azure portal](https://learn.microsoft.com/azure/azure-local/manage/manage-arc-virtual-machines). Like all Azure Local instances, the LocalBox instance comes preconfigured with the components needed for VM management through Azure portal. Follow this guide to configure a basic VM from a marketplace image.
 
 ## Create Virtual Machine images from Azure marketplace
 
@@ -78,4 +78,4 @@ LocalBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This n
 
 ## Next steps
 
-Review the [Azure Local VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines#what-is-azure-arc-resource-bridge) documentation for additional information.
+Review the [Azure Local VM management](https://learn.microsoft.com/azure/azure-local/manage/azure-arc-vm-management-overview?view=azloc-2504#what-is-azure-arc-resource-bridge) documentation for additional information.

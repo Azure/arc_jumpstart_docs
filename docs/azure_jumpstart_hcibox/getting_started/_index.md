@@ -8,9 +8,7 @@ weight: 2
 
 ## Getting started
 
-LocalBox is a turnkey solution that provides a complete sandbox for exploring [Azure Local](https://learn.microsoft.com/azure-stack/hci/whats-new) capabilities and hybrid cloud integration in a virtualized environment. LocalBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Local and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
-
-  > **Note:** [Azure Stack HCI OS, version 23H2](https://learn.microsoft.com/azure-stack/hci/whats-new) is now generally available. 23H2 simplifies configuration and deployment of Azure Local instances and related workloads like [VM management](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) for VM self-service management in Azure portal. LocalBox has also been updated and now offers instances built on the new 23H2 OS, and prior Azure Local releases are no longer part of LocalBox or supported by the Jumpstart team. If you have used earlier versions of LocalBox you should read this guide thoroughly to understand the new LocalBox deployment process.
+LocalBox is a turnkey solution that provides a complete sandbox for exploring [Azure Local](https://learn.microsoft.com/azure/azure-local/whats-new) capabilities and hybrid cloud integration in a virtualized environment. LocalBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with Azure Local and [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) technology without the need for physical hardware.
 
 ## Use cases
 
@@ -32,7 +30,7 @@ LocalBox automatically creates and configures a two-node Azure Local instance us
 
 ### Virtual machine management
 
-LocalBox comes with [guest VM management in Azure portal](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview). The LocalBox documentation will walk you through how to use this feature, including configuring VM images from Azure marketplace and creating VMs on your instance.
+LocalBox comes with [guest VM management in Azure portal](https://learn.microsoft.com/azure/azure-local/manage/azure-arc-vm-management-overview). The LocalBox documentation will walk you through how to use this feature, including configuring VM images from Azure marketplace and creating VMs on your instance.
 
 ### AKS enabled by Azure Arc on Azure Local
 
