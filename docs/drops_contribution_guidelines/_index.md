@@ -12,8 +12,8 @@ weight: 7
 We welcome contributions following the guidelines described in the Arc Jumpstart [contribution guidelines](./../contribution_guidelines).
 Our goal is to create a simplified contribution process for our users that ensures high-quality standards for all submissions. There are two ways to contribute to Jumpstart Drops:
 
-  1. Manual approach with a GitHub pull request
-  2. Using the Drop [Creation Wizard](https://aka.ms/JumpstartDropsWizard)
+- Manual approach with a GitHub pull request
+- Using the Drop [Creation Wizard](https://aka.ms/JumpstartDropsWizard)
 
 ### Using the Drop Creation Wizard
 The **"Create Drop"** wizard simplifies the contribution process by guiding contributors through each step, making it easy to submit a new Drop. With the wizard, contributors can also use the live preview option to see how the Drop will appear on the website before finalizing the submission. This ensures that everything is perfect before sharing it with the community.
