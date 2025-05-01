@@ -85,6 +85,8 @@ The final submission should contain the following files:
 
 ## Drop Index
 
+<div style="position: relative; box-sizing: content-box; max-height: 80vh; max-height: 80svh; width: 100%; aspect-ratio: 1.7170283806343907; padding: 40px 0 40px 0;"><iframe src="https://app.supademo.com/embed/cm7memt8s00m82l0jn4kvbfpn?embed_v=2" loading="lazy" title="Jumpstart Drops Index" allow="clipboard-write" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ## Folder structure
 
 The folder structure guidelines for submitting Drop source code as part of a Pull Request into the Arc Jumpstart Drops repository are as follows:
