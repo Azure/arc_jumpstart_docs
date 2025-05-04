@@ -46,10 +46,10 @@ LocalBox supports [Bicep](https://learn.microsoft.com/azure/azure-resource-manag
 
 Deploying LocalBox is a multi-step process that includes:
 
-  1) Deploy Azure infrastructure
-  2) Automation scripts configure virtual Azure Local instance and generate ARM template
-  3) User or automation deploys ARM template (Azure Local instance validate phase)
-  4) User or automation re-deploys ARM template (Azure Local instance deploy phase)
+1. Deploy Azure infrastructure
+2. Automation scripts configure virtual Azure Local instance and generate ARM template
+3. User or automation deploys ARM template (Azure Local instance validate phase)
+4. User or automation re-deploys ARM template (Azure Local instance deploy phase)
 
 ![Screenshot showing deployment flow diagram for Bicep-based deployments](./deployment_flow.png)
 
