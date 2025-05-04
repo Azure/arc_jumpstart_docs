@@ -64,7 +64,7 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 > ```
 
 
-- From Azure portal, open Cloud Shell and run the following command, using the name of your LocalBox resource group.
+- From the Client VM, open a terminal and run the following command, using the name of your LocalBox resource group.
 
   ```
   az connectedk8s proxy -n localbox-aks -g <name of your resource group>

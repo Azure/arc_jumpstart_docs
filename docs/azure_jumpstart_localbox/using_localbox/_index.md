@@ -19,9 +19,9 @@ LocalBox simulates a 2-node physical deployment of Azure Local by using [nested 
 | Computer Name    | Role                                | Domain Joined | Parent Host     | OS                  |
 | ---------------- | ----------------------------------- | ------------- | --------------- | ------------------- |
 | _LocalBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2025 |
-| _AzSHOST1_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
-| _AzSHOST2_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
-| _AzSMGMT_        | Nested hypervisor                   | No            | _LocalBox-Client_ | Windows Server 2022 |
+| _AzLHOST1_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
+| _AzLHOST2_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
+| _AzLMGMT_        | Nested hypervisor                   | No            | _LocalBox-Client_ | Windows Server 2022 |
 | _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
 | _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
 
