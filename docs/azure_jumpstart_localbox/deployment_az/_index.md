@@ -117,8 +117,8 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Local enabled by Arc cluster resource after the client VM deployment is complete. | true |
-| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Local enabled by Arc cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. | false |
+| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Local enabled by Arc instance resource after the client VM deployment is complete. | true |
+| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Local enabled by Arc instance resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. | false |
 | `deployBastion` | bool | Choice to deploy Bastion to connect to the client VM | false |
 | `githubAccount` | string | Target GitHub account | "microsoft" |
 | `githubBranch` | string | Target GitHub branch | "main" |
@@ -129,7 +129,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 | `rdpPort` | string | Override default RDP port using this parameter. Default is 3389. No changes will be made to the client VM. | "3389" |
 | `spnClientId` | string | Azure service principal client id |  |
 | `spnClientSecret` | securestring | Azure service principal client secret |  |
-| `spnProviderId` | string | Azure AD object id for your Microsoft.AzureStackHCI resource provider |  |
+| `spnProviderId` | string | Azure AD object id for your _Microsoft.AzureStackHCI_ resource provider |  |
 | `spnTenantId` | string | Azure AD tenant id for your service principal |  |
 | `tags` | object | Tags to be added to all resources | {"Project": "jumpstart_LocalBox"} |
 | `vmAutologon` | bool | Enable automatic logon into LocalBox Virtual Machine | true |
@@ -137,7 +137,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 | `windowsAdminUsername` | string | Username for Windows account |  |
 | `vmSize` | string | The size of the Virtual Machine | Standard_E32s_v6 |
 
-  > **Disclaimer:** The *governResourceTags* parameter is optional and set to true by default. If not specified, both *CostControl: 'Ignore'* and *SecurityControl: 'Ignore'* tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the *governResourceTags* parameter was set to true. If you are deploying LocalBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
+  > **Disclaimer:** The _governResourceTags_ parameter is optional and set to true by default. If not specified, both _CostControl: 'Ignore'_ and _SecurityControl: 'Ignore'_ tag values will be added. These tags are applicable to **ONLY Microsoft-internal Azure lab tenants** and designed for managing automated governance processes related to cost optimization and security controls. As mentioned, it will get added to the deployment **only** if the _governResourceTags_ parameter was set to true. If you are deploying LocalBox from a Microsoft-internal tenant and Azure subscription, this parameter is required to be set to 'true'. Failure to do so will cause your deployment to have issues and most likely to fail.
 
 Example parameter-file:
 

@@ -14,16 +14,16 @@ LocalBox has many features that can be explored through the Azure portal or from
 
 LocalBox simulates a 2-node physical deployment of Azure Local by using [nested virtualization on Hyper-V](https://learn.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To ensure you have the best experience with LocalBox, take a moment to review the details below to help you understand the various nested VMs that make up the solution.
 
-  ![Screenshot showing LocalBox nested virtualization stack diagram](./nested_virtualization_arch.png)
+  ![Screenshot showing LocalBox nested virtualization stack diagram](../getting_started/nested_virtualization.png)
 
 | Computer Name    | Role                                | Domain Joined | Parent Host     | OS                  |
 | ---------------- | ----------------------------------- | ------------- | --------------- | ------------------- |
 | _LocalBox-Client_  | Primary host                        | No            | Azure           | Windows Server 2025 |
 | _AzLHOST1_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
 | _AzLHOST2_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
-| _AzLMGMT_        | Nested hypervisor                   | No            | _LocalBox-Client_ | Windows Server 2022 |
-| _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzLMGMT_       | Windows Server 2022 |
-| _Vm-Router_      | Remote Access Server                | No            | _AzLMGMT_       | Windows Server 2022 |
+| _AzLMGMT_        | Nested hypervisor                   | No            | _LocalBox-Client_ | Windows Server 2025 |
+| _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzLMGMT_       | Windows Server 2025 |
+| _Vm-Router_      | Remote Access Server                | No            | _AzLMGMT_       | Windows Server 2025 |
 
 ## Active Directory domain user credentials
 

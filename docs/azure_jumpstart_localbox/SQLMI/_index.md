@@ -53,7 +53,7 @@ Azure Data Studio is installed and pre-configured on the AdminCenter computer to
 
 ## Azure Arc-enabled SQL Managed Instance stress simulation
 
-LocalBox includes a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well as the Azure Local cluster.
+LocalBox includes a dedicated SQL stress simulation tool named SqlQueryStress automatically installed for you on the Client VM. SqlQueryStress will allow you to generate load on the Azure Arc-enabled SQL Managed Instance that can be done used to showcase how the SQL database and services are performing as well as the Azure Local instance.
 
 - To start with, open the SqlQueryStress desktop shortcut and connect to the Arc-enabled SQL Managed Instance primary endpoint Ip address. This can be found in the _SQLMI Endpoints_ text file desktop shortcut that was created for you. Or you can get the primary endpoint from the Azure portal.
 
@@ -79,7 +79,7 @@ LocalBox includes a dedicated SQL stress simulation tool named SqlQueryStress au
 
   ![Screenshot showing SQLstress running](./sql_stress_running.png)
 
-- To monitor the performance of the Azure Local cluster, click on the Insights workbook and explore logs from your cluster.
+- To monitor the performance of the Azure Local instance, click on the Insights workbook and explore logs from your cluster.
 
     ![Screenshot showing the VM insights workbook](./insights_workbook.png)
 
