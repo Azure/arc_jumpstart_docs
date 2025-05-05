@@ -63,7 +63,7 @@ This website has been curated to ensure you have everything you need to begin yo
 
 - **Visual learning:** Visual cues enhance comprehension. Detailed screenshots provide visual context, enhancing your learning experience and making complex topics more accessible.
 
-> **Disclaimer:** Arc Jumpstart focuses on the adaptive cloud product portfolio and capabilities, deployment scenarios, and practical use-cases. While we provide extensive support, please note that Azure best-practices and the integration of various technologies and open-source projects within the scenarios and code are outside our primary scope. The scenarios, including ArcBox, HCIBox, and Agora, are designed for evaluation, training, and demo purposes exclusively and are not intended for production use cases.
+> **Disclaimer:** Arc Jumpstart focuses on the adaptive cloud product portfolio and capabilities, deployment scenarios, and practical use-cases. While we provide extensive support, please note that Azure best-practices and the integration of various technologies and open-source projects within the scenarios and code are outside our primary scope. The scenarios, including ArcBox, LocalBox, and Agora, are designed for evaluation, training, and demo purposes exclusively and are not intended for production use cases.
 
 ## Jumpstart public roadmap
 
