@@ -33,7 +33,7 @@ LocalBox incurs normal Azure consumption charges for various Azure resources suc
 
 ## Which versions of Azure Local does LocalBox support?
 
-LocalBox uses the 23H2 build of the Azure Stack HCI OS.
+LocalBox uses the 23H2 build of the [Azure Stack HCI OS](https://learn.microsoft.com/azure/azure-local/deploy/operating-system?view=azloc-2504).
 
 ## Where can I go if I have trouble deploying or using LocalBox?
 
