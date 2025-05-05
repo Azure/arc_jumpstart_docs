@@ -18,7 +18,7 @@ LocalBox is a turnkey solution that provides a complete sandbox for exploring [A
 - Demo environment for customer presentations or events
 - Rapid integration testing platform
 
-![Screenshot showing LocalBox architecture diagram](./arch.png)
+![Screenshot showing LocalBox architecture diagram](./architecture.png)
 
 ## Azure Local capabilities available in LocalBox
 
