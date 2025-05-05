@@ -27,7 +27,7 @@ weight: 6
 - [Feature Request: Add GUIDs for JS Telemetry #3136](https://github.com/microsoft/azure_arc/issues/3136)
 - [Docs Feature: Move ArcBox parameters into table #679](https://github.com/Azure/arc_jumpstart_docs/issues/679)
 
-### Jumpstart HCIBox
+### Jumpstart LocalBox
 
 - [Feature Request: Missing provider requirement #3138](https://github.com/microsoft/azure_arc/issues/3138)
 - [Feature Request: Support Standard_E32s_v6 in HCIBox #3140](https://github.com/microsoft/azure_arc/issues/3140)
@@ -86,7 +86,7 @@ weight: 6
 - [Feature Request: Update NSG priorities #3048](https://github.com/microsoft/azure_arc/issues/3048)
 - [Feature Request: ArcBox - Update ARM API versions for ARM template and Bicep #3111](https://github.com/microsoft/azure_arc/issues/3111)
 
-### Jumpstart HCIBox
+### Jumpstart LocalBox
 
 - [Enhancement: HCIBox - Update Windows Server 2022 vhdx image to Windows Server 2025 #2709](https://github.com/microsoft/azure_arc/issues/2709)
 - [Feature Request: Internal governance automation potentially breaking HCIBox #2998](https://github.com/microsoft/azure_arc/issues/2998)
@@ -151,7 +151,7 @@ weight: 6
 - [Bug / Issue: Deployment error with complex password generator #2904](https://github.com/microsoft/azure_arc/issues/2904)
 - [Bug / Issue: Logon script failing on ArcBox-client multiple times #2992](https://github.com/microsoft/azure_arc/issues/2992)
 
-### Jumpstart HCIBox
+### Jumpstart LocalBox
 
 - [Enhancement: HCIBox - Add more location #2903](https://github.com/microsoft/azure_arc/issues/2903)
 - [Enhancement: Add resource provider registration prerequisite for HCIBox #480](https://github.com/Azure/arc_jumpstart_docs/issues/480)
@@ -188,7 +188,7 @@ weight: 6
 - [Announcing Jumpstart ArcBox 25Q1](https://aka.ms/ArcBox2025Blog)
 - Azure Developer CLI (azd) support depreciation from HCIBox
 - Deprecating "Contoso Bakeries" scenario
-- Critical Jumpstart HCIBox bug fixes
+- Critical Jumpstart LocalBox bug fixes
 - Other issue fixes
 
 ### Jumpstart ArcBox
@@ -197,7 +197,7 @@ weight: 6
 - [Bug: Logon scripts on ARCBoxClient machine fail! #2845](https://github.com/microsoft/azure_arc/issues/2845)
 - [Docs: Azure ArcBox for ITPros deployment #448](https://github.com/Azure/arc_jumpstart_docs/issues/448)
 
-### Jumpstart HCIBox
+### Jumpstart LocalBox
 
 - [Bug: Type 'ValidateAzureStackNetworkATCSettings' of Role 'HostNetwork' raised an exception: #2861](https://github.com/microsoft/azure_arc/issues/2861)
 - [Bug: main.azd.bicep contains unsupported region #2873](https://github.com/microsoft/azure_arc/issues/2873)

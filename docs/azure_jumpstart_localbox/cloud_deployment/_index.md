@@ -16,11 +16,11 @@ Once your Bicep deployment is complete, you can open the Azure portal to see the
 
 ## Connecting to the LocalBox Client virtual machine
 
-> **Note:** As the subnet the Azure Local VMs resides on is on the second nested layer, it is necessary to connect to the AzSMGMT machine to be able to connect to those VMs:
+> **Note:** As the subnet the Azure Local VMs resides on is on the second nested layer, it is necessary to connect to the AzLMGMT machine to be able to connect to those VMs:
 > The Azure Local VM subnet is also not routable into the Azure Virtual Network, hence it won't be possible to connect to virtual machines on the Azure Local instance using Azure Bastion.
 >
 > If you are having difficulties connecting into a Azure Local VM:
-> You can run `mstsc /v:192.168.1.11` from LocalBox-Client to connect to the AzSMGMT nested VM.
+> You can run `mstsc /v:192.168.1.11` from LocalBox-Client to connect to the AzLMGMT nested VM.
 > From there, run `mstsc /v:192.168.200.x` to connect to the Azure Local VMs (replace x with the IP of your deployed VM).
 
 Various options are available to connect to _LocalBox-Client_ VM, depending on the parameters you supplied during deployment.
@@ -68,12 +68,12 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any HCI updates available, we need to add 1 additional hour to the estimated deployment time.
+- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
 At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _LocalBox-Client_](./automation.png)
 
-- In the Azure portal, validate that both Azure Local machines (AzSHOST1 and AzSHOST2) have been created as Arc-enabled servers.
+- In the Azure portal, validate that both Azure Local machines (AzLHOST1 and AzLHOST2) have been created as Arc-enabled servers.
 
 - Verify that both of the Arc-enabled servers have successfully installed the three Azure Local extensions: AzureEdgeTelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
 
@@ -100,7 +100,7 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
 - Now you will use the generated ARM template to validate the Azure Local instance in Azure portal. Open File Explorer on _LocalBox-Client_ and navigate to the _C:\LocalBox_ folder. Right-click on the folder and open it in VSCode.
 
-- Open and review the hci.json and hci.parameters.json files in VSCode. Verify that the hci.parameters.json file looks correct without "_-staging_" placeholder parameter values.
+- Open and review the azlocal.json and azlocal.parameters.json files in VSCode. Verify that the azlocal.parameters.json file looks correct without "_-staging_" placeholder parameter values.
 
 - Navigate to Azure portal and type "custom deployment" in the search bar, then select "Deploy a custom template".
 
@@ -110,11 +110,11 @@ Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
 
   ![Screenshot showing building your own template option](./build_your_own_template.png)
 
-- Paste the contents of hci.json into the editor and click "Save".
+- Paste the contents of azlocal.json into the editor and click "Save".
 
-  ![Screenshot showing hci.json in Azure portal](./save_template.png)
+  ![Screenshot showing azlocal.json in Azure portal](./save_template.png)
 
-- Click "Edit parameters" and then paste the contents of hci.parameters.json into the editor and click "Save."
+- Click "Edit parameters" and then paste the contents of azlocal.parameters.json into the editor and click "Save."
 
   ![Screenshot showing edit parameters option](./edit_parameters.png)
 

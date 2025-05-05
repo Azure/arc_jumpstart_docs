@@ -22,12 +22,12 @@ LocalBox simulates a 2-node physical deployment of Azure Local by using [nested 
 | _AzLHOST1_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
 | _AzLHOST2_       | Azure Local machine                            | Yes           | _LocalBox-Client_ | Azure Local     |
 | _AzLMGMT_        | Nested hypervisor                   | No            | _LocalBox-Client_ | Windows Server 2022 |
-| _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzSMGMT_       | Windows Server 2022 |
-| _Vm-Router_      | Remote Access Server                | No            | _AzSMGMT_       | Windows Server 2022 |
+| _JumpstartDC_    | Domain controller                   | Yes (DC)      | _AzLMGMT_       | Windows Server 2022 |
+| _Vm-Router_      | Remote Access Server                | No            | _AzLMGMT_       | Windows Server 2022 |
 
 ## Active Directory domain user credentials
 
-Once you are logged into the _LocalBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the HCI nodes. The default domain account is _administrator@jumpstart.local_.
+Once you are logged into the _LocalBox-Client_ VM using the local admin credentials you supplied in your template parameters during deployment you will need to switch to using a domain account to access most other functions, such as logging into the Azure Local nodes. The default domain account is _administrator@jumpstart.local_.
 
   > **Note:** The password for this account is set as the same password you supplied during deployment for the local account. Many LocalBox operations will use the domain account wherever credentials are required.
 
@@ -45,7 +45,7 @@ Azure Local integrates with [Azure Monitor](https://learn.microsoft.com/azure/az
 
 - It will take time for the logs data to flow through to Insights. Once data is available, click on the Insights blade of the _LocalBox-Cluster_ resource to view the Insights workbook and explore logs from your instance.
 
-  ![Screenshot showing logs configured](./hci_insights.png)
+  ![Screenshot showing logs configured](./az_local_insights.png)
 
 ## Upgrading Azure Local
 
@@ -60,7 +60,7 @@ If not, we recommend you to check whether there are any updates available.
 
 If the _Status_-column does not indicate _Up to date_, you can trigger the update process by clicking _One-time update_.
 
-See the [product documentation](https://learn.microsoft.com/azure/azure-local/update/about-updates-23h2) for more information about HCI updates.
+See the [product documentation](https://learn.microsoft.com/azure/azure-local/update/about-updates-23h2) for more information about Azure Local updates.
 
 ## Virtual machine management through Azure portal
 

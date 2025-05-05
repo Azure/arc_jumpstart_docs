@@ -117,8 +117,8 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
 | Name | Type | Description | Default |
 | --- | --- | --- | --- |
-| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. | true |
-| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Arc enabled HCI cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. | false |
+| `autoDeployClusterResource` | bool | Choice to enable automatic deployment of Azure Local enabled by Arc cluster resource after the client VM deployment is complete. | true |
+| `autoUpgradeClusterResource` | bool | Choice to enable automatic upgrade of Azure Local enabled by Arc cluster resource after the client VM deployment is complete. Only applicable when autoDeployClusterResource is true. | false |
 | `deployBastion` | bool | Choice to deploy Bastion to connect to the client VM | false |
 | `githubAccount` | string | Target GitHub account | "microsoft" |
 | `githubBranch` | string | Target GitHub branch | "main" |

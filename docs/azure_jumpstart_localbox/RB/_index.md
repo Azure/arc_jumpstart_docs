@@ -13,7 +13,7 @@ Before you can create virtual machines on your Azure Local instance from Azure p
 
 - Navigate to your instance resource inside the LocalBox resource group and click it.
 
-  ![Screenshot showing instance resource](./hcicluster_rg.png)
+  ![Screenshot showing instance resource](./az_local_cluster_rg.png)
 
 - Click on "VM Images" in the menu and then click the "Add VM image" dropdown and select "From Azure Marketplace."
 

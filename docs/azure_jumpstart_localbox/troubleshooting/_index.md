@@ -23,7 +23,7 @@ Occasionally, you may need to review log output from scripts that run on the _Lo
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | _C:\LocalBox\Logs\Bootstrap.log_              | Output from the initial bootstrapping script that runs on _LocalBox-Client_.                                                              |
 | _C:\LocalBox\Logs\New-LocalBoxCluster.log_    | Output of _New-LocalBoxCluster.ps1_ which configures the Hyper-V host and builds the Azure Local instance, management VMs, and other configurations. |
-| _C:\LocalBox\Logs\Generate-ARM-Template.log_  | Log output of the script that builds the _hci.json_ and _hci.parameters.json_ file                                                        |
+| _C:\LocalBox\Logs\Generate-ARM-Template.log_  | Log output of the script that builds the _azlocal.json_ and _azlocal.parameters.json_ file                                                        |
 | _C:\LocalBox\Logs\LocalBoxLogonScript.log_    | Log output from the orchestrator script that manages the install                                                                          |
 | _C:\LocalBox\Logs\Tools.log_                  | Log output from tools installation during bootstrap                                                                                       |
 
