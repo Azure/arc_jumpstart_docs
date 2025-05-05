@@ -14,7 +14,7 @@ LocalBox has many features that can be explored through the Azure portal or from
 
 LocalBox simulates a 2-node physical deployment of Azure Local by using [nested virtualization on Hyper-V](https://learn.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization). To ensure you have the best experience with LocalBox, take a moment to review the details below to help you understand the various nested VMs that make up the solution.
 
-  ![Screenshot showing LocalBox nested virtualization stack diagram](../getting_started/nested_virtualization.png)
+  ![Screenshot showing LocalBox nested virtualization stack diagram](./nested_virtualization.png)
 
 | Computer Name    | Role                                | Domain Joined | Parent Host     | OS                  |
 | ---------------- | ----------------------------------- | ------------- | --------------- | ------------------- |
