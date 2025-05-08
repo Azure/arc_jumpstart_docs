@@ -29,7 +29,7 @@ Each Arc Jumpstart scenario and solution describes what is needed to run the aut
 
 ## Is Arc Jumpstart considered "production-ready"?
 
-The intention of the Arc Jumpstart is to focus on the core Azure Arc, edge, and IoT capabilities, deployment scenarios, use cases, and ease of use. It does not focus on Azure best practices, and/or other products or open-source projects being leveraged in our code. Jumpstart Scenarios, ArcBox, HCIBox, and Agora are all intended for evaluation, training, and demo purposes only and are not supported for production use cases.
+The intention of the Arc Jumpstart is to focus on the core Azure Arc, edge, and IoT capabilities, deployment scenarios, use cases, and ease of use. It does not focus on Azure best practices, and/or other products or open-source projects being leveraged in our code. Jumpstart Scenarios, ArcBox, LocalBox, and Agora are all intended for evaluation, training, and demo purposes only and are not supported for production use cases.
 
 ## Is there guidance on how to run a demo using the Arc Jumpstart?
 

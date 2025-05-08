@@ -131,6 +131,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
 - Register necessary Azure resource providers by running the following commands.
 
   ```shell
+  az provider register --namespace Microsoft.Compute --wait
   az provider register --namespace Microsoft.Kubernetes --wait
   az provider register --namespace Microsoft.KubernetesConfiguration --wait
   az provider register --namespace Microsoft.ExtendedLocation --wait
@@ -199,17 +200,20 @@ $customLocationRPOID=(az ad sp list --filter "displayname eq 'Custom Locations R
   ```
 
 - Edit the [main.bicepparam](https://github.com/microsoft/azure_arc/blob/main/azure_jumpstart_arcbox/bicep/main.bicepparam) template parameters file and supply values for your environment.
-  - _`sshRSAPublicKey`_ - Your SSH public key
-  - _`tenantId`_ - Your Azure tenant id
-  - _`windowsAdminUsername`_ - Client Windows VM Administrator username
-  - _`logAnalyticsWorkspaceName`_ - Name for the ArcBox Log Analytics workspace that will be created
-  - _`flavor`_ - Use the value "DataOps" to specify that you want to deploy the DataOps flavor of ArcBox
-  - _`deployBastion`_ - Set to _`true`_ if you want to use Azure Bastion to connect to _ArcBox-Client_
-  - _`resourceTags`_ - Tags to assign for all ArcBox resources
-  - _`namingPrefix`_ - The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`
-  - _`sqlServerEdition`_ - SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Default is Developer edition. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.
-  - _`windowsAdminPassword`_ - (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.
 
+  | Name                    | Type     | Description                                                                                                           | Default |
+  |-------------------------|----------|-----------------------------------------------------------------------------------------------------------------------|---------|
+  | _`sshRSAPublicKey`_     | string   | Your SSH Public Key                                                                                                   |         |
+  | _`tenantId`_            | string   | Your Azure tenant id                                                                                                  |         |
+  | _`windowsAdminUsername`_| string   | Client Windows VM Administrator username                                                                              |         |
+  | _`logAnalyticsWorkspaceName`_| string   | Name for the ArcBox Log Analytics workspace that will be created |  ArcBox-la  |
+  | _`flavor`_| string   | Use the value _`DataOps`_ to specify that you want to deploy the DataOps flavor of ArcBox |  ITPro  |
+  | _`deployBastion`_       | boolean  | Set to _`true`_ if you want to use Azure Bastion to connect to _ArcBox-Client_                        |  false   |
+  | _`resourceTags`_ | object   | Tags to assign for all ArcBox resources                                             |    Solution: 'jumpstart_arcbox'     |
+  | _`namingPrefix`_   | string   | The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`                                                                                          |  ArcBox    |
+  | _`sqlServerEdition`_ | string   | SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc.                                                                                       | Developer |
+  | _`windowsAdminPassword`_ | string   | (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.                                                                                       |         |
+  
   ![Screenshot showing example parameters](./parameters_dataops_bicep.png)
 
 - (optional) to use Spot VM instance for the _ArcBox-Client VM_, add a parameter called _`enableAzureSpotPricing`_ set to true.
