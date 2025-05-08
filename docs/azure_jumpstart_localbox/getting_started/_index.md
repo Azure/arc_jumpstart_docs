@@ -3,7 +3,44 @@ type: docs
 linkTitle: "Getting Started"
 isGettingStarted: false
 weight: 2
+category: "Jumpstart LocalBox"
+websitesub_category: "Main scenario"
+hero_product: "Azure Local"
+products:
+ - "Azure Local"
+ - "Azure Arc-enabled servers"
+ - "Azure Arc-enabled SQL Servers"
+ - "AKS enabled by Azure Arc"
+ - "Azure Monitor"
+ - "Defender for Cloud"
+ - "Azure Arc-enabled SQL Managed Instance"
+description: "Jumpstart LocalBox is a turnkey solution that provides a complete sandbox for exploring Azure Local capabilities and hybrid cloud integration in a virtual environment. LocalBox is designed to be completely self-contained within a single Azure subscription and resource group, which makes it easy for users to get hands-on with Azure Local and Azure Arc technology without the need for physical hardware."
+Videos:
+ - title: 'What is Jumpstart HCIBox?'
+   url: "https://youtu.be/yLqdaLzAfuY?si=RMVtZxb6ACnII3yV"
+   description: "Arc Jumpstart HCIBox is a turnkey solution that provides a complete sandbox for exploring Azure Local capabilities and hybrid cloud integration in a virtualized environment"
+   author: "Jumpstart Lightening"
+ - title: 'How to deploy Jumpstart HCIBox'
+   url: "https://youtu.be/hA4E5sUaWTc?si=Bv6YhBrd6hrkp8H1"
+   description: "Step-by-step on how to deploy Azure LocalBox solution"
+   author: "Jumpstart Lightening"
+ - title: 'Azure Arc Jumpstart - Accelerate your Azure Arc learning and experimentation!'
+   url: "https://www.youtube.com/watch?v=VvoZp69NiRk&t=242s"
+   description: "A dive into the Azure Arc Jumpstart and all its resources to help you learn and experiment with the many Azure Arc solutions"
+   author: "John Savill"
+date_created: "18/02/2022"
+date_updated: "18/02/2025"
+locale: "en-us"
+automation_url: "https://github.com/microsoft/azure_arc/tree/main/azure_jumpstart_localbox"
+architecture_diagram: ""
+reading_time: "15 minutes"
+relate_documents:
+ - title: "Jumpstart LocalBox - New name, still awesome!"
+ - url: "https://techcommunity.microsoft.com/blog/azurearcblog/jumpstart-localbox---new-name-still-awesome/4411161"
+ - description: "Announcement of the rebranding of HCIBox to LocalBox"
+ - author: "Techcommunity"
 ---
+
 # Evaluating Azure Local with LocalBox
 
 ## Getting started
