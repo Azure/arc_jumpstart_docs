@@ -159,6 +159,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.PolicyInsights --wait
   az provider register --namespace Microsoft.ExtendedLocation --wait
   az provider register --namespace Microsoft.AzureArcData --wait
+  az provider register --namespace Microsoft.HybridConnectivity --wait
   ```
 
 - Fork the [sample applications GitHub repo](https://github.com/Azure/jumpstart-apps) to your own GitHub account. You will use this forked repo to make changes to the sample apps that will be applied using GitOps configurations. The name of your GitHub account is passed as a parameter to the template files so take note of your GitHub user name.

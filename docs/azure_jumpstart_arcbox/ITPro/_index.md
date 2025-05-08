@@ -110,6 +110,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.AzureArcData --wait
   az provider register --namespace Microsoft.OperationsManagement --wait
   az provider register --namespace Microsoft.Insights --wait
+  az provider register --namespace Microsoft.HybridConnectivity --wait
   ```
 
 ## Deployment Option 1: Azure portal
