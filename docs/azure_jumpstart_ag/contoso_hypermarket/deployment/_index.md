@@ -55,7 +55,8 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
         "Microsoft.IoTOperationsOrchestrator",
         "Microsoft.IoTOperations",
         "Microsoft.Fabric",
-        "Microsoft.SecretSyncController"
+        "Microsoft.SecretSyncController",
+        "Microsoft.HybridConnectivity"
     )
 
     foreach ($provider in $providers) {
@@ -79,6 +80,7 @@ Once automation is complete, users can immediately start enjoying the Contoso Hy
         "Microsoft.IoTOperations"
         "Microsoft.Fabric"
         "Microsoft.SecretSyncController"
+        "Microsoft.HybridConnectivity"
     )
 
     for provider in "${providers[@]}"; do
