@@ -11,6 +11,7 @@ products:
  - "Azure Arc-enabled servers"
  - "Azure Arc-enabled SQL Servers"
  - "AKS enabled by Azure Arc"
+ - "Virtual machine provisioning with Azure Arc"
  - "Azure Monitor"
  - "Defender for Cloud"
  - "Azure Arc-enabled SQL Managed Instance"
