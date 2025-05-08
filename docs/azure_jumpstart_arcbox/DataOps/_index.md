@@ -137,6 +137,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   az provider register --namespace Microsoft.ExtendedLocation --wait
   az provider register --namespace Microsoft.AzureArcData --wait
   az provider register --namespace Microsoft.OperationsManagement --wait
+  az provider register --namespace Microsoft.HybridConnectivity --wait
   ```
 
 - [Generate a new SSH key pair](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed) or use an existing one (Windows 10 and above now comes with a built-in ssh client). The SSH key is used to configure secure access to the Linux virtual machines that are used to run the Kubernetes clusters.
