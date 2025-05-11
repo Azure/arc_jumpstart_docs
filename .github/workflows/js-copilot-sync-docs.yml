@@ -1,0 +1,37 @@
+name: Copilot - Sync docs
+on:
+  push:
+    branches:
+      - copilot-docs-metadata
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: copilot-docs-metadata
+
+      - name: 'Az powershell login'
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: Sync docs to storage account
+        uses: azure/powershell@v2
+        env:
+          storageAccountName: 'stgjscopilotdocs' # Add as repo secret
+          containerName: 'docs' # Add as repo secret
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
+            ./scripts/powershell/copy-JumpstartDocs.ps1 -SourcePath docs -StorageAccountName $($env:storageAccountName) -ContainerName $($env:containerName)
