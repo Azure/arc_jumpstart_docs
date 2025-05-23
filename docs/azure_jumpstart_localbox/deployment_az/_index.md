@@ -15,6 +15,40 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
 > **Note:** LocalBox can be deployed in the East US, Australia East, Canada Central and West Europe Azure regions. Deploying in other regions will result in unexpected behavior or failures. It requires 32 ESv5-series or 32 ESv6-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Az CLI command to check your vCPU utilization.
 
+- Register required Azure resource providers. Make sure that your Azure subscription is registered against the required resource providers. To register, you must be an owner or contributor on your subscription. You can also ask an administrator to register.
+
+  Run the following PowerShell commands to register:
+
+  ```powershell
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridCompute" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.GuestConfiguration" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridConnectivity" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.AzureStackHCI" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Kubernetes" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.KubernetesConfiguration" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.ExtendedLocation" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.ResourceConnector" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridContainerService"
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Attestation"
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
+  ```
+
+  Alternatively, you can register these providers using Azure CLI:
+
+  ```shell
+  az provider register --namespace Microsoft.HybridCompute
+  az provider register --namespace Microsoft.GuestConfiguration
+  az provider register --namespace Microsoft.HybridConnectivity
+  az provider register --namespace Microsoft.AzureStackHCI
+  az provider register --namespace Microsoft.Kubernetes
+  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.ExtendedLocation
+  az provider register --namespace Microsoft.ResourceConnector
+  az provider register --namespace Microsoft.HybridContainerService
+  az provider register --namespace Microsoft.Attestation
+  az provider register --namespace Microsoft.Storage
+  ```
+
 - Clone the Arc Jumpstart GitHub repository
 
   ```shell
