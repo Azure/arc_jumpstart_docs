@@ -55,7 +55,7 @@ Deploying LocalBox is a multi-step process that includes:
 
 ## Deploy LocalBox
 
-- [Deploy LocalBox with Azure Bicep](../deployment_az/) : Requires pre-configured service principal.
+- [Deploy LocalBox with Azure Bicep](../deployment_az/)
 
 Looking for something else related to LocalBox?
 
