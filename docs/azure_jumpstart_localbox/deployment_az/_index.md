@@ -9,11 +9,45 @@ weight: 3
 
 ## Azure Bicep
 
-Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, you require a service principal by your Azure administrator for use with LocalBox. Read on to learn how to deploy LocalBox with Azure CLI.
+Azure Bicep is used to deploy LocalBox into your Azure subscription. Read on to learn how to deploy LocalBox with Azure CLI.
 
 ### Prepare the environment
 
 > **Note:** LocalBox can be deployed in the East US, Australia East, Canada Central and West Europe Azure regions. Deploying in other regions will result in unexpected behavior or failures. It requires 32 ESv5-series or 32 ESv6-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Az CLI command to check your vCPU utilization.
+
+- Register required Azure resource providers. Make sure that your Azure subscription is registered against the required resource providers. To register, you must be an owner or contributor on your subscription. You can also ask an administrator to register.
+
+  Run the following PowerShell commands to register:
+
+  ```powershell
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridCompute" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.GuestConfiguration" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridConnectivity" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.AzureStackHCI" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Kubernetes" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.KubernetesConfiguration" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.ExtendedLocation" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.ResourceConnector" 
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridContainerService"
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Attestation"
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
+  ```
+
+  Alternatively, you can register these providers using Azure CLI:
+
+  ```shell
+  az provider register --namespace Microsoft.HybridCompute
+  az provider register --namespace Microsoft.GuestConfiguration
+  az provider register --namespace Microsoft.HybridConnectivity
+  az provider register --namespace Microsoft.AzureStackHCI
+  az provider register --namespace Microsoft.Kubernetes
+  az provider register --namespace Microsoft.KubernetesConfiguration
+  az provider register --namespace Microsoft.ExtendedLocation
+  az provider register --namespace Microsoft.ResourceConnector
+  az provider register --namespace Microsoft.HybridContainerService
+  az provider register --namespace Microsoft.Attestation
+  az provider register --namespace Microsoft.Storage
+  ```
 
 - Clone the Arc Jumpstart GitHub repository
 
@@ -37,61 +71,6 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 
   ![Screenshot showing az vm list-usage](./az_vm_list_usage.png)
 
-- Create Azure service principal (SP). To deploy LocalBox, an Azure service principal assigned with the _Owner_ Role-based access control (RBAC) role is required. You can use Azure Cloud Shell (or other Bash shell), or PowerShell to create the service principal. If you are not able to create your own service principal, you can ask your Azure administrator to create one for you scoped to a pre-created resource group.
-
-  - (Option 1) Create service principal using [Azure Cloud Shell](https://shell.azure.com/) or Bash shell with Azure CLI:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "<Unique SP Name>" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    For example:
-
-    ```shell
-    az login
-    subscriptionId=$(az account show --query id --output tsv)
-    az ad sp create-for-rbac -n "JumpstartLocalBox" --role "Owner" --scopes /subscriptions/$subscriptionId
-    ```
-
-    Output should look similar to this:
-
-    ```json
-    {
-    "appId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "displayName": "JumpstartLocalBox",
-    "password": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
-
-  - (Option 2) Create service principal using PowerShell. If necessary, follow [this documentation](https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-8.3.0) to install Azure PowerShell modules.
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "<Unique SPN name>" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    For example:
-
-    ```powershell
-    $account = Connect-AzAccount
-    $spn = New-AzADServicePrincipal -DisplayName "LocalBoxSPN" -Role "Owner" -Scope "/subscriptions/$($account.Context.Subscription.Id)"
-    echo "SPN App id: $($spn.AppId)"
-    echo "SPN secret: $($spn.PasswordCredentials.SecretText)"
-    ```
-
-    Output should look similar to this:
-
-    ![Screenshot showing creating an SPN with PowerShell](./create_spn_powershell.png)
-
-    > **Note:** If you create multiple subsequent role assignments on the same service principal, your client secret (password) will be destroyed and recreated each time. Therefore, make sure you grab the correct password.
-
-    > **Note:** It's optional but highly recommended to scope the service principal to a specific [Azure subscription and resource group](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) as well considering using a [less privileged service principal account](https://learn.microsoft.com/azure/role-based-access-control/best-practices).
-
 ## Deploy the Bicep template
 
 - Upgrade to latest Bicep version
@@ -107,7 +86,6 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
   ```
 
   ![Screenshot showing retrieving Azure Local resource provider id](./hci_rp_id.png)
-
 
 > **Note:** If the ```az ad sp list --display-name "Microsoft.AzureStackHCI Resource Provider"``` command returns an empty array, you should first register the provider with this command : ```az provider register --namespace Microsoft.AzureStackHCI```
 
@@ -127,10 +105,8 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. To deploy, 
 | `logAnalyticsWorkspaceName` | string | Name for your log analytics workspace |  |
 | `natDNS` | string | Public DNS to use for the domain | "8.8.8.8" |
 | `rdpPort` | string | Override default RDP port using this parameter. Default is 3389. No changes will be made to the client VM. | "3389" |
-| `spnClientId` | string | Azure service principal client id |  |
-| `spnClientSecret` | securestring | Azure service principal client secret |  |
-| `spnProviderId` | string | Azure AD object id for your _Microsoft.AzureStackHCI_ resource provider |  |
-| `spnTenantId` | string | Azure AD tenant id for your service principal |  |
+| `spnProviderId` | string | Entra ID object id for your _Microsoft.AzureStackHCI_ resource provider |  |
+| `tenantId` | string | Entra ID tenant id for your subscription |  |
 | `tags` | object | Tags to be added to all resources | {"Project": "jumpstart_LocalBox"} |
 | `vmAutologon` | bool | Enable automatic logon into LocalBox Virtual Machine | true |
 | `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |

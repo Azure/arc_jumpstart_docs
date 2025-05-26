@@ -14,7 +14,7 @@ Jumpstart LocalBox is a turnkey solution that provides a complete sandbox for ex
 
 ## What is required to deploy LocalBox?
 
-LocalBox deployment requires an Azure service principal with Owner role-based access control (RBAC) on an Azure subscription and resource group and can be deployed using Azure Bicep. A service principal is required to run the automation scripts that deploy and configure LocalBox features. You can view how the service principal is used by exploring the LocalBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
+LocalBox deployment requires a user with Owner role-based access control (RBAC) on an Azure subscription and can be deployed using Azure Bicep. A Managed Identity is provisioned by the Bicep template to authenticate to Azure in the automation scripts that deploy and configure LocalBox features. You can view how the Managed Identity is used by exploring the LocalBox code on our [public GitHub repository](https://github.com/microsoft/azure_arc).
 
 ## What Azure regions can LocalBox be deployed to?
 
