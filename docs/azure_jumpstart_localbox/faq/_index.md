@@ -18,22 +18,33 @@ LocalBox deployment requires a user with Owner role-based access control (RBAC) 
 
 ## What Azure regions can LocalBox be deployed to?
 
-LocalBox has been tested in the following Azure regions. Some LocalBox resources are deployed in specific regions where required services are available.
+LocalBox can be deployed in any region with sufficient compute capacity (vCPU quotas) for the chosen VM SKU (Standard E32s v5 or v6).
+
+LocalBox has been tested in the following Azure regions:
 
 - East US
 - Australia East
 - Canada Central
+- Norway East
+- Sweden Central
+- North Europe
 - West Europe
+
+Some LocalBox resources are deployed in specific regions where required services are available: australiaeast,southcentralus,eastus,westeurope,southeastasia,canadacentral,japaneast,centralindia. This can be controlled by specifying the `azureLocalInstanceLocation` deployment parameter.
 
 ## How much will it cost to use LocalBox?
 
-LocalBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage. You can view example estimates of LocalBox costs in the links below.
+LocalBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage.
+
+Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
+
+You can view example estimates of LocalBox costs in the links below.
 
 - [LocalBox cost estimate](https://aka.ms/LocalBoxCost)
 
 ## Which versions of Azure Local does LocalBox support?
 
-LocalBox uses the 23H2 build of the [Azure Stack HCI OS](https://learn.microsoft.com/azure/azure-local/deploy/operating-system?view=azloc-2504).
+LocalBox uses the 24H2 build of the [Azure Local OS](https://learn.microsoft.com/azure/azure-local/deploy/operating-system?view=azloc-2505).
 
 ## Where can I go if I have trouble deploying or using LocalBox?
 
