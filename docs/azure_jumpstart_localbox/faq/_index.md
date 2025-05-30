@@ -30,13 +30,24 @@ LocalBox has been tested in the following Azure regions:
 - North Europe
 - West Europe
 
-Some LocalBox resources are deployed in specific regions where required services are available: australiaeast,southcentralus,eastus,westeurope,southeastasia,canadacentral,japaneast,centralindia. This can be controlled by specifying the `azureLocalInstanceLocation` deployment parameter.
+Some LocalBox resources are deployed in [specific regions](https://learn.microsoft.com/en-us/azure/azure-local/concepts/system-requirements-23h2?view=azloc-2505&tabs=azure-public#azure-requirements) where required services are available:
+
+- East US
+- West Europe
+- Australia East
+- Southeast Asia
+- India Central
+- Canada Central
+- Japan East
+- South Central US
+
+This can be controlled by specifying the `azureLocalInstanceLocation` deployment parameter.
 
 ## How much will it cost to use LocalBox?
 
 LocalBox incurs normal Azure consumption charges for various Azure resources such as virtual machines and storage.
 
-Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity.
+Consider using [Azure Spot VMs](https://learn.microsoft.com/azure/virtual-machines/spot-vms) to reduce compute costs, though this may result in eviction when Azure needs capacity. This can be enabled by specifying the value `true` for the `enableAzureSpotPricing` deployment parameter.
 
 You can view example estimates of LocalBox costs in the links below.
 
