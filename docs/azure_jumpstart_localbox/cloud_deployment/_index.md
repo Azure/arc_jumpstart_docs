@@ -68,7 +68,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take approximately 4-5 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
+- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take **approximately 4-5 hours** to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add an additional hour to the estimated deployment time.
 At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _LocalBox-Client_](./automation.png)
