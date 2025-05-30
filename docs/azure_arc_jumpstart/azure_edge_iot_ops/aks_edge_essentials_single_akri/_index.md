@@ -271,7 +271,6 @@ Occasionally, you may need to review log output from scripts that run on the _AK
 | ------- | ----------- |
 | _C:\Temp\Bootstrap.log_ | Output from the initial _bootstrapping.ps1_ script that runs on _AKS-EE-Demo_ Azure VM. |
 | _C:\Temp\LogonScript.log_ | Output of _LogonScript.ps1_ which creates the AKS Edge Essentials cluster, onboard it with Azure Arc creating the needed extensions as well as onboard the Azure VM. |
-|
 
 ![Screenshot showing the Temp folder with deployment logs](./30.png)
 
