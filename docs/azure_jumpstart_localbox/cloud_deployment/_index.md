@@ -68,7 +68,7 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take anywhere between 2-3 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
+- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take approximately 4.5 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
 At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _LocalBox-Client_](./automation.png)
@@ -81,58 +81,9 @@ At this point, the infrastructure deployment is complete.
 
 ## Azure Local instance validation and deployment from the Azure portal
 
-Azure Local uses a two-step process to create and register instances in Azure using an ARM template.
-
-  1. **Validate** - an ARM template is deployed with a "validate" flag. This begins the final instance validation step and takes around 20 minutes.
-  2. **Deploy** - the same ARM template is redeployed with the "deploy" flag. This deploys the instance and Arc infrastructure and registers the instance. This step takes around 2-3 hours.
-
-If you chose to configure the `autoDeployClusterResource` parameter with the value `false` in your deployment, proceed to the next section to validate and deploy your instance. If you did not override this parameter, you may proceed to the section [_Deployment complete_](#deployment-complete) at the end of this page.
+If you chose to configure the `autoDeployClusterResource` parameter with the value `false` in your deployment, please refer to the [Manual Deployment](../manual_deployment/) guide to validate and deploy your Azure Local instance manually. If you did not override this parameter, you may proceed to the section [_Deployment complete_](#deployment-complete) below.
 
 Visit [troubleshooting](../troubleshooting/) if needed for deployment issues.
-
-### Validate instance in Azure portal
-
-- Before submitting the ARM deployment, you need to add your user account as a Key Vault Administrator on the LocalBox resource group. Navigate to the resource group then click "Access Control (IAM)" and then "Add role assignment". Select the "Key Vault Administrator role" then click on to the next screen to select your user account and assign your user the role.
-
-  ![Screenshot showing key vault assignment](./key_vault_rbac.png)
-
-- Repeat this process to add your user account as a "Storage Account Contributor" on the LocalBox resource group.
-
-- Now you will use the generated ARM template to validate the Azure Local instance in Azure portal. Open File Explorer on _LocalBox-Client_ and navigate to the _C:\LocalBox_ folder. Right-click on the folder and open it in VSCode.
-
-- Open and review the azlocal.json and azlocal.parameters.json files in VSCode. Verify that the azlocal.parameters.json file looks correct without "_-staging_" placeholder parameter values.
-
-- Navigate to Azure portal and type "custom deployment" in the search bar, then select "Deploy a custom template".
-
-  ![Screenshot showing custom deployment option](./deploy_custom_template.png)
-
-- Select "Build your own template in the editor".
-
-  ![Screenshot showing building your own template option](./build_your_own_template.png)
-
-- Paste the contents of azlocal.json into the editor and click "Save".
-
-  ![Screenshot showing azlocal.json in Azure portal](./save_template.png)
-
-- Click "Edit parameters" and then paste the contents of azlocal.parameters.json into the editor and click "Save."
-
-  ![Screenshot showing edit parameters option](./edit_parameters.png)
-
-- Click through again on "Create" and then "Review and Create" to start the validation phase of instance deployment.
-
-  ![Screenshot showing starting validation phase](./validation_in_progress.png)
-
-- Monitor validation as needed until complete.
-
-## Deploy instance in Azure portal
-
-- When validation is complete navigate to the instance resource in your LocalBox resource group. The banner should indicate that your instance is validated but not yet deployed. Click the "Deploy now" link.
-
-  ![Screenshot showing validated instance resource in Azure portal](./validated_cluster_resource.png)
-
-- Click through to submit the deployment. The instance may take some time to deploy. If you navigate elsewhere in the Azure Portal, you can return to monitor progress on the _Deployments_ tab of the instance. Click Refresh to get the latest status on deployment.
-
-  ![Screenshot showing progress of deploying instance](./cluster_deployment_progress.png)
 
 ## Deployment complete
 
