@@ -68,16 +68,12 @@ If you already have [Microsoft Defender for Cloud](https://learn.microsoft.com/a
 
 ### The Logon scripts
 
-- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take approximately 4.5 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
+- Once you log into the _LocalBox-Client_ VM, a PowerShell script will open and start running. This script will take approximately 4-5 hours to finish, and once completed, the script window will close automatically. If there are any Azure Local updates available, we need to add 1 additional hour to the estimated deployment time.
 At this point, the infrastructure deployment is complete.
 
   ![Screenshot showing _LocalBox-Client_](./automation.png)
 
 - In the Azure portal, validate that both Azure Local machines (AzLHOST1 and AzLHOST2) have been created as Arc-enabled servers.
-
-- Verify that both of the Arc-enabled servers have successfully installed the three Azure Local extensions: AzureEdgeTelemetryAndDiagnostics, AzureEdgeLifecycleManager, and AzureEdgeDeviceManagement
-
-  ![Screenshot showing extensions successfully installed](./extensions_installed.png)
 
 ## Azure Local instance validation and deployment from the Azure portal
 

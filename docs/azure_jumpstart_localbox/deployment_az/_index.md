@@ -13,8 +13,6 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. Read on to 
 
 ### Prepare the environment
 
-> **Note:** LocalBox can be deployed in any region with sufficient compute capacity (vCPU quotas) for the chosen VM SKU (Standard E32s v5 or v6). It requires 32 ESv6-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Az CLI command to check your vCPU utilization.
-
 - Register required Azure resource providers. Make sure that your Azure subscription is registered against the required resource providers. To register, you must be an owner or contributor on your subscription. You can also ask an administrator to register.
 
   Run the following PowerShell commands to register:
@@ -64,6 +62,8 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. Read on to 
 - Login to AZ CLI using the *`az login`* command.
 
 - Ensure that you have selected the correct subscription you want to deploy LocalBox to by using the *`az account list --query "[?isDefault]"`* command. If you need to adjust the active subscription used by Az CLI, follow [this guidance](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+
+> **Note:** LocalBox can be deployed in any region with sufficient compute capacity (vCPU quotas) for the chosen VM SKU (Standard E32s v5 or v6). It requires 32 ESv6-series vCPUs when deploying with default parameters such as VM series/size. Ensure you have sufficient vCPU quota available in your Azure subscription and the region where you plan to deploy LocalBox. You can use the below Azure CLI command to check your vCPU utilization.
 
   ```shell
   az vm list-usage --location <your location> --output table

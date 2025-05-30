@@ -42,9 +42,8 @@ Test results are displayed in several locations:
 To view detailed test output and identify which specific tests failed:
 
 1. Navigate to the logs folder: `C:\LocalBox\Logs\`
-2. Open `LocalBoxLogonScript.log` - this contains the detailed Pester test output
-3. Search for "Pester" or "Tests succeeded/failed" to find the test execution section
-4. Failed tests will show detailed error messages explaining what validation failed
+2. Open `DeploymentStatus.log` - this contains the detailed Pester test output for failed (if any) and passed tests
+3. Failed tests will show detailed error messages explaining what validation failed
 
 ### Manually Running Tests
 
@@ -58,7 +57,7 @@ The tests will execute and update both the wallpaper display and Azure resource 
 ### Common Test Failures and Solutions
 
 - **Azure Arc Connected Machine tests fail**: Check that the Azure Arc agent is properly installed and the VM can connect to Azure
-- **Cluster connectivity tests fail**: Verify that the Azure Local cluster deployment completed successfully and the cluster is properly registered with Azure
+- **Cluster connectivity tests fail**: Verify that the Azure Local instance deployment completed successfully and the instance is properly registered with Azure. For additional details, go to the LocalBox resource group, click on _Deployments_ and review any errors for the 'localcluster-validate' and 'localcluster-deploy' deployments.
 - **Resource count tests fail**: Check that all expected Azure resources were created in the resource group
 
 ### Exploring logs from the _LocalBox-Client_ virtual machine
@@ -70,7 +69,8 @@ Occasionally, you may need to review log output from scripts that run on the _Lo
 | _C:\LocalBox\Logs\Bootstrap.log_              | Output from the initial bootstrapping script that runs on _LocalBox-Client_.                                                              |
 | _C:\LocalBox\Logs\New-LocalBoxCluster.log_    | Output of _New-LocalBoxCluster.ps1_ which configures the Hyper-V host and builds the Azure Local instance, management VMs, and other configurations. |
 | _C:\LocalBox\Logs\Generate-ARM-Template.log_  | Log output of the script that builds the _azlocal.json_ and _azlocal.parameters.json_ file                                                        |
-| _C:\LocalBox\Logs\LocalBoxLogonScript.log_    | Log output from the orchestrator script that manages the install **and contains detailed Pester test results**                          |
+| _C:\LocalBox\Logs\LocalBoxLogonScript.log_    | Log output from the orchestrator script that manages the provisioning processes.                          |
+| _C:\LocalBox\Logs\DeploymentStatus.log_    | Log output from _Invoke-Test.ps1 script_
 | _C:\LocalBox\Logs\Tools.log_                  | Log output from tools installation during bootstrap                                                                                       |
 
   ![Screenshot showing LocalBox logs folder on LocalBox-Client](./troubleshoot_logs.png)
