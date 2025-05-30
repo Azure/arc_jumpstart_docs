@@ -155,6 +155,7 @@ ArcBox uses an advanced automation flow to deploy and configure all necessary re
   | _`namingPrefix`_   | string   | The naming prefix for the nested virtual machines and all Azure resources deployed. The maximum length for the naming prefix is 7 characters,example if the value is _Contoso_: `Contoso-Win2k19`                                                                                          |  ArcBox    |
   | _`sqlServerEdition`_| string   | SQL Server edition to deploy on the Hyper-V guest VM. Supported values are Developer, Standard, and Enterprise. Azure Arc-enabled SQL Server features such as performance metrics requires Standard or Enterprise edition. Use this parameter to experience SQL Server performance metrics enabled by Azure Arc. |  Developer  |
   | _`windowsAdminPassword`_ | string   | (optional) Client Windows VM Password. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long. If not specified, the default value is generated using the Bicep newGuid() function and stored in the Key Vault.                                                                                       |         |
+| `enableAzureSpotPricing` | string | Enable Azure VM Spot pricing for the ArcBox Client VM | false |
 
   ![Screenshot showing example parameters](./parameters_itpro_bicep.png)
 
