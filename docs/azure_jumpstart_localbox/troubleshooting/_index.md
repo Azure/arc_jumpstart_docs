@@ -9,7 +9,6 @@ weight: 8
 
 Occasionally deployments of LocalBox may fail at various stages. Common reasons for failed deployments include:
 
-- Invalid service principal id, service principal secret, or service principal Azure tenant ID provided in the _main.bicepparam_ Bicep template file. This can cause failures when running automation that requires logging into Azure, such as the scripts that register the Azure Local instance, deploy AKS enabled by Azure Arc cluster, or configure Arc Resource Bridge.
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 32 available. See the [prerequisites](../getting_started/#prerequisites) section for more details.
 - Corruption when downloading LocalBox VHD files can interrupt deployments. LocalBox should automatically halt if this occurs. Re-running the PowerShell script at _C:\LocalBox\LocalBoxLogonScript.ps1_ can often repair this issue.
 
