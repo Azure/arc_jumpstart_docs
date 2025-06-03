@@ -7,11 +7,80 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## May 2025
+
+### Release highlights
+
+- [Jumpstart LocalBox 25H2](https://aka.ms/LocalBox25H2Blog)
+- [Jumpstart LocalBox Rebranding](https://aka.ms/JumpstartLocalBoxBlog)
+- [15 new Jumpstart Drops](http://aka.ms/JumpstartDrops)
+- [Jumpstart Gems May release](https://aka.ms/JumpstartGemsReleaseLD525)
+
+### Jumpstart ArcBox
+
+- [Docs Feature: Add resource provider Microsoft.HybridConnectivity to prerequisites #720](https://github.com/Azure/arc_jumpstart_docs/issues/720)
+
+### Jumpstart LocalBox
+
+- [Bug / Issue: Automation Account Failed Error #3201](https://github.com/microsoft/azure_arc/issues/3201)
+- [Bug / Issue: Azure Local validation is failing due to AzureEdgeLifecycleManager latest version not supported #3219](https://github.com/microsoft/azure_arc/issues/3219)
+- [Bug / Issue: 1 Test Failed Jumpstart LocalBox #3220](https://github.com/microsoft/azure_arc/issues/3220)
+- [Feature Request: Update LocalBox to solution update 2504 #3221](https://github.com/microsoft/azure_arc/issues/3221)
+- [Feature Request: Remove Service Principal dependency for LocalBox #3223](https://github.com/microsoft/azure_arc/issues/3223)
+- [Feature Request: LocalBox - add support for Spot VMs #3239](https://github.com/microsoft/azure_arc/issues/3239)
+- [Feature Request: LocalBox - add support for Azure Local 2505 #3240](https://github.com/microsoft/azure_arc/issues/3240)
+- [Feature Request: Add support for deploying the LocalBox Client VM and Azure Local instance in separate regions #3241](https://github.com/microsoft/azure_arc/issues/3241)
+- [Feature Request: LocalBox - add dedicated PowerShell module #3242](https://github.com/microsoft/azure_arc/issues/3242)
+- [Bug / Issue: LocalBox deployment error #686](https://github.com/Azure/arc_jumpstart_docs/issues/686)
+- [Docs Feature: Add resource provider Microsoft.HybridConnectivity to prerequisites #720](https://github.com/Azure/arc_jumpstart_docs/issues/720)
+- [Bug / Issue: Azure Local validation is failing due to AzureEdgeLifecycleManager latest version not supported #727](https://github.com/Azure/arc_jumpstart_docs/issues/727)
+- [Docs Feature: Add deployment time note to LocalBox documentation #728](https://github.com/Azure/arc_jumpstart_docs/issues/728)
+- [Docs Feature: Add required Azure resource providers to LocalBox documentation #729](https://github.com/Azure/arc_jumpstart_docs/issues/729)
+- [Docs Feature: Improvements to LocalBox documentation #730](https://github.com/Azure/arc_jumpstart_docs/issues/730)
+
+### Jumpstart Agora
+
+- [Bug / Issue: Contoso Motors - Incorporate v2 changes #3218](https://github.com/microsoft/azure_arc/issues/3218)
+- [Bug / Issue: 2 tests fail on Contoso Motors #3224](https://github.com/microsoft/azure_arc/issues/3224)
+- [Bug / Issue: Prometheus.monitoring.coreos.com "prometheus-kube-prometheus-prometheus" is invalid #3226](https://github.com/microsoft/azure_arc/issues/3226)
+- [Bug / Issue: Contoso Motors - Azure IoT Operation - release azure-arc-containerstorage failed #3236](https://github.com/microsoft/azure_arc/issues/3236)
+- [Docs Feature: Add resource provider Microsoft.HybridConnectivity to prerequisites #720](https://github.com/Azure/arc_jumpstart_docs/issues/720)
+
+### Jumpstart Scenarios
+
+- No updates for this release
+
+### Jumpstart Drops
+
+- [Microsoft Entra Workload ID with AKS](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Microsoft%20Entra%20Workload%20ID%20with%20AKS)
+- [External Secrets Operator with Azure Key Vault](https://jumpstart.azure.com/azure_jumpstart_drops?drop=External%20Secrets%20Operator%20with%20Azure%20Key%20Vault)
+- [Dapr Secret Store for Key Vault](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Dapr%20Secret%20Store%20for%20Key%20Vault)
+- [Secrets Store CSI Driver for Key Vault in AKS](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Secrets%20Store%20CSI%20Driver%20for%20Key%20Vault%20in%20AKS)
+- [Azure Arc gateway with Terraform](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20gateway%20with%20Terraform)
+- [Azure Arc Agent Toolkit](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20Agent%20Toolkit)
+- [3D USD Import and Export For Digital Twin Builder](https://jumpstart.azure.com/azure_jumpstart_drops?drop=3D%20USD%20Import%20and%20Export%20For%20Digital%20Twin%20Builder)
+- [Use Azure Monitor dashboards with Grafana for K8s](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Use%20Azure%20Monitor%20dashboards%20with%20Grafana%20for%20K8s)
+- [Azure Container Storage enabled by Azure Arc SFTP](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Container%20Storage%20enabled%20by%20Azure%20Arc%20SFTP)
+- [Monitor Arc Agent Logs](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Monitor%20Arc%20Agent%20Logs)
+- [Kubernetes AI Toolchain Operator (KAITO) & AKS Arc](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Kubernetes%20AI%20Toolchain%20Operator%20(KAITO)%20&%20AKS%20Arc)
+- [Traefik Deployment on Arc-enabled Kubernetes](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Traefik%20Deployment%20on%20Arc-enabled%20Kubernetes)
+- [Multi-cluster TLS cert management using Traefik](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Multi-cluster%20TLS%20cert%20management%20using%20Traefik)
+- [Service auto-discovery and routing with Traefik](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Service%20auto-discovery%20and%20routing%20with%20Traefik)
+- [Deploy multiple Arc k8s clusters with Terraform](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Deploy%20multiple%20Arc%20k8s%20clusters%20with%20Terraform)
+
+### Jumpstart SDK
+
+- [Feature Request: Added Azure Arc Jumpstart LocalBox PowerShell module #329](https://github.com/Azure/jumpstart-sdk/pull/329)
+
+### Jumpstart Lightning
+
+- [Enable secret encryption on AKS EE | EASY PEASY!](https://youtu.be/3pXDA7BFKCE)
+
 ## April 2025
 
 ### Release highlights
 
-- Jumpstart and the new *Azure.Arc.Jumpstart.Common* PowerShell module is now part the [PowerShell Gallery](https://www.powershellgallery.com/profiles/jumpstart). See [announcment](https://www.linkedin.com/posts/janegilring_azurearc-powershell-devops-activity-7321568402370641920-07JR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAGRRdoBb4Olf2HriygmIqHP4lnX1xJe_hc) from the team.
+- Jumpstart and the new *Azure.Arc.Jumpstart.Common* PowerShell module is now part the [PowerShell Gallery](https://www.powershellgallery.com/profiles/jumpstart). See [announcement](https://www.linkedin.com/posts/janegilring_azurearc-powershell-devops-activity-7321568402370641920-07JR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAGRRdoBb4Olf2HriygmIqHP4lnX1xJe_hc) from the team
 - New Jumpstart Drop: [Arc Insights PBI Dashboards Powered by Jumpstart](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Arc%20Insights%20PBI%20Dashboards%20Powered%20by%20Jumpstart&fs=true)
 - Total of 4 new Jumpstart Drops in the release
 - All ArcBox OS images updated with latest patch level
@@ -93,8 +162,8 @@ weight: 6
 - [Bug / Issue: Cant deploy Logical Network - error while running script #3002](https://github.com/microsoft/azure_arc/issues/3002)
 - [Bug / Issue: Remote Desktop hang when logging in to ArcBox and HCIBox Client VMs #3035](https://github.com/microsoft/azure_arc/issues/3035)
 - [Docs Feature: Make the regional and quote HCIBox disclaimer more visable #625](https://github.com/Azure/arc_jumpstart_docs/issues/625)
-- [Feature Request: Missing provider requirement](https://github.com/microsoft/azure_arc/issues/3138)
-- [Docs Feature: Missing provider requirement](https://github.com/Azure/arc_jumpstart_docs/issues/638)
+- [Feature Request: Missing provider requirement #3138](https://github.com/microsoft/azure_arc/issues/3138)
+- [Docs Feature: Missing provider requirement #638](https://github.com/Azure/arc_jumpstart_docs/issues/638)
 
 ### Jumpstart Agora
 
