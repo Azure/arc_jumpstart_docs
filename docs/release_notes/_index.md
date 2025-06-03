@@ -48,7 +48,7 @@ weight: 6
 
 ### Jumpstart Scenarios
 
-- No updates this release
+- No updates for this release
 
 ### Jumpstart Drops
 
