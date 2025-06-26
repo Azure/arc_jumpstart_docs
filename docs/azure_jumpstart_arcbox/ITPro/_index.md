@@ -778,14 +778,14 @@ Once the license is active, enable the features of interest from the Azure Porta
 
 Now included in ArcBox for ITPro, is the ArcBox Power BI Dashboards.
 
-The ArcBox Power BI (PBI) dashboards, provides users with a single pane of glass insights and visualizations for your servers, enabled by Arc or as Azure virtual machines. The dashboard covers a range of scenarios including Server Inventory, SQL Instances on Virtual Machines, SQL Databases on virtual machines and Extended Security Update (ESU) cost forecasting. With the ArcBox PBI Dashboards Powered by Jumpstart, you have a **rich set of Dashboards about your Arc connected estate, available in minutes, not weeks**, which can then be customized to suit your individual requirements.
+The ArcBox Power BI (PBI) dashboards provide users with a single pane of glass insights and visualizations for your servers, enabled by Arc or as Azure virtual machines. The dashboard covers a range of scenarios including Server Inventory, SQL Instances on Virtual Machines, SQL Databases on virtual machines and Extended Security Update (ESU) cost forecasting. With the ArcBox PBI Dashboards Powered by Jumpstart, you have a **rich set of Dashboards about your Arc connected estate, available in minutes, not weeks**, which can then be customized to suit your individual requirements.
 
 The ArcBox PBI dashboards contain:
 
-* **Server Inventory** - A detailed inventory of all servers, both Azure and Arc-enabled, providing a clear overview of server landscape.
+* **Server Inventory** - A detailed inventory of all servers, both Azure and Arc-enabled, providing a clear overview of your server landscape.
 * **SQL Inventory** - Information on SQL instances, including both Azure SQL and SQL Servers enabled by Arc, ensuring you have a complete view of your SQL Server environment.
 * **Databases** - Insights into databases managed through Azure Arc, helping you track and manage your database assets effectively.
-* **ESU Forecast** - An estimate of future costs for Extended Security Updates (ESU) for Windows Server 2016 and SQL Server 2016, based on current pricing. For detailed prices of ESUs see: [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/core-control-plane/)
+* **ESU Forecast** - An estimate of future costs for Extended Security Updates (ESU) for Windows Server 2016 and SQL Server 2016, based on current pricing. For detailed prices of ESUs, see: [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/core-control-plane/)
 
 Here are some screenshots of the Arc Insights PBI dashboards:
 <p float="left">
@@ -797,13 +797,13 @@ Here are some screenshots of the Arc Insights PBI dashboards:
   <img src="./pbi_esu_forecast_screenshot.png" alt="ESU Forecast" width="45%" />
 </p>
 
-### How to setup the ArcBox PBI Dashboards
+### How to set up the ArcBox PBI Dashboards
 
 1. Installed on _ArcBox-Client_ VM is the "ArcBox PBI Dashboard". There is a shortcut to this on the desktop of the _ArcBox-Client_ VM.
 
 ![Screenshot showing ArcBox desktop with ArcBox Power BI Dashboard](./pbi_arcbox_desktop.png)
 
-2. Open the "ArcBox PBI Dashboard" template, upon first opening Power BI, it will reqest a sign in. Enter a valid user or click cancel to ignore.
+2. Open the "ArcBox PBI Dashboard" template. Upon first opening Power BI, it will request a sign in. Enter a valid user or click cancel to ignore.
 
 ![Screenshot showing PBI requesting a sign in](./pbi_sign_in.png)
 
@@ -831,7 +831,7 @@ Here are some screenshots of the Arc Insights PBI dashboards:
 
   Ensure "Anonymous" is selected. Click Connect.
 
-5. Your dashboard should then load and include all the resources from Azure or Arc for the scriptions you associate with the login used in the Azure Resource graph connector.
+5. Your dashboard should then load and include all the resources from Azure or Arc for the subscriptions you associate with the login used in the Azure Resource Graph connector.
 Save your new Power BI dashboard as a PBIX file.
 
 ![Screenshot showing how to save dashboard](./pbi_save_screenshot.png)
