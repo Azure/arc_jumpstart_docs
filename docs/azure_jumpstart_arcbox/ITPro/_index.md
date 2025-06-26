@@ -789,12 +789,12 @@ The ArcBox PBI dashboards contain:
 
 Here are some screenshots of the Arc Insights PBI dashboards:
 <p float="left">
-  <img src="./pbi_server_inventory_screenshot.png" alt="Server Inventory" width="45%" />
-  <img src="./pbi_sqlserver_inventory_screenshot.png" alt="SQL Server Inventory" width="45%" />
+  <img src="./pbi_server_inventory_screenshot.png" alt="Server Inventory" width="50%" />
+  <img src="./pbi_sqlserver_inventory_screenshot.png" alt="SQL Server Inventory" width="50%" />
 </p>
 <p float="left">
-  <img src="./pbi_sqldatabase_inventory_screenshot.png" alt="SQL Database Inventory" width="45%" />
-  <img src="./pbi_esu_forecast_screenshot.png" alt="ESU Forecast" width="45%" />
+  <img src="./pbi_sqldatabase_inventory_screenshot.png" alt="SQL Database Inventory" width="50%" />
+  <img src="./pbi_esu_forecast_screenshot.png" alt="ESU Forecast" width="50%" />
 </p>
 
 ### How to set up the ArcBox PBI Dashboards
