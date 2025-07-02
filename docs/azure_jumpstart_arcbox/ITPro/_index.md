@@ -774,7 +774,19 @@ In the license section of _ArcBox-Win2K25_ in the Azure Portal, the machine will
 
 Once the license is active, enable the features of interest from the Azure Portal.
 
-### ArcBox PBI Dashboards Powered by Jumpstart
+### Next steps
+
+ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
+
+- Build policy initiatives that apply to your Azure Arc-enabled resources
+- Write and test custom policies that apply to your Azure Arc-enabled resources
+- Incorporate your own tooling and automation into the existing automation framework
+- Build a certificate/secret/key management strategy with your Azure Arc resources
+- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
+
+Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
+
+## ArcBox PBI Dashboards Powered by Jumpstart
 
 Now included in ArcBox for ITPro, is the ArcBox Power BI Dashboards.
 
@@ -799,11 +811,11 @@ Here are some screenshots of the Arc Insights PBI dashboards:
 
 ### How to set up the ArcBox PBI Dashboards
 
-1. Installed on _ArcBox-Client_ VM is the "ArcBox PBI Dashboard". There is a shortcut to this on the desktop of the _ArcBox-Client_ VM.
+1. Installed on _ArcBox-Client_ VM is the "ArcBox Power BI Dashboard". There is a shortcut to this on the desktop of the _ArcBox-Client_ VM.
 
 ![Screenshot showing ArcBox desktop with ArcBox Power BI Dashboard](./pbi_arcbox_desktop.png)
 
-2. Open the "ArcBox PBI Dashboard" template. Upon first opening Power BI, it will request a sign in. Enter a valid user or click cancel to ignore.
+2. Open the "ArcBox Power BI Dashboard" template. Upon first opening Power BI, it will request a sign in. Enter a valid user or click cancel to ignore.
 
 ![Screenshot showing PBI requesting a sign in](./pbi_sign_in.png)
 
@@ -836,17 +848,7 @@ Save your new Power BI dashboard as a PBIX file.
 
 ![Screenshot showing how to save dashboard](./pbi_save_screenshot.png)
 
-### Next steps
-
-ArcBox is a sandbox that can be used for a large variety of use cases, such as an environment for testing and training or a kickstarter for proof of concept projects. Ultimately, you are free to do whatever you wish with ArcBox. Some suggested next steps for you to try in your ArcBox are:
-
-- Build policy initiatives that apply to your Azure Arc-enabled resources
-- Write and test custom policies that apply to your Azure Arc-enabled resources
-- Incorporate your own tooling and automation into the existing automation framework
-- Build a certificate/secret/key management strategy with your Azure Arc resources
-- Create additional guest VMs and onboard them to Azure Arc.  Refer to the list of [supported operating systems](https://learn.microsoft.com/azure/azure-arc/servers/prerequisites#supported-operating-systems)
-
-Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
+6. For more information on how to use the dashboard and setup filters, see [Arc Dashboard by Jumpstart](https://www.youtube.com/watch?v=zK-vW5aCR70)
 
 ## Clean up the deployment
 
