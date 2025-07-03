@@ -7,6 +7,50 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## June 2025
+
+### Release highlights
+
+- Code cleanup for ArcBox DataOps flavor removing unused DHCP and AD DS components
+- K3s version updates for Contoso Motors and Hypermarket scenarios
+- 4 new Jumpstart Drops
+- 2 new Jumpstart Lightning videos
+
+### Jumpstart ArcBox
+
+- [Feature Request: Add pipelines for integration tests #3252](https://github.com/microsoft/azure_arc/issues/3252)
+- [Enhancement: Removed unused code related to DHCP service installation and AD DS roles for the DataOps flavor #3251](https://github.com/microsoft/azure_arc/pull/3251)
+
+### Jumpstart LocalBox
+
+- [Feature Request: Add pipelines for integration tests #3252](https://github.com/microsoft/azure_arc/issues/3252)
+
+### Jumpstart Agora
+
+- [Bug / Issue: Contoso Motors and Contoso Hypermarket use out-dated K3s version #3245](https://github.com/microsoft/azure_arc/issues/3245)
+- [Feature Request: Remove longhorn.yaml and references to it since unneeded for Agora #3262](https://github.com/microsoft/azure_arc/issues/3262)
+
+### Jumpstart Scenarios
+
+- [Feature Request: Azure Arc-enabled data services - May release #3244](https://github.com/microsoft/azure_arc/issues/3244)
+
+### Jumpstart Drops
+
+- [Bug / Issue: Link to template file in Jumpstart drops not working #747](https://github.com/Azure/arc_jumpstart_docs/issues/747)
+- [New: Azure Arc with Private Link (Terraform)](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20with%20Private%20Link%20(Terraform)&fs=true)
+- [New: Oauth2.0 multi-cluster API security using Traefik](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Oauth2.0%20multi-cluster%20API%20security%20using%20Traefik&fs=true)
+- [New: OpenAPISpec with Traefik Developer Portal](https://jumpstart.azure.com/azure_jumpstart_drops?drop=OpenAPISpec%20with%20Traefik%20Developer%20Portal&fs=true)
+- [New: Multi-cluster API Management using Traefik](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Multi-cluster%20API%20Management%20using%20Traefik&fs=true)
+
+### Jumpstart SDK
+
+- No updates for this release
+
+### Jumpstart Lightning
+
+- [Jumpstart LocalBox 25H2 Release](https://youtu.be/LdRALDLRMKU)
+- [You NEED these Arc ESU Jumpstart dashboards!](https://youtu.be/zK-vW5aCR70)
+
 ## May 2025
 
 ### Release highlights

@@ -400,3 +400,6 @@ FodyWeavers.xsd
 # Ignore URL checker logs
 scripts/python/url-checker/logs/
 scripts/python/url-checker/logs/*.log
+
+# Ignore specstory files
+.specstory
