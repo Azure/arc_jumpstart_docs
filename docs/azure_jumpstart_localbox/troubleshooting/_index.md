@@ -11,6 +11,7 @@ Occasionally deployments of LocalBox may fail at various stages. Common reasons 
 
 - Not enough vCPU quota available in your target Azure region - check vCPU quota and ensure you have at least 32 available. See the [prerequisites](../getting_started/#prerequisites) section for more details.
 - Corruption when downloading LocalBox VHD files can interrupt deployments. LocalBox should automatically halt if this occurs. Re-running the PowerShell script at _C:\LocalBox\LocalBoxLogonScript.ps1_ can often repair this issue.
+- RBAC permissions - check that Owner permissions is assigned to the user performing the deployment, without any [conditions](https://learn.microsoft.com/azure/role-based-access-control/delegate-role-assignments-portal?tabs=condition-editor) possibly constraining the Owner role.
 
 If you have issues that you cannot resolve when deploying LocalBox please submit an issue on the [GitHub repo](https://github.com/microsoft/azure_arc/issues)
 
