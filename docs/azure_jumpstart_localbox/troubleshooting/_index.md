@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Troubleshooting"
-weight: 8
+weight: 10
 ---
 # Troubleshooting LocalBox
 

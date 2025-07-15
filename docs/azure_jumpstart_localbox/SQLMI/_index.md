@@ -1,8 +1,7 @@
 ---
 type: docs
 linkTitle: "Arc-enabled SQL Managed Instance"
-weight: 10
-toc_hide: true
+weight: 8
 ---
 
 ## Arc-enabled SQL Managed Instance on Azure Local
