@@ -17,6 +17,9 @@ Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https
 
   ![Screenshot showing PowerShell version](./localbox-powershell-version.png)
 
+> [!IMPORTANT]
+> Prior to running the following command, make sure proxy created using the command _az connectedk8s proxy_ is not running from the earlier sessions. Doing so will create conflict and the script will fail. Close any proxy and wait for few minutes to release the default proxy port.
+
 - Run _Configure-SQLManagedInstance.ps1_ at the commandline and follow instructions to login to Azure.
 
   ![Screenshot showing configur SQLMI script](./run-sqlmi-script.png)
