@@ -7,6 +7,41 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## July 2025
+
+### Release highlights
+
+- Enhanced network security across all Jumpstart solutions with explicit defaultOutboundAccess property implementation
+- LocalBox updated to Azure Local 2507 solution version with improved reliability
+- 2 new Jumpstart Drops focusing on Azure Arc integration capabilities
+- Documentation improvements for LocalBox RBAC permission requirements
+- Critical bug fixes for LocalBox
+
+### Jumpstart ArcBox
+
+- [Feature Request: ArcBox - Add an explicit defaultOutboundAccess property to subnets in all templates avoid breaking scenarios #3266](https://github.com/microsoft/azure_arc/issues/3266)
+
+### Jumpstart LocalBox
+
+- [Bug / Issue: Type 'InitializeEceLite' of Role 'DeploymentService' raised an exception: Failed to initialize Ece Lite with Exception: #3273](https://github.com/microsoft/azure_arc/issues/3273)
+- [Feature Request: LocalBox - Add an explicit defaultOutboundAccess property to subnets in all templates avoid breaking scenarios #3268](https://github.com/microsoft/azure_arc/issues/3268)
+- [Feature Request: Update LocalBox to the 2506 solution version of Azure Local #3272](https://github.com/microsoft/azure_arc/issues/3272)
+- [Feature Request: Update LocalBox to the 2507 solution version of Azure Local #3289](https://github.com/microsoft/azure_arc/issues/3289)
+- [Docs Feature: LocalBox - Clarify the requirement for unconstrained Owner role RBAC permissions #774](https://github.com/Azure/arc_jumpstart_docs/issues/774)
+
+### Jumpstart Agora
+
+- [Feature Request: Agora- Add an explicit defaultOutboundAccess property to subnets in all templates avoid breaking scenarios #3267](https://github.com/microsoft/azure_arc/issues/3267)
+
+### Jumpstart Drops
+
+- [New: Azure Arc Video Indexer Example](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20Video%20Indexer%20Example)
+- [New: Azure Arc with AMPLS & Private Link](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20with%20AMPLS%20&%20Private%20Link)
+
+### Jumpstart SDK
+
+- No updates for this release
+
 ## June 2025
 
 ### Release highlights
