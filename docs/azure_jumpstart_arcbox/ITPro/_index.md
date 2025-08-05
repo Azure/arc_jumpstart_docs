@@ -536,13 +536,14 @@ Example from a Windows machine:
 
 ### SSH Posture Control
 
-[SSH Posture Control](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distributions including Ubuntu, Red Hat, Azure Linux, and more.
+[SSH Posture Control for Linux](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distributions including Ubuntu, Red Hat, Azure Linux, and more.
+[SSH Posture Control for Windows](https://learn.microsoft.com/azure/osconfig/overviewsshposture-control-windows) provides the same capabilities for Windows Server 2025, and integrates seamlessly with Azure Governance services.
 
-In ArcBox, an Azure policy assignment is included for an SSH Posture Control policy in audit-only mode.
+In ArcBox, two Azure policy assignments is included for an SSH Posture Control policy for both Linux and Windows in audit-only mode.
 
-To inspect the compliance status of the assigned policy, perform the following:
+To inspect the compliance status of the assigned policies, perform the following:
 
-- Navigate to the resource group you have deployed ArcBox to and select on of the Arc-enabled Linux machines. For this example, we're using _Arcbox-Ubuntu-01_:
+- Navigate to the resource group you have deployed ArcBox to and select one of the Arc-enabled Linux or Windows machines. For this example, we're using _Arcbox-Ubuntu-01_:
 
     ![Screenshot showing ArcBox resource group](./ssh_posture_control_01.png)
 
@@ -593,7 +594,10 @@ To inspect the compliance status of the assigned policy, perform the following:
 
     ![Screenshot showing Azure Resource Graph Explorer](./ssh_posture_control_06.png)
 
-To learn more about how to configure the settings in audit-and-configure mode, check out the [documentation](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc).
+To learn more about how to configure the settings in audit-and-configure mode, check out the documentation:
+
+- [SSH Posture Control for Linux](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc)
+- [SSH Posture Control for Windows](https://learn.microsoft.com/azure/osconfig/overviewsshposture-control-windows)
 
 If you are interested to learn how to create your own configurations for Machine Configuration, check out the following related Jumpstart scenarios:
 
