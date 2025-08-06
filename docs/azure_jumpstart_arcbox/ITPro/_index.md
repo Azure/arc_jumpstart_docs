@@ -539,7 +539,7 @@ Example from a Windows machine:
 [SSH Posture Control for Linux](https://learn.microsoft.com/azure/osconfig/overview-ssh-posture-control-mc) enables you to audit and configure SSH Server security posture on supported Linux distributions including Ubuntu, Red Hat, Azure Linux, and more.
 [SSH Posture Control for Windows](https://learn.microsoft.com/azure/osconfig/overviewsshposture-control-windows) provides the same capabilities for Windows Server 2025, and integrates seamlessly with Azure Governance services.
 
-In ArcBox, two Azure policy assignments is included for an SSH Posture Control policy for both Linux and Windows in audit-only mode.
+In ArcBox, two Azure policy assignments are included for an SSH Posture Control policy for both Linux and Windows in audit-only mode.
 
 To inspect the compliance status of the assigned policies, perform the following:
 
