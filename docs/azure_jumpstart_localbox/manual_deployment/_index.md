@@ -1,7 +1,7 @@
 ---
 type: docs
 linkTitle: "Manual Deployment"
-weight: 7
+weight: 9
 ---
 
 # Manual Azure Local Deployment
