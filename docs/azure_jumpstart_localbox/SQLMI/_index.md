@@ -29,7 +29,7 @@ Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https
 
   ![Screenshot showing login into Azure](./sqlmi-azure-login-select-subscription.png)
 
-- Wait for the script to finish, will take approximately 20 minutes. This scripts configures following on the Azure Local.
+- Wait for the script to finish, it will take approximately 20 minutes. This script configures following on the Azure Local instance.
 
   - Increase AKS node size to Standard_D8s_v3
   - Increase AKS node pool count from 1 to 3 nodes
