@@ -42,9 +42,13 @@ LocalBox networking includes a 192.168.200.0/24 subnet tagged to VLAN200. This n
 
 - From inside the _LocalBox-Client_ VM, open File Explorer and navigate to _C:\LocalBox_. Right-click on the _Configure-VMLogicalNetwork.ps1_ PowerShell file and choose "Run with PowerShell." If you wish you can also review the file in VSCode.
 
+- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the _C:\LocalBox_ folder. Right-click on "Configure-VMLogicalNetwork.ps1" and then select "Open with Visual Studio Code".
+
+- Click the "Run"-button:
+
   ![Screenshot showing how to run the Configure-VMLogicalNetwork.ps1 file](./run_with_powershell.png)
 
-- Once complete the script window will automatically close. You can now check your resource group and find the newly created logical network resource.
+- Once the script completes,  you can check your resource group and find the newly created logical network resource.
 
   ![Screenshot showing logical network in Azure portal](./logical_network.png)
 
