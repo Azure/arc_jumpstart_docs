@@ -29,7 +29,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. Read on to 
   Register-AzResourceProvider -ProviderNamespace "Microsoft.HybridContainerService"
   Register-AzResourceProvider -ProviderNamespace "Microsoft.Attestation"
   Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
-  Register-AzResourceProvider -ProviderNamespace "Microsoft Insights"
+  Register-AzResourceProvider -ProviderNamespace "Microsoft.Insights"
   ```
 
   Alternatively, you can register these providers using Azure CLI:
