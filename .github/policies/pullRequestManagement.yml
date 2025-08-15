@@ -80,14 +80,20 @@ configuration:
           # Ensure the target branch is main
           - targetsBranch:
                 branch: main
-          # Check if the author is likamrat (the exempt user)
+          # Check if the author is an exempt user
           # To add more exempt users, create additional similar rules with different usernames
           # or add more 'not isActivitySender' conditions in the MAIN BRANCH PROTECTION rule below
           - or: 
             - isActivitySender:
                   user: likamrat
-            # - isActivitySender:
-            #       user: kianaharris4
+            - isActivitySender:
+                  user: kianaharris4
+            - isActivitySender:
+                  user: janegilring
+            - isActivitySender:
+                  user: sebassem
+            - isActivitySender:
+                  user: mrhoads                                          
         then:
           # Add a label to track exempt PRs for auditing purposes
           - addLabel:
@@ -132,8 +138,14 @@ configuration:
               or: 
                 - isActivitySender:
                       user: likamrat
-                # - isActivitySender:
-                #       user: kianaharris4
+                - isActivitySender:
+                      user: kianaharris4
+                - isActivitySender:
+                      user: janegilring
+                - isActivitySender:
+                      user: sebassem
+                - isActivitySender:
+                      user: mrhoads 
         then:
           # Provide educational feedback about our branch workflow
           - addReply:

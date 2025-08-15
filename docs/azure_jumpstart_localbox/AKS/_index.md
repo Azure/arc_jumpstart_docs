@@ -6,7 +6,7 @@ weight: 7
 
 # Azure Kubernetes Service on your Azure Local LocalBox
 
-Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview). LocalBox comes pre-configured with Azure Kubernetes Service on Azure Local. To see this in action, navigate to the resource group where you deployed LocalBox and follow these steps.
+Azure Local can provide host infrastructure for [AKS enabled by Azure Arc](https://learn.microsoft.com/azure/aks/aksarc/aks-overview).
 
 ## Explore AKS on Azure Local
 
@@ -33,19 +33,19 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing Entra group id](./entra_group_id.png)
 
-- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the _C:\LocalBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select Open with Code
+- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the _C:\LocalBox_ folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Open with Visual Studio Code".
 
   ![Screenshot showing edit with VSCode](./open_with_code.png)
 
-- Uncomment line 6 in the script and edit the placeholder value for the _$aadgroupID_ parameter with the object ID of your Microsoft Entra group. Save the script and close VSCode when finished.
+- Uncomment line 6 in the script and edit the placeholder value for the _$aadgroupID_ parameter with the object ID of your Microsoft Entra group. Save the script (Ctrl + S).
 
   ![Screenshot showing editing script](./edit_script.png)
 
-- From the _LocalBox-Client_ virtual machine, open File Explorer and navigate to the "C:\LocalBox" folder. Right-click on "Configure-AksWorkloadCluster.ps1" and then select "Run with PowerShell."
+- After saving the script, click the "Run"-button.
 
-  ![Screenshot showing clusters in resource group](./run_with_powershell.png)
+  ![Screenshot showing script running](./run_with_powershell.png)
 
-- Let the script run its course. It will close automatically when complete.
+- Let the script run its course and look for the "Succeeded" value for the "currentState" property:
 
   ![Screenshot showing script running](./run_configure_aks.png)
 
@@ -57,24 +57,33 @@ Access to the AKS cluster is [managed through Azure RBAC](https://learn.microsof
 
   ![Screenshot showing cluster detail](./cluster_detail.png)
 
-> [!IMPORTANT]
-> Before running the following command, make sure to update the `connectedk8s` extension by running:
-> ```
-> az extension update --name connectedk8s
-> ```
+- From the _LocalBox-Client_ virtual machine, in Visual Studio Code, run the following from the terminal window to authenticate using a user which is a member of the previously configured Entra ID group:
 
-
-- From the Client VM, open a terminal and run the following command, using the name of your LocalBox resource group.
-
-  ```
-  az connectedk8s proxy -n localbox-aks -g <name of your resource group>
+  ```powershell
+  az logout
+  az login --use-device-code --tenant $env:tenantId
   ```
 
-  ![Screenshot showing run connectedk8s](./cloud_shell_proxy.png)
+![Screenshot showing Azure CLI login](./az_login.png)
 
-- From Cloud Shell, click "New Session" and then in the new shell you will have kubectl access to your cluster. Try running some kubectl commands for yourself.
+You may perform the device authentication in a browser on your local machine in case there are any Conditional Access policies in place enforcing sign-ins from a compliant device.
 
-  ![Screenshot showing kubectl proxy access](./cloud_shell_k8s.png)
+- Run the following from the same terminal window as the previous step to setup a proxy connection to the AKS cluster, then click on the +-button as highlighted to open a second terminal-session:
+
+  ```powershell
+  az connectedk8s proxy -n localbox-aks -g $env:resourceGroup
+  ```
+
+  ![Screenshot showing run connectedk8s](./kubectl_proxy.png)
+
+- From the new terminal, you will have kubectl access to your cluster. Try running some kubectl commands for yourself.
+
+  ![Screenshot showing kubectl proxy access](./kubectl.png)
+
+- You may also use other Kubernetes tooling, such as the Kubernetes extension in Visual Studio Code which is pre-installed on the LocalBox Client VM:
+
+  ![Screenshot showing kubectl proxy access](./k8s_vs_code.png)
+
 
 ## Next steps
 
