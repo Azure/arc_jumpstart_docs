@@ -112,7 +112,7 @@ Azure Bicep is used to deploy LocalBox into your Azure subscription. Read on to 
 | `tenantId` | string | Entra ID tenant id for your subscription |  |
 | `tags` | object | Tags to be added to all resources | {"Project": "jumpstart_LocalBox"} |
 | `vmAutologon` | bool | Enable automatic logon into LocalBox Client VM | true |
-| `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 12 and 123 characters long |  |
+| `windowsAdminPassword` | securestring | Password for Windows account. Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. The value must be between 14 and 123 characters long |  |
 | `windowsAdminUsername` | string | Username for Windows account |  |
 | `vmSize` | string | The size of the LocalBox Client VM. Valid values: Standard_E32s_v5 and Standard_E32s_v6 | Standard_E32s_v6 |
 | `enableAzureSpotPricing` | string | Enable Azure VM Spot pricing for the LocalBox Client VM | false |
