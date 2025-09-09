@@ -7,6 +7,32 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## August 2025
+
+### Release highlights
+
+- Resolved ArcBox DataOps deployment issue related to NAT gateway and virtual network configuration
+- Introduced Windows SSH posture control to ArcBox for enhanced security and compliance
+- Optimized ITPro flavor deployments by excluding NAT gateway when Bastion is not deployed
+- Upgraded ArcBox Linux machines to Ubuntu 24.04 for improved performance and support
+- Updated Arc SQL container image versions for stability and feature alignment
+
+### Jumpstart ArcBox
+
+- [Bug / Issue: NatGatewayCannotBeUsedBySubnetsBelongingToDifferentVirtualNetworks Error for ArcBox DataOps Flavor #3288](https://github.com/microsoft/azure_arc/issues/3288)
+- [Feature Request: Add Windows SSH Posture Control to ArcBox #3292](https://github.com/microsoft/azure_arc/issues/3292)
+- [Feature Request: Exclude NAT gateway deployment in ITPro if Bastion is not deployed #3294](https://github.com/microsoft/azure_arc/issues/3294)
+- [Feature Request: Update Linux machines in ArcBox to Ubuntu 2404 #3296](https://github.com/microsoft/azure_arc/issues/3296)
+- [Feature Request: Update image version of Arc SQL contaimer images #3302](https://github.com/microsoft/azure_arc/issues/3302)
+
+### Jumpstart Drops
+
+- No new drops for this release
+
+### Jumpstart SDK
+
+- No updates for this release
+
 ## July 2025
 
 ### Release highlights
