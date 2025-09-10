@@ -790,6 +790,70 @@ ArcBox is a sandbox that can be used for a large variety of use cases, such as a
 
 Do you have an interesting use case to share? [Submit an issue](https://aka.ms/JumpstartIssue) on GitHub with your idea and we will consider it for future releases!
 
+## ArcBox PBI Dashboards Powered by Jumpstart
+
+Now included in ArcBox for ITPro, is the ArcBox Power BI Dashboards.
+
+The ArcBox Power BI (PBI) dashboards provide users with a single pane of glass insights and visualizations for your servers, enabled by Arc or as Azure virtual machines. The dashboard covers a range of scenarios including Server Inventory, SQL Instances on Virtual Machines, SQL Databases on virtual machines and Extended Security Update (ESU) cost forecasting. With the ArcBox PBI Dashboards Powered by Jumpstart, you have a **rich set of Dashboards about your Arc connected estate, available in minutes, not weeks**, which can then be customized to suit your individual requirements.
+
+The ArcBox PBI dashboards contain:
+
+* **Server Inventory** - A detailed inventory of all servers, both Azure and Arc-enabled, providing a clear overview of your server landscape.
+* **SQL Inventory** - Information on SQL instances, including both Azure SQL and SQL Servers enabled by Arc, ensuring you have a complete view of your SQL Server environment.
+* **Databases** - Insights into databases managed through Azure Arc, helping you track and manage your database assets effectively.
+* **ESU Forecast** - An estimate of future costs for Extended Security Updates (ESU) for Windows Server 2016 and SQL Server 2016, based on current pricing. For detailed prices of ESUs, see: [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/core-control-plane/)
+
+Here are some screenshots of the Arc Insights PBI dashboards:
+<p float="left">
+  <img src="./pbi_server_inventory_screenshot.png" alt="Server Inventory" width="48%" />
+  <img src="./pbi_sqlserver_inventory_screenshot.png" alt="SQL Server Inventory" width="48%" />
+</p>
+<p float="left">
+  <img src="./pbi_sqldatabase_inventory_screenshot.png" alt="SQL Database Inventory" width="48%" />
+  <img src="./pbi_esu_forecast_screenshot.png" alt="ESU Forecast" width="48%" />
+</p>
+
+### How to set up the ArcBox PBI Dashboards
+
+1. Installed on _ArcBox-Client_ VM is the "ArcBox Power BI Dashboard". There is a shortcut to this on the desktop of the _ArcBox-Client_ VM.
+
+![Screenshot showing ArcBox desktop with ArcBox Power BI Dashboard](./pbi_arcbox_desktop.png)
+
+2. Open the "ArcBox Power BI Dashboard" template. Upon first opening Power BI, it will request a sign in. Enter a valid user or click cancel to ignore.
+
+![Screenshot showing PBI requesting a sign in](./pbi_sign_in.png)
+
+3. The Dashboard will load and start to connect to sources as part of its refresh. Power BI will prompt for credentials when connecting to sources for the first time. 
+
+![Screenshot showing PBI connecting to sources](./pbi_connecting_screenshot.png)
+
+4. There are 3 main sources used in this dashboard, and the order in which these are requested will be random, but ensure the following are met:
+
+  a. "Azure Resource Graph" as shown below:
+
+  ![Screenshot showing Arc Resource Graph Connector](./pbi_connector_resource_graph.png)
+
+  **Sign in with an Azure login that has "Read" access, or higher to Azure Resource Graph for the subscription(s) where the Arc Box for IT Pros is installed**. Click Connect.
+
+  b. "Access Web Content" as shown below:
+
+  ![Screenshot showing Web Connector](./pbi_connector_web.png)
+
+  Ensure "Anonymous" is selected. Click Connect.
+
+  c. "Access Web Content" as shown below:
+
+  ![Screenshot showing Web Connector](./pbi_connector_web_learn.png)
+
+  Ensure "Anonymous" is selected. Click Connect.
+
+5. Your dashboard should then load and include all the resources from Azure or Arc for the subscriptions you associate with the login used in the Azure Resource Graph connector.
+Save your new Power BI dashboard as a PBIX file.
+
+![Screenshot showing how to save dashboard](./pbi_save_screenshot.png)
+
+6. For more information on how to use the dashboard and setup filters, see [Arc Dashboard by Jumpstart](https://www.youtube.com/watch?v=zK-vW5aCR70)
+
 ## Clean up the deployment
 
 To clean up your deployment, simply delete the resource group using Azure CLI or Azure portal.
