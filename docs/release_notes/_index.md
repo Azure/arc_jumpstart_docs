@@ -7,6 +7,30 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## September 2025
+
+### Release highlights
+
+- Resolved critical bootstrap issues affecting Client VM initialization when using Azure Bastion
+- Improved network configuration and security posture across ArcBox deployments
+- 3 new Jumpstart Drops focusing on Azure Arc SQL optimization, Edge AI capabilities, and video search applications
+
+### Jumpstart ArcBox
+
+- [Bug / Issue: ArcBox - Client VM Bootstrap issues when using Bastion #3312](https://github.com/microsoft/azure_arc/issues/3312)
+- [Feature Request: ArcBox - Add support for deployment without public IP #3315](https://github.com/microsoft/azure_arc/issues/3315)
+- [Enhancement: Improve ArcBox network configuration and security #3314](https://github.com/microsoft/azure_arc/pull/3314)
+
+### Jumpstart Drops
+
+- [New: Azure Arc SQL LeastPrivilege Activation](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Azure%20Arc%20SQL%20LeastPrivilege%20Activation)
+- [New: Edge RAG enabled by Azure Arc](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Edge%20RAG%20enabled%20by%20Azure%20Arc)
+- [New: Image-Based Video Search Sample Application](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Image-Based%20Video%20Search%20Sample%20Application)
+
+### Jumpstart SDK
+
+- No updates for this release
+
 ## August 2025
 
 ### Release highlights
