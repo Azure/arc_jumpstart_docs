@@ -7,6 +7,44 @@ weight: 6
 
 # Arc Jumpstart release notes
 
+## November 2025
+
+### Release highlights
+
+- Secret Store extension for Azure Arc-enabled Kubernetes clusters reaches General Availability (GA)
+
+### Jumpstart ArcBox
+
+- No updates for this release
+
+### Jumpstart LocalBox
+
+- No updates for this release
+
+### Jumpstart Drops
+
+- [Update: "Using Secret Store extension to fetch secrets in Azure Arc-enabled Kubernetes cluster" is now in GA](https://jumpstart.azure.com/azure_jumpstart_drops?drop=Using%20Secret%20Store%20extension%20to%20fetch%20secrets%20in%20Azure%20Arc-enabled%20Kubernetes%20cluster)
+
+## October 2025
+
+### Release highlights
+
+- Critical fix for ArcBox WinGet bootstrap failures that were causing deployment issues
+- LocalBox updated to Azure Local 2509 solution version with enhanced features and stability
+- New Jumpstart Drop featuring OPC UA Server integration with Azure IoT Operations
+
+### Jumpstart ArcBox
+
+- [[Bug / Issue]: WinGet bootstrap fails and causes ArcBox deployment to fail #3328](https://github.com/microsoft/azure_arc/issues/3328)
+
+### Jumpstart LocalBox
+
+- [[Feature Request]: Update LocalBox to the 2509 solution version of Azure Local #3319](https://github.com/microsoft/azure_arc/issues/3319)
+
+### Jumpstart Drops
+
+- [New: OPC UA Server connected to AIO](https://jumpstart.azure.com/azure_jumpstart_drops?drop=OPC%20UA%20Server%20connected%20to%20AIO)
+
 ## September 2025
 
 ### Release highlights
