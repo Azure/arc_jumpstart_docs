@@ -1,0 +1,3161 @@
+{
+  "name": "docs",
+  "type": "directory",
+  "path": "",
+  "frontMatter": {
+    "type": "docs"
+  },
+  "children": [
+    {
+      "name": "FAQ",
+      "type": "directory",
+      "path": "FAQ",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart FAQ",
+        "linkTitle": "Jumpstart FAQ",
+        "weight": 8
+      },
+      "children": []
+    },
+    {
+      "name": "azure_arc_jumpstart",
+      "type": "directory",
+      "path": "azure_arc_jumpstart",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart Scenarios",
+        "linkTitle": "Jumpstart Scenarios",
+        "weight": 2
+      },
+      "children": [
+        {
+          "name": "FAQ",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/FAQ",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Jumpstart Scenarios FAQ",
+            "linkTitle": "Jumpstart Scenarios FAQ",
+            "weight": 8
+          },
+          "children": []
+        },
+        {
+          "name": "azure_arc_app_svc",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_app_svc",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled app services",
+            "linkTitle": "Arc-enabled app services",
+            "weight": 6,
+            "description": "The deployment scenarios in this section will guide you through deploying and working with Azure Arc-enabled app services on multiple infrastructure platforms."
+          },
+          "children": [
+            {
+              "name": "aks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_app_svc/aks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Kubernetes Service",
+                "linkTitle": "Azure Kubernetes Service",
+                "weight": 1,
+                "description": "If you do not yet have a Kubernetes cluster, the scenarios in this section will guide on creating an AKS cluster with Azure Arc-enabled app services integration in an automated fashion using ARM templates."
+              },
+              "children": [
+                {
+                  "name": "aks_container_apps_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_app_svc/aks/aks_container_apps_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Container Apps ARM Template",
+                    "linkTitle": "Azure Container Apps ARM Template",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_data",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_data",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled data services",
+            "linkTitle": "Arc-enabled data services",
+            "weight": 5,
+            "description": "The deployment scenarios in this section will guide you through deploying and working with Azure Arc-enabled data services on multiple infrastructure platforms."
+          },
+          "children": [
+            {
+              "name": "aks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_data/aks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Kubernetes Service",
+                "linkTitle": "Azure Kubernetes Service",
+                "weight": 1,
+                "description": "If you do not yet have a Kubernetes cluster, the scenarios in this section will guide on creating an AKS cluster with Azure Arc-enabled data services integration in an automated fashion using ARM templates."
+              },
+              "children": [
+                {
+                  "name": "aks_mssql_mi_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/aks/aks_mssql_mi_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Managed Instance ARM Template",
+                    "linkTitle": "SQL Managed Instance ARM Template",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "aks_postgresql_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/aks/aks_postgresql_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "PostgreSQL ARM Template",
+                    "linkTitle": "PostgreSQL ARM Template",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "aro",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_data/aro",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Red Hat OpenShift",
+                "linkTitle": "Azure Red Hat OpenShift",
+                "weight": 2,
+                "description": "If you do not yet have an Azure Red Hat OpenShift cluster, the scenarios in this section will guide on creating an ARO cluster with Azure Arc-enabled data services integration in an automated fashion using ARM templates."
+              },
+              "children": [
+                {
+                  "name": "aro_mssql_mi_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/aro/aro_mssql_mi_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Managed Instance ARM Template",
+                    "linkTitle": "SQL Managed Instance ARM Template",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "aro_postgresql_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/aro/aro_postgresql_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "PostgreSQL ARM Template",
+                    "linkTitle": "PostgreSQL ARM Template",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "day2",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_data/day2",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Unified Operations Use Cases",
+                "linkTitle": "Unified Operations Use Cases",
+                "weight": 7,
+                "description": "Once you have your Azure Arc-enabled data services deployed, you can start to use native Azure tooling to manage it as well explore various architecture and deployment models."
+              },
+              "children": [
+                {
+                  "name": "aks",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/day2/aks",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Kubernetes Service",
+                    "linkTitle": "Azure Kubernetes Service",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "aks_mssql_dr",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_dr",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "SQL Managed Instance disaster recovery",
+                        "linkTitle": "SQL Managed Instance disaster recovery",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_mssql_ha",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_ha",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "SQL Managed Instance Availability Groups Failover",
+                        "linkTitle": "SQL Managed Instance Availability Groups Failover",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_mssql_mi_ad_auth_arm_template",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_mi_ad_auth_arm_template",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "SQL Managed Instance with AD Authentication ARM Template",
+                        "linkTitle": "SQL Managed Instance with AD Authentication ARM Template",
+                        "weight": 2,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_mssql_migrate",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_data/day2/aks/aks_mssql_migrate",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Migrate to Azure Arc-enabled SQL Managed Instance",
+                        "linkTitle": "Migrate to Azure Arc-enabled SQL Managed Instance",
+                        "weight": 4,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "eks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_data/eks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Amazon Elastic Kubernetes Service",
+                "linkTitle": "Amazon Elastic Kubernetes Service",
+                "weight": 3,
+                "description": "If you are working in a multi-cloud environment, the scenario in this section will guide on creating an Amazon Elastic Kubernetes Service (EKS) with Azure Arc-enabled data services integration in an automated fashion using Terraform."
+              },
+              "children": [
+                {
+                  "name": "eks_mssql_mi_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/eks/eks_mssql_mi_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Managed Instance Terraform plan",
+                    "linkTitle": "SQL Managed Instance Terraform plan",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "eks_postgres_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/eks/eks_postgres_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "PostgreSQL Terraform Plan",
+                    "linkTitle": "PostgreSQL Terraform Plan",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "gke",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_data/gke",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Google Kubernetes Engine",
+                "linkTitle": "Google Kubernetes Engine",
+                "weight": 4,
+                "description": "If you are working in a multi-cloud environment, the scenario in this section will guide on creating a Google Kubernetes Engine (GKE) with Azure Arc-enabled data services integration in an automated fashion using Terraform."
+              },
+              "children": [
+                {
+                  "name": "gke_mssql_mi_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/gke/gke_mssql_mi_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Managed Instance Terraform Plan",
+                    "linkTitle": "SQL Managed Instance Terraform Plan",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "gke_postgres_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_data/gke/gke_postgres_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "PostgreSQL Terraform Plan",
+                    "linkTitle": "PostgreSQL Terraform Plan",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_k8s",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_k8s",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled Kubernetes",
+            "linkTitle": "Arc-enabled Kubernetes",
+            "weight": 4,
+            "description": "The deployment scenarios in this section will guide you through onboarding various Kubernetes distributions as an Azure Arc-enabled Kubernetes clusters."
+          },
+          "children": [
+            {
+              "name": "aks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/aks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Kubernetes Service (AKS)",
+                "linkTitle": "Azure Kubernetes Service (AKS)",
+                "weight": 2,
+                "description": "If you do not yet have a Kubernetes cluster, the scenarios in this section will guide on creating an AKS cluster in order to simulate an \"on-premises\" cluster in an automated fashion using either ARM template or Terraform."
+              },
+              "children": [
+                {
+                  "name": "aks_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/aks/aks_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "AKS cluster ARM template",
+                    "linkTitle": "AKS cluster ARM template",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "aks_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/aks/aks_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "AKS cluster Terraform plan",
+                    "linkTitle": "AKS cluster Terraform plan",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "alibaba",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/alibaba",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Alibaba Cloud Container Service for Kubernetes",
+                "linkTitle": "Alibaba Cloud Container Service for Kubernetes",
+                "weight": 6,
+                "description": "If you are working in a multi-cloud environment, the scenario in this section will guide on creating a Alibaba Cloud Container Service for Kubernetes and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion using Terraform."
+              },
+              "children": [
+                {
+                  "name": "alibaba_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/alibaba/alibaba_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Alibaba Cloud Container Service for Kubernetes Terraform plan",
+                    "linkTitle": "Alibaba Cloud Container Service for Kubernetes Terraform plan",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "aro",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/aro",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Red Hat OpenShift",
+                "linkTitle": "Azure Red Hat OpenShift",
+                "weight": 3,
+                "description": "If you do not yet have an Azure Red Hat OpenShift cluster, the scenarios in this section will guide you on how to create an Azure-managed OpenShift cluster in an automated fashion and onboard it as an Azure Arc-enabled Kubernetes cluster."
+              },
+              "children": [
+                {
+                  "name": "aro_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/aro/aro_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "ARO cluster ARM template",
+                    "linkTitle": "ARO cluster ARM template",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "day2",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/day2",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Unified Operations Use Cases",
+                "linkTitle": "Unified Operations Use Cases",
+                "weight": 12,
+                "description": "Once you have Kubernetes clusters projected into Azure with Azure Arc, you can start to use native Azure tooling to manage the clusters as native Azure resources. The following scenarios show examples of using Cluster extensions and Azure management tools such as Azure Monitor, GitOps configurations, and Azure Policy."
+              },
+              "children": [
+                {
+                  "name": "aks",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/day2/aks",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "AKS",
+                    "linkTitle": "AKS",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "aks_gitops_basic",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_basic",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform basic GitOps flow on AKS as an Arc Connected Cluster",
+                        "linkTitle": "Perform basic GitOps flow on AKS as an Arc Connected Cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_gitops_helm",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_gitops_helm",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform Helm-based GitOps flow on AKS as an Arc Connected Cluster",
+                        "linkTitle": "Perform Helm-based GitOps flow on AKS as an Arc Connected Cluster",
+                        "weight": 2,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_monitor",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_monitor",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Monitor for Containers with AKS as an Arc Connected Cluster using scripting",
+                        "linkTitle": "Integrate Azure Monitor for Containers with AKS as an Arc Connected Cluster using scripting",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "aks_policy",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/aks/aks_policy",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy",
+                        "linkTitle": "Apply GitOps configurations on AKS as an Arc Connected Cluster using Azure Policy",
+                        "weight": 4,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "gke",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "GKE",
+                    "linkTitle": "GKE",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "gke_gitops_basic",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_basic",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform basic GitOps flow on GKE as an Arc Connected Cluster",
+                        "linkTitle": "Perform basic GitOps flow on GKE as an Arc Connected Cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "gke_gitops_helm",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_gitops_helm",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform Helm-based GitOps flow on GKE as an Arc Connected Cluster",
+                        "linkTitle": "Perform Helm-based GitOps flow on GKE as an Azure Arc Connected Cluster",
+                        "weight": 2,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "gke_monitor",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster using scripting",
+                        "linkTitle": "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster using scripting",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "gke_monitor_extension",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_monitor_extension",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster",
+                        "linkTitle": "Integrate Azure Monitor for Containers with GKE as an Arc Connected Cluster",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "gke_policy",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/gke/gke_policy",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Apply GitOps configurations on GKE as an Arc Connected Cluster using Azure Policy",
+                        "linkTitle": "Apply GitOps configurations on GKE as an Arc Connected Cluster using Azure Policy",
+                        "weight": 4,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "kind",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/day2/kind",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Kind",
+                    "linkTitle": "Kind",
+                    "weight": 4,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "local_kind_gitops_helm",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/kind/local_kind_gitops_helm",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform Helm-based GitOps flow on kind as an Arc Connected Cluster",
+                        "linkTitle": "Perform Helm-based GitOps flow on kind as an Arc Connected Cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "microk8s",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/day2/microk8s",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Microk8s",
+                    "linkTitle": "Microk8s",
+                    "weight": 5,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "local_microk8s_gitops_helm",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_gitops_helm",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Perform Helm-based GitOps flow on MicroK8s as an Arc Connected Cluster",
+                        "linkTitle": "Perform Helm-based GitOps flow on MicroK8s as an Arc Connected Cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "local_microk8s_monitor",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/microk8s/local_microk8s_monitor",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting",
+                        "linkTitle": "Integrate Azure Monitor for Containers with MicroK8s as an Arc Connected Cluster using scripting",
+                        "weight": 2,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "multi_distributions",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Multiple Kubernetes distributions",
+                    "linkTitle": "Multiple Kubernetes distributions",
+                    "weight": 6,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "azure_policy",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions/azure_policy",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Policy with an Arc-enabled Kubernetes",
+                        "linkTitle": "Integrate Azure Policy with an Arc-enabled Kubernetes",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "calico",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions/calico",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Use Azure Policy to audit pods' labels for use with network policy",
+                        "linkTitle": "Use Azure Policy to audit pods' labels for use with network policy",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "connected_cluster",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions/connected_cluster",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Arc-enabled Kubernetes Cluster Connect via service account token authentication",
+                        "linkTitle": "Arc-enabled Kubernetes Cluster Connect via service account token authentication",
+                        "weight": 5,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "container_insights",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions/container_insights",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Integrate Azure Monitor Container Insights and recommended alerts with an Arc-enabled Kubernetes",
+                        "linkTitle": "Integrate Azure Monitor Container Insights and recommended alerts with an Arc-enabled Kubernetes",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "gitops",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/day2/multi_distributions/gitops",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Managing Calico Network Policy using GitOps with Arc-enabled Kubernetes cluster",
+                        "linkTitle": "Managing Calico Network Policy using GitOps with Arc-enabled Kubernetes cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "developer",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/developer",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Developer Use Cases",
+                "linkTitle": "Developer Use Cases",
+                "weight": 11,
+                "description": "Once you onboarded your Azure Arc-enabled Kubernetes clusters, you can start to use native Azure tooling to manage the clusters as native Azure resources. The following scenarios show examples of using developer-centric use-cases."
+              },
+              "children": [
+                {
+                  "name": "dapr",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/developer/dapr",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Dapr",
+                    "linkTitle": "Dapr",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "dapr_statestore",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_k8s/developer/dapr/dapr_statestore",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Deploy an application using the Dapr Cluster extension for Azure Arc-enabled Kubernetes cluster",
+                        "linkTitle": "Deploy an application using the Dapr Cluster extension for Azure Arc-enabled Kubernetes cluster",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "eks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/eks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Amazon Elastic Kubernetes Service",
+                "linkTitle": "Amazon Elastic Kubernetes Service",
+                "weight": 4,
+                "description": "If you are working in a multi-cloud environment, the scenario in this section will guide on creating an Amazon Elastic Kubernetes Service (EKS) and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion using Terraform."
+              },
+              "children": [
+                {
+                  "name": "eks_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "EKS cluster Terraform plan",
+                    "linkTitle": "EKS cluster Terraform plan",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "general",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/general",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Onboarding",
+                "linkTitle": "Onboarding",
+                "weight": 1,
+                "description": "This example demonstrates how to connect an existing Kubernetes cluster to Arc. It assumes you already have a cluster ready to work with."
+              },
+              "children": [
+                {
+                  "name": "onboard_k8s",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Existing cluster",
+                    "linkTitle": "Existing cluster",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "gke",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/gke",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Google Kubernetes Engine",
+                "linkTitle": "Google Kubernetes Engine",
+                "weight": 5,
+                "description": "If you are working in a multi-cloud environment, the scenario in this section will guide on creating a Google Kubernetes Engine (GKE) and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion using Terraform."
+              },
+              "children": [
+                {
+                  "name": "gke_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "GKE cluster Terraform plan",
+                    "linkTitle": "GKE cluster Terraform plan",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "kind",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/kind",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Kind",
+                "linkTitle": "Kind",
+                "weight": 8,
+                "description": "If you do not have a Kubernetes cluster, the scenario in this section will guide on creating a kind (kubernetes in docker) cluster on your local machine and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion."
+              },
+              "children": [
+                {
+                  "name": "local_kind",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/kind/local_kind",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Kind cluster",
+                    "linkTitle": "Kind cluster",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "microk8s",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/microk8s",
+              "frontMatter": {
+                "type": "docs",
+                "title": "MicroK8s",
+                "linkTitle": "MicroK8s",
+                "weight": 10,
+                "description": "If you do not have a Kubernetes cluster, the scenario in this section will guide on creating a MicroK8s Kubernetes cluster on your local machine and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion."
+              },
+              "children": [
+                {
+                  "name": "local_microk8s",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/microk8s/local_microk8s",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "MicroK8s cluster",
+                    "linkTitle": "MicroK8s cluster",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "rancher_k3s",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_k8s/rancher_k3s",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Rancher K3s",
+                "linkTitle": "Rancher K3s",
+                "weight": 7,
+                "description": "If you do not have a Kubernetes cluster, the scenarios in this section will guide on creating a Rancher K3s Kubernetes cluster on either your VMware vSphere infrastructure or on an Azure VM and onboard it as an Azure Arc-enabled Kubernetes cluster in an automated fashion using either ARM template or Terraform."
+              },
+              "children": [
+                {
+                  "name": "azure_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/azure_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "k3s Azure ARM template",
+                    "linkTitle": "k3s Azure ARM template",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "azure_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/azure_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "k3s Azure Terraform plan",
+                    "linkTitle": "k3s Azure Terraform plan",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "vmware_terraform",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_k8s/rancher_k3s/vmware_terraform",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "k3s on VMware Terraform plan",
+                    "linkTitle": "k3s on VMware Terraform plan",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_lighthouse",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_lighthouse",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc and Azure Lighthouse",
+            "linkTitle": "Arc and Azure Lighthouse",
+            "weight": 10,
+            "description": "This section describes how to use Azure Arc and Azure Lighthouse for unified operations."
+          },
+          "children": [
+            {
+              "name": "unified_operations_scale",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_lighthouse/unified_operations_scale",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Unified Operations at Scale with Azure Arc and Azure Lighthouse",
+                "linkTitle": "Unified Operations at Scale with Azure Arc and Azure Lighthouse",
+                "weight": 1,
+                "description": ""
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_ml",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_ml",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled machine learning",
+            "linkTitle": "Arc-enabled machine learning",
+            "weight": 8,
+            "description": "The deployment scenarios in this section will guide you through deploying and working with Azure Arc-enabled machine learning on Kubernetes."
+          },
+          "children": [
+            {
+              "name": "aks",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_ml/aks",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Kubernetes Service",
+                "linkTitle": "Azure Kubernetes Service",
+                "weight": 1,
+                "description": "If you do not yet have a Kubernetes cluster, the scenarios in this section will guide on creating an AKS cluster with Azure Arc-enabled machine learning in an automated fashion using ARM templates. The ML pipeline trains an image classification model on the MNIST dataset from Blob Storage, and deploys the trained model as an inference endpoint on the Kubernetes Cluster. "
+              },
+              "children": [
+                {
+                  "name": "aks_blob_mnist_arm_template",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_ml/aks/aks_blob_mnist_arm_template",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Image Classification on MNIST dataset from Blob Storage",
+                    "linkTitle": "Image Classification on MNIST dataset from Blob Storage",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_servers",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_servers",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled servers",
+            "linkTitle": "Arc-enabled servers",
+            "weight": 1,
+            "description": "The deployment scenarios in this section will guide you through onboarding various Windows and Linux server distributions as Azure Arc-enabled servers."
+          },
+          "children": [
+            {
+              "name": "aws",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/aws",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Amazon Web Services",
+                "linkTitle": "Amazon Web Services",
+                "weight": 4,
+                "description": "If you are working in a multi-cloud environment, you can deploy new AWS EC2 instances in an automated fashion using Terraform and onboard it as Azure Arc-enabled servers."
+              },
+              "children": [
+                {
+                  "name": "aws_terraform_al2",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Amazon Linux 2 EC2 instance",
+                    "linkTitle": "Amazon Linux 2 EC2 instance",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "aws_terraform_ubuntu",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Ubuntu EC2 instance",
+                    "linkTitle": "Ubuntu EC2 instance",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "azure",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/azure",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Microsoft Azure",
+                "linkTitle": "Microsoft Azure",
+                "weight": 2,
+                "description": "The scenarios in this section will walk you through how to project an Azure VM as an Azure Arc-enabled server in an automated fashion using either ARM templates or Terraform. These scenarios, using Azure VM as the targeted Azure Arc server are designed **for demo and testing purposes ONLY and are not supported.**\nIn each scenario, you will find a detailed, technical explanation of the mechanism and why **it is not expected to project an Azure VM as an Azure Arc-enabled server.**"
+              },
+              "children": [
+                {
+                  "name": "azure_arm_template_linux",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Linux Virtual Machine",
+                    "linkTitle": "Linux Virtual Machine",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "azure_arm_template_win",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Windows Server Virtual Machine",
+                    "linkTitle": "Windows Server Virtual Machine",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "day2",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/day2",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Unified Operations Use Cases",
+                "linkTitle": "Unified Operations Use Cases",
+                "weight": 7,
+                "description": "Once you have server resources projected into Azure with Azure Arc, you can start to use native Azure tooling to manage the servers as native Azure resources. The following scenarios show examples of using Azure management tools such as resource tags, Azure Policy, Log Analytics, and more with Azure Arc-enabled servers."
+              },
+              "children": [
+                {
+                  "name": "arc_automanage",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Automanage",
+                    "linkTitle": "Azure Automanage",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "arc_automanage_builtin_profiles",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Enable Azure Automanage on an Azure Arc-enabled server using built-in profiles",
+                        "linkTitle": "Enable Azure Automanage on an Azure Arc-enabled server using built-in profiles",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "arc_automanage_custom_profiles",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Enable Azure Automanage on an Azure Arc-enabled server using custom profiles",
+                        "linkTitle": "Enable Azure Automanage on an Azure Arc-enabled server using custom profiles",
+                        "weight": 2,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "arc_automanage_machine_configuration_custom_linux",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Create Automanage Machine Configuration custom configurations for Linux",
+                        "linkTitle": "Create Automanage Machine Configuration custom configurations for Linux",
+                        "weight": 4,
+                        "description": ""
+                      },
+                      "children": []
+                    },
+                    {
+                      "name": "arc_automanage_machine_configuration_custom_windows",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Create Automanage Machine Configuration custom configurations for Windows",
+                        "linkTitle": "Create Automanage Machine Configuration custom configurations for Windows",
+                        "weight": 3,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "arc_azuremonitoragent",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Monitor Agent (AMA)",
+                    "linkTitle": "Azure Monitor Agent (AMA)",
+                    "weight": 14,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_azuresentinel",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_azuresentinel",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Microsoft Sentinel",
+                    "linkTitle": "Microsoft Sentinel",
+                    "weight": 7,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_datadog",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Monitoring Azure Arc-enabled servers with Datadog",
+                    "linkTitle": "Monitoring Azure Arc-enabled servers with Datadog",
+                    "weight": 17,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_defender",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_defender",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Microsoft Defender for Cloud",
+                    "linkTitle": "Microsoft Defender for Cloud",
+                    "weight": 6,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_extended_security_updates",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_extended_security_updates",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server 2012 and SQL Server 2012",
+                    "linkTitle": "Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server and SQL Server 2012",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_grafana",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_grafana",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Grafana and Azure Monitor Agent (AMA)",
+                    "linkTitle": "Grafana and Azure Monitor Agent (AMA)",
+                    "weight": 16,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_inventory_management",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_inventory_management",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Inventory Management",
+                    "linkTitle": "Inventory Management",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_keyvault",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_keyvault",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Key Vault Integration",
+                    "linkTitle": "Key Vault Integration",
+                    "weight": 5,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_managed_identity",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_managed_identity",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Managed Identity",
+                    "linkTitle": "Managed Identity",
+                    "weight": 11,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "linux",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_managed_identity/linux",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Managed Identity with Ubuntu server",
+                        "linkTitle": "Managed Identity with Ubuntu server",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "arc_monitoring",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_monitoring",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Monitoring, Alerting, and Visualization",
+                    "linkTitle": "Monitoring, Alerting, and Visualization",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_policies_mma",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Policy",
+                    "linkTitle": "Azure Policy",
+                    "weight": 4,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_privatelink",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_privatelink",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Private Link",
+                    "linkTitle": "Azure Private Link",
+                    "weight": 9,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_proxy",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_proxy",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Connectivity behind a proxy server",
+                    "linkTitle": "Connectivity behind a proxy server",
+                    "weight": 10,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_run_command",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Arc Run command",
+                    "linkTitle": "Azure Arc Run command",
+                    "weight": 20,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_security_baseline",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_security_baseline",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Security Baseline",
+                    "linkTitle": "Azure Security Baseline",
+                    "weight": 12,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_ssh",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_ssh",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Server SSH Access",
+                    "linkTitle": "Server SSH Access",
+                    "weight": 13,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_updateManagementCenter",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_updateManagementCenter",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Azure Update Manager",
+                    "linkTitle": "Azure Update Manager",
+                    "weight": 15,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "arc_vm_extension_customscript_arm",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_customscript_arm",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Custom Script Extension",
+                    "linkTitle": "Custom Script Extension",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "gcp",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/gcp",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Google Cloud Platform",
+                "linkTitle": "Google Cloud Platform",
+                "weight": 5,
+                "description": "If you are working in a multi-cloud environment, you can deploy new GCP instances in an automated fashion using Terraform and onboard it as Azure Arc-enabled servers."
+              },
+              "children": [
+                {
+                  "name": "gcp_terraform_ubuntu",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Ubuntu GCP instance",
+                    "linkTitle": "Ubuntu GCP instance",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "gcp_terraform_windows",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Windows GCP instance",
+                    "linkTitle": "Windows GCP instance",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "general",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/general",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Onboarding",
+                "linkTitle": "Onboarding",
+                "weight": 1,
+                "description": "The scenarios in this section can be used to onboard your existing Windows or Linux servers as Azure Arc-enabled servers."
+              },
+              "children": [
+                {
+                  "name": "onboard_server_linux",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/general/onboard_server_linux",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Existing Linux server",
+                    "linkTitle": "Existing Linux server",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "onboard_server_win",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/general/onboard_server_win",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Existing Windows server",
+                    "linkTitle": "Existing Windows server",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "scaled_deployment",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Scaled Deployment",
+                "linkTitle": "Scaled Deployment",
+                "weight": 8,
+                "description": "The scenarios in this section are designed to provide scaled onboarding experience to Azure Arc of virtual machines deployed in various platforms and existing environments."
+              },
+              "children": [
+                {
+                  "name": "aws_scaled_ansible",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "AWS EC2 dynamic inventory with Ansible",
+                    "linkTitle": "AWS EC2 dynamic inventory with Ansible",
+                    "weight": 3,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "configuration_manager_scaled_runscript",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/configuration_manager_scaled_runscript",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Windows server with Configuration Manager using PowerShell",
+                    "linkTitle": "Windows server with Configuration Manager using PowerShell",
+                    "weight": 4,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "configuration_manager_scaled_tasksequence",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/configuration_manager_scaled_tasksequence",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Windows server with Configuration Manager using a Task Sequence",
+                    "linkTitle": "Windows server with Configuration Manager using a Task Sequence",
+                    "weight": 5,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "vmware_scaled_powercli_linux",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "VMware vSphere Linux VMs",
+                    "linkTitle": "VMware vSphere Linux VMs",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                },
+                {
+                  "name": "vmware_scaled_powercli_win",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "VMware vSphere Windows Server VMs",
+                    "linkTitle": "VMware vSphere Windows Server VMs",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "vmware",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_servers/vmware",
+              "frontMatter": {
+                "type": "docs",
+                "title": "VMware vSphere",
+                "linkTitle": "VMware vSphere",
+                "weight": 3,
+                "description": "If you are working with an on-premises VMware vSphere infrastructure, you can deploy new Windows or Linux virtual machines in an automated fashion using Terraform and onboard it as Azure Arc-enabled servers."
+              },
+              "children": [
+                {
+                  "name": "vmware_terraform_ubuntu",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Ubuntu VM",
+                    "linkTitle": "Ubuntu VM",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "vmware_ubuntu_template",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/vmware_ubuntu_template",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Create Ubuntu vSphere template",
+                        "linkTitle": "Create Ubuntu vSphere template",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "vmware_terraform_winsrv",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Windows VM",
+                    "linkTitle": "Windows VM",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": [
+                    {
+                      "name": "vmware_winsrv2k19_template",
+                      "type": "directory",
+                      "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/vmware_winsrv2k19_template",
+                      "frontMatter": {
+                        "type": "docs",
+                        "title": "Create Windows vSphere template",
+                        "linkTitle": "Create Windows vSphere template",
+                        "weight": 1,
+                        "description": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_sqlsrv",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_sqlsrv",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled SQL Server",
+            "linkTitle": "Arc-enabled SQL Server",
+            "weight": 2,
+            "description": "The deployment scenarios in this section will guide you through onboarding Microsoft SQL Server as an Azure Arc-enabled SQL server."
+          },
+          "children": [
+            {
+              "name": "aws",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_sqlsrv/aws",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Amazon Web Services",
+                "linkTitle": "Amazon Web Services",
+                "weight": 3,
+                "description": "If you are working in a multi-cloud environment, you can deploy new a AWS EC2 instance installed with SQL Server in an automated fashion using Terraform and onboard it as Azure Arc-enabled SQL Server."
+              },
+              "children": [
+                {
+                  "name": "aws_terraform_winsrv",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_sqlsrv/aws/aws_terraform_winsrv",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Server EC2 instance",
+                    "linkTitle": "SQL Server EC2 instance",
+                    "weight": 1
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "azure",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_sqlsrv/azure",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Microsoft Azure",
+                "linkTitle": "Microsoft Azure",
+                "weight": 1,
+                "description": "The guides in this section will walk you through how to project an Azure VM installed with SQL Server as an Azure Arc-enabled server and Azure Arc-enabled SQL. This guide, using Azure VM as the targeted Azure Arc-enabled SQL Server, is designed **for demo and testing purposes ONLY and are not supported.** In the guide you will find a detailed technical explanation of the mechanism and why **it is not expected to project an Azure VM as an Azure Arc-enabled server.**\nIn each guide, you find a detailed, technical explanation of the mechanism and why it is not expected to project an Azure VM as an Azure Arc-enabled server."
+              },
+              "children": [
+                {
+                  "name": "azure_arm_template_sqlsrv_winsrv_defender",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_sqlsrv/azure/azure_arm_template_sqlsrv_winsrv_defender",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Server Hyper-V Windows Virtual Machine",
+                    "linkTitle": "SQL Server Hyper-V Windows Virtual Machine",
+                    "weight": 1
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "day2",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_sqlsrv/day2",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Unified Operations Use Cases",
+                "linkTitle": "Unified Operations Use Cases",
+                "weight": 5,
+                "description": "Once you have server resources projected into Azure with Azure Arc, you can start to use native Azure tooling to manage the servers as native Azure resources. The following scenarios show examples of using Azure management tools with Azure Arc-enabled SQL Server."
+              },
+              "children": [
+                {
+                  "name": "esu",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_sqlsrv/day2/esu",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server 2012 and SQL Server 2012",
+                    "linkTitle": "Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server and SQL Server 2012",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "gcp",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_sqlsrv/gcp",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Google Cloud Platform",
+                "linkTitle": "Google Cloud Platform",
+                "weight": 4,
+                "description": "If you are working in a multi-cloud environment, you can deploy new a GCP instance installed with SQL Server in an automated fashion using Terraform and onboard it as Azure Arc-enabled SQL Server."
+              },
+              "children": [
+                {
+                  "name": "gcp_terraform_winsrv",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_sqlsrv/gcp/gcp_terraform_winsrv",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Server GCP instance",
+                    "linkTitle": "SQL Server GCP instance",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "vmware",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_sqlsrv/vmware",
+              "frontMatter": {
+                "type": "docs",
+                "title": "VMware vSphere",
+                "linkTitle": "VMware vSphere",
+                "weight": 2,
+                "description": "If you are working with an on-premises VMware vSphere infrastructure, you can deploy new Windows Server virtual machine installed with SQL Server in an automated fashion using Terraform and onboard it as Azure Arc-enabled SQL Server."
+              },
+              "children": [
+                {
+                  "name": "vmware_terraform_winsrv",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_sqlsrv/vmware/vmware_terraform_winsrv",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "SQL Server VM",
+                    "linkTitle": "SQL Server VM",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_arc_vsphere",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_arc_vsphere",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc-enabled VMware vSphere",
+            "linkTitle": "Arc-enabled VMware vSphere",
+            "weight": 3,
+            "description": "The deployment scenarios in this section will guide you through how to manage VMware vSphere resources with Azure Arc."
+          },
+          "children": [
+            {
+              "name": "day2",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_vsphere/day2",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Arc-enabled VMware vSphere lifecycle",
+                "linkTitle": "Azure Arc-enabled VMware vSphere lifecycle",
+                "weight": 2,
+                "description": "The deployment scenarios in this section will guide you through how to manage the lifecycle of VMware vSphere resources with Azure Arc."
+              },
+              "children": [
+                {
+                  "name": "vmware_arm_template_win",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_vsphere/day2/vmware_arm_template_win",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Create a Windows VMware VM to an Azure Arc-enabled vSphere cluster using ARM templates",
+                    "linkTitle": "Create a Windows VMware VM to an Azure Arc-enabled vSphere cluster using ARM templates",
+                    "weight": 2,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "resource_bridge",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_arc_vsphere/resource_bridge",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Arc resource bridge deployment",
+                "linkTitle": "Azure Arc resource bridge deployment",
+                "weight": 2,
+                "description": "The scenarios in this section will walk you through how to connect your VMware vCenter Server to Azure Arc using PowerShell."
+              },
+              "children": [
+                {
+                  "name": "powershell",
+                  "type": "directory",
+                  "path": "azure_arc_jumpstart/azure_arc_vsphere/resource_bridge/powershell",
+                  "frontMatter": {
+                    "type": "docs",
+                    "title": "Connect VMware vCenter Server to Azure Arc using PowerShell",
+                    "linkTitle": "Connect VMware vCenter Server to Azure Arc using PowerShell",
+                    "weight": 1,
+                    "description": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "azure_edge_iot_ops",
+          "type": "directory",
+          "path": "azure_arc_jumpstart/azure_edge_iot_ops",
+          "frontMatter": {
+            "type": "docs",
+            "title": "Arc, Edge, and IoT Operations",
+            "linkTitle": "Arc, Edge, and IoT Operations",
+            "weight": 9,
+            "description": "The deployment scenarios in this section will show you how to work with Edge computing scenarios and Azure IoT Operations capabilities and features."
+          },
+          "children": [
+            {
+              "name": "aks_edge_essentials_full",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_full",
+              "frontMatter": {
+                "type": "docs",
+                "title": "AKS Edge Essentials multi-node deployment",
+                "linkTitle": "AKS Edge Essentials multi-node deployment",
+                "weight": 2,
+                "description": ""
+              },
+              "children": []
+            },
+            {
+              "name": "aks_edge_essentials_full_akri",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_full_akri",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment",
+                "linkTitle": "Discover ONVIF cameras with Akri on AKS Edge Essentials multi-node deployment",
+                "weight": 5,
+                "description": ""
+              },
+              "children": []
+            },
+            {
+              "name": "aks_edge_essentials_single",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single",
+              "frontMatter": {
+                "type": "docs",
+                "title": "AKS Edge Essentials single node deployment",
+                "linkTitle": "AKS Edge Essentials single node deployment",
+                "weight": 1,
+                "description": ""
+              },
+              "children": []
+            },
+            {
+              "name": "aks_edge_essentials_single_acsa",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single_acsa",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Fault Detection with Azure Container Storage on AKS Edge Essentials single node deployment",
+                "linkTitle": "Fault Detection with Azure Container Storage on AKS Edge Essentials single node deployment",
+                "weight": 7,
+                "description": ""
+              },
+              "children": []
+            },
+            {
+              "name": "aks_edge_essentials_single_akri",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single_akri",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment",
+                "linkTitle": "Discover ONVIF cameras with Akri on AKS Edge Essentials single node deployment",
+                "weight": 4,
+                "description": ""
+              },
+              "children": []
+            },
+            {
+              "name": "aks_edge_essentials_single_vi",
+              "type": "directory",
+              "path": "azure_arc_jumpstart/azure_edge_iot_ops/aks_edge_essentials_single_vi",
+              "frontMatter": {
+                "type": "docs",
+                "title": "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials",
+                "linkTitle": "Azure Video Indexer enabled by Arc on single node AKS Edge Essentials",
+                "weight": 6,
+                "description": ""
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "azure_jumpstart_ag",
+      "type": "directory",
+      "path": "azure_jumpstart_ag",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart Agora",
+        "linkTitle": "Jumpstart Agora",
+        "weight": 3
+      },
+      "children": [
+        {
+          "name": "contoso_hypermarket",
+          "type": "directory",
+          "path": "azure_jumpstart_ag/contoso_hypermarket",
+          "frontMatter": {
+            "type": "docs",
+            "weight": 2,
+            "linkTitle": "Contoso Hypermarket",
+            "description": "Learn how Contoso Hypermarket, an international consumer goods distributor and retailer, implements an AI-enhanced cloud-to-edge strategy with computer vision, next-gen language models, data pipelines, Microsoft Fabric, and Azure Arc."
+          },
+          "children": [
+            {
+              "name": "cerebral",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/cerebral",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 3,
+                "title": "Commercial and Operations assistance with Gen AI",
+                "linkTitle": "Commercial and Operations assistance with Gen AI"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/cerebral/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cleanup",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/cleanup",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 10,
+                "title": "Cleanup",
+                "linkTitle": "Cleanup"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/cleanup/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "data_pipeline",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/data_pipeline",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 8,
+                "title": "Data Pipelines",
+                "linkTitle": "Data Pipelines",
+                "showOverview": false
+              },
+              "children": [
+                {
+                  "name": "commercial",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/data_pipeline/commercial",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 7,
+                    "title": "Data pipeline and reporting for commercial sales",
+                    "linkTitle": "Data pipeline and reporting for commercial sales"
+                  },
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "directory",
+                      "path": "azure_jumpstart_ag/contoso_hypermarket/data_pipeline/commercial/img",
+                      "frontMatter": {},
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "operational",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/data_pipeline/operational",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 6,
+                    "title": "Data pipeline and reporting for operational technology (OT)",
+                    "linkTitle": "Data pipeline and reporting for operational technology (OT)"
+                  },
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "directory",
+                      "path": "azure_jumpstart_ag/contoso_hypermarket/data_pipeline/operational/img",
+                      "frontMatter": {},
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "deployment",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/deployment",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 1,
+                "title": "Deployment guide",
+                "linkTitle": "Deployment guide"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/deployment/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "observability",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/observability",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 5,
+                "title": "Observability",
+                "linkTitle": "Observability",
+                "showOverview": false
+              },
+              "children": [
+                {
+                  "name": "assets",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/observability/assets",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 5,
+                    "title": "Industrial assets observability",
+                    "linkTitle": "Industrial assets observability"
+                  },
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "directory",
+                      "path": "azure_jumpstart_ag/contoso_hypermarket/observability/assets/img",
+                      "frontMatter": {},
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "infrastructure",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/observability/infrastructure",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 6,
+                    "title": "Kubernetes infrastructure observability",
+                    "linkTitle": "Kubernetes infrastructure observability"
+                  },
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "directory",
+                      "path": "azure_jumpstart_ag/contoso_hypermarket/observability/infrastructure/img",
+                      "frontMatter": {},
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "shopper_insights",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/observability/shopper_insights",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 5,
+                    "title": "Shopper insights observability",
+                    "linkTitle": "Shopper insights observability"
+                  },
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "directory",
+                      "path": "azure_jumpstart_ag/contoso_hypermarket/observability/shopper_insights/img",
+                      "frontMatter": {},
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "predictive_analytics",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/predictive_analytics",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 9,
+                "title": "Predictive analytics using Microsoft 365 Copilot",
+                "linkTitle": "Predictive analytics using Microsoft 365 Copilot"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/predictive_analytics/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "shopper_insights",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/shopper_insights",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 2,
+                "title": "Shopper insights using computer vision",
+                "linkTitle": "Shopper insights using computer vision"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/shopper_insights/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "speech_to_text",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/speech_to_text",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 4,
+                "title": "Commercial and Operations assistance with Speech-to-Text",
+                "linkTitle": "Commercial and Operations assistance with Speech-to-Text"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/speech_to_text/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "troubleshooting",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_hypermarket/troubleshooting",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 11,
+                "title": "Troubleshooting",
+                "linkTitle": "Troubleshooting"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_hypermarket/troubleshooting/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "contoso_motors",
+          "type": "directory",
+          "path": "azure_jumpstart_ag/contoso_motors",
+          "frontMatter": {
+            "type": "docs",
+            "weight": 3,
+            "linkTitle": "Contoso Motors",
+            "description": "Learn how Contoso Motors, a leading global automobile manufacturer, implements an AI-enhanced cloud-to-edge strategy with Azure Arc, IoT services, Rancher K3s, artificial intelligence, software distribution and data pipelines."
+          },
+          "children": [
+            {
+              "name": "ai_inferencing",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/ai_inferencing",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 3,
+                "title": "Web UI and AI Inference flow",
+                "linkTitle": "Web UI and AI Inference flow",
+                "summary": "Contoso Motors leverages AI-powered manufacturing with a Kubernetes-based infrastructure which provides a flexible and scalable design that can be easily extended. In this scenario, Contoso Motors wants to implement different AI inference models for various use cases, leveraging OpenVINO™ Model Server (OVMS), a high-performance inference serving software that allows users to deploy and serve multiple AI models. This scenario also explains the architecture of the AI inference flow and the steps involved in the inference/processing.\n",
+                "serviceOrPlatform": "INFRASTRUCTURE",
+                "technologyStack": [
+                  "AI",
+                  "OpenVINO™",
+                  "Rancher K3s",
+                  "OpenVINO™ MODEL SERVER",
+                  "RTSP"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/ai_inferencing/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cleanup",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/cleanup",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 7,
+                "title": "Cleanup",
+                "linkTitle": "Cleanup"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/cleanup/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "data_opc",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/data_opc",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 2,
+                "title": "Data pipeline and reporting across cloud and edge",
+                "linkTitle": "Data pipeline and reporting across cloud and edge",
+                "summary": "One of Contoso's biggest objectives is how to use the data coming from their factories and visualize it for business intelligence by leveraging the power of the cloud.\n\nIn this scenario, Contoso wants to use their data pipeline so data from their different factories and production lines, flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports. By doing so, Contoso management can leverage these reports to adjust their inventory and supply chain based on the product demand from customers across multiple filters - factories, day, week, month, and year. This helps optimize Contoso resources, stores supplies, saves significant costs and at the same time improves customer satisfaction and trust.\n",
+                "serviceOrPlatform": "Manufacturing",
+                "technologyStack": [
+                  "AZURE DATA EXPLORER",
+                  "AZURE EVENT HUB",
+                  "AZURE EVENT GRID"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/data_opc/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "deployment",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/deployment",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 1,
+                "title": "Deployment guide",
+                "linkTitle": "Deployment guide"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/deployment/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "img",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/img",
+              "frontMatter": {},
+              "children": []
+            },
+            {
+              "name": "k8s_infra_observability",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/k8s_infra_observability",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 6,
+                "title": "Kubernetes infrastructure observability",
+                "linkTitle": "Kubernetes infrastructure observability",
+                "summary": "Infrastructure observability plays a crucial role in the success of Contoso Motors' cloud to edge strategy. By implementing infrastructure observability, Contoso gains comprehensive monitoring and visualization capabilities for their Kubernetes and Arc-enabled Kubernetes environments. This empowers them to proactively monitor the health and performance of their infrastructure, identify potential issues, and make data-driven decisions to optimize their operations. With infrastructure observability, Contoso can ensure that their cloud and edge infrastructure remain reliable, efficient, and resilient, enabling them to deliver exceptional customer experiences.\n",
+                "serviceOrPlatform": "INFRASTRUCTURE",
+                "technologyStack": [
+                  "PROMETHEUS",
+                  "GRAFANA",
+                  "Rancher K3s"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/k8s_infra_observability/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "troubleshooting",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/troubleshooting",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 8,
+                "title": "Troubleshooting",
+                "linkTitle": "Troubleshooting"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/troubleshooting/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "welding_defect",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/welding_defect",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 4,
+                "title": "Welding defect scenario using OpenVINO™ and Kubernetes",
+                "linkTitle": "Welding defect scenario using OpenVINO™ and Kubernetes",
+                "summary": "The Welding Defect page provides an overview of the welding defect scenario in the Contoso Motors solution. It describes the architecture and flow of information for detecting and classifying welding defects using AI. The page also explains the steps involved in the welding defect inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.\n",
+                "serviceOrPlatform": "Manufacturing",
+                "technologyStack": [
+                  "OpenVINO™",
+                  "AI",
+                  "Rancher K3s",
+                  "RTSP"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/welding_defect/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "workers_safety",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_motors/workers_safety",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 5,
+                "title": "Enabling AI at the edge to enhance workers safety",
+                "linkTitle": "Enabling AI at the edge to enhance workers safety",
+                "summary": "The enabling AI at the edge to enhance workers safety page provides an overview of how Contoso Motors uses AI to ensure workers' safety by detecting workers with no helmets on the factory floor. It describes the architecture and flow of information for detecting and classifying helmet adherence using AI. The page also explains the steps involved in the inference process, including UI selection, RTSP video simulation, frame capturing, image pre-processing/inferencing, and post-processing/rendering.\n",
+                "serviceOrPlatform": "Manufacturing",
+                "technologyStack": [
+                  "OpenVINO™",
+                  "AI",
+                  "Rancher K3s",
+                  "RTSP"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_motors/workers_safety/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "contoso_supermarket",
+          "type": "directory",
+          "path": "azure_jumpstart_ag/contoso_supermarket",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Contoso Supermarket",
+            "weight": 4,
+            "description": "Learn how Contoso Supermarket, a leading global retailer implement cloud to edge strategy while leveraging Azure Arc, IoT services, AKS enabled by Azure Arc, AI, and software distribution and data pipelines."
+          },
+          "children": [
+            {
+              "name": "ai",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/ai",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 4,
+                "title": "Enabling AI at the Edge & Software configurations rollout with basic GitOps flow",
+                "linkTitle": "Enabling AI at the Edge & Software configurations rollout with basic GitOps flow",
+                "summary": "Contoso prides itself on being technology innovators. In the current market, Contoso's leadership recognizes that maintaining their position as leaders in the retail space requires innovation in every aspect of their operations.\nTo this end, Contoso Supermarket has developed an artificial intelligence (AI) mechanism that empowers them to enhance the customer experience in their stores. By implementing such a mechanism, their objective is to accurately detect the number of people waiting at different checkout lanes and enable proactive actions based on this data.\n",
+                "serviceOrPlatform": "MANAGERS CONTROL CENTER",
+                "technologyStack": [
+                  "AKS EDGE ESSENTIALS",
+                  "GITOPS (FLUX)",
+                  "OSS POSTGRESQL",
+                  "INTEL OpenVINO™"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/ai/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "arc_defender_servers",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/arc_defender_servers",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 8,
+                "title": "Infrastructure security with Microsoft Defender for Servers",
+                "linkTitle": "Infrastructure security with Microsoft Defender for Servers",
+                "summary": "Contoso Supermarket are aware that as they navigate the complex landscape of edge computing, it is essential to protect their servers against threats while maintaining a comprehensive view of their security posture. Microsoft Defender for Servers emerges as a vital component, playing a pivotal role in protecting servers from threats and providing unparalleled visibility into their security landscape.\n",
+                "serviceOrPlatform": "INFRASTRUCTURE",
+                "technologyStack": [
+                  "AZURE ARC",
+                  "DEFENDER FOR CLOUD"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/arc_defender_servers/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "arc_monitoring_servers",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/arc_monitoring_servers",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 7,
+                "title": "Infrastructure observability for Arc-enabled servers using Azure Monitor",
+                "linkTitle": "Infrastructure observability for Arc-enabled servers using Azure Monitor",
+                "summary": "Infrastructure observability is key for Contoso Supermarket to understand the performance and the health of their Arc-enabled servers. This is where Azure Monitor steps in, playing a crucial role in providing visibility into every aspect of their Arc-enabled servers ecosystem.\n",
+                "serviceOrPlatform": "INFRASTRUCTURE",
+                "technologyStack": [
+                  "AZURE ARC",
+                  "AZURE MONITOR"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/arc_monitoring_servers/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "ci_cd",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/ci_cd",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 5,
+                "title": "Streamlining the Software Delivery Process using CI/CD",
+                "linkTitle": "Streamlining the Software Delivery Process using CI/CD",
+                "summary": "In today's fast-paced software development industry having a robust and efficient CI/CD (Continuous Integration/Continuous Deployment) pipeline is critical for organizations to maintain a competitive edge and stay ahead of the curve. This is particularly important for organizations like Contoso Supermarket to deliver a seamless shopping experience to its customers. With the increasing adoption of cloud technologies, the need for an efficient CI/CD pipeline has become more pronounced, as it allows Contoso Supermarket to quickly and reliably deploy changes to their applications and infrastructure.\n",
+                "serviceOrPlatform": "POINT OF SALE (POS)",
+                "technologyStack": [
+                  "AKS",
+                  "AZURE MONITOR",
+                  "AKS EDGE ESSENTIALS",
+                  "AZURE ARC",
+                  "GITOPS (FLUX)",
+                  "GITHUB ACTIONS",
+                  "AZURE CONTAINER REGISTRY"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/ci_cd/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "cleanup",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/cleanup",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 9,
+                "title": "Cleanup",
+                "linkTitle": "Cleanup"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/cleanup/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "data_pos",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/data_pos",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 2,
+                "title": "Data pipeline and reporting across cloud and edge for store orders",
+                "linkTitle": "Data pipeline and reporting across cloud and edge for store orders",
+                "summary": "One of Contoso's biggest objectives is how to use the data coming from their stores and visualize it for business intelligence by leveraging the power of the cloud.\n\nIn this scenario, Contoso wants to use their data pipeline so customer orders placed in the Point of Sale (PoS) application on the various supermarket stores, flow to [Azure Data Explorer (ADX)](https://learn.microsoft.com/azure/data-explorer/data-explorer-overview) database and generate near real-time reports. By doing so, Contoso management can leverage these reports to adjust their inventory and supply chain based on the product demand from customer orders across multiple filters - stores, day, week, month, and year. This helps optimize Contoso resources, stores supplies, saves significant costs and at the same time improves customer satisfaction and trust.\n",
+                "serviceOrPlatform": "POINT OF SALE (POS)",
+                "technologyStack": [
+                  "COSMOS DB",
+                  "AZURE DATA EXPLORER",
+                  "OSS POSTGRESQL"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/data_pos/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "deployment",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/deployment",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 1,
+                "title": "Deployment guide",
+                "linkTitle": "Deployment guide"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/deployment/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "freezer_monitor",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/freezer_monitor",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 3,
+                "title": "Data pipeline and reporting across cloud and edge for sensor telemetry",
+                "linkTitle": "Data pipeline and reporting across cloud and edge for sensor telemetry",
+                "summary": "Contoso Supermarket is obsessed with achieving the highest levels of food safety. To support this obsession Contoso has invested in technology to let it know when any food in a store's freezers is potentially unsafe due to the freezer reaching temperatures that would allow the food to thaw and pathogens to grow.\n",
+                "serviceOrPlatform": "FREEZER MONITORING FOR FOOD SAFETY",
+                "technologyStack": [
+                  "IOT HUB",
+                  "AZURE DATA EXPLORER",
+                  "MOSQUITTO MQTT BROKER",
+                  "PROMETHEUS",
+                  "GRAFANA",
+                  "AKS EDGE ESSENTIALS"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/freezer_monitor/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "img",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/img",
+              "frontMatter": {},
+              "children": []
+            },
+            {
+              "name": "k8s_infra_observability",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/k8s_infra_observability",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 6,
+                "title": "Infrastructure observability for Kubernetes and Arc-enabled Kubernetes",
+                "linkTitle": "Infrastructure observability for Kubernetes and Arc-enabled Kubernetes",
+                "summary": "Infrastructure observability plays a crucial role in the success of Contoso Supermarket's cloud to edge strategy. By implementing infrastructure observability, Contoso gains comprehensive monitoring and visualization capabilities for their Kubernetes and Arc-enabled Kubernetes environments. This empowers them to proactively monitor the health and performance of their infrastructure, identify potential issues, and make data-driven decisions to optimize their operations. With infrastructure observability, Contoso can ensure that their cloud and edge infrastructure remain reliable, efficient, and resilient, enabling them to deliver exceptional customer experiences.\n",
+                "serviceOrPlatform": "INFRASTRUCTURE",
+                "technologyStack": [
+                  "AKS",
+                  "PROMETHEUS",
+                  "GRAFANA",
+                  "AKS EDGE ESSENTIALS"
+                ]
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/k8s_infra_observability/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "troubleshooting",
+              "type": "directory",
+              "path": "azure_jumpstart_ag/contoso_supermarket/troubleshooting",
+              "frontMatter": {
+                "type": "docs",
+                "weight": 10,
+                "title": "Troubleshooting",
+                "linkTitle": "Troubleshooting"
+              },
+              "children": [
+                {
+                  "name": "img",
+                  "type": "directory",
+                  "path": "azure_jumpstart_ag/contoso_supermarket/troubleshooting/img",
+                  "frontMatter": {},
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "faq",
+          "type": "directory",
+          "path": "azure_jumpstart_ag/faq",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Agora FAQ",
+            "weight": 5
+          },
+          "children": []
+        },
+        {
+          "name": "getting_started",
+          "type": "directory",
+          "path": "azure_jumpstart_ag/getting_started",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Getting started",
+            "isGettingStarted": true,
+            "weight": 1
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "azure_jumpstart_arcbox",
+      "type": "directory",
+      "path": "azure_jumpstart_arcbox",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart ArcBox",
+        "linkTitle": "Jumpstart ArcBox",
+        "weight": 4
+      },
+      "children": [
+        {
+          "name": "DataOps",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/DataOps",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "ArcBox for DataOps",
+            "weight": 5
+          },
+          "children": []
+        },
+        {
+          "name": "DevOps",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/DevOps",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "ArcBox for DevOps",
+            "weight": 4
+          },
+          "children": []
+        },
+        {
+          "name": "ITPro",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/ITPro",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "ArcBox for IT Pros",
+            "weight": 3
+          },
+          "children": []
+        },
+        {
+          "name": "faq",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/faq",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "ArcBox FAQ",
+            "weight": 6
+          },
+          "children": []
+        },
+        {
+          "name": "getting_started",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/getting_started",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Getting started",
+            "isGettingStarted": true,
+            "weight": 1
+          },
+          "children": []
+        },
+        {
+          "name": "workbook",
+          "type": "directory",
+          "path": "azure_jumpstart_arcbox/workbook",
+          "frontMatter": {
+            "type": "docs",
+            "weight": 99,
+            "toc_hide": true
+          },
+          "children": [
+            {
+              "name": "flavors",
+              "type": "directory",
+              "path": "azure_jumpstart_arcbox/workbook/flavors",
+              "frontMatter": {},
+              "children": [
+                {
+                  "name": "DataOps",
+                  "type": "directory",
+                  "path": "azure_jumpstart_arcbox/workbook/flavors/DataOps",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 99,
+                    "toc_hide": true
+                  },
+                  "children": []
+                },
+                {
+                  "name": "DevOps",
+                  "type": "directory",
+                  "path": "azure_jumpstart_arcbox/workbook/flavors/DevOps",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 99,
+                    "toc_hide": true
+                  },
+                  "children": []
+                },
+                {
+                  "name": "ITPro",
+                  "type": "directory",
+                  "path": "azure_jumpstart_arcbox/workbook/flavors/ITPro",
+                  "frontMatter": {
+                    "type": "docs",
+                    "weight": 99,
+                    "toc_hide": true
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "azure_jumpstart_localbox",
+      "type": "directory",
+      "path": "azure_jumpstart_localbox",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart LocalBox",
+        "linkTitle": "Jumpstart LocalBox",
+        "weight": 5
+      },
+      "children": [
+        {
+          "name": "AKS",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/AKS",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "AKS on Azure Local",
+            "weight": 7
+          },
+          "children": []
+        },
+        {
+          "name": "RB",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/RB",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "VM Management",
+            "weight": 6
+          },
+          "children": []
+        },
+        {
+          "name": "SQLMI",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/SQLMI",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Arc-enabled SQL Managed Instance",
+            "weight": 8
+          },
+          "children": []
+        },
+        {
+          "name": "WAC",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/WAC",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Windows Admin Center",
+            "weight": 9,
+            "toc_hide": true
+          },
+          "children": []
+        },
+        {
+          "name": "cloud_deployment",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/cloud_deployment",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Connect to LocalBox",
+            "isGettingStarted": false,
+            "weight": 4
+          },
+          "children": []
+        },
+        {
+          "name": "deployment_az",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/deployment_az",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Azure Bicep Deployment",
+            "isGettingStarted": false,
+            "weight": 3
+          },
+          "children": []
+        },
+        {
+          "name": "faq",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/faq",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "LocalBox FAQ",
+            "weight": 7
+          },
+          "children": []
+        },
+        {
+          "name": "getting_started",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/getting_started",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Getting Started",
+            "isGettingStarted": false,
+            "weight": 2
+          },
+          "children": []
+        },
+        {
+          "name": "manual_deployment",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/manual_deployment",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Manual Deployment",
+            "weight": 9
+          },
+          "children": []
+        },
+        {
+          "name": "troubleshooting",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/troubleshooting",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Troubleshooting",
+            "weight": 10
+          },
+          "children": []
+        },
+        {
+          "name": "using_localbox",
+          "type": "directory",
+          "path": "azure_jumpstart_localbox/using_localbox",
+          "frontMatter": {
+            "type": "docs",
+            "linkTitle": "Using LocalBox",
+            "isGettingStarted": false,
+            "weight": 5
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "badges",
+      "type": "directory",
+      "path": "badges",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart Community Badges",
+        "linkTitle": "Jumpstart Community Badges",
+        "weight": 7
+      },
+      "children": []
+    },
+    {
+      "name": "contributing",
+      "type": "directory",
+      "path": "contributing",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Contributing",
+        "linkTitle": "Contributing",
+        "weight": 11
+      },
+      "children": []
+    },
+    {
+      "name": "contribution_guidelines",
+      "type": "directory",
+      "path": "contribution_guidelines",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart contribution guidelines",
+        "linkTitle": "Jumpstart contribution guidelines",
+        "weight": 7
+      },
+      "children": []
+    },
+    {
+      "name": "drops_contribution_guidelines",
+      "type": "directory",
+      "path": "drops_contribution_guidelines",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart Drops contribution guidelines",
+        "linkTitle": "Jumpstart Drops contribution guidelines",
+        "weight": 7
+      },
+      "children": []
+    },
+    {
+      "name": "mission",
+      "type": "directory",
+      "path": "mission",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Our mission and principles",
+        "linkTitle": "Our mission and principles",
+        "weight": 1
+      },
+      "children": []
+    },
+    {
+      "name": "release_notes",
+      "type": "directory",
+      "path": "release_notes",
+      "frontMatter": {
+        "type": "docs",
+        "title": "Jumpstart Release Notes",
+        "linkTitle": "Jumpstart Release Notes",
+        "weight": 6
+      },
+      "children": [
+        {
+          "name": "ARCHIVE",
+          "type": "directory",
+          "path": "release_notes/ARCHIVE",
+          "frontMatter": {},
+          "children": []
+        }
+      ]
+    }
+  ]
+}
