@@ -1047,13 +1047,13 @@
           ]
         },
         {
-          "name": "azure_arc_servers",
+          "name": "azure_arc_server",
           "type": "directory",
-          "path": "azure_arc_jumpstart/azure_arc_servers",
+          "path": "azure_arc_jumpstart/azure_arc_server",
           "frontMatter": {
             "type": "docs",
-            "title": "Arc-enabled servers",
-            "linkTitle": "Arc-enabled servers",
+            "title": "Arc-enabled server",
+            "linkTitle": "Arc-enabled server",
             "weight": 1,
             "description": "The deployment scenarios in this section will guide you through onboarding various Windows and Linux server distributions as Azure Arc-enabled servers."
           },
@@ -1061,7 +1061,7 @@
             {
               "name": "aws",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/aws",
+              "path": "azure_arc_jumpstart/azure_arc_server/aws",
               "frontMatter": {
                 "type": "docs",
                 "title": "Amazon Web Services",
@@ -1073,7 +1073,7 @@
                 {
                   "name": "aws_terraform_al2",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_al2",
+                  "path": "azure_arc_jumpstart/azure_arc_server/aws/aws_terraform_al2",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Amazon Linux 2 EC2 instance",
@@ -1086,7 +1086,7 @@
                 {
                   "name": "aws_terraform_ubuntu",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/aws/aws_terraform_ubuntu",
+                  "path": "azure_arc_jumpstart/azure_arc_server/aws/aws_terraform_ubuntu",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Ubuntu EC2 instance",
@@ -1101,7 +1101,7 @@
             {
               "name": "azure",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/azure",
+              "path": "azure_arc_jumpstart/azure_arc_server/azure",
               "frontMatter": {
                 "type": "docs",
                 "title": "Microsoft Azure",
@@ -1113,7 +1113,7 @@
                 {
                   "name": "azure_arm_template_linux",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_linux",
+                  "path": "azure_arc_jumpstart/azure_arc_server/azure/azure_arm_template_linux",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Linux Virtual Machine",
@@ -1126,7 +1126,7 @@
                 {
                   "name": "azure_arm_template_win",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/azure/azure_arm_template_win",
+                  "path": "azure_arc_jumpstart/azure_arc_server/azure/azure_arm_template_win",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Windows Server Virtual Machine",
@@ -1141,7 +1141,7 @@
             {
               "name": "day2",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/day2",
+              "path": "azure_arc_jumpstart/azure_arc_server/day2",
               "frontMatter": {
                 "type": "docs",
                 "title": "Unified Operations Use Cases",
@@ -1153,7 +1153,7 @@
                 {
                   "name": "arc_automanage",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_automanage",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Automanage",
@@ -1165,7 +1165,7 @@
                     {
                       "name": "arc_automanage_builtin_profiles",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_builtin_profiles",
+                      "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_automanage/arc_automanage_builtin_profiles",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Enable Azure Automanage on an Azure Arc-enabled server using built-in profiles",
@@ -1178,7 +1178,7 @@
                     {
                       "name": "arc_automanage_custom_profiles",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_custom_profiles",
+                      "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_automanage/arc_automanage_custom_profiles",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Enable Azure Automanage on an Azure Arc-enabled server using custom profiles",
@@ -1191,7 +1191,7 @@
                     {
                       "name": "arc_automanage_machine_configuration_custom_linux",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux",
+                      "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_automanage/arc_automanage_machine_configuration_custom_linux",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Create Automanage Machine Configuration custom configurations for Linux",
@@ -1204,7 +1204,7 @@
                     {
                       "name": "arc_automanage_machine_configuration_custom_windows",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows",
+                      "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_automanage/arc_automanage_machine_configuration_custom_windows",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Create Automanage Machine Configuration custom configurations for Windows",
@@ -1219,7 +1219,7 @@
                 {
                   "name": "arc_azuremonitoragent",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_azuremonitoragent",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_azuremonitoragent",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Monitor Agent (AMA)",
@@ -1232,7 +1232,7 @@
                 {
                   "name": "arc_azuresentinel",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_azuresentinel",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_azuresentinel",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Microsoft Sentinel",
@@ -1245,7 +1245,7 @@
                 {
                   "name": "arc_datadog",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_datadog",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_datadog",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Monitoring Azure Arc-enabled servers with Datadog",
@@ -1258,7 +1258,7 @@
                 {
                   "name": "arc_defender",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_defender",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_defender",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Microsoft Defender for Cloud",
@@ -1271,7 +1271,7 @@
                 {
                   "name": "arc_extended_security_updates",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_extended_security_updates",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_extended_security_updates",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Using Azure Arc to deliver Extended Security Updates (ESU) for Windows Server 2012 and SQL Server 2012",
@@ -1284,7 +1284,7 @@
                 {
                   "name": "arc_grafana",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_grafana",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_grafana",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Grafana and Azure Monitor Agent (AMA)",
@@ -1297,7 +1297,7 @@
                 {
                   "name": "arc_inventory_management",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_inventory_management",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_inventory_management",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Inventory Management",
@@ -1310,7 +1310,7 @@
                 {
                   "name": "arc_keyvault",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_keyvault",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_keyvault",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Key Vault Integration",
@@ -1323,7 +1323,7 @@
                 {
                   "name": "arc_managed_identity",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_managed_identity",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_managed_identity",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Managed Identity",
@@ -1335,7 +1335,7 @@
                     {
                       "name": "linux",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_managed_identity/linux",
+                      "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_managed_identity/linux",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Managed Identity with Ubuntu server",
@@ -1350,7 +1350,7 @@
                 {
                   "name": "arc_monitoring",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_monitoring",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_monitoring",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Monitoring, Alerting, and Visualization",
@@ -1363,7 +1363,7 @@
                 {
                   "name": "arc_policies_mma",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_policies_mma",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_policies_mma",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Policy",
@@ -1376,7 +1376,7 @@
                 {
                   "name": "arc_privatelink",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_privatelink",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_privatelink",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Private Link",
@@ -1389,7 +1389,7 @@
                 {
                   "name": "arc_proxy",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_proxy",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_proxy",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Connectivity behind a proxy server",
@@ -1402,7 +1402,7 @@
                 {
                   "name": "arc_run_command",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_run_command",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_run_command",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Arc Run command",
@@ -1415,7 +1415,7 @@
                 {
                   "name": "arc_security_baseline",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_security_baseline",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_security_baseline",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Security Baseline",
@@ -1428,7 +1428,7 @@
                 {
                   "name": "arc_ssh",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_ssh",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_ssh",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Server SSH Access",
@@ -1441,7 +1441,7 @@
                 {
                   "name": "arc_updateManagementCenter",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_updateManagementCenter",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_updateManagementCenter",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Azure Update Manager",
@@ -1454,7 +1454,7 @@
                 {
                   "name": "arc_vm_extension_customscript_arm",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/day2/arc_vm_extension_customscript_arm",
+                  "path": "azure_arc_jumpstart/azure_arc_server/day2/arc_vm_extension_customscript_arm",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Custom Script Extension",
@@ -1469,7 +1469,7 @@
             {
               "name": "gcp",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/gcp",
+              "path": "azure_arc_jumpstart/azure_arc_server/gcp",
               "frontMatter": {
                 "type": "docs",
                 "title": "Google Cloud Platform",
@@ -1481,7 +1481,7 @@
                 {
                   "name": "gcp_terraform_ubuntu",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_ubuntu",
+                  "path": "azure_arc_jumpstart/azure_arc_server/gcp/gcp_terraform_ubuntu",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Ubuntu GCP instance",
@@ -1494,7 +1494,7 @@
                 {
                   "name": "gcp_terraform_windows",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/gcp/gcp_terraform_windows",
+                  "path": "azure_arc_jumpstart/azure_arc_server/gcp/gcp_terraform_windows",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Windows GCP instance",
@@ -1509,7 +1509,7 @@
             {
               "name": "general",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/general",
+              "path": "azure_arc_jumpstart/azure_arc_server/general",
               "frontMatter": {
                 "type": "docs",
                 "title": "Onboarding",
@@ -1521,7 +1521,7 @@
                 {
                   "name": "onboard_server_linux",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/general/onboard_server_linux",
+                  "path": "azure_arc_jumpstart/azure_arc_server/general/onboard_server_linux",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Existing Linux server",
@@ -1534,7 +1534,7 @@
                 {
                   "name": "onboard_server_win",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/general/onboard_server_win",
+                  "path": "azure_arc_jumpstart/azure_arc_server/general/onboard_server_win",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Existing Windows server",
@@ -1549,7 +1549,7 @@
             {
               "name": "scaled_deployment",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment",
+              "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment",
               "frontMatter": {
                 "type": "docs",
                 "title": "Scaled Deployment",
@@ -1561,7 +1561,7 @@
                 {
                   "name": "aws_scaled_ansible",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible",
+                  "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment/aws_scaled_ansible",
                   "frontMatter": {
                     "type": "docs",
                     "title": "AWS EC2 dynamic inventory with Ansible",
@@ -1574,7 +1574,7 @@
                 {
                   "name": "configuration_manager_scaled_runscript",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/configuration_manager_scaled_runscript",
+                  "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment/configuration_manager_scaled_runscript",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Windows server with Configuration Manager using PowerShell",
@@ -1587,7 +1587,7 @@
                 {
                   "name": "configuration_manager_scaled_tasksequence",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/configuration_manager_scaled_tasksequence",
+                  "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment/configuration_manager_scaled_tasksequence",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Windows server with Configuration Manager using a Task Sequence",
@@ -1600,7 +1600,7 @@
                 {
                   "name": "vmware_scaled_powercli_linux",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux",
+                  "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment/vmware_scaled_powercli_linux",
                   "frontMatter": {
                     "type": "docs",
                     "title": "VMware vSphere Linux VMs",
@@ -1613,7 +1613,7 @@
                 {
                   "name": "vmware_scaled_powercli_win",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win",
+                  "path": "azure_arc_jumpstart/azure_arc_server/scaled_deployment/vmware_scaled_powercli_win",
                   "frontMatter": {
                     "type": "docs",
                     "title": "VMware vSphere Windows Server VMs",
@@ -1628,7 +1628,7 @@
             {
               "name": "vmware",
               "type": "directory",
-              "path": "azure_arc_jumpstart/azure_arc_servers/vmware",
+              "path": "azure_arc_jumpstart/azure_arc_server/vmware",
               "frontMatter": {
                 "type": "docs",
                 "title": "VMware vSphere",
@@ -1640,7 +1640,7 @@
                 {
                   "name": "vmware_terraform_ubuntu",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu",
+                  "path": "azure_arc_jumpstart/azure_arc_server/vmware/vmware_terraform_ubuntu",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Ubuntu VM",
@@ -1652,7 +1652,7 @@
                     {
                       "name": "vmware_ubuntu_template",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_ubuntu/vmware_ubuntu_template",
+                      "path": "azure_arc_jumpstart/azure_arc_server/vmware/vmware_terraform_ubuntu/vmware_ubuntu_template",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Create Ubuntu vSphere template",
@@ -1667,7 +1667,7 @@
                 {
                   "name": "vmware_terraform_winsrv",
                   "type": "directory",
-                  "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv",
+                  "path": "azure_arc_jumpstart/azure_arc_server/vmware/vmware_terraform_winsrv",
                   "frontMatter": {
                     "type": "docs",
                     "title": "Windows VM",
@@ -1679,7 +1679,7 @@
                     {
                       "name": "vmware_winsrv2k19_template",
                       "type": "directory",
-                      "path": "azure_arc_jumpstart/azure_arc_servers/vmware/vmware_terraform_winsrv/vmware_winsrv2k19_template",
+                      "path": "azure_arc_jumpstart/azure_arc_server/vmware/vmware_terraform_winsrv/vmware_winsrv2k19_template",
                       "frontMatter": {
                         "type": "docs",
                         "title": "Create Windows vSphere template",
