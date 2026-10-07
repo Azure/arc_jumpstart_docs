@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     
     - name: Get all changed markdown files
       id: changed-markdown-files
-      uses: tj-actions/changed-files@v41
+      uses: tj-actions/changed-files@716b1e13042866565e00e85fd4ec490e186c4a2f # v41.0.1
       with:
         files: |
            **.md
@@ -46,7 +46,7 @@ jobs:
 
     - name: Vale
       if: ${{ env.run_vale != 'No' }}
-      uses: errata-ai/vale-action@reviewdog
+      uses: errata-ai/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
       with:
         version: 2.30.0
         reporter: github-pr-check
