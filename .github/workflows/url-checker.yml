@@ -69,11 +69,15 @@ jobs:
       run: rm -rf scripts/python/url-checker/__pycache__
 
     - name: Extreme debugging
+      env:
+        INPUTS_JSON: ${{ toJSON(github.event.inputs) }}
+        FAIL_ON_BROKEN_LINKS: ${{ github.event.inputs.fail-on-broken-links }}
+        LINK_CHECK_EXIT_CODE: ${{ steps.check_links.outputs.link_check_exit_code }}
       run: |
-        echo "EVENT NAME: ${{ github.event_name }}"
-        echo "INPUTS: ${{ toJSON(github.event.inputs) }}"
-        echo "FAIL ON BROKEN LINKS: ${{ github.event.inputs.fail-on-broken-links }}"
-        echo "EXIT CODE: ${{ steps.check_links.outputs.link_check_exit_code }}"
+        echo "EVENT NAME: $GITHUB_EVENT_NAME"
+        echo "INPUTS: $INPUTS_JSON"
+        echo "FAIL ON BROKEN LINKS: $FAIL_ON_BROKEN_LINKS"
+        echo "EXIT CODE: $LINK_CHECK_EXIT_CODE"
         
         # Create a shell script to evaluate the condition
         cat > test_condition.sh << 'EOF'
@@ -117,7 +121,7 @@ jobs:
         chmod +x test_condition.sh
         
         # Run the script with our values
-        ./test_condition.sh "${{ github.event_name }}" "${{ github.event.inputs.fail-on-broken-links }}" "${{ steps.check_links.outputs.link_check_exit_code }}"
+        ./test_condition.sh "$GITHUB_EVENT_NAME" "$FAIL_ON_BROKEN_LINKS" "$LINK_CHECK_EXIT_CODE"
         SHOULD_FAIL=$?
         echo "SHOULD_FAIL: ${SHOULD_FAIL}"
         echo "should_fail=${SHOULD_FAIL}" >> $GITHUB_OUTPUT
