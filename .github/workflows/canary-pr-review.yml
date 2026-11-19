@@ -14,34 +14,30 @@ jobs:
       with:
         files: |
            **.md
+        json: true
+        escape_json: false
+        safe_output: false
 
     - name: List all changed files markdown files
       if: steps.changed-markdown-files.outputs.any_changed == 'true'
+      env:
+        CHANGED_FILES_JSON: ${{ steps.changed-markdown-files.outputs.all_changed_files }}
       run: |
-        for file in ${{ steps.changed-markdown-files.outputs.all_changed_files }}; do
-          echo "$file was changed"
-        done
+        printf '%s' "$CHANGED_FILES_JSON" | jq -r '.[] | . + " was changed"'
 
     - name: Calculate changed files to pass to Vale
       id: calc_changed_files
+      env:
+        CHANGED_FILES_JSON: ${{ steps.changed-markdown-files.outputs.all_changed_files }}
       run: |
-        beginning='['
+        files_to_change=$(printf '%s' "$CHANGED_FILES_JSON" | jq -c '.')
+        printf 'files_to_change=%s\n' "$files_to_change"
+        printf 'files_to_change=%s\n' "$files_to_change" >> "$GITHUB_ENV"
         
-        # File calculation without folder filtering
-        middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | sed 's/ /", "/g; s/^/"/; s/$/"/')
-        
-        # File calculation applying folder filtering for azure_arc_app_svc & azure_arc_k8s
-        #middle=$(echo ${{ steps.changed-markdown-files.outputs.all_changed_files }} | tr ' ' '\n' | grep -E '^\docs\/azure_arc_jumpstart\/(azure_arc_app_svc|azure_arc_k8s|azure_jumpstart_ag)\/.*$' | sed 's/^/"/;s/$/"/' | paste -sd,)
-        
-        end=']'
-        echo "files_to_change=$beginning$middle$end"
-        echo "files_to_change=$beginning$middle$end" >> $GITHUB_ENV
-        files_to_change=$beginning$middle$end
-        
-        if [[ ! "$files_to_change" =~ \[[[:space:]]*\] ]]; then
-          echo "run_vale=Yes" >> $GITHUB_ENV
+        if printf '%s' "$files_to_change" | jq -e 'length > 0' >/dev/null; then
+          echo "run_vale=Yes" >> "$GITHUB_ENV"
         else
-        echo "run_vale=No" >> $GITHUB_ENV
+          echo "run_vale=No" >> "$GITHUB_ENV"
         fi
 
     - name: Vale
